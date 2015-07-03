@@ -1,2 +1,7 @@
 SUBDIRS = src
 
+MAINTAINERCLEANFILES = \
+	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
+	$(NULL)
+
+-include $(top_srcdir)/git.mk

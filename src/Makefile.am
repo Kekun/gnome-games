@@ -14,3 +14,4 @@ gnome_games_LDADD = \
 	$(GNOME_GAMES_LIBS) \
 	$(NULL)
 
+-include $(top_srcdir)/git.mk
