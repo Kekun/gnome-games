@@ -24,7 +24,7 @@ gnome_games_SOURCES = \
 
 gnome_games_VALAFLAGS = \
 	--pkg gtk+-3.0 \
-	--gresources $(gresource_file) \
+	--gresources $(resource_file) \
 	$(NULL)
 
 gnome_games_CFLAGS = \
