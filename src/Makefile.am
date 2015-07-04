@@ -23,6 +23,7 @@ gnome_games_SOURCES = \
 	$(NULL)
 
 gnome_games_VALAFLAGS = \
+	--target-glib=@GLIB_MIN_VERSION@ \
 	--pkg gtk+-3.0 \
 	--gresources $(resource_file) \
 	$(NULL)
