@@ -7,8 +7,7 @@ public class GnomeGames: Gtk.Application {
 	}
 
 	protected override void activate() {
-		var builder = new Builder.from_resource("/org/gnome/Games/ui/app-window.ui");
-		var window = builder.get_object("application_window") as ApplicationWindow;
+		var window = new AppWindow();
 		this.add_window(window);
 		window.show_all();
 	}

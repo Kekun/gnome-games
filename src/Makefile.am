@@ -19,6 +19,7 @@ BUILT_SOURCES = \
 
 gnome_games_SOURCES = \
 	$(BUILT_SOURCES) \
+	app-window.vala \
 	main.vala \
 	$(NULL)
 
