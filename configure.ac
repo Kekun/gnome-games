@@ -5,6 +5,9 @@ AC_PROG_CC
 AM_PROG_VALAC
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 
+# Libtool
+LT_INIT
+
 # GResource
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 
@@ -14,12 +17,18 @@ GLIB_GSETTINGS
 GLIB_MIN_VERSION=2.38.0
 AC_SUBST(GLIB_MIN_VERSION)
 
+PKG_CHECK_MODULES(LIBGNOME_GAMES, [
+	glib-2.0 >= $GLIB_MIN_VERSION
+])
+
 PKG_CHECK_MODULES(GNOME_GAMES, [
   gtk+-3.0
 ])
 
 AC_CONFIG_FILES([
   Makefile
+  src/gnome-games/Makefile
+  src/libgnome-games-core/Makefile
   src/Makefile
 ])
 

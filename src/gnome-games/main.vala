@@ -9,6 +9,7 @@ public class GnomeGames: Gtk.Application {
 	protected override void activate() {
 		var window = new AppWindow();
 		this.add_window(window);
+		window.loadGameList();
 		window.show_all();
 	}
 }
