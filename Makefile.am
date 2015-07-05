@@ -1,4 +1,10 @@
-SUBDIRS = src
+SUBDIRS = \
+	src \
+	tests \
+	$(NULL)
+
+check: tests/run
+	tests/run
 
 MAINTAINERCLEANFILES = \
 	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
