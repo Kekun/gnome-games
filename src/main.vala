@@ -7,6 +7,8 @@ public class Games.GnomeGames: Gtk.Application {
 	}
 
 	protected override void activate() {
+		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+
 		var window = new AppWindow();
 		this.add_window(window);
 		window.destroy.connect (() => {
