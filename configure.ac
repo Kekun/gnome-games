@@ -3,7 +3,6 @@ AM_INIT_AUTOMAKE([foreign])
 
 AC_PROG_CC
 AM_PROG_VALAC
-AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 
 # GResource
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
