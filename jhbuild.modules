@@ -1,0 +1,25 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+<!-- git repos -->
+  <repository type="git" name="github.com"
+      href="git://github.com/"/>
+
+  <include href="https://git.gnome.org/browse/jhbuild/plain/modulesets/gnome-suites-core-3.18.modules"/>
+
+  <autotools id="gnome-games" autogenargs="--enable-vala">
+    <branch repo="github.com"
+            module="sebn/gnome-games.git"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk+"/>
+      <dep package="vala"/>
+      <dep package="tracker"/>
+      <dep package="gnome-themes-standard"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>

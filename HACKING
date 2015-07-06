@@ -1,0 +1,15 @@
+Using jhbuild
+-------------
+
+Add the following to your `~/.config/jhbuildrc`:
+
+    moduleset = [ ... ]
+    moduleset += [ 'https://raw.githubusercontent.com/sebn/gnome-games/master/jhbuild.modules' ]
+
+    modules = [ ... ]
+    modules += [ 'gnome-games' ]
+
+Then:
+
+    jhbuild build gnome-games
+
