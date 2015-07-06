@@ -1,4 +1,4 @@
-public class Game: Object {
+public class Games.Game: Object {
 
     public string name { get; construct; }
 

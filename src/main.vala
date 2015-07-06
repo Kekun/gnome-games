@@ -1,6 +1,6 @@
 using Gtk;
 
-public class GnomeGames: Gtk.Application {
+public class Games.GnomeGames: Gtk.Application {
 	public GnomeGames() {
 		Object(application_id: "org.gnome.Games",
 		       flags: ApplicationFlags.FLAGS_NONE);
@@ -15,7 +15,7 @@ public class GnomeGames: Gtk.Application {
 }
 
 int main (string[] args) {
-    var app = new GnomeGames();
+    var app = new Games.GnomeGames();
     return app.run(args);
 }
 

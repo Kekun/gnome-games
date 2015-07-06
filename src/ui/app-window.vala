@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/app-window.ui")]
-private class AppWindow : Gtk.ApplicationWindow {
+private class Games.AppWindow : Gtk.ApplicationWindow {
 
     Gtk.ListStore games_list_store;
 
@@ -16,7 +16,7 @@ private class AppWindow : Gtk.ApplicationWindow {
 
         var pixbuf = Gtk.IconTheme.get_default().load_icon("input-gaming", 64, 0);
 
-        var game_source = new DummyGameSource();
+        var game_source = new Games.DummyGameSource();
         game_source.each_game((game) => {
             Gtk.TreeIter iter;
             games_list_store.append(out iter);
