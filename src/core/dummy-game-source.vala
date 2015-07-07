@@ -1,8 +1,6 @@
-public class Games.DummyGameSource: Object {
+public class Games.DummyGameSource: Games.GameSource, Object {
 
-    public delegate void GameCallback(Game game);
-
-    public void each_game(GameCallback callback) {
+    public void each_game(GameSource.GameCallback callback) {
         callback(new Games.Game("Mines"));
         callback(new Games.Game("Sudoku"));
     }
