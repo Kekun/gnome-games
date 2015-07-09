@@ -9,7 +9,8 @@ public class Games.GnomeGames: Gtk.Application {
 	protected override void activate() {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
-		var game_source = new Games.DummyGameSource();
+		var tracker = Tracker.Sparql.Connection.@get ();
+		var game_source = new Games.DesktopGameSource (tracker);
 
 		var window = new AppWindow();
 		this.add_window(window);
