@@ -30,6 +30,7 @@ gnome_games_SOURCES = \
 
 gnome_games_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
+	--pkg gio-unix-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg tracker-sparql-1.0 \
 	--gresources $(resource_file) \
