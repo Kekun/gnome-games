@@ -9,12 +9,14 @@ public class Games.GnomeGames: Gtk.Application {
 	protected override void activate() {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
+		var game_source = new Games.DummyGameSource();
+
 		var window = new AppWindow();
 		this.add_window(window);
 		window.destroy.connect (() => {
 			quit ();
 		});
-		window.loadGameList();
+		window.loadGameList(game_source);
 		window.show_all();
 	}
 }
