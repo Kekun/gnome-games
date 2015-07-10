@@ -21,7 +21,8 @@ public class Games.DesktopGameSource : Games.GameSource, Object {
             var entry = new DesktopAppInfo.from_filename (filename);
 
             callback (new Game (
-            	entry.get_name ()
+            	entry.get_name (),
+            	entry.get_icon ()
             ));
         }
     }
