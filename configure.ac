@@ -1,8 +1,11 @@
 AC_INIT([gnome-games], [3.17])
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 AC_PROG_CC
 AM_PROG_VALAC
+
+# Libtool
+LT_INIT
 
 # GResource
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
@@ -23,6 +26,7 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 AC_CONFIG_FILES([
   Makefile
   src/Makefile
+  tests/Makefile
 ])
 
 AC_OUTPUT
