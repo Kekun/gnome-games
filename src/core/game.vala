@@ -1,9 +1,7 @@
-public class Games.Game: Object {
+public class Games.Game : Object {
+	public string name { get; construct; }
 
-    public string name { get; construct; }
-
-    public Game(string name) {
-        Object(name: name);
-    }
+	public Game (string name) {
+		Object (name: name);
+	}
 }
-
