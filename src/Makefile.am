@@ -24,7 +24,7 @@ gnome_games_SOURCES = \
 	core/game.vala \
 	\
 	ui/application.vala \
-	ui/app-window.vala \
+	ui/application-window.vala \
 	\
 	main.vala \
 	$(BUILT_SOURCES) \

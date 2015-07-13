@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/app-window.ui")]
-private class Games.AppWindow : Gtk.ApplicationWindow {
+[GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
+private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	Gtk.ListStore games_list_store;
 
 	[GtkChild]
