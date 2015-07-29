@@ -1,10 +1,12 @@
 bin_PROGRAMS = gnome-games
 
 resource_file = $(top_srcdir)/data/org.gnome.Games.gresource.xml
-resource_file_deps = $(shell $(GLIB_COMPILE_RESOURCES) \
-                             --generate-dependencies \
-                             --sourcedir=$(top_srcdir)/data \
-                             $(resource_file))
+resource_file_deps = $(shell
+	$(GLIB_COMPILE_RESOURCES) \
+	--generate-dependencies \
+	--sourcedir=$(top_srcdir)/data \
+	$(resource_file)
+)
 
 resources.c: $(resource_file) $(resource_file_deps)
 	$(GLIB_COMPILE_RESOURCES) \
@@ -21,7 +23,8 @@ gnome_games_SOURCES = \
 	core/dummy-game-source.vala \
 	core/game.vala \
 	\
-	ui/app-window.vala \
+	ui/application.vala \
+	ui/application-window.vala \
 	\
 	main.vala \
 	$(BUILT_SOURCES) \

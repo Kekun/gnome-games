@@ -19,9 +19,8 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 ])
 
 AC_CONFIG_FILES([
-  Makefile
-  src/Makefile
+	Makefile
+	src/Makefile
 ])
 
 AC_OUTPUT
-
