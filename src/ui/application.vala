@@ -9,7 +9,7 @@ public class Games.Application : Gtk.Application {
 	protected override void activate () {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
-		var window = new AppWindow ();
+		var window = new ApplicationWindow ();
 		this.add_window (window);
 		window.destroy.connect (() => {
 			quit ();
