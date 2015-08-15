@@ -1,8 +1,14 @@
 /* This file is part of GNOME Games. License: GPLv3 */
 
+@define-color games_collection_bg_color #292929;
+
 @define-color games_thumbnail_color #bebebe;
 @define-color games_thumbnail_border_color #3b3c38;
 @define-color games_thumbnail_bg_color #2d2d2d;
+
+GamesCollectionIconView.frame {
+	background-color: @games_collection_bg_color;
+}
 
 GamesGameThumbnail {
 	background-color: @games_thumbnail_bg_color;

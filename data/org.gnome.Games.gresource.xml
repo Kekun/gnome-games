@@ -3,6 +3,7 @@
   <gresource prefix="/org/gnome/Games">
     <file>gtk-style.css</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
+    <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
     <file preprocess="xml-stripblanks">ui/game-icon-view.ui</file>
   </gresource>
 </gresources>

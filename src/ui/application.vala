@@ -1,3 +1,5 @@
+// This file is part of GNOME Games. License: GPLv3
+
 using Gtk;
 
 public class Games.Application : Gtk.Application {

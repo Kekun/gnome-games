@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.16"/>
+  <template class="GamesCollectionIconView" parent="GtkScrolledWindow">
+    <property name="visible">True</property>
+    <property name="can-focus">True</property>
+    <property name="shadow-type">in</property>
+    <property name="hscrollbar-policy">never</property>
+    <property name="vscrollbar-policy">automatic</property>
+    <property name="kinetic-scrolling">True</property>
+    <property name="overlay-scrolling">True</property>
+    <style>
+      <class name="content-view"/>
+    </style>
+    <child>
+      <object class="GtkFlowBox" id="flow_box">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="halign">start</property>
+        <property name="valign">start</property>
+        <property name="margin-start">28</property>
+        <property name="margin-end">28</property>
+        <property name="margin-top">21</property>
+        <property name="margin-bottom">21</property>
+        <property name="homogeneous">True</property>
+        <property name="column-spacing">42</property>
+        <property name="row-spacing">21</property>
+        <property name="selection-mode">none</property>
+        <signal name="child-activated" handler="on_child_activated"/>
+      </object>
+    </child>
+  </template>
+</interface>
