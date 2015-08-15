@@ -25,6 +25,7 @@ gnome_games_SOURCES = \
 	\
 	ui/application.vala \
 	ui/application-window.vala \
+	ui/game-thumbnail.vala \
 	\
 	main.vala \
 	$(BUILT_SOURCES) \
