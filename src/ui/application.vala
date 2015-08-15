@@ -1,8 +1,8 @@
 // This file is part of GNOME Games. License: GPLv3
 
-using Gtk;
-
 public class Games.Application : Gtk.Application {
+	private ListStore collection;
+
 	public Application () {
 		Object (application_id: "org.gnome.Games",
 		        flags: ApplicationFlags.FLAGS_NONE);
@@ -15,17 +15,26 @@ public class Games.Application : Gtk.Application {
 		var provider = load_css ("gtk-style.css");
 		Gtk.StyleContext.add_provider_for_screen (screen, provider, 600);
 
-		var window = new ApplicationWindow ();
+		collection = new ListStore (typeof (Game));
+		load_game_list ();
+
+		var window = new ApplicationWindow (collection);
 		this.add_window (window);
 		window.destroy.connect (() => {
 			quit ();
 		});
-		window.load_game_list ();
-		window.show_all ();
+		window.show ();
+	}
+
+	public void load_game_list () {
+		var dummy_source = new Games.DummyGameSource ();
+		dummy_source.each_game ((game) => {
+			collection.append (game);
+		});
 	}
 
 	private static Gtk.CssProvider load_css (string css) {
-		var provider = new CssProvider ();
+		var provider = new Gtk.CssProvider ();
 		try {
 			var file = File.new_for_uri("resource:///org/gnome/Games/" + css);
 			provider.load_from_file (file);
