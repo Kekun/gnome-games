@@ -6,6 +6,10 @@ private class Games.DummyGame : Object, Game {
 		get { return _name; }
 	}
 
+	public Icon? icon {
+		get { return null; }
+	}
+
 	public DummyGame (string name) {
 		_name = name;
 	}
