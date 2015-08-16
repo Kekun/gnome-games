@@ -26,6 +26,8 @@ gnome_games_SOURCES = \
 	dummy/dummy-game.vala \
 	dummy/dummy-game-source.vala \
 	\
+	desktop/desktop-game.vala \
+	\
 	ui/application.vala \
 	ui/application-window.vala \
 	ui/collection-icon-view.vala \
@@ -38,6 +40,9 @@ gnome_games_SOURCES = \
 
 gnome_games_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
+	--pkg gio-2.0 \
+	--pkg gio-unix-2.0 \
+	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
 	--gresources $(resource_file) \
 	$(NULL)
