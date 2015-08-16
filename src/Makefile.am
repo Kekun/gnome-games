@@ -20,11 +20,11 @@ BUILT_SOURCES = \
 	$(NULL)
 
 gnome_games_SOURCES = \
-	core/dummy-game-source.vala \
 	core/game.vala \
 	core/game-source.vala \
 	\
 	dummy/dummy-game.vala \
+	dummy/dummy-game-source.vala \
 	\
 	ui/application.vala \
 	ui/application-window.vala \
