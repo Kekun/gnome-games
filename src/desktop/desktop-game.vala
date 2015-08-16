@@ -5,6 +5,10 @@ private class Games.DesktopGame: Object, Game {
 		get { return app_info.get_name (); }
 	}
 
+	public Icon? icon {
+		get { return app_info.get_icon (); }
+	}
+
 	private DesktopAppInfo app_info;
 
 	public DesktopGame (string uri) {
