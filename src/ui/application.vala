@@ -27,7 +27,7 @@ public class Games.Application : Gtk.Application {
 	}
 
 	public void load_game_list () {
-		var dummy_source = new Games.DummyGameSource ();
+		var dummy_source = new Games.DesktopGameSource ();
 		dummy_source.each_game ((game) => {
 			collection.append (game);
 		});
