@@ -27,6 +27,7 @@ gnome_games_SOURCES = \
 	dummy/dummy-game-source.vala \
 	\
 	desktop/desktop-game.vala \
+	desktop/desktop-game-source.vala \
 	\
 	ui/application.vala \
 	ui/application-window.vala \
@@ -44,6 +45,7 @@ gnome_games_VALAFLAGS = \
 	--pkg gio-unix-2.0 \
 	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
+	--pkg tracker-sparql-1.0 \
 	--gresources $(resource_file) \
 	$(NULL)
 
