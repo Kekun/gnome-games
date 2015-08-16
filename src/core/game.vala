@@ -1,7 +1,5 @@
-public class Games.Game : Object {
-	public string name { get; construct; }
+// This file is part of GNOME Games. License: GPLv3
 
-	public Game (string name) {
-		Object (name: name);
-	}
+private interface Games.Game : Object {
+	public abstract string name { get; }
 }
