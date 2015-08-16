@@ -51,9 +51,26 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		var drawn = false;
 
+		drawn = draw_icon (context);
+
 		// Draw the default thumbnail if no thumbnail have been drawn
 		if (!drawn)
 			draw_default (context);
+
+		return true;
+	}
+
+	public bool draw_icon (DrawingContext context) {
+		if (game.icon == null)
+			return false;
+
+		var pixbuf = get_scaled_icon (context, game.icon, ICON_SCALE);
+		if (pixbuf == null)
+			return false;
+
+		draw_background (context);
+		draw_pixbuf (context, pixbuf);
+		draw_border (context);
 
 		return true;
 	}
@@ -86,6 +103,47 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		Gdk.cairo_set_source_pixbuf (context.cr, emblem, offset_x, offset_y);
 		context.cr.paint ();
+	}
+
+	private Gdk.Pixbuf? get_scaled_icon (DrawingContext context, Icon? icon, double scale) {
+		if (icon == null)
+			return null;
+
+		var theme = Gtk.IconTheme.get_default ();
+		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
+		var size = int.min (context.width, context.height) * scale;
+		var icon_info = theme.lookup_by_gicon (game.icon, (int) size, lookup_flags);
+
+		try {
+			return icon_info.load_icon ();
+		}
+		catch (Error e) {
+			warning (@"Couldn't load the icon for '$(game.name): $(e.message)\n");
+			return null;
+		}
+	}
+
+	private void draw_pixbuf (DrawingContext context, Gdk.Pixbuf pixbuf) {
+		var surface = Gdk.cairo_surface_create_from_pixbuf (pixbuf, 1, context.window);
+
+		var mask = get_mask (context);
+
+		var x_offset = (context.width - pixbuf.width) / 2;
+		var y_offset = (context.height - pixbuf.height) / 2;
+
+		context.cr.set_source_surface (surface, x_offset, y_offset);
+		context.cr.mask_surface (mask, 0, 0);
+	}
+
+	private Cairo.Surface get_mask (DrawingContext context) {
+		Cairo.ImageSurface mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width, context.height);
+
+		Cairo.Context cr = new Cairo.Context (mask);
+		cr.set_source_rgb (0, 0, 0);
+		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
+		cr.fill ();
+
+		return mask;
 	}
 
 	private void draw_background (DrawingContext context) {
