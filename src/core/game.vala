@@ -2,4 +2,5 @@
 
 private interface Games.Game : Object {
 	public abstract string name { get; }
+	public abstract Icon? icon { get; }
 }
