@@ -3,6 +3,23 @@
 public class Games.Application : Gtk.Application {
 	private ListStore collection;
 
+	private Tracker.Sparql.Connection? _connection;
+	private Tracker.Sparql.Connection? connection {
+		get {
+			if (_connection != null)
+				return _connection;
+
+			try {
+				_connection = Tracker.Sparql.Connection.@get ();
+			}
+			catch (Error e) {
+				warning ("Error: %s\n", e.message);
+			}
+
+			return _connection;
+		}
+	}
+
 	public Application () {
 		Object (application_id: "org.gnome.Games",
 		        flags: ApplicationFlags.FLAGS_NONE);
@@ -27,8 +44,14 @@ public class Games.Application : Gtk.Application {
 	}
 
 	public void load_game_list () {
-		var dummy_source = new Games.DesktopGameSource ();
-		dummy_source.each_game ((game) => {
+		if (connection == null)
+			return;
+
+		var tracker_source = new TrackerGameSource (connection);
+
+		tracker_source.add_query (new DesktopTrackerQuery ());
+
+		tracker_source.each_game ((game) => {
 			collection.append (game);
 		});
 	}
