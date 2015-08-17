@@ -29,6 +29,8 @@ gnome_games_SOURCES = \
 	desktop/desktop-game.vala \
 	desktop/desktop-game-source.vala \
 	\
+	tracker/tracker-query.vala \
+	\
 	ui/application.vala \
 	ui/application-window.vala \
 	ui/collection-icon-view.vala \
