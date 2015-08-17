@@ -44,15 +44,12 @@ public class Games.Application : Gtk.Application {
 	}
 
 	public void load_game_list () {
-		var dummy_source = new Games.DesktopGameSource ();
-		dummy_source.each_game ((game) => {
-			collection.append (game);
-		});
-
 		if (connection == null)
 			return;
 
 		var tracker_source = new TrackerGameSource (connection);
+
+		tracker_source.add_query (new DesktopTrackerQuery ());
 
 		tracker_source.each_game ((game) => {
 			collection.append (game);
