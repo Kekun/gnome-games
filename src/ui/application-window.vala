@@ -3,7 +3,11 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
 private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkChild]
+	private Gtk.Stack stack;
+	[GtkChild]
 	private CollectionIconView collection_icon_view;
+
+	private Runner runner;
 
 	public ApplicationWindow (ListStore collection) {
 		collection_icon_view.model = collection;
@@ -11,7 +15,21 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	[GtkCallback]
 	private void on_game_activated (Game game) {
-		// TODO
+		runner = game.get_runner ();
+
+		var display = runner.get_display ();
+		if (display != null) {
+			display.visible = true;
+			stack.add (display);
+			stack.set_visible_child (display);
+		}
+
+		try {
+			runner.run ();
+		}
+		catch (RunError e) {
+			warning (@"$(e.message)\n");
+		}
 	}
 
 }
