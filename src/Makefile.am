@@ -22,11 +22,14 @@ BUILT_SOURCES = \
 gnome_games_SOURCES = \
 	core/game.vala \
 	core/game-source.vala \
+	core/runner.vala \
 	\
 	dummy/dummy-game.vala \
 	dummy/dummy-game-source.vala \
+	dummy/dummy-runner.vala \
 	\
 	desktop/desktop-game.vala \
+	desktop/desktop-runner.vala \
 	desktop/desktop-tracker-query.vala \
 	\
 	tracker/tracker-game-source.vala \
