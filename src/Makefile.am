@@ -22,6 +22,7 @@ BUILT_SOURCES = \
 gnome_games_SOURCES = \
 	core/game.vala \
 	core/game-source.vala \
+	core/runner.vala \
 	\
 	dummy/dummy-game.vala \
 	dummy/dummy-game-source.vala \
