@@ -26,6 +26,7 @@ gnome_games_SOURCES = \
 	\
 	dummy/dummy-game.vala \
 	dummy/dummy-game-source.vala \
+	dummy/dummy-runner.vala \
 	\
 	desktop/desktop-game.vala \
 	desktop/desktop-tracker-query.vala \
