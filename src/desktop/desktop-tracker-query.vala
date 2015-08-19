@@ -5,7 +5,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		return "SELECT ?soft WHERE { ?soft nie:isLogicalPartOf 'urn:software-category:Game' . }";
 	}
 
-	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) {
+	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
 			var uri = cursor.get_string (0);
 
 			return new DesktopGame (uri);
