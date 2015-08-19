@@ -32,6 +32,8 @@ gnome_games_SOURCES = \
 	desktop/desktop-runner.vala \
 	desktop/desktop-tracker-query.vala \
 	\
+	retro/retro-runner.vala \
+	\
 	tracker/tracker-game-source.vala \
 	tracker/tracker-query.vala \
 	\
