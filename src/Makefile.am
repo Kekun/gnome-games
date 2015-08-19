@@ -33,6 +33,7 @@ gnome_games_SOURCES = \
 	desktop/desktop-tracker-query.vala \
 	\
 	nintendo/snes-game.vala \
+	nintendo/snes-tracker-query.vala \
 	\
 	retro/retro-runner.vala \
 	\
