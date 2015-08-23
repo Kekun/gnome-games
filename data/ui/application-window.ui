@@ -8,25 +8,9 @@
     <property name="default_height">600</property>
     <property name="show_menubar">False</property>
     <child>
-      <object class="GtkOverlay" id="overlay1">
+      <object class="GamesContentBox" id="content_box">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <child>
-          <object class="GtkStack" id="stack">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GamesCollectionIconView" id="collection_icon_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
-                <property name="name">page0</property>
-                <property name="title" translatable="yes">page0</property>
-              </packing>
-            </child>
-          </object>
-        </child>
+        <signal name="game-activated" handler="on_game_activated"/>
       </object>
     </child>
     <child type="titlebar">

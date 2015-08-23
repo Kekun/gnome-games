@@ -5,33 +5,32 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public UiState ui_state { set; get; }
 
 	[GtkChild]
-	private Gtk.Stack stack;
-	[GtkChild]
-	private CollectionIconView collection_icon_view;
+	private ContentBox content_box;
+	private Binding cb_ui_binding;
 
-	private Runner runner;
+	public ApplicationWindow (ListModel collection) {
+		content_box.collection = collection;
+	}
 
-	public ApplicationWindow (ListStore collection) {
-		collection_icon_view.model = collection;
+	construct {
+		cb_ui_binding = content_box.bind_property ("ui-state",
+		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
 	}
 
 	[GtkCallback]
 	private void on_game_activated (Game game) {
-		runner = game.get_runner ();
-
-		var display = runner.get_display ();
-		if (display != null) {
-			display.visible = true;
-			stack.add (display);
-			stack.set_visible_child (display);
-		}
-
+		var runner = game.get_runner ();
 		try {
 			runner.run ();
 		}
 		catch (RunError e) {
 			warning (@"$(e.message)\n");
-		}
-	}
 
+			return;
+		}
+
+		content_box.runner = runner;
+
+		ui_state = UiState.DISPLAY;
+	}
 }
