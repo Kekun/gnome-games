@@ -32,6 +32,12 @@ gnome_games_SOURCES = \
 	desktop/desktop-runner.vala \
 	desktop/desktop-tracker-query.vala \
 	\
+	nintendo/snes-game.vala \
+	nintendo/snes-tracker-query.vala \
+	\
+	retro/retro-runner.vala \
+	\
+	tracker/mime-type-tracker-query.vala \
 	tracker/tracker-game-source.vala \
 	tracker/tracker-query.vala \
 	\
@@ -57,6 +63,8 @@ gnome_games_VALAFLAGS = \
 	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg tracker-sparql-1.0 \
+	--pkg retro-gobject-0.3 \
+	--pkg retro-gtk-0.1 \
 	--gresources $(resource_file) \
 	$(NULL)
 

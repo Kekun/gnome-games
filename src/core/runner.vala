@@ -5,11 +5,12 @@ private interface Games.Runner : Object {
 
 	public abstract Gtk.Widget get_display ();
 	public abstract void run () throws RunError;
+	public abstract void pause ();
 }
 
 private errordomain Games.RunError {
 	EXECUTION_FAILED,
 	INVALID_COMMAND,
 	INVALID_GAME_FILE,
-	ALREADY_RUNNING,
+	MODULE_NOT_FOUND,
 }

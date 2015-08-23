@@ -7,4 +7,7 @@ private class Games.DummyRunner : Object, Runner {
 
 	public void run () throws RunError {
 	}
+
+	public void pause () {
+	}
 }

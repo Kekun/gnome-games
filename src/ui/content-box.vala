@@ -15,7 +15,10 @@ private class Games.ContentBox : Gtk.Overlay {
 			switch (ui_state) {
 			case UiState.COLLECTION:
 				content_stack.set_visible_child (collection_icon_view);
-				runner = null;
+				if (runner != null) {
+					runner.pause ();
+					runner = null;
+				}
 
 				break;
 			case UiState.DISPLAY:

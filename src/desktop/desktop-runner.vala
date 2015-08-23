@@ -59,6 +59,9 @@ private class Games.DesktopRunner : Object, Runner {
 		running = true;
 	}
 
+	public void pause () {
+	}
+
 	private void on_process_stopped () {
 		running = false;
 		stopped ();

@@ -28,14 +28,31 @@ private class Games.TrackerGameSource : Object, GameSource {
 				return;
 			}
 
+			bool is_cursor_valid = false;
+
 			try {
-				while (cursor.next ()) {
+				is_cursor_valid = cursor.next ();
+			}
+			catch (Error e) {
+				is_cursor_valid = false;
+				warning ("Error: %s\n", e.message);
+			}
+			while (is_cursor_valid) {
+				try {
 					var game = query.game_for_cursor (cursor);
 					game_callback (game);
 				}
-			}
-			catch (Error e) {
-				warning ("Error: %s\n", e.message);
+				catch (Error e) {
+					warning ("Error: %s\n", e.message);
+				}
+
+				try {
+					is_cursor_valid = cursor.next ();
+				}
+				catch (Error e) {
+					is_cursor_valid = false;
+					warning ("Error: %s\n", e.message);
+				}
 			}
 		});
 	}
