@@ -14,14 +14,8 @@
       </object>
     </child>
     <child type="titlebar">
-      <object class="GtkHeaderBar" id="headerbar1">
+      <object class="GamesHeaderBar" id="header_bar">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="show_close_button">True</property>
-        <property name="title">Games</property>
-        <child>
-          <placeholder/>
-        </child>
       </object>
     </child>
   </template>

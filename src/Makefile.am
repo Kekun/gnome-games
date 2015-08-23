@@ -41,6 +41,7 @@ gnome_games_SOURCES = \
 	ui/content-box.vala \
 	ui/game-icon-view.vala \
 	ui/game-thumbnail.vala \
+	ui/header-bar.vala \
 	ui/ui-state.vala \
 	\
 	main.vala \

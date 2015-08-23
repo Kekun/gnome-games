@@ -8,12 +8,18 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private ContentBox content_box;
 	private Binding cb_ui_binding;
 
+	[GtkChild]
+	private HeaderBar header_bar;
+	private Binding hb_ui_binding;
+
 	public ApplicationWindow (ListModel collection) {
 		content_box.collection = collection;
 	}
 
 	construct {
 		cb_ui_binding = content_box.bind_property ("ui-state",
+		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
+		cb_ui_binding = header_bar.bind_property ("ui-state",
 		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
 	}
 
