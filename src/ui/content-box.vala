@@ -42,17 +42,23 @@ private class Games.ContentBox : Gtk.Overlay {
 	private Runner _runner;
 	public Runner runner {
 		set {
+			if (runner != null)
+				runner.disconnect (runner_stopped_id);
+
 			_runner = value;
 			remove_display ();
 
 			if (runner == null)
 				return;
 
+			runner_stopped_id = runner.stopped.connect (on_runner_stopped);
+
 			var display = runner.get_display ();
 			set_display (display);
 		}
 		private get { return _runner; }
 	}
+	private ulong runner_stopped_id;
 
 	public ContentBox (ListStore collection) {
 		collection_icon_view.model = collection;
@@ -73,5 +79,10 @@ private class Games.ContentBox : Gtk.Overlay {
 		var child = display_box.get_child ();
 		if (child != null)
 			display_box.remove (display_box.get_child ());
+	}
+
+	private void on_runner_stopped () {
+		runner = null;
+		ui_state = UiState.COLLECTION;
 	}
 }
