@@ -23,7 +23,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		cb_ui_binding = content_box.bind_property ("ui-state",
 		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
-		cb_ui_binding = header_bar.bind_property ("ui-state",
+		hb_ui_binding = header_bar.bind_property ("ui-state",
 		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
 	}
 
