@@ -7,8 +7,8 @@ private class Games.DesktopRunner : Object, Runner {
 
 	private DesktopAppInfo app_info;
 
-	public Gtk.Widget? get_display () {
-		return null;
+	public Gtk.Widget get_display () {
+		return new RemoteDisplay ();
 	}
 
 	public DesktopRunner (DesktopAppInfo app_info) {

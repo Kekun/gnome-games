@@ -2,34 +2,41 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
 private class Games.ApplicationWindow : Gtk.ApplicationWindow {
-	[GtkChild]
-	private Gtk.Stack stack;
-	[GtkChild]
-	private CollectionIconView collection_icon_view;
+	public UiState ui_state { set; get; }
 
-	private Runner runner;
+	[GtkChild]
+	private ContentBox content_box;
+	private Binding cb_ui_binding;
 
-	public ApplicationWindow (ListStore collection) {
-		collection_icon_view.model = collection;
+	[GtkChild]
+	private HeaderBar header_bar;
+	private Binding hb_ui_binding;
+
+	public ApplicationWindow (ListModel collection) {
+		content_box.collection = collection;
+	}
+
+	construct {
+		cb_ui_binding = content_box.bind_property ("ui-state",
+		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
+		cb_ui_binding = header_bar.bind_property ("ui-state",
+		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
 	}
 
 	[GtkCallback]
 	private void on_game_activated (Game game) {
-		runner = game.get_runner ();
-
-		var display = runner.get_display ();
-		if (display != null) {
-			display.visible = true;
-			stack.add (display);
-			stack.set_visible_child (display);
-		}
-
+		var runner = game.get_runner ();
 		try {
 			runner.run ();
 		}
 		catch (RunError e) {
 			warning (@"$(e.message)\n");
-		}
-	}
 
+			return;
+		}
+
+		content_box.runner = runner;
+
+		ui_state = UiState.DISPLAY;
+	}
 }

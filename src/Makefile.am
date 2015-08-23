@@ -38,8 +38,13 @@ gnome_games_SOURCES = \
 	ui/application.vala \
 	ui/application-window.vala \
 	ui/collection-icon-view.vala \
+	ui/content-box.vala \
+	ui/dummy-display.vala \
 	ui/game-icon-view.vala \
 	ui/game-thumbnail.vala \
+	ui/header-bar.vala \
+	ui/remote-display.vala \
+	ui/ui-state.vala \
 	\
 	main.vala \
 	$(BUILT_SOURCES) \
