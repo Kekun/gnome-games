@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.16"/>
+  <template class="GamesRemoteDisplay" parent="GtkBox">
+    <property name="visible">True</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="halign">fill</property>
+    <property name="valign">fill</property>
+
+    <child>
+      <object class="GtkGrid" id="grid">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+
+        <child>
+          <object class="GtkImage" id="image">
+            <property name="visible">True</property>
+            <property name="icon-name">computer-fail-symbolic</property>
+            <property name="pixel-size">256</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="margin-bottom">24</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="no_boxes_found_label">
+            <property name="visible">True</property>
+            <property name="use-markup">True</property>
+            <property name="halign">center</property>
+            <property name="vexpand">True</property>
+            <property name="margin-bottom">6</property>
+            <property name="label" translatable="yes">&lt;b&gt;&lt;span size=&quot;large&quot;&gt;This is a dummy game display&gt;&lt;/b&gt;</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="definition_label">
+            <property name="visible">True</property>
+            <property name="use-markup">True</property>
+            <property name="halign">center</property>
+            <property name="vexpand">True</property>
+            <property name="label" translatable="yes">If you see this, this is a bug.</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkLabel" id="instructions_label">
+            <property name="visible">True</property>
+            <property name="use-markup">True</property>
+            <property name="halign">center</property>
+            <property name="vexpand">True</property>
+            <property name="label" translatable="yes">Please contact the developers.</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
+          </object>
+        </child>
+      </object>
+
+      <packing>
+        <property name="expand">True</property>
+        <property name="fill">True</property>
+      </packing>
+    </child>
+  </template>
+</interface>

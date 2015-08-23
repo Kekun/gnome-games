@@ -2,7 +2,7 @@
 
 private class Games.DummyRunner : Object, Runner {
 	public Gtk.Widget? get_display () {
-		return null;
+		return new DummyDisplay ();
 	}
 
 	public void run () throws RunError {
