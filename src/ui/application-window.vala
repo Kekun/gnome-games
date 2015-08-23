@@ -2,6 +2,8 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
 private class Games.ApplicationWindow : Gtk.ApplicationWindow {
+	public UiState ui_state { set; get; }
+
 	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]

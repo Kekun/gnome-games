@@ -40,6 +40,7 @@ gnome_games_SOURCES = \
 	ui/collection-icon-view.vala \
 	ui/game-icon-view.vala \
 	ui/game-thumbnail.vala \
+	ui/ui-state.vala \
 	\
 	main.vala \
 	$(BUILT_SOURCES) \
