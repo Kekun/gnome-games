@@ -15,7 +15,12 @@ private class Games.DesktopRunner : Object, Runner {
 		this.app_info = app_info;
 	}
 
+	private bool running;
+
 	public void run () throws RunError {
+		if (running)
+			return;
+
 		string[] argv;
 		try {
 			var command = app_info.get_commandline ();
@@ -28,7 +33,8 @@ private class Games.DesktopRunner : Object, Runner {
 
 		string? working_directory = null;
 		string[]? envp = null;
-		var flags = SpawnFlags.SEARCH_PATH;
+		var flags = SpawnFlags.SEARCH_PATH |
+		            SpawnFlags.DO_NOT_REAP_CHILD; // Necessary to watch the child ourselves.
 		SpawnChildSetupFunc? child_setup = null;
 		Pid pid;
 		int? standard_input = null;
@@ -43,8 +49,19 @@ private class Games.DesktopRunner : Object, Runner {
 				throw new RunError.EXECUTION_FAILED ("Couldn't run '%s': execution failed\n".printf (name));
 		}
 		catch (SpawnError e) {
-			stderr.printf ("%s\n", e.message);
+			warning ("%s\n", e.message);
+
+			return;
 		}
+
+		ChildWatch.add (pid, (() => { on_process_stopped (); }));
+
+		running = true;
+	}
+
+	private void on_process_stopped () {
+		running = false;
+		stopped ();
 	}
 }
 
