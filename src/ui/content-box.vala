@@ -49,8 +49,7 @@ private class Games.ContentBox : Gtk.Overlay {
 				return;
 
 			var display = runner.get_display ();
-			if (display != null)
-				set_display (display);
+			set_display (display);
 		}
 		private get { return _runner; }
 	}
