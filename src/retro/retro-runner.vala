@@ -2,7 +2,11 @@
 
 private class Games.RetroRunner : Object, Runner {
 	public bool can_resume {
-		get { return core != null; }
+		get {
+			var file = File.new_for_path (snapshot_path);
+
+			return file.query_exists ();
+		}
 	}
 
 	private string _save_path;
@@ -15,6 +19,19 @@ private class Games.RetroRunner : Object, Runner {
 			_save_path = @"$dir/$uid.save";
 
 			return _save_path;
+		}
+	}
+
+	private string _snapshot_path;
+	private string snapshot_path {
+		get {
+			if (_snapshot_path != null)
+				return _snapshot_path;
+
+			var dir = Application.get_snapshots_dir ();
+			_snapshot_path = @"$dir/$uid.snapshot";
+
+			return _snapshot_path;
 		}
 	}
 
@@ -72,6 +89,7 @@ private class Games.RetroRunner : Object, Runner {
 	public void resume () throws RunError {
 		if (core == null) {
 			run ();
+			load_snapshot ();
 
 			return;
 		}
@@ -159,6 +177,7 @@ private class Games.RetroRunner : Object, Runner {
 
 	private void save () {
 		save_ram ();
+		save_snapshot ();
 	}
 
 	private void save_ram () {
@@ -182,6 +201,32 @@ private class Games.RetroRunner : Object, Runner {
 			return;
 
 		core.set_memory (Retro.MemoryType.SAVE_RAM, data);
+	}
+
+	private void save_snapshot () {
+		var size = core.serialize_size ();
+		var buffer = new uint8[size];
+
+		if (!core.serialize (buffer))
+			return; // FIXME: Should throw error rather that returning.
+
+		var dir = Application.get_snapshots_dir ();
+		try_make_dir (dir);
+
+		save_to_file (snapshot_path, buffer);
+	}
+
+	private void load_snapshot () {
+		var size = core.serialize_size ();
+		if (size == 0)
+			return;
+
+		var data = load_from_file (snapshot_path, size);
+		if (data == null)
+			return;
+
+		if (!core.unserialize (data))
+			return; // FIXME: Should throw error rather that returning.
 	}
 
 	private static void try_make_dir (string path) {
