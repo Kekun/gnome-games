@@ -34,7 +34,7 @@ private class Games.RetroRunner : Object, Runner {
 		return video;
 	}
 
-	public void run () throws RunError {
+	public void start () throws RunError {
 		if (core == null)
 			prepare_core ();
 

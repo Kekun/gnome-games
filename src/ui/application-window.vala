@@ -31,7 +31,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private void on_game_activated (Game game) {
 		var runner = get_runner_for_game (game);
 		try {
-			runner.run ();
+			runner.start ();
 		}
 		catch (RunError e) {
 			warning (@"$(e.message)\n");

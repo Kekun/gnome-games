@@ -17,7 +17,7 @@ private class Games.DesktopRunner : Object, Runner {
 
 	private bool running;
 
-	public void run () throws RunError {
+	public void start () throws RunError {
 		if (running)
 			return;
 

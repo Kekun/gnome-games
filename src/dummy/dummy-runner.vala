@@ -5,7 +5,7 @@ private class Games.DummyRunner : Object, Runner {
 		return new DummyDisplay ();
 	}
 
-	public void run () throws RunError {
+	public void start () throws RunError {
 	}
 
 	public void pause () {

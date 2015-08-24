@@ -4,7 +4,7 @@ private interface Games.Runner : Object {
 	public signal void stopped ();
 
 	public abstract Gtk.Widget get_display ();
-	public abstract void run () throws RunError;
+	public abstract void start () throws RunError;
 	public abstract void pause ();
 }
 
