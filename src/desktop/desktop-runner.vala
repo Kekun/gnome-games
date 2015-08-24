@@ -5,6 +5,10 @@ private class Games.DesktopRunner : Object, Runner {
 		get { return app_info.get_name (); }
 	}
 
+	public bool can_resume {
+		get { return false; }
+	}
+
 	private DesktopAppInfo app_info;
 
 	public Gtk.Widget get_display () {

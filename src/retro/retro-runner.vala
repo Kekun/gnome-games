@@ -1,6 +1,10 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.RetroRunner : Object, Runner {
+	public bool can_resume {
+		get { return core != null; }
+	}
+
 	private Retro.Core core;
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;
