@@ -59,6 +59,9 @@ private class Games.DesktopRunner : Object, Runner {
 		running = true;
 	}
 
+	public void resume () throws RunError {
+	}
+
 	public void pause () {
 	}
 

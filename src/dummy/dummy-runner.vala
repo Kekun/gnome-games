@@ -8,6 +8,9 @@ private class Games.DummyRunner : Object, Runner {
 	public void start () throws RunError {
 	}
 
+	public void resume () throws RunError {
+	}
+
 	public void pause () {
 	}
 }

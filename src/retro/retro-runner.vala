@@ -35,6 +35,31 @@ private class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws RunError {
+		if (core == null) {
+			run ();
+
+			return;
+		}
+
+		loop.stop ();
+		core.reset ();
+		loop.start ();
+
+		running = true;
+	}
+
+	public void resume () throws RunError {
+		if (core == null) {
+			run ();
+
+			return;
+		}
+
+		loop.start ();
+		running = true;
+	}
+
+	public void run () throws RunError {
 		if (core == null)
 			prepare_core ();
 
