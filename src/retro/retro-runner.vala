@@ -5,6 +5,19 @@ private class Games.RetroRunner : Object, Runner {
 		get { return core != null; }
 	}
 
+	private string _save_path;
+	private string save_path {
+		get {
+			if (_save_path != null)
+				return _save_path;
+
+			var dir = Application.get_saves_dir ();
+			_save_path = @"$dir/$uid.save";
+
+			return _save_path;
+		}
+	}
+
 	private Retro.Core core;
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;
@@ -14,13 +27,15 @@ private class Games.RetroRunner : Object, Runner {
 
 	private string module_path;
 	private string game_path;
+	private string uid;
 
 	private bool running;
 
-	public RetroRunner (string module_basename, string game_path) {
+	public RetroRunner (string module_basename, string game_path, string uid) {
 		var modules_dir = Retro.get_plugins_dir ();
 		this.module_path = @"$modules_dir/$module_basename";
 		this.game_path = game_path;
+		this.uid = uid;
 	}
 
 	construct {
@@ -32,6 +47,8 @@ private class Games.RetroRunner : Object, Runner {
 		if (loop != null)
 			loop.stop ();
 		running = false;
+
+		save ();
 	}
 
 	public Gtk.Widget get_display () {
@@ -47,8 +64,8 @@ private class Games.RetroRunner : Object, Runner {
 
 		loop.stop ();
 		core.reset ();
-		loop.start ();
 
+		loop.start ();
 		running = true;
 	}
 
@@ -97,6 +114,8 @@ private class Games.RetroRunner : Object, Runner {
 
 		if (!try_load_game (core, game_path))
 			throw new RunError.INVALID_GAME_FILE (@"Invalid game file: $game_path");
+
+		load_ram ();
 	}
 
 	private bool try_load_game (Retro.Core core, string game_name) {
@@ -134,6 +153,101 @@ private class Games.RetroRunner : Object, Runner {
 		if (loop != null)
 			loop.stop ();
 		running = false;
+
+		save ();
+	}
+
+	private void save () {
+		save_ram ();
+	}
+
+	private void save_ram () {
+		var save = core.get_memory (Retro.MemoryType.SAVE_RAM);
+		if (save.length == 0)
+			return;
+
+		var dir = Application.get_saves_dir ();
+		try_make_dir (dir);
+
+		save_to_file (save_path, save);
+	}
+
+	private void load_ram () {
+		var size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
+		if (size == 0)
+			return;
+
+		var data = load_from_file (save_path, size);
+		if (data == null)
+			return;
+
+		core.set_memory (Retro.MemoryType.SAVE_RAM, data);
+	}
+
+	private static void try_make_dir (string path) {
+		var file = File.new_for_path (path);
+		try {
+			if (!file.query_exists ())
+				file.make_directory_with_parents ();
+		}
+		catch (Error e) {
+			warning (@"$(e.message)\n");
+
+			return;
+		}
+	}
+
+	private static uint8[]? load_from_file (string path, size_t size) {
+		var file = File.new_for_path (path);
+
+		if (!file.query_exists ())
+			return null;
+
+		FileInputStream stream;
+		try {
+			stream = file.read ();
+		}
+		catch (Error e) {
+			warning (@"$(e.message)\n");
+
+			return null;
+		}
+
+		var buffer = new uint8[size];
+
+		try {
+			stream.read (buffer);
+		}
+		catch (IOError e) {
+			warning (@"$(e.message)\n");
+
+			return null;
+		}
+
+		return buffer;
+	}
+
+	private static void save_to_file (string path, uint8[] data) {
+		var file = File.new_for_path (path);
+
+		FileOutputStream stream;
+		try {
+			stream = file.replace (null, false, FileCreateFlags.NONE);
+		}
+		catch (Error e) {
+			warning (@"$(e.message)\n");
+
+			return;
+		}
+
+		try {
+			stream.write (data);
+		}
+		catch (IOError e) {
+			warning (@"$(e.message)\n");
+
+			return;
+		}
 	}
 }
 
