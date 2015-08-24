@@ -25,6 +25,18 @@ public class Games.Application : Gtk.Application {
 		        flags: ApplicationFlags.FLAGS_NONE);
 	}
 
+	public static string get_data_dir () {
+		var data_dir = Environment.get_user_data_dir ();
+
+		return @"$data_dir/gnome-games";
+	}
+
+	public static string get_saves_dir () {
+		var data_dir = get_data_dir ();
+
+		return @"$data_dir/saves";
+	}
+
 	protected override void activate () {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
