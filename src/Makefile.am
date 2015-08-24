@@ -32,6 +32,8 @@ gnome_games_SOURCES = \
 	desktop/desktop-runner.vala \
 	desktop/desktop-tracker-query.vala \
 	\
+	nintendo/nes-game.vala \
+	nintendo/nes-tracker-query.vala \
 	nintendo/snes-game.vala \
 	nintendo/snes-tracker-query.vala \
 	\
