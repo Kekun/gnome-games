@@ -51,11 +51,15 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		var runner = game.get_runner ();
 		runners[game] = runner;
 
-		runner.stopped.connect (() => {
-			if (runners.contains (game))
-				runners.remove (game);
-		});
+		runner.stopped.connect (remove_runner);
 
 		return runner;
+	}
+
+	private void remove_runner (Runner runner) {
+		foreach (var game in runners.get_keys ()) {
+			if (runners[game] == runner)
+				runners.remove (game);
+		}
 	}
 }
