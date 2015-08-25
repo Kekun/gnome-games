@@ -42,6 +42,8 @@ private class Games.RetroRunner : Object, Runner {
 	private RetroGtk.InputDeviceManager input;
 	private Retro.Loop loop;
 
+	private Gtk.EventBox widget;
+
 	private string module_path;
 	private string game_path;
 	private string uid;
@@ -57,7 +59,12 @@ private class Games.RetroRunner : Object, Runner {
 
 	construct {
 		video = new RetroGtk.CairoDisplay ();
-		gamepad = new RetroGtk.VirtualGamepad (video);
+
+		widget = new Gtk.EventBox ();
+		widget.add (video);
+		video.visible = true;
+
+		gamepad = new RetroGtk.VirtualGamepad (widget);
 	}
 
 	~RetroRunner () {
@@ -69,7 +76,7 @@ private class Games.RetroRunner : Object, Runner {
 	}
 
 	public Gtk.Widget get_display () {
-		return video;
+		return widget;
 	}
 
 	public void start () throws RunError {
