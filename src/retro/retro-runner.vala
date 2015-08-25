@@ -35,6 +35,19 @@ private class Games.RetroRunner : Object, Runner {
 		}
 	}
 
+	private string _screenshot_path;
+	private string screenshot_path {
+		get {
+			if (_screenshot_path != null)
+				return _screenshot_path;
+
+			var dir = Application.get_snapshots_dir ();
+			_screenshot_path = @"$dir/$uid.png";
+
+			return _screenshot_path;
+		}
+	}
+
 	private Retro.Core core;
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;
@@ -48,16 +61,22 @@ private class Games.RetroRunner : Object, Runner {
 	private string game_path;
 	private string uid;
 
-	private bool running;
+	private bool _running;
+	private bool running {
+		set {
+			_running = value;
 
-	public RetroRunner (string module_basename, string game_path, string uid) {
+			video.sensitive = running;
+		}
+		get { return _running; }
+	}
+
+	public RetroRunner (string module_basename, string game_path, string uid) throws RunError {
 		var modules_dir = Retro.get_plugins_dir ();
 		this.module_path = @"$modules_dir/$module_basename";
 		this.game_path = game_path;
 		this.uid = uid;
-	}
 
-	construct {
 		video = new RetroGtk.CairoDisplay ();
 
 		widget = new Gtk.EventBox ();
@@ -65,11 +84,16 @@ private class Games.RetroRunner : Object, Runner {
 		video.visible = true;
 
 		gamepad = new RetroGtk.VirtualGamepad (widget);
+
+		prepare_core ();
+		loop = new Retro.MainLoop (core);
+		running = false;
+
+		load_screenshot ();
 	}
 
 	~RetroRunner () {
-		if (loop != null)
-			loop.stop ();
+		loop.stop ();
 		running = false;
 
 		save ();
@@ -80,12 +104,6 @@ private class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws RunError {
-		if (core == null) {
-			run ();
-
-			return;
-		}
-
 		loop.stop ();
 		core.reset ();
 
@@ -94,30 +112,14 @@ private class Games.RetroRunner : Object, Runner {
 	}
 
 	public void resume () throws RunError {
-		if (core == null) {
-			run ();
-			load_snapshot ();
-
-			return;
-		}
+		loop.stop ();
+		load_snapshot ();
 
 		loop.start ();
 		running = true;
 	}
 
-	public void run () throws RunError {
-		if (core == null)
-			prepare_core ();
-
-		if (loop == null)
-			loop = new Retro.MainLoop (core);
-
-		if (!running)
-			loop.start ();
-		running = true;
-	}
-
-	public void prepare_core () throws RunError {
+	private void prepare_core () throws RunError {
 		var module = File.new_for_path (module_path);
 		if (!module.query_exists ()) {
 			var msg = @"Couldn't run game: module '$module_path' not found.";
@@ -175,8 +177,7 @@ private class Games.RetroRunner : Object, Runner {
 	}
 
 	public void pause () {
-		if (loop != null)
-			loop.stop ();
+		loop.stop ();
 		running = false;
 
 		save ();
@@ -185,6 +186,7 @@ private class Games.RetroRunner : Object, Runner {
 	private void save () {
 		save_ram ();
 		save_snapshot ();
+		save_screenshot ();
 	}
 
 	private void save_ram () {
@@ -234,6 +236,35 @@ private class Games.RetroRunner : Object, Runner {
 
 		if (!core.unserialize (data))
 			return; // FIXME: Should throw error rather that returning.
+	}
+
+	private void save_screenshot () {
+		var pixbuf = video.pixbuf;
+		if (pixbuf != null)
+			try {
+				pixbuf.save (screenshot_path, "png");
+			}
+			catch (Error e) {
+			warning (@"$(e.message)\n");
+
+			return;
+		}
+	}
+
+	private void load_screenshot () {
+		var file = File.new_for_path (screenshot_path);
+		if (!file.query_exists ())
+			return;
+
+		try {
+			var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
+			video.pixbuf = pixbuf;
+		}
+		catch (Error e) {
+			warning (@"$(e.message)\n");
+
+			return;
+		}
 	}
 
 	private static void try_make_dir (string path) {
