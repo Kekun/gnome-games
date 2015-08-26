@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.16"/>
+  <template class="GamesErrorInfoBar" parent="GtkInfoBar">
+    <property name="visible">True</property>
+    <property name="halign">center</property>
+    <property name="valign">start</property>
+    <property name="hexpand">False</property>
+    <property name="vexpand">False</property>
+    <property name="show-close-button">True</property>
+    <property name="message-type">error</property>
+    <child internal-child="content_area">
+      <object class="GtkBox" id="content_area">
+        <child>
+          <object class="GtkLabel" id="label">
+            <property name="visible">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
