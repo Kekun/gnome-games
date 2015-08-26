@@ -54,6 +54,7 @@ private class Games.RetroRunner : Object, Runner {
 	private RetroGtk.VirtualGamepad gamepad;
 	private RetroGtk.InputDeviceManager input;
 	private Retro.Options options;
+	private Retro.FileStreamLog log;
 	private Retro.Loop loop;
 
 	private Gtk.EventBox widget;
@@ -141,10 +142,12 @@ private class Games.RetroRunner : Object, Runner {
 		audio = new RetroGtk.PaPlayer ();
 		input = new RetroGtk.InputDeviceManager ();
 		options = new Retro.Options ();
+		log = new Retro.FileStreamLog (stderr);
 
 		input.set_controller_device (0, gamepad);
 
 		core.variables_interface = options;
+		core.log_interface = log;
 
 		core.video_interface = video;
 		core.audio_interface = audio;
