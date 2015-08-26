@@ -52,7 +52,10 @@ private class Games.RetroRunner : Object, Runner {
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;
 	private RetroGtk.VirtualGamepad gamepad;
+	private RetroGtk.Keyboard keyboard;
 	private RetroGtk.InputDeviceManager input;
+	private Retro.Options options;
+	private Retro.FileStreamLog log;
 	private Retro.Loop loop;
 
 	private Gtk.EventBox widget;
@@ -88,8 +91,13 @@ private class Games.RetroRunner : Object, Runner {
 		video.visible = true;
 
 		gamepad = new RetroGtk.VirtualGamepad (widget);
+		keyboard = new RetroGtk.Keyboard (widget);
 
 		prepare_core ();
+		core.shutdown.connect (on_shutdown);
+
+		core.run (); // Needed to finish preparing some cores.
+
 		loop = new Retro.MainLoop (core);
 		running = false;
 
@@ -139,8 +147,14 @@ private class Games.RetroRunner : Object, Runner {
 		core = new Retro.Core (module_path);
 		audio = new RetroGtk.PaPlayer ();
 		input = new RetroGtk.InputDeviceManager ();
+		options = new Retro.Options ();
+		log = new Retro.FileStreamLog (stderr);
 
 		input.set_controller_device (0, gamepad);
+		input.set_keyboard (keyboard);
+
+		core.variables_interface = options;
+		core.log_interface = log;
 
 		core.video_interface = video;
 		core.audio_interface = audio;
@@ -274,6 +288,13 @@ private class Games.RetroRunner : Object, Runner {
 
 			return;
 		}
+	}
+
+	private bool on_shutdown () {
+		pause ();
+		stopped ();
+
+		return true;
 	}
 
 	private static void try_make_dir (string path) {
