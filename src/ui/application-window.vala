@@ -29,7 +29,16 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	[GtkCallback]
 	private void on_game_activated (Game game) {
-		var runner = get_runner_for_game (game);
+		Runner runner = null;
+		try {
+			runner = get_runner_for_game (game);
+		}
+		catch (Error e) {
+			warning ("%s\n", e.message);
+			content_box.display_error (e.message);
+
+			return;
+		}
 
 		content_box.runner = runner;
 		ui_state = UiState.DISPLAY;
@@ -73,7 +82,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 	}
 
-	private Runner get_runner_for_game (Game game) {
+	private Runner get_runner_for_game (Game game) throws RunError {
 		if (runners.contains (game))
 			return runners[game];
 
