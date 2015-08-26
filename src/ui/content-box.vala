@@ -36,6 +36,8 @@ private class Games.ContentBox : Gtk.Overlay {
 	}
 
 	[GtkChild]
+	private Gtk.Box info_box;
+	[GtkChild]
 	private Gtk.Stack content_stack;
 	[GtkChild]
 	private CollectionIconView collection_icon_view;
@@ -65,6 +67,23 @@ private class Games.ContentBox : Gtk.Overlay {
 
 	public ContentBox (ListStore collection) {
 		collection_icon_view.model = collection;
+	}
+
+	public void display_error (string message) {
+		var error = new ErrorInfoBar ();
+		error.message = message;
+		info_box.pack_start (error, false, false);
+
+		error.response.connect (on_info_bar_response);
+		error.close.connect (on_info_bar_close);
+	}
+
+	private void on_info_bar_response (Gtk.InfoBar info_bar, int response_id) {
+		info_box.remove (info_bar);
+	}
+
+	private void on_info_bar_close (Gtk.InfoBar info_bar) {
+		info_box.remove (info_bar);
 	}
 
 	[GtkCallback]
