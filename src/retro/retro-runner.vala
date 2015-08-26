@@ -71,7 +71,11 @@ private class Games.RetroRunner : Object, Runner {
 		get { return _running; }
 	}
 
+	private bool construction_succeeded;
+
 	public RetroRunner (string module_basename, string game_path, string uid) throws RunError {
+		construction_succeeded = false;
+
 		var modules_dir = Retro.get_plugins_dir ();
 		this.module_path = @"$modules_dir/$module_basename";
 		this.game_path = game_path;
@@ -90,9 +94,14 @@ private class Games.RetroRunner : Object, Runner {
 		running = false;
 
 		load_screenshot ();
+
+		construction_succeeded = true;
 	}
 
 	~RetroRunner () {
+		if (!construction_succeeded)
+			return;
+
 		loop.stop ();
 		running = false;
 
