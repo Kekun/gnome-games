@@ -11,6 +11,18 @@ private class Games.SnesGame : Object, Game {
 	private const ulong NAME_OFFSET = 0;
 	private const ulong NAME_SIZE = 21;
 
+	private string _uid;
+	public string uid {
+		get {
+			if (_uid != null)
+				return _uid;
+
+			_uid = Checksum.compute_for_string (ChecksumType.MD5, uri);
+
+			return _uid;
+		}
+	}
+
 	private string _name;
 	public string name {
 		get { return _name; }
@@ -32,10 +44,13 @@ private class Games.SnesGame : Object, Game {
 		get { return false; }
 	}
 
+	private string uri;
 	private string path;
 
 	public SnesGame (string uri) throws Error {
 		// Information on SNES header: http://romhack.wikia.com/wiki/SNES_header
+		this.uri = uri;
+
 		var file = File.new_for_uri (uri);
 		path = file.get_path ();
 
@@ -68,7 +83,7 @@ private class Games.SnesGame : Object, Game {
 	}
 
 	public Runner get_runner () {
-		return new RetroRunner (MODULE_BASENAME, path);
+		return new RetroRunner (MODULE_BASENAME, path, uid);
 	}
 }
 

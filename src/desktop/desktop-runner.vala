@@ -5,6 +5,10 @@ private class Games.DesktopRunner : Object, Runner {
 		get { return app_info.get_name (); }
 	}
 
+	public bool can_resume {
+		get { return false; }
+	}
+
 	private DesktopAppInfo app_info;
 
 	public Gtk.Widget get_display () {
@@ -17,7 +21,7 @@ private class Games.DesktopRunner : Object, Runner {
 
 	private bool running;
 
-	public void run () throws RunError {
+	public void start () throws RunError {
 		if (running)
 			return;
 
@@ -57,6 +61,9 @@ private class Games.DesktopRunner : Object, Runner {
 		ChildWatch.add (pid, (() => { on_process_stopped (); }));
 
 		running = true;
+	}
+
+	public void resume () throws RunError {
 	}
 
 	public void pause () {

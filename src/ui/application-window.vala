@@ -30,18 +30,47 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkCallback]
 	private void on_game_activated (Game game) {
 		var runner = get_runner_for_game (game);
+
+		content_box.runner = runner;
+		ui_state = UiState.DISPLAY;
+
+		var resume = false;
+
+		if (runner.can_resume) {
+			var dialog = new ResumeDialog ();
+			dialog.set_transient_for (this);
+			var response = dialog.run ();
+			dialog.destroy ();
+
+			switch (response) {
+			case Gtk.ResponseType.CANCEL:
+				content_box.runner = null;
+				ui_state = UiState.COLLECTION;
+
+				return;
+			case Gtk.ResponseType.REJECT:
+				resume = false;
+
+				break;
+			case Gtk.ResponseType.ACCEPT:
+			default:
+				resume = true;
+
+				break;
+			}
+		}
+
 		try {
-			runner.run ();
+			if (resume)
+				runner.resume ();
+			else
+				runner.start ();
 		}
 		catch (RunError e) {
 			warning (@"$(e.message)\n");
 
 			return;
 		}
-
-		content_box.runner = runner;
-
-		ui_state = UiState.DISPLAY;
 	}
 
 	private Runner get_runner_for_game (Game game) {
