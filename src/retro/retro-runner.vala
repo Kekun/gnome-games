@@ -92,6 +92,8 @@ private class Games.RetroRunner : Object, Runner {
 		gamepad = new RetroGtk.VirtualGamepad (widget);
 
 		prepare_core ();
+		core.run (); // Needed to finish preparing some cores.
+
 		loop = new Retro.MainLoop (core);
 		running = false;
 
