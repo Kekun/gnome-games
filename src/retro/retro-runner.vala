@@ -52,6 +52,7 @@ private class Games.RetroRunner : Object, Runner {
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;
 	private RetroGtk.VirtualGamepad gamepad;
+	private RetroGtk.Keyboard keyboard;
 	private RetroGtk.InputDeviceManager input;
 	private Retro.Options options;
 	private Retro.FileStreamLog log;
@@ -90,6 +91,7 @@ private class Games.RetroRunner : Object, Runner {
 		video.visible = true;
 
 		gamepad = new RetroGtk.VirtualGamepad (widget);
+		keyboard = new RetroGtk.Keyboard (widget);
 
 		prepare_core ();
 		core.run (); // Needed to finish preparing some cores.
@@ -147,6 +149,7 @@ private class Games.RetroRunner : Object, Runner {
 		log = new Retro.FileStreamLog (stderr);
 
 		input.set_controller_device (0, gamepad);
+		input.set_keyboard (keyboard);
 
 		core.variables_interface = options;
 		core.log_interface = log;
