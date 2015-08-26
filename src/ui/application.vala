@@ -68,6 +68,7 @@ public class Games.Application : Gtk.Application {
 		var tracker_source = new TrackerGameSource (connection);
 
 		tracker_source.add_query (new DesktopTrackerQuery ());
+		tracker_source.add_query (new GameBoyTrackerQuery ());
 		tracker_source.add_query (new GameBoyAdvanceTrackerQuery ());
 		tracker_source.add_query (new NesTrackerQuery ());
 		tracker_source.add_query (new SnesTrackerQuery ());
