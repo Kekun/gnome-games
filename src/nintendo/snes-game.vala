@@ -82,7 +82,7 @@ private class Games.SnesGame : Object, Game {
 		_name = name.strip ();
 	}
 
-	public Runner get_runner () {
+	public Runner get_runner () throws RunError {
 		return new RetroRunner (MODULE_BASENAME, path, uid);
 	}
 }
