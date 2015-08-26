@@ -94,6 +94,8 @@ private class Games.RetroRunner : Object, Runner {
 		keyboard = new RetroGtk.Keyboard (widget);
 
 		prepare_core ();
+		core.shutdown.connect (on_shutdown);
+
 		core.run (); // Needed to finish preparing some cores.
 
 		loop = new Retro.MainLoop (core);
@@ -286,6 +288,13 @@ private class Games.RetroRunner : Object, Runner {
 
 			return;
 		}
+	}
+
+	private bool on_shutdown () {
+		pause ();
+		stopped ();
+
+		return true;
 	}
 
 	private static void try_make_dir (string path) {
