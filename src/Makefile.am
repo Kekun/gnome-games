@@ -20,6 +20,8 @@ BUILT_SOURCES = \
 	$(NULL)
 
 gnome_games_SOURCES = \
+	command/command-runner.vala \
+	\
 	core/game.vala \
 	core/game-source.vala \
 	core/runner.vala \
@@ -29,7 +31,6 @@ gnome_games_SOURCES = \
 	dummy/dummy-runner.vala \
 	\
 	desktop/desktop-game.vala \
-	desktop/desktop-runner.vala \
 	desktop/desktop-tracker-query.vala \
 	\
 	nintendo/game-boy-game.vala \
