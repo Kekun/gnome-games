@@ -19,6 +19,16 @@ private class Games.DesktopGame: Object, Game {
 	}
 
 	public Runner get_runner () throws RunError {
-		return new DesktopRunner (app_info);
+		string[] args;
+		try {
+			var command = app_info.get_commandline ();
+			if (!Shell.parse_argv (command, out args))
+				throw new RunError.INVALID_COMMAND ("Couldn't run '%s': invalid command '%s'".printf (name, command));
+		}
+		catch (ShellError e) {
+			throw new RunError.INVALID_COMMAND ("Couldn't run '%s': %s".printf (name, e.message));
+		}
+
+		return new CommandRunner (args);
 	}
 }

@@ -18,6 +18,7 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 	gio-unix-2.0
 	glib-2.0 >= $GLIB_MIN_VERSION
 	gtk+-3.0
+	libarchive
 	retro-gobject-0.3
 	retro-gtk-0.1
 	tracker-sparql-1.0

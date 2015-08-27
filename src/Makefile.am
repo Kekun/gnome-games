@@ -20,6 +20,8 @@ BUILT_SOURCES = \
 	$(NULL)
 
 gnome_games_SOURCES = \
+	command/command-runner.vala \
+	\
 	core/game.vala \
 	core/game-source.vala \
 	core/runner.vala \
@@ -28,8 +30,10 @@ gnome_games_SOURCES = \
 	dummy/dummy-game-source.vala \
 	dummy/dummy-runner.vala \
 	\
+	love/love-game.vala \
+	love/love-tracker-query.vala \
+	\
 	desktop/desktop-game.vala \
-	desktop/desktop-runner.vala \
 	desktop/desktop-tracker-query.vala \
 	\
 	nintendo/game-boy-game.vala \
@@ -70,6 +74,7 @@ gnome_games_VALAFLAGS = \
 	--pkg gio-unix-2.0 \
 	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
+	--pkg libarchive \
 	--pkg tracker-sparql-1.0 \
 	--pkg retro-gobject-0.3 \
 	--pkg retro-gtk-0.1 \
