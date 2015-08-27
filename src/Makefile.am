@@ -71,6 +71,7 @@ gnome_games_VALAFLAGS = \
 	--pkg gio-unix-2.0 \
 	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
+	--pkg libarchive \
 	--pkg tracker-sparql-1.0 \
 	--pkg retro-gobject-0.3 \
 	--pkg retro-gtk-0.1 \
