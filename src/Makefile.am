@@ -30,6 +30,9 @@ gnome_games_SOURCES = \
 	dummy/dummy-game-source.vala \
 	dummy/dummy-runner.vala \
 	\
+	love/love-game.vala \
+	love/love-tracker-query.vala \
+	\
 	desktop/desktop-game.vala \
 	desktop/desktop-tracker-query.vala \
 	\
