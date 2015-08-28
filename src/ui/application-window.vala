@@ -28,6 +28,20 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
+	public bool on_key_pressed (Gdk.EventKey event) {
+		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
+
+		if (event.keyval == Gdk.Key.q &&
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+			destroy ();
+
+			return true;
+		}
+
+		return false;
+	}
+
+	[GtkCallback]
 	private void on_game_activated (Game game) {
 		Runner runner = null;
 		try {
