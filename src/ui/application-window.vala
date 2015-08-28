@@ -63,6 +63,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
+		if (event.keyval == Gdk.Key.f &&
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+			if (!search_mode)
+				search_mode = true;
+
+			return true;
+		}
+
 		return false;
 	}
 
