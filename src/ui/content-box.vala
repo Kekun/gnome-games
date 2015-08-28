@@ -4,6 +4,8 @@
 private class Games.ContentBox : Gtk.Overlay {
 	public signal void game_activated (Game game);
 
+	public bool search_mode { set; get; }
+
 	private UiState _ui_state;
 	public UiState ui_state {
 		set {
