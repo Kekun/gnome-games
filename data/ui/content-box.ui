@@ -11,6 +11,16 @@
     <property name="vexpand">True</property>
     <property name="can-focus">False</property>
     <child>
+      <object class="GamesSearchBar" id="search_bar">
+        <property name="visible">True</property>
+        <signal name="notify::text" handler="on_search_text_notify"/>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+      </packing>
+    </child>
+    <child>
       <object class="GtkOverlay" id="overlay">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
