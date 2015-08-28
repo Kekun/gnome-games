@@ -24,6 +24,9 @@ private class Games.HeaderBar : Gtk.Stack {
 		get { return _ui_state; }
 	}
 
+	public string game_title {
+		set { display_header.title = value; }
+	}
 
 	[GtkChild]
 	private Gtk.HeaderBar collection_header;
