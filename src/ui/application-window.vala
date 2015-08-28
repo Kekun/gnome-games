@@ -40,6 +40,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return;
 		}
 
+		header_bar.game_title = game.name;
 		content_box.runner = runner;
 		ui_state = UiState.DISPLAY;
 
