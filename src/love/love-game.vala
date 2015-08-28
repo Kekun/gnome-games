@@ -41,7 +41,7 @@ private class Games.LoveGame : Object, Game {
 		}
 	}
 
-	public string? parse_package (string path) {
+	private string? parse_package (string path) {
 		Archive.Read archive = new Archive.Read ();
 
 		archive.support_filter_all ();
@@ -75,7 +75,7 @@ private class Games.LoveGame : Object, Game {
 		return config_file;
 	}
 
-	public string read_config_file (Archive.Read archive) {
+	private string read_config_file (Archive.Read archive) {
 		string config = "";
 
 		char buffer[BLOCK_SIZE];
@@ -85,27 +85,44 @@ private class Games.LoveGame : Object, Game {
 		return config;
 	}
 
-	public void parse_config_file (string config_file) {
+	private void parse_config_file (string config_file) {
 		var regex = /^\s*[^\s]+\.([^\s\.]+)\s*=\s*(.+?)\s*$/;
+
+		var config = new HashTable<string, string> (GLib.str_hash, GLib.str_equal);
 
 		var lines = config_file.split ("\n");
 		MatchInfo match_info;
 		foreach (var line in lines)
 			if (regex.match (line, RegexMatchFlags.ANCHORED, out match_info)) {
 				var key = match_info.fetch (1);
-				var value = match_info.fetch (2);
-				parse_config_line (key, value);
+				var lua_value = match_info.fetch (2);
+				config[key] = lua_value;
 			}
+
+		if (name == null && config.contains ("title")) {
+			var real_value = parse_string (config["title"]);
+			if (real_value != null)
+				_name = real_value;
+		}
+
+		if (name == null && config.contains ("identity")) {
+			var real_value = parse_string (config["identity"]);
+			if (real_value != null)
+				_name = real_value;
+		}
 	}
 
-	public void parse_config_line (string? key, string? value) {
-		switch (key) {
-		case "title":
-			_name = value.substring (1, -2);
-			_name = value[1:-1];
+	private string? parse_string (string lua_value) {
+		if (lua_value.length < 2)
+			return null;
 
-			break;
-		}
+		if (!lua_value.has_prefix ("\""))
+			return null;
+
+		if (!lua_value.has_suffix ("\""))
+			return null;
+
+		return lua_value[1:-1];
 	}
 
 	public Runner get_runner () throws RunError {
