@@ -10,7 +10,31 @@
         <property name="show_close_button">True</property>
         <property name="title">Games</property>
         <child>
-          <placeholder/>
+          <object class="GtkToggleButton" id="collection_search">
+            <property name="visible">True</property>
+            <property name="valign">center</property>
+            <property name="use-underline">True</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child internal-child="accessible">
+              <object class="AtkObject" id="a11y-collection-search">
+                <property name="accessible-name" translatable="yes">Search</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkImage" id="collection_search_image">
+                <property name="visible">True</property>
+                <property name="icon-name">edit-find-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+          </packing>
         </child>
       </object>
       <packing>
