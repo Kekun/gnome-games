@@ -36,6 +36,9 @@ gnome_games_SOURCES = \
 	desktop/desktop-game.vala \
 	desktop/desktop-tracker-query.vala \
 	\
+	nec/pc-engine-game.vala \
+	nec/pc-engine-tracker-query.vala \
+	\
 	nintendo/game-boy-game.vala \
 	nintendo/game-boy-tracker-query.vala \
 	nintendo/game-boy-advance-game.vala \
