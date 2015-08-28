@@ -47,6 +47,8 @@ gnome_games_SOURCES = \
 	\
 	retro/retro-runner.vala \
 	\
+	sega/master-system.vala \
+	sega/master-system-header.vala \
 	sega/mega-drive-game.vala \
 	sega/mega-drive-tracker-query.vala \
 	\
