@@ -2,15 +2,35 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
 private class Games.ApplicationWindow : Gtk.ApplicationWindow {
-	public UiState ui_state { set; get; }
+	private UiState _ui_state;
+	public UiState ui_state {
+		set {
+			if (value == ui_state)
+				return;
+
+			_ui_state = value;
+
+			if (ui_state != UiState.COLLECTION)
+				search_mode = false;
+		}
+		get { return _ui_state; }
+	}
+
+	private bool _search_mode;
+	public bool search_mode {
+		set { _search_mode = value && (ui_state == UiState.COLLECTION); }
+		get { return _search_mode; }
+	}
 
 	[GtkChild]
 	private ContentBox content_box;
 	private Binding cb_ui_binding;
+	private Binding cb_search_binding;
 
 	[GtkChild]
 	private HeaderBar header_bar;
 	private Binding hb_ui_binding;
+	private Binding hb_search_binding;
 
 	private HashTable<Game, Runner> runners;
 
@@ -22,9 +42,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		runners = new HashTable<Game, Runner> (GLib.direct_hash, GLib.direct_equal);
 
 		cb_ui_binding = content_box.bind_property ("ui-state",
-		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
+		                                           this, "ui-state", BindingFlags.BIDIRECTIONAL);
 		hb_ui_binding = header_bar.bind_property ("ui-state",
 		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
+
+		cb_search_binding = content_box.bind_property ("search-mode",
+		                                               this, "search-mode", BindingFlags.BIDIRECTIONAL);
+		hb_search_binding = header_bar.bind_property ("search-mode",
+		                                              this, "search-mode", BindingFlags.BIDIRECTIONAL);
 	}
 
 	[GtkCallback]
@@ -34,6 +59,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (event.keyval == Gdk.Key.q &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			destroy ();
+
+			return true;
+		}
+
+		if (event.keyval == Gdk.Key.f &&
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+			if (!search_mode)
+				search_mode = true;
 
 			return true;
 		}

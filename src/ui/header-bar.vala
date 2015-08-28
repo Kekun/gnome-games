@@ -24,14 +24,26 @@ private class Games.HeaderBar : Gtk.Stack {
 		get { return _ui_state; }
 	}
 
+	public bool search_mode { set; get; }
+
 	public string game_title {
 		set { display_header.title = value; }
 	}
 
 	[GtkChild]
 	private Gtk.HeaderBar collection_header;
+
+	[GtkChild]
+	private Gtk.ToggleButton collection_search;
+	private Binding sb_active_binding;
+
 	[GtkChild]
 	private Gtk.HeaderBar display_header;
+
+	construct {
+		sb_active_binding = collection_search.bind_property ("active",
+		                                                     this, "search-mode", BindingFlags.BIDIRECTIONAL);
+	}
 
 	[GtkCallback]
 	private void on_display_back_clicked () {

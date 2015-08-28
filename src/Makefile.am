@@ -74,6 +74,7 @@ gnome_games_SOURCES = \
 	ui/header-bar.vala \
 	ui/remote-display.vala \
 	ui/resume-dialog.vala \
+	ui/search-bar.vala \
 	ui/ui-state.vala \
 	\
 	main.vala \

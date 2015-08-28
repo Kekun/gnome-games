@@ -1,8 +1,10 @@
 // This file is part of GNOME Games. License: GPLv3
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/content-box.ui")]
-private class Games.ContentBox : Gtk.Overlay {
+private class Games.ContentBox : Gtk.Box {
 	public signal void game_activated (Game game);
+
+	public bool search_mode { set; get; }
 
 	private UiState _ui_state;
 	public UiState ui_state {
@@ -34,6 +36,10 @@ private class Games.ContentBox : Gtk.Overlay {
 		set { collection_icon_view.model = value; }
 		get { return collection_icon_view.model; }
 	}
+
+	[GtkChild]
+	private SearchBar search_bar;
+	private Binding sb_search_binding;
 
 	[GtkChild]
 	private Gtk.Box info_box;
@@ -69,6 +75,11 @@ private class Games.ContentBox : Gtk.Overlay {
 		collection_icon_view.model = collection;
 	}
 
+	construct {
+		sb_search_binding = search_bar.bind_property ("search-mode-enabled",
+		                                              this, "search-mode", BindingFlags.BIDIRECTIONAL);
+	}
+
 	public void display_error (string message) {
 		var error = new ErrorInfoBar ();
 		error.message = message;
@@ -89,6 +100,11 @@ private class Games.ContentBox : Gtk.Overlay {
 	[GtkCallback]
 	private void on_game_activated (Game game) {
 		game_activated (game);
+	}
+
+	[GtkCallback]
+	private void on_search_text_notify () {
+		collection_icon_view.filtering_text = search_bar.text;
 	}
 
 	private void set_display (Gtk.Widget display) {
