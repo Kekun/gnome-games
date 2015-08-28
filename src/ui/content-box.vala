@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/content-box.ui")]
-private class Games.ContentBox : Gtk.Overlay {
+private class Games.ContentBox : Gtk.Box {
 	public signal void game_activated (Game game);
 
 	public bool search_mode { set; get; }
