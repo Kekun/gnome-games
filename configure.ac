@@ -1,6 +1,12 @@
 AC_INIT([gnome-games], [3.17])
 AM_INIT_AUTOMAKE([foreign])
 
+# i18 support
+IT_PROG_INTLTOOL(0.40.0)
+GETTEXT_PACKAGE=AC_PACKAGE_NAME
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[The name of the gettext domain])
+
 AC_PROG_CC
 AM_PROG_VALAC
 
@@ -28,6 +34,7 @@ AC_CONFIG_FILES([
 	Makefile
 	data/Makefile
 	data/icons/Makefile
+	po/Makefile.in
 	src/Makefile
 ])
 
