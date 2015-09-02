@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=Games
+_GenericName=Video game player
+_Comment=View and play your video games collection
+_Keywords=game;videogame;video game;player
+Exec=gnome-games %U
+Icon=gnome-games
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Player;Game
