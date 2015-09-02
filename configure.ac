@@ -26,6 +26,8 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 
 AC_CONFIG_FILES([
 	Makefile
+	data/Makefile
+	data/icons/Makefile
 	src/Makefile
 ])
 
