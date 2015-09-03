@@ -42,6 +42,8 @@ private class Games.TrackerGameSource : Object, GameSource {
 					var game = query.game_for_cursor (cursor);
 					game_callback (game);
 				}
+				catch (TrackerError.GAME_IS_BLACKLISTED e) {
+				}
 				catch (Error e) {
 					warning ("Error: %s\n", e.message);
 				}
@@ -56,4 +58,8 @@ private class Games.TrackerGameSource : Object, GameSource {
 			}
 		});
 	}
+}
+
+private errordomain TrackerError {
+	GAME_IS_BLACKLISTED,
 }
