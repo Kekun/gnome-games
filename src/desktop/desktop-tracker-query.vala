@@ -1,7 +1,13 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.DesktopTrackerQuery : Object, TrackerQuery {
-	private static const string[] BLACK_LIST = {
+	private static const string[] CATEGORIES_BLACK_LIST = {
+		"Application",
+		"Emulator",
+		"Development",
+	};
+
+	private static const string[] BASE_NAME_BLACK_LIST = {
 		"bsnes.desktop",
 		"fakenes.desktop",
 		"chocolate-doom.desktop",
@@ -85,11 +91,29 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
 		var uri = cursor.get_string (0);
 		var file = File.new_for_uri (uri);
-		var name = file.get_basename ();
 
-		if (name in BLACK_LIST)
-			throw new TrackerError.GAME_IS_BLACKLISTED (@"'$name' is blacklisted.");
+		var path = file.get_path ();
+		var app_info = new DesktopAppInfo.from_filename (path);
+
+		check_categories (app_info);
+		check_base_name (file);
 
 		return new DesktopGame (uri);
+	}
+
+	private void check_categories (DesktopAppInfo app_info) throws Error {
+		var categories_string = app_info.get_categories ();
+		var categories = categories_string.split (";");
+
+		foreach (var category in CATEGORIES_BLACK_LIST)
+			if (category in categories)
+				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted category '$category'.");
+	}
+
+	private void check_base_name (File file) throws Error {
+		var base_name = file.get_basename ();
+
+		if (base_name in BASE_NAME_BLACK_LIST)
+			throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(file.get_path ())' is blacklisted.");
 	}
 }
