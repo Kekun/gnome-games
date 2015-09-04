@@ -36,19 +36,18 @@ private class Games.MasterSystemHeader : Object {
 
 	private FileInputStream stream;
 
-	public MasterSystemHeader (File file) throws MasterSystemError {
-		try {
-			stream = file.read ();
-		}
-		catch (Error e) {
-			throw new MasterSystemError.CANT_READ_FILE (e.message);
-		}
+	public MasterSystemHeader (File file) throws Error {
+		stream = file.read ();
 
+		check_validity ();
+	}
+
+	public void check_validity () throws MasterSystemError {
 		try {
 			stream.seek (MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new MasterSystemError.CANT_READ_FILE (e.message);
+			throw new MasterSystemError.INVALID_SIZE (@"Invalid Master System header size: $(e.message)");
 		}
 
 		var buffer = new uint8[9];
@@ -57,7 +56,7 @@ private class Games.MasterSystemHeader : Object {
 			buffer[8] = '\0';
 		}
 		catch (Error e) {
-			throw new MasterSystemError.CANT_READ_FILE (e.message);
+			throw new MasterSystemError.INVALID_SIZE (e.message);
 		}
 
 		var magic = (string) buffer;
@@ -76,7 +75,6 @@ public enum Games.MasterSystemRegion {
 }
 
 errordomain Games.MasterSystemError {
-	CANT_READ_FILE,
+	INVALID_SIZE,
 	INVALID_HEADER,
-	INVALID_REGION,
 }
