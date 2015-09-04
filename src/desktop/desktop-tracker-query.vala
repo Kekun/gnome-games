@@ -7,6 +7,10 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		"Development",
 	};
 
+	private static const string[] EXECUTABLE_BLACK_LIST = {
+		"steam",
+	};
+
 	private static const string[] BASE_NAME_BLACK_LIST = {
 		"bsnes.desktop",
 		"fakenes.desktop",
@@ -96,6 +100,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		var app_info = new DesktopAppInfo.from_filename (path);
 
 		check_categories (app_info);
+		check_executable (app_info);
 		check_base_name (file);
 
 		return new DesktopGame (uri);
@@ -108,6 +113,15 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		foreach (var category in CATEGORIES_BLACK_LIST)
 			if (category in categories)
 				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted category '$category'.");
+	}
+
+	private void check_executable (DesktopAppInfo app_info) throws Error {
+		var app_executable = app_info.get_executable ();
+
+		foreach (var executable in EXECUTABLE_BLACK_LIST)
+			if (app_executable == executable ||
+			    app_executable.has_suffix ("/" + executable))
+				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted executable '$executable'.");
 	}
 
 	private void check_base_name (File file) throws Error {

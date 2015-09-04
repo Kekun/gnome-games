@@ -81,6 +81,19 @@ public class Games.Application : Gtk.Application {
 		tracker_source.each_game ((game) => {
 			collection.append (game);
 		});
+
+		SteamGameSource steam_source = null;
+		try {
+			steam_source = new SteamGameSource ();
+		}
+		catch (Error e) {
+			warning ("Can't list Steam games: %s\n'", e.message);
+		}
+
+		if (steam_source != null)
+			steam_source.each_game ((game) => {
+				collection.append (game);
+			});
 	}
 
 	private static Gtk.CssProvider load_css (string css) {
