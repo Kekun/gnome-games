@@ -22,6 +22,9 @@ BUILT_SOURCES = \
 gnome_games_SOURCES = \
 	command/command-runner.vala \
 	\
+	commodore/amiga-game.vala \
+	commodore/amiga-tracker-query.vala \
+	\
 	core/game.vala \
 	core/game-source.vala \
 	core/runner.vala \
