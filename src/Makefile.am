@@ -60,6 +60,7 @@ gnome_games_SOURCES = \
 	sega/mega-drive-tracker-query.vala \
 	\
 	steam/steam-registry.vala \
+	steam/steam-runner.vala \
 	\
 	tracker/mime-type-tracker-query.vala \
 	tracker/tracker-game-source.vala \
