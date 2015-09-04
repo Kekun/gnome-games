@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.DesktopTrackerQuery : Object, TrackerQuery {
-	private static const string[] BLACK_LIST = {
+	private static const string[] BASE_NAME_BLACK_LIST = {
 		"bsnes.desktop",
 		"fakenes.desktop",
 		"chocolate-doom.desktop",
@@ -85,11 +85,16 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
 		var uri = cursor.get_string (0);
 		var file = File.new_for_uri (uri);
-		var name = file.get_basename ();
 
-		if (name in BLACK_LIST)
-			throw new TrackerError.GAME_IS_BLACKLISTED (@"'$name' is blacklisted.");
+		check_base_name (file);
 
 		return new DesktopGame (uri);
+	}
+
+	private void check_base_name (File file) throws Error {
+		var base_name = file.get_basename ();
+
+		if (base_name in BASE_NAME_BLACK_LIST)
+			throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(file.get_path ())' is blacklisted.");
 	}
 }
