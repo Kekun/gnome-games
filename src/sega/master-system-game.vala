@@ -46,13 +46,10 @@ private class Games.MasterSystemGame : Object, Game {
 		path = file.get_path ();
 
 		var header = new MasterSystemHeader (file);
-		var region_code = header.region_code;
-		if (region_code != MasterSystemRegion.SMS_JAPAN &&
-		    region_code != MasterSystemRegion.SMS_EXPORT)
-			throw new MasterSystemError.INVALID_REGION ("The file isn't a Master System game.");
+		header.check_validity ();
 
 		var name = file.get_basename ();
-		name = /\.sms$/.replace (name, name.length, 0, "");
+		name = /\.(sms|gg)$/.replace (name, name.length, 0, "");
 		name = name.split ("(")[0];
 		_name = name.strip ();
 	}
