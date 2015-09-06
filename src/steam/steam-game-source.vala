@@ -35,31 +35,34 @@ private class Games.SteamGameSource : Object, GameSource {
 
 	public async void each_game (GameCallback game_callback) {
 		foreach (var library in libraries) {
-			each_game_in_steamapps_dir (library + "/SteamApps", game_callback);
-			each_game_in_steamapps_dir (library + "/steamapps", game_callback);
+			yield each_game_in_steamapps_dir (library + "/SteamApps", game_callback);
+			yield each_game_in_steamapps_dir (library + "/steamapps", game_callback);
 		}
 	}
 
-	public void each_game_in_steamapps_dir (string directory, GameCallback game_callback) {
+	public async void each_game_in_steamapps_dir (string directory, GameCallback game_callback) {
 		try {
 			var file = File.new_for_path (directory);
 
-			var enumerator = file.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+			var enumerator = yield file.enumerate_children_async (FileAttribute.STANDARD_NAME, 0);
 
 			FileInfo info;
 			while ((info = enumerator.next_file ()) != null)
-				game_for_file_info (directory, info, game_callback);
+				yield game_for_file_info (directory, info, game_callback);
 		}
 		catch (Error e) {
 		}
 	}
 
-	public void game_for_file_info (string directory, FileInfo info, GameCallback game_callback) {
+	public async void game_for_file_info (string directory, FileInfo info, GameCallback game_callback) {
 		var name = info.get_name ();
 		if (appmanifest_regex.match (name)) {
 			try {
 				var game = new SteamGame (@"$directory/$name");
 				game_callback (game);
+
+				Idle.add (this.game_for_file_info.callback);
+				yield;
 			}
 			catch (Error e) {
 				warning ("%s\n", e.message);
