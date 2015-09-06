@@ -12,24 +12,24 @@ private class Games.CollectionIconView : Gtk.ScrolledWindow {
 		}
 	}
 
+	private ulong model_changed_id;
 	private ListModel _model;
 	public ListModel model {
 		get { return _model; }
 		set {
-			_model = value;
+			if (model != null)
+				model.disconnect (model_changed_id);
 
+			_model = value;
 			clear_content ();
+			if (model == null)
+				return;
+
 			for (int i = 0 ; i < model.get_n_items () ; i++) {
 				var game = model.get_item (i) as Game;
-				var game_view = new GameIconView (game);
-				var child = new Gtk.FlowBoxChild ();
-
-				game_view.visible = true;
-				child.visible = true;
-
-				child.add (game_view);
-				flow_box.add (child);
+				add_game (game);
 			}
+			model_changed_id = model.items_changed.connect (on_items_changed);
 		}
 	}
 
@@ -49,6 +49,28 @@ private class Games.CollectionIconView : Gtk.ScrolledWindow {
 
 	private void on_game_view_activated (GameIconView game_view) {
 		game_activated (game_view.game);
+	}
+
+	private void on_items_changed (uint position, uint removed, uint added) {
+		// FIXME: currently games are never removed, update this function if
+		// necessary.
+		assert (removed == 0);
+
+		for (uint i = position ; i < position + added ; i++) {
+			var game = model.get_item (i) as Game;
+			add_game (game);
+		}
+	}
+
+	private void add_game (Game game) {
+		var game_view = new GameIconView (game);
+		var child = new Gtk.FlowBoxChild ();
+
+		game_view.visible = true;
+		child.visible = true;
+
+		child.add (game_view);
+		flow_box.add (child);
 	}
 
 	private void clear_content () {
