@@ -33,7 +33,7 @@ private class Games.SteamGameSource : Object, GameSource {
 				libraries += library_reg.get_data ({ "LibraryFolders", child });
 	}
 
-	public void each_game (GameCallback game_callback) {
+	public async void each_game (GameCallback game_callback) {
 		foreach (var library in libraries) {
 			each_game_in_steamapps_dir (library + "/SteamApps", game_callback);
 			each_game_in_steamapps_dir (library + "/steamapps", game_callback);

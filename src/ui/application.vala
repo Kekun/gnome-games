@@ -51,7 +51,7 @@ public class Games.Application : Gtk.Application {
 		Gtk.StyleContext.add_provider_for_screen (screen, provider, 600);
 
 		collection = new ListStore (typeof (Game));
-		load_game_list ();
+		load_game_list.begin ();
 
 		var window = new ApplicationWindow (collection);
 		this.add_window (window);
@@ -61,7 +61,7 @@ public class Games.Application : Gtk.Application {
 		window.show ();
 	}
 
-	public void load_game_list () {
+	public async void load_game_list () {
 		if (connection == null)
 			return;
 
@@ -78,7 +78,7 @@ public class Games.Application : Gtk.Application {
 		tracker_source.add_query (new PcEngineTrackerQuery ());
 		tracker_source.add_query (new SnesTrackerQuery ());
 
-		tracker_source.each_game ((game) => {
+		yield tracker_source.each_game ((game) => {
 			collection.append (game);
 		});
 
@@ -91,7 +91,7 @@ public class Games.Application : Gtk.Application {
 		}
 
 		if (steam_source != null)
-			steam_source.each_game ((game) => {
+			yield steam_source.each_game ((game) => {
 				collection.append (game);
 			});
 	}

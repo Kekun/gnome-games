@@ -16,7 +16,7 @@ private class Games.TrackerGameSource : Object, GameSource {
 		queries.add (query);
 	}
 
-	public void each_game (GameCallback game_callback) {
+	public async void each_game (GameCallback game_callback) {
 		queries.@foreach ((query) => {
 			var sparql = query.get_query ();
 			Tracker.Sparql.Cursor cursor;
