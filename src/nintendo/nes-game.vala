@@ -1,6 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.NesGame : Object, Game {
+	private const string FINGERPRINT_PREFIX = "nes-";
 	private const string MODULE_BASENAME = "libretro-nes.so";
 
 	private string _uid;
@@ -9,7 +10,8 @@ private class Games.NesGame : Object, Game {
 			if (_uid != null)
 				return _uid;
 
-			_uid = Checksum.compute_for_string (ChecksumType.MD5, uri);
+			var fingerprint = Fingerprint.get_for_file_uri (uri);
+			_uid = FINGERPRINT_PREFIX + fingerprint;
 
 			return _uid;
 		}
