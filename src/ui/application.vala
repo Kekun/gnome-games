@@ -78,6 +78,7 @@ public class Games.Application : Gtk.Application {
 		tracker_source.add_query (new Nintendo64TrackerQuery ());
 		tracker_source.add_query (new PcEngineTrackerQuery ());
 		tracker_source.add_query (new SnesTrackerQuery ());
+		tracker_source.add_query (new WiiTrackerQuery ());
 
 		yield tracker_source.each_game (add_game);
 
