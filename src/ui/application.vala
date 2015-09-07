@@ -68,6 +68,7 @@ public class Games.Application : Gtk.Application {
 		var tracker_source = new TrackerGameSource (connection);
 
 		tracker_source.add_query (new DesktopTrackerQuery ());
+		tracker_source.add_query (new DreamcastTrackerQuery ());
 		tracker_source.add_query (new GameBoyTrackerQuery ());
 		tracker_source.add_query (new GameBoyAdvanceTrackerQuery ());
 		tracker_source.add_query (new GameCubeTrackerQuery ());
@@ -78,6 +79,7 @@ public class Games.Application : Gtk.Application {
 		tracker_source.add_query (new Nintendo64TrackerQuery ());
 		tracker_source.add_query (new NintendoDsTrackerQuery ());
 		tracker_source.add_query (new PcEngineTrackerQuery ());
+		tracker_source.add_query (new SegaSaturnTrackerQuery ());
 		tracker_source.add_query (new SnesTrackerQuery ());
 		tracker_source.add_query (new WiiTrackerQuery ());
 		tracker_source.add_query (new WiiWareTrackerQuery ());
