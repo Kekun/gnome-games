@@ -80,6 +80,7 @@ gnome_games_SOURCES = \
 	ui/ui-state.vala \
 	\
 	main.vala \
+	utils.vala \
 	$(BUILT_SOURCES) \
 	$(NULL)
 
