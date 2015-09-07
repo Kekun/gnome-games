@@ -74,6 +74,7 @@ public class Games.Application : Gtk.Application {
 		tracker_source.add_query (new MasterSystemTrackerQuery ());
 		tracker_source.add_query (new MegaDriveTrackerQuery ());
 		tracker_source.add_query (new NesTrackerQuery ());
+		tracker_source.add_query (new Nintendo64TrackerQuery ());
 		tracker_source.add_query (new PcEngineTrackerQuery ());
 		tracker_source.add_query (new SnesTrackerQuery ());
 
