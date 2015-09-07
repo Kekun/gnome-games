@@ -72,6 +72,7 @@ gnome_games_SOURCES = \
 	sega/master-system-header.vala \
 	sega/master-system-tracker-query.vala \
 	sega/mega-drive-game.vala \
+	sega/mega-drive-header.vala \
 	sega/mega-drive-tracker-query.vala \
 	sega/sega-saturn-game.vala \
 	sega/sega-saturn-tracker-query.vala \

@@ -47,6 +47,9 @@ private class Games.MegaDriveGame : Object, Game {
 		var file = File.new_for_uri (uri);
 		path = file.get_path ();
 
+		var header = new MegaDriveHeader (file);
+		header.check_validity ();
+
 		var name = file.get_basename ();
 		name = /\.gen$/.replace (name, name.length, 0, "");
 		name = name.split ("(")[0];
