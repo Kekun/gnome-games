@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/collection-icon-view.ui")]
-private class Games.CollectionIconView : Gtk.ScrolledWindow {
+private class Games.CollectionIconView : Gtk.Stack {
 	public signal void game_activated (Game game);
 
 	private string[] filtering_terms;
@@ -34,6 +34,10 @@ private class Games.CollectionIconView : Gtk.ScrolledWindow {
 	}
 
 	[GtkChild]
+	private EmptyCollection empty_collection;
+	[GtkChild]
+	private Gtk.ScrolledWindow scrolled_window;
+	[GtkChild]
 	private Gtk.FlowBox flow_box;
 
 	construct {
@@ -60,6 +64,8 @@ private class Games.CollectionIconView : Gtk.ScrolledWindow {
 			var game = model.get_item (i) as Game;
 			add_game (game);
 		}
+
+		update_collection ();
 	}
 
 	private void add_game (Game game) {
@@ -98,4 +104,12 @@ private class Games.CollectionIconView : Gtk.ScrolledWindow {
 
 		return true;
 	}
+
+	private void update_collection () {
+		if (model.get_n_items () == 0)
+			set_visible_child (empty_collection);
+		else
+			set_visible_child (scrolled_window);
+	}
+
 }
