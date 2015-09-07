@@ -43,6 +43,8 @@ gnome_games_SOURCES = \
 	nintendo/game-boy-tracker-query.vala \
 	nintendo/game-boy-advance-game.vala \
 	nintendo/game-boy-advance-tracker-query.vala \
+	nintendo/game-cube-game.vala \
+	nintendo/game-cube-tracker-query.vala \
 	nintendo/nes-game.vala \
 	nintendo/nes-tracker-query.vala \
 	nintendo/nintendo-64-game.vala \
