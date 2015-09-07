@@ -60,6 +60,8 @@ gnome_games_SOURCES = \
 	\
 	retro/retro-runner.vala \
 	\
+	sega/dreamcast-game.vala \
+	sega/dreamcast-tracker-query.vala \
 	sega/master-system-game.vala \
 	sega/master-system-header.vala \
 	sega/master-system-tracker-query.vala \
