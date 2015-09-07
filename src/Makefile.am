@@ -49,6 +49,8 @@ gnome_games_SOURCES = \
 	nintendo/nes-tracker-query.vala \
 	nintendo/nintendo-64-game.vala \
 	nintendo/nintendo-64-tracker-query.vala \
+	nintendo/nintendo-ds-game.vala \
+	nintendo/nintendo-ds-tracker-query.vala \
 	nintendo/snes-game.vala \
 	nintendo/snes-tracker-query.vala \
 	nintendo/wii-game.vala \
