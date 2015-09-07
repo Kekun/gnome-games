@@ -70,12 +70,17 @@ public class Games.Application : Gtk.Application {
 		tracker_source.add_query (new DesktopTrackerQuery ());
 		tracker_source.add_query (new GameBoyTrackerQuery ());
 		tracker_source.add_query (new GameBoyAdvanceTrackerQuery ());
+		tracker_source.add_query (new GameCubeTrackerQuery ());
 		tracker_source.add_query (new LoveTrackerQuery ());
 		tracker_source.add_query (new MasterSystemTrackerQuery ());
 		tracker_source.add_query (new MegaDriveTrackerQuery ());
 		tracker_source.add_query (new NesTrackerQuery ());
+		tracker_source.add_query (new Nintendo64TrackerQuery ());
+		tracker_source.add_query (new NintendoDsTrackerQuery ());
 		tracker_source.add_query (new PcEngineTrackerQuery ());
 		tracker_source.add_query (new SnesTrackerQuery ());
+		tracker_source.add_query (new WiiTrackerQuery ());
+		tracker_source.add_query (new WiiWareTrackerQuery ());
 
 		yield tracker_source.each_game (add_game);
 
