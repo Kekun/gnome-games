@@ -6,6 +6,7 @@
     <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
     <file preprocess="xml-stripblanks">ui/content-box.ui</file>
     <file preprocess="xml-stripblanks">ui/dummy-display.ui</file>
+    <file preprocess="xml-stripblanks">ui/empty-collection.ui</file>
     <file preprocess="xml-stripblanks">ui/error-info-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/game-icon-view.ui</file>
     <file preprocess="xml-stripblanks">ui/header-bar.ui</file>
