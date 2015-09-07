@@ -122,6 +122,8 @@ private class Games.RetroRunner : Object, Runner {
 
 	public void start () throws RunError {
 		loop.stop ();
+
+		load_ram ();
 		core.reset ();
 
 		loop.start ();
@@ -130,6 +132,9 @@ private class Games.RetroRunner : Object, Runner {
 
 	public void resume () throws RunError {
 		loop.stop ();
+
+		load_ram ();
+		core.reset ();
 		load_snapshot ();
 
 		loop.start ();
@@ -164,8 +169,6 @@ private class Games.RetroRunner : Object, Runner {
 
 		if (!try_load_game (core, game_path))
 			throw new RunError.INVALID_GAME_FILE (@"Invalid game file: $game_path");
-
-		load_ram ();
 	}
 
 	private bool try_load_game (Retro.Core core, string game_name) {
