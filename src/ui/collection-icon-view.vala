@@ -30,6 +30,8 @@ private class Games.CollectionIconView : Gtk.Stack {
 				add_game (game);
 			}
 			model_changed_id = model.items_changed.connect (on_items_changed);
+
+			flow_box.invalidate_sort ();
 		}
 	}
 
@@ -43,6 +45,7 @@ private class Games.CollectionIconView : Gtk.Stack {
 	construct {
 		flow_box.max_children_per_line = uint.MAX;
 		flow_box.set_filter_func (filter_box);
+		flow_box.set_sort_func (sort_boxes);
 	}
 
 	[GtkCallback]
@@ -64,6 +67,8 @@ private class Games.CollectionIconView : Gtk.Stack {
 			var game = model.get_item (i) as Game;
 			add_game (game);
 		}
+
+		flow_box.invalidate_sort ();
 
 		update_collection ();
 	}
@@ -103,6 +108,20 @@ private class Games.CollectionIconView : Gtk.Stack {
 				return false;
 
 		return true;
+	}
+
+	private int sort_boxes (Gtk.FlowBoxChild child1, Gtk.FlowBoxChild child2) {
+		var game_view1 = child1.get_child () as GameIconView;
+		var game_view2 = child2.get_child () as GameIconView;
+
+		assert (game_view1 != null);
+		assert (game_view2 != null);
+
+		return sort_games (game_view1.game, game_view2.game);
+	}
+
+	private int sort_games (Game game1, Game game2) {
+		return game1.name.collate (game2.name);
 	}
 
 	private void update_collection () {
