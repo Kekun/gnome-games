@@ -29,6 +29,9 @@ gnome_games_SOURCES = \
 	core/game-source.vala \
 	core/runner.vala \
 	\
+	doom/doom-game.vala \
+	doom/doom-tracker-query.vala \
+	\
 	dummy/dummy-game.vala \
 	dummy/dummy-game-source.vala \
 	dummy/dummy-runner.vala \
