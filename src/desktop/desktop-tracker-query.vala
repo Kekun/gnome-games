@@ -1,10 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.DesktopTrackerQuery : Object, TrackerQuery {
-	private static const string[] EXECUTABLE_BLACK_LIST = {
-		"steam",
-	};
-
 	public string get_query () {
 		return "SELECT ?soft WHERE { ?soft nie:isLogicalPartOf 'urn:software-category:Game' . }";
 	}
@@ -35,7 +31,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	private void check_executable (DesktopAppInfo app_info) throws Error {
 		var app_executable = app_info.get_executable ();
 
-		foreach (var executable in EXECUTABLE_BLACK_LIST)
+		foreach (var executable in get_executable_black_list ())
 			if (app_executable == executable ||
 			    app_executable.has_suffix ("/" + executable))
 				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted executable '$executable'.");
@@ -54,6 +50,14 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 			categories_black_list = get_lines_from_resource ("blacklists/desktop-categories.blacklist");
 
 		return categories_black_list;
+	}
+
+	private static string[] executable_black_list;
+	private static string[] get_executable_black_list () {
+		if (executable_black_list == null)
+			executable_black_list = get_lines_from_resource ("blacklists/desktop-executable.blacklist");
+
+		return executable_black_list;
 	}
 
 	private static string[] base_name_black_list;
