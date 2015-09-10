@@ -32,8 +32,6 @@
           </object>
           <packing>
             <property name="pack-type">end</property>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
           </packing>
         </child>
       </object>
