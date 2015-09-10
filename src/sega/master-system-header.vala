@@ -8,29 +8,42 @@ private class Games.MasterSystemHeader : Object {
 	private const size_t REGION_CODE_OFFSET = 0x7fff;
 	private const uint8 REGION_CODE_MASK = 0xf0;
 
+	private MasterSystemRegion? _region_code;
 	public MasterSystemRegion region_code {
 		get {
+			if (_region_code != null)
+				return _region_code;
+
 			try {
 				stream.seek (REGION_CODE_OFFSET, SeekType.SET);
 			}
 			catch (Error e) {
-				return MasterSystemRegion.INVALID;
+				_region_code = MasterSystemRegion.INVALID;
+
+				return _region_code;
 			}
 
-			var buffer = new uint8[1];
+			uint8 buffer[1];
 			try {
+				stream.seek (REGION_CODE_OFFSET, SeekType.SET);
 				stream.read (buffer);
 			}
 			catch (Error e) {
-				return MasterSystemRegion.INVALID;
+				_region_code = MasterSystemRegion.INVALID;
+
+				return _region_code;
 			}
 
-			var region_code = (buffer[0] & REGION_CODE_MASK) >> 4;
+			var region_value = (buffer[0] & REGION_CODE_MASK) >> 4;
 
-			if (MasterSystemRegion.SMS_JAPAN <= region_code <= MasterSystemRegion.GG_INTERNATIONAL)
-				return (MasterSystemRegion) region_code;
+			if (MasterSystemRegion.SMS_JAPAN <= region_value &&
+			    region_value <= MasterSystemRegion.GG_INTERNATIONAL)
+				_region_code = (MasterSystemRegion) region_value;
 
-			return MasterSystemRegion.INVALID;
+			if (_region_code == null)
+				_region_code = MasterSystemRegion.INVALID;
+
+			return _region_code;
 		}
 	}
 
