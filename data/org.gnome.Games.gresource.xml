@@ -3,6 +3,7 @@
   <gresource prefix="/org/gnome/Games">
     <file>gtk-style.css</file>
     <file>blacklists/desktop-base-name.blacklist</file>
+    <file>blacklists/desktop-categories.blacklist</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
     <file preprocess="xml-stripblanks">ui/content-box.ui</file>

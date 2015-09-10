@@ -1,12 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.DesktopTrackerQuery : Object, TrackerQuery {
-	private static const string[] CATEGORIES_BLACK_LIST = {
-		"Application",
-		"Emulator",
-		"Development",
-	};
-
 	private static const string[] EXECUTABLE_BLACK_LIST = {
 		"steam",
 	};
@@ -33,7 +27,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		var categories_string = app_info.get_categories ();
 		var categories = categories_string.split (";");
 
-		foreach (var category in CATEGORIES_BLACK_LIST)
+		foreach (var category in get_categories_black_list ())
 			if (category in categories)
 				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted category '$category'.");
 	}
@@ -52,6 +46,14 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 
 		if (base_name in get_base_name_black_list ())
 			throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(file.get_path ())' is blacklisted.");
+	}
+
+	private static string[] categories_black_list;
+	private static string[] get_categories_black_list () {
+		if (categories_black_list == null)
+			categories_black_list = get_lines_from_resource ("blacklists/desktop-categories.blacklist");
+
+		return categories_black_list;
 	}
 
 	private static string[] base_name_black_list;
