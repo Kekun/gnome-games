@@ -56,14 +56,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
-		if (event.keyval == Gdk.Key.q &&
+		if ((event.keyval == Gdk.Key.q || event.keyval == Gdk.Key.Q) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			destroy ();
 
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.f &&
+		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			if (!search_mode)
 				search_mode = true;
