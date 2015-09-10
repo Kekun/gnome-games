@@ -79,8 +79,7 @@ private class Games.RetroRunner : Object, Runner {
 	public RetroRunner (string module_basename, string game_path, string uid) throws RunError {
 		construction_succeeded = false;
 
-		var modules_dir = Retro.get_plugins_dir ();
-		this.module_path = @"$modules_dir/$module_basename";
+		this.module_path = Retro.search_module (module_basename);
 		this.game_path = game_path;
 		this.uid = uid;
 
