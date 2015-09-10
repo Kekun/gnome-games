@@ -47,6 +47,9 @@ private class Games.GameBoyGame : Object, Game {
 		var file = File.new_for_uri (uri);
 		path = file.get_path ();
 
+		var header = new GameBoyHeader (file);
+		header.check_validity ();
+
 		var name = file.get_basename ();
 		name = /\.gb$/.replace (name, name.length, 0, "");
 		name = name.split ("(")[0];

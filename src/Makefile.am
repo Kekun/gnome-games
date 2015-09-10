@@ -46,6 +46,7 @@ gnome_games_SOURCES = \
 	nec/pc-engine-tracker-query.vala \
 	\
 	nintendo/game-boy-game.vala \
+	nintendo/game-boy-header.vala \
 	nintendo/game-boy-tracker-query.vala \
 	nintendo/game-boy-advance-game.vala \
 	nintendo/game-boy-advance-tracker-query.vala \
@@ -72,6 +73,7 @@ gnome_games_SOURCES = \
 	sega/master-system-header.vala \
 	sega/master-system-tracker-query.vala \
 	sega/mega-drive-game.vala \
+	sega/mega-drive-header.vala \
 	sega/mega-drive-tracker-query.vala \
 	sega/sega-saturn-game.vala \
 	sega/sega-saturn-tracker-query.vala \
