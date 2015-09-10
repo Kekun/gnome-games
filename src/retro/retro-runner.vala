@@ -112,7 +112,12 @@ private class Games.RetroRunner : Object, Runner {
 		loop.stop ();
 		running = false;
 
-		save ();
+		try {
+			save ();
+		}
+		catch (RunError e) {
+			warning (e.message);
+		}
 	}
 
 	public Gtk.Widget get_display () {
@@ -205,16 +210,22 @@ private class Games.RetroRunner : Object, Runner {
 		loop.stop ();
 		running = false;
 
-		save ();
+
+		try {
+			save ();
+		}
+		catch (RunError e) {
+			warning (e.message);
+		}
 	}
 
-	private void save () {
+	private void save () throws RunError {
 		save_ram ();
 		save_snapshot ();
 		save_screenshot ();
 	}
 
-	private void save_ram () {
+	private void save_ram () throws RunError{
 		var save = core.get_memory (Retro.MemoryType.SAVE_RAM);
 		if (save.length == 0)
 			return;
@@ -222,17 +233,29 @@ private class Games.RetroRunner : Object, Runner {
 		var dir = Application.get_saves_dir ();
 		try_make_dir (dir);
 
-		save_to_file (save_path, save);
+		try {
+			FileUtils.set_data (save_path, save);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_WRITE_SAVE (@"Couldn't write save: $(e.message)");
+		}
 	}
 
-	private void load_ram () {
-		var size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
-		if (size == 0)
+	private void load_ram () throws RunError {
+		if (!FileUtils.test (save_path, FileTest.EXISTS))
 			return;
 
-		var data = load_from_file (save_path, size);
-		if (data == null)
-			return;
+		uint8[] data = null;
+		try {
+			FileUtils.get_data (save_path, out data);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_LOAD_SAVE (@"Couldn't load save: $(e.message)");
+		}
+
+		var expected_size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
+		if (data.length != expected_size)
+			warning ("Unexpected RAM data size: got %lu, expected %lu\n", data.length, expected_size);
 
 		core.set_memory (Retro.MemoryType.SAVE_RAM, data);
 	}
