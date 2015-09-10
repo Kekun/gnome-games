@@ -63,10 +63,9 @@ private class Games.MasterSystemHeader : Object {
 			throw new MasterSystemError.INVALID_SIZE (@"Invalid Master System header size: $(e.message)");
 		}
 
-		var buffer = new uint8[9];
+		var buffer = new uint8[MAGIC_VALUE.length];
 		try {
 			stream.read (buffer);
-			buffer[8] = '\0';
 		}
 		catch (Error e) {
 			throw new MasterSystemError.INVALID_SIZE (e.message);
