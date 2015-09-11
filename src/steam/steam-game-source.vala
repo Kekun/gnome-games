@@ -3,8 +3,10 @@
 private class Games.SteamGameSource : Object, GameSource {
 	// From the home directory.
 	private const string REGISTRY_PATH = "/.steam/registry.vdf";
-	// From the default install directory.
-	private const string LIBRARY_DIRS_PATH = "/SteamApps/libraryfolders.vdf";
+	// From an install directory.
+	private const string[] STEAMAPPS_DIRS = { "/SteamApps", "/steamapps" };
+	// From the default SteamApp directory.
+	private const string LIBRARY_DIRS_REG = "/libraryfolders.vdf";
 
 	private const string[] INSTALL_PATH_REGISTRY_PATH =
 		{ "Registry", "HKLM", "Software", "Valve", "Steam", "InstallPath" };
@@ -26,18 +28,24 @@ private class Games.SteamGameSource : Object, GameSource {
 
 		// `/LibraryFolders/$NUMBER` entries in the libraryfolders.vdf registry
 		// file are library directories.
-		var library_reg_path = install_path + LIBRARY_DIRS_PATH;
-		var library_reg = new SteamRegistry (library_reg_path);
-		foreach (var child in library_reg.get_children ({ "LibraryFolders" }))
-			if (/^\d+$/.match (child))
-				libraries += library_reg.get_data ({ "LibraryFolders", child });
+		foreach (var steamapps_dir in STEAMAPPS_DIRS) {
+			var install_steamapps_dir = install_path + steamapps_dir;
+			var file = File.new_for_path (install_steamapps_dir);
+			if (!file.query_exists ())
+				continue;
+
+			var library_reg_path = install_steamapps_dir + LIBRARY_DIRS_REG;
+			var library_reg = new SteamRegistry (library_reg_path);
+			foreach (var child in library_reg.get_children ({ "LibraryFolders" }))
+				if (/^\d+$/.match (child))
+					libraries += library_reg.get_data ({ "LibraryFolders", child });
+		}
 	}
 
 	public async void each_game (GameCallback game_callback) {
-		foreach (var library in libraries) {
-			yield each_game_in_steamapps_dir (library + "/SteamApps", game_callback);
-			yield each_game_in_steamapps_dir (library + "/steamapps", game_callback);
-		}
+		foreach (var library in libraries)
+			foreach (var steamapps_dir in STEAMAPPS_DIRS)
+				yield each_game_in_steamapps_dir (library + steamapps_dir, game_callback);
 	}
 
 	public async void each_game_in_steamapps_dir (string directory, GameCallback game_callback) {
