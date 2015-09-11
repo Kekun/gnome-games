@@ -26,18 +26,6 @@ private class Games.GameBoyGame : Object, Game {
 		get { return null; }
 	}
 
-	public Gdk.Pixbuf? cover {
-		get { return null; }
-	}
-
-	public Gdk.Pixbuf? screenshot {
-		get { return null; }
-	}
-
-	public bool running {
-		get { return false; }
-	}
-
 	private string uri;
 	private string path;
 
