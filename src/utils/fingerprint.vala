@@ -18,3 +18,24 @@ namespace Games.Fingerprint {
 		return Checksum.compute_for_bytes (ChecksumType.MD5, bytes);
 	}
 }
+
+private class Games.FingerprintUID: Object {
+	private string uri;
+	private string prefix;
+	private string uid;
+
+	public FingerprintUID (string uri, string prefix) {
+		this.uri = uri;
+		this.prefix = prefix;
+	}
+
+	public string get_uid () throws Error {
+		if (uid != null)
+			return uid;
+
+		var fingerprint = Fingerprint.get_for_file_uri (uri);
+		uid = @"$prefix-$fingerprint";
+
+		return uid;
+	}
+}
