@@ -1,5 +1,5 @@
 AC_INIT([gnome-games], [3.17])
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 # i18 support
 IT_PROG_INTLTOOL(0.40.0)
