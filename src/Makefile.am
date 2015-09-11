@@ -111,10 +111,10 @@ gnome_games_SOURCES = \
 	ui/search-bar.vala \
 	ui/ui-state.vala \
 	\
+	utils/fingerprint.vala \
 	utils/grep.vala \
 	\
 	main.vala \
-	utils.vala \
 	$(BUILT_SOURCES) \
 	$(NULL)
 
