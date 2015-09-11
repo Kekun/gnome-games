@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.SnesGame : Object, Game {
-	private const string FINGERPRINT_PREFIX = "snes-";
+	private const string FINGERPRINT_PREFIX = "snes";
 	private const string MODULE_BASENAME = "libretro-snes.so";
 
 	private const ulong BASE_ROM_SIZE = 0x40000;
@@ -12,14 +12,13 @@ private class Games.SnesGame : Object, Game {
 	private const ulong NAME_OFFSET = 0;
 	private const ulong NAME_SIZE = 21;
 
-	private string _uid;
-	public string uid {
+	private FingerprintUID _uid;
+	public FingerprintUID uid {
 		get {
 			if (_uid != null)
 				return _uid;
 
-			var fingerprint = Fingerprint.get_for_file_uri (uri);
-			_uid = FINGERPRINT_PREFIX + fingerprint;
+			_uid = new FingerprintUID (uri, FINGERPRINT_PREFIX);
 
 			return _uid;
 		}
@@ -73,6 +72,14 @@ private class Games.SnesGame : Object, Game {
 	}
 
 	public Runner get_runner () throws RunError {
+		string uid;
+		try {
+			uid = this.uid.get_uid ();
+		}
+		catch (Error e) {
+			throw new RunError.COULDNT_GET_UID (@"Couldn't get UID: $(e.message)");
+		}
+
 		return new RetroRunner (MODULE_BASENAME, path, uid);
 	}
 }
