@@ -83,6 +83,7 @@ gnome_games_SOURCES = \
 	sega/sega-saturn-game.vala \
 	sega/sega-saturn-header.vala \
 	sega/sega-saturn-tracker-query.vala \
+	sega/sega-saturn-uid.vala \
 	\
 	steam/steam-game.vala \
 	steam/steam-game-source.vala \
