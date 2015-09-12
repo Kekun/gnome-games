@@ -28,11 +28,15 @@ private class Games.SegaSaturnGame : Object, Game {
 
 	private string uri;
 	private string path;
+	private SegaSaturnHeader header;
 
 	public SegaSaturnGame (string uri) throws Error {
 		this.uri = uri;
 
 		var file = File.new_for_uri (uri);
+
+		header = new SegaSaturnHeader (file);
+		header.check_validity ();
 
 		var cue = get_associated_cue_sheet (file);
 		path = cue ?? file.get_path ();
