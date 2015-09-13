@@ -112,7 +112,12 @@ private class Games.RetroRunner : Object, Runner {
 		loop.stop ();
 		running = false;
 
-		save ();
+		try {
+			save ();
+		}
+		catch (RunError e) {
+			warning (e.message);
+		}
 	}
 
 	public Gtk.Widget get_display () {
@@ -205,16 +210,22 @@ private class Games.RetroRunner : Object, Runner {
 		loop.stop ();
 		running = false;
 
-		save ();
+
+		try {
+			save ();
+		}
+		catch (RunError e) {
+			warning (e.message);
+		}
 	}
 
-	private void save () {
+	private void save () throws RunError {
 		save_ram ();
 		save_snapshot ();
 		save_screenshot ();
 	}
 
-	private void save_ram () {
+	private void save_ram () throws RunError{
 		var save = core.get_memory (Retro.MemoryType.SAVE_RAM);
 		if (save.length == 0)
 			return;
@@ -222,63 +233,86 @@ private class Games.RetroRunner : Object, Runner {
 		var dir = Application.get_saves_dir ();
 		try_make_dir (dir);
 
-		save_to_file (save_path, save);
+		try {
+			FileUtils.set_data (save_path, save);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_WRITE_SAVE (@"Couldn't write save: $(e.message)");
+		}
 	}
 
-	private void load_ram () {
-		var size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
-		if (size == 0)
+	private void load_ram () throws RunError {
+		if (!FileUtils.test (save_path, FileTest.EXISTS))
 			return;
 
-		var data = load_from_file (save_path, size);
-		if (data == null)
-			return;
+		uint8[] data = null;
+		try {
+			FileUtils.get_data (save_path, out data);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_LOAD_SAVE (@"Couldn't load save: $(e.message)");
+		}
+
+		var expected_size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
+		if (data.length != expected_size)
+			warning ("Unexpected RAM data size: got %lu, expected %lu\n", data.length, expected_size);
 
 		core.set_memory (Retro.MemoryType.SAVE_RAM, data);
 	}
 
-	private void save_snapshot () {
+	private void save_snapshot () throws RunError {
 		var size = core.serialize_size ();
 		var buffer = new uint8[size];
 
 		if (!core.serialize (buffer))
-			return; // FIXME: Should throw error rather that returning.
+			throw new RunError.COULDNT_WRITE_SNAPSHOT ("Couldn't write snapshot.");
 
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
 
-		save_to_file (snapshot_path, buffer);
-	}
-
-	private void load_snapshot () {
-		var size = core.serialize_size ();
-		if (size == 0)
-			return;
-
-		var data = load_from_file (snapshot_path, size);
-		if (data == null)
-			return;
-
-		if (!core.unserialize (data))
-			return; // FIXME: Should throw error rather that returning.
-	}
-
-	private void save_screenshot () {
-		var pixbuf = video.pixbuf;
-		if (pixbuf != null)
-			try {
-				pixbuf.save (screenshot_path, "png");
-			}
-			catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
+		try {
+			FileUtils.set_data (snapshot_path, buffer);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_WRITE_SNAPSHOT (@"Couldn't write snapshot: $(e.message)");
 		}
 	}
 
-	private void load_screenshot () {
-		var file = File.new_for_path (screenshot_path);
-		if (!file.query_exists ())
+	private void load_snapshot () throws RunError {
+		if (!FileUtils.test (snapshot_path, FileTest.EXISTS))
+			return;
+
+		uint8[] data = null;
+		try {
+			FileUtils.get_data (snapshot_path, out data);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_LOAD_SNAPSHOT (@"Couldn't load snapshot: $(e.message)");
+		}
+
+		var expected_size = core.serialize_size ();
+		if (data.length != expected_size)
+			warning ("Unexpected serialization data size: got %lu, expected %lu\n", data.length, expected_size);
+
+		if (!core.unserialize (data))
+			throw new RunError.COULDNT_LOAD_SNAPSHOT ("Couldn't load snapshot.");
+	}
+
+	private void save_screenshot () throws RunError {
+		var pixbuf = video.pixbuf;
+		if (pixbuf == null)
+			return;
+
+		try {
+			pixbuf.save (screenshot_path, "png");
+		}
+		catch (Error e) {
+			throw new RunError.COULDNT_WRITE_SCREENSHOT(@"Couldn't write screenshot: $(e.message)");
+		}
+	}
+
+	private void load_screenshot () throws RunError {
+		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
 			return;
 
 		try {
@@ -286,9 +320,7 @@ private class Games.RetroRunner : Object, Runner {
 			video.pixbuf = pixbuf;
 		}
 		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
+			throw new RunError.COULDNT_LOAD_SCREENSHOT(@"Couldn't load screenshot: $(e.message)");
 		}
 	}
 
@@ -306,59 +338,6 @@ private class Games.RetroRunner : Object, Runner {
 				file.make_directory_with_parents ();
 		}
 		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
-		}
-	}
-
-	private static uint8[]? load_from_file (string path, size_t size) {
-		var file = File.new_for_path (path);
-
-		if (!file.query_exists ())
-			return null;
-
-		FileInputStream stream;
-		try {
-			stream = file.read ();
-		}
-		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return null;
-		}
-
-		var buffer = new uint8[size];
-
-		try {
-			stream.read (buffer);
-		}
-		catch (IOError e) {
-			warning (@"$(e.message)\n");
-
-			return null;
-		}
-
-		return buffer;
-	}
-
-	private static void save_to_file (string path, uint8[] data) {
-		var file = File.new_for_path (path);
-
-		FileOutputStream stream;
-		try {
-			stream = file.replace (null, false, FileCreateFlags.NONE);
-		}
-		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
-		}
-
-		try {
-			stream.write (data);
-		}
-		catch (IOError e) {
 			warning (@"$(e.message)\n");
 
 			return;
