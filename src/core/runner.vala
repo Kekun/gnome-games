@@ -16,4 +16,5 @@ private errordomain Games.RunError {
 	INVALID_COMMAND,
 	INVALID_GAME_FILE,
 	MODULE_NOT_FOUND,
+	COULDNT_GET_UID,
 }

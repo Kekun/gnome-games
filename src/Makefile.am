@@ -51,7 +51,9 @@ gnome_games_SOURCES = \
 	nintendo/game-boy-advance-game.vala \
 	nintendo/game-boy-advance-tracker-query.vala \
 	nintendo/game-cube-game.vala \
+	nintendo/game-cube-header.vala \
 	nintendo/game-cube-tracker-query.vala \
+	nintendo/game-cube-uid.vala \
 	nintendo/nes-game.vala \
 	nintendo/nes-tracker-query.vala \
 	nintendo/nintendo-64-game.vala \
@@ -61,7 +63,9 @@ gnome_games_SOURCES = \
 	nintendo/snes-game.vala \
 	nintendo/snes-tracker-query.vala \
 	nintendo/wii-game.vala \
+	nintendo/wii-header.vala \
 	nintendo/wii-tracker-query.vala \
+	nintendo/wii-uid.vala \
 	nintendo/wii-ware-game.vala \
 	nintendo/wii-ware-tracker-query.vala \
 	\
@@ -69,7 +73,9 @@ gnome_games_SOURCES = \
 	retro/retro-runner.vala \
 	\
 	sega/dreamcast-game.vala \
+	sega/dreamcast-header.vala \
 	sega/dreamcast-tracker-query.vala \
+	sega/dreamcast-uid.vala \
 	sega/master-system-game.vala \
 	sega/master-system-header.vala \
 	sega/master-system-tracker-query.vala \
@@ -77,7 +83,9 @@ gnome_games_SOURCES = \
 	sega/mega-drive-header.vala \
 	sega/mega-drive-tracker-query.vala \
 	sega/sega-saturn-game.vala \
+	sega/sega-saturn-header.vala \
 	sega/sega-saturn-tracker-query.vala \
+	sega/sega-saturn-uid.vala \
 	\
 	steam/steam-game.vala \
 	steam/steam-game-source.vala \
@@ -103,8 +111,10 @@ gnome_games_SOURCES = \
 	ui/search-bar.vala \
 	ui/ui-state.vala \
 	\
+	utils/fingerprint.vala \
+	utils/grep.vala \
+	\
 	main.vala \
-	utils.vala \
 	$(BUILT_SOURCES) \
 	$(NULL)
 
