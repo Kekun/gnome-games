@@ -55,7 +55,7 @@ private class Games.RetroRunner : Object, Runner {
 	private RetroGtk.Keyboard keyboard;
 	private RetroGtk.InputDeviceManager input;
 	private Retro.Options options;
-	private Retro.FileStreamLog log;
+	private RetroLog log;
 	private Retro.Loop loop;
 
 	private Gtk.EventBox widget;
@@ -152,7 +152,7 @@ private class Games.RetroRunner : Object, Runner {
 		audio = new RetroGtk.PaPlayer ();
 		input = new RetroGtk.InputDeviceManager ();
 		options = new Retro.Options ();
-		log = new Retro.FileStreamLog (stderr);
+		log = new RetroLog ();
 
 		input.set_controller_device (0, gamepad);
 		input.set_keyboard (keyboard);
