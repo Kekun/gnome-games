@@ -52,12 +52,12 @@ private class Games.MegaDriveHeader : Object {
 		check_validity ();
 	}
 
-	public void check_validity () throws MasterSystemError {
+	public void check_validity () throws MegaDriveError {
 		try {
 			stream.seek (MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new MasterSystemError.INVALID_SIZE (@"Invalid Mega Drive/Genesis/32X header size: $(e.message)");
+			throw new MegaDriveError.INVALID_SIZE (@"Invalid Mega Drive/Genesis/32X header size: $(e.message)");
 		}
 
 		var buffer = new uint8[MAGIC_SIZE];
@@ -65,13 +65,13 @@ private class Games.MegaDriveHeader : Object {
 			stream.read (buffer);
 		}
 		catch (Error e) {
-			throw new MasterSystemError.INVALID_SIZE (e.message);
+			throw new MegaDriveError.INVALID_SIZE (e.message);
 		}
 
 		var magic = (string) buffer;
 		magic = magic.chomp ();
 		if (!(magic in MAGIC_VALUES))
-			throw new MasterSystemError.INVALID_HEADER ("The file doesn't have a Mega Drive/Genesis/32X header.");
+			throw new MegaDriveError.INVALID_HEADER ("The file doesn't have a Mega Drive/Genesis/32X header.");
 	}
 }
 
