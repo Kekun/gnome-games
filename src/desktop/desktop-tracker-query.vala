@@ -45,7 +45,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	}
 
 	private static string[] categories_black_list;
-	private static string[] get_categories_black_list () {
+	private static string[] get_categories_black_list () throws Error {
 		if (categories_black_list == null)
 			categories_black_list = get_lines_from_resource ("blacklists/desktop-categories.blacklist");
 
@@ -53,7 +53,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	}
 
 	private static string[] executable_black_list;
-	private static string[] get_executable_black_list () {
+	private static string[] get_executable_black_list () throws Error {
 		if (executable_black_list == null)
 			executable_black_list = get_lines_from_resource ("blacklists/desktop-executable.blacklist");
 
@@ -61,14 +61,14 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	}
 
 	private static string[] base_name_black_list;
-	private static string[] get_base_name_black_list () {
+	private static string[] get_base_name_black_list () throws Error {
 		if (base_name_black_list == null)
 			base_name_black_list = get_lines_from_resource ("blacklists/desktop-base-name.blacklist");
 
 		return base_name_black_list;
 	}
 
-	private static string[] get_lines_from_resource (string resource) {
+	private static string[] get_lines_from_resource (string resource) throws Error {
 		var bytes = resources_lookup_data ("/org/gnome/Games/" + resource, ResourceLookupFlags.NONE);
 		var text = (string) bytes.get_data ();
 
