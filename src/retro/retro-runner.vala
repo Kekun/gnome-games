@@ -298,22 +298,21 @@ private class Games.RetroRunner : Object, Runner {
 			throw new RunError.COULDNT_LOAD_SNAPSHOT ("Couldn't load snapshot.");
 	}
 
-	private void save_screenshot () {
+	private void save_screenshot () throws RunError {
 		var pixbuf = video.pixbuf;
-		if (pixbuf != null)
-			try {
-				pixbuf.save (screenshot_path, "png");
-			}
-			catch (Error e) {
-			warning (@"$(e.message)\n");
-
+		if (pixbuf == null)
 			return;
+
+		try {
+			pixbuf.save (screenshot_path, "png");
+		}
+		catch (Error e) {
+			throw new RunError.COULDNT_WRITE_SCREENSHOT(@"Couldn't write screenshot: $(e.message)");
 		}
 	}
 
-	private void load_screenshot () {
-		var file = File.new_for_path (screenshot_path);
-		if (!file.query_exists ())
+	private void load_screenshot () throws RunError {
+		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
 			return;
 
 		try {
@@ -321,9 +320,7 @@ private class Games.RetroRunner : Object, Runner {
 			video.pixbuf = pixbuf;
 		}
 		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
+			throw new RunError.COULDNT_LOAD_SCREENSHOT(@"Couldn't load screenshot: $(e.message)");
 		}
 	}
 
