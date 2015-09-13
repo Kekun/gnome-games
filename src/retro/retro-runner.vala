@@ -260,30 +260,42 @@ private class Games.RetroRunner : Object, Runner {
 		core.set_memory (Retro.MemoryType.SAVE_RAM, data);
 	}
 
-	private void save_snapshot () {
+	private void save_snapshot () throws RunError {
 		var size = core.serialize_size ();
 		var buffer = new uint8[size];
 
 		if (!core.serialize (buffer))
-			return; // FIXME: Should throw error rather that returning.
+			throw new RunError.COULDNT_WRITE_SNAPSHOT ("Couldn't write snapshot.");
 
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
 
-		save_to_file (snapshot_path, buffer);
+		try {
+			FileUtils.set_data (snapshot_path, buffer);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_WRITE_SNAPSHOT (@"Couldn't write snapshot: $(e.message)");
+		}
 	}
 
-	private void load_snapshot () {
-		var size = core.serialize_size ();
-		if (size == 0)
+	private void load_snapshot () throws RunError {
+		if (!FileUtils.test (snapshot_path, FileTest.EXISTS))
 			return;
 
-		var data = load_from_file (snapshot_path, size);
-		if (data == null)
-			return;
+		uint8[] data = null;
+		try {
+			FileUtils.get_data (snapshot_path, out data);
+		}
+		catch (FileError e) {
+			throw new RunError.COULDNT_LOAD_SNAPSHOT (@"Couldn't load snapshot: $(e.message)");
+		}
+
+		var expected_size = core.serialize_size ();
+		if (data.length != expected_size)
+			warning ("Unexpected serialization data size: got %lu, expected %lu\n", data.length, expected_size);
 
 		if (!core.unserialize (data))
-			return; // FIXME: Should throw error rather that returning.
+			throw new RunError.COULDNT_LOAD_SNAPSHOT ("Couldn't load snapshot.");
 	}
 
 	private void save_screenshot () {
@@ -329,59 +341,6 @@ private class Games.RetroRunner : Object, Runner {
 				file.make_directory_with_parents ();
 		}
 		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
-		}
-	}
-
-	private static uint8[]? load_from_file (string path, size_t size) {
-		var file = File.new_for_path (path);
-
-		if (!file.query_exists ())
-			return null;
-
-		FileInputStream stream;
-		try {
-			stream = file.read ();
-		}
-		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return null;
-		}
-
-		var buffer = new uint8[size];
-
-		try {
-			stream.read (buffer);
-		}
-		catch (IOError e) {
-			warning (@"$(e.message)\n");
-
-			return null;
-		}
-
-		return buffer;
-	}
-
-	private static void save_to_file (string path, uint8[] data) {
-		var file = File.new_for_path (path);
-
-		FileOutputStream stream;
-		try {
-			stream = file.replace (null, false, FileCreateFlags.NONE);
-		}
-		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
-		}
-
-		try {
-			stream.write (data);
-		}
-		catch (IOError e) {
 			warning (@"$(e.message)\n");
 
 			return;
