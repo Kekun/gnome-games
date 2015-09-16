@@ -21,7 +21,7 @@ hicolor_icon_files = \
 	$(hicolor_icon48_DATA) \
 	$(hicolor_icon256_DATA) \
 	$(hicolor_iconscalable_DATA) \
-	icons/hicolor/gnome-games.svg
+	hicolor/gnome-games.svg
 
 hicontrast_icon16dir = $(datadir)/icons/HighContrast/16x16/apps
 hicontrast_icon16_DATA = HighContrast/16x16/apps/gnome-games.png
@@ -42,7 +42,7 @@ hicontrast_icon_files = \
 	$(hicontrast_icon32_DATA) \
 	$(hicontrast_icon48_DATA) \
 	$(hicontrast_icon256_DATA) \
-	icons/HighContrast/gnome-games.svg
+	HighContrast/gnome-games.svg
 
 gtk_update_hicontrast_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/HighContrast
 

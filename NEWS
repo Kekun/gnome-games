@@ -1,0 +1,58 @@
+==============
+Version 3.18.0
+==============
+
+This is the first preview release of Games.
+
+Being that this is such an early release, we'd really appreciate it if you
+took the time to file bugs as you find them or to suggest features.
+
+Features
+--------
+
+* User interface
+ - Offer an icon view of the collection.
+ - Add a way to search for a game by its title.
+ - Sort games in the collection by their title.
+
+* Listed games
+ - Desktop games
+ - Steam games
+ - LÖVE engine games
+ - Doom engine games
+ - NES/Famicom games
+ - SNES/Super Famicom games
+ - Nintendo 64 games
+ - Game Cube games
+ - Wii games
+ - WiiWare games
+ - Game Boy/Game Boy Color games
+ - Game Boy Advance games
+ - Nintendo DS games
+ - Master System games
+ - Mega Drive/Genesis/32X games
+ - Sega Saturn games
+ - Dreamcast games
+ - Game Gear games
+ - PC-Engine games
+
+* Blacklisted games
+ - Blacklist non-games desktop entries, such as gaming console emulators
+   or game engines desktop entries.
+ - Blacklist Steam games desktop entries, so they don't appear twice.
+
+* Runnable games
+ - Desktop games
+ - Steam games
+ - LÖVE engine games
+ - NES/Famicom games (requires retro-plugins-nes)
+ - SNES/Super Famicom games (requires retro-plugins-snes)
+ - Game Boy/Game Boy Color games (requires retro-plugins-game-boy)
+ - PC-Engine games (requires retro-plugins-pce)
+
+* Retro games
+ - Save and load the in-game saves of Retro based games.
+ - Save the state of Retro based games to propose the user to take a its
+  game where he left it off.
+ - Add keyboard support to Retro based games by forwarding the key strokes
+  to the runner.

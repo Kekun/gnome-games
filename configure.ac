@@ -1,4 +1,4 @@
-AC_INIT([gnome-games], [3.17])
+AC_INIT([gnome-games], [3.18.0])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 # i18 support
@@ -25,8 +25,8 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 	glib-2.0 >= $GLIB_MIN_VERSION
 	gtk+-3.0
 	libarchive
-	retro-gobject-0.3
-	retro-gtk-0.1
+	retro-gobject-0.4
+	retro-gtk-0.4
 	tracker-sparql-1.0
 ])
 

@@ -1,14 +1,16 @@
 bin_PROGRAMS = gnome-games
 
-resource_file = $(top_srcdir)/data/org.gnome.Games.gresource.xml
-resource_file_deps = $(shell \
+gresource_file = $(top_srcdir)/data/org.gnome.Games.gresource.xml
+
+resource_files = $(shell \
 	$(GLIB_COMPILE_RESOURCES) \
 	--generate-dependencies \
 	--sourcedir=$(top_srcdir)/data \
-	$(resource_file) \
+	$(gresource_file) \
 )
 
-resources.c: $(resource_file) $(resource_file_deps)
+resources.c: $(gresource_file) $(resource_files)
+	$(AM_V_GEN) \
 	$(GLIB_COMPILE_RESOURCES) \
 		--target=$@ \
 		--sourcedir=$(top_srcdir)/data \
@@ -17,6 +19,10 @@ resources.c: $(resource_file) $(resource_file_deps)
 
 BUILT_SOURCES = \
 	resources.c \
+	$(NULL)
+
+EXTRA_DIST = \
+	$(gresource_file)
 	$(NULL)
 
 gnome_games_SOURCES = \
@@ -126,9 +132,9 @@ gnome_games_VALAFLAGS = \
 	--pkg gtk+-3.0 \
 	--pkg libarchive \
 	--pkg tracker-sparql-1.0 \
-	--pkg retro-gobject-0.3 \
-	--pkg retro-gtk-0.1 \
-	--gresources $(resource_file) \
+	--pkg retro-gobject-0.4 \
+	--pkg retro-gtk-0.4 \
+	--gresources $(gresource_file) \
 	$(NULL)
 
 gnome_games_CFLAGS = \
