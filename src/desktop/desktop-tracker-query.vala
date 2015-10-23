@@ -9,6 +9,9 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		var uri = cursor.get_string (0);
 		var file = File.new_for_uri (uri);
 
+		if (!file.query_exists ())
+			throw new TrackerError.FILE_NOT_FOUND ("Tracker listed file not found: '%s'.", uri);
+
 		var path = file.get_path ();
 		var app_info = new DesktopAppInfo.from_filename (path);
 

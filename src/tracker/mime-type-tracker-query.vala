@@ -10,6 +10,10 @@ private abstract class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
 		var uri = cursor.get_string (0);
 
+		var file = File.new_for_uri (uri);
+		if (!file.query_exists ())
+			throw new TrackerError.FILE_NOT_FOUND ("Tracker listed file not found: '%s'.", uri);
+
 		return game_for_uri (uri);
 	}
 
