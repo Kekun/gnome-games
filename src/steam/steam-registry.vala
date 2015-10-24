@@ -71,7 +71,7 @@ private class Games.SteamRegistry {
 
 		string[] tokens = {};
 
-		var regex = /({|}|(?:".+?"))/;
+		var regex = /({|}|(?:".*?"))/;
 
 		string line;
 		MatchInfo match_info;
