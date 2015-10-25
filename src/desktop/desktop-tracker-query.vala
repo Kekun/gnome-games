@@ -12,6 +12,9 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		var path = file.get_path ();
 		var app_info = new DesktopAppInfo.from_filename (path);
 
+		if (app_info == null)
+			throw new DesktopQueryError.INVALID_APPINFO ("Couldn't parse desktop entry '%s'.", path);
+
 		check_categories (app_info);
 		check_executable (app_info);
 		check_base_name (file);
@@ -80,4 +83,8 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 
 		return lines;
 	}
+}
+
+errordomain Games.DesktopQueryError {
+	INVALID_APPINFO,
 }
