@@ -93,7 +93,7 @@ public class Games.Application : Gtk.Application {
 			steam_source = new SteamGameSource ();
 		}
 		catch (Error e) {
-			warning ("Can't list Steam games: %s\n'", e.message);
+			debug ("Can't list Steam games: %s\n'", e.message);
 		}
 
 		if (steam_source != null)
