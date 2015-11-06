@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/Games/plugins/desktop">
+    <file>blacklists/desktop-base-name.blacklist</file>
+    <file>blacklists/desktop-categories.blacklist</file>
+    <file>blacklists/desktop-executable.blacklist</file>
+  </gresource>
+</gresources>

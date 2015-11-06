@@ -53,7 +53,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	private static string[] categories_black_list;
 	private static string[] get_categories_black_list () throws Error {
 		if (categories_black_list == null)
-			categories_black_list = get_lines_from_resource ("blacklists/desktop-categories.blacklist");
+			categories_black_list = get_lines_from_resource ("plugins/desktop/blacklists/desktop-categories.blacklist");
 
 		return categories_black_list;
 	}
@@ -61,7 +61,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	private static string[] executable_black_list;
 	private static string[] get_executable_black_list () throws Error {
 		if (executable_black_list == null)
-			executable_black_list = get_lines_from_resource ("blacklists/desktop-executable.blacklist");
+			executable_black_list = get_lines_from_resource ("plugins/desktop/blacklists/desktop-executable.blacklist");
 
 		return executable_black_list;
 	}
@@ -69,7 +69,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	private static string[] base_name_black_list;
 	private static string[] get_base_name_black_list () throws Error {
 		if (base_name_black_list == null)
-			base_name_black_list = get_lines_from_resource ("blacklists/desktop-base-name.blacklist");
+			base_name_black_list = get_lines_from_resource ("plugins/desktop/blacklists/desktop-base-name.blacklist");
 
 		return base_name_black_list;
 	}
