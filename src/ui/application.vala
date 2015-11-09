@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-public class Games.Application : Gtk.Application {
+private class Games.Application : Gtk.Application {
 	private ListStore collection;
 
 	private Tracker.Sparql.Connection? _connection;

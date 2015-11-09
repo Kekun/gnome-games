@@ -77,7 +77,7 @@ private class Games.MasterSystemHeader : Object {
 	}
 }
 
-public enum Games.MasterSystemRegion {
+private enum Games.MasterSystemRegion {
 	INVALID = 0,
 	SMS_JAPAN = 3,
 	SMS_EXPORT,
