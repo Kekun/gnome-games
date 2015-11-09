@@ -22,8 +22,15 @@ BUILT_SOURCES = \
 	$(NULL)
 
 EXTRA_DIST = \
-	$(gresource_file)
+	$(gresource_file) \
 	$(NULL)
+
+header_file = libgnome-games.h
+
+vapi_file = gnome-games.vapi
+
+vapidir = $(datadir)/vala/vapi
+dist_vapi_DATA = $(vapi_file)
 
 gnome_games_SOURCES = \
 	command/command-runner.vala \
@@ -135,6 +142,8 @@ gnome_games_VALAFLAGS = \
 	--pkg retro-gobject-0.4 \
 	--pkg retro-gtk-0.4 \
 	--gresources $(gresource_file) \
+	--vapi $(vapi_file) \
+	-H $(header_file) \
 	$(NULL)
 
 gnome_games_CFLAGS = \
@@ -143,6 +152,11 @@ gnome_games_CFLAGS = \
 
 gnome_games_LDADD = \
 	$(GNOME_GAMES_LIBS) \
+	$(NULL)
+
+gnome_gamesincludedir = $(includedir)
+gnome_gamesinclude_HEADERS = \
+	$(header_file) \
 	$(NULL)
 
 MAINTAINERCLEANFILES = \
