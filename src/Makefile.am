@@ -41,6 +41,7 @@ gnome_games_SOURCES = \
 	core/game.vala \
 	core/game-source.vala \
 	core/plugin.vala \
+	core/plugin-register.vala \
 	core/plugin-registrar.vala \
 	core/runner.vala \
 	\
