@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private interface Games.Runner : Object {
+public interface Games.Runner : Object {
 	public signal void stopped ();
 
 	public abstract bool can_resume { get; }
