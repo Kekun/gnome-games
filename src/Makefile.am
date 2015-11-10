@@ -127,6 +127,7 @@ gnome_games_SOURCES = \
 	utils/fingerprint.vala \
 	utils/grep.vala \
 	\
+	config.vala \
 	main.vala \
 	$(BUILT_SOURCES) \
 	$(NULL)
@@ -148,6 +149,7 @@ gnome_games_VALAFLAGS = \
 
 gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
+	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
 
 gnome_games_LDADD = \
