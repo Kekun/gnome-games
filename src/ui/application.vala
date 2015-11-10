@@ -62,6 +62,23 @@ private class Games.Application : Gtk.Application {
 	}
 
 	public async void load_game_list () {
+		GameSource[] sources = {};
+
+		var register = new PluginRegister ();
+		register.foreach_plugin ((plugin) => {
+			try {
+				var source = plugin.get_game_source ();
+				if (source != null)
+					sources += source;
+			}
+			catch (Error e) {
+				debug ("Error: %s", e.message);
+			}
+		});
+
+		foreach (var source in sources)
+			yield source.each_game (add_game);
+
 		if (connection == null)
 			return;
 
