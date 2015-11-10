@@ -6,8 +6,8 @@ private interface Games.Runner : Object {
 	public abstract bool can_resume { get; }
 
 	public abstract Gtk.Widget get_display ();
-	public abstract void start () throws RunError;
-	public abstract void resume () throws RunError;
+	public abstract void start () throws Error;
+	public abstract void resume () throws Error;
 	public abstract void pause ();
 }
 

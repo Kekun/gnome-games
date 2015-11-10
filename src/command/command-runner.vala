@@ -7,7 +7,7 @@ private class Games.CommandRunner : Object, Runner {
 
 	private string[] args;
 
-	public CommandRunner (string[] args) throws RunError {
+	public CommandRunner (string[] args) throws Error {
 		if (args.length < 1)
 			throw new RunError.INVALID_COMMAND ("Invalid command: it doesn't have any argument.");
 
@@ -20,7 +20,7 @@ private class Games.CommandRunner : Object, Runner {
 
 	private bool running;
 
-	public void start () throws RunError {
+	public void start () throws Error {
 		if (running)
 			return;
 
@@ -52,7 +52,7 @@ private class Games.CommandRunner : Object, Runner {
 		running = true;
 	}
 
-	public void resume () throws RunError {
+	public void resume () throws Error {
 	}
 
 	public void pause () {

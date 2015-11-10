@@ -76,7 +76,7 @@ private class Games.RetroRunner : Object, Runner {
 
 	private bool construction_succeeded;
 
-	public RetroRunner (string module_basename, string game_path, string uid) throws RunError {
+	public RetroRunner (string module_basename, string game_path, string uid) throws Error {
 		construction_succeeded = false;
 
 		this.module_path = Retro.search_module (module_basename);
@@ -115,7 +115,7 @@ private class Games.RetroRunner : Object, Runner {
 		try {
 			save ();
 		}
-		catch (RunError e) {
+		catch (Error e) {
 			warning (e.message);
 		}
 	}
@@ -124,7 +124,7 @@ private class Games.RetroRunner : Object, Runner {
 		return widget;
 	}
 
-	public void start () throws RunError {
+	public void start () throws Error {
 		loop.stop ();
 
 		load_ram ();
@@ -134,7 +134,7 @@ private class Games.RetroRunner : Object, Runner {
 		running = true;
 	}
 
-	public void resume () throws RunError {
+	public void resume () throws Error {
 		loop.stop ();
 
 		load_ram ();
@@ -145,7 +145,7 @@ private class Games.RetroRunner : Object, Runner {
 		running = true;
 	}
 
-	private void prepare_core () throws RunError {
+	private void prepare_core () throws Error {
 		var module = File.new_for_path (module_path);
 		if (!module.query_exists ()) {
 			var msg = @"Couldn't run game: module '$module_path' not found.";
@@ -214,18 +214,18 @@ private class Games.RetroRunner : Object, Runner {
 		try {
 			save ();
 		}
-		catch (RunError e) {
+		catch (Error e) {
 			warning (e.message);
 		}
 	}
 
-	private void save () throws RunError {
+	private void save () throws Error {
 		save_ram ();
 		save_snapshot ();
 		save_screenshot ();
 	}
 
-	private void save_ram () throws RunError{
+	private void save_ram () throws Error{
 		var save = core.get_memory (Retro.MemoryType.SAVE_RAM);
 		if (save.length == 0)
 			return;
@@ -241,7 +241,7 @@ private class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	private void load_ram () throws RunError {
+	private void load_ram () throws Error {
 		if (!FileUtils.test (save_path, FileTest.EXISTS))
 			return;
 
@@ -260,7 +260,7 @@ private class Games.RetroRunner : Object, Runner {
 		core.set_memory (Retro.MemoryType.SAVE_RAM, data);
 	}
 
-	private void save_snapshot () throws RunError {
+	private void save_snapshot () throws Error {
 		var size = core.serialize_size ();
 		var buffer = new uint8[size];
 
@@ -278,7 +278,7 @@ private class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	private void load_snapshot () throws RunError {
+	private void load_snapshot () throws Error {
 		if (!FileUtils.test (snapshot_path, FileTest.EXISTS))
 			return;
 
@@ -298,7 +298,7 @@ private class Games.RetroRunner : Object, Runner {
 			throw new RunError.COULDNT_LOAD_SNAPSHOT ("Couldn't load snapshot.");
 	}
 
-	private void save_screenshot () throws RunError {
+	private void save_screenshot () throws Error {
 		var pixbuf = video.pixbuf;
 		if (pixbuf == null)
 			return;
@@ -311,7 +311,7 @@ private class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	private void load_screenshot () throws RunError {
+	private void load_screenshot () throws Error {
 		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
 			return;
 

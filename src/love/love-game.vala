@@ -125,7 +125,7 @@ private class Games.LoveGame : Object, Game {
 		return lua_value[1:-1];
 	}
 
-	public Runner get_runner () throws RunError {
+	public Runner get_runner () throws Error {
 		string[] args = { "love", path };
 
 		return new CommandRunner (args);

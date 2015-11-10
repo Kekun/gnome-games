@@ -22,7 +22,7 @@ private class Games.DummyGame : Object, Game {
 		_name = name.strip ();
 	}
 
-	public Runner get_runner () throws RunError {
+	public Runner get_runner () throws Error {
 		return new DummyRunner ();
 	}
 }
