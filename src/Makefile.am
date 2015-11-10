@@ -40,6 +40,7 @@ gnome_games_SOURCES = \
 	\
 	core/game.vala \
 	core/game-source.vala \
+	core/plugin.vala \
 	core/runner.vala \
 	\
 	doom/doom-game.vala \
