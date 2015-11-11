@@ -18,7 +18,7 @@ private class Games.DesktopGame: Object, Game {
 		app_info = new DesktopAppInfo.from_filename (path);
 	}
 
-	public Runner get_runner () throws RunError {
+	public Runner get_runner () throws Error {
 		string[] args;
 		try {
 			var command = app_info.get_commandline ();

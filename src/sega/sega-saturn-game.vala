@@ -47,7 +47,7 @@ private class Games.SegaSaturnGame : Object, Game {
 		_name = name.strip ();
 	}
 
-	public Runner get_runner () throws RunError {
+	public Runner get_runner () throws Error {
 		string uid;
 		try {
 			uid = this.uid.get_uid ();

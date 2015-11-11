@@ -7,7 +7,7 @@ private class Games.SteamRunner : Object, Runner {
 
 	private string game_id;
 
-	public SteamRunner (string game_id) throws RunError {
+	public SteamRunner (string game_id) throws Error {
 		this.game_id = game_id;
 	}
 
@@ -15,7 +15,7 @@ private class Games.SteamRunner : Object, Runner {
 		return new RemoteDisplay ();
 	}
 
-	public void start () throws RunError {
+	public void start () throws Error {
 		string? working_directory = null;
 
 		string[] args = { "steam", @"steam://rungameid/$game_id" };
@@ -39,7 +39,7 @@ private class Games.SteamRunner : Object, Runner {
 		}
 	}
 
-	public void resume () throws RunError {
+	public void resume () throws Error {
 	}
 
 	public void pause () {

@@ -108,7 +108,7 @@ private class Games.GameBoyHeader : Object {
 	}
 }
 
-public enum Games.GameBoyType {
+private enum Games.GameBoyType {
 	INVALID,
 	CLASSIC,
 	SUPER_ENABLED,

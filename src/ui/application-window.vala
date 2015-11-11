@@ -123,14 +123,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			else
 				runner.start ();
 		}
-		catch (RunError e) {
+		catch (Error e) {
 			warning (@"$(e.message)\n");
 
 			return;
 		}
 	}
 
-	private Runner get_runner_for_game (Game game) throws RunError {
+	private Runner get_runner_for_game (Game game) throws Error {
 		if (runners.contains (game))
 			return runners[game];
 

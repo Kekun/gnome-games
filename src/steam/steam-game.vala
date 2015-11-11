@@ -49,7 +49,7 @@ private class Games.SteamGame : Object, Game {
 		}
 	}
 
-	public Runner get_runner () throws RunError {
+	public Runner get_runner () throws Error {
 		return new SteamRunner (game_id);
 	}
 

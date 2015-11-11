@@ -9,10 +9,10 @@ private class Games.DummyRunner : Object, Runner {
 		return new DummyDisplay ();
 	}
 
-	public void start () throws RunError {
+	public void start () throws Error {
 	}
 
-	public void resume () throws RunError {
+	public void resume () throws Error {
 	}
 
 	public void pause () {

@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-public class Games.RetroLog: Object, Retro.Log {
+private class Games.RetroLog: Object, Retro.Log {
 	public bool log (Retro.LogLevel level, string message) {
 		switch (level) {
 		case Retro.LogLevel.DEBUG:
