@@ -2,4 +2,5 @@
 
 errordomain Games.DesktopError {
 	INVALID_APPINFO,
+	BLACKLISTED_GAME,
 }

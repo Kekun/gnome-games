@@ -61,8 +61,6 @@ private class Games.TrackerGameSource : Object, GameSource {
 					yield;
 				}
 			}
-			catch (TrackerError.GAME_IS_BLACKLISTED e) {
-			}
 			catch (TrackerError.FILE_NOT_FOUND e) {
 				debug (e.message);
 			}
@@ -83,6 +81,5 @@ private class Games.TrackerGameSource : Object, GameSource {
 }
 
 private errordomain TrackerError {
-	GAME_IS_BLACKLISTED,
 	FILE_NOT_FOUND,
 }

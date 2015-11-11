@@ -31,7 +31,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 
 		foreach (var category in get_categories_black_list ())
 			if (category in categories)
-				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted category '$category'.");
+				throw new DesktopError.BLACKLISTED_GAME ("'%s' has blacklisted category '%s'.", app_info.filename, category);
 	}
 
 	private void check_executable (DesktopAppInfo app_info) throws Error {
@@ -40,14 +40,14 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		foreach (var executable in get_executable_black_list ())
 			if (app_executable == executable ||
 			    app_executable.has_suffix ("/" + executable))
-				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted executable '$executable'.");
+				throw new DesktopError.BLACKLISTED_GAME ("'%s' has blacklisted executable '%s'.", app_info.filename, executable);
 	}
 
 	private void check_base_name (File file) throws Error {
 		var base_name = file.get_basename ();
 
 		if (base_name in get_base_name_black_list ())
-			throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(file.get_path ())' is blacklisted.");
+			throw new DesktopError.BLACKLISTED_GAME ("'%s' is blacklisted.", file.get_path ());
 	}
 
 	private static string[] categories_black_list;
