@@ -19,6 +19,8 @@ GLIB_GSETTINGS
 GLIB_MIN_VERSION=2.38.0
 AC_SUBST(GLIB_MIN_VERSION)
 
+LT_INIT
+
 PKG_CHECK_MODULES(GNOME_GAMES, [
 	gio-2.0
 	gio-unix-2.0
@@ -34,6 +36,7 @@ AC_CONFIG_FILES([
 	Makefile
 	data/Makefile
 	data/icons/Makefile
+	plugins/Makefile
 	po/Makefile.in
 	src/Makefile
 ])
