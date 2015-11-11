@@ -103,17 +103,6 @@ private class Games.Application : Gtk.Application {
 		tracker_source.add_query (new WiiWareTrackerQuery ());
 
 		yield tracker_source.each_game (add_game);
-
-		SteamGameSource steam_source = null;
-		try {
-			steam_source = new SteamGameSource ();
-		}
-		catch (Error e) {
-			debug ("Can't list Steam games: %s\n'", e.message);
-		}
-
-		if (steam_source != null)
-			yield steam_source.each_game (add_game);
 	}
 
 	private void add_game (Game game) {
