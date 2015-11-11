@@ -233,12 +233,7 @@ private class Games.RetroRunner : Object, Runner {
 		var dir = Application.get_saves_dir ();
 		try_make_dir (dir);
 
-		try {
-			FileUtils.set_data (save_path, save);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_WRITE_SAVE (@"Couldn't write save: $(e.message)");
-		}
+		FileUtils.set_data (save_path, save);
 	}
 
 	private void load_ram () throws Error {
@@ -246,12 +241,7 @@ private class Games.RetroRunner : Object, Runner {
 			return;
 
 		uint8[] data = null;
-		try {
-			FileUtils.get_data (save_path, out data);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_LOAD_SAVE (@"Couldn't load save: $(e.message)");
-		}
+		FileUtils.get_data (save_path, out data);
 
 		var expected_size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
 		if (data.length != expected_size)
