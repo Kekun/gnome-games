@@ -14,9 +14,5 @@ public interface Games.Runner : Object {
 private errordomain Games.RunError {
 	EXECUTION_FAILED,
 	INVALID_COMMAND,
-	INVALID_GAME_FILE,
-	MODULE_NOT_FOUND,
 	COULDNT_GET_UID,
-	COULDNT_WRITE_SNAPSHOT,
-	COULDNT_LOAD_SNAPSHOT,
 }

@@ -85,6 +85,7 @@ gnome_games_SOURCES = \
 	nintendo/wii-ware-game.vala \
 	nintendo/wii-ware-tracker-query.vala \
 	\
+	retro/retro-error.vala \
 	retro/retro-log.vala \
 	retro/retro-runner.vala \
 	\
