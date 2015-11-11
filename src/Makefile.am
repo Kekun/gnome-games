@@ -56,6 +56,7 @@ gnome_games_SOURCES = \
 	love/love-game.vala \
 	love/love-tracker-query.vala \
 	\
+	desktop/desktop-error.vala \
 	desktop/desktop-game.vala \
 	desktop/desktop-tracker-query.vala \
 	\
