@@ -260,12 +260,7 @@ private class Games.RetroRunner : Object, Runner {
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
 
-		try {
-			FileUtils.set_data (snapshot_path, buffer);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_WRITE_SNAPSHOT (@"Couldn't write snapshot: $(e.message)");
-		}
+		FileUtils.set_data (snapshot_path, buffer);
 	}
 
 	private void load_snapshot () throws Error {
@@ -273,12 +268,7 @@ private class Games.RetroRunner : Object, Runner {
 			return;
 
 		uint8[] data = null;
-		try {
-			FileUtils.get_data (snapshot_path, out data);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_LOAD_SNAPSHOT (@"Couldn't load snapshot: $(e.message)");
-		}
+		FileUtils.get_data (snapshot_path, out data);
 
 		var expected_size = core.serialize_size ();
 		if (data.length != expected_size)
