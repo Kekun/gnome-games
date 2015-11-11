@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.TrackerGameSource : Object, GameSource {
+public class Games.TrackerGameSource : Object, GameSource {
 	private const uint HANDLED_GAMES_PER_CYCLE = 5;
 
 	private Tracker.Sparql.Connection connection { private set; get; }
@@ -80,6 +80,6 @@ private class Games.TrackerGameSource : Object, GameSource {
 	}
 }
 
-private errordomain TrackerError {
+public errordomain TrackerError {
 	FILE_NOT_FOUND,
 }

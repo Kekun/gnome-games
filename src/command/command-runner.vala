@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.CommandRunner : Object, Runner {
+public class Games.CommandRunner : Object, Runner {
 	public bool can_resume {
 		get { return false; }
 	}
