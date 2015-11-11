@@ -33,6 +33,7 @@ vapidir = $(datadir)/vala/vapi
 dist_vapi_DATA = $(vapi_file)
 
 gnome_games_SOURCES = \
+	command/command-error.vala \
 	command/command-runner.vala \
 	\
 	commodore/amiga-game.vala \

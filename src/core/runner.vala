@@ -10,8 +10,3 @@ public interface Games.Runner : Object {
 	public abstract void resume () throws Error;
 	public abstract void pause ();
 }
-
-private errordomain Games.RunError {
-	EXECUTION_FAILED,
-	INVALID_COMMAND,
-}
