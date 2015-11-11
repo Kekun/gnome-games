@@ -293,25 +293,15 @@ private class Games.RetroRunner : Object, Runner {
 		if (pixbuf == null)
 			return;
 
-		try {
-			pixbuf.save (screenshot_path, "png");
-		}
-		catch (Error e) {
-			throw new RunError.COULDNT_WRITE_SCREENSHOT(@"Couldn't write screenshot: $(e.message)");
-		}
+		pixbuf.save (screenshot_path, "png");
 	}
 
 	private void load_screenshot () throws Error {
 		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
 			return;
 
-		try {
-			var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
-			video.pixbuf = pixbuf;
-		}
-		catch (Error e) {
-			throw new RunError.COULDNT_LOAD_SCREENSHOT(@"Couldn't load screenshot: $(e.message)");
-		}
+		var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
+		video.pixbuf = pixbuf;
 	}
 
 	private bool on_shutdown () {
