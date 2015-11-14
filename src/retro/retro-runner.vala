@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.RetroRunner : Object, Runner {
+public class Games.RetroRunner : Object, Runner {
 	public bool can_resume {
 		get {
 			var file = File.new_for_path (snapshot_path);

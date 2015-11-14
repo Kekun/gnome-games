@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private abstract class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
+public abstract class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 	public string get_query () {
 		return @"SELECT DISTINCT nie:url(?urn) WHERE { ?urn nie:mimeType \"$(get_mime_type ())\" . }";
 	}
