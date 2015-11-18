@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 data/org.gnome.Games.appdata.xml.in
 data/org.gnome.Games.desktop.in
+[type: gettext/glade]data/gtk/menus.ui
 [type: gettext/glade]data/ui/dummy-display.ui
 [type: gettext/glade]data/ui/empty-collection.ui
 [type: gettext/glade]data/ui/header-bar.ui

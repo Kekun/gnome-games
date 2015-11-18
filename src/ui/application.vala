@@ -25,6 +25,16 @@ private class Games.Application : Gtk.Application {
 		        flags: ApplicationFlags.FLAGS_NONE);
 	}
 
+	construct {
+		add_actions ();
+	}
+
+	private void add_actions () {
+		SimpleAction quit_action = new SimpleAction ("quit", null);
+		quit_action.activate.connect (quit);
+		add_action (quit_action);
+	}
+
 	public static string get_data_dir () {
 		var data_dir = Environment.get_user_data_dir ();
 
