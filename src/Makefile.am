@@ -56,9 +56,6 @@ gnome_games_SOURCES = \
 	love/love-game.vala \
 	love/love-tracker-query.vala \
 	\
-	desktop/desktop-game.vala \
-	desktop/desktop-tracker-query.vala \
-	\
 	nec/pc-engine-game.vala \
 	nec/pc-engine-tracker-query.vala \
 	\
@@ -140,7 +137,6 @@ gnome_games_SOURCES = \
 gnome_games_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
 	--pkg gio-2.0 \
-	--pkg gio-unix-2.0 \
 	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg libarchive \

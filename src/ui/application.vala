@@ -85,7 +85,6 @@ private class Games.Application : Gtk.Application {
 		var tracker_source = new TrackerGameSource (connection);
 
 		tracker_source.add_query (new AmigaTrackerQuery ());
-		tracker_source.add_query (new DesktopTrackerQuery ());
 		tracker_source.add_query (new DoomTrackerQuery ());
 		tracker_source.add_query (new DreamcastTrackerQuery ());
 		tracker_source.add_query (new GameBoyTrackerQuery ());

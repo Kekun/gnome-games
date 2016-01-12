@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-desktop-plugin
+Name=Desktop Plugin
+Description=Provides support for games shipping a Desktop Entry.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2015 Adrien Plazas

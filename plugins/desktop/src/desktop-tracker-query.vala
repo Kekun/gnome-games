@@ -16,7 +16,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		var app_info = new DesktopAppInfo.from_filename (path);
 
 		if (app_info == null)
-			throw new DesktopQueryError.INVALID_APPINFO ("Couldn't parse desktop entry '%s'.", path);
+			throw new DesktopError.INVALID_APPINFO ("Couldn't parse desktop entry '%s'.", path);
 
 		check_categories (app_info);
 		check_executable (app_info);
@@ -31,7 +31,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 
 		foreach (var category in get_categories_black_list ())
 			if (category in categories)
-				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted category '$category'.");
+				throw new DesktopError.BLACKLISTED_GAME ("'%s' has blacklisted category '%s'.", app_info.filename, category);
 	}
 
 	private void check_executable (DesktopAppInfo app_info) throws Error {
@@ -40,20 +40,20 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		foreach (var executable in get_executable_black_list ())
 			if (app_executable == executable ||
 			    app_executable.has_suffix ("/" + executable))
-				throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(app_info.filename)' has blacklisted executable '$executable'.");
+				throw new DesktopError.BLACKLISTED_GAME ("'%s' has blacklisted executable '%s'.", app_info.filename, executable);
 	}
 
 	private void check_base_name (File file) throws Error {
 		var base_name = file.get_basename ();
 
 		if (base_name in get_base_name_black_list ())
-			throw new TrackerError.GAME_IS_BLACKLISTED (@"'$(file.get_path ())' is blacklisted.");
+			throw new DesktopError.BLACKLISTED_GAME ("'%s' is blacklisted.", file.get_path ());
 	}
 
 	private static string[] categories_black_list;
 	private static string[] get_categories_black_list () throws Error {
 		if (categories_black_list == null)
-			categories_black_list = get_lines_from_resource ("blacklists/desktop-categories.blacklist");
+			categories_black_list = get_lines_from_resource ("plugins/desktop/blacklists/desktop-categories.blacklist");
 
 		return categories_black_list;
 	}
@@ -61,7 +61,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	private static string[] executable_black_list;
 	private static string[] get_executable_black_list () throws Error {
 		if (executable_black_list == null)
-			executable_black_list = get_lines_from_resource ("blacklists/desktop-executable.blacklist");
+			executable_black_list = get_lines_from_resource ("plugins/desktop/blacklists/desktop-executable.blacklist");
 
 		return executable_black_list;
 	}
@@ -69,7 +69,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	private static string[] base_name_black_list;
 	private static string[] get_base_name_black_list () throws Error {
 		if (base_name_black_list == null)
-			base_name_black_list = get_lines_from_resource ("blacklists/desktop-base-name.blacklist");
+			base_name_black_list = get_lines_from_resource ("plugins/desktop/blacklists/desktop-base-name.blacklist");
 
 		return base_name_black_list;
 	}
@@ -86,8 +86,4 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 
 		return lines;
 	}
-}
-
-errordomain Games.DesktopQueryError {
-	INVALID_APPINFO,
 }
