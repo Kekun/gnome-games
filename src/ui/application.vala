@@ -98,7 +98,6 @@ private class Games.Application : Gtk.Application {
 		tracker_source.add_query (new NintendoDsTrackerQuery ());
 		tracker_source.add_query (new PcEngineTrackerQuery ());
 		tracker_source.add_query (new SegaSaturnTrackerQuery ());
-		tracker_source.add_query (new SnesTrackerQuery ());
 		tracker_source.add_query (new WiiTrackerQuery ());
 		tracker_source.add_query (new WiiWareTrackerQuery ());
 

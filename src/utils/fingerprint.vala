@@ -19,7 +19,7 @@ namespace Games.Fingerprint {
 	}
 }
 
-private class Games.FingerprintUID: Object {
+public class Games.FingerprintUID: Object {
 	private string uri;
 	private string prefix;
 	private string uid;
