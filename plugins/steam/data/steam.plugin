@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-steam-plugin
+Name=Steam Plugin
+Description=Provides support for Steam games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2015 Adrien Plazas

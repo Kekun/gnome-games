@@ -23,6 +23,7 @@ LT_INIT
 
 # Plugins
 m4_include([plugins/desktop/configure.ac])
+m4_include([plugins/steam/configure.ac])
 
 PKG_CHECK_MODULES(GNOME_GAMES, [
 	gio-2.0
