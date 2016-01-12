@@ -33,6 +33,7 @@ vapidir = $(datadir)/vala/vapi
 dist_vapi_DATA = $(vapi_file)
 
 gnome_games_SOURCES = \
+	command/command-error.vala \
 	command/command-runner.vala \
 	\
 	commodore/amiga-game.vala \
@@ -85,6 +86,7 @@ gnome_games_SOURCES = \
 	nintendo/wii-ware-game.vala \
 	nintendo/wii-ware-tracker-query.vala \
 	\
+	retro/retro-error.vala \
 	retro/retro-log.vala \
 	retro/retro-runner.vala \
 	\

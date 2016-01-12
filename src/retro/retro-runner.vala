@@ -150,7 +150,7 @@ private class Games.RetroRunner : Object, Runner {
 		if (!module.query_exists ()) {
 			var msg = @"Couldn't run game: module '$module_path' not found.";
 
-			throw new RunError.MODULE_NOT_FOUND (msg);
+			throw new RetroError.MODULE_NOT_FOUND (msg);
 		}
 
 		core = new Retro.Core (module_path);
@@ -172,7 +172,7 @@ private class Games.RetroRunner : Object, Runner {
 		core.init ();
 
 		if (!try_load_game (core, game_path))
-			throw new RunError.INVALID_GAME_FILE (@"Invalid game file: $game_path");
+			throw new RetroError.INVALID_GAME_FILE (@"Invalid game file: $game_path");
 	}
 
 	private bool try_load_game (Retro.Core core, string game_name) {
@@ -233,12 +233,7 @@ private class Games.RetroRunner : Object, Runner {
 		var dir = Application.get_saves_dir ();
 		try_make_dir (dir);
 
-		try {
-			FileUtils.set_data (save_path, save);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_WRITE_SAVE (@"Couldn't write save: $(e.message)");
-		}
+		FileUtils.set_data (save_path, save);
 	}
 
 	private void load_ram () throws Error {
@@ -246,12 +241,7 @@ private class Games.RetroRunner : Object, Runner {
 			return;
 
 		uint8[] data = null;
-		try {
-			FileUtils.get_data (save_path, out data);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_LOAD_SAVE (@"Couldn't load save: $(e.message)");
-		}
+		FileUtils.get_data (save_path, out data);
 
 		var expected_size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
 		if (data.length != expected_size)
@@ -265,17 +255,12 @@ private class Games.RetroRunner : Object, Runner {
 		var buffer = new uint8[size];
 
 		if (!core.serialize (buffer))
-			throw new RunError.COULDNT_WRITE_SNAPSHOT ("Couldn't write snapshot.");
+			throw new RetroError.COULDNT_WRITE_SNAPSHOT ("Couldn't write snapshot.");
 
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
 
-		try {
-			FileUtils.set_data (snapshot_path, buffer);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_WRITE_SNAPSHOT (@"Couldn't write snapshot: $(e.message)");
-		}
+		FileUtils.set_data (snapshot_path, buffer);
 	}
 
 	private void load_snapshot () throws Error {
@@ -283,19 +268,14 @@ private class Games.RetroRunner : Object, Runner {
 			return;
 
 		uint8[] data = null;
-		try {
-			FileUtils.get_data (snapshot_path, out data);
-		}
-		catch (FileError e) {
-			throw new RunError.COULDNT_LOAD_SNAPSHOT (@"Couldn't load snapshot: $(e.message)");
-		}
+		FileUtils.get_data (snapshot_path, out data);
 
 		var expected_size = core.serialize_size ();
 		if (data.length != expected_size)
 			warning ("Unexpected serialization data size: got %lu, expected %lu\n", data.length, expected_size);
 
 		if (!core.unserialize (data))
-			throw new RunError.COULDNT_LOAD_SNAPSHOT ("Couldn't load snapshot.");
+			throw new RetroError.COULDNT_LOAD_SNAPSHOT ("Couldn't load snapshot.");
 	}
 
 	private void save_screenshot () throws Error {
@@ -303,25 +283,15 @@ private class Games.RetroRunner : Object, Runner {
 		if (pixbuf == null)
 			return;
 
-		try {
-			pixbuf.save (screenshot_path, "png");
-		}
-		catch (Error e) {
-			throw new RunError.COULDNT_WRITE_SCREENSHOT(@"Couldn't write screenshot: $(e.message)");
-		}
+		pixbuf.save (screenshot_path, "png");
 	}
 
 	private void load_screenshot () throws Error {
 		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
 			return;
 
-		try {
-			var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
-			video.pixbuf = pixbuf;
-		}
-		catch (Error e) {
-			throw new RunError.COULDNT_LOAD_SCREENSHOT(@"Couldn't load screenshot: $(e.message)");
-		}
+		var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
+		video.pixbuf = pixbuf;
 	}
 
 	private bool on_shutdown () {

@@ -9,7 +9,7 @@ private class Games.CommandRunner : Object, Runner {
 
 	public CommandRunner (string[] args) throws Error {
 		if (args.length < 1)
-			throw new RunError.INVALID_COMMAND ("Invalid command: it doesn't have any argument.");
+			throw new CommandError.INVALID_COMMAND ("Invalid command: it doesn't have any argument.");
 
 		this.args = args;
 	}
@@ -39,7 +39,7 @@ private class Games.CommandRunner : Object, Runner {
 				working_directory, args, envp, flags, child_setup, out pid,
 				out standard_input, out standard_output, out standard_error);
 			if (!result)
-				throw new RunError.EXECUTION_FAILED ("Couldn't run '%s': execution failed\n".printf (args[0]));
+				throw new CommandError.EXECUTION_FAILED ("Couldn't run '%s': execution failed\n".printf (args[0]));
 		}
 		catch (SpawnError e) {
 			warning ("%s\n", e.message);

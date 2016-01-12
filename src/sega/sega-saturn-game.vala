@@ -48,15 +48,9 @@ private class Games.SegaSaturnGame : Object, Game {
 	}
 
 	public Runner get_runner () throws Error {
-		string uid;
-		try {
-			uid = this.uid.get_uid ();
-		}
-		catch (Error e) {
-			throw new RunError.COULDNT_GET_UID (@"Couldn't get UID: $(e.message)");
-		}
+		var uid_string = uid.get_uid ();
 
-		return new RetroRunner (MODULE_BASENAME, path, uid);
+		return new RetroRunner (MODULE_BASENAME, path, uid_string);
 	}
 
 	private string? get_associated_cue_sheet (File file) throws Error {
