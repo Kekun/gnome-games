@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-nes-plugin
+Name=NES Plugin
+Description=Provides support for Nintento Entertainment System/Famicom games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2015 Adrien Plazas
