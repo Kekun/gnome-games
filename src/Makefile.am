@@ -59,9 +59,6 @@ gnome_games_SOURCES = \
 	nec/pc-engine-game.vala \
 	nec/pc-engine-tracker-query.vala \
 	\
-	nintendo/wii-ware-game.vala \
-	nintendo/wii-ware-tracker-query.vala \
-	\
 	retro/retro-error.vala \
 	retro/retro-log.vala \
 	retro/retro-runner.vala \

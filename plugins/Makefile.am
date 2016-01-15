@@ -40,4 +40,8 @@ if ENABLE_WII_PLUGIN
 SUBDIRS += wii
 endif
 
+if ENABLE_WII_WARE_PLUGIN
+SUBDIRS += wii-ware
+endif
+
 -include $(top_srcdir)/git.mk
