@@ -16,6 +16,10 @@ if ENABLE_NES_PLUGIN
 SUBDIRS += nes
 endif
 
+if ENABLE_NINTENDO_DS_PLUGIN
+SUBDIRS += nintendo-ds
+endif
+
 if ENABLE_SNES_PLUGIN
 SUBDIRS += snes
 endif
