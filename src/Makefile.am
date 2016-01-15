@@ -63,8 +63,6 @@ gnome_games_SOURCES = \
 	nintendo/game-cube-header.vala \
 	nintendo/game-cube-tracker-query.vala \
 	nintendo/game-cube-uid.vala \
-	nintendo/nintendo-64-game.vala \
-	nintendo/nintendo-64-tracker-query.vala \
 	nintendo/wii-game.vala \
 	nintendo/wii-header.vala \
 	nintendo/wii-tracker-query.vala \
