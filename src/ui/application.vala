@@ -92,7 +92,6 @@ private class Games.Application : Gtk.Application {
 		tracker_source.add_query (new MegaDriveTrackerQuery ());
 		tracker_source.add_query (new PcEngineTrackerQuery ());
 		tracker_source.add_query (new SegaSaturnTrackerQuery ());
-		tracker_source.add_query (new WiiTrackerQuery ());
 		tracker_source.add_query (new WiiWareTrackerQuery ());
 
 		yield tracker_source.each_game (add_game);

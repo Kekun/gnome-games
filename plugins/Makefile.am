@@ -36,4 +36,8 @@ if ENABLE_STEAM_PLUGIN
 SUBDIRS += steam
 endif
 
+if ENABLE_WII_PLUGIN
+SUBDIRS += wii
+endif
+
 -include $(top_srcdir)/git.mk
