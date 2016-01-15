@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-nintendo-ds-plugin
+Name=Nintendo DS Plugin
+Description=Provides support for Nintendo DS games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2016 Adrien Plazas
