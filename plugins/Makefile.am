@@ -28,6 +28,10 @@ if ENABLE_NINTENDO_64_PLUGIN
 SUBDIRS += nintendo-64
 endif
 
+if ENABLE_PC_ENGINE_PLUGIN
+SUBDIRS += pc-engine
+endif
+
 if ENABLE_SNES_PLUGIN
 SUBDIRS += snes
 endif

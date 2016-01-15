@@ -56,9 +56,6 @@ gnome_games_SOURCES = \
 	love/love-game.vala \
 	love/love-tracker-query.vala \
 	\
-	nec/pc-engine-game.vala \
-	nec/pc-engine-tracker-query.vala \
-	\
 	retro/retro-error.vala \
 	retro/retro-log.vala \
 	retro/retro-runner.vala \
