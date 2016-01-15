@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-game-cube-plugin
+Name=Game Cube Plugin
+Description=Provides support for Game Cube games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2016 Adrien Plazas
