@@ -59,8 +59,6 @@ gnome_games_SOURCES = \
 	nec/pc-engine-game.vala \
 	nec/pc-engine-tracker-query.vala \
 	\
-	nintendo/game-boy-advance-game.vala \
-	nintendo/game-boy-advance-tracker-query.vala \
 	nintendo/game-cube-game.vala \
 	nintendo/game-cube-header.vala \
 	nintendo/game-cube-tracker-query.vala \
