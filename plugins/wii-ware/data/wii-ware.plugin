@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-wii-ware-plugin
+Name=WiiWare Plugin
+Description=Provides support for WiiWare games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2016 Adrien Plazas
