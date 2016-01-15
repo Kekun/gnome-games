@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-nintendo-64-plugin
+Name=Nintendo 64 Plugin
+Description=Provides support for Nintendo 64 games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2016 Adrien Plazas
