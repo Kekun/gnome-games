@@ -26,6 +26,7 @@ m4_include([plugins/desktop/configure.ac])
 m4_include([plugins/nes/configure.ac])
 m4_include([plugins/game-boy/configure.ac])
 m4_include([plugins/game-boy-advance/configure.ac])
+m4_include([plugins/nintendo-ds/configure.ac])
 m4_include([plugins/snes/configure.ac])
 m4_include([plugins/steam/configure.ac])
 
