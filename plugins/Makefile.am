@@ -4,6 +4,10 @@ if ENABLE_DESKTOP_PLUGIN
 SUBDIRS += desktop
 endif
 
+if ENABLE_GAME_BOY_PLUGIN
+SUBDIRS += game-boy
+endif
+
 if ENABLE_NES_PLUGIN
 SUBDIRS += nes
 endif

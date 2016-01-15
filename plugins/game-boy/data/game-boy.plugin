@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-game-boy-plugin
+Name=Game Boy Plugin
+Description=Provides support for Game Boy/Game Boy Color games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2016 Adrien Plazas
