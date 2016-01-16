@@ -64,10 +64,6 @@ gnome_games_SOURCES = \
 	sega/dreamcast-header.vala \
 	sega/dreamcast-tracker-query.vala \
 	sega/dreamcast-uid.vala \
-	sega/sega-saturn-game.vala \
-	sega/sega-saturn-header.vala \
-	sega/sega-saturn-tracker-query.vala \
-	sega/sega-saturn-uid.vala \
 	\
 	tracker/mime-type-tracker-query.vala \
 	tracker/tracker-game-source.vala \
