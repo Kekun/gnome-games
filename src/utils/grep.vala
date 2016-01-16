@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 namespace Games.Grep {
-	private size_t[] get_offsets (string filename, string text) {
+	public size_t[] get_offsets (string filename, string text) {
 		var working_dir = Environment.get_current_dir ();
 		string[] args = { "grep", "--byte-offset", "--only-matching", "--text", text, filename };
 		var env = Environ.@get ();
