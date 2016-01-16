@@ -20,6 +20,10 @@ if ENABLE_MASTER_SYSTEM_PLUGIN
 SUBDIRS += master-system
 endif
 
+if ENABLE_MEGA_DRIVE_PLUGIN
+SUBDIRS += mega-drive
+endif
+
 if ENABLE_NES_PLUGIN
 SUBDIRS += nes
 endif
