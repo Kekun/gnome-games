@@ -64,9 +64,6 @@ gnome_games_SOURCES = \
 	sega/dreamcast-header.vala \
 	sega/dreamcast-tracker-query.vala \
 	sega/dreamcast-uid.vala \
-	sega/master-system-game.vala \
-	sega/master-system-header.vala \
-	sega/master-system-tracker-query.vala \
 	sega/mega-drive-game.vala \
 	sega/mega-drive-header.vala \
 	sega/mega-drive-tracker-query.vala \

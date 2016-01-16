@@ -88,7 +88,6 @@ private class Games.Application : Gtk.Application {
 		tracker_source.add_query (new DoomTrackerQuery ());
 		tracker_source.add_query (new DreamcastTrackerQuery ());
 		tracker_source.add_query (new LoveTrackerQuery ());
-		tracker_source.add_query (new MasterSystemTrackerQuery ());
 		tracker_source.add_query (new MegaDriveTrackerQuery ());
 		tracker_source.add_query (new SegaSaturnTrackerQuery ());
 
