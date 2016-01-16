@@ -16,6 +16,10 @@ if ENABLE_GAME_CUBE_PLUGIN
 SUBDIRS += game-cube
 endif
 
+if ENABLE_MASTER_SYSTEM_PLUGIN
+SUBDIRS += master-system
+endif
+
 if ENABLE_NES_PLUGIN
 SUBDIRS += nes
 endif
