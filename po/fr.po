@@ -1,0 +1,141 @@
+# French translaion for gameinfo.
+# Copyright (C) 2015 gameinfo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gameinfo package.
+# Adrien Plazas <kekun.plazas@laposte.net>, 2015, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gameinfo master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-28 11:50+0100\n"
+"PO-Revision-Date: 2016-01-28 12:11+0100\n"
+"Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
+"Language-Team: français <>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "Jeux"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Lanceur de jeux simple pour GNOME"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"Jeux est une application GNOME 3 pour parcourir votre ludothèque et aisément "
+"y chosir un jeu à jouer. Il vise à appliquer aux jeux ce que Musique fait "
+"déjà pour votre musithèque."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and cumfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Vous souhaitez installer Jeux si vous voulez juste un moyen très simple et "
+"confortable de jouer à vos jeux et vous n'avez pas besoin de fonctionnalités "
+"avancées comme des outils de speedrunning ou de développement de jeux vidéo."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Fonctionnalités :"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr "Listez vos jeux installés, vos jeux Steam, vos ROMs de jeu..."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Cherchez dans votre ludothèque"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Jouez à vos jeux"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Reprenez votre partie là où vous l'avez laissée"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Lecteur de jeux vidéo"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Visualiser et jouer votre ludothèque"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player"
+msgstr "jeu;jeu vidéo;lecteur"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr ""
+"<b><span size=\"large\">Ceci est un affichage de jeu factice</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "Si vous voyez ceci, c'est un bogue."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Merci de bien vouloir contacter les déloppeurs."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "Aucun jeu trouvé"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Installez des jeux ou ajoutez des dossier contenant des jeux à vos sources "
+"de recherche."
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "Recherche"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "Précedent"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr ""
+"<b><span size=\"large\">Utilisez la fenêtre du jeu pour y jouer</span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Ce jeu n'est pas intégré à GNOME Jeux."
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "Vous devez utiliser sa propre fenêtre pour y jouer."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Reprendre la dernière partie ?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Reprendre"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#: ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Annuler"
