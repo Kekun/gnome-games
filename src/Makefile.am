@@ -36,9 +36,6 @@ gnome_games_SOURCES = \
 	command/command-error.vala \
 	command/command-runner.vala \
 	\
-	commodore/amiga-game.vala \
-	commodore/amiga-tracker-query.vala \
-	\
 	core/game.vala \
 	core/game-source.vala \
 	core/plugin.vala \
