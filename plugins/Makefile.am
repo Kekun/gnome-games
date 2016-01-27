@@ -28,6 +28,10 @@ if ENABLE_GAME_CUBE_PLUGIN
 SUBDIRS += game-cube
 endif
 
+if ENABLE_LOVE_PLUGIN
+SUBDIRS += love
+endif
+
 if ENABLE_MASTER_SYSTEM_PLUGIN
 SUBDIRS += master-system
 endif

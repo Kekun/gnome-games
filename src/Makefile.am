@@ -47,9 +47,6 @@ gnome_games_SOURCES = \
 	dummy/dummy-game-source.vala \
 	dummy/dummy-runner.vala \
 	\
-	love/love-game.vala \
-	love/love-tracker-query.vala \
-	\
 	retro/retro-error.vala \
 	retro/retro-log.vala \
 	retro/retro-runner.vala \
@@ -86,7 +83,6 @@ gnome_games_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
-	--pkg libarchive \
 	--pkg tracker-sparql-1.0 \
 	--pkg retro-gobject-0.4 \
 	--pkg retro-gtk-0.4 \
