@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-love-plugin
+Name=LÖVE Plugin
+Description=Provides support for LÖVE games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2016 Adrien Plazas

@@ -30,6 +30,7 @@ m4_include([plugins/nes/configure.ac])
 m4_include([plugins/game-boy/configure.ac])
 m4_include([plugins/game-boy-advance/configure.ac])
 m4_include([plugins/game-cube/configure.ac])
+m4_include([plugins/love/configure.ac])
 m4_include([plugins/master-system/configure.ac])
 m4_include([plugins/mega-drive/configure.ac])
 m4_include([plugins/nintendo-64/configure.ac])
@@ -45,7 +46,6 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 	gio-2.0
 	glib-2.0 >= $GLIB_MIN_VERSION
 	gtk+-3.0
-	libarchive
 	retro-gobject-0.4
 	retro-gtk-0.4
 	tracker-sparql-1.0
