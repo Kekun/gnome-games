@@ -84,7 +84,6 @@ private class Games.Application : Gtk.Application {
 
 		var tracker_source = new TrackerGameSource (connection);
 
-		tracker_source.add_query (new DoomTrackerQuery ());
 		tracker_source.add_query (new LoveTrackerQuery ());
 
 		yield tracker_source.each_game (add_game);
