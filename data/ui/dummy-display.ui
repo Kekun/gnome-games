@@ -33,7 +33,7 @@
             <property name="halign">center</property>
             <property name="vexpand">True</property>
             <property name="margin-bottom">6</property>
-            <property name="label" translatable="yes">&lt;b&gt;&lt;span size=&quot;large&quot;&gt;This is a dummy game display&gt;&lt;/b&gt;</property>
+            <property name="label" translatable="yes">&lt;b&gt;&lt;span size=&quot;large&quot;&gt;This is a dummy game display&lt;/span&gt;&lt;/b&gt;</property>
           </object>
         </child>
 
