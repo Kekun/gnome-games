@@ -3,8 +3,8 @@
   <id type="desktop">org.gnome.Games.desktop</id>
   <licence>CC0</licence>
   <project_license>GPL-3.0+ and GPL-2.0+</project_license>
-  <name>Games</name>
-  <summary>Simple game launcher for GNOME</summary>
+  <_name>Games</_name>
+  <_summary>Simple game launcher for GNOME</_summary>
 
   <description>
     <_p>
@@ -18,12 +18,12 @@
       speedrunning tools or video game development tools.
     </_p>
     <_p>Features:</_p>
-    <_ul>
+    <ul>
       <_li>List your installed games, your Steam games, your game ROMs...</_li>
       <_li>Search in your games collection</_li>
       <_li>Play your games</_li>
       <_li>Resume your game to where you left it</_li>
-    </_ul>
+    </ul>
   </description>
 
   <screenshots>

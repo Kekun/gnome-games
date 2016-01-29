@@ -93,6 +93,7 @@ gnome_games_VALAFLAGS = \
 
 gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
 
