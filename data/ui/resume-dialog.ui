@@ -16,7 +16,7 @@
         <property name="margin-bottom">12</property>
         <property name="margin-start">21</property>
         <property name="margin-end">21</property>
-        <property name="label">Resume last game?</property>
+        <property name="label" translatable="yes">Resume last game?</property>
       </object>
     </child>
       </object>
