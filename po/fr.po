@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gameinfo master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-28 11:50+0100\n"
-"PO-Revision-Date: 2016-01-28 12:11+0100\n"
+"POT-Creation-Date: 2016-02-03 17:28+0100\n"
+"PO-Revision-Date: 2016-02-03 17:24+0100\n"
 "Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
 "Language-Team: français <>\n"
 "Language: fr\n"
@@ -79,6 +79,14 @@ msgstr "Visualiser et jouer votre ludothèque"
 msgid "game;videogame;video game;player"
 msgstr "jeu;jeu vidéo;lecteur"
 
+#: ../data/gtk/menus.ui.h:1
+msgid "_About"
+msgstr "À _propos"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_Quit"
+msgstr "_Quitter"
+
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
 msgstr ""
@@ -139,3 +147,19 @@ msgstr "Menu principal"
 #: ../data/ui/resume-dialog.ui.h:4
 msgid "Cancel"
 msgstr "Annuler"
+
+#: ../src/ui/application.vala:118
+msgid "GNOME Games"
+msgstr "GNOME Jeux"
+
+#: ../src/ui/application.vala:120
+msgid "A video game player for GNOME"
+msgstr "Lecteur de jeux vidéo pour GNOME"
+
+#: ../src/ui/application.vala:124
+msgid "Learn more about GNOME Games"
+msgstr "En apprendre plus sur GNOME Jeux"
+
+#: ../src/ui/application.vala:131
+msgid "translator-credits"
+msgstr "Adrien Plazas <kekun.plazas@laposte.net>, 2016"
