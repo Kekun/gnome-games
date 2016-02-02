@@ -74,6 +74,7 @@ gnome_games_SOURCES = \
 	utils/grep.vala \
 	\
 	config.vala \
+	credits.vala \
 	main.vala \
 	$(BUILT_SOURCES) \
 	$(NULL)
