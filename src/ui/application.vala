@@ -1,5 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
+private extern const string VERSION;
+
 private class Games.Application : Gtk.Application {
 	private ListStore collection;
 
@@ -20,9 +22,25 @@ private class Games.Application : Gtk.Application {
 		}
 	}
 
+	private Gtk.Window window;
+
 	public Application () {
 		Object (application_id: "org.gnome.Games",
 		        flags: ApplicationFlags.FLAGS_NONE);
+	}
+
+	construct {
+		add_actions ();
+	}
+
+	private void add_actions () {
+		SimpleAction about_action = new SimpleAction ("about", null);
+		about_action.activate.connect (about);
+		add_action (about_action);
+
+		SimpleAction quit_action = new SimpleAction ("quit", null);
+		quit_action.activate.connect (quit);
+		add_action (quit_action);
 	}
 
 	public static string get_data_dir () {
@@ -53,7 +71,7 @@ private class Games.Application : Gtk.Application {
 		collection = new ListStore (typeof (Game));
 		load_game_list.begin ();
 
-		var window = new ApplicationWindow (collection);
+		window = new ApplicationWindow (collection);
 		this.add_window (window);
 		window.destroy.connect (() => {
 			quit ();
@@ -89,6 +107,35 @@ private class Games.Application : Gtk.Application {
 
 	private void add_game (Game game) {
 		collection.append (game);
+	}
+
+	private void about () {
+		Gtk.AboutDialog dialog = new Gtk.AboutDialog ();
+		dialog.set_destroy_with_parent (true);
+		dialog.set_transient_for (window);
+		dialog.set_modal (true);
+
+		dialog.program_name = _("GNOME Games");
+		dialog.logo_icon_name = "gnome-games";
+		dialog.comments = _("A video game player for GNOME");
+		dialog.version = VERSION;
+
+		dialog.website = "https://wiki.gnome.org/Apps/Games";
+		dialog.website_label = _("Learn more about GNOME Games");
+
+		dialog.license_type = Gtk.License.GPL_3_0;
+
+		dialog.authors = Credits.AUTHORS;
+		dialog.artists = Credits.ARTISTS;
+		dialog.documenters = Credits.DOCUMENTERS;
+		dialog.translator_credits = _("translator-credits");
+
+		dialog.response.connect ((response_id) => {
+			if (response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT)
+				dialog.hide_on_delete ();
+		});
+
+		dialog.present ();
 	}
 
 	private static Gtk.CssProvider load_css (string css) {
