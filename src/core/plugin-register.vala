@@ -3,6 +3,8 @@
 private class Games.PluginRegister : Object {
 	public delegate void PluginFunc (Plugin plugin);
 
+	private HashTable<string, PluginRegistrar> plugin_registrars;
+
 	public void foreach_plugin (PluginFunc func) {
 		var directory = File.new_for_path (PLUGINS_DIR);
 		try {
@@ -15,7 +17,9 @@ private class Games.PluginRegister : Object {
 					var descriptor = directory.get_child (name);
 					var descriptor_path = descriptor.get_path ();
 
-					for_plugin_descriptor (descriptor_path, func);
+					var registrar = get_plugin_registrar (descriptor_path);
+					var plugin = registrar.get_plugin ();
+					func (plugin);
 				}
 			}
 
@@ -25,9 +29,13 @@ private class Games.PluginRegister : Object {
 		}
 	}
 
-	public void for_plugin_descriptor (string descriptor_filename, PluginFunc func) throws Error {
+	public PluginRegistrar get_plugin_registrar (string descriptor_filename) throws Error {
+		if (plugin_registrars.contains (descriptor_filename))
+			return plugin_registrars[descriptor_filename];
+
 		var registrar = new PluginRegistrar (descriptor_filename);
-		var plugin = registrar.get_plugin ();
-		func (plugin);
+		plugin_registrars[descriptor_filename] = registrar;
+
+		return registrar;
 	}
 }
