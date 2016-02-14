@@ -53,8 +53,5 @@ private class Games.PluginRegistrar : TypeModule {
 }
 
 private errordomain Games.PluginError {
-	MODULE_NOT_FOUND,
-	REGISTRATION_FUNC_NOT_FOUND,
-	NOT_A_REGISTRATION_FUNC,
 	NOT_A_PLUGIN,
 }
