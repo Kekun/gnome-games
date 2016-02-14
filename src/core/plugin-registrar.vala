@@ -36,13 +36,11 @@ private class Games.PluginRegistrar : TypeModule {
 		module = Module.open (path, ModuleFlags.BIND_LAZY);
 		if (module == null)
 			return false;
-//			throw new PluginError.MODULE_NOT_FOUND ("Couldn't open '%s' as a module.", path);
 
 		void* function;
 		module.symbol ("register_games_plugin", out function);
 		if (function == null)
 			return false;
-//			throw new PluginError.REGISTRATION_FUNC_NOT_FOUND ("Symbol 'register_games_plugin' not found in module '%s'.", path);
 
 		unowned RegisterPluginFunc register_plugin = (RegisterPluginFunc) function;
 
