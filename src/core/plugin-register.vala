@@ -1,11 +1,11 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.PluginRegister : Object {
-	public delegate void PluginFunc (Plugin plugin);
+	public delegate void PluginRegistrarFunc (PluginRegistrar plugin_registrar);
 
 	private HashTable<string, PluginRegistrar> plugin_registrars;
 
-	public void foreach_plugin (PluginFunc func) {
+	public void foreach_plugin_registrar (PluginRegistrarFunc func) {
 		var directory = File.new_for_path (PLUGINS_DIR);
 		try {
 			var enumerator = directory.enumerate_children (FileAttribute.STANDARD_NAME, 0);
@@ -18,8 +18,7 @@ private class Games.PluginRegister : Object {
 					var descriptor_path = descriptor.get_path ();
 
 					var registrar = get_plugin_registrar (descriptor_path);
-					var plugin = registrar.get_plugin ();
-					func (plugin);
+					func (registrar);
 				}
 			}
 

@@ -83,8 +83,9 @@ private class Games.Application : Gtk.Application {
 		GameSource[] sources = {};
 
 		var register = new PluginRegister ();
-		register.foreach_plugin ((plugin) => {
+		register.foreach_plugin_registrar ((plugin_registrar) => {
 			try {
+				var plugin = plugin_registrar.get_plugin ();
 				var source = plugin.get_game_source ();
 				if (source != null)
 					sources += source;
