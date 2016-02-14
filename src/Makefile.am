@@ -66,6 +66,7 @@ gnome_games_SOURCES = \
 	ui/game-thumbnail.vala \
 	ui/header-bar.vala \
 	ui/preferences-page.vala \
+	ui/preferences-page-plugins.vala \
 	ui/preferences-page-plugins-item.vala \
 	ui/remote-display.vala \
 	ui/resume-dialog.vala \
