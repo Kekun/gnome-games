@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.16 -->
+  <template class="GamesPreferencesPagePluginsItem" parent="GtkBox">
+    <property name="visible">True</property>
+    <property name="orientation">vertical</property>
+    <property name="margin">6</property>
+    <child>
+      <object class="GtkLabel" id="plugin_name">
+        <property name="visible">true</property>
+        <property name="xalign">0</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel" id="plugin_description">
+        <property name="visible">true</property>
+        <property name="xalign">0</property>
+        <style>
+          <class name="dim-label" />
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

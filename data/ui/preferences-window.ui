@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.8 -->
+  <template class="GamesPreferencesWindow" parent="GtkWindow">
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Preferences</property>
+    <property name="icon-name">builder</property>
+    <property name="default-width">800</property>
+    <property name="default-height">500</property>
+    <property name="window-position">GTK_WIN_POS_CENTER_ON_PARENT</property>
+    <child type="titlebar">
+      <object class="GtkBox" id="titlebar_box">
+        <property name="visible">True</property>
+        <property name="expand">True</property>
+        <property name="orientation">horizontal</property>
+        <child>
+          <object class="GtkHeaderBar" id="left_header_bar">
+            <property name="name">left_header_bar</property>
+            <property name="visible">True</property>
+            <property name="title" translatable="yes">Preferences</property>
+            <property name="show-close-button">True</property>
+            <property name="decoration_layout">menu</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="header_separator">
+            <property name="orientation">vertical</property>
+            <property name="visible">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkHeaderBar" id="right_header_bar">
+            <property name="name">right_header_bar</property>
+            <property name="visible">True</property>
+            <property name="expand">True</property>
+            <property name="show-close-button">True</property>
+            <property name="decoration_layout">:close</property>
+            <child>
+              <object class="GtkStack" id="controls_stack">
+                <property name="homogeneous">false</property>
+                <property name="visible">true</property>
+              </object>
+              <packing>
+                <property name="pack-type">start</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox" id="hbox1">
+        <property name="expand">True</property>
+        <property name="visible">True</property>
+        <property name="orientation">horizontal</property>
+        <child>
+          <object class="GtkBox" id="sidebar_vbox">
+            <property name="hexpand">false</property>
+            <property name="orientation">vertical</property>
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkStackSidebar" id="sidebar">
+                <property name="margin-top">4</property>
+                <property name="stack">stack</property>
+                <property name="vexpand">True</property>
+                <property name="visible">True</property>
+                <property name="width-request">150</property>
+                <style>
+                  <class name="preferences" />
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="separator1">
+            <property name="orientation">vertical</property>
+            <property name="visible">True</property>
+            <property name="expand">False</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="stack">
+            <property name="visible">True</property>
+            <property name="expand">True</property>
+            <property name="visible-child">plugins_page</property>
+            <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+            <child>
+              <object class="GamesPreferencesPagePlugins" id="plugins_page">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="name">plugins</property>
+                <property name="title" translatable="yes">Extensions</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+  <object class="GtkSizeGroup">
+    <property name="mode">GTK_SIZE_GROUP_HORIZONTAL</property>
+    <widgets>
+      <widget name="left_header_bar"/>
+      <widget name="sidebar"/>
+    </widgets>
+  </object>
+</interface>

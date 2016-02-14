@@ -34,6 +34,10 @@ private class Games.Application : Gtk.Application {
 	}
 
 	private void add_actions () {
+		SimpleAction preferences_action = new SimpleAction ("preferences", null);
+		preferences_action.activate.connect (preferences);
+		add_action (preferences_action);
+
 		SimpleAction about_action = new SimpleAction ("about", null);
 		about_action.activate.connect (about);
 		add_action (about_action);
@@ -82,9 +86,10 @@ private class Games.Application : Gtk.Application {
 	public async void load_game_list () {
 		GameSource[] sources = {};
 
-		var register = new PluginRegister ();
-		register.foreach_plugin ((plugin) => {
+		var register = PluginRegister.get_register ();
+		register.foreach_plugin_registrar ((plugin_registrar) => {
 			try {
+				var plugin = plugin_registrar.get_plugin ();
 				var source = plugin.get_game_source ();
 				if (source != null)
 					sources += source;
@@ -107,6 +112,10 @@ private class Games.Application : Gtk.Application {
 
 	private void add_game (Game game) {
 		collection.append (game);
+	}
+
+	private void preferences () {
+		new PreferencesWindow ();
 	}
 
 	private void about () {

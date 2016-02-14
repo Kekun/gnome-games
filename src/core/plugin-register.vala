@@ -1,9 +1,23 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.PluginRegister : Object {
-	public delegate void PluginFunc (Plugin plugin);
+	public delegate void PluginRegistrarFunc (PluginRegistrar plugin_registrar);
 
-	public void foreach_plugin (PluginFunc func) {
+	private static PluginRegister instance;
+	private HashTable<string, PluginRegistrar> plugin_registrars;
+
+	private PluginRegister () {
+		plugin_registrars = new HashTable<string, PluginRegistrar> (str_hash, str_equal);
+	}
+
+	public static PluginRegister get_register () {
+		if (instance == null)
+			instance = new PluginRegister ();
+
+		return instance;
+	}
+
+	public void foreach_plugin_registrar (PluginRegistrarFunc func) {
 		var directory = File.new_for_path (PLUGINS_DIR);
 		try {
 			var enumerator = directory.enumerate_children (FileAttribute.STANDARD_NAME, 0);
@@ -15,7 +29,8 @@ private class Games.PluginRegister : Object {
 					var descriptor = directory.get_child (name);
 					var descriptor_path = descriptor.get_path ();
 
-					for_plugin_descriptor (descriptor_path, func);
+					var registrar = get_plugin_registrar (descriptor_path);
+					func (registrar);
 				}
 			}
 
@@ -25,13 +40,13 @@ private class Games.PluginRegister : Object {
 		}
 	}
 
-	public void for_plugin_descriptor (string descriptor_filename, PluginFunc func) throws Error {
-		var keyfile = new KeyFile ();
-		keyfile.load_from_file (descriptor_filename, KeyFileFlags.NONE);
-		var module_name = keyfile.get_string ("Plugin", "Module");
+	public PluginRegistrar get_plugin_registrar (string descriptor_filename) throws Error {
+		if (plugin_registrars.contains (descriptor_filename))
+			return plugin_registrars[descriptor_filename];
 
-		var registrar = new PluginRegistrar (module_name);
-		var plugin = registrar.new_plugin ();
-		func (plugin);
+		var registrar = new PluginRegistrar (descriptor_filename);
+		plugin_registrars[descriptor_filename] = registrar;
+
+		return registrar;
 	}
 }
