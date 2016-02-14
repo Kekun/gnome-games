@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.PluginRegistrar : TypeModule {
-	private string path;
+	private string module_path;
 	private Type type;
 	private Module module;
 	private bool loaded;
@@ -10,7 +10,7 @@ private class Games.PluginRegistrar : TypeModule {
 
 	public PluginRegistrar (string name) {
 		assert (Module.supported ());
-		path = Module.build_path (PLUGINS_DIR, name);
+		module_path = Module.build_path (PLUGINS_DIR, name);
 		loaded = false;
 	}
 
@@ -20,11 +20,11 @@ private class Games.PluginRegistrar : TypeModule {
 
 		var object = Object.new (type);
 		if (object == null)
-			throw new PluginError.NOT_A_PLUGIN ("Couldn't create a new instance of plugin in '%s'.", path);
+			throw new PluginError.NOT_A_PLUGIN ("Couldn't create a new instance of plugin in '%s'.", module_path);
 
 		var plugin = object as Plugin;
 		if (plugin == null)
-			throw new PluginError.NOT_A_PLUGIN ("Couldn't create a new instance of plugin in '%s'.", path);
+			throw new PluginError.NOT_A_PLUGIN ("Couldn't create a new instance of plugin in '%s'.", module_path);
 
 		return plugin;
 	}
@@ -33,7 +33,7 @@ private class Games.PluginRegistrar : TypeModule {
 		if (loaded)
 			return true;
 
-		module = Module.open (path, ModuleFlags.BIND_LAZY);
+		module = Module.open (module_path, ModuleFlags.BIND_LAZY);
 		if (module == null)
 			return false;
 
