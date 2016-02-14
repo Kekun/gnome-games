@@ -82,7 +82,7 @@ private class Games.Application : Gtk.Application {
 	public async void load_game_list () {
 		GameSource[] sources = {};
 
-		var register = new PluginRegister ();
+		var register = PluginRegister.get_register ();
 		register.foreach_plugin_registrar ((plugin_registrar) => {
 			try {
 				var plugin = plugin_registrar.get_plugin ();

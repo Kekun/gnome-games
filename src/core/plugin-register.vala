@@ -3,7 +3,19 @@
 private class Games.PluginRegister : Object {
 	public delegate void PluginRegistrarFunc (PluginRegistrar plugin_registrar);
 
+	private static PluginRegister instance;
 	private HashTable<string, PluginRegistrar> plugin_registrars;
+
+	private PluginRegister () {
+		plugin_registrars = new HashTable<string, PluginRegistrar> (str_hash, str_equal);
+	}
+
+	public static PluginRegister get_register () {
+		if (instance == null)
+			instance = new PluginRegister ();
+
+		return instance;
+	}
 
 	public void foreach_plugin_registrar (PluginRegistrarFunc func) {
 		var directory = File.new_for_path (PLUGINS_DIR);
