@@ -1,6 +1,9 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.PluginRegistrar : TypeModule {
+	public string name { private set; get; }
+	public string description { private set; get; }
+
 	private Plugin plugin;
 	private string module_path;
 	private Type type;
@@ -17,6 +20,8 @@ private class Games.PluginRegistrar : TypeModule {
 			keyfile.load_from_file (plugin_filename, KeyFileFlags.NONE);
 			var module_name = keyfile.get_string ("Plugin", "Module");
 			module_path = Module.build_path (PLUGINS_DIR, module_name);
+			name = keyfile.get_string ("Plugin", "Name");
+			description = keyfile.get_string ("Plugin", "Description");
 		}
 		catch (Error e) {
 			throw new PluginError.INVALID_PLUGIN_DESCRIPTOR ("Invalid plugin descriptor: %s", e.message);
