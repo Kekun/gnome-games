@@ -1,6 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.PluginRegistrar : TypeModule {
+	private Plugin plugin;
 	private string module_path;
 	private Type type;
 	private Module module;
@@ -24,7 +25,16 @@ private class Games.PluginRegistrar : TypeModule {
 		loaded = false;
 	}
 
-	public Plugin new_plugin () throws PluginError {
+	public Plugin get_plugin () throws PluginError {
+		if (plugin != null)
+			return plugin;
+
+		plugin = new_plugin ();
+
+		return plugin;
+	}
+
+	private Plugin new_plugin () throws PluginError {
 		if (!loaded)
 			load ();
 

@@ -27,7 +27,7 @@ private class Games.PluginRegister : Object {
 
 	public void for_plugin_descriptor (string descriptor_filename, PluginFunc func) throws Error {
 		var registrar = new PluginRegistrar (descriptor_filename);
-		var plugin = registrar.new_plugin ();
+		var plugin = registrar.get_plugin ();
 		func (plugin);
 	}
 }
