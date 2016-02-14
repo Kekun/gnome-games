@@ -26,11 +26,7 @@ private class Games.PluginRegister : Object {
 	}
 
 	public void for_plugin_descriptor (string descriptor_filename, PluginFunc func) throws Error {
-		var keyfile = new KeyFile ();
-		keyfile.load_from_file (descriptor_filename, KeyFileFlags.NONE);
-		var module_name = keyfile.get_string ("Plugin", "Module");
-
-		var registrar = new PluginRegistrar (module_name);
+		var registrar = new PluginRegistrar (descriptor_filename);
 		var plugin = registrar.new_plugin ();
 		func (plugin);
 	}

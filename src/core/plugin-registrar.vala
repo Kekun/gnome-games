@@ -8,9 +8,19 @@ private class Games.PluginRegistrar : TypeModule {
 
 	private delegate Type RegisterPluginFunc (TypeModule module);
 
-	public PluginRegistrar (string name) {
+	public PluginRegistrar (string plugin_filename) throws PluginError {
 		assert (Module.supported ());
-		module_path = Module.build_path (PLUGINS_DIR, name);
+
+		try {
+			var keyfile = new KeyFile ();
+			keyfile.load_from_file (plugin_filename, KeyFileFlags.NONE);
+			var module_name = keyfile.get_string ("Plugin", "Module");
+			module_path = Module.build_path (PLUGINS_DIR, module_name);
+		}
+		catch (Error e) {
+			throw new PluginError.INVALID_PLUGIN_DESCRIPTOR ("Invalid plugin descriptor: %s", e.message);
+		}
+
 		loaded = false;
 	}
 
@@ -53,5 +63,6 @@ private class Games.PluginRegistrar : TypeModule {
 }
 
 private errordomain Games.PluginError {
+	INVALID_PLUGIN_DESCRIPTOR,
 	NOT_A_PLUGIN,
 }
