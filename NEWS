@@ -1,3 +1,68 @@
+===============
+Version 3.19.90
+===============
+
+* Lower logging level of message notifying the lack of a Steam install
+
+* Split RunError into specialized errors
+
+* Steam:
+ - Support registry files containing empty strings
+ - Support game manifests using "appID" instead of "appid"
+
+* Desktop:
+ - Check the validity of DesktopAppInfo before using it
+
+* Tracker:
+ - Check the existence of a file before trying to parse it
+
+* Plugins:
+ - Add a plugin system allowing to extend supported game types
+ - Port code handling the currently supported game types to plugins
+ - Show the available plugins in the 'Preferences' window
+
+* Add an 'About' dialog
+
+* Allow i18n
+
+* Bugs fixed:
+ 162 Is jhbuild.modules still needed?
+ 165 app_info != NULL errors
+ 166 Can't list Steam games warning
+ 169 Steam games not detected due to casing mismatch.
+ 170 Steam registry warns about unexpected token '}'.
+ 178 Lots of Tracker "Couldn't read file" errors
+ 185 Add a plugin system to support more game types
+ 189 RunError is too wide and should be splited
+ 191 Move desktop support into its own plugin
+ 192 Move Steam support into its own plugin
+ 193 Move SNES support into its own plugin
+ 196 Move NES support into its own plugin
+ 199 Move Game Boy support into its own plugin
+ 200 Move Game Boy Advance support into its own plugin
+ 201 Move Nintendo DS support into its own plugin
+ 202 Move Nintendo 64 support into its own plugin
+ 203 Move Game Cube support into its own plugin
+ 204 Move Wii support into its own plugin
+ 205 Move Wii Ware support into its own plugin
+ 206 Move PC-Engine support into its own plugin
+ 207 Move Master System support into its own plugin
+ 208 Move Mega Drive support into its own plugin
+ 209 Move Sega Saturn support into its own plugin
+ 210 Move Dreamcast support into its own plugin
+ 211 Move Amiga support into its own plugin
+ 212 Move DOOM support into its own plugin
+ 213 Move LÖVE support into its own plugin
+ 223 Missing Wii Vala files
+ 224 Missing PC-Engine Vala files
+ 237 The application should be translated
+ 240 Add an About dialog
+ 241 Show the available plugins
+
+* Translation updates:
+ French
+
+
 ==============
 Version 3.18.0
 ==============
