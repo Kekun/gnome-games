@@ -13,6 +13,12 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(desktop_in_files) \
+	gtk/menus.ui \
+	ui/dummy-display.ui \
+	ui/empty-collection.ui \
+	ui/header-bar.ui \
+	ui/remote-display.ui \
+	ui/resume-dialog.ui \
 	$(NULL)
 
 CLEANFILES = \
