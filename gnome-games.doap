@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:gnome="http://api.gnome.org/doap-extensions#"
+         xmlns="http://usefulinc.com/ns/doap#">
+
+  <name xml:lang="en">Games</name>
+  <shortdesc xml:lang="en">Simple game launcher for GNOME</shortdesc>
+  <description xml:lang="en">
+    Games is a GNOME 3 application to browse your video games library and to
+    easily pick and play a game from it. It aims to do for games what Music
+    already does for your music library.
+  </description>
+  <homepage rdf:resource="https://wiki.gnome.org/Apps/Games" />
+  <download-page rdf:resource="https://github.com/Kekun/gnome-games/releases" />
+  <bug-database rdf:resource="https://github.com/Kekun/gnome-games/issues" />
+
+  <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
+  <programming-language>Vala</programming-language>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Adrien Plazas</foaf:name>
+      <foaf:mbox rdf:resource="mailto:kekun.plazas@laposte.net" />
+      <gnome:userid>aplazas</gnome:userid>
+    </foaf:Person>
+  </maintainer>
+</Project>
