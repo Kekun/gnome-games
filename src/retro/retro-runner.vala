@@ -60,8 +60,6 @@ public class Games.RetroRunner : Object, Runner {
 
 	private Gtk.EventBox widget;
 
-	private string module_path;
-	private string game_path;
 	private string uid;
 
 	private bool _running;
@@ -79,8 +77,6 @@ public class Games.RetroRunner : Object, Runner {
 	public RetroRunner (string module_basename, string game_path, string uid) throws Error {
 		construction_succeeded = false;
 
-		this.module_path = Retro.search_module (module_basename);
-		this.game_path = game_path;
 		this.uid = uid;
 
 		video = new RetroGtk.CairoDisplay ();
@@ -92,7 +88,7 @@ public class Games.RetroRunner : Object, Runner {
 		gamepad = new RetroGtk.VirtualGamepad (widget);
 		keyboard = new RetroGtk.Keyboard (widget);
 
-		prepare_core ();
+		prepare_core (module_basename, game_path);
 		core.shutdown.connect (on_shutdown);
 
 		core.run (); // Needed to finish preparing some cores.
@@ -145,7 +141,8 @@ public class Games.RetroRunner : Object, Runner {
 		running = true;
 	}
 
-	private void prepare_core () throws Error {
+	private void prepare_core (string module_basename, string game_path) throws Error {
+		var module_path = Retro.search_module (module_basename);
 		var module = File.new_for_path (module_path);
 		if (!module.query_exists ()) {
 			var msg = @"Couldn't run game: module '$module_path' not found.";
