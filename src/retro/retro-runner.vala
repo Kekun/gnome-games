@@ -145,7 +145,7 @@ public class Games.RetroRunner : Object, Runner {
 		var module_path = Retro.search_module (module_basename);
 		var module = File.new_for_path (module_path);
 		if (!module.query_exists ()) {
-			var msg = @"Couldn't run game: module '$module_path' not found.";
+			var msg = @"Couldn't run game: module '$module_basename' not found.";
 
 			throw new RetroError.MODULE_NOT_FOUND (msg);
 		}
