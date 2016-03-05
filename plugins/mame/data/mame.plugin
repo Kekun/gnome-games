@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-mame-plugin
+Name=MAME Plugin
+Description=Provides support for MAME games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2015 Adrien Plazas

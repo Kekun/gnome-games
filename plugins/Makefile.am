@@ -32,6 +32,10 @@ if ENABLE_LOVE_PLUGIN
 SUBDIRS += love
 endif
 
+if ENABLE_MAME_PLUGIN
+SUBDIRS += mame
+endif
+
 if ENABLE_MASTER_SYSTEM_PLUGIN
 SUBDIRS += master-system
 endif
