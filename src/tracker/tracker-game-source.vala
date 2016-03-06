@@ -46,27 +46,28 @@ public class Games.TrackerGameSource : Object, GameSource {
 			warning ("Error: %s\n", e.message);
 		}
 		while (is_cursor_valid) {
-			try {
-				var game = query.game_for_cursor (cursor);
-				game_callback (game);
-				handled_games++;
+			if (query.is_cursor_valid (cursor))
+				try {
+					var game = query.game_for_cursor (cursor);
+					game_callback (game);
+					handled_games++;
 
-				// Free the execution only once every HANDLED_GAMES_PER_CYCLE
-				// games to speed up the execution by avoiding too many context
-				// switching.
-				if (handled_games >= HANDLED_GAMES_PER_CYCLE) {
-					handled_games = 0;
+					// Free the execution only once every HANDLED_GAMES_PER_CYCLE
+					// games to speed up the execution by avoiding too many context
+					// switching.
+					if (handled_games >= HANDLED_GAMES_PER_CYCLE) {
+						handled_games = 0;
 
-					Idle.add (this.each_game_for_query.callback);
-					yield;
+						Idle.add (this.each_game_for_query.callback);
+						yield;
+					}
 				}
-			}
-			catch (TrackerError.FILE_NOT_FOUND e) {
-				debug (e.message);
-			}
-			catch (Error e) {
-				warning ("Error: %s\n", e.message);
-			}
+				catch (TrackerError.FILE_NOT_FOUND e) {
+					debug (e.message);
+				}
+				catch (Error e) {
+					warning ("Error: %s\n", e.message);
+				}
 
 			try {
 				is_cursor_valid = cursor.next ();
