@@ -3,6 +3,7 @@
 public interface Games.Runner : Object {
 	public signal void stopped ();
 
+	public abstract bool can_quit_safely { get; }
 	public abstract bool can_resume { get; }
 
 	public abstract void check_is_valid () throws Error;

@@ -1,6 +1,10 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.SteamRunner : Object, Runner {
+	public bool can_quit_safely {
+		get { return true; }
+	}
+
 	public bool can_resume {
 		get { return false; }
 	}

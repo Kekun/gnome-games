@@ -1,6 +1,10 @@
 // This file is part of GNOME Games. License: GPLv3
 
 public class Games.RetroRunner : Object, Runner {
+	public bool can_quit_safely {
+		get { return core_supports_snapshotting || !should_save; }
+	}
+
 	public bool can_resume {
 		get {
 			if (!core_supports_snapshotting)
