@@ -22,7 +22,7 @@ private class Games.Application : Gtk.Application {
 		}
 	}
 
-	private Gtk.Window window;
+	private ApplicationWindow window;
 
 	public Application () {
 		Object (application_id: "org.gnome.Games",
@@ -156,6 +156,13 @@ private class Games.Application : Gtk.Application {
 		});
 
 		dialog.present ();
+	}
+
+	private void quit () {
+		if (window != null && !window.quit_game ())
+			return;
+
+		base.quit ();
 	}
 
 	private static Gtk.CssProvider load_css (string css) {
