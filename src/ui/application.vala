@@ -31,6 +31,7 @@ private class Games.Application : Gtk.Application {
 
 	construct {
 		add_actions ();
+		add_signal_handlers ();
 	}
 
 	private void add_actions () {
@@ -45,6 +46,16 @@ private class Games.Application : Gtk.Application {
 		SimpleAction quit_action = new SimpleAction ("quit", null);
 		quit_action.activate.connect (quit);
 		add_action (quit_action);
+	}
+
+	private void add_signal_handlers () {
+		var interrupt_source = new Unix.SignalSource (ProcessSignal.INT);
+		interrupt_source.set_callback (() => {
+			quit ();
+
+			return Source.CONTINUE;
+		});
+		interrupt_source.attach (MainContext.@default ());
 	}
 
 	public static string get_data_dir () {
