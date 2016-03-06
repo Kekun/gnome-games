@@ -67,7 +67,7 @@ private class Games.ContentBox : Gtk.Box {
 			var display = runner.get_display ();
 			set_display (display);
 		}
-		private get { return _runner; }
+		get { return _runner; }
 	}
 	private ulong runner_stopped_id;
 

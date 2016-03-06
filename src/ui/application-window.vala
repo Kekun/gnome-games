@@ -35,6 +35,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private HashTable<Game, Runner> runners;
 
 	private Cancellable run_game_cancellable;
+	private Cancellable quit_game_cancellable;
 
 	public ApplicationWindow (ListModel collection) {
 		content_box.collection = collection;
@@ -54,7 +55,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                              this, "search-mode", BindingFlags.BIDIRECTIONAL);
 
 		header_bar.display_back.connect (() => {
-			ui_state = UiState.COLLECTION;
+			if (quit_game ())
+				ui_state = UiState.COLLECTION;
 		});
 	}
 
@@ -67,12 +69,32 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		run_game_with_cancellable (game, run_game_cancellable);
 	}
 
+	public bool quit_game () {
+		// If the window have been deleted/hidden we probably don't want to
+		// prompt the user.
+		if (!visible)
+			return true;
+
+		if (run_game_cancellable != null)
+			run_game_cancellable.cancel ();
+
+		if (quit_game_cancellable != null)
+			quit_game_cancellable.cancel ();
+
+		quit_game_cancellable = new Cancellable ();
+
+		return quit_game_with_cancellable (quit_game_cancellable);
+	}
+
 	[GtkCallback]
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
 		if ((event.keyval == Gdk.Key.q || event.keyval == Gdk.Key.Q) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+			if (!quit_game ())
+				return false;
+
 			destroy ();
 
 			return true;
@@ -158,6 +180,44 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			return;
 		}
+	}
+
+	public bool quit_game_with_cancellable (Cancellable cancellable) {
+		if (content_box.runner == null)
+			return true;
+
+		if (content_box.runner.can_quit_safely)
+			return true;
+
+		content_box.runner.pause ();
+
+		var dialog = new QuitDialog ();
+		dialog.set_transient_for (this);
+
+		cancellable.cancelled.connect (() => {
+			dialog.destroy ();
+		});
+
+		var response = dialog.run ();
+		dialog.destroy ();
+
+		if (cancellable.is_cancelled ())
+			return cancel_quitting_game ();
+
+		if (response == Gtk.ResponseType.ACCEPT)
+			return true;
+
+		return cancel_quitting_game ();
+	}
+
+	private bool cancel_quitting_game () {
+		content_box.ui_state = ui_state;
+		header_bar.ui_state = ui_state;
+
+		if (content_box.runner != null)
+			content_box.runner.resume ();
+
+		return false;
 	}
 
 	private Runner get_runner_for_game (Game game) throws Error {
