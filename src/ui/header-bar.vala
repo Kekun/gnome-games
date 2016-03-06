@@ -2,6 +2,8 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/header-bar.ui")]
 private class Games.HeaderBar : Gtk.Stack {
+	public signal void display_back ();
+
 	private UiState _ui_state;
 	public UiState ui_state {
 		set {
@@ -47,6 +49,6 @@ private class Games.HeaderBar : Gtk.Stack {
 
 	[GtkCallback]
 	private void on_display_back_clicked () {
-		ui_state = UiState.COLLECTION;
+		display_back ();
 	}
 }

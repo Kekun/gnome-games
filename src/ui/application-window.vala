@@ -50,6 +50,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                               this, "search-mode", BindingFlags.BIDIRECTIONAL);
 		hb_search_binding = header_bar.bind_property ("search-mode",
 		                                              this, "search-mode", BindingFlags.BIDIRECTIONAL);
+
+		header_bar.display_back.connect (() => {
+			ui_state = UiState.COLLECTION;
+		});
 	}
 
 	[GtkCallback]
