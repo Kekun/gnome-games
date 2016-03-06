@@ -5,8 +5,30 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		return "SELECT ?soft WHERE { ?soft nie:isLogicalPartOf 'urn:software-category:Game' . }";
 	}
 
+	public bool is_cursor_valid (Tracker.Sparql.Cursor cursor) {
+		var uri = cursor.get_string (0);
+
+		return is_uri_valid (uri);
+	}
+
+	public bool is_uri_valid (string uri) {
+		try {
+			check_uri (uri);
+		} catch (Error e) {
+			return false;
+		}
+
+		return true;
+	}
+
 	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
 		var uri = cursor.get_string (0);
+		check_uri (uri);
+
+		return new DesktopGame (uri);
+	}
+
+	private void check_uri (string uri) throws Error {
 		var file = File.new_for_uri (uri);
 
 		if (!file.query_exists ())
@@ -21,8 +43,6 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		check_categories (app_info);
 		check_executable (app_info);
 		check_base_name (file);
-
-		return new DesktopGame (uri);
 	}
 
 	private void check_categories (DesktopAppInfo app_info) throws Error {
