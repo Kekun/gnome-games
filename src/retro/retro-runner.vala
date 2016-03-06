@@ -3,6 +3,9 @@
 public class Games.RetroRunner : Object, Runner {
 	public bool can_resume {
 		get {
+			if (!core_supports_snapshotting)
+				return false;
+
 			try {
 				var snapshot_path = get_snapshot_path ();
 				var file = File.new_for_path (snapshot_path);
@@ -36,6 +39,7 @@ public class Games.RetroRunner : Object, Runner {
 	private string module_basename;
 	private string uri;
 	private Uid uid;
+	private bool core_supports_snapshotting;
 
 	private bool _running;
 	private bool running {
@@ -54,7 +58,7 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	public RetroRunner (string module_basename, string uri, Uid uid) {
+	public RetroRunner (string module_basename, string uri, Uid uid, bool core_supports_snapshotting) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
@@ -62,6 +66,7 @@ public class Games.RetroRunner : Object, Runner {
 		this.module_basename = module_basename;
 		this.uri = uri;
 		this.uid = uid;
+		this.core_supports_snapshotting = core_supports_snapshotting;
 	}
 
 	~RetroRunner () {
@@ -290,6 +295,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_snapshot () throws Error {
+		if (!core_supports_snapshotting)
+			return;
+
 		var size = core.serialize_size ();
 		var buffer = new uint8[size];
 
@@ -305,6 +313,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void load_snapshot () throws Error {
+		if (!core_supports_snapshotting)
+			return;
+
 		var snapshot_path = get_snapshot_path ();
 
 		if (!FileUtils.test (snapshot_path, FileTest.EXISTS))
@@ -333,6 +344,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_screenshot () throws Error {
+		if (!core_supports_snapshotting)
+			return;
+
 		var pixbuf = video.pixbuf;
 		if (pixbuf == null)
 			return;
@@ -343,6 +357,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void load_screenshot () throws Error {
+		if (!core_supports_snapshotting)
+			return;
+
 		var screenshot_path = get_screenshot_path ();
 
 		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))

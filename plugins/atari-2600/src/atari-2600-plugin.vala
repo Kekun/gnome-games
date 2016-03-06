@@ -4,6 +4,7 @@ private class Games.Atari2600 : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "atari-2600";
 	private const string MIME_TYPE = "application/x-atari-2600-rom";
 	private const string MODULE_BASENAME = "libretro-atari-2600.so";
+	private const bool SUPPORTS_SNAPSHOTTING = false;
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -18,7 +19,7 @@ private class Games.Atari2600 : Object, Plugin {
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var cover = new DummyCover ();
-		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, cover, runner);
 	}

@@ -4,6 +4,7 @@ private class Games.WiiWarePlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "wii-ware";
 	private const string MIME_TYPE = "application/x-wii-wad";
 	private const string MODULE_BASENAME = "libretro-wii.so";
+	private const bool SUPPORTS_SNAPSHOTTING = false;
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -18,7 +19,7 @@ private class Games.WiiWarePlugin : Object, Plugin {
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var cover = new DummyCover ();
-		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, cover, runner);
 	}

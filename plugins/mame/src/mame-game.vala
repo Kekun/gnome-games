@@ -3,6 +3,7 @@
 private class Games.MameGame : Object, Game {
 	private const string FINGERPRINT_PREFIX = "mame";
 	private const string MODULE_BASENAME = "libretro-mame.so";
+	private const bool SUPPORTS_SNAPSHOTTING = false;
 
 	private FingerprintUid _uid;
 	public FingerprintUid uid {
@@ -45,6 +46,6 @@ private class Games.MameGame : Object, Game {
 	}
 
 	public Runner get_runner () throws Error {
-		return new RetroRunner (MODULE_BASENAME, uri, uid);
+		return new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 	}
 }
