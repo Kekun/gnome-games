@@ -17,6 +17,7 @@ EXTRA_DIST = \
 	ui/dummy-display.ui \
 	ui/empty-collection.ui \
 	ui/header-bar.ui \
+	ui/quit-dialog.ui \
 	ui/remote-display.ui \
 	ui/resume-dialog.ui \
 	$(NULL)

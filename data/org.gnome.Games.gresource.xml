@@ -14,6 +14,7 @@
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-window.ui</file>
+    <file preprocess="xml-stripblanks">ui/quit-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/remote-display.ui</file>
     <file preprocess="xml-stripblanks">ui/resume-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/search-bar.ui</file>

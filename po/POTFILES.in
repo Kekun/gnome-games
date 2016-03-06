@@ -8,6 +8,7 @@ data/org.gnome.Games.desktop.in
 [type: gettext/glade]data/ui/header-bar.ui
 [type: gettext/glade]data/ui/preferences-page-plugins.ui
 [type: gettext/glade]data/ui/preferences-window.ui
+[type: gettext/glade]data/ui/quit-dialog.ui
 [type: gettext/glade]data/ui/remote-display.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
 src/ui/application.vala
