@@ -34,6 +34,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private HashTable<Game, Runner> runners;
 
+	private Cancellable run_game_cancellable;
+
 	public ApplicationWindow (ListModel collection) {
 		content_box.collection = collection;
 	}
@@ -54,6 +56,15 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		header_bar.display_back.connect (() => {
 			ui_state = UiState.COLLECTION;
 		});
+	}
+
+	public void run_game (Game game) {
+		if (run_game_cancellable != null)
+			run_game_cancellable.cancel ();
+
+		run_game_cancellable = new Cancellable ();
+
+		run_game_with_cancellable (game, run_game_cancellable);
 	}
 
 	[GtkCallback]
@@ -83,6 +94,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	[GtkCallback]
 	private void on_game_activated (Game game) {
+		run_game (game);
+	}
+
+	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
 		Runner runner = null;
 		try {
 			runner = get_runner_for_game (game);
@@ -103,8 +118,16 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (runner.can_resume) {
 			var dialog = new ResumeDialog ();
 			dialog.set_transient_for (this);
+
+			cancellable.cancelled.connect (() => {
+				dialog.destroy ();
+			});
+
 			var response = dialog.run ();
 			dialog.destroy ();
+
+			if (cancellable.is_cancelled ())
+				response = Gtk.ResponseType.CANCEL;
 
 			switch (response) {
 			case Gtk.ResponseType.CANCEL:
