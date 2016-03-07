@@ -87,6 +87,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
+	public bool on_delete_event () {
+		return !quit_game ();
+	}
+
+	[GtkCallback]
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
