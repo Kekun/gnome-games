@@ -8,11 +8,6 @@ private class Games.SearchBar : Gtk.SearchBar {
 	private Gtk.SearchEntry entry;
 
 	[GtkCallback]
-	private void on_search_mode_notify () {
-		entry.text = "";
-	}
-
-	[GtkCallback]
 	private void on_search_changed () {
 		text = entry.text;
 	}

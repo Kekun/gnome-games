@@ -3,7 +3,6 @@
   <!-- interface-requires gtk+ 3.16 -->
   <template class="GamesSearchBar" parent="GtkSearchBar">
     <property name="visible">True</property>
-    <signal name="notify::search-mode-enabled" handler="on_search_mode_notify"/>
     <child>
       <object class="GtkSearchEntry" id="entry">
         <property name="visible">True</property>
