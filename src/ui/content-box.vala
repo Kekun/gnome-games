@@ -107,6 +107,10 @@ private class Games.ContentBox : Gtk.Box {
 		collection_icon_view.filtering_text = search_bar.text;
 	}
 
+	public bool search_bar_handle_event (Gdk.Event event) {
+		return search_bar.handle_event (event);
+	}
+
 	private void set_display (Gtk.Widget display) {
 		remove_display ();
 		display_box.add (display);
