@@ -44,6 +44,10 @@ if ENABLE_MEGA_DRIVE_PLUGIN
 SUBDIRS += mega-drive
 endif
 
+if ENABLE_NEO_GEO_POCKET_PLUGIN
+SUBDIRS += neo-geo-pocket
+endif
+
 if ENABLE_NES_PLUGIN
 SUBDIRS += nes
 endif
