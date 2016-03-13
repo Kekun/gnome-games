@@ -89,7 +89,7 @@ gnome_games_VALAFLAGS = \
 	--pkg glib-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg tracker-sparql-1.0 \
-	--pkg retro-gobject-0.4 \
+	--pkg retro-gobject-0.6 \
 	--pkg retro-gtk-0.4 \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
