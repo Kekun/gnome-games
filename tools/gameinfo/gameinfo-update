@@ -1,0 +1,42 @@
+#!/bin/env python3
+
+from gameinfo import Gameinfo
+from gameinfo.config import parse_config_files
+from os.path import exists
+from sys import argv
+from tosec import DatpackManager, get_gameinfo
+
+tosec_datpack = None
+for config, system, gameinfo_path, gameinfo in parse_config_files(sorted(argv[1:])):
+    gameinfo_files = []
+
+    # If a gameinfo file exists, it's a source gameinfo.
+    if exists(gameinfo_path):
+        gameinfo_files.append(gameinfo_path)
+
+    # Add the TOSEC gameinfos
+    if 'Tosec' in config:
+        if tosec_datpack is None:
+            """ Let's try to get the most recent Tosec datpack.
+            """
+            tosec_datpack = DatpackManager.most_recent_datpack()
+            if tosec_datpack is None:
+                tosec_datpack = False
+
+        if tosec_datpack is not False:
+            files = config['Tosec']['Files']
+            tosec_gameinfo_path = get_gameinfo(tosec_datpack, system, files.split(";"))
+            if tosec_gameinfo_path:
+                gameinfo_files.append(tosec_gameinfo_path)
+
+    # Merge the gameinfos
+    result = Gameinfo.merged(gameinfo_files)
+
+    if not result:
+        continue
+
+    # Use the destination as the title reference
+    if gameinfo:
+        result.remove_unknown_titles(gameinfo)
+
+    result.save(gameinfo_path)

@@ -1,0 +1,8 @@
+#!/bin/env python3
+
+from gameinfo.config import parse_config_files
+from sys import argv
+
+for config, system, gameinfo_path, gameinfo in parse_config_files(sorted(argv[1:])):
+    if gameinfo:
+        gameinfo.save(gameinfo_path)

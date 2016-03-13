@@ -1,0 +1,25 @@
+#!/bin/env python3
+
+from gameinfo.config import parse_config_files
+from sys import argv
+
+for config, system, gameinfo_path, gameinfo in parse_config_files(sorted(argv[1:])):
+    if not gameinfo:
+        continue
+
+    games_with_multiple_titles = gameinfo.games_with_multiple_titles()
+    if len(games_with_multiple_titles) is 0:
+        continue
+
+    i = 1
+    j = len(games_with_multiple_titles)
+    for game in games_with_multiple_titles:
+        print('[{0} {1}/{2}] Current titles:'.format(system, i, j))
+        for title in game.findall('_title'):
+            print('\t%s' % title.text)
+        title = input('[{0} {1}/{2}] Enter the new title: '.format(system, i, j, title))
+        gameinfo.set_game_title(game, title)
+        print('[{0} {1}/{2}] Set title "{3}".'.format(system, i, j, title))
+        i = i + 1
+
+        gameinfo.save(gameinfo_path)

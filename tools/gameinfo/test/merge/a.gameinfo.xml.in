@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<gameinfo>
+  <games>
+    <game>
+      <_title>Game A</_title>
+      <roms>
+        <rom md5="A1"/>
+      </roms>
+    </game>
+    <game>
+      <_title>Game B</_title>
+      <roms>
+        <rom md5="B1"/>
+      </roms>
+    </game>
+    <game>
+      <_title>Game C</_title>
+      <roms>
+        <rom md5="C1"/>
+      </roms>
+    </game>
+    <game>
+      <_title>Game D</_title>
+      <roms>
+        <rom md5="P1"/>
+        <rom md5="Q1"/>
+      </roms>
+    </game>
+    <game>
+      <_title>Game E</_title>
+      <roms>
+        <rom md5="E1"/>
+      </roms>
+    </game>
+    <game>
+      <_title>Game "F"</_title>
+      <roms>
+        <rom md5="F1"/>
+      </roms>
+    </game>
+  </games>
+</gameinfo>
