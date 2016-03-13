@@ -1,4 +1,37 @@
 ===============
+Version 3.19.92
+===============
+
+* Add support for:
+ - MAME
+ - Neo-Geo Pocket
+
+* Add the expected Retro module name to its 'not found' error message
+
+* Check whether a Tracker cursor represents a game 
+
+* Fix the Amiga MIME-type
+
+* UI:
+ - Enable the error info bar label to wrap
+ - Trigger search in collection view by typing
+
+* Bugs fixed:
+  82 Error messages too wide
+ 103 List Neo Geo Pocket games
+ 113 List arcade games
+ 114 Add search by starting typing
+ 167 Useless error when plugin is missing
+ 250 Remove barely used 'module_path' and 'game_path' attributes
+ 257 Lots of useless warnings in tracker-game-source
+ 260 Can't list amiga games
+ 267 Search prevent games to be played with keyboard
+
+* Translation updates:
+ Spanish
+
+
+===============
 Version 3.19.90
 ===============
 
