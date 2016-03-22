@@ -25,22 +25,17 @@ private class Games.SegaSaturnGame : Object, Game {
 	}
 
 	private string uri;
-	private string path;
 	private SegaSaturnHeader header;
 
 	public SegaSaturnGame (string uri) throws Error {
-		this.uri = uri;
-
 		var file = File.new_for_uri (uri);
-
 		header = new SegaSaturnHeader (file);
 		header.check_validity ();
 
 		var cue = get_associated_cue_sheet (file);
-		path = cue ?? file.get_path ();
+		this.uri = cue ?? uri;
 
-		file = File.new_for_path (path);
-
+		file = File.new_for_uri (this.uri);
 		var name = file.get_basename ();
 		name = /\.(cue|iso|bin)$/.replace (name, name.length, 0, "");
 		name = name.split ("(")[0];
@@ -50,7 +45,7 @@ private class Games.SegaSaturnGame : Object, Game {
 	public Runner get_runner () throws Error {
 		var uid_string = uid.get_uid ();
 
-		return new RetroRunner (MODULE_BASENAME, path, uid_string);
+		return new RetroRunner (MODULE_BASENAME, uri, uid_string);
 	}
 
 	private string? get_associated_cue_sheet (File file) throws Error {
@@ -65,7 +60,7 @@ private class Games.SegaSaturnGame : Object, Game {
 			var type = child_info.get_content_type ();
 
 			if (type == "application/x-cue" && cue_contains_file (child, file))
-				return child.get_path ();
+				return child.get_uri ();
 		}
 
 		return null;
