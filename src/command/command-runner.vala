@@ -7,11 +7,13 @@ public class Games.CommandRunner : Object, Runner {
 
 	private string[] args;
 
-	public CommandRunner (string[] args) throws Error {
+	public CommandRunner (string[] args) {
+		this.args = args;
+	}
+
+	public void check_is_valid () throws Error {
 		if (args.length < 1)
 			throw new CommandError.INVALID_COMMAND ("Invalid command: it doesn't have any argument.");
-
-		this.args = args;
 	}
 
 	public Gtk.Widget get_display () {

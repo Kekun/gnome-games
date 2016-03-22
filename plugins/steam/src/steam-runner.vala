@@ -7,8 +7,11 @@ private class Games.SteamRunner : Object, Runner {
 
 	private string game_id;
 
-	public SteamRunner (string game_id) throws Error {
+	public SteamRunner (string game_id) {
 		this.game_id = game_id;
+	}
+
+	public void check_is_valid () throws Error {
 	}
 
 	public Gtk.Widget get_display () {

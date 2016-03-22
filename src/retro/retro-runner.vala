@@ -49,7 +49,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private bool is_initialized;
 
-	public RetroRunner (string module_basename, string uri, Uid uid) throws Error {
+	public RetroRunner (string module_basename, string uri, Uid uid) {
 		is_initialized = false;
 
 		this.module_basename = module_basename;
@@ -70,6 +70,10 @@ public class Games.RetroRunner : Object, Runner {
 		catch (Error e) {
 			warning (e.message);
 		}
+	}
+
+	public void check_is_valid () throws Error {
+		init ();
 	}
 
 	public Gtk.Widget get_display () {

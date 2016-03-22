@@ -5,6 +5,9 @@ private class Games.DummyRunner : Object, Runner {
 		get { return false; }
 	}
 
+	public void check_is_valid () throws Error {
+	}
+
 	public Gtk.Widget get_display () {
 		return new DummyDisplay ();
 	}

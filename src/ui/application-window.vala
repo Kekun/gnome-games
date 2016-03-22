@@ -138,6 +138,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return runners[game];
 
 		var runner = game.get_runner ();
+		runner.check_is_valid ();
 		runners[game] = runner;
 
 		runner.stopped.connect (remove_runner);
