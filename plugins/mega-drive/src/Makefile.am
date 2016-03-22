@@ -9,7 +9,6 @@ libgames_mega_drive_plugin_la_SOURCES = \
 	mega-drive-game.vala \
 	mega-drive-header.vala \
 	mega-drive-plugin.vala \
-	mega-drive-tracker-query.vala \
 	$(NULL)
 
 libgames_mega_drive_plugin_la_VALAFLAGS = \

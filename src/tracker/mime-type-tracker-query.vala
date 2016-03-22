@@ -1,8 +1,18 @@
 // This file is part of GNOME Games. License: GPLv3
 
-public abstract class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
+public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
+	public delegate Game GameForUri (string uri) throws Error;
+
+	private string mime_type;
+	private GameForUri game_for_uri;
+
+	public MimeTypeTrackerQuery (string mime_type, GameForUri game_for_uri) {
+		this.mime_type = mime_type;
+		this.game_for_uri = game_for_uri;
+	}
+
 	public string get_query () {
-		return @"SELECT DISTINCT nie:url(?urn) WHERE { ?urn nie:mimeType \"$(get_mime_type ())\" . }";
+		return @"SELECT DISTINCT nie:url(?urn) WHERE { ?urn nie:mimeType \"$mime_type\" . }";
 	}
 
 	public bool is_cursor_valid (Tracker.Sparql.Cursor cursor) {
@@ -16,15 +26,13 @@ public abstract class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 		try {
 			var info =  file.query_info ("*", FileQueryInfoFlags.NONE);
 
-			return info.get_content_type () == get_mime_type ();
+			return info.get_content_type () == mime_type;
 		} catch (Error e) {
 			debug (e.message);
 		}
 
 		return false;
 	}
-
-	public abstract string get_mime_type ();
 
 	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
 		var uri = cursor.get_string (0);
@@ -35,6 +43,4 @@ public abstract class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 
 		return game_for_uri (uri);
 	}
-
-	public abstract Game game_for_uri (string uri) throws Error;
 }

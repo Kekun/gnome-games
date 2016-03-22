@@ -9,7 +9,6 @@ libgames_game_boy_plugin_la_SOURCES = \
 	game-boy-game.vala \
 	game-boy-header.vala \
 	game-boy-plugin.vala \
-	game-boy-tracker-query.vala \
 	$(NULL)
 
 libgames_game_boy_plugin_la_VALAFLAGS = \

@@ -8,7 +8,6 @@ libgames_snes_plugin_la_DEPENDENCIES = \
 libgames_snes_plugin_la_SOURCES = \
 	snes-game.vala \
 	snes-plugin.vala \
-	snes-tracker-query.vala \
 	$(NULL)
 
 libgames_snes_plugin_la_VALAFLAGS = \

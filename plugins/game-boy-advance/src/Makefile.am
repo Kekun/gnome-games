@@ -8,7 +8,6 @@ libgames_game_boy_advance_plugin_la_DEPENDENCIES = \
 libgames_game_boy_advance_plugin_la_SOURCES = \
 	game-boy-advance-game.vala \
 	game-boy-advance-plugin.vala \
-	game-boy-advance-tracker-query.vala \
 	$(NULL)
 
 libgames_game_boy_advance_plugin_la_VALAFLAGS = \

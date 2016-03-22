@@ -9,7 +9,6 @@ libgames_game_cube_plugin_la_SOURCES = \
 	game-cube-game.vala \
 	game-cube-header.vala \
 	game-cube-plugin.vala \
-	game-cube-tracker-query.vala \
 	game-cube-uid.vala \
 	$(NULL)
 

@@ -9,7 +9,6 @@ libgames_sega_saturn_plugin_la_SOURCES = \
 	sega-saturn-game.vala \
 	sega-saturn-header.vala \
 	sega-saturn-plugin.vala \
-	sega-saturn-tracker-query.vala \
 	sega-saturn-uid.vala \
 	$(NULL)
 

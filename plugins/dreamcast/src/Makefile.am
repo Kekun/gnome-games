@@ -9,7 +9,6 @@ libgames_dreamcast_plugin_la_SOURCES = \
 	dreamcast-game.vala \
 	dreamcast-header.vala \
 	dreamcast-plugin.vala \
-	dreamcast-tracker-query.vala \
 	dreamcast-uid.vala \
 	$(NULL)
 

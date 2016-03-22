@@ -8,7 +8,6 @@ libgames_love_plugin_la_DEPENDENCIES = \
 libgames_love_plugin_la_SOURCES = \
 	love-game.vala \
 	love-plugin.vala \
-	love-tracker-query.vala \
 	$(NULL)
 
 libgames_love_plugin_la_VALAFLAGS = \
