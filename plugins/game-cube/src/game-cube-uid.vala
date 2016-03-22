@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.GameCubeUid: Object {
+private class Games.GameCubeUid: Object, Uid {
 	private GameCubeHeader header;
 	private string uid;
 

@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.WiiUid: Object {
+private class Games.WiiUid: Object, Uid {
 	private WiiHeader header;
 	private string uid;
 

@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.SegaSaturnUid: Object {
+private class Games.SegaSaturnUid: Object, Uid {
 	private SegaSaturnHeader header;
 	private string uid;
 

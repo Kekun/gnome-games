@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.DreamcastUid: Object {
+private class Games.DreamcastUid: Object, Uid {
 	private DreamcastHeader header;
 	private string uid;
 
