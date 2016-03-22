@@ -41,8 +41,6 @@ private class Games.WiiGame : Object, Game {
 	}
 
 	public Runner get_runner () throws Error {
-		var uid_string = uid.get_uid ();
-
-		return new RetroRunner (MODULE_BASENAME, uri, uid_string);
+		return new RetroRunner (MODULE_BASENAME, uri, uid);
 	}
 }

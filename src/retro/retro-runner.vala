@@ -33,7 +33,7 @@ public class Games.RetroRunner : Object, Runner {
 	private string snapshot_path;
 	private string screenshot_path;
 
-	private string uid;
+	private Uid uid;
 
 	private bool _running;
 	private bool running {
@@ -47,7 +47,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private bool construction_succeeded;
 
-	public RetroRunner (string module_basename, string uri, string uid) throws Error {
+	public RetroRunner (string module_basename, string uri, Uid uid) throws Error {
 		construction_succeeded = false;
 
 		this.uid = uid;
@@ -203,6 +203,7 @@ public class Games.RetroRunner : Object, Runner {
 			return save_path;
 
 		var dir = Application.get_saves_dir ();
+		var uid = uid.get_uid ();
 		save_path = @"$dir/$uid.save";
 
 		return save_path;
@@ -242,6 +243,7 @@ public class Games.RetroRunner : Object, Runner {
 			return snapshot_path;
 
 		var dir = Application.get_snapshots_dir ();
+		var uid = uid.get_uid ();
 		snapshot_path = @"$dir/$uid.snapshot";
 
 		return snapshot_path;
@@ -284,6 +286,7 @@ public class Games.RetroRunner : Object, Runner {
 			return screenshot_path;
 
 		var dir = Application.get_snapshots_dir ();
+		var uid = uid.get_uid ();
 		screenshot_path = @"$dir/$uid.png";
 
 		return screenshot_path;
