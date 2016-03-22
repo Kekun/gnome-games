@@ -12,13 +12,13 @@ private class Games.SnesGame : Object, Game {
 	private const ulong NAME_OFFSET = 0;
 	private const ulong NAME_SIZE = 21;
 
-	private FingerprintUID _uid;
-	public FingerprintUID uid {
+	private FingerprintUid _uid;
+	public FingerprintUid uid {
 		get {
 			if (_uid != null)
 				return _uid;
 
-			_uid = new FingerprintUID (uri, FINGERPRINT_PREFIX);
+			_uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 
 			return _uid;
 		}
