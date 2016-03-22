@@ -3,13 +3,13 @@
 private class Games.SegaSaturnGame : Object, Game {
 	private const string MODULE_BASENAME = "libretro-saturn.so";
 
-	private SegaSaturnUID _uid;
-	public SegaSaturnUID uid {
+	private SegaSaturnUid _uid;
+	public SegaSaturnUid uid {
 		get {
 			if (_uid != null)
 				return _uid;
 
-			_uid = new SegaSaturnUID (header);
+			_uid = new SegaSaturnUid (header);
 
 			return _uid;
 		}
