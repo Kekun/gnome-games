@@ -3,13 +3,13 @@
 private class Games.DreamcastGame : Object, Game {
 	private const string MODULE_BASENAME = "libretro-dreamcast.so";
 
-	private DreamcastUID _uid;
-	public DreamcastUID uid {
+	private DreamcastUid _uid;
+	public DreamcastUid uid {
 		get {
 			if (_uid != null)
 				return _uid;
 
-			_uid = new DreamcastUID (header);
+			_uid = new DreamcastUid (header);
 
 			return _uid;
 		}
