@@ -33,6 +33,8 @@ public class Games.RetroRunner : Object, Runner {
 	private string snapshot_path;
 	private string screenshot_path;
 
+	private string module_basename;
+	private string uri;
 	private Uid uid;
 
 	private bool _running;
@@ -45,12 +47,65 @@ public class Games.RetroRunner : Object, Runner {
 		get { return _running; }
 	}
 
-	private bool construction_succeeded;
+	private bool is_initialized;
 
 	public RetroRunner (string module_basename, string uri, Uid uid) throws Error {
-		construction_succeeded = false;
+		is_initialized = false;
 
+		this.module_basename = module_basename;
+		this.uri = uri;
 		this.uid = uid;
+	}
+
+	~RetroRunner () {
+		if (!is_initialized)
+			return;
+
+		loop.stop ();
+		running = false;
+
+		try {
+			save ();
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
+	}
+
+	public Gtk.Widget get_display () {
+		return widget;
+	}
+
+	public void start () throws Error {
+		if (!is_initialized)
+			init();
+
+		loop.stop ();
+
+		load_ram ();
+		core.reset ();
+
+		loop.start ();
+		running = true;
+	}
+
+	public void resume () throws Error {
+		if (!is_initialized)
+			init();
+
+		loop.stop ();
+
+		load_ram ();
+		core.reset ();
+		load_snapshot ();
+
+		loop.start ();
+		running = true;
+	}
+
+	private void init () throws Error {
+		if (is_initialized)
+			return;
 
 		video = new RetroGtk.CairoDisplay ();
 
@@ -71,47 +126,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		load_screenshot ();
 
-		construction_succeeded = true;
-	}
-
-	~RetroRunner () {
-		if (!construction_succeeded)
-			return;
-
-		loop.stop ();
-		running = false;
-
-		try {
-			save ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
-	}
-
-	public Gtk.Widget get_display () {
-		return widget;
-	}
-
-	public void start () throws Error {
-		loop.stop ();
-
-		load_ram ();
-		core.reset ();
-
-		loop.start ();
-		running = true;
-	}
-
-	public void resume () throws Error {
-		loop.stop ();
-
-		load_ram ();
-		core.reset ();
-		load_snapshot ();
-
-		loop.start ();
-		running = true;
+		is_initialized = true;
 	}
 
 	private void prepare_core (string module_basename, string uri) throws Error {
@@ -180,6 +195,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void pause () {
+		if (!is_initialized)
+			return;
+
 		loop.stop ();
 		running = false;
 
