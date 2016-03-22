@@ -42,6 +42,7 @@ gnome_games_SOURCES = \
 	core/plugin-register.vala \
 	core/plugin-registrar.vala \
 	core/runner.vala \
+	core/title.vala \
 	core/uid.vala \
 	\
 	dummy/dummy-game.vala \
