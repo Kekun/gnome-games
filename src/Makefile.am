@@ -76,6 +76,7 @@ gnome_games_SOURCES = \
 	ui/search-bar.vala \
 	ui/ui-state.vala \
 	\
+	utils/filename-title.vala \
 	utils/fingerprint.vala \
 	utils/grep.vala \
 	\
