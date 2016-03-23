@@ -6,7 +6,6 @@ libgames_game_cube_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_game_cube_plugin_la_SOURCES = \
-	game-cube-game.vala \
 	game-cube-header.vala \
 	game-cube-plugin.vala \
 	game-cube-uid.vala \
