@@ -6,7 +6,6 @@ libgames_game_boy_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_game_boy_plugin_la_SOURCES = \
-	game-boy-game.vala \
 	game-boy-header.vala \
 	game-boy-plugin.vala \
 	$(NULL)
