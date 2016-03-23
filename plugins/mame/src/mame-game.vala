@@ -26,14 +26,11 @@ private class Games.MameGame : Object, Game {
 	}
 
 	private string uri;
-	private string path;
 
 	public MameGame (string uri) throws Error {
 		this.uri = uri;
 
 		var file = File.new_for_uri (uri);
-		path = file.get_path ();
-
 		var id = file.get_basename ();
 		id = /\.zip$/.replace (id, id.length, 0, "");
 
@@ -50,6 +47,6 @@ private class Games.MameGame : Object, Game {
 	public Runner get_runner () throws Error {
 		var uid_string = uid.get_uid ();
 
-		return new RetroRunner (MODULE_BASENAME, path, uid_string);
+		return new RetroRunner (MODULE_BASENAME, uri, uid_string);
 	}
 }

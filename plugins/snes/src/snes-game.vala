@@ -34,15 +34,12 @@ private class Games.SnesGame : Object, Game {
 	}
 
 	private string uri;
-	private string path;
 
 	public SnesGame (string uri) throws Error {
 		// Information on SNES header: http://romhack.wikia.com/wiki/SNES_header
 		this.uri = uri;
 
 		var file = File.new_for_uri (uri);
-		path = file.get_path ();
-
 		var istream = file.read ();
 
 		var header_offset = HEADER_OFFSET;
@@ -74,7 +71,7 @@ private class Games.SnesGame : Object, Game {
 	public Runner get_runner () throws Error {
 		var uid_string = uid.get_uid ();
 
-		return new RetroRunner (MODULE_BASENAME, path, uid_string);
+		return new RetroRunner (MODULE_BASENAME, uri, uid_string);
 	}
 }
 

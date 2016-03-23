@@ -26,14 +26,11 @@ private class Games.MegaDriveGame : Object, Game {
 	}
 
 	private string uri;
-	private string path;
 
 	public MegaDriveGame (string uri) throws Error {
 		this.uri = uri;
 
 		var file = File.new_for_uri (uri);
-		path = file.get_path ();
-
 		var header = new MegaDriveHeader (file);
 		header.check_validity ();
 
@@ -46,6 +43,6 @@ private class Games.MegaDriveGame : Object, Game {
 	public Runner get_runner () throws Error {
 		var uid_string = uid.get_uid ();
 
-		return new RetroRunner (MODULE_BASENAME, path, uid_string);
+		return new RetroRunner (MODULE_BASENAME, uri, uid_string);
 	}
 }

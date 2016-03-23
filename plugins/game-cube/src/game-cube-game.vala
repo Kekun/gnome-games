@@ -25,15 +25,12 @@ private class Games.GameCubeGame : Object, Game {
 	}
 
 	private string uri;
-	private string path;
 	private GameCubeHeader header;
 
 	public GameCubeGame (string uri) throws Error {
 		this.uri = uri;
 
 		var file = File.new_for_uri (uri);
-		path = file.get_path ();
-
 		header = new GameCubeHeader (file);
 		header.check_validity ();
 
@@ -46,6 +43,6 @@ private class Games.GameCubeGame : Object, Game {
 	public Runner get_runner () throws Error {
 		var uid_string = uid.get_uid ();
 
-		return new RetroRunner (MODULE_BASENAME, path, uid_string);
+		return new RetroRunner (MODULE_BASENAME, uri, uid_string);
 	}
 }
