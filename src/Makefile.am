@@ -36,6 +36,7 @@ gnome_games_SOURCES = \
 	command/command-error.vala \
 	command/command-runner.vala \
 	\
+	core/cover.vala \
 	core/game.vala \
 	core/game-source.vala \
 	core/plugin.vala \
