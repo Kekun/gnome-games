@@ -6,7 +6,6 @@ libgames_game_boy_advance_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_game_boy_advance_plugin_la_SOURCES = \
-	game-boy-advance-game.vala \
 	game-boy-advance-plugin.vala \
 	$(NULL)
 
