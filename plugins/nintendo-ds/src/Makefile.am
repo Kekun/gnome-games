@@ -8,7 +8,6 @@ libgames_nintendo_ds_plugin_la_DEPENDENCIES = \
 libgames_nintendo_ds_plugin_la_SOURCES = \
 	nintendo-ds-game.vala \
 	nintendo-ds-plugin.vala \
-	nintendo-ds-tracker-query.vala \
 	$(NULL)
 
 libgames_nintendo_ds_plugin_la_VALAFLAGS = \

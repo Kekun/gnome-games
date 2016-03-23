@@ -8,7 +8,6 @@ libgames_pc_engine_plugin_la_DEPENDENCIES = \
 libgames_pc_engine_plugin_la_SOURCES = \
 	pc-engine-game.vala \
 	pc-engine-plugin.vala \
-	pc-engine-tracker-query.vala \
 	$(NULL)
 
 libgames_pc_engine_plugin_la_VALAFLAGS = \

@@ -8,7 +8,6 @@ libgames_doom_plugin_la_DEPENDENCIES = \
 libgames_doom_plugin_la_SOURCES = \
 	doom-game.vala \
 	doom-plugin.vala \
-	doom-tracker-query.vala \
 	$(NULL)
 
 libgames_doom_plugin_la_VALAFLAGS = \

@@ -8,7 +8,6 @@ libgames_amiga_plugin_la_DEPENDENCIES = \
 libgames_amiga_plugin_la_SOURCES = \
 	amiga-game.vala \
 	amiga-plugin.vala \
-	amiga-tracker-query.vala \
 	$(NULL)
 
 libgames_amiga_plugin_la_VALAFLAGS = \

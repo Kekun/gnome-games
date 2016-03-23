@@ -8,7 +8,6 @@ libgames_wii_ware_plugin_la_DEPENDENCIES = \
 libgames_wii_ware_plugin_la_SOURCES = \
 	wii-ware-game.vala \
 	wii-ware-plugin.vala \
-	wii-ware-tracker-query.vala \
 	$(NULL)
 
 libgames_wii_ware_plugin_la_VALAFLAGS = \

@@ -9,7 +9,6 @@ libgames_wii_plugin_la_SOURCES = \
 	wii-game.vala \
 	wii-header.vala \
 	wii-plugin.vala \
-	wii-tracker-query.vala \
 	wii-uid.vala \
 	$(NULL)
 

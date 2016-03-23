@@ -8,7 +8,6 @@ libgames_nintendo_64_plugin_la_DEPENDENCIES = \
 libgames_nintendo_64_plugin_la_SOURCES = \
 	nintendo-64-game.vala \
 	nintendo-64-plugin.vala \
-	nintendo-64-tracker-query.vala \
 	$(NULL)
 
 libgames_nintendo_64_plugin_la_VALAFLAGS = \

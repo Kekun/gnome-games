@@ -8,7 +8,6 @@ libgames_neo_geo_pocket_plugin_la_DEPENDENCIES = \
 libgames_neo_geo_pocket_plugin_la_SOURCES = \
 	neo-geo-pocket-game.vala \
 	neo-geo-pocket-plugin.vala \
-	neo-geo-pocket-tracker-query.vala \
 	$(NULL)
 
 libgames_neo_geo_pocket_plugin_la_VALAFLAGS = \
