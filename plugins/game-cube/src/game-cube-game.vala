@@ -3,13 +3,13 @@
 private class Games.GameCubeGame : Object, Game {
 	private const string MODULE_BASENAME = "libretro-game-cube.so";
 
-	private GameCubeUID _uid;
-	public GameCubeUID uid {
+	private GameCubeUid _uid;
+	public GameCubeUid uid {
 		get {
 			if (_uid != null)
 				return _uid;
 
-			_uid = new GameCubeUID (header);
+			_uid = new GameCubeUid (header);
 
 			return _uid;
 		}

@@ -3,13 +3,13 @@
 private class Games.WiiGame : Object, Game {
 	private const string MODULE_BASENAME = "libretro-wii.so";
 
-	private WiiUID _uid;
-	public WiiUID uid {
+	private WiiUid _uid;
+	public WiiUid uid {
 		get {
 			if (_uid != null)
 				return _uid;
 
-			_uid = new WiiUID (header);
+			_uid = new WiiUid (header);
 
 			return _uid;
 		}

@@ -4,13 +4,13 @@ private class Games.AmigaGame : Object, Game {
 	private const string FINGERPRINT_PREFIX = "amiga";
 	private const string MODULE_BASENAME = "libretro-amiga.so";
 
-	private FingerprintUID _uid;
-	public FingerprintUID uid {
+	private FingerprintUid _uid;
+	public FingerprintUid uid {
 		get {
 			if (_uid != null)
 				return _uid;
 
-			_uid = new FingerprintUID (uri, FINGERPRINT_PREFIX);
+			_uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 
 			return _uid;
 		}
