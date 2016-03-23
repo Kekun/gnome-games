@@ -6,7 +6,6 @@ libgames_doom_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_doom_plugin_la_SOURCES = \
-	doom-game.vala \
 	doom-plugin.vala \
 	$(NULL)
 
