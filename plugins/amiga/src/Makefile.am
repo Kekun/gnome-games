@@ -6,7 +6,6 @@ libgames_amiga_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_amiga_plugin_la_SOURCES = \
-	amiga-game.vala \
 	amiga-plugin.vala \
 	$(NULL)
 

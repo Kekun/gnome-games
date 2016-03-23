@@ -1,7 +1,9 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.AmigaPlugin : Object, Plugin {
+	private const string FINGERPRINT_PREFIX = "amiga";
 	private const string MIME_TYPE = "application/x-amiga-disk-format";
+	private const string MODULE_BASENAME = "libretro-amiga.so";
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -13,7 +15,12 @@ private class Games.AmigaPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
-		return new AmigaGame (uri);
+		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var title = new FilenameTitle (uri);
+		var cover = new DummyCover ();
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+
+		return new GenericGame (title, cover, runner);
 	}
 }
 
