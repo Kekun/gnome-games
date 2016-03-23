@@ -6,7 +6,6 @@ libgames_dreamcast_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_dreamcast_plugin_la_SOURCES = \
-	dreamcast-game.vala \
 	dreamcast-header.vala \
 	dreamcast-plugin.vala \
 	dreamcast-uid.vala \

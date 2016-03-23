@@ -2,6 +2,7 @@
 
 private class Games.DreamcastPlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-dc-rom";
+	private const string MODULE_BASENAME = "libretro-dreamcast.so";
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -13,7 +14,16 @@ private class Games.DreamcastPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
-		return new DreamcastGame (uri);
+		var file = File.new_for_uri (uri);
+		var header = new DreamcastHeader (file);
+		header.check_validity ();
+
+		var uid = new DreamcastUid (header);
+		var title = new FilenameTitle (uri);
+		var cover = new DummyCover ();
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+
+		return new GenericGame (title, cover, runner);
 	}
 }
 
