@@ -102,6 +102,11 @@ gnome_games_CFLAGS = \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
 
+gnome_games_CPPFLAGS = \
+	-DRETRO_GOBJECT_USE_UNSTABLE_API \
+	-DRETRO_GTK_USE_UNSTABLE_API \
+	$(NULL)
+
 gnome_games_LDADD = \
 	$(GNOME_GAMES_LIBS) \
 	$(NULL)
