@@ -1,2 +1,4 @@
+# List of source files that should *not* be translated.
+# Please keep this file sorted alphabetically.
 src/ui/application.c
 src/ui/preferences-page-plugins.c

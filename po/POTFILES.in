@@ -1,10 +1,13 @@
 # List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
 data/org.gnome.Games.appdata.xml.in
 data/org.gnome.Games.desktop.in
 [type: gettext/glade]data/gtk/menus.ui
 [type: gettext/glade]data/ui/dummy-display.ui
 [type: gettext/glade]data/ui/empty-collection.ui
 [type: gettext/glade]data/ui/header-bar.ui
+[type: gettext/glade]data/ui/preferences-page-plugins.ui
+[type: gettext/glade]data/ui/preferences-window.ui
 [type: gettext/glade]data/ui/remote-display.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
 src/ui/application.vala
