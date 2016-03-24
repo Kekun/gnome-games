@@ -1,0 +1,187 @@
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Aviary.pl
+# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
+# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
+# gnomepl@aviary.pl
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Piotr Drąg <piotrdrag@gmail.com>, 2016.
+# Aviary.pl <gnomepl@aviary.pl>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-24 15:54+0100\n"
+"PO-Revision-Date: 2016-03-24 15:55+0100\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: Poland\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "Gry"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Proste uruchamianie gier w środowisku GNOME"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"To program dla środowiska GNOME 3 umożliwiający przeglądanie kolekcji gier i "
+"szybkie ich uruchamianie — podobnie jak Odtwarzacz muzyki GNOME umożliwia "
+"przeglądanie i odtwarzanie kolekcji muzyki."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and cumfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Warto zainstalować Gry GNOME, jeśli potrzebny jest prosty i wygodny sposób "
+"na uruchamianie gier bez specjalnych wodotrysków, takich jak narzędzia "
+"wspomagające speedrunning lub narzędzia dla programistów gier."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Funkcje:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr "Lista zainstalowanych gier, gier na platformie Steam, ROM-ów itp."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Wyszukiwanie w kolekcji gier"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Uruchamianie gier"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Wstrzymywanie i wznawianie gier"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Przeglądarka gier"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Przeglądanie i uruchamianie gier z kolekcji"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "gra;gra komputerowa;gra wideo;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Preferencje"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_O programie"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "Za_kończ"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr "<b><span size=\"large\">Pusta gra</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "Jeśli to jest widoczne, to wystąpił błąd."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Prosimy skontaktować się z programistami."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "Brak gier"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Należy zainstalować gry lub dodać katalogi zawierające gry do źródeł "
+"wyszukiwania."
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "Wyszukaj"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "Wstecz"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "Wtyczki"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Rozszerzenia"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr "<b><span size=\"large\">Należy użyć okna gry</span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Ta gra nie jest zintegrowana z Grami GNOME."
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "Należy użyć jej okna."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Wznowić ostatnią grę?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Wznów"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "Menu główne"
+
+#: ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: ../src/ui/application.vala:127
+msgid "GNOME Games"
+msgstr "Gry GNOME"
+
+#: ../src/ui/application.vala:129
+msgid "A video game player for GNOME"
+msgstr "Uruchamianie gier w środowisku GNOME"
+
+#: ../src/ui/application.vala:133
+msgid "Learn more about GNOME Games"
+msgstr "Więcej informacji o Grach GNOME"
+
+#: ../src/ui/application.vala:140
+msgid "translator-credits"
+msgstr ""
+"Piotr Drąg <piotrdrag@gmail.com>, 2016\n"
+"Aviary.pl <gnomepl@aviary.pl>, 2016"
