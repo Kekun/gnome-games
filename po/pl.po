@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-24 15:54+0100\n"
-"PO-Revision-Date: 2016-03-24 15:55+0100\n"
+"POT-Creation-Date: 2016-03-25 16:38+0100\n"
+"PO-Revision-Date: 2016-03-25 16:39+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -140,6 +140,22 @@ msgstr "Preferencje"
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Na pewno zakończyć?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Niezapisane postępy zostaną utracone."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "Zakończ"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Anuluj"
+
 #: ../data/ui/remote-display.ui.h:1
 msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
 msgstr "<b><span size=\"large\">Należy użyć okna gry</span></b>"
@@ -164,23 +180,19 @@ msgstr "Wznów"
 msgid "Main Menu"
 msgstr "Menu główne"
 
-#: ../data/ui/resume-dialog.ui.h:4
-msgid "Cancel"
-msgstr "Anuluj"
-
-#: ../src/ui/application.vala:127
+#: ../src/ui/application.vala:138
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:129
+#: ../src/ui/application.vala:140
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:133
+#: ../src/ui/application.vala:144
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:151
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016\n"
