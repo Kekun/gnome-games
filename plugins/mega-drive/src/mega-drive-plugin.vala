@@ -1,7 +1,9 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.MegaDrivePlugin : Object, Plugin {
+	private const string FINGERPRINT_PREFIX = "mega-drive";
 	private const string MIME_TYPE = "application/x-genesis-rom";
+	private const string MODULE_BASENAME = "libretro-pc-engine.so";
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -13,7 +15,16 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
-		return new MegaDriveGame (uri);
+		var file = File.new_for_uri (uri);
+		var header = new MegaDriveHeader (file);
+		header.check_validity ();
+
+		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var title = new FilenameTitle (uri);
+		var cover = new DummyCover ();
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+
+		return new GenericGame (title, cover, runner);
 	}
 }
 
