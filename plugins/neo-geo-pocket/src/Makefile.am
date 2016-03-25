@@ -6,7 +6,6 @@ libgames_neo_geo_pocket_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_neo_geo_pocket_plugin_la_SOURCES = \
-	neo-geo-pocket-game.vala \
 	neo-geo-pocket-plugin.vala \
 	$(NULL)
 
