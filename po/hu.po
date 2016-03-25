@@ -1,0 +1,197 @@
+# Hungarian translation for gnome-games.
+# Copyright (C) 2016 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-games package.
+#
+# Balázs Úr <urbalazs@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-25 21:27+0000\n"
+"PO-Revision-Date: 2016-03-25 23:09+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "Játékok"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Egyszerű játékindító a GNOME-hoz"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"A Játékok egy GNOME 3 alkalmazás a videojáték könyvtárának böngészéséhez, és "
+"hogy egyszerűen kiválaszthassa és elindíthassa a játékot onnan. Célja, hogy "
+"ugyanazt tegye a játékokkal, amit a Zene már elvégzett a zenekönyvtárral."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Akkor kell telepítenie a Játékokat, ha nagyon egyszerű és kényelmes módszert "
+"szeretne a játékok elindításához, és nincs szüksége olyan speciális "
+"funkciókra, mint például sebességfuttató eszközök vagy videojáték fejlesztői "
+"eszközök."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Szolgáltatások:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr "Telepített játékok, Steam játékok, játék ROM-ok, stb. felsorolása"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Keresés a játékgyűjteményében"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Játékok elindítása"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Játék folytatása, ahol abbahagyta"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Videojáték-lejátszó"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Videojáték-gyűjtemény elindítása és megtekintése"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "játék;videojáték;videó játék;lejátszó;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Beállítások"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_Névjegy"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_Kilépés"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr "<b><span size=\"large\">Ez egy üres játékmegjelenítő</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "Ha ezt látja, akkor ez hiba."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Lépjen kapcsolatba a fejlesztőkkel."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "Nem találhatók játékok"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Telepítsen játékokat, vagy adjon hozzá játékokat tartalmazó könyvtárakat a "
+"keresési forrásokhoz."
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "Keresés"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "Vissza"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "Bővítmények"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Kiterjesztések"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Biztos, hogy ki szeretne lépni?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Az összes nem mentett folyamat el fog veszni."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "Kilépés"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Mégse"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr ""
+"<b><span size=\"large\">Használja a játék saját ablakát az elindításához<"
+"/span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Ez a játék nincs integrálva a GNOME Játékokkal."
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "A saját ablakát kell használnia az elindításához."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Folytatja a legutóbbi játékot?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Folytatás"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "Főmenü"
+
+#: ../src/ui/application.vala:138
+msgid "GNOME Games"
+msgstr "GNOME Játékok"
+
+#: ../src/ui/application.vala:140
+msgid "A video game player for GNOME"
+msgstr "Egy videojáték-lejátszó a GNOME-hoz"
+
+#: ../src/ui/application.vala:144
+msgid "Learn more about GNOME Games"
+msgstr "Tudjon meg többet a GNOME Játékokról"
+
+#: ../src/ui/application.vala:151
+msgid "translator-credits"
+msgstr "Úr Balázs <urbalazs@gmail.com>"
+
