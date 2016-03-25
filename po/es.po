@@ -39,7 +39,7 @@ msgstr ""
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:4
 msgid ""
-"You want to install Games if you just want a very simple and cumfortable way "
+"You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don't need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
