@@ -1,7 +1,9 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.Nintendo64Plugin : Object, Plugin {
+	private const string FINGERPRINT_PREFIX = "nintendo-64";
 	private const string MIME_TYPE = "application/x-n64-rom";
+	private const string MODULE_BASENAME = "libretro-nintendo-64.so";
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -13,7 +15,12 @@ private class Games.Nintendo64Plugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
-		return new Nintendo64Game (uri);
+		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var title = new FilenameTitle (uri);
+		var cover = new DummyCover ();
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+
+		return new GenericGame (title, cover, runner);
 	}
 }
 

@@ -6,7 +6,6 @@ libgames_nintendo_64_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_nintendo_64_plugin_la_SOURCES = \
-	nintendo-64-game.vala \
 	nintendo-64-plugin.vala \
 	$(NULL)
 
