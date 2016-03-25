@@ -24,6 +24,7 @@ LT_INIT
 # Plugins
 m4_include([plugins/amiga/configure.ac])
 m4_include([plugins/atari-2600/configure.ac])
+m4_include([plugins/atari-7800/configure.ac])
 m4_include([plugins/desktop/configure.ac])
 m4_include([plugins/doom/configure.ac])
 m4_include([plugins/dreamcast/configure.ac])
