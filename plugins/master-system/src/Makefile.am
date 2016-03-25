@@ -6,7 +6,6 @@ libgames_master_system_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_master_system_plugin_la_SOURCES = \
-	master-system-game.vala \
 	master-system-header.vala \
 	master-system-plugin.vala \
 	$(NULL)
