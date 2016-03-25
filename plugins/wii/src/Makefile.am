@@ -6,7 +6,6 @@ libgames_wii_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_wii_plugin_la_SOURCES = \
-	wii-game.vala \
 	wii-header.vala \
 	wii-plugin.vala \
 	wii-uid.vala \

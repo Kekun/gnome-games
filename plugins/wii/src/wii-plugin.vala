@@ -2,6 +2,7 @@
 
 private class Games.WiiPlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-wii-rom";
+	private const string MODULE_BASENAME = "libretro-wii.so";
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -13,7 +14,16 @@ private class Games.WiiPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
-		return new WiiGame (uri);
+		var file = File.new_for_uri (uri);
+		var header = new WiiHeader (file);
+		header.check_validity ();
+
+		var uid = new WiiUid (header);
+		var title = new FilenameTitle (uri);
+		var cover = new DummyCover ();
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+
+		return new GenericGame (title, cover, runner);
 	}
 }
 
