@@ -6,7 +6,6 @@ libgames_snes_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_snes_plugin_la_SOURCES = \
-	snes-game.vala \
 	snes-plugin.vala \
 	$(NULL)
 
