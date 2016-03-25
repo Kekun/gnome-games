@@ -1,7 +1,9 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.NesPlugin : Object, Plugin {
+	private const string FINGERPRINT_PREFIX = "nes";
 	private const string MIME_TYPE = "application/x-nes-rom";
+	private const string MODULE_BASENAME = "libretro-nes.so";
 
 	public GameSource get_game_source () throws Error {
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
@@ -13,7 +15,12 @@ private class Games.NesPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
-		return new NesGame (uri);
+		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var title = new FilenameTitle (uri);
+		var cover = new DummyCover ();
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid);
+
+		return new GenericGame (title, cover, runner);
 	}
 }
 
