@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-atari-2600-plugin
+Name=Atari 2600 Plugin
+Description=Provides support for Atari 2600 games.
+Authors=Ricard Gascons <gascons1995@gmail.com>
+Copyright=Copyright © 2016 Ricard Gascons
