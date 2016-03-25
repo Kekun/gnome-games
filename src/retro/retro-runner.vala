@@ -48,9 +48,12 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private bool is_initialized;
+	private bool is_ready;
 
 	public RetroRunner (string module_basename, string uri, Uid uid) {
 		is_initialized = false;
+		is_ready = false;
+		should_save = false;
 
 		this.module_basename = module_basename;
 		this.uri = uri;
@@ -86,8 +89,11 @@ public class Games.RetroRunner : Object, Runner {
 
 		loop.stop ();
 
-		load_ram ();
-		core.reset ();
+		if (!is_ready) {
+			load_ram ();
+			core.reset ();
+			is_ready = true;
+		}
 
 		loop.start ();
 		running = true;
@@ -99,9 +105,12 @@ public class Games.RetroRunner : Object, Runner {
 
 		loop.stop ();
 
-		load_ram ();
-		core.reset ();
-		load_snapshot ();
+		if (!is_ready) {
+			load_ram ();
+			core.reset ();
+			load_snapshot ();
+			is_ready = true;
+		}
 
 		loop.start ();
 		running = true;
