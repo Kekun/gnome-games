@@ -2,15 +2,15 @@
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 #
-# Translators: 
+# Translators:
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-25 06:44+0000\n"
-"PO-Revision-Date: 2016-03-25 10:40+0200\n"
+"POT-Creation-Date: 2016-03-25 12:53+0000\n"
+"PO-Revision-Date: 2016-03-26 06:25+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -138,6 +138,23 @@ msgstr "Поставке"
 msgid "Extensions"
 msgstr "Проширења"
 
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Да ли сигурно желите да изађете?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Све што сте до сада урадили биће изгубљено."
+
+#: ../data/ui/quit-dialog.ui.h:3
+#| msgid "_Quit"
+msgid "Quit"
+msgstr "Изађи"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Откажи"
+
 #: ../data/ui/remote-display.ui.h:1
 msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
 msgstr "<b><span size=\"large\">Користи сопствени прозор игре</span></b>"
@@ -162,23 +179,19 @@ msgstr "Настави"
 msgid "Main Menu"
 msgstr "Главни изборник"
 
-#: ../data/ui/resume-dialog.ui.h:4
-msgid "Cancel"
-msgstr "Откажи"
-
-#: ../src/ui/application.vala:127
+#: ../src/ui/application.vala:138
 msgid "GNOME Games"
 msgstr "Гномове игре"
 
-#: ../src/ui/application.vala:129
+#: ../src/ui/application.vala:140
 msgid "A video game player for GNOME"
 msgstr "Програм за играње видео игара за Гном"
 
-#: ../src/ui/application.vala:133
+#: ../src/ui/application.vala:144
 msgid "Learn more about GNOME Games"
 msgstr "Сазнајте више о Гномовим играма"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:151
 msgid "translator-credits"
 msgstr ""
 "Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
