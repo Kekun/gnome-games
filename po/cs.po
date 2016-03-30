@@ -1,0 +1,197 @@
+# Czech translation for gnome-games.
+# Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Marek Černocký <marek@manet.cz>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-29 20:29+0000\n"
+"PO-Revision-Date: 2016-03-30 09:02+0200\n"
+"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "Hry"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Snadné spouštění her v GNOME"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"Hry je aplikace pro GNOME 3, ve které můžete procházet svoji sbírku videoher "
+"a jednoduše je v ní spouštět a hrát. Funguje to podobně jako aplikace Hudba "
+"pro vaši hudební sbírku nebo Fotky pro vaše fotografie."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Aplikaci Hry si určitě budete chtít nainstalovat, pokud chcete snadno a "
+"pohodlně hrát své hry a nepotřebujete při tom žádné pokročilé věci, jako "
+"jsou urychlování běhu her nebo vývojářské nástroje pro hry."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Funkce:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr ""
+"Zobrazuje seznam nainstalovaných her, vaše hry v systému Steam, obrazy ROM "
+"pro hry…"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Ve své sbírce her můžete vyhledávat"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Samozřejmě hry můžete hrát"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Můžete se do her vracet na místo, kde jste je opustili"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Hraní videoher"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Zobrazte si svoji sbírku videoher a zahrajte si je"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "hra;hry;videohra;videohry;hraní;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Předvolby"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "O _aplikaci"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "U_končit"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr "<b><span size=\"large\">Toto je falešné zobrazení hry</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "To, že jej vidíte, znamená chybu."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Kontaktujte prosím vývojáře."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "Nebyla nalezena žádná hra"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Nainstalujte hry nebo přidejte do prohledávaných zdrojů složky obsahující "
+"hry."
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "Hledat"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "Zpět"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "Zásuvné moduly"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Předvolby"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Rozšíření"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Opravdu chcete skončit?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Všechny neuložené postupy budou ztraceny."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "Ukončit"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr ""
+"<b><span size=\"large\">Použít pro hraní hry její vlastní okno</span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Tato hra není integrovaná do her GNOME."
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "K jejímu hraní se musí použít její vlastní okno."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Obnovit poslední hru?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Obnovit"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "Hlavní nabídka"
+
+#: ../src/ui/application.vala:138
+msgid "GNOME Games"
+msgstr "Hry GNOME"
+
+#: ../src/ui/application.vala:140
+msgid "A video game player for GNOME"
+msgstr "Hraní videoher pro GNOME"
+
+#: ../src/ui/application.vala:144
+msgid "Learn more about GNOME Games"
+msgstr "Zjistěte si více o Hrách GNOME"
+
+#: ../src/ui/application.vala:151
+msgid "translator-credits"
+msgstr "Marek Černocký <marek@manet.cz>"
