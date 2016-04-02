@@ -1,0 +1,198 @@
+# Brazilian Portuguese translation for gnome-games.
+# Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# Enrico Nicoletto <liverig@gmail.com>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-04-01 20:31+0000\n"
+"PO-Revision-Date: 2016-04-01 22:11-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "Jogos"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Um simples lançador de jogos para o GNOME"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"O GNOME Jogos é um aplicativo do GNOME 3 para que você navegue por sua "
+"biblioteca de vídeo games, facilmente escolhendo e rodando um jogo a partir "
+"de lá. O objetivo é o de fazer do GNOME Jogos o que o GNOME Música já faz "
+"por sua biblioteca de músicas."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Você deve instalar o GNOME Jogos apenas se você deseja uma forma muito "
+"simples e confortável de rodar seus jogos, sendo que você não precisa de "
+"recursos avançados como ferramentas de speedrunning ou ferramentas de "
+"desenvolvimento de vídeo games."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Recursos:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr ""
+"Listar os seus jogos instalados, seus jogos do Steam, suas ROMs de jogos..."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Pesquisar na sua coleção de jogos"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Rodar seus jogos"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Continuar seu jogo de onde você parou"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Executor de vídeo game"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Veja e rode sua coleção de jogos eletrônicos"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "jogo;jogos;game;videogame;video game;player;executor;vídeo game;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Preferências"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_Sobre"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "Sa_ir"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr ""
+"<b><span size=\"large\">Isto é uma exibição de amostra de jogo</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "Se você ver isto, é um erro."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Por gentileza, entre em contato com os desenvolvedores."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "Nenhum jogo localizado"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Instale jogos ou adicione diretórios que contenham jogos às suas fontes de "
+"pesquisa."
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "Pesquisar"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "Retornar"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "Plug-ins"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Preferências"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Extensões"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Você tem certeza de que deseja sair?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Todo o progresso não salvo será perdido."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "Sair"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr ""
+"<b><span size=\"large\">Usar a própria janela do jogo para jogá-lo</span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Este jogo não está integrado com o GNOME Jogos"
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "Para jogá-lo você precisa usar a própria janela dele."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Continuar último jogo?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Continuar"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#: ../src/ui/application.vala:138
+msgid "GNOME Games"
+msgstr "GNOME Jogos"
+
+#: ../src/ui/application.vala:140
+msgid "A video game player for GNOME"
+msgstr "Um executor de video game para o GNOME"
+
+#: ../src/ui/application.vala:144
+msgid "Learn more about GNOME Games"
+msgstr "Aprenda mais sobre o GNOME Jogos"
+
+#: ../src/ui/application.vala:151
+msgid "translator-credits"
+msgstr "Enrico Nicoletto <liverig@gmail.com>, 2016"
