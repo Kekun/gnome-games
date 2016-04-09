@@ -1,0 +1,188 @@
+# Chinese (China) translation for gnome-games.
+# Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-04-07 08:33+0000\n"
+"PO-Revision-Date: 2016-04-09 13:22+0800\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 1.8.7\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "游戏"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "GNOME 简易游戏启动器"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"游戏为一款 GNOME 3 应用程序，可浏览您的电子游戏库，并从中轻松挑选和玩游戏。致"
+"力于像音乐管理您的乐库一样管理游戏库。"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"如果您只想要简单舒适地玩游戏，而不需要像加速工具和游戏开发工具这种高级特性，"
+"您会愿意安装使用“游戏”。"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "特性："
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr "列出您已安装的游戏，Steam 游戏，游戏 ROM..."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "在您的游戏集中搜索"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "玩游戏"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "从上次离开的位置恢复游戏"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "电子游戏机"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "查看并玩您的游戏集"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "game;videogame;video game;player;游戏;电子游戏;视频游戏;游戏机;玩家;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "首选项(_P)"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "关于(_A)"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "离开(_Q)"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr "<b><span size=\"large\">这是一个虚拟游戏展示</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "如果你看到这个，是个 bug。"
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "请与开发者联系。"
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "找不到游戏"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr "安装游戏或添加包含游戏的目录到您的搜索源。"
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "搜索"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "返回"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "插件"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "首选项"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "扩展项"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "您确定离开吗？"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "所有未保存的进度将会丢失。"
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "离开"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "取消"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr "<b><span size=\"large\">使用游戏本身窗口运行</span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "此游戏未集成到 GNOME 游戏。"
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "您得使用它本身窗口玩游戏。"
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "恢复上次游戏？"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "恢复"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "主菜单"
+
+#: ../src/ui/application.vala:138
+msgid "GNOME Games"
+msgstr "GNOME 游戏"
+
+#: ../src/ui/application.vala:140
+msgid "A video game player for GNOME"
+msgstr "GNOME 下的一款电子游戏机"
+
+#: ../src/ui/application.vala:144
+msgid "Learn more about GNOME Games"
+msgstr "了解关于 GNOME 游戏的更多信息"
+
+#: ../src/ui/application.vala:151
+msgid "translator-credits"
+msgstr "Yating Kuang <yatingkuang@ubuntukylin.com>, 2016"
