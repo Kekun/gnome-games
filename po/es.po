@@ -2,20 +2,22 @@
 # Copyright (C) 2016 The GNOME Games Authors.
 # This file is distributed under the same license as the PACKAGE package.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2016.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-05 17:25-0600\n"
-"PO-Revision-Date: 2016-03-05 17:39-0600\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
-"Language-Team: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-25 12:53+0000\n"
+"PO-Revision-Date: 2016-04-07 12:53+0200\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
@@ -78,8 +80,9 @@ msgid "View and play your video games collection"
 msgstr "Visualice y juegue con su colección de videojuegos"
 
 #: ../data/org.gnome.Games.desktop.in.h:4
-msgid "game;videogame;video game;player"
-msgstr "juego;videojuego;reproductor;visor;"
+#| msgid "game;videogame;video game;player"
+msgid "game;videogame;video game;player;"
+msgstr "juego;videojuego;vídeo;jugador;"
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
@@ -124,6 +127,37 @@ msgstr "Buscar"
 msgid "Back"
 msgstr "Atrás"
 
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "Complementos"
+
+#: ../data/ui/preferences-window.ui.h:1
+#| msgid "_Preferences"
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Extensiones"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "¿Seguro que quiere salir?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Se perderá todo el progreso no guardado."
+
+#: ../data/ui/quit-dialog.ui.h:3
+#| msgid "_Quit"
+msgid "Quit"
+msgstr "Salir"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Cancelar"
+
 #: ../data/ui/remote-display.ui.h:1
 msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
 msgstr "<b><span size=\"large\">Utilice la ventana del juego</span></b>"
@@ -148,29 +182,21 @@ msgstr "Reanudar"
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: ../data/ui/resume-dialog.ui.h:4
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: ../src/ui/application.vala:127
+#: ../src/ui/application.vala:138
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: ../src/ui/application.vala:129
+#: ../src/ui/application.vala:140
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: ../src/ui/application.vala:133
+#: ../src/ui/application.vala:144
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:151
 msgid "translator-credits"
 msgstr "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2016"
-
-#: ../src/ui/preferences-page-plugins.vala:6
-msgid "Extensions"
-msgstr "Extensiones"
 
 #~ msgid "gnome-games"
 #~ msgstr "gnome-games"
