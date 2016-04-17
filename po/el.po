@@ -1,0 +1,202 @@
+# Greek translation for gnome-games.
+# Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-25 12:53+0000\n"
+"PO-Revision-Date: 2016-04-17 21:58+0300\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
+"Language-Team: Greek <gnome-el-list@gnome.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "Παιχνίδια"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Απλός εκκινητής παιχνιδιού για το GNOME"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"Τα Παιχνίδια είναι μια εφαρμογή του GNOME 3 που σας βοηθά να εντοπίζετε "
+"εύκολα και να παίζετε ένα παιχνίδι της συλλογής σας. Έχει ως στόχο να κάνει "
+"για τα παιχνίδια αυτό που κάνει ήδη η εφαρμογή «Μουσική» για τη μουσική σας "
+"βιβλιοθήκη."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Χαρακτηριστικά:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr ""
+"Δείτε όλα τα εγκατεστημένα παιχνίδια σας, από το Steam καθώς και τα "
+"παιχνίδια ROM..."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Αναζητήστε τη συλλογή των παιχνιδιών σας"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Παίξτε τα παιχνίδια σας"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Συνεχίστε το παιχνίδι σας εκεί που το άφησατε"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Aναπαραγωγέας  βιντεοπαιχνιδιών"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Δείτε και παίξτε τη συλλογή των βιντεοπαιχνιδιών σας"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "παιχνίδι;βιντεοπαιχνίδι;παίκτης;game;videogame;video game;player;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "Π_ροτιμήσεις"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_Περί"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_Έξοδος"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr ""
+"<b><span size=\"large\">Αυτή είναι μια εικονική οθόνη του παιχνιδιού</span></"
+"b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "Εάν βλέπετε αυτό, πρόκειται για ένα σφάλμα."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Παρακαλούμε επικοινωνήστε με τους προγραμματιστές."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "Δεν βρέθηκαν παιχνίδια"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Εγκαταστήστε παιχνίδια ή προσθέστε καταλόγους που περιέχουν παιχνίδια στις "
+"πηγές  αναζήτησής σας."
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "Aναζήτηση"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "Πίσω"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "Πρόσθετα"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Επεκτάσεις"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Είστε σίγουροι ότι θέλετε να εξέλθετε;"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Θα χαθεί όλη η μη αποθηκευμένη πρόοδος."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr ""
+"<b><span size=\"large\">Xρησιμοποιήστε το παράθυρο του παιχνιδιού για να "
+"παίξετε</span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Αυτό το παιχνίδι δεν είναι ενσωματωμένο στα Παιχνίδια GNOME."
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "Πρέπει να χρησιμοποιήσετε το δικό του παράθυρο για να παίξετε."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Συνέχιση του τελευταίου παιχνιδιού;"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Συνέχεια"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "Κυρίως μενού"
+
+#: ../src/ui/application.vala:138
+msgid "GNOME Games"
+msgstr "Παιχνίδια GNOME"
+
+#: ../src/ui/application.vala:140
+msgid "A video game player for GNOME"
+msgstr "Ένας αναπαραγωγέας βιντεοπαιχνιδιών για το GNOME"
+
+#: ../src/ui/application.vala:144
+msgid "Learn more about GNOME Games"
+msgstr "Μάθετε περισσότερα για τα Παιχνίδια GNOME"
+
+#: ../src/ui/application.vala:151
+msgid "translator-credits"
+msgstr ""
+"Ελληνική μεταφραστική ομάδα GNOME\n"
+"Κουτσούκος  Γιάννης <giankoyt@gmail.com>, 2016\n"
+"\n"
+"Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
+"http://gnome.gr/"
