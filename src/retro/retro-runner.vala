@@ -2,7 +2,7 @@
 
 public class Games.RetroRunner : Object, Runner {
 	public bool can_quit_safely {
-		get { return core_supports_snapshotting || !should_save; }
+		get { return !should_save; }
 	}
 
 	public bool can_resume {
@@ -241,6 +241,10 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		save_ram ();
+
+		if (!core_supports_snapshotting)
+			return;
+
 		save_snapshot ();
 		save_screenshot ();
 
