@@ -191,10 +191,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (content_box.runner == null)
 			return true;
 
+		content_box.runner.pause ();
+
 		if (content_box.runner.can_quit_safely)
 			return true;
-
-		content_box.runner.pause ();
 
 		var dialog = new QuitDialog ();
 		dialog.set_transient_for (this);
