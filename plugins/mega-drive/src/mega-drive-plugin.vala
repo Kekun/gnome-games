@@ -23,7 +23,8 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
-		var cover = new DummyCover ();
+		var media = new GriloMedia (title, MIME_TYPE);
+		var cover = new GriloCover (media, uid);
 		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
