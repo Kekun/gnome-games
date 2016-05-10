@@ -53,6 +53,7 @@ gnome_games_SOURCES = \
 	dummy/dummy-icon.vala \
 	dummy/dummy-runner.vala \
 	\
+	grilo/grilo-cover.vala \
 	grilo/grilo-media.vala \
 	\
 	retro/retro-error.vala \
