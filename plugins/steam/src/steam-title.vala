@@ -14,7 +14,7 @@ private class Games.SteamTitle : Object, Title {
 
 		name = registry.get_data ({"AppState", "name"});
 		if (name == null)
-			throw new SteamGameError.NO_NAME (@"Couldn't get name from Steam registry.");
+			throw new SteamError.NO_NAME (@"Couldn't get name from Steam registry.");
 
 		return name;
 	}

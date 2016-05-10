@@ -66,7 +66,7 @@ private class Games.SteamGameSource : Object, GameSource {
 		var name = info.get_name ();
 		if (appmanifest_regex.match (name)) {
 			try {
-				var game = new SteamGame (@"$directory/$name");
+				var game = game_for_appmanifest_path (@"$directory/$name");
 				game_callback (game);
 
 				Idle.add (this.game_for_file_info.callback);
@@ -76,5 +76,25 @@ private class Games.SteamGameSource : Object, GameSource {
 				warning ("%s\n", e.message);
 			}
 		}
+	}
+
+	private static Game game_for_appmanifest_path (string appmanifest_path) throws Error {
+		var registry = new SteamRegistry (appmanifest_path);
+		var game_id = registry.get_data ({"AppState", "appid"});
+		/* The game_id sometimes is identified by appID
+		 * see issue https://github.com/Kekun/gnome-games/issues/169 */
+		if (game_id == null)
+			game_id = registry.get_data ({"AppState", "appID"});
+
+		if (game_id == null)
+			throw new SteamError.NO_APPID (@"Couldn't get Steam appid from manifest '$appmanifest_path'");
+
+		var title = new SteamTitle (registry);
+		var icon = new SteamIcon (game_id);
+		var cover = new DummyCover ();
+		string[] args = { "steam", @"steam://rungameid/" + game_id };
+		var runner = new CommandRunner (args, false);
+
+		return new GenericGame (title, icon, cover, runner);
 	}
 }
