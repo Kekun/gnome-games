@@ -98,6 +98,7 @@ gnome_games_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
 	--pkg gio-2.0 \
 	--pkg glib-2.0 \
+	--pkg grilo-0.3 \
 	--pkg gtk+-3.0 \
 	--pkg tracker-sparql-1.0 \
 	--pkg retro-gobject-0.6 \

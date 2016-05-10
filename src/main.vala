@@ -8,6 +8,12 @@ int main (string[] args) {
 	Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	Intl.textdomain (GETTEXT_PACKAGE);
 
+	Grl.init (ref args);
+
 	var app = new Games.Application ();
-	return app.run (args);
+	var result = app.run (args);
+
+	Grl.deinit ();
+
+	return result;
 }
