@@ -13,7 +13,14 @@ private class Games.LovePlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
-		return new LoveGame (uri);
+		var package = new LovePackage (uri);
+		var title = new LoveTitle (package);
+		var icon = new LoveIcon (package);
+		var cover = new DummyCover ();
+		string[] args = { "love", uri };
+		var runner = new CommandRunner (args, true);
+
+		return new GenericGame (title, icon, cover, runner);
 	}
 }
 
