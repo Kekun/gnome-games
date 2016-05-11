@@ -22,6 +22,10 @@ private class Games.DummyGame : Object, Game {
 		return new DummyIcon ();
 	}
 
+	public Cover get_cover () {
+		return new DummyCover ();
+	}
+
 	public Runner get_runner () throws Error {
 		return new DummyRunner ();
 	}
