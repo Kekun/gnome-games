@@ -8,6 +8,7 @@ libgames_love_plugin_la_DEPENDENCIES = \
 libgames_love_plugin_la_SOURCES = \
 	love-error.vala \
 	love-game.vala \
+	love-icon.vala \
 	love-package.vala \
 	love-plugin.vala \
 	$(NULL)
