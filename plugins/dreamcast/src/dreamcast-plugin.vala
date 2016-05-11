@@ -21,10 +21,11 @@ private class Games.DreamcastPlugin : Object, Plugin {
 
 		var uid = new DreamcastUid (header);
 		var title = new FilenameTitle (uri);
+		var icon = new DummyIcon ();
 		var cover = new DummyCover ();
 		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
-		return new GenericGame (title, cover, runner);
+		return new GenericGame (title, icon, cover, runner);
 	}
 }
 

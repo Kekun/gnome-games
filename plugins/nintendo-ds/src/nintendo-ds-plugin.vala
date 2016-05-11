@@ -18,10 +18,11 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 	private static Game game_for_uri (string uri) throws Error {
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
+		var icon = new NintendoDsIcon (uri);
 		var cover = new DummyCover ();
 		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
-		return new GenericGame (title, cover, runner);
+		return new GenericGame (title, icon, cover, runner);
 	}
 }
 

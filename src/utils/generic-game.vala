@@ -28,11 +28,13 @@ public class Games.GenericGame : Object, Game {
 	}
 
 	private Title game_title;
+	private Icon game_icon;
 	private Cover game_cover;
 	private Runner game_runner;
 
-	public GenericGame (Title title, Cover cover, Runner runner) {
+	public GenericGame (Title title, Icon icon, Cover cover, Runner runner) {
 		game_title = title;
+		game_icon = icon;
 		game_cover = cover;
 		game_runner = runner;
 	}
