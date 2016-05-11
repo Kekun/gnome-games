@@ -6,6 +6,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	private const Gtk.CornerType[] bottom_corners = { Gtk.CornerType.BOTTOM_LEFT, Gtk.CornerType.BOTTOM_RIGHT };
 
 	private const double ICON_SCALE = 0.75;
+	private const double COVER_MARGIN = 3;
 	private const double FRAME_RADIUS = 2;
 	private const int EMBLEM_PADDING = 8;
 
@@ -74,9 +75,15 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		if (icon == null)
 			return false;
 
+		if (cover == null)
+			return false;
+
 		var drawn = false;
 
-		drawn = draw_icon (context);
+		drawn = draw_cover (context);
+
+		if (!drawn)
+			drawn = draw_icon (context);
 
 		// Draw the default thumbnail if no thumbnail have been drawn
 		if (!drawn)
@@ -97,6 +104,27 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		draw_background (context);
 		draw_pixbuf (context, pixbuf);
 		draw_border (context);
+
+		return true;
+	}
+
+	public bool draw_cover (DrawingContext context) {
+		var g_icon = cover.get_cover ();
+		if (g_icon == null)
+			return false;
+
+		var pixbuf = get_scaled_cover (context, g_icon);
+		if (pixbuf == null)
+			return false;
+
+		double width = pixbuf.width + COVER_MARGIN * 2;
+		double height = pixbuf.height + COVER_MARGIN * 2;
+		double offset_x = (context.width - width) / 2.0;
+		double offset_y = (context.height - height) / 2.0;
+
+		context.style.render_background (context.cr, offset_x, offset_y, width, height);
+		draw_pixbuf (context, pixbuf);
+		context.style.render_frame (context.cr, offset_x, offset_y, width, height);
 
 		return true;
 	}
@@ -138,6 +166,24 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
 		var size = int.min (context.width, context.height) * scale;
+		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
+
+		try {
+			return icon_info.load_icon ();
+		}
+		catch (Error e) {
+			warning (@"Couldn't load the icon: $(e.message)\n");
+			return null;
+		}
+	}
+
+	private Gdk.Pixbuf? get_scaled_cover (DrawingContext context, GLib.Icon? icon) {
+		if (icon == null)
+			return null;
+
+		var theme = Gtk.IconTheme.get_default ();
+		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
+		var size = int.min (context.width, context.height) - COVER_MARGIN * 2;
 		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
 
 		try {
