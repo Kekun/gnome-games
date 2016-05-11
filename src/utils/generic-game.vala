@@ -34,6 +34,10 @@ public class Games.GenericGame : Object, Game {
 		return game_icon;
 	}
 
+	public Cover get_cover () {
+		return game_cover;
+	}
+
 	public Runner get_runner () throws Error {
 		return game_runner;
 	}
