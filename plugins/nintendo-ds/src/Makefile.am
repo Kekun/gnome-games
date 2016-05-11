@@ -6,6 +6,8 @@ libgames_nintendo_ds_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_nintendo_ds_plugin_la_SOURCES = \
+	nintendo-ds-icon.vala \
+	nintendo-ds-icon-extract.c \
 	nintendo-ds-plugin.vala \
 	$(NULL)
 
