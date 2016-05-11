@@ -2,7 +2,7 @@
 
 public interface Games.Game : Object {
 	public abstract string name { get; }
-	public abstract Icon? icon { get; }
+	public abstract GLib.Icon? icon { get; }
 
 	public abstract Runner get_runner () throws Error;
 }

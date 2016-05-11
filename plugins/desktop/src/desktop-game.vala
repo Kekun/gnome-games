@@ -5,7 +5,7 @@ private class Games.DesktopGame: Object, Game {
 		get { return app_info.get_name (); }
 	}
 
-	public Icon? icon {
+	public GLib.Icon? icon {
 		get { return app_info.get_icon (); }
 	}
 

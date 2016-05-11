@@ -105,7 +105,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		context.cr.paint ();
 	}
 
-	private Gdk.Pixbuf? get_scaled_icon (DrawingContext context, Icon? icon, double scale) {
+	private Gdk.Pixbuf? get_scaled_icon (DrawingContext context, GLib.Icon? icon, double scale) {
 		if (icon == null)
 			return null;
 

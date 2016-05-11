@@ -22,7 +22,7 @@ private class Games.MameGame : Object, Game {
 		get { return _name; }
 	}
 
-	public Icon? icon {
+	public GLib.Icon? icon {
 		get { return null; }
 	}
 

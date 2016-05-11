@@ -21,7 +21,7 @@ private class Games.SegaSaturnGame : Object, Game {
 		get { return _name; }
 	}
 
-	public Icon? icon {
+	public GLib.Icon? icon {
 		get { return null; }
 	}
 

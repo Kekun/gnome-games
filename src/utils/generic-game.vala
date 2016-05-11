@@ -18,8 +18,8 @@ public class Games.GenericGame : Object, Game {
 		}
 	}
 
-	private Icon? _icon;
-	public Icon? icon {
+	private GLib.Icon? _icon;
+	public GLib.Icon? icon {
 		get {
 			_icon = game_cover.get_cover ();
 

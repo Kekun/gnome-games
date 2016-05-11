@@ -8,17 +8,17 @@ private class Games.LoveGame : Object, Game {
 		get { return _name; }
 	}
 
-	public Icon? icon {
+	public GLib.Icon? icon {
 		get { return love_icon; }
 	}
 
-	private static Icon? love_icon;
+	private static GLib.Icon? love_icon;
 
 	private string path;
 
 	static construct {
 		try {
-			love_icon = Icon.new_for_string ("love");
+			love_icon = GLib.Icon.new_for_string ("love");
 		}
 		catch (Error e) {
 			warning ("%s\n", e.message);
