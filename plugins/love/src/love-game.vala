@@ -6,22 +6,8 @@ private class Games.LoveGame : Object, Game {
 		get { return _name; }
 	}
 
-	public GLib.Icon? icon {
-		get { return love_icon; }
-	}
-
-	private static GLib.Icon? love_icon;
-
 	private string path;
-
-	static construct {
-		try {
-			love_icon = GLib.Icon.new_for_string ("love");
-		}
-		catch (Error e) {
-			warning ("%s\n", e.message);
-		}
-	}
+	private LoveIcon icon;
 
 	public LoveGame (string uri) throws Error {
 		var package = new LovePackage (uri);
@@ -40,6 +26,12 @@ private class Games.LoveGame : Object, Game {
 			name = name.split ("(")[0];
 			_name = name.strip ();
 		}
+
+		icon = new LoveIcon (package);
+	}
+
+	public Icon get_icon () {
+		return icon;
 	}
 
 	public Runner get_runner () throws Error {

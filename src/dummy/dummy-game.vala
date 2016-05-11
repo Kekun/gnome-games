@@ -6,10 +6,6 @@ private class Games.DummyGame : Object, Game {
 		get { return _name; }
 	}
 
-	public GLib.Icon? icon {
-		get { return null; }
-	}
-
 	public DummyGame (string name) {
 		_name = name;
 	}
@@ -20,6 +16,10 @@ private class Games.DummyGame : Object, Game {
 		name = name.split (".")[0];
 		name = name.split ("(")[0];
 		_name = name.strip ();
+	}
+
+	public Icon get_icon () {
+		return new DummyIcon ();
 	}
 
 	public Runner get_runner () throws Error {

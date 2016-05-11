@@ -5,10 +5,6 @@ private class Games.DesktopGame: Object, Game {
 		get { return app_info.get_name (); }
 	}
 
-	public GLib.Icon? icon {
-		get { return app_info.get_icon (); }
-	}
-
 	private DesktopAppInfo app_info;
 
 	public DesktopGame (string uri) {
@@ -16,6 +12,10 @@ private class Games.DesktopGame: Object, Game {
 		var path = file.get_path ();
 
 		app_info = new DesktopAppInfo.from_filename (path);
+	}
+
+	public Icon get_icon () {
+		return new DesktopIcon (app_info);
 	}
 
 	public Runner get_runner () throws Error {

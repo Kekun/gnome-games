@@ -12,14 +12,14 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	public int center_emblem_size { set; get; default = 16; }
 	public int secondary_emblem_size { set; get; default = 8; }
 
-	private Game _game;
-	public Game game {
-		get { return _game; }
+	private Icon _icon;
+	public Icon icon {
+		get { return _icon; }
 		set {
-			if (_game == value)
+			if (_icon == value)
 				return;
 
-			_game = value;
+			_icon = value;
 
 			queue_draw ();
 		}
@@ -46,7 +46,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			cr, window, style, state, width, height
 		};
 
-		if (game == null)
+		if (icon == null)
 			return false;
 
 		var drawn = false;
@@ -61,10 +61,11 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	public bool draw_icon (DrawingContext context) {
-		if (game.icon == null)
+		var g_icon = icon.get_icon ();
+		if (g_icon == null)
 			return false;
 
-		var pixbuf = get_scaled_icon (context, game.icon, ICON_SCALE);
+		var pixbuf = get_scaled_icon (context, g_icon, ICON_SCALE);
 		if (pixbuf == null)
 			return false;
 
@@ -112,13 +113,13 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
 		var size = int.min (context.width, context.height) * scale;
-		var icon_info = theme.lookup_by_gicon (game.icon, (int) size, lookup_flags);
+		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
 
 		try {
 			return icon_info.load_icon ();
 		}
 		catch (Error e) {
-			warning (@"Couldn't load the icon for '$(game.name): $(e.message)\n");
+			warning (@"Couldn't load the icon: $(e.message)\n");
 			return null;
 		}
 	}

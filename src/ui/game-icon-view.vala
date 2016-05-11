@@ -11,7 +11,7 @@ private class Games.GameIconView : Gtk.Box {
 
 			_game = value;
 
-			thumbnail.game = game;
+			thumbnail.icon = game.get_icon ();
 			title.label = game.name;
 
 			queue_draw ();

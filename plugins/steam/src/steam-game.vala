@@ -1,28 +1,12 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.SteamGame : Object, Game {
-	private static GLib.Icon? steam_icon;
-
 	private string _name;
 	public string name {
 		get { return _name; }
 	}
 
-	private GLib.Icon? _icon;
-	public GLib.Icon? icon {
-		get { return _icon != null ? _icon : steam_icon; }
-	}
-
 	private string game_id;
-
-	static construct {
-		try {
-			steam_icon = GLib.Icon.new_for_string ("steam");
-		}
-		catch (Error e) {
-			warning ("%s\n", e.message);
-		}
-	}
 
 	public SteamGame (string appmanifest_path) throws Error {
 		var registry = new SteamRegistry (appmanifest_path);
@@ -38,25 +22,14 @@ private class Games.SteamGame : Object, Game {
 
 		if (name == null)
 			throw new SteamGameError.NO_NAME (@"Couldn't get name from manifest '$appmanifest_path'");
+	}
 
-		try {
-			var icon_name = "steam_icon_" + game_id;
-			if (check_icon_exists (icon_name))
-				_icon = GLib.Icon.new_for_string (icon_name);
-		}
-		catch (Error e) {
-			warning ("%s\n", e.message);
-		}
+	public Icon get_icon () {
+		return new SteamIcon (game_id);
 	}
 
 	public Runner get_runner () throws Error {
 		return new SteamRunner (game_id);
-	}
-
-	private bool check_icon_exists (string icon_name) {
-		var theme = Gtk.IconTheme.get_default ();
-
-		return theme.has_icon (icon_name);
 	}
 }
 

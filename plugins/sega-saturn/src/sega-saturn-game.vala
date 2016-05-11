@@ -21,10 +21,6 @@ private class Games.SegaSaturnGame : Object, Game {
 		get { return _name; }
 	}
 
-	public GLib.Icon? icon {
-		get { return null; }
-	}
-
 	private string uri;
 	private SegaSaturnHeader header;
 
@@ -41,6 +37,10 @@ private class Games.SegaSaturnGame : Object, Game {
 		name = /\.(cue|iso|bin)$/.replace (name, name.length, 0, "");
 		name = name.split ("(")[0];
 		_name = name.strip ();
+	}
+
+	public Icon get_icon () {
+		return new DummyIcon ();
 	}
 
 	public Runner get_runner () throws Error {

@@ -22,10 +22,6 @@ private class Games.MameGame : Object, Game {
 		get { return _name; }
 	}
 
-	public GLib.Icon? icon {
-		get { return null; }
-	}
-
 	private string uri;
 
 	public MameGame (string uri) throws Error {
@@ -43,6 +39,10 @@ private class Games.MameGame : Object, Game {
 		_name = info.name;
 		_name = _name.split ("(")[0];
 		_name = _name.strip ();
+	}
+
+	public Icon get_icon () {
+		return new DummyIcon ();
 	}
 
 	public Runner get_runner () throws Error {

@@ -18,15 +18,6 @@ public class Games.GenericGame : Object, Game {
 		}
 	}
 
-	private GLib.Icon? _icon;
-	public GLib.Icon? icon {
-		get {
-			_icon = game_cover.get_cover ();
-
-			return _icon;
-		}
-	}
-
 	private Title game_title;
 	private Icon game_icon;
 	private Cover game_cover;
@@ -37,6 +28,10 @@ public class Games.GenericGame : Object, Game {
 		game_icon = icon;
 		game_cover = cover;
 		game_runner = runner;
+	}
+
+	public Icon get_icon () {
+		return game_icon;
 	}
 
 	public Runner get_runner () throws Error {
