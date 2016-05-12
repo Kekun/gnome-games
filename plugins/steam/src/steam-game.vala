@@ -29,7 +29,9 @@ private class Games.SteamGame : Object, Game {
 	}
 
 	public Runner get_runner () throws Error {
-		return new SteamRunner (game_id);
+		string[] args = { "steam", @"steam://rungameid/$game_id" };
+
+		return new CommandRunner (args, false);
 	}
 }
 
