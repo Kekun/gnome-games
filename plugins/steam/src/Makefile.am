@@ -11,6 +11,7 @@ libgames_steam_plugin_la_SOURCES = \
 	steam-icon.vala \
 	steam-plugin.vala \
 	steam-registry.vala \
+	steam-title.vala \
 	$(NULL)
 
 libgames_steam_plugin_la_VALAFLAGS = \
