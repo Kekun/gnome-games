@@ -25,7 +25,21 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		var uri = cursor.get_string (0);
 		check_uri (uri);
 
-		return new DesktopGame (uri);
+		var file = File.new_for_uri (uri);
+		var path = file.get_path ();
+
+		var app_info = new DesktopAppInfo.from_filename (path);
+		var title = new DesktopTitle (app_info);
+		var icon = new DesktopIcon (app_info);
+		var cover = new DummyCover ();
+
+		string[] args;
+		var command = app_info.get_commandline ();
+		if (!Shell.parse_argv (command, out args))
+			throw new CommandError.INVALID_COMMAND ("Invalid command '%s'", command);
+		var runner = new CommandRunner (args, true);
+
+		return new GenericGame (title, icon, cover, runner);
 	}
 
 	private void check_uri (string uri) throws Error {

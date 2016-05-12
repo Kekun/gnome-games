@@ -30,7 +30,6 @@ libgames_desktop_plugin_la_DEPENDENCIES = \
 
 libgames_desktop_plugin_la_SOURCES = \
 	desktop-error.vala \
-	desktop-game.vala \
 	desktop-icon.vala \
 	desktop-plugin.vala \
 	desktop-title.vala \
