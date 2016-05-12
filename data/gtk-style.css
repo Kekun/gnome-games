@@ -6,13 +6,14 @@
 @define-color games_thumbnail_border_color #3b3c38;
 @define-color games_thumbnail_bg_color #2d2d2d;
 
-GamesCollectionIconView.frame {
+gamescollectioniconview .frame {
 	background-color: @games_collection_bg_color;
 }
 
-GamesGameThumbnail {
+gamesgamethumbnail {
 	background-color: @games_thumbnail_bg_color;
-	border: 1px;
+	border-width: 1px;
+	border-style: solid;
 	border-radius: 2px;
 	border-color: @games_thumbnail_border_color;
 	color: @games_thumbnail_color;

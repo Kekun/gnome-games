@@ -35,6 +35,10 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		int height;
 	}
 
+	static construct {
+		set_css_name ("gamesgamethumbnail");
+	}
+
 	public override bool draw (Cairo.Context cr) {
 		var window = get_window ();
 		var style = get_style_context ();
@@ -148,17 +152,11 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	private void draw_background (DrawingContext context) {
-		var color = context.style.get_background_color (context.state);
-		context.cr.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
-		context.cr.fill ();
+		context.style.render_background (context.cr, 0.0, 0.0, context.width, context.height);
 	}
 
 	private void draw_border (DrawingContext context) {
-		var color = context.style.get_border_color (context.state);
-		context.cr.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
-		context.cr.stroke ();
+		context.style.render_frame (context.cr, 0.0, 0.0, context.width, context.height);
 	}
 
 	private void rounded_rectangle (Cairo.Context cr, double x, double y, double width, double height, double radius) {

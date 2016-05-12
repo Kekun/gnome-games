@@ -42,6 +42,10 @@ private class Games.CollectionIconView : Gtk.Stack {
 	[GtkChild]
 	private Gtk.FlowBox flow_box;
 
+	static construct {
+		set_css_name ("gamescollectioniconview");
+	}
+
 	construct {
 		flow_box.max_children_per_line = uint.MAX;
 		flow_box.set_filter_func (filter_box);
