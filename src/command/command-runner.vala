@@ -10,9 +10,11 @@ public class Games.CommandRunner : Object, Runner {
 	}
 
 	private string[] args;
+	private bool watch_child;
 
-	public CommandRunner (string[] args) {
+	public CommandRunner (string[] args, bool watch_child) {
 		this.args = args;
+		this.watch_child = watch_child;
 	}
 
 	public void check_is_valid () throws Error {
@@ -27,13 +29,14 @@ public class Games.CommandRunner : Object, Runner {
 	private bool running;
 
 	public void start () throws Error {
-		if (running)
+		if (running && watch_child)
 			return;
 
 		string? working_directory = null;
 		string[]? envp = null;
-		var flags = SpawnFlags.SEARCH_PATH |
-		            SpawnFlags.DO_NOT_REAP_CHILD; // Necessary to watch the child ourselves.
+		var flags = SpawnFlags.SEARCH_PATH;
+		if (watch_child)
+			flags |= SpawnFlags.DO_NOT_REAP_CHILD; // Necessary to watch the child ourselves.
 		SpawnChildSetupFunc? child_setup = null;
 		Pid pid;
 		int? standard_input = null;
@@ -50,8 +53,12 @@ public class Games.CommandRunner : Object, Runner {
 		catch (SpawnError e) {
 			warning ("%s\n", e.message);
 
-			return;
+			if (watch_child)
+				return;
 		}
+
+		if (!watch_child)
+			return;
 
 		ChildWatch.add (pid, (() => { on_process_stopped (); }));
 

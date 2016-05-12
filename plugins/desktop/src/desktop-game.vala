@@ -29,6 +29,6 @@ private class Games.DesktopGame: Object, Game {
 			throw new CommandError.INVALID_COMMAND ("Couldn't run '%s': %s".printf (name, e.message));
 		}
 
-		return new CommandRunner (args);
+		return new CommandRunner (args, true);
 	}
 }

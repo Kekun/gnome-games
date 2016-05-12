@@ -37,6 +37,6 @@ private class Games.LoveGame : Object, Game {
 	public Runner get_runner () throws Error {
 		string[] args = { "love", path };
 
-		return new CommandRunner (args);
+		return new CommandRunner (args, true);
 	}
 }
