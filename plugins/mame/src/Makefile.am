@@ -30,7 +30,6 @@ libgames_mame_plugin_la_DEPENDENCIES = \
 
 libgames_mame_plugin_la_SOURCES = \
 	mame-error.vala \
-	mame-game.vala \
 	mame-game-info.vala \
 	mame-plugin.vala \
 	$(BUILT_SOURCES) \
