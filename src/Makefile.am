@@ -85,6 +85,7 @@ gnome_games_SOURCES = \
 	utils/fingerprint.vala \
 	utils/generic-game.vala \
 	utils/generic-title.vala \
+	utils/generic-uid.vala \
 	utils/grep.vala \
 	\
 	config.vala \
