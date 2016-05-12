@@ -30,6 +30,10 @@ private class Games.LovePackage : Object {
 			}
 	}
 
+	public string get_uri () {
+		return uri;
+	}
+
 	public string? get_config (string key) {
 		if (!config.contains (key))
 			return null;

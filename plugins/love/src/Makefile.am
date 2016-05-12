@@ -11,6 +11,7 @@ libgames_love_plugin_la_SOURCES = \
 	love-icon.vala \
 	love-package.vala \
 	love-plugin.vala \
+	love-title.vala \
 	$(NULL)
 
 libgames_love_plugin_la_VALAFLAGS = \
