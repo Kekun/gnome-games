@@ -26,6 +26,27 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		default = null;
 	}
 
+	private ulong cover_changed_id;
+	private Cover _cover;
+	public Cover cover {
+		get { return _cover; }
+		set {
+			if (_cover == value)
+				return;
+
+			if (_cover != null)
+				_cover.disconnect (cover_changed_id);
+
+			_cover = value;
+
+			if (_cover != null)
+				_cover.changed.connect (queue_draw);
+
+			queue_draw ();
+		}
+		default = null;
+	}
+
 	public struct DrawingContext {
 		Cairo.Context cr;
 		Gdk.Window? window;
