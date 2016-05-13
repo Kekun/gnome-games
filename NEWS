@@ -1,3 +1,55 @@
+==============
+Version 3.21.2
+==============
+
+* Prompt the user when quitting a game that can't be restored
+
+* Add support for:
+ - Atari 2600
+ - Atari 7800
+
+* Add icons for:
+ - LÖVE
+ - Nintendo DS
+
+* Fix the theming to the latest GTK+
+
+* Use filename as the SNES game title source
+
+* Bugs fixed:
+ 109 List Atari 2600 games
+ 160 Some SNES titles are badly rendered
+ 238 SNES games titles are ugly/unusable
+ 259 Warn before quitting a game
+ 263 List Atari 7800 games
+ 275 Refactor MIME type queries
+ 276 Rename *UID classes to *Uid
+ 278 Use URIs in RetroRunne
+ 282 Typo in translatable string
+ 283 Adding simple game types should be trivial
+ 285 Simplify the existing simple game formats
+ 288 Quitting app while running Retro game don't save
+ 289 Refactor icon handling
+ 290 Display LÖVE games' own icons
+ 291 Display Nintendo DS games' own icons
+ 292 Remove custom game types
+ 293 Remove SteamRunner
+ 294 The theme is broken
+
+* Translation updates:
+ Brazilian Portuguese
+ Chinese (China)
+ Czech
+ German
+ Greek
+ Hungarian
+ Italian
+ Polish
+ Serbian
+ Spanish
+ Swedish
+
+
 ===============
 Version 3.20.0
 ===============
