@@ -76,6 +76,29 @@ private class Games.Application : Gtk.Application {
 		return @"$data_dir/snapshots";
 	}
 
+	public static string get_cache_dir () {
+		var cache_dir = Environment.get_user_cache_dir ();
+
+		return @"$cache_dir/gnome-games";
+	}
+
+	public static string get_covers_dir () {
+		var cache_dir = get_cache_dir ();
+
+		return @"$cache_dir/covers";
+	}
+
+	public static void try_make_dir (string path) {
+		var file = File.new_for_path (path);
+		try {
+			if (!file.query_exists ())
+				file.make_directory_with_parents ();
+		}
+		catch (Error e) {
+			warning (@"$(e.message)\n");
+		}
+	}
+
 	protected override void activate () {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
