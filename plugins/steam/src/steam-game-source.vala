@@ -91,7 +91,7 @@ private class Games.SteamGameSource : Object, GameSource {
 
 		var title = new SteamTitle (registry);
 		var icon = new SteamIcon (game_id);
-		var cover = new DummyCover ();
+		var cover = new SteamCover (game_id);
 		string[] args = { "steam", @"steam://rungameid/" + game_id };
 		var runner = new CommandRunner (args, false);
 

@@ -6,6 +6,7 @@ libgames_steam_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_steam_plugin_la_SOURCES = \
+	steam-cover.vala \
 	steam-error.vala \
 	steam-game-source.vala \
 	steam-icon.vala \

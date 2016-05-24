@@ -2,7 +2,7 @@
 
 private extern const string VERSION;
 
-private class Games.Application : Gtk.Application {
+public class Games.Application : Gtk.Application {
 	private ListStore collection;
 
 	private Tracker.Sparql.Connection? _connection;
@@ -24,7 +24,7 @@ private class Games.Application : Gtk.Application {
 
 	private ApplicationWindow window;
 
-	public Application () {
+	internal Application () {
 		Object (application_id: "org.gnome.Games",
 		        flags: ApplicationFlags.FLAGS_NONE);
 	}
@@ -117,7 +117,7 @@ private class Games.Application : Gtk.Application {
 		window.show ();
 	}
 
-	public async void load_game_list () {
+	internal async void load_game_list () {
 		GameSource[] sources = {};
 
 		var register = PluginRegister.get_register ();

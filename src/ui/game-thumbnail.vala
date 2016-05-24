@@ -6,11 +6,11 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	private const Gtk.CornerType[] bottom_corners = { Gtk.CornerType.BOTTOM_LEFT, Gtk.CornerType.BOTTOM_RIGHT };
 
 	private const double ICON_SCALE = 0.75;
-	private const double COVER_MARGIN = 3;
+	private const double COVER_MARGIN = 0;
 	private const double FRAME_RADIUS = 2;
 	private const int EMBLEM_PADDING = 8;
 
-	public int center_emblem_size { set; get; default = 16; }
+	public int center_emblem_size { set; get; default = 32; }
 	public int secondary_emblem_size { set; get; default = 8; }
 
 	private Icon _icon;
@@ -122,9 +122,12 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		double offset_x = (context.width - width) / 2.0;
 		double offset_y = (context.height - height) / 2.0;
 
-		context.style.render_background (context.cr, offset_x, offset_y, width, height);
+		context.cr.set_source_rgb (0, 0, 0);
+		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
+		context.cr.fill ();
 		draw_pixbuf (context, pixbuf);
-		context.style.render_frame (context.cr, offset_x, offset_y, width, height);
+		draw_border (context);
+//		context.style.render_frame (context.cr, offset_x, offset_y, width, height);
 
 		return true;
 	}
@@ -211,7 +214,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		Cairo.ImageSurface mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width, context.height);
 
 		Cairo.Context cr = new Cairo.Context (mask);
-		cr.set_source_rgb (0, 0, 0);
+		cr.set_source_rgba (0, 0, 0, 0.9);
 		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
 		cr.fill ();
 
