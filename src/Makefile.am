@@ -123,6 +123,7 @@ gnome_games_SOURCES = \
 	ui/ui-state.vala \
 	\
 	utils/composite-cover.vala \
+	utils/composite-title.vala \
 	utils/cue-sheet/cue-sheet.vala \
 	utils/cue-sheet/cue-sheet-error.vala \
 	utils/cue-sheet/cue-sheet-file-format.vala \
