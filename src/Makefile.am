@@ -130,6 +130,7 @@ gnome_games_SOURCES = \
 	utils/grep.vala \
 	utils/local-cover.vala \
 	utils/string-input-stream.vala \
+	utils/xml-doc.vala \
 	\
 	config.vala \
 	credits.vala \
