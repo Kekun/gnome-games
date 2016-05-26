@@ -17,6 +17,7 @@ plugins/steam/src/steam-title.c
 plugins/wii/src/wii-header.c
 src/command/command-runner.c
 src/core/plugin-registrar.c
+src/gameinfo/gameinfo-disc-id-title.c
 src/gamepad/gamepad-mapping.c
 src/gamepad/linux/linux-raw-gamepad.c
 src/retro/retro-runner.c

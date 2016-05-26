@@ -29,6 +29,7 @@ plugins/steam/src/steam-title.vala
 plugins/wii/src/wii-header.vala
 src/command/command-runner.vala
 src/core/plugin-registrar.vala
+src/gameinfo/gameinfo-disc-id-title.vala
 src/gamepad/gamepad-mapping.vala
 src/gamepad/linux/linux-raw-gamepad.vala
 src/retro/retro-runner.vala
