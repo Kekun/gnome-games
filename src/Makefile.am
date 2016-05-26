@@ -58,6 +58,8 @@ gnome_games_SOURCES = \
 	dummy/dummy-icon.vala \
 	dummy/dummy-runner.vala \
 	\
+	gameinfo/gameinfo-error.vala \
+	\
 	gamepad/gamepad.vala \
 	gamepad/gamepad-callbacks.vala \
 	gamepad/gamepad-dpad.vala \
