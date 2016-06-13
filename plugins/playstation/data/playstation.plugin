@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-playstation-plugin
+Name=PlayStation Plugin
+Description=Provides support for PlayStation games.
+Authors=Ricard Gascons <gascons1995@gmail.com>
+Copyright=Copyright © 2016 Ricard Gascons

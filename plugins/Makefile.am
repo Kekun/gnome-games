@@ -72,6 +72,10 @@ if ENABLE_PC_ENGINE_PLUGIN
 SUBDIRS += pc-engine
 endif
 
+if ENABLE_PLAYSTATION_PLUGIN
+SUBDIRS += playstation
+endif
+
 if ENABLE_SEGA_SATURN_PLUGIN
 SUBDIRS += sega-saturn
 endif
