@@ -1,0 +1,197 @@
+# Indonesian translation for gnome-games.
+# Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-05-22 11:44+0000\n"
+"PO-Revision-Date: 2016-07-08 11:11+0700\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+msgid "Games"
+msgstr "Permainan"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Peluncur permainan yang ringkas untuk GNOME"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"Permainan adalah aplikasi GNOME 3 untuk melihat pustaka permainan video Anda "
+"dan untuk mempermudah memilih dan bermain dari aplikasi ini. Ditujukan untuk "
+"permainan seperti yang telah dilakukan oleh aplikasi Musik untuk pustaka "
+"musik Anda."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Anda ingin memasang permainan jika Anda hanya ingin cara bermain yang sangat "
+"ringkas dan nyaman dan Anda tidak perlu fitur lanjutan seperti alat "
+"percepatan atau alat video game."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Fitur:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr ""
+"Daftar dari permainan yang terpasang, permainan Steam Anda, ROM Anda..."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Cari di koleksi permainan"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Mainkan permainan"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Lanjutkan permainan Anda dimana Anda meninggalkannya"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Pemain video game"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Lihat dan mainkan koleksi permainan video Anda"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+#, fuzzy
+msgid "game;videogame;video game;player;"
+msgstr "game;videogame;video game;player;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Preferensi"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_Tentang"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_Keluar"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr "<b><span size=\"large\">Ini adalah tampilan dummy</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "Jika Anda melihat ini, ini adalah bug."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Mohon menghubungi pengembang."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "Tidak ada permainan yang ditemukan"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Pasag permainan atau tambahkan direktori yang berisi permainan untuk mencari "
+"sumber."
+
+#: ../data/ui/header-bar.ui.h:2
+msgid "Search"
+msgstr "Cari"
+
+#: ../data/ui/header-bar.ui.h:3
+msgid "Back"
+msgstr "Kembali"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+#, fuzzy
+msgid "Plugins"
+msgstr "Plugin"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Preferensi"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Tambahan"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Anda yakin ingin keluar?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Semua hal yang belum disimpan akan hilang."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "Keluar"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+msgid "Cancel"
+msgstr "Batal"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr ""
+"<b><span size=\"large\">Gunakan jendela sendiri untuk memainkannya</span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Permainan ini tidak terintegrasi dengan Permainan GNOME"
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "Anda harus menggunakan jendela sendiri untuk memainkannya."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Lanjutkan permainan sebelumnya?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Lanjutkan"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Main Menu"
+msgstr "Menu Utama"
+
+#: ../src/ui/application.vala:138
+msgid "GNOME Games"
+msgstr "Permainan GNOME"
+
+#: ../src/ui/application.vala:140
+msgid "A video game player for GNOME"
+msgstr "Player permainan video untuk GNOME"
+
+#: ../src/ui/application.vala:144
+msgid "Learn more about GNOME Games"
+msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
+
+#: ../src/ui/application.vala:151
+msgid "translator-credits"
+msgstr "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016"
