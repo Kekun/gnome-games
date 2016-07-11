@@ -3,12 +3,16 @@
 public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 	public delegate Game GameForUri (string uri) throws Error;
 
+	private const uint HANDLED_URIS_PER_CYCLE = 5;
+
 	private string mime_type;
 	private GameForUri game_for_uri;
+	private string[] uris;
 
 	public MimeTypeTrackerQuery (string mime_type, GameForUri game_for_uri) {
 		this.mime_type = mime_type;
 		this.game_for_uri = game_for_uri;
+		this.uris = {};
 	}
 
 	public string get_query () {
@@ -34,13 +38,39 @@ public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 		return false;
 	}
 
-	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
+	public void process_cursor (Tracker.Sparql.Cursor cursor) {
 		var uri = cursor.get_string (0);
+		uris += uri;
+	}
 
-		var file = File.new_for_uri (uri);
-		if (!file.query_exists ())
-			throw new TrackerError.FILE_NOT_FOUND ("Tracker listed file not found: '%s'.", uri);
+	public async void foreach_game (GameCallback game_callback) {
+		uint handled_uris = 0;
+		foreach (var uri in uris) {
+			var file = File.new_for_uri (uri);
+			if (!file.query_exists ())
+				continue;
 
-		return game_for_uri (uri);
+			try {
+				var game = game_for_uri (uri);
+				game_callback (game);
+			}
+			catch (Error e) {
+				debug (e.message);
+
+				continue;
+			}
+
+			handled_uris++;
+
+			// Free the execution only once every HANDLED_URIS_PER_CYCLE
+			// games to speed up the execution by avoiding too many context
+			// switching.
+			if (handled_uris >= HANDLED_URIS_PER_CYCLE) {
+				handled_uris = 0;
+
+				Idle.add (this.foreach_game.callback);
+				yield;
+			}
+		}
 	}
 }

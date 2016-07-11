@@ -1,6 +1,14 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.DesktopTrackerQuery : Object, TrackerQuery {
+	private const uint HANDLED_GAMES_PER_CYCLE = 5;
+
+	private Game[] games;
+
+	construct {
+		games = {};
+	}
+
 	public string get_query () {
 		return "SELECT ?soft WHERE { ?soft nie:isLogicalPartOf 'urn:software-category:Game' . }";
 	}
@@ -21,7 +29,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		return true;
 	}
 
-	public Game game_for_cursor (Tracker.Sparql.Cursor cursor) throws Error {
+	public void process_cursor (Tracker.Sparql.Cursor cursor) {
 		var uri = cursor.get_string (0);
 		check_uri (uri);
 
@@ -39,7 +47,25 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 			throw new CommandError.INVALID_COMMAND ("Invalid command '%s'", command);
 		var runner = new CommandRunner (args, true);
 
-		return new GenericGame (title, icon, cover, runner);
+		games += new GenericGame (title, icon, cover, runner);
+	}
+
+	public async void foreach_game (GameCallback game_callback) {
+		uint handled_games = 0;
+		foreach (var game in games) {
+			game_callback (game);
+			handled_games++;
+
+			// Free the execution only once every HANDLED_GAMES_PER_CYCLE
+			// games to speed up the execution by avoiding too many context
+			// switching.
+			if (handled_games >= HANDLED_GAMES_PER_CYCLE) {
+				handled_games = 0;
+
+				Idle.add (this.foreach_game.callback);
+				yield;
+			}
+		}
 	}
 
 	private void check_uri (string uri) throws Error {

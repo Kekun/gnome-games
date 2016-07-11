@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
 public class Games.TrackerGameSource : Object, GameSource {
-	private const uint HANDLED_GAMES_PER_CYCLE = 5;
+	private const uint HANDLED_CURSORS_PER_CYCLE = 5;
 
 	private Tracker.Sparql.Connection connection { private set; get; }
 	private TrackerQuery[] queries;
@@ -36,7 +36,7 @@ public class Games.TrackerGameSource : Object, GameSource {
 		}
 
 		bool is_cursor_valid = false;
-		uint handled_games = 0;
+		uint handled_cursors = 0;
 
 		try {
 			is_cursor_valid = cursor.next ();
@@ -46,28 +46,20 @@ public class Games.TrackerGameSource : Object, GameSource {
 			warning ("Error: %s\n", e.message);
 		}
 		while (is_cursor_valid) {
-			if (query.is_cursor_valid (cursor))
-				try {
-					var game = query.game_for_cursor (cursor);
-					game_callback (game);
-					handled_games++;
+			if (query.is_cursor_valid (cursor)) {
+				query.process_cursor (cursor);
+				handled_cursors++;
 
-					// Free the execution only once every HANDLED_GAMES_PER_CYCLE
-					// games to speed up the execution by avoiding too many context
-					// switching.
-					if (handled_games >= HANDLED_GAMES_PER_CYCLE) {
-						handled_games = 0;
+				// Free the execution only once every HANDLED_CURSORS_PER_CYCLE
+				// games to speed up the execution by avoiding too many context
+				// switching.
+				if (handled_cursors >= HANDLED_CURSORS_PER_CYCLE) {
+					handled_cursors = 0;
 
-						Idle.add (this.each_game_for_query.callback);
-						yield;
-					}
+					Idle.add (this.each_game_for_query.callback);
+					yield;
 				}
-				catch (TrackerError.FILE_NOT_FOUND e) {
-					debug (e.message);
-				}
-				catch (Error e) {
-					warning ("Error: %s\n", e.message);
-				}
+			}
 
 			try {
 				is_cursor_valid = cursor.next ();
@@ -78,6 +70,7 @@ public class Games.TrackerGameSource : Object, GameSource {
 				continue;
 			}
 		}
+		yield query.foreach_game (game_callback);
 	}
 }
 
