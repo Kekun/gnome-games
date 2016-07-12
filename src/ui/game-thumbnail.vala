@@ -117,17 +117,11 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		if (pixbuf == null)
 			return false;
 
-		double width = pixbuf.width + COVER_MARGIN * 2;
-		double height = pixbuf.height + COVER_MARGIN * 2;
-		double offset_x = (context.width - width) / 2.0;
-		double offset_y = (context.height - height) / 2.0;
-
 		context.cr.set_source_rgb (0, 0, 0);
 		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
 		context.cr.fill ();
 		draw_pixbuf (context, pixbuf);
 		draw_border (context);
-//		context.style.render_frame (context.cr, offset_x, offset_y, width, height);
 
 		return true;
 	}
