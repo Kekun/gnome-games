@@ -2,3 +2,37 @@ Coding Style Guidelines
 =======================
 
 Read CodingStyle.txt
+
+Commit Message Guidelines
+=========================
+
+Follow GNOME's commit message guidelines:
+ https://wiki.gnome.org/Git/CommitMessages
+
+To these rules we add some others.
+
+General rules:
+- in the description, try to fill as much as possible your lines (don't
+  go to the line if the next word can fit),
+- don't go to the line after a sentence except of course if you cant add
+  words after,
+- split paragraphs with two newlines (one empty line),
+- if the context isn't sufficient, be explicit with the types and the
+  namespaces of the codepoints you cite,
+- suffix methods and functions with parentheses (without the space) so
+  when reading we know the name refers to an operation,
+- write property names between single quotes and in kebab-case.
+
+The actual changes:
+- the first paragraph explains what the commit does from an objective
+  point of view: the code change,
+- if the shortlog is explicit enough, this first paragraph can be
+  omitted,
+- try to start sentences by the action performed, try to use the
+  infinitive.
+
+The reasoning behind the changes:
+- the second paragraph explains what the commit does from a subjective
+  point of view: the behavior change,
+- don't write about what was before this commit, write about what this
+  commit does.
