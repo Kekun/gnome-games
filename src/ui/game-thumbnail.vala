@@ -48,6 +48,10 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		default = null;
 	}
 
+	private Gdk.Pixbuf? cover_cache;
+	private int previous_cover_width;
+	private int previous_cover_height;
+
 	public struct DrawingContext {
 		Cairo.Context cr;
 		Gdk.Window? window;
@@ -109,11 +113,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	public bool draw_cover (DrawingContext context) {
-		var g_icon = cover.get_cover ();
-		if (g_icon == null)
-			return false;
-
-		var pixbuf = get_scaled_cover (context, g_icon);
+		var pixbuf = get_scaled_cover (context);
 		if (pixbuf == null)
 			return false;
 
@@ -180,25 +180,41 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		}
 	}
 
-	private Gdk.Pixbuf? get_scaled_cover (DrawingContext context, GLib.Icon? icon) {
-		if (icon == null)
+	private Gdk.Pixbuf? get_scaled_cover (DrawingContext context) {
+		if (previous_cover_width != context.width) {
+			previous_cover_width = context.width;
+			cover_cache = null;
+		}
+
+		if (previous_cover_height != context.height) {
+			previous_cover_height = context.height;
+			cover_cache = null;
+		}
+
+		if (cover_cache != null)
+			return cover_cache;
+
+		var g_icon = cover.get_cover ();
+		if (g_icon == null)
 			return null;
 
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
 		var size = int.min (context.width, context.height) - COVER_MARGIN * 2;
-		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
+		var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
 
 		try {
-			return icon_info.load_icon ();
+			cover_cache = icon_info.load_icon ();
 		}
 		catch (Error e) {
 			warning (@"Couldn't load the icon: $(e.message)\n");
-			return null;
 		}
+
+		return cover_cache;
 	}
 
 	private void invalidate_cover () {
+		cover_cache = null;
 		queue_draw ();
 	}
 
