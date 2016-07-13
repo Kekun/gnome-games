@@ -41,9 +41,9 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			_cover = value;
 
 			if (_cover != null)
-				_cover.changed.connect (queue_draw);
+				_cover.changed.connect (invalidate_cover);
 
-			queue_draw ();
+			invalidate_cover ();
 		}
 		default = null;
 	}
@@ -196,6 +196,10 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			warning (@"Couldn't load the icon: $(e.message)\n");
 			return null;
 		}
+	}
+
+	private void invalidate_cover () {
+		queue_draw ();
 	}
 
 	private void draw_pixbuf (DrawingContext context, Gdk.Pixbuf pixbuf) {
