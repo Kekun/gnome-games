@@ -36,4 +36,3 @@ if [ "$NOCONFIGURE" = "" ]; then
 else
         echo "Skipping configure process."
 fi
-

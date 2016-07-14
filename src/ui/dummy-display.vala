@@ -3,4 +3,3 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/dummy-display.ui")]
 private class Games.DummyDisplay : Gtk.Box {
 }
-

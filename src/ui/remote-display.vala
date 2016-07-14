@@ -3,4 +3,3 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/remote-display.ui")]
 public class Games.RemoteDisplay : Gtk.Box {
 }
-

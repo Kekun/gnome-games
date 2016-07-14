@@ -6,4 +6,3 @@ private class Games.ResumeDialog : Gtk.Dialog {
 		use_header_bar = 1; // FIXME: Why doesn't this work from UI file?
 	}
 }
-

@@ -397,4 +397,3 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 }
-

@@ -200,4 +200,3 @@ public class Games.Application : Gtk.Application {
 	}
 
 }
-

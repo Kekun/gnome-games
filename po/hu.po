@@ -194,4 +194,3 @@ msgstr "Tudjon meg többet a GNOME Játékokról"
 #: ../src/ui/application.vala:151
 msgid "translator-credits"
 msgstr "Úr Balázs <urbalazs@gmail.com>"
-

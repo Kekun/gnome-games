@@ -76,4 +76,3 @@ public class Games.CommandRunner : Object, Runner {
 		stopped ();
 	}
 }
-
