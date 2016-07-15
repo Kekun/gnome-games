@@ -43,6 +43,8 @@ Vala projects.
 
  * Use 'var' in variable declarations wherever possible.
 
+ * Don't use var when declaring a number from a litteral.
+
  * Use 'as' to cast wherever possible.
 
  * Single statments inside if/else must not be enclosed by '{}'.
@@ -57,9 +59,7 @@ Vala projects.
    the class in it, in spinal-case. E.g Games.GameSource class should
    go under game-source.vala.
 
- * Avoid putting more than 3 'using' statements in each .vala file. If
-   you feel you need to use more, perhaps you should consider
-   refactoring (Move some of the code to a separate class).
+ * Don't use any 'using' statement.
 
  * Declare the namespace(s) of the class/errordomain with the
    class/errordomain itself. Like this:
@@ -74,12 +74,12 @@ Vala projects.
 
  * Prefer properties over methods whenever possible.
 
- * Declare properties setters befor the getters.
+ * Declare properties getters befor the setters.
 
  * Add a newline to break the code in logical pieces.
 
- * Add a newline before each return, throw, break etc. if it
-   is not the only statement in that block.
+ * Add a newline before each return, throw, break, continue etc. if
+   it is not the only statement in that block.
 
    if (condition_applies ()) {
        do_something ();
@@ -113,3 +113,28 @@ Vala projects.
    void get_a_and_b (out string a, out string b)
 
    rather than the un-even, string get_a_and_b (out string b)
+
+ * Use methods as callbacks to signals.
+
+ * ''Prefer'' operators over methods when possible. E.g prefer
+   'collection[key]' over 'collection.get(key)'.
+
+ * If a function or a method can be used as a callback, don't enclose
+   it in a lambda. E.g do 'do (callback)' rather than
+   'do (() => callback ())'.
+
+ * Limit the try blocks to the code throwing the error.
+
+ * Anything that can be 'private' must be 'private'.
+
+ * Avoid usage of the 'protected' visibility.
+
+ * Use the 'internal' visibility carefully.
+
+ * Always add a comma after the enumerated value of an enum type.
+
+ * Always add a comma after the final error code of an errordomain type.
+
+ * Any 'else', 'else if', 'catch' block or any other sepcial block
+   following another one should start in its own line and not on the
+   same as the previous closing brace.
