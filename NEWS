@@ -1,45 +1,4 @@
 ==============
-Version 3.21.4
-==============
-
-* Get covers from:
- - TheGamesDB.net for most games
- - the Steam store for Steam Games
-
-* Display covers in the thumbnail for:
- - Amiga
- - Atari 2600
- - Atari 7800
- - Dreamcast
- - Game Boy
- - Game Boy Advance
- - Game Cube
- - Master System
- - Mega Drive
- - Neo Geo Pocket
- - NES
- - Nintendo 64
- - Nintendo DS
- - PC-Engine
- - Sega Saturn
- - SNES
- - Steam
- - Wii
- - WiiWare
-
-* Double the thumbnail size to better appreaciate covers.
-
-* Bugs fixed:
- 301 Drawing multiple covers is very slow
- 302 Display the games' cover
- 304 Split result handling from game creation
-
-* Translation updates:
- Indonesian
- Slovak
-
-
-==============
 Version 3.21.2
 ==============
 
