@@ -73,6 +73,7 @@ gnome_games_SOURCES = \
 	grilo/grilo-media.vala \
 	\
 	retro/retro-error.vala \
+	retro/retro-gamepad.vala \
 	retro/retro-log.vala \
 	retro/retro-runner.vala \
 	\
