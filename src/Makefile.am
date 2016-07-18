@@ -61,6 +61,7 @@ gnome_games_SOURCES = \
 	gamepad/raw-gamepad.vala \
 	gamepad/raw-gamepad-monitor.vala \
 	gamepad/standard-gamepad-axis.vala \
+	gamepad/standard-gamepad-button.vala \
 	\
 	grilo/grilo-cover.vala \
 	grilo/grilo-media.vala \
