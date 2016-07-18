@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/org/gnome/Games">
     <file>gtk-style.css</file>
+    <file>gamepads/gamecontrollerdb.txt</file>
     <file preprocess="xml-stripblanks">gtk/menus.ui</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
