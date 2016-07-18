@@ -103,6 +103,7 @@ gnome_games_SOURCES = \
 
 gnome_games_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
+	--vapidir=gamepad/linux/ \
 	--pkg gio-2.0 \
 	--pkg glib-2.0 \
 	--pkg grilo-0.3 \
@@ -110,6 +111,9 @@ gnome_games_VALAFLAGS = \
 	--pkg tracker-sparql-1.0 \
 	--pkg retro-gobject-0.6 \
 	--pkg retro-gtk-0.6 \
+	--pkg libevdev \
+	--pkg linux \
+	--pkg posix \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
 	-H $(header_file) \
