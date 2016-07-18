@@ -55,6 +55,7 @@ gnome_games_SOURCES = \
 	\
 	gamepad/gamepad-callbacks.vala \
 	gamepad/linux/linux-raw-gamepad.vala \
+	gamepad/linux/linux-raw-gamepad-monitor.vala \
 	gamepad/raw-gamepad.vala \
 	gamepad/raw-gamepad-monitor.vala \
 	\
@@ -112,6 +113,7 @@ gnome_games_VALAFLAGS = \
 	--pkg tracker-sparql-1.0 \
 	--pkg retro-gobject-0.6 \
 	--pkg retro-gtk-0.6 \
+	--pkg gudev-1.0 \
 	--pkg libevdev \
 	--pkg linux \
 	--pkg posix \
