@@ -53,6 +53,7 @@ gnome_games_SOURCES = \
 	dummy/dummy-icon.vala \
 	dummy/dummy-runner.vala \
 	\
+	gamepad/gamepad-callbacks.vala \
 	gamepad/raw-gamepad.vala \
 	\
 	grilo/grilo-cover.vala \
