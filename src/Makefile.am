@@ -54,6 +54,7 @@ gnome_games_SOURCES = \
 	dummy/dummy-runner.vala \
 	\
 	gamepad/gamepad-callbacks.vala \
+	gamepad/gamepad-dpad.vala \
 	gamepad/gamepad-input-type.vala \
 	gamepad/gamepad-mapped-event.vala \
 	gamepad/gamepad-mapping-error.vala \
