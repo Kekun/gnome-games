@@ -27,9 +27,7 @@ public class Games.RetroRunner : Object, Runner {
 	private Retro.Core core;
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;
-	private RetroGtk.VirtualGamepad gamepad;
-	private RetroGtk.Keyboard keyboard;
-	private RetroGtk.InputDeviceManager input;
+	private RetroInputManager input_manager;
 	private Retro.Options options;
 	private RetroLog log;
 	private Retro.Loop loop;
@@ -138,9 +136,7 @@ public class Games.RetroRunner : Object, Runner {
 		widget = new Gtk.EventBox ();
 		widget.add (video);
 		video.visible = true;
-
-		gamepad = new RetroGtk.VirtualGamepad (widget);
-		keyboard = new RetroGtk.Keyboard (widget);
+		input_manager = new RetroInputManager (widget);
 
 		prepare_core (module_basename, uri);
 		core.shutdown.connect (on_shutdown);
@@ -166,19 +162,15 @@ public class Games.RetroRunner : Object, Runner {
 
 		core = new Retro.Core (module_path);
 		audio = new RetroGtk.PaPlayer ();
-		input = new RetroGtk.InputDeviceManager ();
 		options = new Retro.Options ();
 		log = new RetroLog ();
-
-		input.set_controller_device (0, gamepad);
-		input.set_keyboard (keyboard);
 
 		core.variables_interface = options;
 		core.log_interface = log;
 
 		core.video_interface = video;
 		core.audio_interface = audio;
-		core.input_interface = input;
+		core.input_interface = input_manager.input;
 
 		core.init ();
 
