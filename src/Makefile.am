@@ -57,6 +57,7 @@ gnome_games_SOURCES = \
 	gamepad/gamepad-dpad.vala \
 	gamepad/gamepad-input-type.vala \
 	gamepad/gamepad-mapped-event.vala \
+	gamepad/gamepad-mapping.vala \
 	gamepad/gamepad-mapping-error.vala \
 	gamepad/gamepad-mappings-manager.vala \
 	gamepad/linux/linux-raw-gamepad.vala \
