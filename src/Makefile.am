@@ -87,6 +87,7 @@ gnome_games_SOURCES = \
 	ui/collection-icon-view.vala \
 	ui/collection-header-bar.vala \
 	ui/content-box.vala \
+	ui/display-header-bar.vala \
 	ui/dummy-display.vala \
 	ui/empty-collection.vala \
 	ui/error-info-bar.vala \
