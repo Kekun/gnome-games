@@ -6,6 +6,8 @@
  * The client interfaces with this class primarily
  */
 private class Games.GamepadMappingsManager : Object {
+	private const string MAPPINGS_FILE_NAME = "gamecontrollerdb.txt";
+
 	private HashTable<string, string> names;
 	private HashTable<string, string> mappings;
 
@@ -22,6 +24,16 @@ private class Games.GamepadMappingsManager : Object {
 		catch (Error e) {
 			warning ("GamepadMappingsManager: Can't find gamecontrollerdb.txt: %s", e.message);
 		}
+		try {
+			var dir = Application.get_config_dir ();
+			var path = @"$dir/$MAPPINGS_FILE_NAME";
+			var file = File.new_for_path (path);
+			if (file.query_exists ())
+				add_from_file (path);
+		}
+		catch (Error e) {
+			warning ("GamepadMappingsManager: Can't add from user's config dir's %s: %s", MAPPINGS_FILE_NAME, e.message);
+		}
 	}
 
 	public static GamepadMappingsManager get_instance () {
@@ -32,6 +44,11 @@ private class Games.GamepadMappingsManager : Object {
 
 	public void add_from_resource (string path) throws Error {
 		add_from_input_stream (resources_open_stream (path, ResourceLookupFlags.NONE));
+	}
+
+	public void add_from_file (string file_name) throws Error {
+		var file = File.new_for_path (file_name);
+		add_from_input_stream (file.read ());
 	}
 
 	public void add_from_input_stream (InputStream input_stream) throws IOError {

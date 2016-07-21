@@ -82,6 +82,12 @@ public class Games.Application : Gtk.Application {
 		return @"$cache_dir/gnome-games";
 	}
 
+	public static string get_config_dir () {
+		var config_dir = Environment.get_user_config_dir ();
+
+		return @"$config_dir/gnome-games";
+	}
+
 	public static string get_covers_dir () {
 		var cache_dir = get_cache_dir ();
 
