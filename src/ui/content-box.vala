@@ -17,6 +17,8 @@ private class Games.ContentBox : Gtk.Box {
 			switch (ui_state) {
 			case UiState.COLLECTION:
 				content_stack.set_visible_child (collection_icon_view);
+				search_bar.visible = true;
+
 				if (runner != null) {
 					runner.pause ();
 					runner = null;
@@ -25,6 +27,7 @@ private class Games.ContentBox : Gtk.Box {
 				break;
 			case UiState.DISPLAY:
 				content_stack.set_visible_child (display_box);
+				search_bar.visible = false;
 
 				break;
 			}
