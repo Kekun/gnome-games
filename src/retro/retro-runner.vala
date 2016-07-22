@@ -102,9 +102,9 @@ public class Games.RetroRunner : Object, Runner {
 
 		if (!is_ready) {
 			load_ram ();
-			core.reset ();
 			is_ready = true;
 		}
+		core.reset ();
 
 		loop.start ();
 		running = true;
