@@ -8,6 +8,8 @@ test -z "$srcdir" && srcdir=.
         exit 1
 }
 
+pushd "$srcdir"
+
 PKG_NAME=`autoconf --trace 'AC_INIT:$1' "$srcdir/configure.ac"`
 
 if [ "$#" = 0 -a "x$NOCONFIGURE" = "x" ]; then
@@ -24,6 +26,8 @@ set -x
 intltoolize --force --copy --automake || exit 1
 autoreconf --verbose --force --install -Wno-portability || exit 1
 set +x
+
+popd
 
 if [ "$NOCONFIGURE" = "" ]; then
         set -x
