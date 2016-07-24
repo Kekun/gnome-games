@@ -10,8 +10,18 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			_ui_state = value;
 
-			if (ui_state != UiState.COLLECTION)
+			switch (ui_state) {
+			case UiState.COLLECTION:
+				header_bar.set_visible_child (collection_header_bar);
+
+				break;
+			case UiState.DISPLAY:
+				header_bar.set_visible_child (display_header_bar);
+
 				search_mode = false;
+
+				break;
+			}
 		}
 		get { return _ui_state; }
 	}
@@ -28,8 +38,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Binding cb_search_binding;
 
 	[GtkChild]
-	private HeaderBar header_bar;
-	private Binding hb_ui_binding;
+	private Gtk.Stack header_bar;
+	[GtkChild]
+	private CollectionHeaderBar collection_header_bar;
+	[GtkChild]
+	private DisplayHeaderBar display_header_bar;
 	private Binding hb_search_binding;
 
 	private HashTable<Game, Runner> runners;
@@ -46,18 +59,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		cb_ui_binding = content_box.bind_property ("ui-state",
 		                                           this, "ui-state", BindingFlags.BIDIRECTIONAL);
-		hb_ui_binding = header_bar.bind_property ("ui-state",
-		                                          this, "ui-state", BindingFlags.BIDIRECTIONAL);
 
 		cb_search_binding = content_box.bind_property ("search-mode",
 		                                               this, "search-mode", BindingFlags.BIDIRECTIONAL);
-		hb_search_binding = header_bar.bind_property ("search-mode",
-		                                              this, "search-mode", BindingFlags.BIDIRECTIONAL);
-
-		header_bar.display_back.connect (() => {
-			if (quit_game ())
-				ui_state = UiState.COLLECTION;
-		});
+		hb_search_binding = bind_property ("search-mode", collection_header_bar, "search-mode",
+		                                   BindingFlags.BIDIRECTIONAL);
 	}
 
 	public void run_game (Game game) {
@@ -124,6 +130,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		run_game (game);
 	}
 
+	[GtkCallback]
+	private void on_display_back () {
+		if (quit_game ())
+			ui_state = UiState.COLLECTION;
+	}
+
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
 		Runner runner = null;
 		try {
@@ -136,7 +148,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return;
 		}
 
-		header_bar.game_title = game.name;
+		display_header_bar.game_title = game.name;
 		content_box.runner = runner;
 		ui_state = UiState.DISPLAY;
 
@@ -217,7 +229,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private bool cancel_quitting_game () {
 		content_box.ui_state = ui_state;
-		header_bar.ui_state = ui_state;
 
 		if (content_box.runner != null)
 			content_box.runner.resume ();

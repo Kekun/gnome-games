@@ -16,8 +16,28 @@
       </object>
     </child>
     <child type="titlebar">
-      <object class="GamesHeaderBar" id="header_bar">
+      <object class="GtkStack" id="header_bar">
         <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GamesCollectionHeaderBar" id="collection_header_bar">
+            <property name="visible">True</property>
+            <property name="show_close_button">True</property>
+          </object>
+          <packing>
+            <property name="name">collection</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GamesDisplayHeaderBar" id="display_header_bar">
+            <property name="visible">True</property>
+            <property name="show_close_button">True</property>
+            <signal name="back" handler="on_display_back"/>
+          </object>
+          <packing>
+            <property name="name">display</property>
+          </packing>
+        </child>
       </object>
     </child>
   </template>
