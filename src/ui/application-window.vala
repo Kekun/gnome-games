@@ -12,10 +12,17 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			switch (ui_state) {
 			case UiState.COLLECTION:
+				content_box.set_visible_child (collection_box);
 				header_bar.set_visible_child (collection_header_bar);
+
+				if (display_box.runner != null) {
+					display_box.runner.pause ();
+					display_box.runner = null;
+				}
 
 				break;
 			case UiState.DISPLAY:
+				content_box.set_visible_child (display_box);
 				header_bar.set_visible_child (display_header_bar);
 
 				search_mode = false;
@@ -33,9 +40,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkChild]
-	private ContentBox content_box;
-	private Binding cb_ui_binding;
-	private Binding cb_search_binding;
+	private Gtk.Stack content_box;
+	[GtkChild]
+	private CollectionBox collection_box;
+	[GtkChild]
+	private DisplayBox display_box;
 
 	[GtkChild]
 	private Gtk.Stack header_bar;
@@ -43,7 +52,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private CollectionHeaderBar collection_header_bar;
 	[GtkChild]
 	private DisplayHeaderBar display_header_bar;
-	private Binding hb_search_binding;
+
+	private Binding box_search_binding;
+	private Binding header_bar_search_binding;
 
 	private HashTable<Game, Runner> runners;
 
@@ -51,19 +62,16 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Cancellable quit_game_cancellable;
 
 	public ApplicationWindow (ListModel collection) {
-		content_box.collection = collection;
+		collection_box.collection = collection;
 	}
 
 	construct {
 		runners = new HashTable<Game, Runner> (GLib.direct_hash, GLib.direct_equal);
 
-		cb_ui_binding = content_box.bind_property ("ui-state",
-		                                           this, "ui-state", BindingFlags.BIDIRECTIONAL);
-
-		cb_search_binding = content_box.bind_property ("search-mode",
-		                                               this, "search-mode", BindingFlags.BIDIRECTIONAL);
-		hb_search_binding = bind_property ("search-mode", collection_header_bar, "search-mode",
-		                                   BindingFlags.BIDIRECTIONAL);
+		box_search_binding = bind_property ("search-mode", collection_box, "search-mode",
+		                                    BindingFlags.BIDIRECTIONAL);
+		header_bar_search_binding = bind_property ("search-mode", collection_header_bar, "search-mode",
+		                                           BindingFlags.BIDIRECTIONAL);
 	}
 
 	public void run_game (Game game) {
@@ -119,7 +127,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		if (ui_state == UiState.COLLECTION && content_box.search_bar_handle_event (event))
+		if (ui_state == UiState.COLLECTION && collection_box.search_bar_handle_event (event))
 			return true;
 
 		return false;
@@ -143,13 +151,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 		catch (Error e) {
 			warning ("%s\n", e.message);
-			content_box.display_error (e.message);
+			collection_box.display_error (e.message);
 
 			return;
 		}
 
 		display_header_bar.game_title = game.name;
-		content_box.runner = runner;
+		display_box.runner = runner;
 		ui_state = UiState.DISPLAY;
 
 		var resume = false;
@@ -170,7 +178,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			switch (response) {
 			case Gtk.ResponseType.CANCEL:
-				content_box.runner = null;
+				display_box.runner = null;
 				ui_state = UiState.COLLECTION;
 
 				return;
@@ -200,12 +208,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public bool quit_game_with_cancellable (Cancellable cancellable) {
-		if (content_box.runner == null)
+		if (display_box.runner == null)
 			return true;
 
-		content_box.runner.pause ();
+		display_box.runner.pause ();
 
-		if (content_box.runner.can_quit_safely)
+		if (display_box.runner.can_quit_safely)
 			return true;
 
 		var dialog = new QuitDialog ();
@@ -228,10 +236,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private bool cancel_quitting_game () {
-		content_box.ui_state = ui_state;
-
-		if (content_box.runner != null)
-			content_box.runner.resume ();
+		if (display_box.runner != null)
+			display_box.runner.resume ();
 
 		return false;
 	}

@@ -1,66 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.16"/>
-  <template class="GamesContentBox" parent="GtkBox">
+  <template class="GamesContentBox" parent="GtkStack">
     <property name="visible">True</property>
-    <property name="orientation">vertical</property>
-    <property name="spacing">0</property>
-    <property name="halign">fill</property>
-    <property name="valign">fill</property>
-    <property name="hexpand">True</property>
-    <property name="vexpand">True</property>
     <property name="can-focus">False</property>
     <child>
-      <object class="GamesSearchBar" id="search_bar">
+      <object class="GamesCollectionBox" id="collection_box">
         <property name="visible">True</property>
-        <signal name="notify::text" handler="on_search_text_notify"/>
+        <signal name="game-activated" handler="on_game_activated"/>
       </object>
       <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
+        <property name="name">collection</property>
       </packing>
     </child>
     <child>
-      <object class="GtkOverlay" id="overlay">
+      <object class="GamesDisplayBox" id="display_box">
         <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <child type="overlay">
-          <object class="GtkBox" id="info_box">
-            <property name="visible">True</property>
-            <property name="halign">center</property>
-            <property name="valign">start</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">False</property>
-            <property name="orientation">vertical</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkStack" id="content_stack">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <child>
-              <object class="GamesCollectionIconView" id="collection_icon_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
-                <property name="name">collection-icon-view</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEventBox" id="display_box">
-                <property name="visible">True</property>
-              </object>
-              <packing>
-                <property name="name">display-box</property>
-              </packing>
-            </child>
-          </object>
-        </child>
       </object>
       <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
+        <property name="name">display</property>
       </packing>
     </child>
   </template>

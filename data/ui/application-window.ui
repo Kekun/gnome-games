@@ -10,9 +10,26 @@
     <signal name="delete-event" after="yes" handler="on_delete_event"/>
     <signal name="key-press-event" after="yes" handler="on_key_pressed"/>
     <child>
-      <object class="GamesContentBox" id="content_box">
+      <object class="GtkStack" id="content_box">
         <property name="visible">True</property>
-        <signal name="game-activated" handler="on_game_activated"/>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GamesCollectionBox" id="collection_box">
+            <property name="visible">True</property>
+            <signal name="game-activated" handler="on_game_activated"/>
+          </object>
+          <packing>
+            <property name="name">collection</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GamesDisplayBox" id="display_box">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="name">display</property>
+          </packing>
+        </child>
       </object>
     </child>
     <child type="titlebar">
