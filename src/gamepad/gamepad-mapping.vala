@@ -84,7 +84,8 @@ private class Games.GamepadMapping : Object {
 
 	public GamepadMappedEvent get_axis_mapping (int axis_number) {
 		var event = GamepadMappedEvent ();
-		event.type = axes_type[axis_number];
+		event.type = axis_number < axes_type.length ? axes_type[axis_number] :
+		                                              GamepadInputType.INVALID;
 		switch (event.type) {
 		case GamepadInputType.AXIS:
 			event.axis = (StandardGamepadAxis) axes_value[axis_number];
@@ -101,7 +102,8 @@ private class Games.GamepadMapping : Object {
 
 	public GamepadMappedEvent get_button_mapping (int button_number) {
 		var event = GamepadMappedEvent ();
-		event.type = buttons_type[button_number];
+		event.type = button_number < buttons_type.length ? buttons_type[button_number] :
+		                                                   GamepadInputType.INVALID;
 		switch (event.type) {
 		case GamepadInputType.AXIS:
 			event.axis = (StandardGamepadAxis) buttons_value[button_number];
