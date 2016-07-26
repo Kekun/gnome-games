@@ -138,3 +138,9 @@ Vala projects.
  * Any 'else', 'else if', 'catch' block or any other sepcial block
    following another one should start in its own line and not on the
    same as the previous closing brace.
+
+ * Internationalize error messages, which implies using printf style
+   string contruction rather than string templates.
+
+ * Append the original error message to the one you are building when
+   refining an error.
