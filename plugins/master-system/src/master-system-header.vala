@@ -60,7 +60,7 @@ private class Games.MasterSystemHeader : Object {
 			stream.seek (MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new MasterSystemError.INVALID_SIZE (@"Invalid Master System header size: $(e.message)");
+			throw new MasterSystemError.INVALID_SIZE (_("Invalid Master System header size: %s"), e.message);
 		}
 
 		var buffer = new uint8[MAGIC_VALUE.length];
@@ -73,7 +73,7 @@ private class Games.MasterSystemHeader : Object {
 
 		var magic = (string) buffer;
 		if (magic != MAGIC_VALUE)
-			throw new MasterSystemError.INVALID_HEADER ("The file doesn't have a Master System header.");
+			throw new MasterSystemError.INVALID_HEADER (_("The file doesn't have a Master System header."));
 	}
 }
 

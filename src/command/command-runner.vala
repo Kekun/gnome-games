@@ -19,7 +19,7 @@ public class Games.CommandRunner : Object, Runner {
 
 	public void check_is_valid () throws Error {
 		if (args.length < 1)
-			throw new CommandError.INVALID_COMMAND ("Invalid command: it doesn't have any argument.");
+			throw new CommandError.INVALID_COMMAND (_("Invalid command: it doesn't have any argument."));
 	}
 
 	public Gtk.Widget get_display () {
@@ -48,7 +48,7 @@ public class Games.CommandRunner : Object, Runner {
 				working_directory, args, envp, flags, child_setup, out pid,
 				out standard_input, out standard_output, out standard_error);
 			if (!result)
-				throw new CommandError.EXECUTION_FAILED ("Couldn't run '%s': execution failed\n".printf (args[0]));
+				throw new CommandError.EXECUTION_FAILED (_("Couldn't run '%s': execution failed."), args[0]);
 		}
 		catch (SpawnError e) {
 			warning ("%s\n", e.message);

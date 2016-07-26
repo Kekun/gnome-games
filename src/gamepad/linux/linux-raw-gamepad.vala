@@ -36,11 +36,11 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		fd = Posix.open (file_name, Posix.O_RDONLY | Posix.O_NONBLOCK);
 
 		if (fd < 0)
-			throw new FileError.FAILED (@"Unable to open file $file_name: $(Posix.strerror (Posix.errno))");
+			throw new FileError.FAILED (_("Unable to open file '%s': %s"), file_name, Posix.strerror (Posix.errno));
 
 		device = new Libevdev.Evdev ();
 		if (device.set_fd (fd) < 0)
-			throw new FileError.FAILED (@"Evdev is unable to open $file_name: $(Posix.strerror (Posix.errno))");
+			throw new FileError.FAILED (_("Evdev is unable to open '%s': %s"), file_name, Posix.strerror (Posix.errno));
 
 		// Poll the events in the default main loop
 		var channel = new IOChannel.unix_new (fd);

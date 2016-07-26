@@ -91,7 +91,7 @@ private class Games.GameBoyHeader : Object {
 			stream.seek (MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new GameBoyError.INVALID_SIZE (@"Invalid Game Boy header size: $(e.message)");
+			throw new GameBoyError.INVALID_SIZE (_("Invalid Game Boy header size: %s"), e.message);
 		}
 
 		var buffer = new uint8[MAGIC_VALUE.length];
@@ -104,7 +104,7 @@ private class Games.GameBoyHeader : Object {
 
 		var magic = (string) buffer;
 		if (magic != MAGIC_VALUE)
-			throw new GameBoyError.INVALID_HEADER ("The file doesn't have a Game Boy header.");
+			throw new GameBoyError.INVALID_HEADER (_("The file doesn't have a Game Boy header."));
 	}
 }
 

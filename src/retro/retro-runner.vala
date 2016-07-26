@@ -154,11 +154,8 @@ public class Games.RetroRunner : Object, Runner {
 	private void prepare_core (string module_basename, string uri) throws Error {
 		var module_path = Retro.search_module (module_basename);
 		var module = File.new_for_path (module_path);
-		if (!module.query_exists ()) {
-			var msg = @"Couldn't run game: module '$module_basename' not found.";
-
-			throw new RetroError.MODULE_NOT_FOUND (msg);
-		}
+		if (!module.query_exists ())
+			throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found."), module_basename);
 
 		core = new Retro.Core (module_path);
 		audio = new RetroGtk.PaPlayer ();
@@ -175,7 +172,7 @@ public class Games.RetroRunner : Object, Runner {
 		core.init ();
 
 		if (!try_load_game (core, uri))
-			throw new RetroError.INVALID_GAME_FILE (@"Invalid game file: $uri");
+			throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: '%s'."), uri);
 	}
 
 	private bool try_load_game (Retro.Core core, string uri) {
@@ -302,7 +299,7 @@ public class Games.RetroRunner : Object, Runner {
 		var buffer = new uint8[size];
 
 		if (!core.serialize (buffer))
-			throw new RetroError.COULDNT_WRITE_SNAPSHOT ("Couldn't write snapshot.");
+			throw new RetroError.COULDNT_WRITE_SNAPSHOT (_("Couldn't write snapshot."));
 
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
@@ -329,7 +326,7 @@ public class Games.RetroRunner : Object, Runner {
 			warning ("Unexpected serialization data size: got %lu, expected %lu\n", data.length, expected_size);
 
 		if (!core.unserialize (data))
-			throw new RetroError.COULDNT_LOAD_SNAPSHOT ("Couldn't load snapshot.");
+			throw new RetroError.COULDNT_LOAD_SNAPSHOT (_("Couldn't load snapshot."));
 	}
 
 	private string get_screenshot_path () throws Error {

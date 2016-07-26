@@ -87,7 +87,7 @@ private class Games.SteamGameSource : Object, GameSource {
 			game_id = registry.get_data ({"AppState", "appID"});
 
 		if (game_id == null)
-			throw new SteamError.NO_APPID (@"Couldn't get Steam appid from manifest '$appmanifest_path'");
+			throw new SteamError.NO_APPID (_("Couldn't get Steam appid from manifest '%s'."), appmanifest_path);
 
 		var title = new SteamTitle (registry);
 		var icon = new SteamIcon (game_id);

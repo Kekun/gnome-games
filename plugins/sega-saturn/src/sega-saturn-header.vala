@@ -48,7 +48,7 @@ private class Games.SegaSaturnHeader : Object {
 				header_offset = offset;
 
 		if (header_offset == null)
-			throw new SegaSaturnError.INVALID_HEADER ("The file doesn't have a Sega Saturn header.");
+			throw new SegaSaturnError.INVALID_HEADER (_("The file doesn't have a Sega Saturn header."));
 
 		return header_offset;
 	}
@@ -59,7 +59,7 @@ private class Games.SegaSaturnHeader : Object {
 			stream.seek (offset + MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new SegaSaturnError.INVALID_SIZE (@"Invalid Sega Saturn header size: $(e.message)");
+			throw new SegaSaturnError.INVALID_SIZE (_("Invalid Sega Saturn header size: %s"), e.message);
 		}
 
 		var buffer = new uint8[MAGIC_VALUE.length];
@@ -82,7 +82,7 @@ private class Games.SegaSaturnHeader : Object {
 			stream.seek (header_offset + offset, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new SegaSaturnError.INVALID_SIZE (@"Invalid Sega Saturn header size: $(e.message)");
+			throw new SegaSaturnError.INVALID_SIZE (_("Invalid Sega Saturn header size: %s"), e.message);
 		}
 
 		var buffer = new uint8[size];
@@ -90,7 +90,7 @@ private class Games.SegaSaturnHeader : Object {
 			stream.read (buffer);
 		}
 		catch (Error e) {
-			throw new SegaSaturnError.INVALID_HEADER ("The file doesn't have a Sega Saturn header.");
+			throw new SegaSaturnError.INVALID_HEADER (_("The file doesn't have a Sega Saturn header."));
 		}
 
 		return (string) buffer;
@@ -101,7 +101,7 @@ private class Games.SegaSaturnHeader : Object {
 			return file.read ();
 		}
 		catch (Error e) {
-			throw new SegaSaturnError.CANT_READ_FILE (@"Couldn't read file: $(e.message)");
+			throw new SegaSaturnError.CANT_READ_FILE (_("Couldn't read file: %s"), e.message);
 		}
 	}
 }

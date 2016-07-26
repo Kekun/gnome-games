@@ -49,7 +49,7 @@ private class Games.DreamcastHeader : Object {
 				header_offset = offset;
 
 		if (header_offset == null)
-			throw new DreamcastError.INVALID_HEADER ("The file doesn't have a Dreamcast header.");
+			throw new DreamcastError.INVALID_HEADER (_("The file doesn't have a Dreamcast header."));
 
 		return header_offset;
 	}
@@ -60,7 +60,7 @@ private class Games.DreamcastHeader : Object {
 			stream.seek (offset + MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (@"Invalid Dreamcast header size: $(e.message)");
+			throw new DreamcastError.INVALID_SIZE (_("Invalid Dreamcast header size: %s"), e.message);
 		}
 
 		// The header must start with $MAGIC_VALUE.
@@ -81,7 +81,7 @@ private class Games.DreamcastHeader : Object {
 			stream.seek (offset + MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (@"Invalid Dreamcast header size: $(e.message)");
+			throw new DreamcastError.INVALID_SIZE (_("Invalid Dreamcast header size: %s"), e.message);
 		}
 
 		// The header must be $HEADER_SIZE ASCII characters long.
@@ -105,7 +105,7 @@ private class Games.DreamcastHeader : Object {
 			stream.seek (header_offset + offset, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (@"Invalid Dreamcast header size: $(e.message)");
+			throw new DreamcastError.INVALID_SIZE (_("Invalid Dreamcast header size: %s"), e.message);
 		}
 
 		var buffer = new uint8[size];
@@ -113,7 +113,7 @@ private class Games.DreamcastHeader : Object {
 			stream.read (buffer);
 		}
 		catch (Error e) {
-			throw new DreamcastError.INVALID_HEADER ("The file doesn't have a Dreamcast header.");
+			throw new DreamcastError.INVALID_HEADER (_("The file doesn't have a Dreamcast header."));
 		}
 
 		return (string) buffer;
@@ -124,7 +124,7 @@ private class Games.DreamcastHeader : Object {
 			return file.read ();
 		}
 		catch (Error e) {
-			throw new DreamcastError.CANT_READ_FILE (@"Couldn't read file: $(e.message)");
+			throw new DreamcastError.CANT_READ_FILE (_("Couldn't read file: %s"), e.message);
 		}
 	}
 }

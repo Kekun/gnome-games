@@ -65,7 +65,7 @@ private class Games.SteamRegistry {
 		var file = File.new_for_path (appmanifest_path);
 
 		if (!file.query_exists ())
-			throw new IOError.NOT_FOUND ("File '%s' doesn't exist.\n", file.get_path ());
+			throw new IOError.NOT_FOUND (_("File '%s' doesn't exist."), file.get_path ());
 
 		var dis = new DataInputStream (file.read ());
 
@@ -93,7 +93,7 @@ private class Games.SteamRegistry {
 
 		while (index < tokens.length) {
 			if (tokens[index] == "{")
-				throw new SteamRegistryError.UNEXPECTED_TOKEN ("Unexpected token '{'");
+				throw new SteamRegistryError.UNEXPECTED_TOKEN (_("Unexpected token '{'."));
 
 			if (tokens[index] == "}") {
 				index++;
@@ -107,10 +107,10 @@ private class Games.SteamRegistry {
 			index++;
 
 			if (index >= tokens.length)
-				throw new SteamRegistryError.UNEXPECTED_END ("Unexpected end of tokens");
+				throw new SteamRegistryError.UNEXPECTED_END (_("Unexpected end of tokens."));
 
 			if (tokens[index] == "}")
-				throw new SteamRegistryError.UNEXPECTED_TOKEN ("Unexpected token '}'");
+				throw new SteamRegistryError.UNEXPECTED_TOKEN (_("Unexpected token '}'."));
 
 			if (tokens[index] == "{") {
 				index++;

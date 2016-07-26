@@ -17,7 +17,7 @@ private class Games.GameCubeHeader: Object {
 			stream.seek (MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new GameCubeError.INVALID_SIZE (@"Invalid Game Cube header size: $(e.message)");
+			throw new GameCubeError.INVALID_SIZE (_("Invalid Game Cube header size: %s"), e.message);
 		}
 
 		var buffer = new uint8[MAGIC_VALUE.length];
@@ -30,7 +30,7 @@ private class Games.GameCubeHeader: Object {
 
 		var magic = (string) buffer;
 		if (magic != MAGIC_VALUE)
-			throw new GameCubeError.INVALID_HEADER ("The file doesn't have a Game Cube header.");
+			throw new GameCubeError.INVALID_HEADER (_("The file doesn't have a Game Cube header."));
 	}
 
 	public string get_game_id () throws GameCubeError {
@@ -41,7 +41,7 @@ private class Games.GameCubeHeader: Object {
 			stream.read (buffer);
 		}
 		catch (Error e) {
-			throw new GameCubeError.INVALID_HEADER ("The file doesn't have a Game Cube header.");
+			throw new GameCubeError.INVALID_HEADER (_("The file doesn't have a Game Cube header."));
 		}
 
 		return (string) buffer;
@@ -52,7 +52,7 @@ private class Games.GameCubeHeader: Object {
 			return file.read ();
 		}
 		catch (Error e) {
-			throw new GameCubeError.CANT_READ_FILE (@"Couldn't read file: $(e.message)");
+			throw new GameCubeError.CANT_READ_FILE (_("Couldn't read file: %s"), e.message);
 		}
 	}
 }

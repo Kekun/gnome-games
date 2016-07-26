@@ -12,5 +12,23 @@ data/org.gnome.Games.desktop.in
 [type: gettext/glade]data/ui/quit-dialog.ui
 [type: gettext/glade]data/ui/remote-display.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
+plugins/desktop/src/desktop-tracker-query.vala
+plugins/dreamcast/src/dreamcast-header.vala
+plugins/game-boy/src/game-boy-header.vala
+plugins/game-cube/src/game-cube-header.vala
+plugins/love/src/love-package.vala
+plugins/mame/src/mame-plugin.vala
+plugins/master-system/src/master-system-header.vala
+plugins/mega-drive/src/mega-drive-header.vala
+plugins/sega-saturn/src/sega-saturn-header.vala
+plugins/steam/src/steam-game-source.vala
+plugins/steam/src/steam-registry.vala
+plugins/steam/src/steam-title.vala
+plugins/wii/src/wii-header.vala
+src/command/command-runner.vala
+src/core/plugin-registrar.vala
+src/gamepad/gamepad-mapping.vala
+src/gamepad/linux/linux-raw-gamepad.vala
+src/retro/retro-runner.vala
 src/ui/application.vala
 src/ui/preferences-page-plugins.vala
