@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-25 12:53+0000\n"
-"PO-Revision-Date: 2016-04-07 12:53+0200\n"
+"POT-Creation-Date: 2016-07-26 08:48+0000\n"
+"PO-Revision-Date: 2016-07-27 12:11+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -21,7 +21,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1
+#: ../data/ui/display-header-bar.ui.h:1
 msgid "Games"
 msgstr "Juegos"
 
@@ -80,7 +82,6 @@ msgid "View and play your video games collection"
 msgstr "Visualice y juegue con su colección de videojuegos"
 
 #: ../data/org.gnome.Games.desktop.in.h:4
-#| msgid "game;videogame;video game;player"
 msgid "game;videogame;video game;player;"
 msgstr "juego;videojuego;vídeo;jugador;"
 
@@ -95,6 +96,14 @@ msgstr "_Acerca de"
 #: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
 msgstr "_Salir"
+
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Buscar"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Atrás"
 
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
@@ -119,20 +128,11 @@ msgstr ""
 "Instale juegos o añada carpetas que contengan juegos a los orígenes de "
 "búsqueda."
 
-#: ../data/ui/header-bar.ui.h:2
-msgid "Search"
-msgstr "Buscar"
-
-#: ../data/ui/header-bar.ui.h:3
-msgid "Back"
-msgstr "Atrás"
-
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
 msgstr "Complementos"
 
 #: ../data/ui/preferences-window.ui.h:1
-#| msgid "_Preferences"
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -150,7 +150,6 @@ msgid "All unsaved progress will be lost."
 msgstr "Se perderá todo el progreso no guardado."
 
 #: ../data/ui/quit-dialog.ui.h:3
-#| msgid "_Quit"
 msgid "Quit"
 msgstr "Salir"
 
@@ -182,19 +181,218 @@ msgstr "Reanudar"
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: ../src/ui/application.vala:138
+#: ../plugins/desktop/src/desktop-tracker-query.vala:47
+#, c-format
+msgid "Invalid command '%s'."
+msgstr "Comando «%s» no válido"
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:75
+#, c-format
+msgid "Tracker listed file not found: '%s'."
+msgstr "Archivo listado del rastreador no encontrado: «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:81
+#, c-format
+msgid "Couldn't parse desktop entry '%s'."
+msgstr "No se pudo analizar la entrada del escritorio «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:94
+#, c-format
+msgid "'%s' has blacklisted category '%s'."
+msgstr "«%s» tiene en lista negra la categoría «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "'%s' has blacklisted executable '%s'."
+msgstr "«%s» tiene en lista negra el ejecutable «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:110
+#, c-format
+msgid "'%s' is blacklisted."
+msgstr "«%s» está en lista negra."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:52
+#: ../plugins/dreamcast/src/dreamcast-header.vala:116
+msgid "The file doesn't have a Dreamcast header."
+msgstr "El archivo no tiene una cabecera de Dreamcast."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:63
+#: ../plugins/dreamcast/src/dreamcast-header.vala:84
+#: ../plugins/dreamcast/src/dreamcast-header.vala:108
+#, c-format
+msgid "Invalid Dreamcast header size: %s"
+msgstr "Tamaño de la cabecera de Dreamcast no válido: %s"
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:127
+#: ../plugins/game-cube/src/game-cube-header.vala:55
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:104
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "No se pudo leer el archivo: %s"
+
+#: ../plugins/game-boy/src/game-boy-header.vala:94
+#, c-format
+msgid "Invalid Game Boy header size: %s"
+msgstr "Tamaño de la cabecera de Game Boy no válido: %s"
+
+#: ../plugins/game-boy/src/game-boy-header.vala:107
+msgid "The file doesn't have a Game Boy header."
+msgstr "El archivo no tiene una cabecera de Game Boy."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+#, c-format
+msgid "Invalid Game Cube header size: %s"
+msgstr "Tamaño de la cabecera de Game Cube no válido: %s"
+
+#: ../plugins/game-cube/src/game-cube-header.vala:33
+#: ../plugins/game-cube/src/game-cube-header.vala:44
+msgid "The file doesn't have a Game Cube header."
+msgstr "El archivo no tiene una cabecera de Game Cube."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgstr "Esto no representa un paquete LÖVE válido: «%s»."
+
+#: ../plugins/mame/src/mame-plugin.vala:25
+#, c-format
+msgid "Invalid MAME game id '%s' for '%s'."
+msgstr "ID «%s» de juego MAME no válido para «%s»."
+
+#: ../plugins/master-system/src/master-system-header.vala:63
+#, c-format
+msgid "Invalid Master System header size: %s"
+msgstr "Tamaño de la cabecera de Master System no válido: %s"
+
+#: ../plugins/master-system/src/master-system-header.vala:76
+msgid "The file doesn't have a Master System header."
+msgstr "El archivo no tiene una cabecera de Master System."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:60
+#, c-format
+msgid "Invalid Mega Drive/Genesis/32X header size: %s"
+msgstr "Tamaño de la cabecera de Mega Drive/Genesis/32X no válido: %s"
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:74
+msgid "The file doesn't have a Mega Drive/Genesis/32X header."
+msgstr "El archivo no tiene una cabecera de Mega Drive/Genesis/32X."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:51
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:93
+msgid "The file doesn't have a Sega Saturn header."
+msgstr "El archivo no tiene una cabecera de Sega Saturn."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:62
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:85
+#, c-format
+msgid "Invalid Sega Saturn header size: %s"
+msgstr "Tamaño de la cabecera de Sega Saturn no válido: %s"
+
+#: ../plugins/steam/src/steam-game-source.vala:90
+#, c-format
+msgid "Couldn't get Steam appid from manifest '%s'."
+msgstr "No se pudo obtener el appid de Steam del manifiesto «%s»."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File '%s' doesn't exist."
+msgstr "El archivo «%s» no existe."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Testigo «{» no esperado."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Final de testigos no esperado."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Testigo «}» no esperado."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn't get name from Steam registry."
+msgstr "No se pudo obtener el nombre del registro de Steam."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Tamaño de la cabecera de Wii no válido: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn't have a Wii header."
+msgstr "El archivo no tiene una cabecera Wii."
+
+#: ../src/command/command-runner.vala:22
+msgid "Invalid command: it doesn't have any argument."
+msgstr "Comando no válido: no tiene ningún argumento."
+
+#: ../src/command/command-runner.vala:51
+#, c-format
+msgid "Couldn't run '%s': execution failed."
+msgstr "No se pudo ejecutar «%s»: falló la ejecución."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Descriptor del complemento no válido: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn't create a new instance of plugin in '%s'."
+msgstr "No se pudo crear una nueva instancia del complemento en «%s»."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can't be null."
+msgstr "La cadena de mapeado no puede ser nula."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can't be empty."
+msgstr "La cadena de mapeado no puede estar vacía."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:39
+#, c-format
+msgid "Unable to open file '%s': %s"
+msgstr "No se puede abrir el archivo «%s» :%s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:43
+#, c-format
+msgid "Evdev is unable to open '%s': %s"
+msgstr "Evdev no puede abrir «%s» :%s"
+
+#: ../src/retro/retro-runner.vala:158
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "No se pudo ejecutar el juego: módulo «%s» no encontrado."
+
+#: ../src/retro/retro-runner.vala:175
+#, c-format
+msgid "Invalid game file: '%s'."
+msgstr "Archivo de juego no válido: «%s»."
+
+#: ../src/retro/retro-runner.vala:302
+msgid "Couldn't write snapshot."
+msgstr "No se pudo escribir la captura."
+
+#: ../src/retro/retro-runner.vala:329
+msgid "Couldn't load snapshot."
+msgstr "No se pudo cargar la captura."
+
+#: ../src/ui/application.vala:167
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:169
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:173
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: ../src/ui/application.vala:151
+#: ../src/ui/application.vala:180
 msgid "translator-credits"
 msgstr "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2016"
 
