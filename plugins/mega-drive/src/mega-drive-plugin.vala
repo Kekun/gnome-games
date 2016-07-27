@@ -3,7 +3,7 @@
 private class Games.MegaDrivePlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "mega-drive";
 	private const string MIME_TYPE = "application/x-genesis-rom";
-	private const string MODULE_BASENAME = "libretro-pc-engine.so";
+	private const string MODULE_BASENAME = "libretro-mega-drive.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
 	public GameSource get_game_source () throws Error {
