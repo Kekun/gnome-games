@@ -1,12 +1,13 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.SegaSaturnPlugin : Object, Plugin {
-	private const string MIME_TYPE = "application/x-saturn-rom";
+	private const string SEARCHED_MIME_TYPE = "application/x-cue";
+	private const string SPECIFIC_MIME_TYPE = "application/x-saturn-rom";
 	private const string MODULE_BASENAME = "libretro-saturn.so";
 	private const bool SUPPORTS_SNAPSHOTTING = false;
 
 	public GameSource get_game_source () throws Error {
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
+		var query = new MimeTypeTrackerQuery (SEARCHED_MIME_TYPE, game_for_uri);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (query);
@@ -16,55 +17,40 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 
 	private static Game game_for_uri (string uri) throws Error {
 		var file = File.new_for_uri (uri);
-		var header = new SegaSaturnHeader (file);
-		header.check_validity ();
+		var cue = new CueSheet (file);
+		var bin_file = get_binary_file (cue);
 
-		var cue = get_associated_cue_sheet (file);
-		var real_uri = cue ?? uri;
+		var header = new SegaSaturnHeader (bin_file);
+		header.check_validity ();
 
 		var uid = new SegaSaturnUid (header);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
-		var media = new GriloMedia (title, MIME_TYPE);
+		var media = new GriloMedia (title, SPECIFIC_MIME_TYPE);
 		var cover = new GriloCover (media, uid);
 		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
 
-	private static string? get_associated_cue_sheet (File file) throws Error {
-		var directory = file.get_parent ();
-		var enumerator = directory.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+	private static File get_binary_file (CueSheet cue) throws Error {
+		if (cue.tracks_number == 0)
+			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a track."), cue.file.get_uri ());
 
-		FileInfo file_info;
-		while ((file_info = enumerator.next_file ()) != null) {
-			var name = file_info.get_name ();
-			var child = directory.resolve_relative_path (name);
-			var child_info = child.query_info ("*", FileQueryInfoFlags.NONE);
-			var type = child_info.get_content_type ();
+		var track = cue.get_track (0);
+		var file = track.file;
 
-			if (type == "application/x-cue" && cue_contains_file (child, file))
-				return child.get_uri ();
-		}
+		if (file.file_format != CueSheetFileFormat.BINARY && file.file_format != CueSheetFileFormat.UNKNOWN)
+			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid binary file format."), cue.file.get_uri ());
 
-		return null;
-	}
+		if (track.track_mode != CueSheetTrackMode.MODE1_2352)
+			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid track mode for track %d."), cue.file.get_uri (), track.track_number);
 
-	private static bool cue_contains_file (File cue, File file) throws Error {
-		var file_input_stream = cue.read ();
-		var data_input_stream = new DataInputStream (file_input_stream);
+		var file_info = file.file.query_info ("*", FileQueryInfoFlags.NONE);
+		if (file_info.get_content_type () != SPECIFIC_MIME_TYPE)
+			throw new SegaSaturnError.INVALID_FILE_TYPE (_("The file '%s' doesn't have a valid Sega Saturn binary file."), cue.file.get_uri ());
 
-		var regex = /FILE\s+"(.*?)"\s+BINARY/;
-
-		string line;
-		MatchInfo match_info;
-		while ((line = data_input_stream.read_line (null)) != null) {
-			if (regex.match (line, RegexMatchFlags.ANCHORED, out match_info))
-				if (match_info.fetch (1) == file.get_basename ())
-					return true;
-		}
-
-		return false;
+		return file.file;
 	}
 }
 
