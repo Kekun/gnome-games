@@ -19,56 +19,27 @@ private class Games.MegaDriveHeader : Object {
 			if (_domestic_name != null)
 				return _domestic_name;
 
+			var stream = new StringInputStream (file);
 			try {
-				stream.seek (DOMESTIC_NAME_OFFSET, SeekType.SET);
+				_domestic_name = stream.read_string_for_size (DOMESTIC_NAME_OFFSET, NAME_SIZE);
 			}
 			catch (Error e) {
 				_domestic_name = "";
-
-				return _domestic_name;
 			}
-
-			var buffer = new uint8[NAME_SIZE];
-			try {
-				stream.read (buffer);
-			}
-			catch (Error e) {
-				_domestic_name = "";
-
-				return _domestic_name;
-			}
-
-			_domestic_name = (string) buffer;
 
 			return _domestic_name;
 		}
 	}
 
-	private FileInputStream stream;
+	private File file;
 
-	public MegaDriveHeader (File file) throws Error {
-		stream = file.read ();
-
-		check_validity ();
+	public MegaDriveHeader (File file) {
+		this.file = file;
 	}
 
-	public void check_validity () throws MegaDriveError {
-		try {
-			stream.seek (MAGIC_OFFSET, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new MegaDriveError.INVALID_SIZE (_("Invalid Mega Drive/Genesis/32X header size: %s"), e.message);
-		}
-
-		var buffer = new uint8[MAGIC_SIZE];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new MegaDriveError.INVALID_SIZE (e.message);
-		}
-
-		var magic = (string) buffer;
+	public void check_validity () throws Error {
+		var stream = new StringInputStream (file);
+		var magic = stream.read_string_for_size (MAGIC_OFFSET, MAGIC_SIZE);
 		magic = magic.chomp ();
 		if (!(magic in MAGIC_VALUES))
 			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Mega Drive/Genesis/32X header."));
@@ -76,6 +47,5 @@ private class Games.MegaDriveHeader : Object {
 }
 
 errordomain Games.MegaDriveError {
-	INVALID_SIZE,
 	INVALID_HEADER,
 }
