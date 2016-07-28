@@ -116,6 +116,7 @@ gnome_games_SOURCES = \
 	utils/generic-title.vala \
 	utils/generic-uid.vala \
 	utils/grep.vala \
+	utils/string-input-stream.vala \
 	\
 	config.vala \
 	credits.vala \
