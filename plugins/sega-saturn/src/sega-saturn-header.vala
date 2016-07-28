@@ -105,11 +105,3 @@ private class Games.SegaSaturnHeader : Object {
 		}
 	}
 }
-
-errordomain Games.SegaSaturnError {
-	CANT_READ_FILE,
-	INVALID_SIZE,
-	INVALID_HEADER,
-	INVALID_DATE,
-	INVALID_DISK_INFO,
-}
