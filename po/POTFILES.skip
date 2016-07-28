@@ -8,6 +8,7 @@ plugins/love/src/love-package.c
 plugins/mame/src/mame-plugin.c
 plugins/master-system/src/master-system-header.c
 plugins/mega-drive/src/mega-drive-header.c
+plugins/playstation/src/playstation-header.c
 plugins/sega-saturn/src/sega-saturn-header.c
 plugins/sega-saturn/src/sega-saturn-plugin.c
 plugins/steam/src/steam-game-source.c

@@ -20,6 +20,7 @@ plugins/love/src/love-package.vala
 plugins/mame/src/mame-plugin.vala
 plugins/master-system/src/master-system-header.vala
 plugins/mega-drive/src/mega-drive-header.vala
+plugins/playstation/src/playstation-header.vala
 plugins/sega-saturn/src/sega-saturn-header.vala
 plugins/sega-saturn/src/sega-saturn-plugin.vala
 plugins/steam/src/steam-game-source.vala
