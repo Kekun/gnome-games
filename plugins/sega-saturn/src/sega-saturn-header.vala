@@ -21,87 +21,38 @@ private class Games.SegaSaturnHeader : Object {
 		this.file = file;
 	}
 
-	public void check_validity () throws SegaSaturnError {
+	public void check_validity () throws Error {
 		// Getting the header offset needs to look for the header, and hence
 		// check the validity of the file.
 		get_header_offset ();
 	}
 
-	public string get_product_number () throws SegaSaturnError {
-		var product_number = get_string_at_offset (PRODUCT_NUMBER_OFFSET, PRODUCT_NUMBER_SIZE);
+	public string get_product_number () throws Error {
+		var stream = new StringInputStream (file);
+		var product_number = stream.read_string_for_size (PRODUCT_NUMBER_OFFSET, PRODUCT_NUMBER_SIZE);
 
 		return product_number.strip ();
 	}
 
-	public string get_areas () throws SegaSaturnError {
-		var areas = get_string_at_offset (AREAS_OFFSET, AREAS_SIZE);
+	public string get_areas () throws Error {
+		var stream = new StringInputStream (file);
+		var areas = stream.read_string_for_size (AREAS_OFFSET, AREAS_SIZE);
 
 		return areas.strip ();
 	}
 
-	private size_t get_header_offset () throws SegaSaturnError {
+	private size_t get_header_offset () throws Error {
 		if (header_offset != null)
 			return header_offset;
 
+		var stream = new StringInputStream (file);
 		foreach (var offset in HEADER_OFFSETS)
-			if (lookup_header_offset (offset))
+			if (stream.has_string (offset, MAGIC_VALUE))
 				header_offset = offset;
 
 		if (header_offset == null)
 			throw new SegaSaturnError.INVALID_HEADER (_("The file doesn't have a Sega Saturn header."));
 
 		return header_offset;
-	}
-
-	private bool lookup_header_offset (size_t offset) throws SegaSaturnError {
-		var stream = get_stream ();
-		try {
-			stream.seek (offset + MAGIC_OFFSET, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new SegaSaturnError.INVALID_SIZE (_("Invalid Sega Saturn header size: %s"), e.message);
-		}
-
-		var buffer = new uint8[MAGIC_VALUE.length];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new SegaSaturnError.INVALID_SIZE (e.message);
-		}
-
-		var magic = (string) buffer;
-
-		return magic == MAGIC_VALUE;
-	}
-
-	private string get_string_at_offset (size_t offset, size_t size) throws SegaSaturnError {
-		var header_offset = get_header_offset ();
-		var stream = get_stream ();
-		try {
-			stream.seek (header_offset + offset, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new SegaSaturnError.INVALID_SIZE (_("Invalid Sega Saturn header size: %s"), e.message);
-		}
-
-		var buffer = new uint8[size];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new SegaSaturnError.INVALID_HEADER (_("The file doesn't have a Sega Saturn header."));
-		}
-
-		return (string) buffer;
-	}
-
-	private FileInputStream get_stream () throws SegaSaturnError {
-		try {
-			return file.read ();
-		}
-		catch (Error e) {
-			throw new SegaSaturnError.CANT_READ_FILE (_("Couldn't read file: %s"), e.message);
-		}
 	}
 }
