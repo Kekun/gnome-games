@@ -104,6 +104,7 @@ gnome_games_SOURCES = \
 	ui/search-bar.vala \
 	ui/ui-state.vala \
 	\
+	utils/cue-sheet/cue-sheet-error.vala \
 	utils/cue-sheet/cue-sheet-file-format.vala \
 	utils/cue-sheet/cue-sheet-file-node.vala \
 	utils/cue-sheet/cue-sheet-track-mode.vala \
