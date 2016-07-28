@@ -19,6 +19,16 @@ private class Games.GameBoyHeader : Object {
 			if (_game_boy_type != null)
 				return _game_boy_type;
 
+			FileInputStream stream;
+			try {
+				stream = file.read ();
+			}
+			catch (Error e) {
+				_game_boy_type = GameBoyType.INVALID;
+
+				return _game_boy_type;
+			}
+
 			uint8 buffer[1];
 
 			uint8 color_value = 0;
@@ -71,39 +81,19 @@ private class Games.GameBoyHeader : Object {
 				break;
 			}
 
-			if (_game_boy_type == null)
-				_game_boy_type = GameBoyType.INVALID;
-
 			return _game_boy_type;
 		}
 	}
 
-	private FileInputStream stream;
+	private File file;
 
-	public GameBoyHeader (File file) throws Error {
-		stream = file.read ();
-
-		check_validity ();
+	public GameBoyHeader (File file) {
+		this.file = file;
 	}
 
-	public void check_validity () throws GameBoyError {
-		try {
-			stream.seek (MAGIC_OFFSET, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new GameBoyError.INVALID_SIZE (_("Invalid Game Boy header size: %s"), e.message);
-		}
-
-		var buffer = new uint8[MAGIC_VALUE.length];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new GameBoyError.INVALID_SIZE (e.message);
-		}
-
-		var magic = (string) buffer;
-		if (magic != MAGIC_VALUE)
+	public void check_validity () throws Error {
+		var stream = new StringInputStream (file);
+		if (!stream.has_string (MAGIC_OFFSET, MAGIC_VALUE))
 			throw new GameBoyError.INVALID_HEADER (_("The file doesn't have a Game Boy header."));
 	}
 }
@@ -118,6 +108,5 @@ private enum Games.GameBoyType {
 }
 
 errordomain Games.GameBoyError {
-	INVALID_SIZE,
 	INVALID_HEADER,
 }
