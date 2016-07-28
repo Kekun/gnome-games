@@ -19,25 +19,27 @@ private class Games.DreamcastHeader : Object {
 		this.file = file;
 	}
 
-	public void check_validity () throws DreamcastError {
+	public void check_validity () throws Error {
 		// Getting the header offset needs to look for the header, and hence
 		// check the validity of the file.
 		get_header_offset ();
 	}
 
-	public string get_product_number () throws DreamcastError {
-		var product_number = get_string_at_offset (PRODUCT_NUMBER_OFFSET, PRODUCT_NUMBER_SIZE);
+	public string get_product_number () throws Error {
+		var stream = new StringInputStream (file);
+		var product_number = stream.read_string_for_size (PRODUCT_NUMBER_OFFSET, PRODUCT_NUMBER_SIZE);
 
 		return product_number.strip ();
 	}
 
-	public string get_areas () throws DreamcastError {
-		var areas = get_string_at_offset (AREAS_OFFSET, AREAS_SIZE);
+	public string get_areas () throws Error {
+		var stream = new StringInputStream (file);
+		var areas = stream.read_string_for_size (AREAS_OFFSET, AREAS_SIZE);
 
 		return areas.strip ();
 	}
 
-	private size_t get_header_offset () throws DreamcastError {
+	private size_t get_header_offset () throws Error {
 		if (header_offset != null)
 			return header_offset;
 
@@ -54,85 +56,17 @@ private class Games.DreamcastHeader : Object {
 		return header_offset;
 	}
 
-	private bool lookup_header_offset (size_t offset) throws DreamcastError {
-		var stream = get_stream ();
-		try {
-			stream.seek (offset + MAGIC_OFFSET, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (_("Invalid Dreamcast header size: %s"), e.message);
-		}
-
-		// The header must start with $MAGIC_VALUE.
-		var buffer = new uint8[MAGIC_VALUE.length];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (e.message);
-		}
-
-		var magic = (string) buffer;
-
-		if (magic != MAGIC_VALUE)
+	private bool lookup_header_offset (size_t offset) throws Error {
+		var stream = new StringInputStream (file);
+		if (!stream.has_string (offset + MAGIC_OFFSET, MAGIC_VALUE))
 			return false;
 
-		try {
-			stream.seek (offset + MAGIC_OFFSET, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (_("Invalid Dreamcast header size: %s"), e.message);
-		}
+		var header = stream.read_string_for_size (offset + MAGIC_OFFSET, HEADER_SIZE);
 
-		// The header must be $HEADER_SIZE ASCII characters long.
-		buffer = new uint8[HEADER_SIZE];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (e.message);
-		}
-
-		var header = (string) buffer;
-
-		return (header.length == buffer.length) && header.is_ascii ();
-	}
-
-	private string get_string_at_offset (size_t offset, size_t size) throws DreamcastError {
-		var header_offset = get_header_offset ();
-		var stream = get_stream ();
-		try {
-			stream.seek (header_offset + offset, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new DreamcastError.INVALID_SIZE (_("Invalid Dreamcast header size: %s"), e.message);
-		}
-
-		var buffer = new uint8[size];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new DreamcastError.INVALID_HEADER (_("The file doesn't have a Dreamcast header."));
-		}
-
-		return (string) buffer;
-	}
-
-	private FileInputStream get_stream () throws DreamcastError {
-		try {
-			return file.read ();
-		}
-		catch (Error e) {
-			throw new DreamcastError.CANT_READ_FILE (_("Couldn't read file: %s"), e.message);
-		}
+		return header.length == HEADER_SIZE && header.is_ascii ();
 	}
 }
 
 errordomain Games.DreamcastError {
-	CANT_READ_FILE,
-	INVALID_SIZE,
 	INVALID_HEADER,
-	INVALID_DATE,
-	INVALID_DISK_INFO,
 }
