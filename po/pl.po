@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-25 16:38+0100\n"
-"PO-Revision-Date: 2016-03-25 16:39+0100\n"
+"POT-Creation-Date: 2016-07-29 00:09+0200\n"
+"PO-Revision-Date: 2016-07-29 00:10+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -20,11 +20,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: Poland\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
 msgid "Games"
 msgstr "Gry"
 
@@ -96,6 +95,14 @@ msgstr "_O programie"
 msgid "_Quit"
 msgstr "Za_kończ"
 
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Wyszukaj"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Wstecz"
+
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
 msgstr "<b><span size=\"large\">Pusta gra</span></b>"
@@ -118,14 +125,6 @@ msgid ""
 msgstr ""
 "Należy zainstalować gry lub dodać katalogi zawierające gry do źródeł "
 "wyszukiwania."
-
-#: ../data/ui/header-bar.ui.h:2
-msgid "Search"
-msgstr "Wyszukaj"
-
-#: ../data/ui/header-bar.ui.h:3
-msgid "Back"
-msgstr "Wstecz"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
@@ -180,19 +179,211 @@ msgstr "Wznów"
 msgid "Main Menu"
 msgstr "Menu główne"
 
-#: ../src/ui/application.vala:138
+#: ../plugins/desktop/src/desktop-tracker-query.vala:47
+#, c-format
+msgid "Invalid command '%s'."
+msgstr "Nieprawidłowe polecenie „%s”."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:75
+#, c-format
+msgid "Tracker listed file not found: '%s'."
+msgstr "Nie odnaleziono pliku: „%s”."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:81
+#, c-format
+msgid "Couldn't parse desktop entry '%s'."
+msgstr "Nie można przetworzyć wpisu .desktop: „%s”."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:94
+#, c-format
+msgid "'%s' has blacklisted category '%s'."
+msgstr "„%s” umieścił kategorię „%s” na czarnej liście."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "'%s' has blacklisted executable '%s'."
+msgstr "„%s” umieścił plik wykonywalny „%s” na czarnej liście."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:110
+#, c-format
+msgid "'%s' is blacklisted."
+msgstr "„%s” jest na czarnej liście."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn't have a Dreamcast header."
+msgstr "Plik nie ma nagłówka konsoli Dreamcast."
+
+#: ../plugins/game-boy/src/game-boy-header.vala:97
+msgid "The file doesn't have a Game Boy header."
+msgstr "Plik nie ma nagłówka konsoli Game Boy."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn't have a Game Cube header."
+msgstr "Plik nie ma nagłówka konsoli GameCube."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgstr "To nie jest prawidłowy pakiet LÖVE: „%s”."
+
+#: ../plugins/mame/src/mame-plugin.vala:25
+#, c-format
+msgid "Invalid MAME game id '%s' for '%s'."
+msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
+
+#: ../plugins/master-system/src/master-system-header.vala:69
+msgid "The file doesn't have a Master System header."
+msgstr "Plik nie ma nagłówka konsoli Master System."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:45
+msgid "The file doesn't have a Mega Drive/Genesis/32X header."
+msgstr "Plik nie ma nagłówka konsoli Mega Drive/Genesis/32X."
+
+#: ../plugins/playstation/src/playstation-header.vala:36
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgstr ""
+"Nieprawidłowy nagłówek konsoli PlayStation: nie odnaleziono identyfikatora "
+"płyty w „%s”."
+
+#: ../plugins/playstation/src/playstation-header.vala:46
+#, c-format
+msgid "PlayStation header not found in '%s'."
+msgstr "Nie odnaleziono nagłówka konsoli PlayStation w „%s”."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn't have a Sega Saturn header."
+msgstr "Plik nie ma nagłówka konsoli Sega Saturn."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:38
+#, c-format
+msgid "The file '%s' doesn't have a track."
+msgstr "Plik „%s” nie ma ścieżki."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:44
+#, c-format
+msgid "The file '%s' doesn't have a valid binary file format."
+msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:47
+#, c-format
+msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla ścieżki %d."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
+
+#: ../plugins/steam/src/steam-game-source.vala:90
+#, c-format
+msgid "Couldn't get Steam appid from manifest '%s'."
+msgstr "Nie można uzyskać identyfikatora programu Steam z manifestu „%s”."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File '%s' doesn't exist."
+msgstr "Plik „%s” nie istnieje."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Nieoczekiwany token „{”."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Nieoczekiwany koniec tokenów."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Nieoczekiwany token „}”."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn't get name from Steam registry."
+msgstr "Nie można uzyskać nazwy z rejestru Steam."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Nieprawidłowy rozmiar nagłówka konsoli Wii: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn't have a Wii header."
+msgstr "Plik nie ma nagłówka konsoli Wii."
+
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "Nie można odczytać pliku: %s"
+
+#: ../src/command/command-runner.vala:22
+msgid "Invalid command: it doesn't have any argument."
+msgstr "Nieprawidłowe polecenie: nie ma żadnych parametrów."
+
+#: ../src/command/command-runner.vala:51
+#, c-format
+msgid "Couldn't run '%s': execution failed."
+msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Nieprawidłowy deskryptor wtyczki: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn't create a new instance of plugin in '%s'."
+msgstr "Nie można utworzyć nowego wystąpienia wtyczki w „%s”."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can't be null."
+msgstr "Ciąg mapowania nie może wynosić „null”."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can't be empty."
+msgstr "Ciąg mapowania nie może być pusty."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:39
+#, c-format
+msgid "Unable to open file '%s': %s"
+msgstr "Nie można otworzyć pliku „%s”: %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:43
+#, c-format
+msgid "Evdev is unable to open '%s': %s"
+msgstr "Evdev nie może otworzyć pliku „%s”: %s"
+
+#: ../src/retro/retro-runner.vala:158
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "Nie można uruchomić gry: nie odnaleziono modułu „%s”."
+
+#: ../src/retro/retro-runner.vala:175
+#, c-format
+msgid "Invalid game file: '%s'."
+msgstr "Nieprawidłowy plik gry: „%s”."
+
+#: ../src/retro/retro-runner.vala:302
+msgid "Couldn't write snapshot."
+msgstr "Nie można zapisać migawki."
+
+#: ../src/retro/retro-runner.vala:329
+msgid "Couldn't load snapshot."
+msgstr "Nie można wczytać migawki."
+
+#: ../src/ui/application.vala:167
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:169
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:173
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:151
+#: ../src/ui/application.vala:180
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016\n"
