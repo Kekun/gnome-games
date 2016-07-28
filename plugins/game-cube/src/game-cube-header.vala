@@ -5,60 +5,28 @@ private class Games.GameCubeHeader: Object {
 	private const size_t MAGIC_OFFSET = 0x1c;
 	private const string MAGIC_VALUE = "\xc2\x33\x9f\x3d";
 
+	private const size_t ID_OFFSET = 0;
+	private const size_t ID_SIZE = 6;
+
 	private File file;
 
 	public GameCubeHeader (File file) {
 		this.file = file;
 	}
 
-	public void check_validity () throws GameCubeError {
-		var stream = get_stream ();
-		try {
-			stream.seek (MAGIC_OFFSET, SeekType.SET);
-		}
-		catch (Error e) {
-			throw new GameCubeError.INVALID_SIZE (_("Invalid Game Cube header size: %s"), e.message);
-		}
-
-		var buffer = new uint8[MAGIC_VALUE.length];
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new GameCubeError.INVALID_SIZE (e.message);
-		}
-
-		var magic = (string) buffer;
-		if (magic != MAGIC_VALUE)
+	public void check_validity () throws Error {
+		var stream = new StringInputStream (file);
+		if (!stream.has_string (MAGIC_OFFSET, MAGIC_VALUE))
 			throw new GameCubeError.INVALID_HEADER (_("The file doesn't have a Game Cube header."));
 	}
 
-	public string get_game_id () throws GameCubeError {
-		uint8 buffer[6];
+	public string get_game_id () throws Error {
+		var stream = new StringInputStream (file);
 
-		var stream = get_stream ();
-		try {
-			stream.read (buffer);
-		}
-		catch (Error e) {
-			throw new GameCubeError.INVALID_HEADER (_("The file doesn't have a Game Cube header."));
-		}
-
-		return (string) buffer;
-	}
-
-	private FileInputStream get_stream () throws GameCubeError {
-		try {
-			return file.read ();
-		}
-		catch (Error e) {
-			throw new GameCubeError.CANT_READ_FILE (_("Couldn't read file: %s"), e.message);
-		}
+		return stream.read_string_for_size (ID_OFFSET, ID_SIZE);
 	}
 }
 
 errordomain Games.GameCubeError {
-	CANT_READ_FILE,
-	INVALID_SIZE,
 	INVALID_HEADER,
 }
