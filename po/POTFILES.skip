@@ -1,4 +1,23 @@
 # List of source files that should *not* be translated.
 # Please keep this file sorted alphabetically.
+plugins/desktop/src/desktop-tracker-query.c
+plugins/dreamcast/src/dreamcast-header.c
+plugins/game-boy/src/game-boy-header.c
+plugins/game-cube/src/game-cube-header.c
+plugins/love/src/love-package.c
+plugins/mame/src/mame-plugin.c
+plugins/master-system/src/master-system-header.c
+plugins/mega-drive/src/mega-drive-header.c
+plugins/sega-saturn/src/sega-saturn-header.c
+plugins/sega-saturn/src/sega-saturn-plugin.c
+plugins/steam/src/steam-game-source.c
+plugins/steam/src/steam-registry.c
+plugins/steam/src/steam-title.c
+plugins/wii/src/wii-header.c
+src/command/command-runner.c
+src/core/plugin-registrar.c
+src/gamepad/gamepad-mapping.c
+src/gamepad/linux/linux-raw-gamepad.c
+src/retro/retro-runner.c
 src/ui/application.c
 src/ui/preferences-page-plugins.c
