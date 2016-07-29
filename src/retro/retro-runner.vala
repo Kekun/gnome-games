@@ -1,6 +1,10 @@
 // This file is part of GNOME Games. License: GPLv3
 
 public class Games.RetroRunner : Object, Runner {
+	public bool can_fullscreen {
+		get { return true; }
+	}
+
 	public bool can_quit_safely {
 		get { return !should_save; }
 	}
