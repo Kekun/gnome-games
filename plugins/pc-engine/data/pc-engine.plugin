@@ -1,6 +1,6 @@
 [Plugin]
 Module=libgames-pc-engine-plugin
 Name=PC-Engine Plugin
-Description=Provides support for PC-Engine/TurboGrafx-16 games.
+Description=Provides support for PC-Engine/TurboGrafx-16 and CD-ROM² games.
 Authors=Adrien Plazas <kekun.plazas@laposte.net>
 Copyright=Copyright © 2016 Adrien Plazas

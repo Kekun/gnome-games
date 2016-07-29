@@ -6,6 +6,7 @@ libgames_pc_engine_plugin_la_DEPENDENCIES = \
 	$(NULL)
 
 libgames_pc_engine_plugin_la_SOURCES = \
+	pc-engine-error.vala \
 	pc-engine-plugin.vala \
 	$(NULL)
 
