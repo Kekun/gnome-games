@@ -34,3 +34,4 @@ src/gamepad/linux/linux-raw-gamepad.vala
 src/retro/retro-runner.vala
 src/ui/application.vala
 src/ui/preferences-page-plugins.vala
+src/utils/cue-sheet/cue-sheet.vala
