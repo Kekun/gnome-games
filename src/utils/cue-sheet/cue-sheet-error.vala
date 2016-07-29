@@ -7,4 +7,5 @@ private errordomain Games.CueSheetError {
 	INVALID_FILE_FORMAT,
 	INVALID_TRACK_NUMBER,
 	INVALID_TRACK_MODE,
+	NOT_A_TRACK,
 }

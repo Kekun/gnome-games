@@ -20,7 +20,10 @@ public class Games.CueSheet : Object {
 		parse ();
 	}
 
-	public CueSheetTrackNode get_track (size_t i) {
+	public CueSheetTrackNode get_track (uint i) throws Error {
+		if (i >= tracks.length)
+			throw new CueSheetError.NOT_A_TRACK (_("'%s' doesn't have a track for index %u."), file.get_uri (), i);
+
 		return tracks[i];
 	}
 
