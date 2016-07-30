@@ -48,7 +48,7 @@ class Gameinfo:
     def findall(self, xpath):
         return self.gameinfo.findall(xpath)
 
-    def add_game_discs(self, title, disc_ids, comments=None):
+    def add_game_discs(self, title, disc_ids):
         """ Add a set of discs with their own IDs.
         """
         # If one of the discs already exists, do nothing.
@@ -60,13 +60,12 @@ class Gameinfo:
 
         game = self._game(title)
         discs_node = ET.SubElement(game, 'discs')
-        if comments and isinstance(comments, dict):
-            for key, value in comments.items():
-                discs_node.set(key, value)
 
         for disc_id in disc_ids:
             disc_node = ET.SubElement(discs_node, 'disc')
             disc_node.set('id', disc_id)
+
+        return discs_node
 
     def _game(self, title):
         """ Get a game from its title, create it if it doesn't exist.
