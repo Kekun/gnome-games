@@ -21,6 +21,7 @@
             <property name="vexpand">False</property>
             <property name="transition-type">slide-down</property>
             <property name="events">GDK_POINTER_MOTION_MASK</property>
+            <signal name="notify::is-fullscreen" handler="on_fullscreen_changed"/>
             <signal name="motion-notify-event" handler="on_motion_event"/>
             <child>
               <object class="GamesDisplayHeaderBar" id="fullscreen_header_bar">

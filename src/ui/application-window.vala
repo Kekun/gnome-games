@@ -71,6 +71,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Binding box_search_binding;
 	private Binding box_fullscreen_binding;
 	private Binding header_bar_search_binding;
+	private Binding header_bar_fullscreen_binding;
 
 	private HashTable<Game, Runner> runners;
 
@@ -91,6 +92,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		box_fullscreen_binding = bind_property ("is-fullscreen", display_box, "is-fullscreen",
 		                                        BindingFlags.BIDIRECTIONAL);
+		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_header_bar, "is-fullscreen",
+		                                               BindingFlags.BIDIRECTIONAL);
 	}
 
 	public void run_game (Game game) {
@@ -183,7 +186,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 
 		display_header_bar.game_title = game.name;
+		display_header_bar.can_fullscreen = runner.can_fullscreen;
 		display_box.header_bar.game_title = game.name;
+		display_box.header_bar.can_fullscreen = runner.can_fullscreen;
 		display_box.runner = runner;
 		ui_state = UiState.DISPLAY;
 

@@ -34,11 +34,14 @@ private class Games.DisplayBox : Gtk.EventBox {
 	[GtkChild]
 	private DisplayHeaderBar fullscreen_header_bar;
 	private Binding visible_binding;
+	private Binding fullscreen_binding;
 
 	private long timeout_id;
 
 	construct {
 		visible_binding = bind_property ("is-fullscreen", fullscreen_header_bar_revealer, "visible",
+		                                 BindingFlags.BIDIRECTIONAL);
+		fullscreen_binding = bind_property ("is-fullscreen", fullscreen_header_bar, "is-fullscreen",
 		                                 BindingFlags.BIDIRECTIONAL);
 		timeout_id = -1;
 	}
