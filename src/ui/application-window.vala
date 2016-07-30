@@ -15,6 +15,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				content_box.set_visible_child (collection_box);
 				header_bar.set_visible_child (collection_header_bar);
 
+				is_fullscreen = false;
+
 				if (display_box.runner != null) {
 					display_box.runner.pause ();
 					display_box.runner = null;
@@ -31,6 +33,19 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			}
 		}
 		get { return _ui_state; }
+	}
+
+	private bool _is_fullscreen;
+	public bool is_fullscreen {
+		set {
+			_is_fullscreen = value && (ui_state == UiState.DISPLAY);
+
+			if (_is_fullscreen)
+				fullscreen ();
+			else
+				unfullscreen ();
+		}
+		get { return _is_fullscreen; }
 	}
 
 	private bool _search_mode;
@@ -54,6 +69,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private DisplayHeaderBar display_header_bar;
 
 	private Binding box_search_binding;
+	private Binding box_fullscreen_binding;
 	private Binding header_bar_search_binding;
 
 	private HashTable<Game, Runner> runners;
@@ -72,6 +88,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                    BindingFlags.BIDIRECTIONAL);
 		header_bar_search_binding = bind_property ("search-mode", collection_header_bar, "search-mode",
 		                                           BindingFlags.BIDIRECTIONAL);
+
+		box_fullscreen_binding = bind_property ("is-fullscreen", display_box, "is-fullscreen",
+		                                        BindingFlags.BIDIRECTIONAL);
 	}
 
 	public void run_game (Game game) {
@@ -134,6 +153,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
+	public bool on_window_state_event (Gdk.EventWindowState event) {
+		is_fullscreen = (bool) (event.new_window_state & Gdk.WindowState.FULLSCREEN);
+
+		return false;
+	}
+
+	[GtkCallback]
 	private void on_game_activated (Game game) {
 		run_game (game);
 	}
@@ -157,6 +183,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 
 		display_header_bar.game_title = game.name;
+		display_box.header_bar.game_title = game.name;
 		display_box.runner = runner;
 		ui_state = UiState.DISPLAY;
 
