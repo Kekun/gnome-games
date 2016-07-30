@@ -30,7 +30,7 @@ def _fetch_page(url):
     return response.text
 
 class GamesListScrapper:
-    def _parse_game_list_page(page, gameinfo, verbose=True):
+    def _parse_game_list_page(page, gameinfo, verbose=False):
         skip = '.*?'
         grab = '(.*?)'
 
@@ -46,24 +46,20 @@ class GamesListScrapper:
         domain = 'http://psxdatacenter.com/'
 
         for match in re.finditer(game_expr, page, re.DOTALL):
-            comments = {
-                'info': domain + match.group(1),
-            }
-
-            disc_ids = [disc_id.lower() for disc_id in match.group(2).split("<br>")]
+            disc_ids = match.group(2).split("<br>")
 
             title = match.group(3).split('<br>')[0]
             title = title.split('&nbsp; -&nbsp;')[0]
+            if verbose:
+                print("Adding " + " ".join(disc_ids) + ": " + title)
 
+            discs_node = gameinfo.add_game_discs(title, disc_ids)
+
+            discs_node.set('info', domain + match.group(1))
             if '<u>Includes:</u>' in match.group(3):
                 includes = match.group(3).split('<u>Includes:</u>')[1].replace('\n', ' ').replace('&nbsp;', ' ').replace('</span>', '')
                 includes = re.sub('<span.*?>', '', includes)
-                comments['includes'] = includes.strip()
-
-            if verbose:
-                print("Adding " + " ".join(disc_ids).upper() + ": " + title)
-
-            gameinfo.add_game_discs(title, disc_ids, comments)
+                discs_node.set('includes', includes.strip())
 
     def fetch_tmp_gameinfo():
         gameinfo = Gameinfo()
