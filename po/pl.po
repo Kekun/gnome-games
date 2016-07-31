@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-30 21:04+0200\n"
-"PO-Revision-Date: 2016-07-30 21:05+0200\n"
+"POT-Creation-Date: 2016-07-31 18:02+0200\n"
+"PO-Revision-Date: 2016-07-31 18:03+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -102,6 +102,14 @@ msgstr "Wyszukaj"
 #: ../data/ui/display-header-bar.ui.h:2
 msgid "Back"
 msgstr "Wstecz"
+
+#: ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Pełny ekran"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "Przywróć"
 
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
@@ -316,11 +324,11 @@ msgstr "Plik nie ma nagłówka konsoli Wii."
 msgid "Couldn't read file: %s"
 msgstr "Nie można odczytać pliku: %s"
 
-#: ../src/command/command-runner.vala:22
+#: ../src/command/command-runner.vala:26
 msgid "Invalid command: it doesn't have any argument."
 msgstr "Nieprawidłowe polecenie: nie ma żadnych parametrów."
 
-#: ../src/command/command-runner.vala:51
+#: ../src/command/command-runner.vala:55
 #, c-format
 msgid "Couldn't run '%s': execution failed."
 msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
@@ -353,21 +361,21 @@ msgstr "Nie można otworzyć pliku „%s”: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
 
-#: ../src/retro/retro-runner.vala:158
+#: ../src/retro/retro-runner.vala:162
 #, c-format
 msgid "Couldn't run game: module '%s' not found."
 msgstr "Nie można uruchomić gry: nie odnaleziono modułu „%s”."
 
-#: ../src/retro/retro-runner.vala:175
+#: ../src/retro/retro-runner.vala:179
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Nieprawidłowy plik gry: „%s”."
 
-#: ../src/retro/retro-runner.vala:302
+#: ../src/retro/retro-runner.vala:306
 msgid "Couldn't write snapshot."
 msgstr "Nie można zapisać migawki."
 
-#: ../src/retro/retro-runner.vala:329
+#: ../src/retro/retro-runner.vala:333
 msgid "Couldn't load snapshot."
 msgstr "Nie można wczytać migawki."
 
