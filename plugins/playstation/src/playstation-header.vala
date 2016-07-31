@@ -29,7 +29,7 @@ private class Games.PlayStationHeader : Object {
 			raw_id = raw_id.split (";")[0];
 			raw_id = raw_id.replace ("_", "-");
 			raw_id = raw_id.replace (".", "");
-			_disc_id = raw_id;
+			_disc_id = (id + raw_id).up ();
 		}
 
 		if (_disc_id == null)
