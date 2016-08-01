@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2016-07-31 22:03+0000\n"
-"PO-Revision-Date: 2016-08-01 12:08+0100\n"
+"PO-Revision-Date: 2016-08-01 12:26+0100\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Last-Translator: \n"
 "X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: Memória de Tradução\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
