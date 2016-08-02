@@ -69,6 +69,8 @@ gnome_games_SOURCES = \
 	gamepad/standard-gamepad-axis.vala \
 	gamepad/standard-gamepad-button.vala \
 	\
+	generic/generic-game.vala \
+	\
 	grilo/grilo-cover.vala \
 	grilo/grilo-media.vala \
 	\
@@ -112,7 +114,6 @@ gnome_games_SOURCES = \
 	utils/cue-sheet/cue-sheet-track-node.vala \
 	utils/filename-title.vala \
 	utils/fingerprint.vala \
-	utils/generic-game.vala \
 	utils/generic-title.vala \
 	utils/generic-uid.vala \
 	utils/grep.vala \
