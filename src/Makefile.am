@@ -71,6 +71,7 @@ gnome_games_SOURCES = \
 	\
 	generic/generic-game.vala \
 	generic/generic-title.vala \
+	generic/generic-uid.vala \
 	\
 	grilo/grilo-cover.vala \
 	grilo/grilo-media.vala \
@@ -115,7 +116,6 @@ gnome_games_SOURCES = \
 	utils/cue-sheet/cue-sheet-track-node.vala \
 	utils/filename-title.vala \
 	utils/fingerprint.vala \
-	utils/generic-uid.vala \
 	utils/grep.vala \
 	utils/string-input-stream.vala \
 	\
