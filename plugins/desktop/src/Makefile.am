@@ -1,4 +1,4 @@
-top_pluginsrcdir = ..
+top_pluginsrcdir = $(top_srcdir)/plugins/desktop
 
 gresource_file = $(top_pluginsrcdir)/data/desktop.gresource.xml
 
