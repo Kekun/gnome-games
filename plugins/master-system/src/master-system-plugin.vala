@@ -1,16 +1,22 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.MasterSystemPlugin : Object, Plugin {
-	private const string FINGERPRINT_PREFIX = "master-system";
-	private const string MIME_TYPE = "application/x-sms-rom";
+	private const string MASTER_SYSTEM_PREFIX = "master-system";
+	private const string MASTER_SYSTEM_MIME_TYPE = "application/x-sms-rom";
+
+	private const string GAME_GEAR_PREFIX = "game-gear";
+	private const string GAME_GEAR_MIME_TYPE = "application/x-gamegear-rom";
+
 	private const string MODULE_BASENAME = "libretro-master-system.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
 	public GameSource get_game_source () throws Error {
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
+		var master_system_query = new MimeTypeTrackerQuery (MASTER_SYSTEM_MIME_TYPE, game_for_uri);
+		var game_gear_query = new MimeTypeTrackerQuery (GAME_GEAR_MIME_TYPE, game_for_uri);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
-		source.add_query (query);
+		source.add_query (master_system_query);
+		source.add_query (game_gear_query);
 
 		return source;
 	}
@@ -20,10 +26,23 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 		var header = new MasterSystemHeader (file);
 		header.check_validity ();
 
-		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		string prefix;
+		string mime_type;
+		if (header.is_master_system ()) {
+			prefix = MASTER_SYSTEM_PREFIX;
+			mime_type = MASTER_SYSTEM_MIME_TYPE;
+		}
+		else if (header.is_game_gear ()) {
+			prefix = GAME_GEAR_PREFIX;
+			mime_type = GAME_GEAR_MIME_TYPE;
+		}
+		else
+			assert_not_reached ();
+
+		var uid = new FingerprintUid (uri, prefix);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
-		var media = new GriloMedia (title, MIME_TYPE);
+		var media = new GriloMedia (title, mime_type);
 		var cover = new GriloCover (media, uid);
 		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
