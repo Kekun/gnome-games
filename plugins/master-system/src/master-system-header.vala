@@ -68,6 +68,16 @@ private class Games.MasterSystemHeader : Object {
 		if (!stream.has_string (MAGIC_OFFSET, MAGIC_VALUE))
 			throw new MasterSystemError.INVALID_HEADER (_("The file doesn't have a Master System header."));
 	}
+
+	public bool is_master_system () {
+		switch (region_code) {
+		case MasterSystemRegion.SMS_JAPAN:
+		case MasterSystemRegion.SMS_EXPORT:
+			return true;
+		default:
+			return false;
+		}
+	}
 }
 
 private enum Games.MasterSystemRegion {
