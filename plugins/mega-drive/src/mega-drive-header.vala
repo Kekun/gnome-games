@@ -97,6 +97,16 @@ private class Games.MegaDriveHeader : Object {
 			return MegaDriveSystem.INVALID;
 		}
 	}
+
+	public bool is_mega_drive () {
+		switch (system) {
+		case MegaDriveSystem.MEGA_DRIVE:
+		case MegaDriveSystem.MEGA_CD:
+			return true;
+		default:
+			return false;
+		}
+	}
 }
 
 errordomain Games.MegaDriveError {
