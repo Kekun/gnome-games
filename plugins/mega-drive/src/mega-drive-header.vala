@@ -42,7 +42,7 @@ private class Games.MegaDriveHeader : Object {
 		var magic = stream.read_string_for_size (MAGIC_OFFSET, MAGIC_SIZE);
 		magic = magic.chomp ();
 		if (!(magic in MAGIC_VALUES))
-			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Mega Drive/Genesis/32X header."));
+			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
 	}
 }
 
