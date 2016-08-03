@@ -2,6 +2,8 @@
 
 // Documentation: https://en.wikibooks.org/wiki/Genesis_Programming
 private class Games.MegaDriveHeader : Object {
+	public const size_t HEADER_LENGTH = 0x200;
+
 	private const size_t[] POSSIBLE_HEADER_OFFSETS = { 0x0, 0x10 };
 
 	private const size_t CD_OFFSET = 0x0;
@@ -125,4 +127,6 @@ private class Games.MegaDriveHeader : Object {
 
 errordomain Games.MegaDriveError {
 	INVALID_HEADER,
+	INVALID_CUE_SHEET,
+	INVALID_FILE_TYPE,
 }

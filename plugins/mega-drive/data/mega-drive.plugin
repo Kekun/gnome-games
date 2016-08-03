@@ -1,6 +1,6 @@
 [Plugin]
 Module=libgames-mega-drive-plugin
 Name=Mega Drive Plugin
-Description=Provides support for Mega Drive/Genesis games.
+Description=Provides support for Mega Drive/Genesis, Mega-CD/Sega CD and 32X games.
 Authors=Adrien Plazas <kekun.plazas@laposte.net>
 Copyright=Copyright © 2016 Adrien Plazas
