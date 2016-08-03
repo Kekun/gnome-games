@@ -78,6 +78,17 @@ private class Games.MasterSystemHeader : Object {
 			return false;
 		}
 	}
+
+	public bool is_game_gear () {
+		switch (region_code) {
+		case MasterSystemRegion.GG_JAPAN:
+		case MasterSystemRegion.GG_EXPORT:
+		case MasterSystemRegion.GG_INTERNATIONAL:
+			return true;
+		default:
+			return false;
+		}
+	}
 }
 
 private enum Games.MasterSystemRegion {
