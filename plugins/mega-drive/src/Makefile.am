@@ -8,6 +8,7 @@ libgames_mega_drive_plugin_la_DEPENDENCIES = \
 libgames_mega_drive_plugin_la_SOURCES = \
 	mega-drive-header.vala \
 	mega-drive-plugin.vala \
+	mega-drive-system.vala \
 	$(NULL)
 
 libgames_mega_drive_plugin_la_VALAFLAGS = \
