@@ -107,6 +107,16 @@ private class Games.MegaDriveHeader : Object {
 			return false;
 		}
 	}
+
+	public bool is_32x () {
+		switch (system) {
+		case MegaDriveSystem.32X:
+		case MegaDriveSystem.MEGA_CD_32X:
+			return true;
+		default:
+			return false;
+		}
+	}
 }
 
 errordomain Games.MegaDriveError {
