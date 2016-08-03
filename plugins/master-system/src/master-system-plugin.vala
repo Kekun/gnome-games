@@ -7,16 +7,21 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 	private const string GAME_GEAR_PREFIX = "game-gear";
 	private const string GAME_GEAR_MIME_TYPE = "application/x-gamegear-rom";
 
+	private const string SG_1000_PREFIX = "sg-1000";
+	private const string SG_1000_MIME_TYPE = "application/x-sg1000-rom";
+
 	private const string MODULE_BASENAME = "libretro-master-system.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
 	public GameSource get_game_source () throws Error {
 		var master_system_query = new MimeTypeTrackerQuery (MASTER_SYSTEM_MIME_TYPE, game_for_uri);
 		var game_gear_query = new MimeTypeTrackerQuery (GAME_GEAR_MIME_TYPE, game_for_uri);
+		var sg_1000_query = new MimeTypeTrackerQuery (GAME_GEAR_MIME_TYPE, sg_1000_game_for_uri);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (master_system_query);
 		source.add_query (game_gear_query);
+		source.add_query (sg_1000_query);
 
 		return source;
 	}
@@ -43,6 +48,17 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, mime_type);
+		var cover = new GriloCover (media, uid);
+		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
+
+		return new GenericGame (title, icon, cover, runner);
+	}
+
+	private static Game sg_1000_game_for_uri (string uri) throws Error {
+		var uid = new FingerprintUid (uri, SG_1000_PREFIX);
+		var title = new FilenameTitle (uri);
+		var icon = new DummyIcon ();
+		var media = new GriloMedia (title, SG_1000_MIME_TYPE);
 		var cover = new GriloCover (media, uid);
 		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
 
