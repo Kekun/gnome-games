@@ -2,13 +2,12 @@
 
 // Documentation: https://en.wikibooks.org/wiki/Genesis_Programming
 private class Games.MegaDriveHeader : Object {
-	private const size_t MAGIC_OFFSET = 0x100;
-	private const size_t MAGIC_SIZE = 0xf;
-	private const string[] MAGIC_VALUES = {
-		"SEGA MEGA DRIVE",
-		"SEGA GENESIS",
-		"SEGA 32X",
-	};
+	private const size_t[] POSSIBLE_HEADER_OFFSETS = { 0x0, 0x10 };
+
+	private const size_t CD_OFFSET = 0x0;
+
+	private const size_t SYSTEM_OFFSET = 0x100;
+	private const size_t SYSTEM_SIZE = 0xf;
 
 	private const size_t DOMESTIC_NAME_OFFSET = 0x120;
 	private const size_t NAME_SIZE = 0x30;
@@ -31,18 +30,72 @@ private class Games.MegaDriveHeader : Object {
 		}
 	}
 
+	private MegaDriveSystem? _system;
+	public MegaDriveSystem system {
+		get {
+			if (_system != null)
+				return _system;
+
+			try {
+				_system = parse_system ();
+			}
+			catch (Error e) {
+				debug (e.message);
+
+				_system = MegaDriveSystem.INVALID;
+			}
+
+			return _system;
+		}
+	}
+
 	private File file;
+	private size_t? offset;
 
 	public MegaDriveHeader (File file) {
 		this.file = file;
 	}
 
 	public void check_validity () throws Error {
-		var stream = new StringInputStream (file);
-		var magic = stream.read_string_for_size (MAGIC_OFFSET, MAGIC_SIZE);
-		magic = magic.chomp ();
-		if (!(magic in MAGIC_VALUES))
+		if (system == MegaDriveSystem.INVALID)
 			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+	}
+
+	public size_t get_offset () throws Error {
+		if (offset != null)
+			return offset;
+
+		var stream = new StringInputStream (file);
+
+		foreach (var possible_offset in POSSIBLE_HEADER_OFFSETS)
+			if (stream.has_string (possible_offset + SYSTEM_OFFSET, "SEGA")) {
+				offset = possible_offset;
+
+				return offset;
+			}
+
+			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+	}
+
+	private MegaDriveSystem parse_system () throws Error {
+		var stream = new StringInputStream (file);
+
+		var offset = get_offset ();
+		var is_cd = stream.has_string (offset + CD_OFFSET, "SEGADISCSYSTEM");
+		var system_string = stream.read_string_for_size (offset + SYSTEM_OFFSET, SYSTEM_SIZE);
+		system_string = system_string.chomp ();
+
+		switch (system_string) {
+		case "SEGA MEGA DRIVE":
+		case "SEGA GENESIS":
+			return is_cd ? MegaDriveSystem.MEGA_CD : MegaDriveSystem.MEGA_DRIVE;
+		case "SEGA 32X":
+			return is_cd ? MegaDriveSystem.MEGA_CD_32X : MegaDriveSystem.32X;
+		case "SEGA PICO":
+			return is_cd ? MegaDriveSystem.INVALID : MegaDriveSystem.PICO;
+		default:
+			return MegaDriveSystem.INVALID;
+		}
 	}
 }
 
