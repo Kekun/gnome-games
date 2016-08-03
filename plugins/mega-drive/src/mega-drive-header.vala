@@ -117,6 +117,10 @@ private class Games.MegaDriveHeader : Object {
 			return false;
 		}
 	}
+
+	public bool is_pico () {
+		return system == MegaDriveSystem.PICO;
+	}
 }
 
 errordomain Games.MegaDriveError {
