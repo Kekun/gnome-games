@@ -7,6 +7,9 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	private const string 32X_PREFIX = "mega-drive-32x";
 	private const string 32X_MIME_TYPE = "application/x-genesis-32x-rom";
 
+	private const string PICO_PREFIX = "sega-pico";
+	private const string PICO_MIME_TYPE = "application/x-sega-pico-rom";
+
 	private const string MODULE_BASENAME = "libretro-mega-drive.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
@@ -35,6 +38,10 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		else if (header.is_32x ()) {
 			prefix = 32X_PREFIX;
 			mime_type = 32X_MIME_TYPE;
+		}
+		else if (header.is_pico ()) {
+			prefix = PICO_PREFIX;
+			mime_type = PICO_MIME_TYPE;
 		}
 		else
 			assert_not_reached ();
