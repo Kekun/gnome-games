@@ -33,4 +33,14 @@ public enum Games.CueSheetTrackMode {
 			return CueSheetTrackMode.INVALID;
 		}
 	}
+
+	public bool is_mode1 () {
+		switch (this) {
+		case CueSheetTrackMode.MODE1_2048:
+		case CueSheetTrackMode.MODE1_2352:
+			return true;
+		default:
+			return false;
+		}
+	}
 }
