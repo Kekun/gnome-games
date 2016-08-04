@@ -46,7 +46,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		if (file.file_format != CueSheetFileFormat.BINARY && file.file_format != CueSheetFileFormat.UNKNOWN)
 			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid binary file format."), cue.file.get_uri ());
 
-		if (track.track_mode != CueSheetTrackMode.MODE1_2352)
+		if (!track.track_mode.is_mode1 ())
 			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid track mode for track %d."), cue.file.get_uri (), track.track_number);
 
 		var file_info = file.file.query_info ("*", FileQueryInfoFlags.NONE);
