@@ -1,3 +1,109 @@
+===============
+Version 3.21.91
+===============
+
+* Improve using Games as a Flatpak
+
+* UI:
+ - Add fullscreen support
+ - Toggle fullscreen with Ctrl+F or F11
+ - Retore the window with Escape
+ - Support covers named similarly to the game file
+ - Support covers allongside the game named as cover.* or folder.*
+ - Pause the game when the window is unfocused
+ - Resume the game when the window is focused
+ - Hide search bar out of collection view
+ - Refactor the resume dialog
+ - Prompt what to do on game resuming failure
+ - Reduce UI freezes when parsing MAME games
+ - Display game loading errors in an error page rather than an info box
+
+* Gamepads:
+ - Can build without gamepad support
+ - Can build without udev (use a gamepad discovery fallback)
+ - Support gamepads without a mapping but sending proper gamepad events
+ - Read mappings from the user's config directory
+ - Fix the value of some mishandled axes
+
+* Add support for:
+ - Game Boy Color
+ - Game Gear
+ - Mega-CD/Sega CD
+ - Mega-CD 32X/Sega CD 32X
+ - Mega Drive 32X/Sega 32X
+ - PC-Engine CD-ROM²
+ - PlayStation
+ - Sega Pico
+ - SG-1000
+
+* PlayStation:
+ - Display the correct title for known games
+ - Support known games with multiple discs
+ - Use the disc's title rather than its number when available
+
+* Bugs fixed:
+ GitHub 94 List PlayStation games
+ GitHub 174 Sometimes steam games installed not in path reported by registry.vdf
+ GitHub 308 Search bar slowly disappear when running game
+ GitHub 309 Ability to add custom gamepad mappings
+ GitHub 311 Should Always reset the Libretro core when starting a game
+ GitHub 312 Refactor the UI code
+ GitHub 313 gamepads: A wrong mapping can make the application crash
+ GitHub 314 Internationalize error messages
+ GitHub 315 Can't run Mega Drive games even with plugin installed
+ GitHub 318 Extract cue sheets handling out of Sega Saturn plugin
+ GitHub 319 Refactor headers file reading
+ GitHub 322 Accessing cue sheet track with an invalid index segfaults
+ GitHub 326 Make it possible to run multi-source games
+ 769318 retro: Support gamepad rumble
+ 769329 ui: Add fullscreen support
+ 769345 playstation: PlayStationHeader doesn't give a correct disc ID
+ 769438 ui: Add a keyboard shortcut to trigger fullscreen
+ 769439 refactor: Move generic type implementations to their own directory
+ 769444 build: Allow to build with $builddir != $srcdir
+ 769468 master-system: Support Game Gear
+ 769472 master-system: Support SG-1000
+ 769473 mega-drive: Support Mega Drive 32X
+ 769474 mega-drive: Support Mega-CD
+ 769475 mega-drive: Support Sega Pico
+ 769496 pc-engine: Suport PC-Engine CD games
+ 769638 769638
+ 769647 build: Rename icons from gnome-games to org.gnome.Games
+ 769676 ui: Look for covers alongside the game files
+ 769678 retro: Support libretro cores distributed with a .info
+ 769801 Tell the user nicely when a ROM isn't supported
+ 769825 grilo: Fix errors when without internet access
+ 769829 Use libsoup instead of gvfs to download the covers
+ 769832 Blocks on startup
+ 769836 gamepads: Support gamepads properly mapped in the kernel
+ 769844 gnome-games: Fix compile time errors
+ 769909 Fix module path checking
+ 769924 Improve the resume dialog
+ 769963 ui: Useless TrackerGameSource in Application.load_game_list()
+ 769904 gamepad: Add fallback support for gamepads without udev
+ 769938 Handle failures when resuming a game
+ 769993 Why a cancellable when quitting the game?
+ 770004 Drop the runners when quitting a game
+ 770011 Pause the runner when the window doesn't have focus
+ 770142 [Alt+Tab]ing back to the application doesn't resume the game.
+ 770468 gamepad: Several annoying bugs
+ 770491 Critical error "Source ID was not found when attempting to remove it"
+ 770492 ui: Cursor hidden after leaving fullscreen
+ 769495 game-boy: Support Game Boy Color
+ 770470 playstation: Some valid games don't have a BOOT header
+ 770471 playstation: Support .bin.ecm games
+
+* Translation updates:
+ Brazilian Portuguese
+ Czech
+ German
+ Hungarian
+ Polish
+ Portuguese
+ Serbian
+ Spanish
+
+
 ==============
 Version 3.21.4
 ==============
