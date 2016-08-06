@@ -9,19 +9,20 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-25 21:27+0000\n"
-"PO-Revision-Date: 2016-03-25 22:33+0100\n"
-"Last-Translator: Bernd Homuth <dev@hmt.im>\n"
+"POT-Creation-Date: 2016-07-26 08:48+0000\n"
+"PO-Revision-Date: 2016-07-26 21:04+0200\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
 msgid "Games"
 msgstr "Spiele"
 
@@ -95,6 +96,14 @@ msgstr "_Info"
 msgid "_Quit"
 msgstr "_Beenden"
 
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Suchen"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Zurück"
+
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
 msgstr ""
@@ -119,14 +128,6 @@ msgid ""
 msgstr ""
 "Installieren Sie Spiele oder fügen Sie Ordner zu Ihren Suchquellen hinzu, "
 "die Spiele enthalten."
-
-#: ../data/ui/header-bar.ui.h:2
-msgid "Search"
-msgstr "Suchen"
-
-#: ../data/ui/header-bar.ui.h:3
-msgid "Back"
-msgstr "Zurück"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
@@ -182,19 +183,220 @@ msgstr "Fortsetzen"
 msgid "Main Menu"
 msgstr "Hauptmenü"
 
-#: ../src/ui/application.vala:138
+#: ../plugins/desktop/src/desktop-tracker-query.vala:47
+#, c-format
+msgid "Invalid command '%s'."
+msgstr "Ungültiger Befehl »%s«."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:75
+#, c-format
+msgid "Tracker listed file not found: '%s'."
+msgstr "In Tracker aufgelistete Datei konnte nicht gefunden werden: »%s«."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:81
+#, c-format
+msgid "Couldn't parse desktop entry '%s'."
+msgstr "Desktop-Eintrag »%s« konnte nicht ausgewertet werden."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:94
+#, c-format
+msgid "'%s' has blacklisted category '%s'."
+msgstr ""
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "'%s' has blacklisted executable '%s'."
+msgstr ""
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:110
+#, c-format
+msgid "'%s' is blacklisted."
+msgstr ""
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:52
+#: ../plugins/dreamcast/src/dreamcast-header.vala:116
+msgid "The file doesn't have a Dreamcast header."
+msgstr "Die Datei hat keinen Dreamcast-Header."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:63
+#: ../plugins/dreamcast/src/dreamcast-header.vala:84
+#: ../plugins/dreamcast/src/dreamcast-header.vala:108
+#, c-format
+msgid "Invalid Dreamcast header size: %s"
+msgstr "Größe des Dreamcast-Headers ist ungültig: %s"
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:127
+#: ../plugins/game-cube/src/game-cube-header.vala:55
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:104
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "Datei konnte nicht gelesen werden: %s"
+
+# Um ein sowohl Deppenleerzeichen als auch Bindestrich zu vermeiden, habe ich den Markennamen einfach mal zusammengezogen. Andere Vorschläge?
+#: ../plugins/game-boy/src/game-boy-header.vala:94
+#, c-format
+msgid "Invalid Game Boy header size: %s"
+msgstr "Größe des GameBoy-Headers ist ungültig: %s"
+
+#: ../plugins/game-boy/src/game-boy-header.vala:107
+msgid "The file doesn't have a Game Boy header."
+msgstr "Die Datei hat keinen GameBoy-Header."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+#, c-format
+msgid "Invalid Game Cube header size: %s"
+msgstr "Größe des GameCube-Headers ist ungültig: %s"
+
+#: ../plugins/game-cube/src/game-cube-header.vala:33
+#: ../plugins/game-cube/src/game-cube-header.vala:44
+msgid "The file doesn't have a Game Cube header."
+msgstr "Die Datei hat keinen GameCube-Header."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgstr "Dies ist kein gültiges LÖVE-Paket: »%s«."
+
+#: ../plugins/mame/src/mame-plugin.vala:25
+#, c-format
+msgid "Invalid MAME game id '%s' for '%s'."
+msgstr "MAME-Spiel-Kennung »%s« für »%s« ist ungültig."
+
+#: ../plugins/master-system/src/master-system-header.vala:63
+#, c-format
+msgid "Invalid Master System header size: %s"
+msgstr "Größe des MasterSystem-Headers ist ungültig: %s"
+
+#: ../plugins/master-system/src/master-system-header.vala:76
+msgid "The file doesn't have a Master System header."
+msgstr "Die Datei hat keinen Master-System-Header."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:60
+#, c-format
+msgid "Invalid Mega Drive/Genesis/32X header size: %s"
+msgstr "Größe des Drive/Genesis/32X-Headers ist ungültig: %s"
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:74
+msgid "The file doesn't have a Mega Drive/Genesis/32X header."
+msgstr "Die Datei hat keinen MegaDrive/Genesis/32X-Header."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:51
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:93
+msgid "The file doesn't have a Sega Saturn header."
+msgstr "Die Datei hat keinen SegaSaturn-Header."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:62
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:85
+#, c-format
+msgid "Invalid Sega Saturn header size: %s"
+msgstr "Größe des SegaSaturn-Headers ist ungültig: %s"
+
+#: ../plugins/steam/src/steam-game-source.vala:90
+#, c-format
+msgid "Couldn't get Steam appid from manifest '%s'."
+msgstr "Steam-App-Kennung konnte aus dem Manifest »%s« nicht ermittelt werden."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File '%s' doesn't exist."
+msgstr "Die Datei »%s« existiert nicht."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Unerwartetes Zeichen »{«."
+
+# CHECK
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Unerwartetes Ende der Zeichen."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Unerwartetes Zeichen »}«."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn't get name from Steam registry."
+msgstr "Der Name konnte nicht aus der Steam-Registry ermittelt werden."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Größe des WiiHeaders ist ungültig: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn't have a Wii header."
+msgstr "Die Datei hat keinen Wii-Header."
+
+#: ../src/command/command-runner.vala:22
+msgid "Invalid command: it doesn't have any argument."
+msgstr "Ungültiger Befehl: Argument fehlt."
+
+#: ../src/command/command-runner.vala:51
+#, c-format
+msgid "Couldn't run '%s': execution failed."
+msgstr "Ausführung von »%s« ist fehlgeschlagen."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Ungültiger Plugin-Deskriptor: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn't create a new instance of plugin in '%s'."
+msgstr "Eine neue Instanz des Plugins konnte nicht in »%s« angelegt werden."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can't be null."
+msgstr ""
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can't be empty."
+msgstr ""
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:39
+#, c-format
+msgid "Unable to open file '%s': %s"
+msgstr "Datei »%s« kann nicht geöffnet werden: %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:43
+#, c-format
+msgid "Evdev is unable to open '%s': %s"
+msgstr "»%s« kann nicht mit evdev geöffnet werden: %s"
+
+#: ../src/retro/retro-runner.vala:158
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "Spiel kann nicht ausgeführt werden: Modul »%s« wurde nicht gefunden."
+
+#: ../src/retro/retro-runner.vala:175
+#, c-format
+msgid "Invalid game file: '%s'."
+msgstr "Ungültige Spieldatei: »%s«."
+
+#: ../src/retro/retro-runner.vala:302
+msgid "Couldn't write snapshot."
+msgstr "Schnappschuss konnte nicht geschrieben werden."
+
+#: ../src/retro/retro-runner.vala:329
+msgid "Couldn't load snapshot."
+msgstr "Schnappschuss konnte nicht gelesen werden."
+
+#: ../src/ui/application.vala:167
 msgid "GNOME Games"
 msgstr "GNOME Spiele"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:169
 msgid "A video game player for GNOME"
 msgstr "Ein Videospiel-Programm für GNOME"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:173
 msgid "Learn more about GNOME Games"
 msgstr "Mehr über GNOME Spiele erfahren"
 
-#: ../src/ui/application.vala:151
+#: ../src/ui/application.vala:180
 msgid "translator-credits"
 msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
