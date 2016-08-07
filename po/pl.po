@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-31 18:02+0200\n"
-"PO-Revision-Date: 2016-07-31 18:03+0200\n"
+"POT-Creation-Date: 2016-08-07 16:38+0200\n"
+"PO-Revision-Date: 2016-08-07 16:39+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -244,9 +244,10 @@ msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
 msgid "The file doesn't have a Master System header."
 msgstr "Plik nie ma nagłówka konsoli Master System."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:45
-msgid "The file doesn't have a Mega Drive/Genesis/32X header."
-msgstr "Plik nie ma nagłówka konsoli Mega Drive/Genesis/32X."
+#: ../plugins/mega-drive/src/mega-drive-header.vala:61
+#: ../plugins/mega-drive/src/mega-drive-header.vala:77
+msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "Plik nie ma nagłówka konsoli Genesis/Sega 32X/Sega CD/Sega Pico."
 
 #: ../plugins/playstation/src/playstation-header.vala:36
 #, c-format
