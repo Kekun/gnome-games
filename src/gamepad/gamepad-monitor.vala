@@ -20,9 +20,11 @@ private class Games.GamepadMonitor : Object {
 
 	private GamepadMonitor () {
 		gamepads = new GenericSet<Gamepad?> (direct_hash, direct_equal);
+#if ENABLE_LINUX_GAMEPADS
 		var raw_gamepad_monitor = LinuxRawGamepadMonitor.get_instance ();
 		raw_gamepad_monitor.gamepad_plugged.connect (on_raw_gamepad_plugged);
 		raw_gamepad_monitor.foreach_gamepad ((raw_gamepad) => add_gamepad (raw_gamepad));
+#endif
 	}
 
 	public static GamepadMonitor get_instance () {

@@ -62,8 +62,6 @@ gnome_games_SOURCES = \
 	gamepad/gamepad-mapping-error.vala \
 	gamepad/gamepad-mappings-manager.vala \
 	gamepad/gamepad-monitor.vala \
-	gamepad/linux/linux-raw-gamepad.vala \
-	gamepad/linux/linux-raw-gamepad-monitor.vala \
 	gamepad/raw-gamepad.vala \
 	gamepad/raw-gamepad-monitor.vala \
 	gamepad/standard-gamepad-axis.vala \
@@ -125,9 +123,15 @@ gnome_games_SOURCES = \
 	$(BUILT_SOURCES) \
 	$(NULL)
 
+if ENABLE_GAMEPADS
+gnome_games_SOURCES += \
+	gamepad/linux/linux-raw-gamepad.vala \
+	gamepad/linux/linux-raw-gamepad-monitor.vala \
+	$(NULL)
+endif
+
 gnome_games_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
-	--vapidir=gamepad/linux/ \
 	--pkg gio-2.0 \
 	--pkg glib-2.0 \
 	--pkg grilo-0.3 \
@@ -135,8 +139,6 @@ gnome_games_VALAFLAGS = \
 	--pkg tracker-sparql-1.0 \
 	--pkg retro-gobject-0.6 \
 	--pkg retro-gtk-0.6 \
-	--pkg gudev-1.0 \
-	--pkg libevdev \
 	--pkg linux \
 	--pkg posix \
 	--gresources $(gresource_file) \
@@ -144,8 +146,18 @@ gnome_games_VALAFLAGS = \
 	-H $(header_file) \
 	$(NULL)
 
+if ENABLE_GAMEPADS
+gnome_games_VALAFLAGS += \
+	--vapidir=gamepad/linux/ \
+	--pkg gudev-1.0 \
+	--pkg libevdev \
+	--define ENABLE_LINUX_GAMEPADS
+	$(NULL)
+endif
+
 gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
+	$(GAMEPADS_CFLAGS) \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
@@ -157,6 +169,7 @@ gnome_games_CPPFLAGS = \
 
 gnome_games_LDADD = \
 	$(GNOME_GAMES_LIBS) \
+	$(GAMEPADS_LIBS) \
 	$(NULL)
 
 gnome_gamesincludedir = $(includedir)

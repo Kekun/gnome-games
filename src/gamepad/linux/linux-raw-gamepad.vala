@@ -1,5 +1,8 @@
 // This file is part of GNOME Games. License: GPLv3
 
+// FIXME Workaround the autotools working poorly with Vala.
+#if ENABLE_LINUX_GAMEPADS
+
 // FIXME This should be in LinuxRawGamepad but a bug in valac prevent us from using it in 'requires' statements.
 const int GUID_LENGTH = 8;
 
@@ -158,3 +161,5 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		return builder.str;
 	}
 }
+
+#endif

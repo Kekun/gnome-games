@@ -52,12 +52,16 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 	glib-2.0 >= $GLIB_MIN_VERSION
 	grilo-0.3
 	gtk+-3.0
-	gudev-1.0
-	libevdev
 	retro-gobject-0.6
 	retro-gtk-0.6
 	tracker-sparql-1.0
 ])
+
+PKG_CHECK_MODULES(GAMEPADS, [
+	gudev-1.0
+	libevdev
+], [enable_gamepads=yes], [enable_gamepads=no])
+AM_CONDITIONAL([ENABLE_GAMEPADS], [test x$enable_gamepads != xno])
 
 AC_CONFIG_FILES([
 	Makefile

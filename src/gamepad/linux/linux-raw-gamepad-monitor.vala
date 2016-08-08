@@ -1,5 +1,8 @@
 // This file is part of GNOME Games. License: GPLv3
 
+// FIXME Workaround the autotools working poorly with Vala.
+#if ENABLE_LINUX_GAMEPADS
+
 private class Games.LinuxRawGamepadMonitor : Object, RawGamepadMonitor {
 	private static LinuxRawGamepadMonitor instance;
 
@@ -94,3 +97,5 @@ private class Games.LinuxRawGamepadMonitor : Object, RawGamepadMonitor {
 		        (device.has_property (".INPUT_CLASS") && device.get_property (".INPUT_CLASS") == "joystick"));
 	}
 }
+
+#endif
