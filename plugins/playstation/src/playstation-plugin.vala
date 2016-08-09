@@ -1,12 +1,13 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.PlayStation : Object, Plugin {
-	private const string MIME_TYPE = "application/x-cue";
+	private const string SEARCHED_MIME_TYPE = "application/x-cue";
+	private const string SPECIFIC_MIME_TYPE = "application/x-playstation-rom";
 	private const string MODULE_BASENAME = "libretro-playstation.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
 	public GameSource get_game_source () throws Error {
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
+		var query = new MimeTypeTrackerQuery (SEARCHED_MIME_TYPE, game_for_uri);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (query);
@@ -26,7 +27,7 @@ private class Games.PlayStation : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
 		var cover = new DummyCover ();
-		var runner = new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner.with_mime_types (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

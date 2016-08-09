@@ -51,7 +51,7 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, mime_type);
 		var cover = new GriloCover (media, uid);
-		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner.with_mime_types (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

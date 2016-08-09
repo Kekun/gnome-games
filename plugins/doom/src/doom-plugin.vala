@@ -20,7 +20,7 @@ private class Games.DoomPlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
 		var cover = new DummyCover ();
-		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner.with_mime_types (uri, uid, { MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

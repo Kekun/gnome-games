@@ -28,7 +28,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, SPECIFIC_MIME_TYPE);
 		var cover = new GriloCover (media, uid);
-		var runner =  new RetroRunner (MODULE_BASENAME, uri, uid, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner.with_mime_types (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
