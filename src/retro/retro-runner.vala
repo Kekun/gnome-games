@@ -156,11 +156,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void prepare_core (string module_basename, string uri) throws Error {
-		var module_path = Retro.search_module (module_basename);
-		var module = File.new_for_path (module_path);
-		if (!module.query_exists ())
-			throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found."), module_basename);
-
+		var module_path = get_module_path ();
 		core = new Retro.Core (module_path);
 		audio = new RetroGtk.PaPlayer ();
 		options = new Retro.Options ();
@@ -177,6 +173,15 @@ public class Games.RetroRunner : Object, Runner {
 
 		if (!try_load_game (core, uri))
 			throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: '%s'."), uri);
+	}
+
+	private string get_module_path () throws Error {
+		var module_path = Retro.search_module (module_basename);
+		var module = File.new_for_path (module_path);
+		if (module.query_exists ())
+			return module_path;
+
+		throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found."), module_basename);
 	}
 
 	private bool try_load_game (Retro.Core core, string uri) {
