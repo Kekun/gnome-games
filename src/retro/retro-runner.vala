@@ -43,6 +43,7 @@ public class Games.RetroRunner : Object, Runner {
 	private string screenshot_path;
 
 	private string module_basename;
+	private string[] mime_types;
 	private string uri;
 	private Uid uid;
 	private bool core_supports_snapshotting;
@@ -69,6 +70,18 @@ public class Games.RetroRunner : Object, Runner {
 		is_ready = false;
 		should_save = false;
 
+		this.module_basename = module_basename;
+		this.uri = uri;
+		this.uid = uid;
+		this.core_supports_snapshotting = core_supports_snapshotting;
+	}
+
+	public RetroRunner.with_mime_types (string uri, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
+		is_initialized = false;
+		is_ready = false;
+		should_save = false;
+
+		this.mime_types = mime_types;
 		this.module_basename = module_basename;
 		this.uri = uri;
 		this.uid = uid;
@@ -181,7 +194,46 @@ public class Games.RetroRunner : Object, Runner {
 		if (module.query_exists ())
 			return module_path;
 
-		throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found."), module_basename);
+		if (mime_types.length == 0)
+			throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found."), module_basename);
+
+		module_path = Retro.ModuleQuery.lookup_module_for_info (check_module_info);
+		module = File.new_for_path (module_path);
+		if (module.query_exists ())
+			return module_path;
+
+		throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found and no module found for MIME types %s."), module_basename, string.joinv (" ", mime_types));
+	}
+
+	private bool check_module_info (HashTable<string, string> module_info) {
+		if (!module_info.contains ("supported_mimetypes"))
+			return false;
+
+		if (!module_info.contains ("supports_serialization"))
+			return false;
+
+		var supported_mime_types = module_info["supported_mimetypes"];
+		foreach (var mime_type in mime_types)
+			if (!(mime_type in supported_mime_types))
+				return false;
+
+		var supports_serialization = false;
+		switch (module_info["supports_serialization"]) {
+		case "true":
+			supports_serialization = true;
+
+			break;
+		case "false":
+			supports_serialization = false;
+
+			break;
+		default:
+			return false;
+		}
+
+		core_supports_snapshotting = supports_serialization;
+
+		return true;
 	}
 
 	private bool try_load_game (Retro.Core core, string uri) {
