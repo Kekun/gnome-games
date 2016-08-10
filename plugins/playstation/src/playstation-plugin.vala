@@ -26,7 +26,7 @@ private class Games.PlayStation : Object, Plugin {
 		var uid = new PlayStationUid (header);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
-		var cover = new DummyCover ();
+		var cover = new LocalCover (uri);
 		var runner = new RetroRunner.with_mime_types (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);

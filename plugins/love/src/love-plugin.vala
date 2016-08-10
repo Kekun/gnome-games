@@ -16,7 +16,7 @@ private class Games.LovePlugin : Object, Plugin {
 		var package = new LovePackage (uri);
 		var title = new LoveTitle (package);
 		var icon = new LoveIcon (package);
-		var cover = new DummyCover ();
+		var cover = new LocalCover (uri);
 		string[] args = { "love", uri };
 		var runner = new CommandRunner (args, true);
 

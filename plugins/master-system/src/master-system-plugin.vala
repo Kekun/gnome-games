@@ -48,7 +48,9 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, mime_type);
-		var cover = new GriloCover (media, uid);
+		var cover = new CompositeCover ({
+			new LocalCover (uri),
+			new GriloCover (media, uid)});
 		var runner = new RetroRunner.with_mime_types (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
@@ -59,7 +61,9 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, SG_1000_MIME_TYPE);
-		var cover = new GriloCover (media, uid);
+		var cover = new CompositeCover ({
+			new LocalCover (uri),
+			new GriloCover (media, uid)});
 		var runner = new RetroRunner.with_mime_types (uri, uid, { SG_1000_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
