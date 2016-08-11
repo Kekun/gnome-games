@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-07-26 08:48+0000\n"
-"PO-Revision-Date: 2016-07-27 12:11+0200\n"
+"POT-Creation-Date: 2016-08-11 07:06+0000\n"
+"PO-Revision-Date: 2016-08-11 10:10+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -104,6 +104,14 @@ msgstr "Buscar"
 #: ../data/ui/display-header-bar.ui.h:2
 msgid "Back"
 msgstr "Atrás"
+
+#: ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "Restaurar"
 
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
@@ -211,42 +219,15 @@ msgstr "«%s» tiene en lista negra el ejecutable «%s»."
 msgid "'%s' is blacklisted."
 msgstr "«%s» está en lista negra."
 
-#: ../plugins/dreamcast/src/dreamcast-header.vala:52
-#: ../plugins/dreamcast/src/dreamcast-header.vala:116
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
 msgid "The file doesn't have a Dreamcast header."
 msgstr "El archivo no tiene una cabecera de Dreamcast."
 
-#: ../plugins/dreamcast/src/dreamcast-header.vala:63
-#: ../plugins/dreamcast/src/dreamcast-header.vala:84
-#: ../plugins/dreamcast/src/dreamcast-header.vala:108
-#, c-format
-msgid "Invalid Dreamcast header size: %s"
-msgstr "Tamaño de la cabecera de Dreamcast no válido: %s"
-
-#: ../plugins/dreamcast/src/dreamcast-header.vala:127
-#: ../plugins/game-cube/src/game-cube-header.vala:55
-#: ../plugins/sega-saturn/src/sega-saturn-header.vala:104
-#: ../plugins/wii/src/wii-header.vala:55
-#, c-format
-msgid "Couldn't read file: %s"
-msgstr "No se pudo leer el archivo: %s"
-
-#: ../plugins/game-boy/src/game-boy-header.vala:94
-#, c-format
-msgid "Invalid Game Boy header size: %s"
-msgstr "Tamaño de la cabecera de Game Boy no válido: %s"
-
-#: ../plugins/game-boy/src/game-boy-header.vala:107
+#: ../plugins/game-boy/src/game-boy-header.vala:97
 msgid "The file doesn't have a Game Boy header."
 msgstr "El archivo no tiene una cabecera de Game Boy."
 
 #: ../plugins/game-cube/src/game-cube-header.vala:20
-#, c-format
-msgid "Invalid Game Cube header size: %s"
-msgstr "Tamaño de la cabecera de Game Cube no válido: %s"
-
-#: ../plugins/game-cube/src/game-cube-header.vala:33
-#: ../plugins/game-cube/src/game-cube-header.vala:44
 msgid "The file doesn't have a Game Cube header."
 msgstr "El archivo no tiene una cabecera de Game Cube."
 
@@ -256,39 +237,59 @@ msgstr "El archivo no tiene una cabecera de Game Cube."
 msgid "This doesn't represent a valid LÖVE package: '%s'."
 msgstr "Esto no representa un paquete LÖVE válido: «%s»."
 
-#: ../plugins/mame/src/mame-plugin.vala:25
+#: ../plugins/mame/src/mame-plugin.vala:26
 #, c-format
 msgid "Invalid MAME game id '%s' for '%s'."
 msgstr "ID «%s» de juego MAME no válido para «%s»."
 
-#: ../plugins/master-system/src/master-system-header.vala:63
-#, c-format
-msgid "Invalid Master System header size: %s"
-msgstr "Tamaño de la cabecera de Master System no válido: %s"
-
-#: ../plugins/master-system/src/master-system-header.vala:76
+#: ../plugins/master-system/src/master-system-header.vala:69
 msgid "The file doesn't have a Master System header."
 msgstr "El archivo no tiene una cabecera de Master System."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:60
+#: ../plugins/mega-drive/src/mega-drive-header.vala:61
+#: ../plugins/mega-drive/src/mega-drive-header.vala:77
+#| msgid "The file doesn't have a Mega Drive/Genesis/32X header."
+msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr ""
+"El archivo no tiene una cabecera de Genesis/Sega 32X/Sega CD/Sega Pico."
+
+#: ../plugins/playstation/src/playstation-header.vala:36
 #, c-format
-msgid "Invalid Mega Drive/Genesis/32X header size: %s"
-msgstr "Tamaño de la cabecera de Mega Drive/Genesis/32X no válido: %s"
+msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgstr "Cabecera de PlayStation no válida: ID del disco no encontrado en «%s»."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:74
-msgid "The file doesn't have a Mega Drive/Genesis/32X header."
-msgstr "El archivo no tiene una cabecera de Mega Drive/Genesis/32X."
+#: ../plugins/playstation/src/playstation-header.vala:46
+#, c-format
+msgid "PlayStation header not found in '%s'."
+msgstr "Cabecera de PlayStation no encontrada en «%s»."
 
-#: ../plugins/sega-saturn/src/sega-saturn-header.vala:51
-#: ../plugins/sega-saturn/src/sega-saturn-header.vala:93
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn't have a Sega Saturn header."
 msgstr "El archivo no tiene una cabecera de Sega Saturn."
 
-#: ../plugins/sega-saturn/src/sega-saturn-header.vala:62
-#: ../plugins/sega-saturn/src/sega-saturn-header.vala:85
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:38
 #, c-format
-msgid "Invalid Sega Saturn header size: %s"
-msgstr "Tamaño de la cabecera de Sega Saturn no válido: %s"
+#| msgid "The file doesn't have a Wii header."
+msgid "The file '%s' doesn't have a track."
+msgstr "El archivo «%s» no tiene ninguna pista."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:44
+#, c-format
+#| msgid "The file doesn't have a Wii header."
+msgid "The file '%s' doesn't have a valid binary file format."
+msgstr "El archivo «%s» no tiene un formato binario válido."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:47
+#, c-format
+#| msgid "The file doesn't have a Game Boy header."
+msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgstr "El archivo «%s» no tiene ningún modo de pista válido para la pista %d."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+#| msgid "The file doesn't have a Sega Saturn header."
+msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgstr "El archivo «%s» no tiene un arhivo binario de Sega Saturn válido."
 
 #: ../plugins/steam/src/steam-game-source.vala:90
 #, c-format
@@ -325,11 +326,16 @@ msgstr "Tamaño de la cabecera de Wii no válido: %s"
 msgid "The file doesn't have a Wii header."
 msgstr "El archivo no tiene una cabecera Wii."
 
-#: ../src/command/command-runner.vala:22
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "No se pudo leer el archivo: %s"
+
+#: ../src/command/command-runner.vala:26
 msgid "Invalid command: it doesn't have any argument."
 msgstr "Comando no válido: no tiene ningún argumento."
 
-#: ../src/command/command-runner.vala:51
+#: ../src/command/command-runner.vala:55
 #, c-format
 msgid "Couldn't run '%s': execution failed."
 msgstr "No se pudo ejecutar «%s»: falló la ejecución."
@@ -352,31 +358,41 @@ msgstr "La cadena de mapeado no puede ser nula."
 msgid "The mapping string can't be empty."
 msgstr "La cadena de mapeado no puede estar vacía."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:39
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
 #, c-format
 msgid "Unable to open file '%s': %s"
 msgstr "No se puede abrir el archivo «%s» :%s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:43
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
 #, c-format
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev no puede abrir «%s» :%s"
 
-#: ../src/retro/retro-runner.vala:158
-#, c-format
-msgid "Couldn't run game: module '%s' not found."
-msgstr "No se pudo ejecutar el juego: módulo «%s» no encontrado."
-
-#: ../src/retro/retro-runner.vala:175
+#: ../src/retro/retro-runner.vala:188
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Archivo de juego no válido: «%s»."
 
-#: ../src/retro/retro-runner.vala:302
+#: ../src/retro/retro-runner.vala:198
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "No se pudo ejecutar el juego: módulo «%s» no encontrado."
+
+#: ../src/retro/retro-runner.vala:205
+#, c-format
+#| msgid "Couldn't run game: module '%s' not found."
+msgid ""
+"Couldn't run game: module '%s' not found and no module found for MIME types "
+"%s."
+msgstr ""
+"No se pudo ejecutar el juego: módulo «%s» no encontrado y no se ha "
+"encontrado ningún módulo para tipos MIME %s."
+
+#: ../src/retro/retro-runner.vala:363
 msgid "Couldn't write snapshot."
 msgstr "No se pudo escribir la captura."
 
-#: ../src/retro/retro-runner.vala:329
+#: ../src/retro/retro-runner.vala:390
 msgid "Couldn't load snapshot."
 msgstr "No se pudo cargar la captura."
 
@@ -394,7 +410,82 @@ msgstr "Más información acerca de Juegos de GNOME"
 
 #: ../src/ui/application.vala:180
 msgid "translator-credits"
-msgstr "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2016"
+msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016"
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "'%s' doesn't have a track for index %u."
+msgstr "«%s» no tiene una pista para el índice %u."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: formato de archivo %s no válido, se esperaba un formato de archivo "
+"válido o ninguno."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: testigo TRACK no esperado antes de un testigo FILE."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr ""
+"%s:%lu: número de pista %s no válido, se esperaba un número en el rango 1-99."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr ""
+"%s:%lu: modo de pista %s no esperado, se esperaba un modo de pista válido."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+#| msgid "Unexpected end of tokens."
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: fin de archivo no esperado, se esperaba %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: testigo %s no esperado, se esperaba %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+#| msgid "Unexpected end of tokens."
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: fin de archivo no esperado, se esperaba un testigo."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+#| msgid "Unexpected end of tokens."
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: fin de línea no esperado, se esperaba un testigo."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: testigo %s no esperado, se esperaba un final de línea."
+
+#~ msgid "Invalid Dreamcast header size: %s"
+#~ msgstr "Tamaño de la cabecera de Dreamcast no válido: %s"
+
+#~ msgid "Invalid Game Boy header size: %s"
+#~ msgstr "Tamaño de la cabecera de Game Boy no válido: %s"
+
+#~ msgid "Invalid Game Cube header size: %s"
+#~ msgstr "Tamaño de la cabecera de Game Cube no válido: %s"
+
+#~ msgid "Invalid Master System header size: %s"
+#~ msgstr "Tamaño de la cabecera de Master System no válido: %s"
+
+#~ msgid "Invalid Mega Drive/Genesis/32X header size: %s"
+#~ msgstr "Tamaño de la cabecera de Mega Drive/Genesis/32X no válido: %s"
+
+#~ msgid "Invalid Sega Saturn header size: %s"
+#~ msgstr "Tamaño de la cabecera de Sega Saturn no válido: %s"
 
 #~ msgid "gnome-games"
 #~ msgstr "gnome-games"
