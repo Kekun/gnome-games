@@ -2,25 +2,27 @@
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 # Enrico Nicoletto <liverig@gmail.com>, 2016.
-#
+# Rafael Fontenelle <rafaelff@gnome.org>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-01 20:31+0000\n"
-"PO-Revision-Date: 2016-04-01 22:11-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2016-08-03 18:28+0000\n"
+"PO-Revision-Date: 2016-08-11 03:06-0200\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
 msgid "Games"
 msgstr "Jogos"
 
@@ -95,6 +97,22 @@ msgstr "_Sobre"
 msgid "_Quit"
 msgstr "Sa_ir"
 
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Pesquisar"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Retornar"
+
+#: ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Tela cheia"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "Restaurar"
+
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
 msgstr ""
@@ -118,14 +136,6 @@ msgid ""
 msgstr ""
 "Instale jogos ou adicione diretórios que contenham jogos às suas fontes de "
 "pesquisa."
-
-#: ../data/ui/header-bar.ui.h:2
-msgid "Search"
-msgstr "Pesquisar"
-
-#: ../data/ui/header-bar.ui.h:3
-msgid "Back"
-msgstr "Retornar"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
@@ -163,7 +173,7 @@ msgstr ""
 
 #: ../data/ui/remote-display.ui.h:2
 msgid "This game isn't integrated to GNOME Games."
-msgstr "Este jogo não está integrado com o GNOME Jogos"
+msgstr "Este jogo não está integrado com o GNOME Jogos."
 
 #: ../data/ui/remote-display.ui.h:3
 msgid "You have to use its own window to play it."
@@ -181,18 +191,266 @@ msgstr "Continuar"
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: ../src/ui/application.vala:138
+#: ../plugins/desktop/src/desktop-tracker-query.vala:47
+#, c-format
+msgid "Invalid command '%s'."
+msgstr "Comando inválido \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:75
+#, c-format
+msgid "Tracker listed file not found: '%s'."
+msgstr "Arquivo listado do rastreador não localizado: \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:81
+#, c-format
+msgid "Couldn't parse desktop entry '%s'."
+msgstr "Não foi possível analisar a entrada desktop \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:94
+#, c-format
+msgid "'%s' has blacklisted category '%s'."
+msgstr "'%s' acrescentou à lista negra a categoria \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "'%s' has blacklisted executable '%s'."
+msgstr "'%s' acrescentou à lista negra o executável \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:110
+#, c-format
+msgid "'%s' is blacklisted."
+msgstr "'%s' está na lista negra."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn't have a Dreamcast header."
+msgstr "O arquivo não possui um cabeçalho de Dreamcast."
+
+#: ../plugins/game-boy/src/game-boy-header.vala:97
+msgid "The file doesn't have a Game Boy header."
+msgstr "O arquivo não possui um cabeçalho de Game Boy."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn't have a Game Cube header."
+msgstr "O arquivo não possui um cabeçalho de Game Cube."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgstr "Isso não representa um pacote LÖVE válido: \"%s\"."
+
+#: ../plugins/mame/src/mame-plugin.vala:25
+#, c-format
+msgid "Invalid MAME game id '%s' for '%s'."
+msgstr "Jogo MAME inválido com id \"%s\" para \"%s\"."
+
+#: ../plugins/master-system/src/master-system-header.vala:69
+msgid "The file doesn't have a Master System header."
+msgstr "O arquivo não possui um cabeçalho de Master System."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:61
+#: ../plugins/mega-drive/src/mega-drive-header.vala:77
+msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "O arquivo não possui um cabeçalho Genesis/Sega 32X/Sega CD/Sega Pico."
+
+#: ../plugins/playstation/src/playstation-header.vala:36
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgstr ""
+"Cabeçalho de PlayStation inválido: ID de disco não localizado em \"%s\"."
+
+#: ../plugins/playstation/src/playstation-header.vala:46
+#, c-format
+msgid "PlayStation header not found in '%s'."
+msgstr "Cabeçalho de PlayStation não localizado em \"%s\"."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn't have a Sega Saturn header."
+msgstr "O arquivo não possui um cabeçalho de Sega Saturn."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:38
+#, c-format
+msgid "The file '%s' doesn't have a track."
+msgstr "O arquivo \"%s\" não possui uma trilha."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:44
+#, c-format
+msgid "The file '%s' doesn't have a valid binary file format."
+msgstr "O arquivo \"%s\" não possui um formato de arquivo binário válido."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:47
+#, c-format
+msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgstr "O arquivo \"%s\" não possui um modo de trilha válido para a trilha %d."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgstr "O arquivo \"%s\" não possui um arquivo binário de Sega Saturn válido."
+
+#: ../plugins/steam/src/steam-game-source.vala:90
+#, c-format
+msgid "Couldn't get Steam appid from manifest '%s'."
+msgstr "Não foi possível obter aappid da Steam a partir do manifesto \"%s\"."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File '%s' doesn't exist."
+msgstr "O arquivo \"%s\" não existe."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Token inesperado \"{\"."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Fim de tokens inesperado."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Token inesperado \"}\"."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn't get name from Steam registry."
+msgstr "Não foi possível obter o nome a partir do registro da Steam."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Tamanho de cabeçalho inválido: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn't have a Wii header."
+msgstr "O arquivo não possui um cabeçalho de Wii."
+
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "Não foi possível ler arquivo: %s"
+
+#: ../src/command/command-runner.vala:26
+msgid "Invalid command: it doesn't have any argument."
+msgstr "Comando inválido: ele não possui um argumento."
+
+#: ../src/command/command-runner.vala:55
+#, c-format
+msgid "Couldn't run '%s': execution failed."
+msgstr "Não foi possível executar \"%s\": execução falhou."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Descritor de plug-in inválido: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn't create a new instance of plugin in '%s'."
+msgstr "Não foi possível criar uma nova instância de plug-in em \"%s\"."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can't be null."
+msgstr "A string de mapeamento não pode ser nula."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can't be empty."
+msgstr "A string de mapeamento não pode estar vazia."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:39
+#, c-format
+msgid "Unable to open file '%s': %s"
+msgstr "Não foi possível abrir o arquivo \"%s\": %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:43
+#, c-format
+msgid "Evdev is unable to open '%s': %s"
+msgstr "Evdev não é capaz de abrir \"%s\": %s"
+
+#: ../src/retro/retro-runner.vala:162
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "Não foi possível rodar o jogo: módulo \"%s\" não localizado."
+
+#: ../src/retro/retro-runner.vala:179
+#, c-format
+msgid "Invalid game file: '%s'."
+msgstr "Arquivo de jogo inválido: \"%s\"."
+
+#: ../src/retro/retro-runner.vala:306
+msgid "Couldn't write snapshot."
+msgstr "Não foi possível gravar o snapshot."
+
+#: ../src/retro/retro-runner.vala:333
+msgid "Couldn't load snapshot."
+msgstr "Não foi possível carregar o snapshot."
+
+#: ../src/ui/application.vala:167
 msgid "GNOME Games"
 msgstr "GNOME Jogos"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:169
 msgid "A video game player for GNOME"
 msgstr "Um executor de video game para o GNOME"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:173
 msgid "Learn more about GNOME Games"
 msgstr "Aprenda mais sobre o GNOME Jogos"
 
-#: ../src/ui/application.vala:151
+#: ../src/ui/application.vala:180
 msgid "translator-credits"
-msgstr "Enrico Nicoletto <liverig@gmail.com>, 2016"
+msgstr ""
+"Enrico Nicoletto <liverig@gmail.com>, 2016.\n"
+"Rafael Fontenelle <rafaelff@gnome.org>, 2016."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "'%s' doesn't have a track for index %u."
+msgstr "\"%s\" não possui uma trilha para o índice %u."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: formato de arquivo %s inválido, esperava um formato de arquivo "
+"válido ou nada."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: Token TRACK inesperado antes de um token FILE."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr ""
+"%s:%lu: Número de trilha %s inválido, esperava um número no intervalo de "
+"1-99."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr "%s:%lu: Modo de trilha %s inválido, esperava um modo de trilha válido."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: Fim de arquivo inesperado, esperava %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: token %s inesperado, esperava %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: Fim de arquivo inesperado, esperava um token."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: Fim de linha inesperado, esperava um token."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: token %s inesperado, esperava fim de linha."
