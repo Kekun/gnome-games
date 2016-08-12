@@ -60,19 +60,19 @@ public class Games.GriloCover : Object, Cover {
 
 		var cover_path = get_cover_path ();
 
-		var src = File.new_for_uri (uri);
-		var dst = File.new_for_path (cover_path);
+		var session = new Soup.Session ();
+		var message = new Soup.Message ("GET", uri);
 
-		try {
-			yield src.copy_async (dst, FileCopyFlags.OVERWRITE);
-		}
-		catch (Error e) {
-			warning (e.message);
+		session.queue_message (message, (sess, mess) => {
+			if (mess.status_code != 200) {
+				debug ("Failed to load %s: %u %s.", uri, mess.status_code, mess.reason_phrase);
 
-			return;
-		}
+				return;
+			}
 
-		load_cover ();
+			FileUtils.set_data (cover_path, mess.response_body.data);
+			load_cover ();
+		});
 	}
 
 	private void load_cover () {
