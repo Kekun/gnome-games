@@ -165,7 +165,7 @@ public class Games.Application : Gtk.Application {
 		dialog.set_modal (true);
 
 		dialog.program_name = _("GNOME Games");
-		dialog.logo_icon_name = "gnome-games";
+		dialog.logo_icon_name = "org.gnome.Games";
 		dialog.comments = _("A video game player for GNOME");
 		dialog.version = VERSION;
 
