@@ -44,14 +44,14 @@ public class Games.Application : Gtk.Application {
 		add_action (about_action);
 
 		SimpleAction quit_action = new SimpleAction ("quit", null);
-		quit_action.activate.connect (quit);
+		quit_action.activate.connect (quit_application);
 		add_action (quit_action);
 	}
 
 	private void add_signal_handlers () {
 		var interrupt_source = new Unix.SignalSource (ProcessSignal.INT);
 		interrupt_source.set_callback (() => {
-			quit ();
+			quit_application ();
 
 			return Source.CONTINUE;
 		});
@@ -118,7 +118,7 @@ public class Games.Application : Gtk.Application {
 		window = new ApplicationWindow (collection);
 		this.add_window (window);
 		window.destroy.connect (() => {
-			quit ();
+			quit_application ();
 		});
 		window.show ();
 	}
@@ -187,11 +187,11 @@ public class Games.Application : Gtk.Application {
 		dialog.present ();
 	}
 
-	private void quit () {
+	private void quit_application () {
 		if (window != null && !window.quit_game ())
 			return;
 
-		base.quit ();
+		quit ();
 	}
 
 	private static Gtk.CssProvider load_css (string css) {
