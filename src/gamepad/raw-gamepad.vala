@@ -8,6 +8,8 @@
  * with number of buttons, axes and dpads.
  */
 private interface Games.RawGamepad : Object {
+	public abstract signal void standard_button_event (StandardGamepadButton button, bool value);
+
 	/**
 	 * Emitted when a button is pressed/released
 	 * @param  code          The button code from 0 to buttons_number

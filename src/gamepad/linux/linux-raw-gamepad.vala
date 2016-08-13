@@ -135,7 +135,9 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		int code = event.code;
 		switch (event.type) {
 		case Linux.Input.EV_KEY:
-			if (code >= Linux.Input.BTN_MISC)
+			if ((code & Linux.Input.BTN_GAMEPAD) == Linux.Input.BTN_GAMEPAD)
+				standard_button_event (button_to_standard_button (code), (bool) event.value);
+			else if ((code & Linux.Input.BTN_MISC) == Linux.Input.BTN_MISC)
 				button_event (key_map[code - Linux.Input.BTN_MISC], (bool) event.value);
 
 			break;
@@ -189,6 +191,39 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		}
 
 		return builder.str;
+	}
+
+	private StandardGamepadButton button_to_standard_button (int code) {
+		switch (code) {
+		case Linux.Input.BTN_A:
+			return StandardGamepadButton.A;
+		case Linux.Input.BTN_B:
+			return StandardGamepadButton.B;
+		case Linux.Input.BTN_X:
+			return StandardGamepadButton.Y;
+		case Linux.Input.BTN_Y:
+			return StandardGamepadButton.X;
+		case Linux.Input.BTN_TL:
+			return StandardGamepadButton.SHOULDER_L;
+		case Linux.Input.BTN_TR:
+			return StandardGamepadButton.SHOULDER_R;
+		case Linux.Input.BTN_TL2:
+			return StandardGamepadButton.TRIGGER_L;
+		case Linux.Input.BTN_TR2:
+			return StandardGamepadButton.TRIGGER_R;
+		case Linux.Input.BTN_SELECT:
+			return StandardGamepadButton.SELECT;
+		case Linux.Input.BTN_START:
+			return StandardGamepadButton.START;
+		case Linux.Input.BTN_MODE:
+			return StandardGamepadButton.HOME;
+		case Linux.Input.BTN_THUMBL:
+			return StandardGamepadButton.STICK_L;
+		case Linux.Input.BTN_THUMBR:
+			return StandardGamepadButton.STICK_R;
+		default:
+			return StandardGamepadButton.UNKNOWN;
+		}
 	}
 }
 
