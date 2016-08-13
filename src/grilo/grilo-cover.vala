@@ -21,7 +21,15 @@ public class Games.GriloCover : Object, Cover {
 		if (icon != null)
 			return icon;
 
-		load_cover ();
+		try {
+			load_cover ();
+		}
+		catch (Error e) {
+			warning (e.message);
+
+			return icon;
+		}
+
 		if (icon != null)
 			return icon;
 
@@ -40,10 +48,10 @@ public class Games.GriloCover : Object, Cover {
 		return_if_fail (grl_media.length (Grl.MetadataKey.THUMBNAIL) != 0);
 
 		var uri = grl_media.get_thumbnail_nth (0);
-		fetch_cover.begin (uri);
+		try_fetch_cover.begin (uri);
 	}
 
-	private string get_cover_path () {
+	private string get_cover_path () throws Error {
 		if (cover_path != null)
 			return cover_path;
 
@@ -54,7 +62,18 @@ public class Games.GriloCover : Object, Cover {
 		return cover_path;
 	}
 
-	private async void fetch_cover (string uri) {
+	private async void try_fetch_cover (string uri) {
+		try {
+			yield fetch_cover (uri);
+		}
+		catch (Error e) {
+			warning (e.message);
+
+			return;
+		}
+	}
+
+	private async void fetch_cover (string uri) throws Error{
 		var dir = Application.get_covers_dir ();
 		Application.try_make_dir (dir);
 
@@ -70,12 +89,16 @@ public class Games.GriloCover : Object, Cover {
 				return;
 			}
 
-			FileUtils.set_data (cover_path, mess.response_body.data);
-			load_cover ();
+			try {
+				FileUtils.set_data (cover_path, mess.response_body.data);
+				load_cover ();
+			} catch (Error e) {
+				warning (e.message);
+			}
 		});
 	}
 
-	private void load_cover () {
+	private void load_cover () throws Error {
 		var cover_path = get_cover_path ();
 
 		if (!FileUtils.test (cover_path, FileTest.EXISTS))
