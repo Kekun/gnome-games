@@ -269,7 +269,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private bool cancel_quitting_game () {
 		if (display_box.runner != null)
-			display_box.runner.resume ();
+			try {
+				display_box.runner.resume ();
+			}
+			catch (Error e) {
+				warning (e.message);
+			}
 
 		return false;
 	}
