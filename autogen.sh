@@ -19,7 +19,7 @@ if [ "$#" = 0 -a "x$NOCONFIGURE" = "x" ]; then
         echo "" >&2
 fi
 
-set -x
+set -e
 #aclocal --install || exit 1
 #glib-gettextize --force --copy || exit 1
 #gtkdocize --copy || exit 1
