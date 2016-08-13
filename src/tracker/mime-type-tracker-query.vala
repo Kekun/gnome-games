@@ -9,9 +9,9 @@ public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 	private GameForUri game_for_uri;
 	private string[] uris;
 
-	public MimeTypeTrackerQuery (string mime_type, GameForUri game_for_uri) {
+	public MimeTypeTrackerQuery (string mime_type, owned GameForUri game_for_uri) {
 		this.mime_type = mime_type;
-		this.game_for_uri = game_for_uri;
+		this.game_for_uri = (owned) game_for_uri;
 		this.uris = {};
 	}
 
