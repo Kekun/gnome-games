@@ -64,7 +64,7 @@ public class Games.GriloCover : Object, Cover {
 		var message = new Soup.Message ("GET", uri);
 
 		session.queue_message (message, (sess, mess) => {
-			if (mess.status_code != 200) {
+			if (mess.status_code != Soup.Status.OK) {
 				debug ("Failed to load %s: %u %s.", uri, mess.status_code, mess.reason_phrase);
 
 				return;
