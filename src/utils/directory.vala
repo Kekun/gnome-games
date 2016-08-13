@@ -15,15 +15,4 @@ public class Games.Directory : Object {
 			if (file_info_test (file_info))
 				return;
 	}
-
-	private FileInfo? try_next_file (FileEnumerator enumerator) {
-		try {
-			return enumerator.next_file ();
-		}
-		catch (Error e) {
-			debug (e.message);
-
-			return null;
-		}
-	}
 }
