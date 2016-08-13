@@ -48,8 +48,8 @@ public class Games.GriloMedia : Object {
 
 		var registry = get_registry ();
 		var source = registry.lookup_source ("grl-thegamesdb");
-
-		return_val_if_fail (source != null, null);
+		if (source == null)
+			return;
 
 		var base_media = new Grl.Media ();
 		var title_string = title.get_title ();
