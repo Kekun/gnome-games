@@ -31,6 +31,15 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 
 	public void process_cursor (Tracker.Sparql.Cursor cursor) {
 		var uri = cursor.get_string (0);
+		try {
+			process_uri (uri);
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
+	}
+
+	public void process_uri (string uri) throws Error {
 		check_uri (uri);
 
 		var file = File.new_for_uri (uri);
