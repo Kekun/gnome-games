@@ -20,6 +20,7 @@ if [ "$#" = 0 -a "x$NOCONFIGURE" = "x" ]; then
 fi
 
 set -e
+git submodule update --init --recursive
 #aclocal --install || exit 1
 #glib-gettextize --force --copy || exit 1
 #gtkdocize --copy || exit 1
