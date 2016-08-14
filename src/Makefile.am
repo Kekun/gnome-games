@@ -129,8 +129,17 @@ gnome_games_SOURCES = \
 if ENABLE_GAMEPADS
 gnome_games_SOURCES += \
 	gamepad/linux/linux-raw-gamepad.vala \
+	$(NULL)
+
+if ENABLE_UDEV
+gnome_games_SOURCES += \
 	gamepad/linux/linux-raw-gamepad-monitor.vala \
 	$(NULL)
+else
+gnome_games_SOURCES += \
+	gamepad/linux/linux-raw-gamepad-monitor-fallback.vala \
+	$(NULL)
+endif
 endif
 
 gnome_games_VALAFLAGS = \
@@ -153,15 +162,22 @@ gnome_games_VALAFLAGS = \
 if ENABLE_GAMEPADS
 gnome_games_VALAFLAGS += \
 	--vapidir=gamepad/linux/ \
-	--pkg gudev-1.0 \
 	--pkg libevdev \
 	--define ENABLE_LINUX_GAMEPADS
 	$(NULL)
 endif
 
+if ENABLE_UDEV
+gnome_games_VALAFLAGS += \
+	--vapidir=gamepad/linux/ \
+	--pkg gudev-1.0 \
+	--define ENABLE_UDEV
+endif
+
 gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
 	$(GAMEPADS_CFLAGS) \
+	$(UDEV_CFLAGS) \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
@@ -174,6 +190,7 @@ gnome_games_CPPFLAGS = \
 gnome_games_LDADD = \
 	$(GNOME_GAMES_LIBS) \
 	$(GAMEPADS_LIBS) \
+	$(UDEV_LIBS) \
 	$(NULL)
 
 gnome_gamesincludedir = $(includedir)

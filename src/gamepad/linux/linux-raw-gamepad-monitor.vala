@@ -2,6 +2,7 @@
 
 // FIXME Workaround the autotools working poorly with Vala.
 #if ENABLE_LINUX_GAMEPADS
+#if ENABLE_UDEV
 
 private class Games.LinuxRawGamepadMonitor : Object, RawGamepadMonitor {
 	private static LinuxRawGamepadMonitor instance;
@@ -15,7 +16,7 @@ private class Games.LinuxRawGamepadMonitor : Object, RawGamepadMonitor {
 
 		raw_gamepads = new HashTable<string, RawGamepad> (str_hash, str_equal);
 
-		// Initialize initially plugged in gamepads
+		// Coldplug gamepads
 		var initial_devices_list = client.query_by_subsystem ("input");
 		foreach (var device in initial_devices_list) {
 			if (device.get_device_file () == null)
@@ -98,4 +99,5 @@ private class Games.LinuxRawGamepadMonitor : Object, RawGamepadMonitor {
 	}
 }
 
+#endif
 #endif

@@ -59,10 +59,17 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 ])
 
 PKG_CHECK_MODULES(GAMEPADS, [
-	gudev-1.0
 	libevdev
 ], [enable_gamepads=yes], [enable_gamepads=no])
 AM_CONDITIONAL([ENABLE_GAMEPADS], [test x$enable_gamepads != xno])
+
+enable_udev=no
+if test x$enable_gamepads = xyes ; then
+	PKG_CHECK_MODULES(UDEV, [
+		gudev-1.0
+	], [enable_udev=yes], [enable_udev=no])
+fi
+AM_CONDITIONAL([ENABLE_UDEV], [test x$enable_udev = xyes])
 
 AC_CONFIG_FILES([
 	Makefile

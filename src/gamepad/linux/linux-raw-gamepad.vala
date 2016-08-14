@@ -45,6 +45,9 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		if (device.set_fd (fd) < 0)
 			throw new FileError.FAILED (_("Evdev is unable to open '%s': %s"), file_name, Posix.strerror (Posix.errno));
 
+		if (!is_joystick ())
+			throw new FileError.NXIO ("'%s' is not a joystick", file_name);
+
 		// Poll the events in the default main loop
 		var channel = new IOChannel.unix_new (fd);
 		event_source_id = channel.add_watch (IOCondition.IN, poll_events);
@@ -93,6 +96,33 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 			handle_evdev_event ();
 
 		return true;
+	}
+
+	private bool has_key (uint code) {
+		return device.has_event_code (Linux.Input.EV_KEY, code);
+	}
+
+	private bool has_abs (uint code) {
+		return device.has_event_code (Linux.Input.EV_ABS, code);
+	}
+
+	private bool is_joystick () {
+		/* Same detection code as udev-builtin-input_id.c in systemd
+		 * joysticks don't necessarily have buttons; e. g.
+		 * rudders/pedals are joystick-like, but buttonless; they have
+		 * other fancy axes */
+		bool has_joystick_axes_or_buttons = has_key (Linux.Input.BTN_TRIGGER) ||
+			has_key (Linux.Input.BTN_A) ||
+			has_key (Linux.Input.BTN_1) ||
+			has_abs (Linux.Input.ABS_RX) ||
+			has_abs (Linux.Input.ABS_RY) ||
+			has_abs (Linux.Input.ABS_RZ) ||
+			has_abs (Linux.Input.ABS_THROTTLE) ||
+			has_abs (Linux.Input.ABS_RUDDER) ||
+			has_abs (Linux.Input.ABS_WHEEL) ||
+			has_abs (Linux.Input.ABS_GAS) ||
+			has_abs (Linux.Input.ABS_BRAKE);
+		return has_joystick_axes_or_buttons;
 	}
 
 	private void handle_evdev_event () {
