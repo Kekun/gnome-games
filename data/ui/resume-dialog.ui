@@ -32,7 +32,7 @@
     <child type="action">
       <object class="GtkButton" id="button_reset">
         <property name="visible">True</property>
-        <property name="label" translatable="yes">Main Menu</property>
+        <property name="label" translatable="yes">Restart</property>
       </object>
     </child>
     <child type="action">
