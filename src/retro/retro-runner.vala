@@ -387,7 +387,8 @@ public class Games.RetroRunner : Object, Runner {
 			warning ("Unexpected serialization data size: got %lu, expected %lu\n", data.length, expected_size);
 
 		if (!core.unserialize (data))
-			throw new RetroError.COULDNT_LOAD_SNAPSHOT (_("Couldn't load snapshot."));
+			/* Not translated as this is not presented to the user */
+			throw new RetroError.COULDNT_LOAD_SNAPSHOT ("Could not load snapshot");
 	}
 
 	private string get_screenshot_path () throws Error {
