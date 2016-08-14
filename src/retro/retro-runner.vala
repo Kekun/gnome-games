@@ -190,16 +190,16 @@ public class Games.RetroRunner : Object, Runner {
 
 	private string get_module_path () throws Error {
 		var module_path = Retro.search_module (module_basename);
-		var module = File.new_for_path (module_path);
-		if (module.query_exists ())
+
+		if (FileUtils.test (module_path, FileTest.EXISTS))
 			return module_path;
 
 		if (mime_types.length == 0)
 			throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found."), module_basename);
 
 		module_path = Retro.ModuleQuery.lookup_module_for_info (check_module_info);
-		module = File.new_for_path (module_path);
-		if (module.query_exists ())
+
+		if (FileUtils.test (module_path, FileTest.EXISTS))
 			return module_path;
 
 		throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found and no module found for MIME types %s."), module_basename, string.joinv (" ", mime_types));
