@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-07 16:38+0200\n"
-"PO-Revision-Date: 2016-08-07 16:39+0200\n"
+"POT-Creation-Date: 2016-08-14 23:30+0200\n"
+"PO-Revision-Date: 2016-08-14 23:32+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -187,32 +187,32 @@ msgstr "Wznów"
 msgid "Main Menu"
 msgstr "Menu główne"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:47
+#: ../plugins/desktop/src/desktop-tracker-query.vala:56
 #, c-format
 msgid "Invalid command '%s'."
 msgstr "Nieprawidłowe polecenie „%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:75
+#: ../plugins/desktop/src/desktop-tracker-query.vala:84
 #, c-format
 msgid "Tracker listed file not found: '%s'."
 msgstr "Nie odnaleziono pliku: „%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:81
+#: ../plugins/desktop/src/desktop-tracker-query.vala:90
 #, c-format
 msgid "Couldn't parse desktop entry '%s'."
 msgstr "Nie można przetworzyć wpisu .desktop: „%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:94
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
 #, c-format
 msgid "'%s' has blacklisted category '%s'."
 msgstr "„%s” umieścił kategorię „%s” na czarnej liście."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "'%s' has blacklisted executable '%s'."
 msgstr "„%s” umieścił plik wykonywalny „%s” na czarnej liście."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:110
+#: ../plugins/desktop/src/desktop-tracker-query.vala:119
 #, c-format
 msgid "'%s' is blacklisted."
 msgstr "„%s” jest na czarnej liście."
@@ -235,7 +235,7 @@ msgstr "Plik nie ma nagłówka konsoli GameCube."
 msgid "This doesn't represent a valid LÖVE package: '%s'."
 msgstr "To nie jest prawidłowy pakiet LÖVE: „%s”."
 
-#: ../plugins/mame/src/mame-plugin.vala:25
+#: ../plugins/mame/src/mame-plugin.vala:26
 #, c-format
 msgid "Invalid MAME game id '%s' for '%s'."
 msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
@@ -265,22 +265,22 @@ msgstr "Nie odnaleziono nagłówka konsoli PlayStation w „%s”."
 msgid "The file doesn't have a Sega Saturn header."
 msgstr "Plik nie ma nagłówka konsoli Sega Saturn."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:38
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:40
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "Plik „%s” nie ma ścieżki."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:44
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:46
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:47
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:49
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
 msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla ścieżki %d."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:53
 #, c-format
 msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
@@ -352,31 +352,40 @@ msgstr "Ciąg mapowania nie może wynosić „null”."
 msgid "The mapping string can't be empty."
 msgstr "Ciąg mapowania nie może być pusty."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:39
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
 #, c-format
 msgid "Unable to open file '%s': %s"
 msgstr "Nie można otworzyć pliku „%s”: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:43
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
 #, c-format
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
 
-#: ../src/retro/retro-runner.vala:162
-#, c-format
-msgid "Couldn't run game: module '%s' not found."
-msgstr "Nie można uruchomić gry: nie odnaleziono modułu „%s”."
-
-#: ../src/retro/retro-runner.vala:179
+#: ../src/retro/retro-runner.vala:188
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Nieprawidłowy plik gry: „%s”."
 
-#: ../src/retro/retro-runner.vala:306
+#: ../src/retro/retro-runner.vala:198
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "Nie można uruchomić gry: nie odnaleziono modułu „%s”."
+
+#: ../src/retro/retro-runner.vala:205
+#, c-format
+msgid ""
+"Couldn't run game: module '%s' not found and no module found for MIME types "
+"%s."
+msgstr ""
+"Nie można uruchomić gry: nie odnaleziono modułu „%s” i modułu dla typów MIME "
+"%s."
+
+#: ../src/retro/retro-runner.vala:363
 msgid "Couldn't write snapshot."
 msgstr "Nie można zapisać migawki."
 
-#: ../src/retro/retro-runner.vala:333
+#: ../src/retro/retro-runner.vala:390
 msgid "Couldn't load snapshot."
 msgstr "Nie można wczytać migawki."
 
