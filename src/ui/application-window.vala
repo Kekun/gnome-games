@@ -210,11 +210,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			switch (response) {
 			case Gtk.ResponseType.CANCEL:
-				display_box.runner = null;
-				ui_state = UiState.COLLECTION;
-
-				return;
-			case Gtk.ResponseType.REJECT:
 				resume = false;
 
 				break;

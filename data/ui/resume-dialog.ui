@@ -35,16 +35,9 @@
         <property name="label" translatable="yes">Restart</property>
       </object>
     </child>
-    <child type="action">
-      <object class="GtkButton" id="button_cancel">
-        <property name="visible">True</property>
-        <property name="label" translatable="yes">Cancel</property>
-      </object>
-    </child>
     <action-widgets>
       <action-widget response="accept" default="true">button_resume</action-widget>
-      <action-widget response="reject">button_reset</action-widget>
-      <action-widget response="cancel">button_cancel</action-widget>
+      <action-widget response="cancel">button_reset</action-widget>
     </action-widgets>
   </template>
 </interface>
