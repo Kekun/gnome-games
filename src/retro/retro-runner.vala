@@ -384,7 +384,8 @@ public class Games.RetroRunner : Object, Runner {
 
 		var expected_size = core.serialize_size ();
 		if (data.length != expected_size)
-			warning ("Unexpected serialization data size: got %lu, expected %lu\n", data.length, expected_size);
+			/* Not translated as this is not presented to the user */
+			throw new RetroError.COULDNT_LOAD_SNAPSHOT ("[%s] Unexpected serialization data size: got %lu, expected %lu\n", core.file_name, data.length, expected_size);
 
 		if (!core.unserialize (data))
 			/* Not translated as this is not presented to the user */
