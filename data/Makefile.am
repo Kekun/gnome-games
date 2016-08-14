@@ -20,6 +20,7 @@ EXTRA_DIST = \
 	ui/quit-dialog.ui \
 	ui/remote-display.ui \
 	ui/resume-dialog.ui \
+	ui/resume-failed-dialog.ui \
 	$(NULL)
 
 CLEANFILES = \

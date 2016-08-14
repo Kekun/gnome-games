@@ -105,6 +105,7 @@ gnome_games_SOURCES = \
 	ui/quit-dialog.vala \
 	ui/remote-display.vala \
 	ui/resume-dialog.vala \
+	ui/resume-failed-dialog.vala \
 	ui/search-bar.vala \
 	ui/ui-state.vala \
 	\

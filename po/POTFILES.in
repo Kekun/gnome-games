@@ -12,6 +12,7 @@ data/org.gnome.Games.desktop.in
 [type: gettext/glade]data/ui/quit-dialog.ui
 [type: gettext/glade]data/ui/remote-display.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
+[type: gettext/glade]data/ui/resume-dialog-dialog.ui
 plugins/desktop/src/desktop-tracker-query.vala
 plugins/dreamcast/src/dreamcast-header.vala
 plugins/game-boy/src/game-boy-header.vala

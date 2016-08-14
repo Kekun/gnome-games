@@ -230,6 +230,32 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		catch (Error e) {
 			warning (@"$(e.message)\n");
 
+			var dialog = new ResumeFailedDialog ();
+			dialog.set_transient_for (this);
+
+			cancellable.cancelled.connect (() => {
+				dialog.destroy ();
+			});
+
+			var response = dialog.run ();
+			dialog.destroy ();
+
+			if (cancellable.is_cancelled ())
+				response = Gtk.ResponseType.CANCEL;
+
+			switch (response) {
+			case Gtk.ResponseType.CANCEL:
+				display_box.runner = null;
+				ui_state = UiState.COLLECTION;
+
+				return;
+			case Gtk.ResponseType.ACCEPT:
+			default:
+				runner.start ();
+
+				break;
+			}
+
 			return;
 		}
 	}
