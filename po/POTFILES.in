@@ -35,5 +35,6 @@ src/gamepad/gamepad-mapping.vala
 src/gamepad/linux/linux-raw-gamepad.vala
 src/retro/retro-runner.vala
 src/ui/application.vala
+src/ui/error-display.vala
 src/ui/preferences-page-plugins.vala
 src/utils/cue-sheet/cue-sheet.vala

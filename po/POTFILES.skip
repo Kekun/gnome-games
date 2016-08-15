@@ -22,5 +22,6 @@ src/gamepad/gamepad-mapping.c
 src/gamepad/linux/linux-raw-gamepad.c
 src/retro/retro-runner.c
 src/ui/application.c
+src/ui/error-display.c
 src/ui/preferences-page-plugins.c
 src/utils/cue-sheet/cue-sheet.c

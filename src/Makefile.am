@@ -95,6 +95,7 @@ gnome_games_SOURCES = \
 	ui/display-header-bar.vala \
 	ui/dummy-display.vala \
 	ui/empty-collection.vala \
+	ui/error-display.vala \
 	ui/error-info-bar.vala \
 	ui/game-icon-view.vala \
 	ui/game-thumbnail.vala \
