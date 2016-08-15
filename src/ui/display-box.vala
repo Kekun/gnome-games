@@ -15,6 +15,8 @@ private class Games.DisplayBox : Gtk.EventBox {
 	private Runner _runner;
 	public Runner runner {
 		set {
+			stack.visible_child = display_bin;
+
 			_runner = value;
 			remove_display ();
 
@@ -30,6 +32,12 @@ private class Games.DisplayBox : Gtk.EventBox {
 	[GtkChild]
 	private Gtk.Overlay overlay;
 	[GtkChild]
+	private Gtk.Stack stack;
+	[GtkChild]
+	private ErrorDisplay error_display;
+	[GtkChild]
+	private Gtk.EventBox display_bin;
+	[GtkChild]
 	private Gtk.Revealer fullscreen_header_bar_revealer;
 	[GtkChild]
 	private DisplayHeaderBar fullscreen_header_bar;
@@ -44,6 +52,11 @@ private class Games.DisplayBox : Gtk.EventBox {
 		fullscreen_binding = bind_property ("is-fullscreen", fullscreen_header_bar, "is-fullscreen",
 		                                 BindingFlags.BIDIRECTIONAL);
 		timeout_id = -1;
+	}
+
+	public void display_running_game_failed (Error e, Game game) {
+		stack.visible_child = error_display;
+		error_display.running_game_failed (game);
 	}
 
 	[GtkCallback]
@@ -104,13 +117,13 @@ private class Games.DisplayBox : Gtk.EventBox {
 
 	private void set_display (Gtk.Widget display) {
 		remove_display ();
-		overlay.add (display);
+		display_bin.add (display);
 		display.visible = true;
 	}
 
 	private void remove_display () {
-		var child = overlay.get_child ();
+		var child = display_bin.get_child ();
 		if (child != null)
-			overlay.remove (child);
+			display_bin.remove (child);
 	}
 }

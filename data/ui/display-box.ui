@@ -32,6 +32,30 @@
             </child>
           </object>
         </child>
+        <child>
+          <object class="GtkStack" id="stack">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GamesErrorDisplay" id="error_display">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="name">error</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEventBox" id="display_bin">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+              </object>
+              <packing>
+                <property name="name">display</property>
+              </packing>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
   </template>

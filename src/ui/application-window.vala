@@ -174,27 +174,29 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
-		Runner runner = null;
+		ui_state = UiState.DISPLAY;
+		display_header_bar.game_title = game.name;
+		display_box.header_bar.game_title = game.name;
+
 		try {
-			runner = get_runner_for_game (game);
+			display_box.runner = get_runner_for_game (game);
+			display_header_bar.can_fullscreen = display_box.runner.can_fullscreen;
+			display_box.header_bar.can_fullscreen = display_box.runner.can_fullscreen;
 		}
 		catch (Error e) {
-			warning ("%s\n", e.message);
-			collection_box.display_error (e.message);
+			display_box.runner = null;
+			display_header_bar.can_fullscreen = false;
+			display_box.header_bar.can_fullscreen = false;
+
+			warning (e.message);
+			display_box.display_running_game_failed (e, game);
 
 			return;
 		}
 
-		display_header_bar.game_title = game.name;
-		display_header_bar.can_fullscreen = runner.can_fullscreen;
-		display_box.header_bar.game_title = game.name;
-		display_box.header_bar.can_fullscreen = runner.can_fullscreen;
-		display_box.runner = runner;
-		ui_state = UiState.DISPLAY;
-
 		var resume = false;
 
-		if (runner.can_resume) {
+		if (display_box.runner.can_resume) {
 			var dialog = new ResumeDialog ();
 			dialog.set_transient_for (this);
 
@@ -223,9 +225,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		try {
 			if (resume)
-				runner.resume ();
+				display_box.runner.resume ();
 			else
-				runner.start ();
+				display_box.runner.start ();
 		}
 		catch (Error e) {
 			warning (@"$(e.message)\n");
@@ -251,7 +253,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				return;
 			case Gtk.ResponseType.ACCEPT:
 			default:
-				runner.start ();
+				display_box.runner.start ();
 
 				break;
 			}
