@@ -4,24 +4,6 @@ private extern const string VERSION;
 
 public class Games.Application : Gtk.Application {
 	private ListStore collection;
-
-	private Tracker.Sparql.Connection? _connection;
-	private Tracker.Sparql.Connection? connection {
-		get {
-			if (_connection != null)
-				return _connection;
-
-			try {
-				_connection = Tracker.Sparql.Connection.@get ();
-			}
-			catch (Error e) {
-				warning ("Error: %s\n", e.message);
-			}
-
-			return _connection;
-		}
-	}
-
 	private ApplicationWindow window;
 
 	internal Application () {
