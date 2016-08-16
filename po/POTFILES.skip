@@ -5,6 +5,7 @@ plugins/dreamcast/src/dreamcast-header.c
 plugins/game-boy/src/game-boy-header.c
 plugins/game-cube/src/game-cube-header.c
 plugins/love/src/love-package.c
+plugins/mame/src/mame-game-uri-adapter.c
 plugins/mame/src/mame-plugin.c
 plugins/master-system/src/master-system-header.c
 plugins/mega-drive/src/mega-drive-header.c

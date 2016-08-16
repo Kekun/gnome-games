@@ -12,12 +12,13 @@ data/org.gnome.Games.desktop.in
 [type: gettext/glade]data/ui/quit-dialog.ui
 [type: gettext/glade]data/ui/remote-display.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
-[type: gettext/glade]data/ui/resume-dialog-dialog.ui
+[type: gettext/glade]data/ui/resume-failed-dialog.ui
 plugins/desktop/src/desktop-tracker-query.vala
 plugins/dreamcast/src/dreamcast-header.vala
 plugins/game-boy/src/game-boy-header.vala
 plugins/game-cube/src/game-cube-header.vala
 plugins/love/src/love-package.vala
+plugins/mame/src/mame-game-uri-adapter.vala
 plugins/mame/src/mame-plugin.vala
 plugins/master-system/src/master-system-header.vala
 plugins/mega-drive/src/mega-drive-header.vala
