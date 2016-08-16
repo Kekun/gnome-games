@@ -7,7 +7,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 	private const bool SUPPORTS_SNAPSHOTTING = false;
 
 	public async Game game_for_uri (string uri) throws Error {
-		var supported_games = MameGameInfo.get_supported_games ();
+		var supported_games = yield MameGameInfo.get_supported_games ();
 
 		var file = File.new_for_uri (uri);
 		var game_id = file.get_basename ();
