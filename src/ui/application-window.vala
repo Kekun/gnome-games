@@ -178,91 +178,100 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
-		ui_state = UiState.DISPLAY;
 		display_header_bar.game_title = game.name;
 		display_box.header_bar.game_title = game.name;
+		ui_state = UiState.DISPLAY;
 
+		var runner = try_get_runner (game);
+		if (runner == null)
+			return;
+
+		display_header_bar.can_fullscreen = runner.can_fullscreen;
+		display_box.header_bar.can_fullscreen = runner.can_fullscreen;
+		display_box.runner = runner;
+
+		bool resume = false;
+		if (runner.can_resume)
+			resume = prompt_resume_with_cancellable (cancellable);
+
+		if (!try_run_with_cancellable (runner, resume, cancellable))
+			prompt_resume_fail_with_cancellable (runner, cancellable);
+	}
+
+	private Runner? try_get_runner (Game game) {
 		try {
-			display_box.runner = get_runner_for_game (game);
-			display_header_bar.can_fullscreen = display_box.runner.can_fullscreen;
-			display_box.header_bar.can_fullscreen = display_box.runner.can_fullscreen;
+			return get_runner_for_game (game);
 		}
 		catch (Error e) {
-			display_box.runner = null;
-			display_header_bar.can_fullscreen = false;
-			display_box.header_bar.can_fullscreen = false;
-
-			warning (e.message);
+			warning ("%s\n", e.message);
 			display_box.display_running_game_failed (e, game);
 
-			return;
+			return null;
 		}
+	}
 
-		var resume = false;
+	private bool prompt_resume_with_cancellable (Cancellable cancellable) {
+		var dialog = new ResumeDialog ();
+		dialog.set_transient_for (this);
 
-		if (display_box.runner.can_resume) {
-			var dialog = new ResumeDialog ();
-			dialog.set_transient_for (this);
-
-			cancellable.cancelled.connect (() => {
-				dialog.destroy ();
-			});
-
-			var response = dialog.run ();
+		cancellable.cancelled.connect (() => {
 			dialog.destroy ();
+		});
 
-			if (cancellable.is_cancelled ())
-				response = Gtk.ResponseType.CANCEL;
+		var response = dialog.run ();
+		dialog.destroy ();
 
-			switch (response) {
-			case Gtk.ResponseType.CANCEL:
-				resume = false;
+		if (cancellable.is_cancelled ())
+			response = Gtk.ResponseType.CANCEL;
 
-				break;
-			case Gtk.ResponseType.ACCEPT:
-			default:
-				resume = true;
+		if (response == Gtk.ResponseType.CANCEL)
+			return false;
 
-				break;
-			}
-		}
+		return true;
+	}
 
+	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
 		try {
 			if (resume)
 				display_box.runner.resume ();
 			else
-				display_box.runner.start ();
+				runner.start ();
+
+			return true;
 		}
 		catch (Error e) {
-			warning (@"$(e.message)\n");
+			warning (e.message);
 
-			var dialog = new ResumeFailedDialog ();
-			dialog.set_transient_for (this);
+			return false;
+		}
+	}
 
-			cancellable.cancelled.connect (() => {
-				dialog.destroy ();
-			});
+	private void prompt_resume_fail_with_cancellable (Runner runner, Cancellable cancellable) {
+		var dialog = new ResumeFailedDialog ();
+		dialog.set_transient_for (this);
 
-			var response = dialog.run ();
+		cancellable.cancelled.connect (() => {
 			dialog.destroy ();
+		});
 
-			if (cancellable.is_cancelled ())
-				response = Gtk.ResponseType.CANCEL;
+		var response = dialog.run ();
+		dialog.destroy ();
 
-			switch (response) {
-			case Gtk.ResponseType.CANCEL:
-				display_box.runner = null;
-				ui_state = UiState.COLLECTION;
+		if (cancellable.is_cancelled ())
+			response = Gtk.ResponseType.CANCEL;
 
-				return;
-			case Gtk.ResponseType.ACCEPT:
-			default:
-				display_box.runner.start ();
-
-				break;
-			}
+		if (response == Gtk.ResponseType.CANCEL) {
+			display_box.runner = null;
+			ui_state = UiState.COLLECTION;
 
 			return;
+		}
+
+		try {
+			runner.start ();
+		}
+		catch (Error e) {
+			warning (e.message);
 		}
 	}
 
