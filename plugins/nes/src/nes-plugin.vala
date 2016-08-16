@@ -7,7 +7,8 @@ private class Games.NesPlugin : Object, Plugin {
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
 	public GameSource get_game_source () throws Error {
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_for_uri);
+		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_uri_adapter);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (query);

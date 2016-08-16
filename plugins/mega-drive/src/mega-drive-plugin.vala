@@ -14,8 +14,9 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
 	public GameSource get_game_source () throws Error {
-		var mega_drive_query = new MimeTypeTrackerQuery (MEGA_DRIVE_MIME_TYPE, game_for_uri);
-		var 32x_query = new MimeTypeTrackerQuery (32X_MIME_TYPE, game_for_uri);
+		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var mega_drive_query = new MimeTypeTrackerQuery (MEGA_DRIVE_MIME_TYPE, game_uri_adapter);
+		var 32x_query = new MimeTypeTrackerQuery (32X_MIME_TYPE, game_uri_adapter);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (mega_drive_query);

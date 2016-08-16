@@ -1,17 +1,15 @@
 // This file is part of GNOME Games. License: GPLv3
 
 public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
-	public delegate Game GameForUri (string uri) throws Error;
-
 	private const uint HANDLED_URIS_PER_CYCLE = 5;
 
 	private string mime_type;
-	private GameForUri game_for_uri;
+	private GameUriAdapter game_for_uri;
 	private string[] uris;
 
-	public MimeTypeTrackerQuery (string mime_type, owned GameForUri game_for_uri) {
+	public MimeTypeTrackerQuery (string mime_type, GameUriAdapter game_for_uri) {
 		this.mime_type = mime_type;
-		this.game_for_uri = (owned) game_for_uri;
+		this.game_for_uri = game_for_uri;
 		this.uris = {};
 	}
 
@@ -51,7 +49,7 @@ public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 				continue;
 
 			try {
-				var game = game_for_uri (uri);
+				var game = yield game_for_uri.game_for_uri (uri);
 				game_callback (game);
 			}
 			catch (Error e) {
