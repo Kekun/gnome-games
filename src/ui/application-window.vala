@@ -80,6 +80,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private long focus_out_timeout_id;
 
+	private uint inhibit_cookie;
+
 	public ApplicationWindow (ListModel collection) {
 		collection_box.collection = collection;
 	}
@@ -96,6 +98,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                               BindingFlags.BIDIRECTIONAL);
 
 		focus_out_timeout_id = -1;
+		inhibit_cookie = 0;
 	}
 
 	public void run_game (Game game) {
@@ -112,6 +115,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		// Only reset the cancellable if another one didn't replace it.
 		if (run_game_cancellable == cancellable)
 			run_game_cancellable = null;
+
+		inhibit ();
 	}
 
 	public bool quit_game () {
@@ -165,6 +170,18 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		is_fullscreen = (bool) (event.new_window_state & Gdk.WindowState.FULLSCREEN);
 		update_pause (false);
 
+		if (!(bool) (event.changed_mask & Gdk.WindowState.FOCUSED))
+			return false;
+
+		var focused = (bool) (event.new_window_state & Gdk.WindowState.FOCUSED);
+		var playing = (ui_state == UiState.DISPLAY);
+
+		if (focused && playing)
+			inhibit ();
+
+		if (!focused)
+			uninhibit ();
+
 		return false;
 	}
 
@@ -177,6 +194,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private void on_display_back () {
 		if (quit_game ())
 			ui_state = UiState.COLLECTION;
+
+		uninhibit ();
 	}
 
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
@@ -420,5 +439,22 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 
 		return false;
+	}
+
+	private void inhibit () {
+		Gtk.ApplicationInhibitFlags flag = Gtk.ApplicationInhibitFlags.IDLE;
+
+		if (inhibit_cookie != 0)
+			return;
+
+		inhibit_cookie = application.inhibit (this, flag, _("Playing a game"));
+	}
+
+	private void uninhibit () {
+		if (inhibit_cookie == 0)
+			return;
+
+		application.uninhibit (inhibit_cookie);
+		inhibit_cookie = 0;
 	}
 }
