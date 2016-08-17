@@ -39,7 +39,7 @@
             <child>
               <object class="GamesErrorDisplay" id="error_display">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
+                <property name="can-focus">False</property>
               </object>
               <packing>
                 <property name="name">error</property>
@@ -48,7 +48,7 @@
             <child>
               <object class="GtkEventBox" id="display_bin">
                 <property name="visible">True</property>
-                <property name="can-focus">True</property>
+                <property name="can-focus">False</property>
               </object>
               <packing>
                 <property name="name">display</property>
