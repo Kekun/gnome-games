@@ -118,7 +118,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (run_game_cancellable == cancellable)
 			run_game_cancellable = null;
 
-		inhibit (Gtk.ApplicationInhibitFlags.IDLE);
+		inhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
 	}
 
 	public bool quit_game () {
@@ -197,7 +197,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (quit_game ())
 			ui_state = UiState.COLLECTION;
 
-		uninhibit (Gtk.ApplicationInhibitFlags.IDLE);
+		uninhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
 	}
 
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
