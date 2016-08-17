@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-03 18:28+0000\n"
-"PO-Revision-Date: 2016-08-04 23:46+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"POT-Creation-Date: 2016-08-17 06:27+0000\n"
+"PO-Revision-Date: 2016-08-17 17:24+0200\n"
+"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
@@ -158,7 +158,7 @@ msgstr "Az összes nem mentett folyamat el fog veszni."
 msgid "Quit"
 msgstr "Kilépés"
 
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -185,35 +185,43 @@ msgid "Resume"
 msgstr "Folytatás"
 
 #: ../data/ui/resume-dialog.ui.h:3
-msgid "Main Menu"
-msgstr "Főmenü"
+msgid "Restart"
+msgstr "Újraindítás"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:47
+#: ../data/ui/resume-failed-dialog.ui.h:1
+msgid "Resuming failed. Do you want to to restart the game?"
+msgstr "A folytatás sikertelen. Újraindítja a játékot?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:56
 #, c-format
 msgid "Invalid command '%s'."
 msgstr "Érvénytelen parancs: „%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:75
+#: ../plugins/desktop/src/desktop-tracker-query.vala:84
 #, c-format
 msgid "Tracker listed file not found: '%s'."
 msgstr "A követő által listázott fájl nem található: „%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:81
+#: ../plugins/desktop/src/desktop-tracker-query.vala:90
 #, c-format
 msgid "Couldn't parse desktop entry '%s'."
 msgstr "A(z) „%s” asztalbejegyzés nem dolgozható fel."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:94
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
 #, c-format
 msgid "'%s' has blacklisted category '%s'."
 msgstr "A(z) „%s” „%s” kategóriája feketelistán van."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "'%s' has blacklisted executable '%s'."
 msgstr "A(z) „%s” „%s” futtatható állománya feketelistán van."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:110
+#: ../plugins/desktop/src/desktop-tracker-query.vala:119
 #, c-format
 msgid "'%s' is blacklisted."
 msgstr "A(z) „%s” feketelistán van."
@@ -236,7 +244,7 @@ msgstr "A fájlnak nincs Game Cube fejléce."
 msgid "This doesn't represent a valid LÖVE package: '%s'."
 msgstr "Ez nem egy érvényes LÖVE csomagot képvisel: „%s”."
 
-#: ../plugins/mame/src/mame-plugin.vala:25
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
 #, c-format
 msgid "Invalid MAME game id '%s' for '%s'."
 msgstr "A(z) „%s” egy érvénytelen MAME játékazonosító ehhez: „%s”."
@@ -247,7 +255,6 @@ msgstr "A fájlnak nincs Master System fejléce."
 
 #: ../plugins/mega-drive/src/mega-drive-header.vala:61
 #: ../plugins/mega-drive/src/mega-drive-header.vala:77
-#| msgid "The file doesn't have a Mega Drive/Genesis/32X header."
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "A fájlnak nincs Genesis/Sega 32X/Sega CD/Sega Pico fejléce."
 
@@ -266,22 +273,22 @@ msgstr "A PlayStation fejléc nem található itt: „%s”."
 msgid "The file doesn't have a Sega Saturn header."
 msgstr "A fájlnak nincs Sega Saturn fejléce."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:38
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:41
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "A(z) „%s” fájlnak nincs sávja."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:44
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:47
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:47
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:50
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
 msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:54
 #, c-format
 msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
@@ -353,51 +360,65 @@ msgstr "A leképező karakterlánc nem lehet null."
 msgid "The mapping string can't be empty."
 msgstr "A leképező karakterlánc nem lehet üres."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:39
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
 #, c-format
 msgid "Unable to open file '%s': %s"
 msgstr "A(z) „%s” fájl nem nyitható meg: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:43
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
 #, c-format
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Az evdev nem tudja megnyitni a(z) „%s” fájlt: %s"
 
-#: ../src/retro/retro-runner.vala:162
-#, c-format
-msgid "Couldn't run game: module '%s' not found."
-msgstr "A játék nem futtatható: a(z) „%s” modul nem található."
-
-#: ../src/retro/retro-runner.vala:179
+#: ../src/retro/retro-runner.vala:188
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Érvénytelen játékfájl: „%s”."
 
-#: ../src/retro/retro-runner.vala:306
+#: ../src/retro/retro-runner.vala:198
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "A játék nem futtatható: a(z) „%s” modul nem található."
+
+#: ../src/retro/retro-runner.vala:205
+#, c-format
+msgid ""
+"Couldn't run game: module '%s' not found and no module found for MIME types "
+"%s."
+msgstr ""
+"A játék nem futtatható: a(z) „%s” modul nem található, és nem található "
+"modul a(z) %s MIME-típusokhoz."
+
+#: ../src/retro/retro-runner.vala:363
 msgid "Couldn't write snapshot."
 msgstr "A pillanatkép nem írható."
 
-#: ../src/retro/retro-runner.vala:333
-msgid "Couldn't load snapshot."
-msgstr "A pillanatkép nem tölthető be."
-
-#: ../src/ui/application.vala:167
+#: ../src/ui/application.vala:142
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: ../src/ui/application.vala:169
+#: ../src/ui/application.vala:144
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: ../src/ui/application.vala:173
+#: ../src/ui/application.vala:148
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: ../src/ui/application.vala:180
+#: ../src/ui/application.vala:155
 msgid "translator-credits"
 msgstr ""
 "Úr Balázs <urbalazs@gmail.com>\n"
 "Meskó Balázs <meskobalazs@gmail.com>"
+
+#: ../src/ui/error-display.vala:11
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Hoppá! A(z) „%s” nem futtatható"
+
+#: ../src/ui/error-display.vala:13
+msgid "Oops! Unable to run the game"
+msgstr "Hoppá! A játék nem futtatható"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -450,3 +471,8 @@ msgstr "%s:%lu: Váratlan sorvég, egy token várt."
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Váratlan %s token, sorvég várt."
 
+#~ msgid "Main Menu"
+#~ msgstr "Főmenü"
+
+#~ msgid "Couldn't load snapshot."
+#~ msgstr "A pillanatkép nem tölthető be."
