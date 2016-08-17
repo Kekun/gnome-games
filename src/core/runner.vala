@@ -12,4 +12,5 @@ public interface Games.Runner : Object {
 	public abstract void start () throws Error;
 	public abstract void resume () throws Error;
 	public abstract void pause ();
+	public abstract void stop ();
 }

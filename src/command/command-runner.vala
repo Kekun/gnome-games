@@ -75,6 +75,9 @@ public class Games.CommandRunner : Object, Runner {
 	public void pause () {
 	}
 
+	public void stop () {
+	}
+
 	private void on_process_stopped () {
 		running = false;
 		stopped ();

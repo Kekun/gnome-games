@@ -28,4 +28,7 @@ private class Games.DummyRunner : Object, Runner {
 
 	public void pause () {
 	}
+
+	public void stop () {
+	}
 }
