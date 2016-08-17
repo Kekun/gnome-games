@@ -168,6 +168,25 @@ public class Games.RetroRunner : Object, Runner {
 		is_initialized = true;
 	}
 
+	private void deinit () {
+		if (!is_initialized)
+			return;
+
+		core = null;
+		video = null;
+		audio = null;
+		widget = null;
+		input_manager = null;
+		options = null;
+		log = null;
+		loop = null;
+
+		_running = false;
+		is_initialized = false;
+		is_ready = false;
+		should_save = false;
+	}
+
 	private void prepare_core (string module_basename, string uri) throws Error {
 		var module_path = get_module_path ();
 		core = new Retro.Core (module_path);
@@ -284,6 +303,16 @@ public class Games.RetroRunner : Object, Runner {
 		catch (Error e) {
 			warning (e.message);
 		}
+	}
+
+	public void stop () {
+		if (!is_initialized)
+			return;
+
+		pause ();
+		deinit ();
+
+		stopped ();
 	}
 
 	private void save () throws Error {
@@ -430,8 +459,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private bool on_shutdown () {
-		pause ();
-		stopped ();
+		stop ();
 
 		return true;
 	}
