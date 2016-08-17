@@ -73,12 +73,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Binding header_bar_search_binding;
 	private Binding header_bar_fullscreen_binding;
 
-	private HashTable<Game, Runner> runners;
-
-	// These allow to cancel dialogs.
-	// They are usefull when trying to run a game or to quit the
-	// application from an external source (the application menu, the
-	// command line...).
 	private Cancellable run_game_cancellable;
 	private Cancellable quit_game_cancellable;
 
@@ -87,8 +81,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	construct {
-		runners = new HashTable<Game, Runner> (GLib.direct_hash, GLib.direct_equal);
-
 		box_search_binding = bind_property ("search-mode", collection_box, "search-mode",
 		                                    BindingFlags.BIDIRECTIONAL);
 		header_bar_search_binding = bind_property ("search-mode", collection_header_bar, "search-mode",
@@ -200,7 +192,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private Runner? try_get_runner (Game game) {
 		try {
-			return get_runner_for_game (game);
+			var runner = game.get_runner ();
+			runner.check_is_valid ();
+
+			return runner;
 		}
 		catch (Error e) {
 			warning ("%s\n", e.message);
@@ -313,25 +308,5 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			}
 
 		return false;
-	}
-
-	private Runner get_runner_for_game (Game game) throws Error {
-		if (runners.contains (game))
-			return runners[game];
-
-		var runner = game.get_runner ();
-		runner.check_is_valid ();
-		runners[game] = runner;
-
-		runner.stopped.connect (remove_runner);
-
-		return runner;
-	}
-
-	private void remove_runner (Runner runner) {
-		foreach (var game in runners.get_keys ()) {
-			if (runners[game] == runner)
-				runners.remove (game);
-		}
 	}
 }
