@@ -28,23 +28,6 @@ private class Games.CollectionBox : Gtk.Box {
 		                                BindingFlags.BIDIRECTIONAL);
 	}
 
-	public void display_error (string message) {
-		var error = new ErrorInfoBar ();
-		error.message = message;
-		info_box.pack_start (error, false, false);
-
-		error.response.connect (on_info_bar_response);
-		error.close.connect (on_info_bar_close);
-	}
-
-	private void on_info_bar_response (Gtk.InfoBar info_bar, int response_id) {
-		info_box.remove (info_bar);
-	}
-
-	private void on_info_bar_close (Gtk.InfoBar info_bar) {
-		info_box.remove (info_bar);
-	}
-
 	[GtkCallback]
 	private void on_game_activated (Game game) {
 		game_activated (game);
