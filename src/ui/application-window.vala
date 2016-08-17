@@ -75,6 +75,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private HashTable<Game, Runner> runners;
 
+	// These allow to cancel dialogs.
+	// They are usefull when trying to run a game or to quit the
+	// application from an external source (the application menu, the
+	// command line...).
 	private Cancellable run_game_cancellable;
 	private Cancellable quit_game_cancellable;
 
