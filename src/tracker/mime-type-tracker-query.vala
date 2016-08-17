@@ -25,13 +25,8 @@ public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 
 	public bool is_uri_valid (string uri) {
 		File file = File.new_for_uri(uri);
-		try {
-			return file.query_exists ();
-		} catch (Error e) {
-			debug (e.message);
-		}
 
-		return false;
+		return file.query_exists ();
 	}
 
 	public void process_cursor (Tracker.Sparql.Cursor cursor) {

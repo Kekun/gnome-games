@@ -320,7 +320,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return;
 
 		if (has_toplevel_focus)
-			display_box.runner.resume ();
+			try {
+				display_box.runner.resume ();
+			}
+			catch (Error e) {
+				warning (e.message);
+			}
 		else
 			display_box.runner.pause ();
 	}
