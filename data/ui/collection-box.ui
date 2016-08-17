@@ -21,18 +21,9 @@
       </packing>
     </child>
     <child>
-      <object class="GtkOverlay" id="overlay">
+      <object class="GamesCollectionIconView" id="icon_view">
         <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <child>
-          <object class="GamesCollectionIconView" id="icon_view">
-            <property name="visible">True</property>
-            <signal name="game-activated" handler="on_game_activated"/>
-          </object>
-          <packing>
-            <property name="name">icon-view</property>
-          </packing>
-        </child>
+        <signal name="game-activated" handler="on_game_activated"/>
       </object>
       <packing>
         <property name="expand">True</property>
