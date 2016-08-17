@@ -18,7 +18,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				is_fullscreen = false;
 
 				if (display_box.runner != null) {
-					display_box.runner.pause ();
+					display_box.runner.stop ();
 					display_box.runner = null;
 				}
 
