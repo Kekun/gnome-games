@@ -10,8 +10,6 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkChild]
 	private SearchBar search_bar;
 	[GtkChild]
-	private Gtk.Box info_box;
-	[GtkChild]
 	private CollectionIconView icon_view;
 
 	private Binding collection_binding;

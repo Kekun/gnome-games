@@ -24,16 +24,6 @@
       <object class="GtkOverlay" id="overlay">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <child type="overlay">
-          <object class="GtkBox" id="info_box">
-            <property name="visible">True</property>
-            <property name="halign">center</property>
-            <property name="valign">start</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">False</property>
-            <property name="orientation">vertical</property>
-          </object>
-        </child>
         <child>
           <object class="GamesCollectionIconView" id="icon_view">
             <property name="visible">True</property>
