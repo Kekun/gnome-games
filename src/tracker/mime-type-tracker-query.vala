@@ -26,9 +26,7 @@ public class Games.MimeTypeTrackerQuery : Object, TrackerQuery {
 	public bool is_uri_valid (string uri) {
 		File file = File.new_for_uri(uri);
 		try {
-			var info =  file.query_info ("*", FileQueryInfoFlags.NONE);
-
-			return info.get_content_type () == mime_type;
+			return file.query_exists ();
 		} catch (Error e) {
 			debug (e.message);
 		}
