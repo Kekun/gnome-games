@@ -155,6 +155,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool on_window_state_event (Gdk.EventWindowState event) {
 		is_fullscreen = (bool) (event.new_window_state & Gdk.WindowState.FULLSCREEN);
 
+		update_toplevel_focus ();
+
 		return false;
 	}
 
@@ -308,5 +310,18 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			}
 
 		return false;
+	}
+
+	private void update_toplevel_focus () {
+		if (ui_state != UiState.DISPLAY)
+			return;
+
+		if (display_box.runner == null)
+			return;
+
+		if (has_toplevel_focus)
+			display_box.runner.resume ();
+		else
+			display_box.runner.pause ();
 	}
 }
