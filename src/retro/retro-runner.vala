@@ -28,6 +28,11 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
+	private MediaSet _media_set;
+	public MediaSet? media_set {
+		get { return _media_set; }
+	}
+
 	private Retro.Core core;
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;

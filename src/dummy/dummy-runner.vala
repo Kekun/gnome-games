@@ -13,6 +13,10 @@ private class Games.DummyRunner : Object, Runner {
 		get { return false; }
 	}
 
+	public MediaSet? media_set {
+		get { return null; }
+	}
+
 	public void check_is_valid () throws Error {
 	}
 

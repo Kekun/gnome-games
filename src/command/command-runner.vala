@@ -13,6 +13,10 @@ public class Games.CommandRunner : Object, Runner {
 		get { return false; }
 	}
 
+	public MediaSet? media_set {
+		get { return null; }
+	}
+
 	private string[] args;
 	private bool watch_child;
 
