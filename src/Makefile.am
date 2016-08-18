@@ -42,6 +42,8 @@ gnome_games_SOURCES = \
 	core/game-uri-adapter.vala \
 	core/icon.vala \
 	core/media.vala \
+	core/media-set/media-set.vala \
+	core/media-set/media-set-error.vala \
 	core/plugin.vala \
 	core/plugin-register.vala \
 	core/plugin-registrar.vala \
