@@ -9,6 +9,7 @@ plugins/mame/src/mame-game-uri-adapter.c
 plugins/mame/src/mame-plugin.c
 plugins/master-system/src/master-system-header.c
 plugins/mega-drive/src/mega-drive-header.c
+plugins/mega-drive/src/mega-drive-plugin.c
 plugins/playstation/src/playstation-header.c
 plugins/sega-saturn/src/sega-saturn-header.c
 plugins/sega-saturn/src/sega-saturn-plugin.c
