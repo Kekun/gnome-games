@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.16"/>
+  <template class="GamesMediaSelector" parent="GtkPopover">
+    <child>
+      <object class="GtkListBox" id="list_box">
+        <property name="margin-top">12</property>
+        <property name="margin-bottom">12</property>
+        <property name="margin-start">21</property>
+        <property name="margin-end">21</property>
+        <signal name="row-selected" after="yes" handler="on_row_selected"/>
+        <child>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
