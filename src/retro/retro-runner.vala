@@ -106,6 +106,8 @@ public class Games.RetroRunner : Object, Runner {
 		this.module_basename = module_basename;
 		this.uid = uid;
 		this.core_supports_snapshotting = core_supports_snapshotting;
+
+		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
 
 	~RetroRunner () {
@@ -337,6 +339,27 @@ public class Games.RetroRunner : Object, Runner {
 		deinit ();
 
 		stopped ();
+	}
+
+	private void on_media_number_changed () {
+		if (!is_initialized)
+			return;
+
+		var media_number = media_set.selected_media_number;
+
+		Media media = null;
+		try {
+			media = media_set.get_selected_media (media_number);
+		}
+		catch (Error e) {
+			warning (e.message);
+
+			return;
+		}
+
+		var uri = media.uri;
+
+		try_load_game (core, uri);
 	}
 
 	private void save () throws Error {
