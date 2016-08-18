@@ -126,6 +126,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void check_is_valid () throws Error {
+		load_media_data ();
 		init ();
 	}
 
@@ -134,6 +135,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws Error {
+		load_media_data ();
+
 		if (!is_initialized)
 			init();
 
@@ -360,6 +363,13 @@ public class Games.RetroRunner : Object, Runner {
 		var uri = media.uri;
 
 		try_load_game (core, uri);
+
+		try {
+			save_media_data ();
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
 	}
 
 	private void save () throws Error {
@@ -367,6 +377,9 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		save_ram ();
+
+		if (media_set.get_size () > 1)
+			save_media_data ();
 
 		if (!core_supports_snapshotting)
 			return;
@@ -466,6 +479,37 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core.unserialize (data))
 			/* Not translated as this is not presented to the user */
 			throw new RetroError.COULDNT_LOAD_SNAPSHOT ("Could not load snapshot");
+	}
+
+	private void save_media_data () throws Error {
+		var dir = Application.get_medias_dir ();
+		try_make_dir (dir);
+
+		var medias_path = get_medias_path ();
+
+		string contents = media_set.selected_media_number.to_string();
+
+		FileUtils.set_contents (medias_path, contents, contents.length);
+	}
+
+	private void load_media_data () throws Error {
+		var medias_path = get_medias_path ();
+
+		if (!FileUtils.test (medias_path, FileTest.EXISTS))
+			return;
+
+		string contents;
+		FileUtils.get_contents (medias_path, out contents);
+
+		int disc_num = int.parse(contents);
+		media_set.selected_media_number = disc_num;
+	}
+
+	private string get_medias_path () throws Error {
+		var dir = Application.get_medias_dir ();
+		var uid = uid.get_uid ();
+
+		return @"$dir/$uid.media";
 	}
 
 	private string get_screenshot_path () throws Error {

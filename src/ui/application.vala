@@ -87,6 +87,12 @@ public class Games.Application : Gtk.Application {
 		}
 	}
 
+	public static string get_medias_dir () {
+		var data_dir = get_data_dir ();
+
+		return @"$data_dir/medias";
+	}
+
 	protected override void activate () {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
