@@ -7,7 +7,8 @@ private class Games.DreamcastPlugin : Object, Plugin {
 
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_uri_adapter);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (query);

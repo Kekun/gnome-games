@@ -20,9 +20,11 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
-		var mega_drive_query = new MimeTypeTrackerQuery (MEGA_DRIVE_MIME_TYPE, game_uri_adapter);
-		var 32x_query = new MimeTypeTrackerQuery (32X_MIME_TYPE, game_uri_adapter);
-		var mega_cd_query = new MimeTypeTrackerQuery (CUE_MIME_TYPE, cd_game_uri_adapter);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		var mega_cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
+		var mega_drive_query = new MimeTypeTrackerQuery (MEGA_DRIVE_MIME_TYPE, factory);
+		var 32x_query = new MimeTypeTrackerQuery (32X_MIME_TYPE, factory);
+		var mega_cd_query = new MimeTypeTrackerQuery (CUE_MIME_TYPE, mega_cd_factory);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (mega_drive_query);

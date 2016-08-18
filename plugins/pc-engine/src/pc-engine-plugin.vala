@@ -14,8 +14,10 @@ private class Games.PcEnginePlugin : Object, Plugin {
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, game_uri_adapter);
-		var cd_query = new MimeTypeTrackerQuery (CUE_MIME_TYPE, cd_game_uri_adapter);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		var cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
+		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);
+		var cd_query = new MimeTypeTrackerQuery (CUE_MIME_TYPE, cd_factory);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (query);

@@ -5,7 +5,8 @@ private class Games.MamePlugin : Object, Plugin {
 
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new MameGameUriAdapter ();
-		var query = new MimeTypeTrackerQuery (SEARCHED_MIME_TYPE, game_uri_adapter);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		var query = new MimeTypeTrackerQuery (SEARCHED_MIME_TYPE, factory);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
 		source.add_query (query);
