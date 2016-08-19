@@ -60,6 +60,7 @@ gnome_games_SOURCES = \
 	\
 	gameinfo/gameinfo-doc.vala \
 	gameinfo/gameinfo-error.vala \
+	gameinfo/gameinfo-disc-id-game-title.vala \
 	\
 	gamepad/gamepad.vala \
 	gamepad/gamepad-callbacks.vala \
