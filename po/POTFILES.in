@@ -7,6 +7,7 @@ data/org.gnome.Games.desktop.in
 [type: gettext/glade]data/ui/display-header-bar.ui
 [type: gettext/glade]data/ui/dummy-display.ui
 [type: gettext/glade]data/ui/empty-collection.ui
+[type: gettext/glade]data/ui/media-menu-button.ui
 [type: gettext/glade]data/ui/preferences-page-plugins.ui
 [type: gettext/glade]data/ui/preferences-window.ui
 [type: gettext/glade]data/ui/quit-dialog.ui
@@ -23,6 +24,7 @@ plugins/mame/src/mame-plugin.vala
 plugins/master-system/src/master-system-header.vala
 plugins/mega-drive/src/mega-drive-header.vala
 plugins/mega-drive/src/mega-drive-plugin.vala
+plugins/playstation/src/playstation-game-factory.vala
 plugins/playstation/src/playstation-header.vala
 plugins/sega-saturn/src/sega-saturn-header.vala
 plugins/sega-saturn/src/sega-saturn-plugin.vala
@@ -31,12 +33,15 @@ plugins/steam/src/steam-registry.vala
 plugins/steam/src/steam-title.vala
 plugins/wii/src/wii-header.vala
 src/command/command-runner.vala
+src/core/media-set/media-set.vala
 src/core/plugin-registrar.vala
 src/gameinfo/gameinfo-disc-id-disc-title.vala
+src/gameinfo/gameinfo-doc.vala
 src/gamepad/gamepad-mapping.vala
 src/gamepad/linux/linux-raw-gamepad.vala
 src/retro/retro-runner.vala
 src/ui/application.vala
 src/ui/error-display.vala
+src/ui/media-selector.vala
 src/ui/preferences-page-plugins.vala
 src/utils/cue-sheet/cue-sheet.vala

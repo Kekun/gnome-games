@@ -10,6 +10,7 @@ plugins/mame/src/mame-plugin.c
 plugins/master-system/src/master-system-header.c
 plugins/mega-drive/src/mega-drive-header.c
 plugins/mega-drive/src/mega-drive-plugin.c
+plugins/playstation/src/playstation-game-factory.c
 plugins/playstation/src/playstation-header.c
 plugins/sega-saturn/src/sega-saturn-header.c
 plugins/sega-saturn/src/sega-saturn-plugin.c
@@ -18,12 +19,15 @@ plugins/steam/src/steam-registry.c
 plugins/steam/src/steam-title.c
 plugins/wii/src/wii-header.c
 src/command/command-runner.c
+src/core/media-set/media-set.c
 src/core/plugin-registrar.c
 src/gameinfo/gameinfo-disc-id-disc-title.c
+src/gameinfo/gameinfo-doc.c
 src/gamepad/gamepad-mapping.c
 src/gamepad/linux/linux-raw-gamepad.c
 src/retro/retro-runner.c
 src/ui/application.c
 src/ui/error-display.c
+src/ui/media-selector.c
 src/ui/preferences-page-plugins.c
 src/utils/cue-sheet/cue-sheet.c
