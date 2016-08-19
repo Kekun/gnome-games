@@ -10,6 +10,7 @@
     <signal name="delete-event" after="yes" handler="on_delete_event"/>
     <signal name="key-press-event" after="yes" handler="on_key_pressed"/>
     <signal name="window-state-event" after="yes" handler="on_window_state_event"/>
+    <signal name="notify::has-toplevel-focus" after="yes" handler="on_toplevel_focus"/>
     <child>
       <object class="GtkStack" id="content_box">
         <property name="visible">True</property>
