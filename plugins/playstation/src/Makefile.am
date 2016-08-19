@@ -29,6 +29,7 @@ libgames_playstation_plugin_la_DEPENDENCIES = \
 libgames_playstation_plugin_la_SOURCES = \
 	$(BUILT_SOURCES) \
 	playstation-error.vala \
+	playstation-game-factory.vala \
 	playstation-header.vala \
 	playstation-plugin.vala \
 	playstation-uid.vala \
