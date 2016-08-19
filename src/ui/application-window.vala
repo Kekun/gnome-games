@@ -181,6 +181,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		display_header_bar.can_fullscreen = runner.can_fullscreen;
 		display_box.header_bar.can_fullscreen = runner.can_fullscreen;
 		display_box.runner = runner;
+		display_header_bar.media_set = runner.media_set;
+		display_box.header_bar.media_set = runner.media_set;
 
 		bool resume = false;
 		if (runner.can_resume)
