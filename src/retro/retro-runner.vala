@@ -49,7 +49,6 @@ public class Games.RetroRunner : Object, Runner {
 
 	private string module_basename;
 	private string[] mime_types;
-	private string uri;
 	private Uid uid;
 	private bool core_supports_snapshotting;
 
@@ -75,8 +74,10 @@ public class Games.RetroRunner : Object, Runner {
 		is_ready = false;
 		should_save = false;
 
+		var game_media = new Media (uri);
+		_media_set = new MediaSet ({ game_media });
+
 		this.module_basename = module_basename;
-		this.uri = uri;
 		this.uid = uid;
 		this.core_supports_snapshotting = core_supports_snapshotting;
 	}
@@ -86,9 +87,23 @@ public class Games.RetroRunner : Object, Runner {
 		is_ready = false;
 		should_save = false;
 
+		var game_media = new Media (uri);
+		_media_set = new MediaSet ({ game_media });
+
 		this.mime_types = mime_types;
 		this.module_basename = module_basename;
-		this.uri = uri;
+		this.uid = uid;
+		this.core_supports_snapshotting = core_supports_snapshotting;
+	}
+
+	public RetroRunner.for_media_set (MediaSet media_set, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
+		is_initialized = false;
+		is_ready = false;
+		should_save = false;
+
+		this._media_set = media_set;
+		this.mime_types = mime_types;
+		this.module_basename = module_basename;
 		this.uid = uid;
 		this.core_supports_snapshotting = core_supports_snapshotting;
 	}
@@ -159,6 +174,10 @@ public class Games.RetroRunner : Object, Runner {
 		widget.add (video);
 		video.visible = true;
 		input_manager = new RetroInputManager (widget);
+
+		var media_number = media_set.selected_media_number;
+		var media = media_set.get_selected_media (media_number);
+		var uri = media.uri;
 
 		prepare_core (module_basename, uri);
 		core.shutdown.connect (on_shutdown);
