@@ -85,7 +85,7 @@ public class Games.RetroRunner : Object, Runner {
 		this.input_capabilities = null;
 	}
 
-	public RetroRunner.for_media_set (MediaSet media_set, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
+	public RetroRunner.for_media_set_and_input_capabilities (MediaSet media_set, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting, InputCapabilities input_capabilities) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
@@ -95,7 +95,7 @@ public class Games.RetroRunner : Object, Runner {
 		this.module_basename = module_basename;
 		this.uid = uid;
 		this.core_supports_snapshotting = core_supports_snapshotting;
-		this.input_capabilities = null;
+		this.input_capabilities = input_capabilities;
 
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
