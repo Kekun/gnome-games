@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.RetroInputManager : RetroGtk.InputDeviceManager {
+private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumble {
 	private RetroGtk.VirtualGamepad keyboard;
 	private GamepadMonitor gamepad_monitor;
 	private bool[] is_port_plugged;
@@ -70,5 +70,17 @@ private class Games.RetroInputManager : RetroGtk.InputDeviceManager {
 			gamepads[port] = null;
 			remove_controller_device (port);
 		}
+	}
+
+	private bool set_rumble_state (uint port, Retro.RumbleEffect effect, uint16 strength) {
+		if (port > gamepads.length)
+			return false;
+
+		if (gamepads[port] == null)
+			return false;
+
+		// TODO Transmit the rumble signal to the gamepad.
+
+		return false;
 	}
 }
