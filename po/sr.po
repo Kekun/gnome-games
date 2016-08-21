@@ -1,7 +1,6 @@
 # Serbian translation for gnome-games.
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
-#
 # Translators:
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016.
 msgid ""
@@ -9,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-25 12:53+0000\n"
-"PO-Revision-Date: 2016-03-26 06:25+0200\n"
+"POT-Creation-Date: 2016-08-19 21:22+0000\n"
+"PO-Revision-Date: 2016-08-21 20:05+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <gnom@prevod.org>\n"
+"Language-Team: Serbian <gnome@prevod.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +21,8 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
 msgid "Games"
 msgstr "Игре"
 
@@ -94,6 +94,22 @@ msgstr "_О програму"
 msgid "_Quit"
 msgstr "_Изађи"
 
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Потражи"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Назад"
+
+#: ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Преко целог екрана"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "Врати"
+
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
 msgstr "<b><span size=\"large\">Ово је макетни приказ игре</span></b>"
@@ -117,13 +133,9 @@ msgstr ""
 "Инсталирајте игре или додајте директоријуме који садрже игре у извориштима "
 "претраге."
 
-#: ../data/ui/header-bar.ui.h:2
-msgid "Search"
-msgstr "Потражи"
-
-#: ../data/ui/header-bar.ui.h:3
-msgid "Back"
-msgstr "Назад"
+#: ../data/ui/media-menu-button.ui.h:1
+msgid "Media"
+msgstr "Медиј"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
@@ -147,11 +159,10 @@ msgid "All unsaved progress will be lost."
 msgstr "Све што сте до сада урадили биће изгубљено."
 
 #: ../data/ui/quit-dialog.ui.h:3
-#| msgid "_Quit"
 msgid "Quit"
 msgstr "Изађи"
 
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
 msgid "Cancel"
 msgstr "Откажи"
 
@@ -176,24 +187,335 @@ msgid "Resume"
 msgstr "Настави"
 
 #: ../data/ui/resume-dialog.ui.h:3
-msgid "Main Menu"
-msgstr "Главни изборник"
+msgid "Restart"
+msgstr "Поново покрени"
 
-#: ../src/ui/application.vala:138
+#: ../data/ui/resume-failed-dialog.ui.h:1
+msgid "Resuming failed. Do you want to to restart the game?"
+msgstr "Настављање није успело. Да ли желите поново да покренете игру?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Reset"
+msgstr "Врати"
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#, c-format
+msgid "Invalid command '%s'."
+msgstr "Неисправна наредба „%s“."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#, c-format
+msgid "Tracker listed file not found: '%s'."
+msgstr "Нисам нашао датотеку коју је излистао пратилац: „%s“."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#, c-format
+msgid "Couldn't parse desktop entry '%s'."
+msgstr "Не могу да обрадим унос радне површи „%s“."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "'%s' has blacklisted category '%s'."
+msgstr "„%s“ садржи категорију „%s“ која је на списку забрана."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#, c-format
+msgid "'%s' has blacklisted executable '%s'."
+msgstr "„%s“ садржи извршну „%s“ која је на списку забрана."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#, c-format
+msgid "'%s' is blacklisted."
+msgstr "„%s“ је на списку забрана."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn't have a Dreamcast header."
+msgstr "Датотека не садржи „Dreamcast“ заглавље."
+
+#: ../plugins/game-boy/src/game-boy-header.vala:97
+msgid "The file doesn't have a Game Boy header."
+msgstr "Датотека не садржи „Game Boy“ заглавље."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn't have a Game Cube header."
+msgstr "Датотека не садржи „Game Cube“ заглавље."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgstr "Ово не представља исправан „LÖVE“: „%s“."
+
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
+#, c-format
+msgid "Invalid MAME game id '%s' for '%s'."
+msgstr "Неисправан иб МАМЕ игре „%s“ за „%s“."
+
+#: ../plugins/master-system/src/master-system-header.vala:69
+msgid "The file doesn't have a Master System header."
+msgstr "Датотека не садржи „Master System“ заглавље."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:63
+#: ../plugins/mega-drive/src/mega-drive-header.vala:79
+msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "Датотека не садржи „Genesis/Sega 32X/Sega CD/Sega Pico“ заглавље."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:104
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#, c-format
+msgid "The file '%s' doesn't have a track."
+msgstr "Датотека „%s“ не садржи стазу."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:110
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#, c-format
+msgid "The file '%s' doesn't have a valid binary file format."
+msgstr "Датотека „%s“ не садржи исправан запис бинарне датотеке."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:113
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgstr "Датотека „%s“ не садржи исправан режим стазе за %d. стазу."
+
+#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#, c-format
+msgid "Disc with disc_id %s is unknown"
+msgstr "Диск са иб-ом диска „%s“ није познат"
+
+#: ../plugins/playstation/src/playstation-header.vala:36
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgstr "Неисправно заглавље за „PlayStation“: нисам нашао ИБ диска у „%s“."
+
+#: ../plugins/playstation/src/playstation-header.vala:46
+#, c-format
+msgid "PlayStation header not found in '%s'."
+msgstr "Нисам нашао „PlayStation“ заглавље у „%s“."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn't have a Sega Saturn header."
+msgstr "Датотека не садржи „Sega Saturn“ заглавље."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#, c-format
+msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgstr "Датотека „%s“ не садржи исправну бинарну „Sega Saturn“ датотеку."
+
+#: ../plugins/steam/src/steam-game-source.vala:90
+#, c-format
+msgid "Couldn't get Steam appid from manifest '%s'."
+msgstr "Не могу да добавим апиб „Steam“ из прогласа „%s“."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File '%s' doesn't exist."
+msgstr "Датотека „%s“ не постоји."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Неочекивани симбол {."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Неочекивани крај симбола."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Неочекивани симбол }."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn't get name from Steam registry."
+msgstr "Не могу да добавим назив из регистра Стима."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Неисправна величина „Wii“ заглавља: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn't have a Wii header."
+msgstr "Датотека не садржи „Wii“ заглавље."
+
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "Не могу да прочитам датотеку: %s"
+
+#: ../src/command/command-runner.vala:30
+msgid "Invalid command: it doesn't have any argument."
+msgstr "Неисправна наредба: не садржи ни један аргумент."
+
+#: ../src/command/command-runner.vala:59
+#, c-format
+msgid "Couldn't run '%s': execution failed."
+msgstr "Не могу да покренем „%s“: извршавање није успело."
+
+#: ../src/core/media-set/media-set.vala:31
+#, c-format
+msgid "Invalid media index %u."
+msgstr "Неисправан индекс медија %u."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Неисправан описник прикључка: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn't create a new instance of plugin in '%s'."
+msgstr "Не могу да створим нови примерак прикључка у „%s“."
+
+#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "Диск %d"
+
+#: ../src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID '%s'."
+msgstr "Нисам нашао наслов игре за ИБ диска „%s“."
+
+#: ../src/gameinfo/gameinfo-doc.vala:25
+#, c-format
+msgid "No disc title found for disc ID '%s'."
+msgstr "Нисам нашао наслов диска за ИБ диска „%s“."
+
+#: ../src/gameinfo/gameinfo-doc.vala:35
+#, c-format
+msgid "No disc set ID found for disc ID '%s'."
+msgstr "Нисам нашао ИБ скупа диска за ИБ диска „%s“."
+
+#: ../src/gameinfo/gameinfo-doc.vala:43 ../src/gameinfo/gameinfo-doc.vala:53
+#, c-format
+msgid "No disc found for disc ID '%s'."
+msgstr "Нисам нашао диск за ИБ диска „%s“."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can't be null."
+msgstr "Ниска мапирања не може бити ништавна."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can't be empty."
+msgstr "Ниска мапирања не може бити празна."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#, c-format
+msgid "Unable to open file '%s': %s"
+msgstr "Не могу да отворим датотеку „%s“: %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#, c-format
+msgid "Evdev is unable to open '%s': %s"
+msgstr "Евдев не може да отвори „%s“: %s"
+
+#: ../src/retro/retro-runner.vala:236
+#, c-format
+msgid "Invalid game file: '%s'."
+msgstr "Неисправна датотека игре: „%s“."
+
+#: ../src/retro/retro-runner.vala:246
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "Не могу да покренем игру: нисам нашао модул „%s“."
+
+#: ../src/retro/retro-runner.vala:253
+#, c-format
+msgid ""
+"Couldn't run game: module '%s' not found and no module found for MIME types "
+"%s."
+msgstr ""
+"Не могу да покренем игру: нисам нашао модул „%s“ и нисам нашао ниједан модул "
+"за МИМЕ врсте „%s“."
+
+#: ../src/retro/retro-runner.vala:452
+msgid "Couldn't write snapshot."
+msgstr "Не могу да запишем снимак."
+
+#: ../src/ui/application.vala:148
 msgid "GNOME Games"
 msgstr "Гномове игре"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:150
 msgid "A video game player for GNOME"
 msgstr "Програм за играње видео игара за Гном"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:154
 msgid "Learn more about GNOME Games"
 msgstr "Сазнајте више о Гномовим играма"
 
-#: ../src/ui/application.vala:151
+#: ../src/ui/application.vala:161
 msgid "translator-credits"
 msgstr ""
 "Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "\n"
 "http://prevod.org — преводи на српски језик"
+
+#: ../src/ui/error-display.vala:11
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Упсс! Не могу да покренем „%s“"
+
+#: ../src/ui/error-display.vala:13
+msgid "Oops! Unable to run the game"
+msgstr "Упсс! Не могу да покренем игру"
+
+#: ../src/ui/media-selector.vala:29
+#, c-format
+msgid "Media %d"
+msgstr "Медиј %d"
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "'%s' doesn't have a track for index %u."
+msgstr "„%s“ не садржи стазу за индекс %u."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: Неисправан запис датотеке „%s“, очекивах исправан запис датотеке или "
+"ништа."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: Неочекиван симбол СТАЗЕ пре симбола ДАТОТЕКЕ."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr "%s:%lu: Неисправан број нумере %s, очекивах број у опсегу 1-99."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr "%s:%lu: Неочекиван режим стазе %s, очекивах исправан режим стазе."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: Неочекивани крај датотеке, очекивах „%s“."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: Неочекивани симбол „%s“, очекивах „%s“."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: Неочекивани крај датотеке, очекивах симбол."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: Неочекивани крај реда, очекивах симбол."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: Неочекивани симбол „%s“, очекивах крај реда."
+
+#~ msgid "Main Menu"
+#~ msgstr "Главни изборник"
