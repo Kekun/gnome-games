@@ -137,8 +137,7 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		case Linux.Input.EV_KEY:
 			if ((code & Linux.Input.BTN_GAMEPAD) == Linux.Input.BTN_GAMEPAD)
 				standard_button_event (button_to_standard_button (code), (bool) event.value);
-			else if ((code & Linux.Input.BTN_MISC) == Linux.Input.BTN_MISC)
-				button_event (key_map[code - Linux.Input.BTN_MISC], (bool) event.value);
+			button_event (key_map[code - Linux.Input.BTN_MISC], (bool) event.value);
 
 			break;
 		case Linux.Input.EV_ABS:

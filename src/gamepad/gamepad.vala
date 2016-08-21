@@ -47,6 +47,9 @@ private class Games.Gamepad : Object {
 	}
 
 	private void on_standard_button_event (StandardGamepadButton button, bool value) {
+		if (mapping != null)
+			return;
+
 		button_event (button, value);
 	}
 
