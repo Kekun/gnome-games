@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-17 06:27+0000\n"
-"PO-Revision-Date: 2016-08-17 17:24+0200\n"
+"POT-Creation-Date: 2016-08-19 21:22+0000\n"
+"PO-Revision-Date: 2016-08-22 13:33+0200\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
 "Language: hu\n"
@@ -133,6 +133,10 @@ msgstr ""
 "Telepítsen játékokat, vagy adjon hozzá játékokat tartalmazó könyvtárakat a "
 "keresési forrásokhoz."
 
+#: ../data/ui/media-menu-button.ui.h:1
+msgid "Media"
+msgstr "Adathordozó"
+
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
 msgstr "Bővítmények"
@@ -253,10 +257,33 @@ msgstr "A(z) „%s” egy érvénytelen MAME játékazonosító ehhez: „%s”.
 msgid "The file doesn't have a Master System header."
 msgstr "A fájlnak nincs Master System fejléce."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:61
-#: ../plugins/mega-drive/src/mega-drive-header.vala:77
+#: ../plugins/mega-drive/src/mega-drive-header.vala:63
+#: ../plugins/mega-drive/src/mega-drive-header.vala:79
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "A fájlnak nincs Genesis/Sega 32X/Sega CD/Sega Pico fejléce."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:104
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#, c-format
+msgid "The file '%s' doesn't have a track."
+msgstr "A(z) „%s” fájlnak nincs sávja."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:110
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#, c-format
+msgid "The file '%s' doesn't have a valid binary file format."
+msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:113
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
+
+#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#, c-format
+msgid "Disc with disc_id %s is unknown"
+msgstr "A(z) %s azonosítójú lemez ismeretlen"
 
 #: ../plugins/playstation/src/playstation-header.vala:36
 #, c-format
@@ -273,22 +300,7 @@ msgstr "A PlayStation fejléc nem található itt: „%s”."
 msgid "The file doesn't have a Sega Saturn header."
 msgstr "A fájlnak nincs Sega Saturn fejléce."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:41
-#, c-format
-msgid "The file '%s' doesn't have a track."
-msgstr "A(z) „%s” fájlnak nincs sávja."
-
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:47
-#, c-format
-msgid "The file '%s' doesn't have a valid binary file format."
-msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
-
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:50
-#, c-format
-msgid "The file '%s' doesn't have a valid track mode for track %d."
-msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
-
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:54
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
 #, c-format
 msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
@@ -333,14 +345,19 @@ msgstr "A fájlnak nincs Wii fejléce."
 msgid "Couldn't read file: %s"
 msgstr "A fájl nem olvasható: %s"
 
-#: ../src/command/command-runner.vala:26
+#: ../src/command/command-runner.vala:30
 msgid "Invalid command: it doesn't have any argument."
 msgstr "Érvénytelen parancs: nincs egyetlen argumentuma sem."
 
-#: ../src/command/command-runner.vala:55
+#: ../src/command/command-runner.vala:59
 #, c-format
 msgid "Couldn't run '%s': execution failed."
 msgstr "A(z) „%s” nem futtatható: végrehajtás sikertelen."
+
+#: ../src/core/media-set/media-set.vala:31
+#, c-format
+msgid "Invalid media index %u."
+msgstr "Érvénytelen médiaindex: %u."
 
 #: ../src/core/plugin-registrar.vala:27
 #, c-format
@@ -351,6 +368,31 @@ msgstr "Érvénytelen bővítményleíró: %s"
 #, c-format
 msgid "Couldn't create a new instance of plugin in '%s'."
 msgstr "Nem hozható létre a bővítmény új példánya itt: „%s”."
+
+#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "%d. lemez"
+
+#: ../src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID '%s'."
+msgstr "Nem található játékcím a(z) „%s” lemezazonosítóhoz."
+
+#: ../src/gameinfo/gameinfo-doc.vala:25
+#, c-format
+msgid "No disc title found for disc ID '%s'."
+msgstr "Nem található lemezcím a(z) „%s” lemezazonosítóhoz."
+
+#: ../src/gameinfo/gameinfo-doc.vala:35
+#, c-format
+msgid "No disc set ID found for disc ID '%s'."
+msgstr "Nem található lemezkészlet-azonosító a(z) „%s” lemezazonosítóhoz."
+
+#: ../src/gameinfo/gameinfo-doc.vala:43 ../src/gameinfo/gameinfo-doc.vala:53
+#, c-format
+msgid "No disc found for disc ID '%s'."
+msgstr "Nem található lemez a(z) „%s” lemezazonosítóhoz."
 
 #: ../src/gamepad/gamepad-mapping.vala:12
 msgid "The mapping string can't be null."
@@ -370,17 +412,17 @@ msgstr "A(z) „%s” fájl nem nyitható meg: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Az evdev nem tudja megnyitni a(z) „%s” fájlt: %s"
 
-#: ../src/retro/retro-runner.vala:188
+#: ../src/retro/retro-runner.vala:236
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Érvénytelen játékfájl: „%s”."
 
-#: ../src/retro/retro-runner.vala:198
+#: ../src/retro/retro-runner.vala:246
 #, c-format
 msgid "Couldn't run game: module '%s' not found."
 msgstr "A játék nem futtatható: a(z) „%s” modul nem található."
 
-#: ../src/retro/retro-runner.vala:205
+#: ../src/retro/retro-runner.vala:253
 #, c-format
 msgid ""
 "Couldn't run game: module '%s' not found and no module found for MIME types "
@@ -389,23 +431,23 @@ msgstr ""
 "A játék nem futtatható: a(z) „%s” modul nem található, és nem található "
 "modul a(z) %s MIME-típusokhoz."
 
-#: ../src/retro/retro-runner.vala:363
+#: ../src/retro/retro-runner.vala:452
 msgid "Couldn't write snapshot."
 msgstr "A pillanatkép nem írható."
 
-#: ../src/ui/application.vala:142
+#: ../src/ui/application.vala:148
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:150
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: ../src/ui/application.vala:148
+#: ../src/ui/application.vala:154
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: ../src/ui/application.vala:155
+#: ../src/ui/application.vala:161
 msgid "translator-credits"
 msgstr ""
 "Úr Balázs <urbalazs@gmail.com>\n"
@@ -419,6 +461,11 @@ msgstr "Hoppá! A(z) „%s” nem futtatható"
 #: ../src/ui/error-display.vala:13
 msgid "Oops! Unable to run the game"
 msgstr "Hoppá! A játék nem futtatható"
+
+#: ../src/ui/media-selector.vala:29
+#, c-format
+msgid "Media %d"
+msgstr "%d. adathordozó"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
