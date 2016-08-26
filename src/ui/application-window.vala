@@ -137,7 +137,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		return handle_collection_key_event (event);
+		return handle_collection_key_event (event) || handle_display_key_event (event);
 	}
 
 	[GtkCallback]
@@ -335,5 +335,33 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 
 		return collection_box.search_bar_handle_event (event);
+	}
+
+	private bool handle_display_key_event (Gdk.EventKey event) {
+		if (ui_state != UiState.DISPLAY)
+			return false;
+
+		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
+
+		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+			is_fullscreen = !is_fullscreen;
+
+			return true;
+		}
+
+		if (event.keyval == Gdk.Key.F11) {
+			is_fullscreen = !is_fullscreen;
+
+			return true;
+		}
+
+		if (event.keyval == Gdk.Key.Escape) {
+			is_fullscreen = false;
+
+			return true;
+		}
+
+		return false;
 	}
 }
