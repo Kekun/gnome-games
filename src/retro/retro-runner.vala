@@ -238,7 +238,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private string get_module_path () throws Error {
-		var module_path = Retro.search_module (module_basename);
+		var module_path = Retro.ModuleQuery.lookup_module_for_basename (module_basename);
 
 		if (FileUtils.test (module_path, FileTest.EXISTS))
 			return module_path;
