@@ -137,18 +137,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
-			if (!search_mode)
-				search_mode = true;
-
-			return true;
-		}
-
-		if (ui_state == UiState.COLLECTION && collection_box.search_bar_handle_event (event))
-			return true;
-
-		return false;
+		return handle_collection_key_event (event);
 	}
 
 	[GtkCallback]
@@ -329,5 +318,22 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			}
 		else
 			display_box.runner.pause ();
+	}
+
+	private bool handle_collection_key_event (Gdk.EventKey event) {
+		if (ui_state != UiState.COLLECTION)
+			return false;
+
+		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
+
+		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+			if (!search_mode)
+				search_mode = true;
+
+			return true;
+		}
+
+		return collection_box.search_bar_handle_event (event);
 	}
 }
