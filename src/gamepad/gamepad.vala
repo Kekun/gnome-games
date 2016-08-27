@@ -89,7 +89,7 @@ private class Games.Gamepad : Object {
 
 			break;
 		case GamepadInputType.BUTTON:
-			button_event (event.button, (bool) value);
+			button_event (event.button, value > 0);
 
 			break;
 		}

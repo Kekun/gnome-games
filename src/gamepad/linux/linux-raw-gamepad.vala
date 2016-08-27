@@ -156,7 +156,8 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 				break;
 			default:
 				var axis = abs_map[code];
-				axis_event (axis, (double) event.value / abs_info[axis].maximum);
+				var value = centered_axis_value (abs_info[axis], event.value);
+				axis_event (axis, value);
 
 				break;
 			}
@@ -223,6 +224,20 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		default:
 			return StandardGamepadButton.UNKNOWN;
 		}
+	}
+
+	private static double centered_axis_value (Linux.Input.AbsInfo abs_info, int32 value) {
+		var min_absolute = ((int64) abs_info.minimum).abs ();
+
+		var max_normalized = ((int64) abs_info.maximum) + min_absolute;
+		var value_normalized = ((int64) value) + min_absolute;
+
+		var max_centered = max_normalized / 2;
+		var value_centered = value_normalized - max_normalized + max_centered;
+
+		var divisor = value_centered < 0 ? max_centered + 1 : max_centered;
+
+		return (double) value_centered / (double) divisor;
 	}
 }
 
