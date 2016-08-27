@@ -1,18 +1,26 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.GameBoyPlugin : Object, Plugin {
-	private const string FINGERPRINT_PREFIX = "game-boy";
-	private const string MIME_TYPE = "application/x-gameboy-rom";
+	private const string GAME_BOY_PREFIX = "game-boy";
+	private const string GAME_BOY_MIME_TYPE = "application/x-gameboy-rom";
+
+	// Similar to GAME_BOY_PREFIX for simplicity and backward compatibility.
+	private const string GAME_BOY_COLOR_PREFIX = "game-boy";
+	private const string GAME_BOY_COLOR_MIME_TYPE = "application/x-gameboy-color-rom";
+
 	private const string MODULE_BASENAME = "libretro-game-boy.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
-		var factory = new GenericUriGameFactory (game_uri_adapter);
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);
+		var game_boy_factory = new GenericUriGameFactory (game_uri_adapter);
+		var game_boy_color_factory = new GenericUriGameFactory (game_uri_adapter);
+		var game_boy_query = new MimeTypeTrackerQuery (GAME_BOY_MIME_TYPE, game_boy_factory);
+		var game_boy_color_query = new MimeTypeTrackerQuery (GAME_BOY_COLOR_MIME_TYPE, game_boy_color_factory);
 		var connection = Tracker.Sparql.Connection.@get ();
 		var source = new TrackerGameSource (connection);
-		source.add_query (query);
+		source.add_query (game_boy_query);
+		source.add_query (game_boy_color_query);
 
 		return source;
 	}
@@ -22,14 +30,27 @@ private class Games.GameBoyPlugin : Object, Plugin {
 		var header = new GameBoyHeader (file);
 		header.check_validity ();
 
-		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		string prefix;
+		string mime_type;
+		if (header.is_classic ()) {
+			prefix = GAME_BOY_PREFIX;
+			mime_type = GAME_BOY_MIME_TYPE;
+		}
+		else if (header.is_color ()) {
+			prefix = GAME_BOY_COLOR_PREFIX;
+			mime_type = GAME_BOY_COLOR_MIME_TYPE;
+		}
+		else
+			assert_not_reached ();
+
+		var uid = new FingerprintUid (uri, prefix);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
-		var media = new GriloMedia (title, MIME_TYPE);
+		var media = new GriloMedia (title, mime_type);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner.with_mime_types (uri, uid, { MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner.with_mime_types (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
