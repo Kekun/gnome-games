@@ -153,14 +153,25 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 				code -= Linux.Input.ABS_HAT0X;
 				dpad_event (code / 2, code % 2, event.value);
 
-				break;
-			default:
+				// We don't want to send an axis event as dpad events
+				// are handled differently by the gamepad objects, hence
+				// we return here.
+				return;
+			case Linux.Input.ABS_X:
+			case Linux.Input.ABS_Y:
+			case Linux.Input.ABS_RX:
+			case Linux.Input.ABS_RY:
+				var standard_axis = axis_to_standard_axis (code);
 				var axis = abs_map[code];
 				var value = centered_axis_value (abs_info[axis], event.value);
-				axis_event (axis, value);
+				standard_axis_event (standard_axis, value);
 
 				break;
 			}
+
+			var axis = abs_map[code];
+			var value = centered_axis_value (abs_info[axis], event.value);
+			axis_event (axis, value);
 
 			break;
 		}
@@ -223,6 +234,21 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 			return StandardGamepadButton.STICK_R;
 		default:
 			return StandardGamepadButton.UNKNOWN;
+		}
+	}
+
+	private StandardGamepadAxis axis_to_standard_axis (int code) {
+		switch (code) {
+		case Linux.Input.ABS_X:
+			return StandardGamepadAxis.LEFT_X;
+		case Linux.Input.ABS_Y:
+			return StandardGamepadAxis.LEFT_Y;
+		case Linux.Input.ABS_RX:
+			return StandardGamepadAxis.RIGHT_X;
+		case Linux.Input.ABS_RY:
+			return StandardGamepadAxis.RIGHT_Y;
+		default:
+			return StandardGamepadAxis.UNKNOWN;
 		}
 	}
 
