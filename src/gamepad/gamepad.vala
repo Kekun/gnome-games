@@ -41,6 +41,7 @@ private class Games.Gamepad : Object {
 		}
 		raw_gamepad.standard_button_event.connect (on_standard_button_event);
 		raw_gamepad.button_event.connect (on_raw_button_event);
+		raw_gamepad.standard_axis_event.connect (on_standard_axis_event);
 		raw_gamepad.axis_event.connect (on_raw_axis_event);
 		raw_gamepad.dpad_event.connect (on_raw_dpad_event);
 		raw_gamepad.unplugged.connect (() => unplugged ());
@@ -68,6 +69,13 @@ private class Games.Gamepad : Object {
 
 			break;
 		}
+	}
+
+	private void on_standard_axis_event (StandardGamepadAxis axis, double value) {
+		if (mapping != null)
+			return;
+
+		axis_event (axis, value);
 	}
 
 	private void on_raw_axis_event (int axis, double value) {
