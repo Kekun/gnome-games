@@ -77,8 +77,10 @@ private class Games.DisplayBox : Gtk.EventBox {
 	}
 
 	private void on_activity () {
-		if (timeout_id != -1)
+		if (timeout_id != -1) {
 			Source.remove ((uint) timeout_id);
+			timeout_id = -1;
+		}
 
 		if (!is_fullscreen)
 			return;
