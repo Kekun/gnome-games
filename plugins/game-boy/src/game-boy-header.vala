@@ -106,6 +106,17 @@ private class Games.GameBoyHeader : Object {
 			return false;
 		}
 	}
+
+	public bool is_color () {
+		switch (game_boy_type) {
+		case GameBoyType.SUPER_COLOR_ENABLED:
+		case GameBoyType.COLOR_ENABLED:
+		case GameBoyType.COLOR_ONLY:
+			return true;
+		default:
+			return false;
+		}
+	}
 }
 
 private enum Games.GameBoyType {
