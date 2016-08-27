@@ -96,6 +96,16 @@ private class Games.GameBoyHeader : Object {
 		if (!stream.has_string (MAGIC_OFFSET, MAGIC_VALUE))
 			throw new GameBoyError.INVALID_HEADER (_("The file doesn't have a Game Boy header."));
 	}
+
+	public bool is_classic () {
+		switch (game_boy_type) {
+		case GameBoyType.SUPER_ENABLED:
+		case GameBoyType.CLASSIC:
+			return true;
+		default:
+			return false;
+		}
+	}
 }
 
 private enum Games.GameBoyType {
