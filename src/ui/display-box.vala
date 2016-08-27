@@ -61,7 +61,10 @@ private class Games.DisplayBox : Gtk.EventBox {
 
 	[GtkCallback]
 	private void on_fullscreen_changed () {
-		on_activity ();
+		if (is_fullscreen)
+			on_activity ();
+		else
+			on_restore ();
 	}
 
 	[GtkCallback]
@@ -101,6 +104,16 @@ private class Games.DisplayBox : Gtk.EventBox {
 		overlay.grab_focus ();
 
 		return false;
+	}
+
+	private void on_restore () {
+		if (timeout_id != -1) {
+			Source.remove ((uint) timeout_id);
+			timeout_id = -1;
+		}
+
+		fullscreen_header_bar_revealer.reveal_child = false;
+		show_cursor (true);
 	}
 
 	private void show_cursor (bool show) {
