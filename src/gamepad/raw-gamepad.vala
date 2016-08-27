@@ -17,6 +17,8 @@ private interface Games.RawGamepad : Object {
 	 */
 	public abstract signal void button_event (int code, bool value);
 
+	public abstract signal void standard_axis_event (StandardGamepadAxis axis, double value);
+
 	/**
 	 * Emitted when an axis's value changes
 	 * @param  axis          The axis number from 0 to axes_number
