@@ -21,8 +21,22 @@ private class Games.PlayStationHeader : Object {
 	}
 
 	public void check_validity () throws Error {
-		var stream = new StringInputStream (file);
+		if (_disc_id != null)
+			return;
+
+		_disc_id = get_id_from_boot ();
+		if (_disc_id != null)
+			return;
+
+		throw new PlayStationError.INVALID_HEADER (_("Invalid PlayStation header: disc ID not found in '%s'."), file.get_uri ());
+	}
+
+	private string? get_id_from_boot () throws Error {
 		var offset = get_boot_offset ();
+		if (offset == null)
+			return null;
+
+		var stream = new StringInputStream (file);
 		var header = stream.read_string (offset);
 
 		foreach (var id in IDS) {
@@ -33,20 +47,21 @@ private class Games.PlayStationHeader : Object {
 			raw_id = raw_id.split (";")[0];
 			raw_id = raw_id.replace ("_", "-");
 			raw_id = raw_id.replace (".", "");
-			_disc_id = (id + raw_id).up ();
+			raw_id = (id + raw_id).up ();
+
+			return raw_id;
 		}
 
-		if (_disc_id == null)
-			throw new PlayStationError.INVALID_HEADER (_("Invalid PlayStation header: disc ID not found in '%s'."), file.get_uri ());
+		return null;
 	}
 
-	private size_t get_boot_offset () throws Error {
+	private size_t? get_boot_offset () throws Error {
 		var stream = new StringInputStream (file);
 
 		foreach (var offset in BOOT_OFFSETS)
 			if (stream.has_string (offset, BOOT_MAGIC_VALUE))
 				return offset;
 
-		throw new PlayStationError.INVALID_HEADER (_("PlayStation header not found in '%s'."), file.get_uri ());
+		return null;
 	}
 }
