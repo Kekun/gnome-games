@@ -1,9 +1,13 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.PlayStationHeader : Object {
-	private const size_t[] OFFSETS = { 0xD368, 0xD3A8 };
+	private const size_t[] BOOT_OFFSETS = {
+		0xD368, // .bin
+		0xD3A8, // .iso
+	};
+	private const string BOOT_MAGIC_VALUE = "BOOT";
+
 	private const string[] IDS = { "SLUS", "SCUS", "SLES", "SCES", "SLPS", "SLPM", "SCPS" };
-	private const string MAGIC_VALUE = "BOOT";
 
 	private string _disc_id;
 	public string disc_id {
@@ -18,7 +22,7 @@ private class Games.PlayStationHeader : Object {
 
 	public void check_validity () throws Error {
 		var stream = new StringInputStream (file);
-		var offset = get_header_offset ();
+		var offset = get_boot_offset ();
 		var header = stream.read_string (offset);
 
 		foreach (var id in IDS) {
@@ -36,11 +40,11 @@ private class Games.PlayStationHeader : Object {
 			throw new PlayStationError.INVALID_HEADER (_("Invalid PlayStation header: disc ID not found in '%s'."), file.get_uri ());
 	}
 
-	private size_t get_header_offset () throws Error {
+	private size_t get_boot_offset () throws Error {
 		var stream = new StringInputStream (file);
 
-		foreach (var offset in OFFSETS)
-			if (stream.has_string (offset, MAGIC_VALUE))
+		foreach (var offset in BOOT_OFFSETS)
+			if (stream.has_string (offset, BOOT_MAGIC_VALUE))
 				return offset;
 
 		throw new PlayStationError.INVALID_HEADER (_("PlayStation header not found in '%s'."), file.get_uri ());
