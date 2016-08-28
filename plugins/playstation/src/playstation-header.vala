@@ -8,6 +8,9 @@ private class Games.PlayStationHeader : Object {
 	private const string BOOT_MAGIC_VALUE = "BOOT";
 
 	private const string[] IDS = { "SLUS", "SCUS", "SLES", "SCES", "SLPS", "SLPM", "SCPS" };
+	private const size_t DISC_ID_SIZE = 10;
+
+	private static Regex disc_id_regex;
 
 	private string _disc_id;
 	public string disc_id {
@@ -49,7 +52,8 @@ private class Games.PlayStationHeader : Object {
 			raw_id = raw_id.replace (".", "");
 			raw_id = (id + raw_id).up ();
 
-			return raw_id;
+			if (is_a_disc_id (raw_id))
+				return raw_id;
 		}
 
 		return null;
@@ -63,5 +67,12 @@ private class Games.PlayStationHeader : Object {
 				return offset;
 
 		return null;
+	}
+
+	private static bool is_a_disc_id (string disc_id) {
+		if (disc_id_regex == null)
+			disc_id_regex = /[A-Z]{4}-\d{5}/;
+
+		return disc_id_regex.match (disc_id);
 	}
 }
