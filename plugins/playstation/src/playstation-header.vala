@@ -2,6 +2,7 @@
 
 private class Games.PlayStationHeader : Object {
 	private const size_t[] HEADER_OFFSETS = {
+		0x85D2, // .bin.ecm
 		0x9320, // .bin
 		0x9360, // .iso 
 	};
@@ -9,6 +10,7 @@ private class Games.PlayStationHeader : Object {
 	private const string HEADER_MAGIC_VALUE = "PLAYSTATION";
 
 	private const size_t[] BOOT_OFFSETS = {
+		0xBE64, // .bin.ecm
 		0xD368, // .bin
 		0xD3A8, // .iso
 	};
