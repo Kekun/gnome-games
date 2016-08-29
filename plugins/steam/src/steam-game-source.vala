@@ -28,11 +28,7 @@ private class Games.SteamGameSource : Object, GameSource {
 		var registry = new SteamRegistry (registry_path);
 		var install_path = registry.get_data (INSTALL_PATH_REGISTRY_PATH);
 
-		var default_install_dir_symlink = home + DEFAULT_INSTALL_DIR_SYMLINK;
-		if (default_install_dir_symlink == install_path);
-			libraries = { default_install_dir_symlink };
-		else
-			libraries = { default_install_dir_symlink, install_path };
+		libraries = { home + DEFAULT_INSTALL_DIR_SYMLINK, install_path };
 
 		// `/LibraryFolders/$NUMBER` entries in the libraryfolders.vdf registry
 		// file are library directories.
