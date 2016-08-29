@@ -3,6 +3,8 @@
 private class Games.SteamGameSource : Object, GameSource {
 	// From the home directory.
 	private const string REGISTRY_PATH = "/.steam/registry.vdf";
+	// From the home directory.
+	private const string DEFAULT_INSTALL_DIR_SYMLINK = "/.steam/steam";
 	// From an install directory.
 	private const string[] STEAMAPPS_DIRS = { "/SteamApps", "/steamapps" };
 	// From the default SteamApp directory.
@@ -21,11 +23,16 @@ private class Games.SteamGameSource : Object, GameSource {
 			appmanifest_regex = /appmanifest_\d+\.acf/;
 
 		// Steam's installation path can be found in its registry.
-		var registry_path = Environment.get_home_dir () + REGISTRY_PATH;
+		var home = Environment.get_home_dir ();
+		var registry_path = home + REGISTRY_PATH;
 		var registry = new SteamRegistry (registry_path);
 		var install_path = registry.get_data (INSTALL_PATH_REGISTRY_PATH);
 
-		libraries = { install_path };
+		var default_install_dir_symlink = home + DEFAULT_INSTALL_DIR_SYMLINK;
+		if (default_install_dir_symlink == install_path);
+			libraries = { default_install_dir_symlink };
+		else
+			libraries = { default_install_dir_symlink, install_path };
 
 		// `/LibraryFolders/$NUMBER` entries in the libraryfolders.vdf registry
 		// file are library directories.
