@@ -14,6 +14,7 @@ private class Games.SteamGameSource : Object, GameSource {
 	private static Regex appmanifest_regex;
 
 	private string[] libraries;
+	private HashTable<string, Game> games;
 
 	public SteamGameSource () throws Error {
 		if (appmanifest_regex == null)
@@ -43,12 +44,18 @@ private class Games.SteamGameSource : Object, GameSource {
 	}
 
 	public async void each_game (GameCallback game_callback) {
+		if (games == null)
+			games = new HashTable<string, Game> (str_hash, str_equal);
+
 		foreach (var library in libraries)
 			foreach (var steamapps_dir in STEAMAPPS_DIRS)
-				yield each_game_in_steamapps_dir (library + steamapps_dir, game_callback);
+				yield each_game_in_steamapps_dir (library + steamapps_dir);
+
+		foreach (var game in games.get_values ())
+			game_callback (game);
 	}
 
-	public async void each_game_in_steamapps_dir (string directory, GameCallback game_callback) {
+	public async void each_game_in_steamapps_dir (string directory) {
 		try {
 			var file = File.new_for_path (directory);
 
@@ -56,18 +63,17 @@ private class Games.SteamGameSource : Object, GameSource {
 
 			FileInfo info;
 			while ((info = enumerator.next_file ()) != null)
-				yield game_for_file_info (directory, info, game_callback);
+				yield game_for_file_info (directory, info);
 		}
 		catch (Error e) {
 		}
 	}
 
-	public async void game_for_file_info (string directory, FileInfo info, GameCallback game_callback) {
+	public async void game_for_file_info (string directory, FileInfo info) {
 		var name = info.get_name ();
 		if (appmanifest_regex.match (name)) {
 			try {
-				var game = game_for_appmanifest_path (@"$directory/$name");
-				game_callback (game);
+				game_for_appmanifest_path (@"$directory/$name");
 
 				Idle.add (this.game_for_file_info.callback);
 				yield;
@@ -78,7 +84,7 @@ private class Games.SteamGameSource : Object, GameSource {
 		}
 	}
 
-	private static Game game_for_appmanifest_path (string appmanifest_path) throws Error {
+	private void game_for_appmanifest_path (string appmanifest_path) throws Error {
 		var registry = new SteamRegistry (appmanifest_path);
 		var game_id = registry.get_data ({"AppState", "appid"});
 		/* The game_id sometimes is identified by appID
@@ -89,12 +95,15 @@ private class Games.SteamGameSource : Object, GameSource {
 		if (game_id == null)
 			throw new SteamError.NO_APPID (_("Couldn't get Steam appid from manifest '%s'."), appmanifest_path);
 
+		if (game_id in games)
+			return;
+
 		var title = new SteamTitle (registry);
 		var icon = new SteamIcon (game_id);
 		var cover = new SteamCover (game_id);
 		string[] args = { "steam", @"steam://rungameid/" + game_id };
 		var runner = new CommandRunner (args, false);
 
-		return new GenericGame (title, icon, cover, runner);
+		games[game_id] = new GenericGame (title, icon, cover, runner);
 	}
 }
