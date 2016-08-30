@@ -69,19 +69,6 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	public RetroRunner (string module_basename, string uri, Uid uid, bool core_supports_snapshotting) {
-		is_initialized = false;
-		is_ready = false;
-		should_save = false;
-
-		var game_media = new Media (uri);
-		_media_set = new MediaSet ({ game_media });
-
-		this.module_basename = module_basename;
-		this.uid = uid;
-		this.core_supports_snapshotting = core_supports_snapshotting;
-	}
-
 	public RetroRunner.with_mime_types (string uri, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
 		is_initialized = false;
 		is_ready = false;
