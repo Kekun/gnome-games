@@ -6,8 +6,11 @@ private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumbl
 	private bool[] is_port_plugged;
 	private Gamepad?[] gamepads;
 	private int keyboard_port;
+	private bool present_analog_sticks;
 
-	public RetroInputManager (Gtk.Widget widget) {
+	public RetroInputManager (Gtk.Widget widget, bool present_analog_sticks) {
+		this.present_analog_sticks = present_analog_sticks;
+
 		keyboard = new RetroGtk.VirtualGamepad (widget);
 		gamepad_monitor = GamepadMonitor.get_instance ();
 
@@ -17,7 +20,7 @@ private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumbl
 			var port = is_port_plugged.length;
 			is_port_plugged += true;
 			gamepads += gamepad;
-			set_controller_device (port, new RetroGamepad (gamepad, true));
+			set_controller_device (port, new RetroGamepad (gamepad, present_analog_sticks));
 			gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
 		});
 
@@ -32,7 +35,7 @@ private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumbl
 		// Plug this gamepad to the port where the keyboard was plugged as a last resort
 		var port = keyboard_port;
 		gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
-		set_controller_device (keyboard_port, new RetroGamepad (gamepad, true));
+		set_controller_device (keyboard_port, new RetroGamepad (gamepad, present_analog_sticks));
 		gamepads[port] = gamepad;
 
 		// Assign keyboard to another unplugged port if exists and return

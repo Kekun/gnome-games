@@ -165,7 +165,7 @@ public class Games.RetroRunner : Object, Runner {
 		widget = new Gtk.EventBox ();
 		widget.add (video);
 		video.visible = true;
-		input_manager = new RetroInputManager (widget);
+		input_manager = new RetroInputManager (widget, true);
 
 		var media_number = media_set.selected_media_number;
 		var media = media_set.get_selected_media (media_number);
