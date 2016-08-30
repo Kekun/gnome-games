@@ -12,6 +12,12 @@ public class Games.Application : Gtk.Application {
 	}
 
 	construct {
+		Environment.set_prgname ("gnome-games");
+		Environment.set_application_name (_("Games"));
+		Gtk.Window.set_default_icon_name ("org.gnome.Games");
+		Environment.set_variable ("PULSE_PROP_media.role", "game", true);
+		Environment.set_variable ("PULSE_PROP_application.icon_name", "org.gnome.Games", true);
+
 		add_actions ();
 		add_signal_handlers ();
 	}
