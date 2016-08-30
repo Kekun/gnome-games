@@ -51,6 +51,7 @@ public class Games.RetroRunner : Object, Runner {
 	private string[] mime_types;
 	private Uid uid;
 	private bool core_supports_snapshotting;
+	private InputCapabilities input_capabilities;
 
 	private bool _running;
 	private bool running {
@@ -81,6 +82,7 @@ public class Games.RetroRunner : Object, Runner {
 		this.module_basename = module_basename;
 		this.uid = uid;
 		this.core_supports_snapshotting = core_supports_snapshotting;
+		this.input_capabilities = null;
 	}
 
 	public RetroRunner.for_media_set (MediaSet media_set, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
@@ -93,6 +95,7 @@ public class Games.RetroRunner : Object, Runner {
 		this.module_basename = module_basename;
 		this.uid = uid;
 		this.core_supports_snapshotting = core_supports_snapshotting;
+		this.input_capabilities = null;
 
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
@@ -165,7 +168,8 @@ public class Games.RetroRunner : Object, Runner {
 		widget = new Gtk.EventBox ();
 		widget.add (video);
 		video.visible = true;
-		input_manager = new RetroInputManager (widget, true);
+		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
+		input_manager = new RetroInputManager (widget, present_analog_sticks);
 
 		var media_number = media_set.selected_media_number;
 		var media = media_set.get_selected_media (media_number);
