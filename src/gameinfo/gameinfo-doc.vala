@@ -17,6 +17,12 @@ public class Games.GameinfoDoc : Object {
 		return title;
 	}
 
+	public string[] get_game_controllers_for_disc_id (string disc_id) throws Error {
+		var expr = "/gameinfo/games/game[discs/disc[@id = \"" + disc_id + "\"]]/controllers/controller/@type";
+
+		return xml_doc.get_contents (expr);
+	}
+
 	public string? get_disc_title_for_disc_id (string disc_id) throws Error {
 		var expr = "/gameinfo/games/game/discs/disc[@id = \"" + disc_id + "\"]/title";
 
