@@ -69,7 +69,7 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	public RetroRunner.with_mime_types (string uri, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
+	public RetroRunner (string uri, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;

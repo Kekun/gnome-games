@@ -50,7 +50,7 @@ private class Games.GameBoyPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner.with_mime_types (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

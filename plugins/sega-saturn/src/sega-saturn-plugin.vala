@@ -32,7 +32,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner.with_mime_types (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

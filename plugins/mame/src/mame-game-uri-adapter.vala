@@ -27,7 +27,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 
 		var icon = new DummyIcon ();
 		var cover = new LocalCover (uri);
-		var runner = new RetroRunner.with_mime_types (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

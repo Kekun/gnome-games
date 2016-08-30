@@ -66,7 +66,7 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner.with_mime_types (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
@@ -94,7 +94,7 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, MEGA_CD_MIME_TYPE);
 		var cover = new GriloCover (media, uid);
-		var runner = new RetroRunner.with_mime_types (uri, uid, mime_types, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner (uri, uid, mime_types, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

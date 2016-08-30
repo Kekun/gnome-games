@@ -25,7 +25,7 @@ private class Games.NeoGeoPocketPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner.with_mime_types (uri, uid, { MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var runner = new RetroRunner (uri, uid, { MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
