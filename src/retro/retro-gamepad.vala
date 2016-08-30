@@ -2,12 +2,13 @@
 
 private class Games.RetroGamepad: Object, Retro.InputDevice {
 	public Gamepad gamepad { get; construct; }
+	public bool present_analog_sticks { get; construct; }
 
 	private bool[] buttons;
 	private int16[] axes;
 
-	public RetroGamepad (Gamepad gamepad) {
-		Object (gamepad: gamepad);
+	public RetroGamepad (Gamepad gamepad, bool present_analog_sticks) {
+		Object (gamepad: gamepad, present_analog_sticks: present_analog_sticks);
 	}
 
 	construct {
@@ -32,7 +33,10 @@ private class Games.RetroGamepad: Object, Retro.InputDevice {
 	}
 
 	public Retro.DeviceType get_device_type () {
-		return Retro.DeviceType.ANALOG;
+		if (present_analog_sticks)
+			return Retro.DeviceType.ANALOG;
+
+		return Retro.DeviceType.JOYPAD;
 	}
 
 	public uint64 get_device_capabilities () {

@@ -17,7 +17,7 @@ private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumbl
 			var port = is_port_plugged.length;
 			is_port_plugged += true;
 			gamepads += gamepad;
-			set_controller_device (port, new RetroGamepad (gamepad));
+			set_controller_device (port, new RetroGamepad (gamepad, true));
 			gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
 		});
 
@@ -32,7 +32,7 @@ private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumbl
 		// Plug this gamepad to the port where the keyboard was plugged as a last resort
 		var port = keyboard_port;
 		gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
-		set_controller_device (keyboard_port, new RetroGamepad (gamepad));
+		set_controller_device (keyboard_port, new RetroGamepad (gamepad, true));
 		gamepads[port] = gamepad;
 
 		// Assign keyboard to another unplugged port if exists and return
