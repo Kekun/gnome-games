@@ -1,12 +1,19 @@
 plugindir = $(libdir)/gnome-games/plugins
 plugin_LTLIBRARIES = libgames-playstation-plugin.la
 
+gameinfo_in_file = $(top_srcdir)/plugins/playstation/data/playstation.gameinfo.xml.in
+gameinfo_file = $(builddir)/playstation.gameinfo.xml
+
+$(gameinfo_file): $(gameinfo_in_file)
+	sed -e 's/<_title>/<title>/' $^ | sed -e 's/<\/_title>/<\/title>/' > $@
+
 gresource_file = $(top_srcdir)/plugins/playstation/data/org.gnome.Games.plugin.playstation.gresource.xml
 
 resource_files = $(shell \
 	$(GLIB_COMPILE_RESOURCES) \
 	--generate-dependencies \
 	--sourcedir=$(top_srcdir)/plugins/playstation/data \
+	--sourcedir=$(builddir) \
 	$(gresource_file) \
 )
 
@@ -15,6 +22,7 @@ resources.c: $(gresource_file) $(resource_files)
 	$(GLIB_COMPILE_RESOURCES) \
 		--target=$@ \
 		--sourcedir=$(top_srcdir)/plugins/playstation/data \
+		--sourcedir=$(builddir) \
 		--generate-source \
 		$<
 
