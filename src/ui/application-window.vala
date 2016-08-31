@@ -81,6 +81,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private long focus_out_timeout_id;
 
 	private uint inhibit_cookie;
+	private Gtk.ApplicationInhibitFlags inhibit_flags;
 
 	public ApplicationWindow (ListModel collection) {
 		collection_box.collection = collection;
@@ -99,6 +100,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		focus_out_timeout_id = -1;
 		inhibit_cookie = 0;
+		inhibit_flags = 0;
 	}
 
 	public void run_game (Game game) {
@@ -116,7 +118,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (run_game_cancellable == cancellable)
 			run_game_cancellable = null;
 
-		inhibit ();
+		inhibit (Gtk.ApplicationInhibitFlags.IDLE);
 	}
 
 	public bool quit_game () {
@@ -177,10 +179,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		var playing = (ui_state == UiState.DISPLAY);
 
 		if (focused && playing)
-			inhibit ();
+			inhibit (Gtk.ApplicationInhibitFlags.IDLE);
 
 		if (!focused)
-			uninhibit ();
+			uninhibit (Gtk.ApplicationInhibitFlags.IDLE);
 
 		return false;
 	}
@@ -195,7 +197,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (quit_game ())
 			ui_state = UiState.COLLECTION;
 
-		uninhibit ();
+		uninhibit (Gtk.ApplicationInhibitFlags.IDLE);
 	}
 
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
@@ -441,20 +443,32 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		return false;
 	}
 
-	private void inhibit () {
-		Gtk.ApplicationInhibitFlags flag = Gtk.ApplicationInhibitFlags.IDLE;
+	private void inhibit (Gtk.ApplicationInhibitFlags flags) {
+		if ((inhibit_flags & flags) == flags)
+			return;
+
+		Gtk.ApplicationInhibitFlags new_flags = (inhibit_flags | flags);
+		uint new_cookie = application.inhibit (this, new_flags, _("Playing a game"));
 
 		if (inhibit_cookie != 0)
-			return;
+			application.uninhibit (inhibit_cookie);
 
-		inhibit_cookie = application.inhibit (this, flag, _("Playing a game"));
+		inhibit_cookie = new_cookie;
+		inhibit_flags = new_flags;
 	}
 
-	private void uninhibit () {
-		if (inhibit_cookie == 0)
+	private void uninhibit (Gtk.ApplicationInhibitFlags flags) {
+		if ((inhibit_flags & flags) == 0)
 			return;
 
+		Gtk.ApplicationInhibitFlags new_flags = (inhibit_flags & ~flags);
+		uint new_cookie = 0;
+
+		if ((bool) new_flags)
+			new_cookie = application.inhibit (this, new_flags, _("Playing a game"));
+
 		application.uninhibit (inhibit_cookie);
-		inhibit_cookie = 0;
+		inhibit_cookie = new_cookie;
+		inhibit_flags = new_flags;
 	}
 }
