@@ -16,6 +16,7 @@ private class Games.PlayStationHeader : Object {
 	};
 	private const string BOOT_MAGIC_VALUE = "BOOT";
 
+	// The ID prefixes must always be in uppercase.
 	private const string[] IDS = { "SLUS", "SCUS", "SLES", "SCES", "SLPS", "SLPM", "SCPS" };
 	private const size_t DISC_ID_SIZE = 10;
 
@@ -86,6 +87,7 @@ private class Games.PlayStationHeader : Object {
 
 		var stream = new StringInputStream (file);
 		var header = stream.read_string (offset);
+		header = header.up ();
 
 		foreach (var id in IDS) {
 			if (!(id in header))
