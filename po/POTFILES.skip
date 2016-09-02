@@ -10,6 +10,7 @@ plugins/mame/src/mame-plugin.c
 plugins/master-system/src/master-system-header.c
 plugins/mega-drive/src/mega-drive-header.c
 plugins/mega-drive/src/mega-drive-plugin.c
+plugins/playstation/data/playstation.gameinfo.xml.in
 plugins/playstation/src/playstation-game-factory.c
 plugins/playstation/src/playstation-header.c
 plugins/sega-saturn/src/sega-saturn-header.c
