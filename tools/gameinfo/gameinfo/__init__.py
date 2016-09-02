@@ -89,6 +89,29 @@ class Gameinfo:
 
         return game
 
+    def get_game_for_disc_id(self, disc_id):
+        return self.find('games/game/discs/disc[@id="' + disc_id + '"]/../..')
+
+    def get_game_title(self, game):
+        if not game in self.games:
+            return
+
+        title = game.find('_title')
+        if title is None:
+            return
+
+        return title.text
+
+    def get_game_disc_set_id(self, game):
+        if not game in self.games:
+            return
+
+        disc = game.find('discs/disc[1]')
+        if disc is None:
+            return
+
+        return disc.get('id')
+
     def set_game_title(self, game, title):
         if not game in self.games:
             return
@@ -97,6 +120,17 @@ class Gameinfo:
             game.remove(t)
 
         titleE = ET.SubElement(game, '_title')
+        titleE.text = title
+
+    def set_disc_title_for_disc_id(self, disc_id, title):
+        disc = self.find('games/game/discs/disc[@id="' + disc_id + '"]')
+        if disc is None:
+            return
+
+        for t in disc.findall('_title'):
+            disc.remove(t)
+
+        titleE = ET.SubElement(disc, '_title')
         titleE.text = title
 
     def _sort(self):
