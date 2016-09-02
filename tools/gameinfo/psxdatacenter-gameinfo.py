@@ -61,7 +61,7 @@ class GamesListScrapper:
                 includes = re.sub('<span.*?>', '', includes)
                 discs_node.set('includes', includes.strip())
 
-    def fetch_tmp_gameinfo():
+    def fetch_tmp_gameinfo(verbose):
         gameinfo = Gameinfo()
 
         game_lists = [
@@ -71,7 +71,7 @@ class GamesListScrapper:
 
         for url in game_lists:
             page = _fetch_page(url)
-            GamesListScrapper._parse_game_list_page(page, gameinfo)
+            GamesListScrapper._parse_game_list_page(page, gameinfo, verbose)
 
         return gameinfo
 
@@ -89,6 +89,21 @@ class GamePageScrapper:
 
         return title
 
+    def _get_game_controllers(game_page):
+        classic_gamepad_search = 'Standard Controller'
+        allow_classic_gamepad = re.search(classic_gamepad_search, game_page, re.IGNORECASE)
+
+        analog_gamepad_search = 'Analog Controller'
+        allow_analog_gamepad = re.search(analog_gamepad_search, game_page, re.IGNORECASE)
+
+        controllers = []
+        if allow_classic_gamepad:
+            controllers.append ('classic-gamepad')
+        if allow_analog_gamepad:
+            controllers.append ('analog-gamepad')
+
+        return controllers
+
     def parse_game_page(gameinfo, game, url):
         game_page = _fetch_page(url)
 
@@ -96,20 +111,29 @@ class GamePageScrapper:
         if not title:
             return
 
+        controllers = GamePageScrapper._get_game_controllers(game_page)
+        if controllers and len(controllers) == 0:
+            controllers = None
+        if controllers and len(controllers) == 2:
+            if 'classic-gamepad' in controllers and 'analog-gamepad' in controllers:
+                controllers = None
+
         print(title)
 
         gameinfo.set_game_title(game, title)
+        if controllers is not None:
+            gameinfo.set_game_controllers(game, controllers)
 
 class Scrapper:
     _FILENAME = 'playstation.gameinfo.xml.in'
     _TMP_FILENAME = _FILENAME + '.tmp'
 
-    def _get_tmp_gameinfo():
+    def _get_tmp_gameinfo(verbose):
         gameinfo_path = _outdir() + '/' + 'playstation.gameinfo.xml.in.tmp'
         if exists(gameinfo_path):
             return Gameinfo(gameinfo_path)
 
-        gameinfo = GamesListScrapper.fetch_tmp_gameinfo()
+        gameinfo = GamesListScrapper.fetch_tmp_gameinfo(verbose)
 
         if not exists(_outdir()):
             makedirs(_outdir())
@@ -118,8 +142,8 @@ class Scrapper:
 
         return gameinfo
 
-    def scrap():
-        gameinfo = Scrapper._get_tmp_gameinfo()
+    def scrap(verbose):
+        gameinfo = Scrapper._get_tmp_gameinfo(verbose)
 
         gameinfo_path = _outdir() + '/' + 'playstation.gameinfo.xml.in.tmp'
         if not exists(_outdir()):
@@ -146,4 +170,5 @@ class Scrapper:
             gameinfo.save(gameinfo_path)
 
 if __name__ == '__main__':
-    Scrapper.scrap()
+    verbose = False
+    Scrapper.scrap(verbose)

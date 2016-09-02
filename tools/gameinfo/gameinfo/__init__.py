@@ -122,6 +122,18 @@ class Gameinfo:
         titleE = ET.SubElement(game, '_title')
         titleE.text = title
 
+    def set_game_controllers(self, game, controllers):
+        if not game in self.games:
+            return
+
+        for c in game.findall('controllers'):
+            game.remove(c)
+
+        controllers_node = ET.SubElement(game, 'controllers')
+        for controller in controllers:
+            controller_node = ET.SubElement(controllers_node, 'controller')
+            controller_node.set('type', controller)
+
     def set_disc_title_for_disc_id(self, disc_id, title):
         disc = self.find('games/game/discs/disc[@id="' + disc_id + '"]')
         if disc is None:
@@ -140,6 +152,7 @@ class Gameinfo:
         for game in games:
             Gameinfo._sort_game_titles(game)
             Gameinfo._sort_game_discs(game)
+            Gameinfo._sort_game_controllers(game)
 
             title = game.findtext('_title')
             data.append((title, game))
@@ -179,3 +192,10 @@ class Gameinfo:
         for disc_id, discs_node in data:
             game.remove(discs_node)
             game.append(discs_node)
+
+    def _sort_game_controllers(game):
+        controllers_nodes = game.findall('controllers')
+
+        for controllers_node in controllers_nodes:
+            game.remove(controllers_node)
+            game.append(controllers_node)
