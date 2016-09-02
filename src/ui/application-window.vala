@@ -104,7 +104,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		run_game_cancellable = new Cancellable ();
 
-		run_game_with_cancellable (game, run_game_cancellable);
+		var cancellable = new Cancellable ();
+		run_game_cancellable = cancellable;
+
+		run_game_with_cancellable (game, cancellable);
+
+		// Only reset the cancellable if another one didn't replace it.
+		if (run_game_cancellable == cancellable)
+			run_game_cancellable = null;
 	}
 
 	public bool quit_game () {
@@ -352,6 +359,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		if (display_box.runner == null)
+			return false;
+
+		if (run_game_cancellable != null)
 			return false;
 
 		return true;
