@@ -2,6 +2,8 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
 private class Games.ApplicationWindow : Gtk.ApplicationWindow {
+	private const uint FOCUS_OUT_DELAY_MILLISECONDS = 500;
+
 	private UiState _ui_state;
 	public UiState ui_state {
 		set {
@@ -76,6 +78,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Cancellable run_game_cancellable;
 	private Cancellable quit_game_cancellable;
 
+	private long focus_out_timeout_id;
+
 	public ApplicationWindow (ListModel collection) {
 		collection_box.collection = collection;
 	}
@@ -90,6 +94,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                        BindingFlags.BIDIRECTIONAL);
 		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_header_bar, "is-fullscreen",
 		                                               BindingFlags.BIDIRECTIONAL);
+
+		focus_out_timeout_id = -1;
 	}
 
 	public void run_game (Game game) {
@@ -303,10 +309,16 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	[GtkCallback]
 	private void on_toplevel_focus () {
-		if (ui_state != UiState.DISPLAY)
-			return;
+		update_pause (true);
+	}
 
-		if (display_box.runner == null)
+	private void update_pause (bool with_delay) {
+		if (focus_out_timeout_id != -1) {
+			Source.remove ((uint) focus_out_timeout_id);
+			focus_out_timeout_id = -1;
+		}
+
+		if (!can_update_pause ())
 			return;
 
 		if (has_toplevel_focus)
@@ -316,8 +328,32 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			catch (Error e) {
 				warning (e.message);
 			}
+		else if (with_delay)
+			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
 		else
 			display_box.runner.pause ();
+	}
+
+	private bool on_focus_out_delay_elapsed () {
+		focus_out_timeout_id = -1;
+
+		if (!can_update_pause ())
+			return false;
+
+		if (!has_toplevel_focus)
+			display_box.runner.pause ();
+
+		return false;
+	}
+
+	private bool can_update_pause () {
+		if (ui_state != UiState.DISPLAY)
+			return false;
+
+		if (display_box.runner == null)
+			return false;
+
+		return true;
 	}
 
 	private bool handle_collection_key_event (Gdk.EventKey event) {
