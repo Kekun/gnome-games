@@ -126,9 +126,16 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (quit_game_cancellable != null)
 			quit_game_cancellable.cancel ();
 
-		quit_game_cancellable = new Cancellable ();
+		var cancellable = new Cancellable ();
+		quit_game_cancellable = cancellable;
 
-		return quit_game_with_cancellable (quit_game_cancellable);
+		var result = quit_game_with_cancellable (cancellable);
+
+		// Only reset the cancellable if another one didn't replace it.
+		if (quit_game_cancellable == cancellable)
+			quit_game_cancellable = null;
+
+		return result;
 	}
 
 	[GtkCallback]
@@ -362,6 +369,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		if (run_game_cancellable != null)
+			return false;
+
+		if (quit_game_cancellable != null)
 			return false;
 
 		return true;
