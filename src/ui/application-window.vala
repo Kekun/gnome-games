@@ -149,6 +149,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkCallback]
 	public bool on_window_state_event (Gdk.EventWindowState event) {
 		is_fullscreen = (bool) (event.new_window_state & Gdk.WindowState.FULLSCREEN);
+		update_pause (false);
 
 		return false;
 	}
