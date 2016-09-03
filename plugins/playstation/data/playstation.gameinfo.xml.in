@@ -7955,23 +7955,29 @@
     </game>
     <game>
       <_title>Command &amp; Conquer</_title>
-      <discs includes="GDI + NOD discs">
-        <disc id="SLUS-00379"/>
-        <disc id="SLUS-00410"/>
+      <discs>
+        <disc id="SLES-00530">
+          <_title>GDI</_title>
+        </disc>
+        <disc id="SLES-10530">
+          <_title>NOD</_title>
+        </disc>
       </discs>
-      <controllers>
-        <controller type="classic-gamepad"/>
-      </controllers>
-    </game>
-    <game>
-      <_title>Command &amp; Conquer</_title>
-      <discs includes="GDI Disc + NOD Disc">
-        <disc id="SLES-00530"/>
-        <disc id="SLES-10530"/>
+      <discs>
+        <disc id="SLES-00531">
+          <_title>GDI</_title>
+        </disc>
+        <disc id="SLES-10531">
+          <_title>NOD</_title>
+        </disc>
       </discs>
-      <discs includes="GDI Disc + NOD Disc">
-        <disc id="SLES-00531"/>
-        <disc id="SLES-10531"/>
+      <discs>
+        <disc id="SLUS-00379">
+          <_title>GDI</_title>
+        </disc>
+        <disc id="SLUS-00410">
+          <_title>NOD</_title>
+        </disc>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -8059,9 +8065,13 @@
     </game>
     <game>
       <_title>Command &amp; Conquer - Red Alert - Retaliation</_title>
-      <discs includes="Allied + Soviet discs">
-        <disc id="SLUS-00665"/>
-        <disc id="SLUS-00667"/>
+      <discs>
+        <disc id="SLUS-00665">
+          <_title>Allies</_title>
+        </disc>
+        <disc id="SLUS-00667">
+          <_title>Soviet</_title>
+        </disc>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -15089,10 +15099,7 @@
     <game>
       <_title>Final Fantasy VI</_title>
       <discs>
-        <disc id="SCES-03828">
-          <_title>Final Fantasy VI</_title>
-        </disc>
-        <disc id="SCES-13840"/>
+        <disc id="SCES-03828"/>
       </discs>
       <discs>
         <disc id="SCPS-45387"/>
@@ -15147,11 +15154,13 @@
     </game>
     <game>
       <_title>Final Fantasy VII International</_title>
-      <discs includes="Final Fantasy VII International + Bonus Disc">
+      <discs>
         <disc id="SLPS-01057"/>
         <disc id="SLPS-01058"/>
         <disc id="SLPS-01059"/>
-        <disc id="SLPS-01060"/>
+        <disc id="SLPS-01060">
+          <_title>Perfect Guide</_title>
+        </disc>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -15159,11 +15168,13 @@
     </game>
     <game>
       <_title>Final Fantasy VII International [PSOne Books]</_title>
-      <discs includes="Final Fantasy VII International [Psone Books] + Bonus Disc">
+      <discs>
         <disc id="SLPS-91440"/>
         <disc id="SLPS-91441"/>
         <disc id="SLPS-91442"/>
-        <disc id="SLPS-91443"/>
+        <disc id="SLPS-91443">
+          <_title>Perfect Guide</_title>
+        </disc>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -15171,11 +15182,13 @@
     </game>
     <game>
       <_title>Final Fantasy VII International [Ultimate Hits]</_title>
-      <discs includes="Final Fantasy VII International [Ultimate Hits] + Bonus Disc">
+      <discs>
         <disc id="SLPM-87380"/>
         <disc id="SLPM-87381"/>
         <disc id="SLPM-87382"/>
-        <disc id="SLPM-87383"/>
+        <disc id="SLPM-87383">
+          <_title>Perfect Guide</_title>
+        </disc>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -17499,33 +17512,59 @@
     </game>
     <game>
       <_title>Gran Turismo 2 - The Real Driving Simulator</_title>
-      <discs includes="Arcade Disc + Simulation Disc">
-        <disc id="SCES-02380"/>
-        <disc id="SCES-12380"/>
+      <discs>
+        <disc id="SCES-02380">
+          <_title>Arcade Mode</_title>
+        </disc>
+        <disc id="SCES-12380">
+          <_title>GT Mode</_title>
+        </disc>
       </discs>
-      <discs includes="Arcade Disc + Simulation Disc">
-        <disc id="SCPS-10116"/>
-        <disc id="SCPS-10117"/>
+      <discs>
+        <disc id="SCPS-10116">
+          <_title>Arcade Disc</_title>
+        </disc>
+        <disc id="SCPS-10117">
+          <_title>Gran-Turismo Disc</_title>
+        </disc>
       </discs>
-      <discs includes="Arcade Disc + Simulation Disc">
-        <disc id="SCPS-45457"/>
-        <disc id="SCPS-45458"/>
+      <discs>
+        <disc id="SCPS-45457">
+          <_title>Arcade Disc</_title>
+        </disc>
+        <disc id="SCPS-45458">
+          <_title>Gran-Turismo Disc</_title>
+        </disc>
       </discs>
-      <discs includes="Arcade Disc + Simulation Disc + Bonus PlayStation Disc">
-        <disc id="SCUS-94455"/>
-        <disc id="SCUS-94488"/>
-        <disc id="SCUS-94588"/>
+      <discs>
+        <disc id="SCUS-94455">
+          <_title>Arcade Mode</_title>
+        </disc>
+        <disc id="SCUS-94488">
+          <_title>Simulation Mode</_title>
+        </disc>
+        <disc id="SCUS-94588">
+          <_title>Bonus Disc</_title>
+        </disc>
       </discs>
     </game>
     <game>
       <_title>Gran Turismo 2 - The Real Driving Simulator [PSOne Books]</_title>
-      <discs includes="Arcade Disc + Simulation Disc">
-        <disc id="SCAJ-01001"/>
-        <disc id="SCAJ-01002"/>
+      <discs>
+        <disc id="SCAJ-01001">
+          <_title>Arcade Disc</_title>
+        </disc>
+        <disc id="SCAJ-01002">
+          <_title>Gran-Turismo Disc</_title>
+        </disc>
       </discs>
-      <discs includes="Arcade Disc + Simulation Disc">
-        <disc id="SCPS-91326"/>
-        <disc id="SCPS-91327"/>
+      <discs>
+        <disc id="SCPS-91326">
+          <_title>Arcade Disc</_title>
+        </disc>
+        <disc id="SCPS-91327">
+          <_title>Gran-Turismo Disc</_title>
+        </disc>
       </discs>
     </game>
     <game>
@@ -26912,10 +26951,12 @@
         <disc id="SCPS-45317"/>
         <disc id="SCPS-45318"/>
       </discs>
-      <discs includes="Metal Gear Solid + Bonus Disc (GensoSuikoden II Demo)">
+      <discs>
         <disc id="SCPS-45320"/>
         <disc id="SCPS-45321"/>
-        <disc id="SCPS-45322"/>
+        <disc id="SCPS-45322">
+          <_title>Genso Suikoden II Demo</_title>
+        </disc>
       </discs>
       <discs>
         <disc id="SLES-01370"/>
@@ -26937,10 +26978,12 @@
         <disc id="SLES-01734"/>
         <disc id="SLES-11734"/>
       </discs>
-      <discs includes="Metal Gear Solid + Bonus Disc (GensoSuikoden II Demo)">
+      <discs>
         <disc id="SLPM-86114"/>
         <disc id="SLPM-86115"/>
-        <disc id="SLPM-86116"/>
+        <disc id="SLPM-86116">
+          <_title>Genso Suikoden II Demo</_title>
+        </disc>
       </discs>
       <discs>
         <disc id="SLUS-00594"/>
@@ -27008,14 +27051,6 @@
       <discs>
         <disc id="SLPM-87030"/>
         <disc id="SLPM-87031"/>
-      </discs>
-    </game>
-    <game>
-      <_title>Metal Gear Solid [Premium Package Sai Hakkou Kinen]</_title>
-      <discs includes="Metal Gear Solid + Bonus Disc">
-        <disc id="SLPM-86111"/>
-        <disc id="SLPM-86112"/>
-        <disc id="SLPM-86113"/>
       </discs>
     </game>
     <game>
@@ -35327,22 +35362,30 @@
       <_title>R4 - Ridge Racer Type 4</_title>
       <discs>
         <disc id="SCPS-45354"/>
-        <disc id="SCPS-45355"/>
+        <disc id="SCPS-45355">
+          <_title>Ridge Racer Hi-Spec Ver.</_title>
+        </disc>
       </discs>
       <discs>
         <disc id="SLPS-01800"/>
-        <disc id="SLPS-01801"/>
+        <disc id="SLPS-01801">
+          <_title>Ridge Racer Hi-Spec Ver.</_title>
+        </disc>
       </discs>
-      <discs includes="Ridge Racer Type 4 + Bonus Disc">
+      <discs>
         <disc id="SLUS-00797"/>
-        <disc id="SLUS-90049"/>
+        <disc id="SLUS-90049">
+          <_title>Ridge Racer Bonus Turbo Mode Disc</_title>
+        </disc>
       </discs>
     </game>
     <game>
       <_title>R4 - Ridge Racer Type 4 + JogCon</_title>
       <discs>
         <disc id="SLPS-01798"/>
-        <disc id="SLPS-01799"/>
+        <disc id="SLPS-01799">
+          <_title>Ridge Racer Hi-Spec Ver.</_title>
+        </disc>
       </discs>
     </game>
     <game>
@@ -36485,7 +36528,9 @@
       <_title>Ridge Racer Type 4</_title>
       <discs>
         <disc id="SCES-01706"/>
-        <disc id="SCED-01832"/>
+        <disc id="SCED-01832">
+          <_title>Ridge Racer Hi-Spec Demo</_title>
+        </disc>
       </discs>
     </game>
     <game>
@@ -47255,9 +47300,13 @@
     </game>
     <game>
       <_title>Thunder Storm LX-3 &amp; Roadblaster</_title>
-      <discs includes="Thunder Storm LX-3 Disc + Roadblaster Disc">
-        <disc id="SLPS-00094"/>
-        <disc id="SLPS-00095"/>
+      <discs>
+        <disc id="SLPS-00094">
+          <_title>Thunder Storm LX-3</_title>
+        </disc>
+        <disc id="SLPS-00095">
+          <_title>Roadblaster</_title>
+        </disc>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -47484,9 +47533,13 @@
     </game>
     <game>
       <_title>Time Gal &amp; Ninja Hayate</_title>
-      <discs includes="Time Gal Disc + Ninja Hayate Disc">
-        <disc id="SLPS-00383"/>
-        <disc id="SLPS-00384"/>
+      <discs>
+        <disc id="SLPS-00383">
+          <_title>Time Gal</_title>
+        </disc>
+        <disc id="SLPS-00384">
+          <_title>Ninja Hayate</_title>
+        </disc>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
