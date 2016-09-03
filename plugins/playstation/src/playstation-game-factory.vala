@@ -133,7 +133,10 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			new FilenameTitle (uri)
 		});
 		var icon = new DummyIcon ();
-		var cover = new LocalCover (uri);
+		var media = new GriloMedia (title, SPECIFIC_MIME_TYPE);
+		var cover = new CompositeCover ({
+			new LocalCover (uri),
+			new GriloCover (media, uid)});
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, header.disc_id);
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (media_set, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING, input_capabilities);
 
