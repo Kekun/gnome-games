@@ -103,7 +103,24 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		Media[] medias = {};
 
 		var gameinfo = get_gameinfo ();
-		disc_set.foreach ((disc_id) => {
+		var disc_list = disc_set.get_values ();
+		disc_list.sort_with_data ((disc_id_a, disc_id_b) => {
+			int index_a;
+			int index_b;
+			try {
+				index_a = gameinfo.get_disc_set_index_for_disc_id (disc_id_a);
+				index_b = gameinfo.get_disc_set_index_for_disc_id (disc_id_b);
+			}
+			catch (Error e) {
+				debug (e.message);
+
+				return 0;
+			}
+
+			return (int) (index_a > index_b) - (int) (index_a < index_b);
+		});
+
+		disc_list.foreach ((disc_id) => {
 			var uri = discs[disc_id];
 			var title = new GameinfoDiscIdDiscTitle (gameinfo, disc_id);
 			medias += new Media (uri, title);
