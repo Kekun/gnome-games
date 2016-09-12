@@ -1,4 +1,33 @@
 ===============
+Version 3.21.92
+===============
+
+* Pause and resume on focus change:
+ - Avoid micro pauses when the shell takes the focus for an instant
+ - Avoid resuming the game when there is a transient dialog
+
+* PlayStation:
+ - Set the correct gamepad type to the games depending on their support
+ - Detect discs with a lowercase disc ID
+ - Get covers from TheGamesDB.net
+ - Ensure discs are in the correct order
+
+* Bugs fixed:
+ 770192 playstation: Some games requires a non-analog gamepad
+ 770426 Moving the "Resume" dialog unpauses the game
+ 770625 The application is named 'gnome-games' and doesn't have its icon in the GCC sound panel
+ 770626 playstation: Games with a lowercase ID not detected
+ 770780 CDs in wrong order
+ 770781 No covers for PSX games
+
+* Translation updates:
+ Finnish
+ French
+ Portuguese
+ Slovenian
+
+
+===============
 Version 3.21.91
 ===============
 
