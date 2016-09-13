@@ -93,7 +93,9 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, MEGA_CD_MIME_TYPE);
-		var cover = new GriloCover (media, uid);
+		var cover = new CompositeCover ({
+			new LocalCover (uri),
+			new GriloCover (media, uid)});
 		var runner = new RetroRunner (uri, uid, mime_types, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
