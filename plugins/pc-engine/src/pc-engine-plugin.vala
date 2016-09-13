@@ -47,7 +47,9 @@ private class Games.PcEnginePlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, MIME_TYPE);
-		var cover = new GriloCover (media, uid);
+		var cover = new CompositeCover ({
+			new LocalCover (uri),
+			new GriloCover (media, uid)});
 		var runner = new RetroRunner (uri, uid, { CUE_MIME_TYPE, MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
 
 		return new GenericGame (title, icon, cover, runner);
