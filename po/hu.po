@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-19 21:22+0000\n"
-"PO-Revision-Date: 2016-08-22 13:33+0200\n"
+"POT-Creation-Date: 2016-09-15 14:33+0000\n"
+"PO-Revision-Date: 2016-09-15 19:03+0200\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
 "Language: hu\n"
@@ -17,11 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:16
 msgid "Games"
 msgstr "Játékok"
 
@@ -262,19 +263,19 @@ msgstr "A fájlnak nincs Master System fejléce."
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "A fájlnak nincs Genesis/Sega 32X/Sega CD/Sega Pico fejléce."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:104
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:106
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "A(z) „%s” fájlnak nincs sávja."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:110
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:112
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:113
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:115
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
@@ -285,16 +286,11 @@ msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
 msgid "Disc with disc_id %s is unknown"
 msgstr "A(z) %s azonosítójú lemez ismeretlen"
 
-#: ../plugins/playstation/src/playstation-header.vala:36
+#: ../plugins/playstation/src/playstation-header.vala:48
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in '%s'."
 msgstr ""
 "Érvénytelen PlayStation fejléc: a lemezazonosító nem található itt: „%s”."
-
-#: ../plugins/playstation/src/playstation-header.vala:46
-#, c-format
-msgid "PlayStation header not found in '%s'."
-msgstr "A PlayStation fejléc nem található itt: „%s”."
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn't have a Sega Saturn header."
@@ -305,7 +301,7 @@ msgstr "A fájlnak nincs Sega Saturn fejléce."
 msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
 
-#: ../plugins/steam/src/steam-game-source.vala:90
+#: ../plugins/steam/src/steam-game-source.vala:99
 #, c-format
 msgid "Couldn't get Steam appid from manifest '%s'."
 msgstr "A Steam alkalmazásazonosító nem nyerhető ki a(z) „%s” leíróból."
@@ -379,17 +375,17 @@ msgstr "%d. lemez"
 msgid "No game title found for disc ID '%s'."
 msgstr "Nem található játékcím a(z) „%s” lemezazonosítóhoz."
 
-#: ../src/gameinfo/gameinfo-doc.vala:25
+#: ../src/gameinfo/gameinfo-doc.vala:31
 #, c-format
 msgid "No disc title found for disc ID '%s'."
 msgstr "Nem található lemezcím a(z) „%s” lemezazonosítóhoz."
 
-#: ../src/gameinfo/gameinfo-doc.vala:35
+#: ../src/gameinfo/gameinfo-doc.vala:41
 #, c-format
 msgid "No disc set ID found for disc ID '%s'."
 msgstr "Nem található lemezkészlet-azonosító a(z) „%s” lemezazonosítóhoz."
 
-#: ../src/gameinfo/gameinfo-doc.vala:43 ../src/gameinfo/gameinfo-doc.vala:53
+#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
 #, c-format
 msgid "No disc found for disc ID '%s'."
 msgstr "Nem található lemez a(z) „%s” lemezazonosítóhoz."
@@ -412,17 +408,17 @@ msgstr "A(z) „%s” fájl nem nyitható meg: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Az evdev nem tudja megnyitni a(z) „%s” fájlt: %s"
 
-#: ../src/retro/retro-runner.vala:236
+#: ../src/retro/retro-runner.vala:228
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Érvénytelen játékfájl: „%s”."
 
-#: ../src/retro/retro-runner.vala:246
+#: ../src/retro/retro-runner.vala:238
 #, c-format
 msgid "Couldn't run game: module '%s' not found."
 msgstr "A játék nem futtatható: a(z) „%s” modul nem található."
 
-#: ../src/retro/retro-runner.vala:253
+#: ../src/retro/retro-runner.vala:245
 #, c-format
 msgid ""
 "Couldn't run game: module '%s' not found and no module found for MIME types "
@@ -431,27 +427,31 @@ msgstr ""
 "A játék nem futtatható: a(z) „%s” modul nem található, és nem található "
 "modul a(z) %s MIME-típusokhoz."
 
-#: ../src/retro/retro-runner.vala:452
+#: ../src/retro/retro-runner.vala:444
 msgid "Couldn't write snapshot."
 msgstr "A pillanatkép nem írható."
 
-#: ../src/ui/application.vala:148
+#: ../src/ui/application.vala:154
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: ../src/ui/application.vala:150
+#: ../src/ui/application.vala:156
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: ../src/ui/application.vala:154
+#: ../src/ui/application.vala:160
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: ../src/ui/application.vala:161
+#: ../src/ui/application.vala:167
 msgid "translator-credits"
 msgstr ""
 "Úr Balázs <urbalazs@gmail.com>\n"
 "Meskó Balázs <meskobalazs@gmail.com>"
+
+#: ../src/ui/application-window.vala:451 ../src/ui/application-window.vala:468
+msgid "Playing a game"
+msgstr "Játék elindítása"
 
 #: ../src/ui/error-display.vala:11
 #, c-format
@@ -517,6 +517,9 @@ msgstr "%s:%lu: Váratlan sorvég, egy token várt."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Váratlan %s token, sorvég várt."
+
+#~ msgid "PlayStation header not found in '%s'."
+#~ msgstr "A PlayStation fejléc nem található itt: „%s”."
 
 #~ msgid "Main Menu"
 #~ msgstr "Főmenü"
