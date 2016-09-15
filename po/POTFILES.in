@@ -41,6 +41,7 @@ src/gamepad/gamepad-mapping.vala
 src/gamepad/linux/linux-raw-gamepad.vala
 src/retro/retro-runner.vala
 src/ui/application.vala
+src/ui/application-window.vala
 src/ui/error-display.vala
 src/ui/media-selector.vala
 src/ui/preferences-page-plugins.vala
