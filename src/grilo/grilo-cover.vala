@@ -43,9 +43,11 @@ public class Games.GriloCover : Object, Cover {
 	private void on_media_resolved () {
 		var grl_media = media.get_media ();
 
-		return_if_fail (grl_media != null);
+		if (grl_media == null)
+			return;
 
-		return_if_fail (grl_media.length (Grl.MetadataKey.THUMBNAIL) != 0);
+		if (grl_media.length (Grl.MetadataKey.THUMBNAIL) == 0)
+			return;
 
 		var uri = grl_media.get_thumbnail_nth (0);
 		try_fetch_cover.begin (uri);
