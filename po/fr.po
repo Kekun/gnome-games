@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gameinfo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-28 07:39+0000\n"
-"PO-Revision-Date: 2016-09-10 16:21+0200\n"
+"POT-Creation-Date: 2016-09-15 14:33+0000\n"
+"PO-Revision-Date: 2016-09-16 10:28+0200\n"
 "Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
 "Language-Team: français <>\n"
 "Language: fr\n"
@@ -22,6 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:16
 msgid "Games"
 msgstr "Jeux"
 
@@ -78,7 +79,6 @@ msgid "View and play your video games collection"
 msgstr "Visualiser et jouer votre ludothèque"
 
 #: ../data/org.gnome.Games.desktop.in.h:4
-#| msgid "game;videogame;video game;player"
 msgid "game;videogame;video game;player;"
 msgstr "jeu;jeu vidéo;lecteur;"
 
@@ -143,7 +143,6 @@ msgid "Plugins"
 msgstr "Greffons"
 
 #: ../data/ui/preferences-window.ui.h:1
-#| msgid "_Preferences"
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -161,7 +160,6 @@ msgid "All unsaved progress will be lost."
 msgstr "Toute progression non sauvegardée sera perdue."
 
 #: ../data/ui/quit-dialog.ui.h:3
-#| msgid "_Quit"
 msgid "Quit"
 msgstr "Quitter"
 
@@ -266,19 +264,19 @@ msgstr ""
 "Le fichier n'a pas d'en-tête Mega Drive, Mega Drive 32X, Mega-CD ou Sega "
 "Pico."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:104
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:106
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "Le fichier « %s » n'a pas de piste."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:110
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:112
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "Le fichier « %s » n'a pas de format de fichier binaire valide."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:113
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:115
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
@@ -289,7 +287,7 @@ msgstr "Le fichier « %s » n'a pas de mode de piste valide pour la piste %d."
 msgid "Disc with disc_id %s is unknown"
 msgstr "Le disque d'identifiant %s est inconnu"
 
-#: ../plugins/playstation/src/playstation-header.vala:47
+#: ../plugins/playstation/src/playstation-header.vala:48
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in '%s'."
 msgstr ""
@@ -304,7 +302,7 @@ msgstr "Le fichier n'a pas d'en-tête Sega Saturn."
 msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgstr "Le fichier « %s » n'a pas de fichier binaire Sega Saturn valide."
 
-#: ../plugins/steam/src/steam-game-source.vala:90
+#: ../plugins/steam/src/steam-game-source.vala:99
 #, c-format
 msgid "Couldn't get Steam appid from manifest '%s'."
 msgstr "Nous n'avons pas pû obtenir l'appid Steam depuis le manifeste « %s »."
@@ -379,17 +377,17 @@ msgstr "Disque %d"
 msgid "No game title found for disc ID '%s'."
 msgstr "Aucun titre de jeu trouvé pour l'identifiant de disque « %s »."
 
-#: ../src/gameinfo/gameinfo-doc.vala:25
+#: ../src/gameinfo/gameinfo-doc.vala:31
 #, c-format
 msgid "No disc title found for disc ID '%s'."
 msgstr "Aucun titre de disque trouvé pour l'identifiant de disque « %s »."
 
-#: ../src/gameinfo/gameinfo-doc.vala:35
+#: ../src/gameinfo/gameinfo-doc.vala:41
 #, c-format
 msgid "No disc set ID found for disc ID '%s'."
 msgstr "Aucun ensemble de disques trouvé pour l'identifiant de disque « %s »."
 
-#: ../src/gameinfo/gameinfo-doc.vala:43 ../src/gameinfo/gameinfo-doc.vala:53
+#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
 #, c-format
 msgid "No disc found for disc ID '%s'."
 msgstr "Aucun disque trouvé pour l'identifiant de disque « %s »."
@@ -412,18 +410,18 @@ msgstr "Nous n'avons pas pû ouvrir le fichier « %s » : %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev est incapable d'ouvrir « %s » : %s"
 
-#: ../src/retro/retro-runner.vala:237
+#: ../src/retro/retro-runner.vala:228
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Fichier de jeu invalide : « %s »."
 
-#: ../src/retro/retro-runner.vala:247
+#: ../src/retro/retro-runner.vala:238
 #, c-format
 msgid "Couldn't run game: module '%s' not found."
 msgstr ""
 "Nous n'avons pas pû lancer le jeu : le module « %s » n'a pas été trouvé."
 
-#: ../src/retro/retro-runner.vala:254
+#: ../src/retro/retro-runner.vala:245
 #, c-format
 msgid ""
 "Couldn't run game: module '%s' not found and no module found for MIME types "
@@ -432,25 +430,30 @@ msgstr ""
 "Nous n'avons pas pû lancer le jeu : le module « %s » n'a pas été trouvé et "
 "aucun module n'a été trouvé pour le type MIME %s."
 
-#: ../src/retro/retro-runner.vala:453
+#: ../src/retro/retro-runner.vala:444
 msgid "Couldn't write snapshot."
 msgstr "Nous n'avons pas pû écrire l'instantané"
 
-#: ../src/ui/application.vala:148
+#: ../src/ui/application.vala:154
 msgid "GNOME Games"
 msgstr "GNOME Jeux"
 
-#: ../src/ui/application.vala:150
+#: ../src/ui/application.vala:156
 msgid "A video game player for GNOME"
 msgstr "Lecteur de jeux vidéo pour GNOME"
 
-#: ../src/ui/application.vala:154
+#: ../src/ui/application.vala:160
 msgid "Learn more about GNOME Games"
 msgstr "En apprendre plus sur GNOME Jeux"
 
-#: ../src/ui/application.vala:161
+#: ../src/ui/application.vala:167
 msgid "translator-credits"
 msgstr "Adrien Plazas <kekun.plazas@laposte.net>, 2016"
+
+#: ../src/ui/application-window.vala:451 ../src/ui/application-window.vala:468
+#| msgid "Play your games"
+msgid "Playing a game"
+msgstr "Partie en cours"
 
 #: ../src/ui/error-display.vala:11
 #, c-format
