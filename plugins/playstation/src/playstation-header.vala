@@ -13,6 +13,7 @@ private class Games.PlayStationHeader : Object {
 		0xBE64, // .bin.ecm
 		0xD368, // .bin
 		0xD3A8, // .iso
+		0xA9F98, // .bin
 	};
 	private const string BOOT_MAGIC_VALUE = "BOOT";
 
