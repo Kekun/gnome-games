@@ -1,3 +1,33 @@
+==============
+Version 3.22.0
+==============
+
+* Inhibition:
+ - Inhibit blank screen on idle when playing a game
+ - Inhibit session closing when playing a game
+
+* Prevent the media selector button to show up when it shouldn't
+
+* Look for local covers for Mega-CD and PC-Engine CD-ROM²
+
+* Detect more Mega Drive and PlayStation games
+
+* Bugs fixed:
+ 769968 Screensaver kicks in while playing
+ 771360 mega-drive: Mega-CD games should look for local covers
+ 771361 pc-engine: CD-ROM² games should look for local covers
+ 771511 mega-drive: Some games are not detected
+ 771512 grilo: Critical errors caused by wrong 'return_if_fail'
+ 771513 ui: Media selector sometimes visible on 'Unable to run game' page
+ 771514 playstation: Some discs have their BOOT header at 0xA9F98
+
+* Translation updates:
+ Czech
+ French
+ Hungarian
+ Polish
+
+
 ===============
 Version 3.21.92
 ===============
