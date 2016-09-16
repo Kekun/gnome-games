@@ -9,6 +9,8 @@ private class Games.MegaDriveHeader : Object {
 	private const size_t CD_OFFSET = 0x0;
 
 	private const size_t SYSTEM_OFFSET = 0x100;
+	// A game with a weird character at the 16th position was found so
+	// let's just use the 15 first chars.
 	private const size_t SYSTEM_SIZE = 0xf;
 
 	private const size_t DOMESTIC_NAME_OFFSET = 0x120;
@@ -69,12 +71,15 @@ private class Games.MegaDriveHeader : Object {
 
 		var stream = new StringInputStream (file);
 
-		foreach (var possible_offset in POSSIBLE_HEADER_OFFSETS)
-			if (stream.has_string (possible_offset + SYSTEM_OFFSET, "SEGA")) {
+		foreach (var possible_offset in POSSIBLE_HEADER_OFFSETS) {
+			var system_string = stream.read_string_for_size (possible_offset + SYSTEM_OFFSET, SYSTEM_SIZE);
+			system_string = system_string.strip ();
+			if (system_string.has_prefix ("SEGA")) {
 				offset = possible_offset;
 
 				return offset;
 			}
+		}
 
 			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
 	}
@@ -90,6 +95,9 @@ private class Games.MegaDriveHeader : Object {
 		switch (system_string) {
 		case "SEGA MEGA DRIVE":
 		case "SEGA GENESIS":
+		case " SEGA MEGA DRIV":
+		case "SEGA_MEGA_DRIVE":
+		case "SEGA are Regist":
 			return is_cd ? MegaDriveSystem.MEGA_CD : MegaDriveSystem.MEGA_DRIVE;
 		case "SEGA 32X":
 			return is_cd ? MegaDriveSystem.MEGA_CD_32X : MegaDriveSystem.32X;
