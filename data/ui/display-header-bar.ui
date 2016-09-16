@@ -84,7 +84,7 @@
     </child>
     <child>
       <object class="GamesMediaMenuButton" id="media_button">
-        <property name="visible">True</property>
+        <property name="visible">False</property>
         <property name="valign">center</property>
         <property name="use-underline">True</property>
       </object>
