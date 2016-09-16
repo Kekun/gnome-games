@@ -205,6 +205,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		display_box.header_bar.game_title = game.name;
 		ui_state = UiState.DISPLAY;
 
+		// Reset the UI parts depending on the runner to avoid an
+		// inconsistent state is case we couldn't retrieve it.
+		display_header_bar.can_fullscreen = false;
+		display_box.header_bar.can_fullscreen = false;
+		display_box.runner = null;
+		display_header_bar.media_set = null;
+		display_box.header_bar.media_set = null;
+
 		var runner = try_get_runner (game);
 		if (runner == null)
 			return;
