@@ -8,19 +8,21 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-05-21 07:56+0000\n"
-"PO-Revision-Date: 2016-05-22 13:44+0200\n"
+"POT-Creation-Date: 2016-09-15 14:33+0000\n"
+"PO-Revision-Date: 2016-09-25 10:40+0200\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:16
 msgid "Games"
 msgstr "Hry"
 
@@ -95,6 +97,22 @@ msgstr "_O aplikácii"
 msgid "_Quit"
 msgstr "_Ukončiť"
 
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Vyhľadať"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Späť"
+
+#: ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Na celú obrazovku"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "Obnoviť"
+
 #: ../data/ui/dummy-display.ui.h:1
 msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
 msgstr "<b><span size=\"large\">Toto je falošné zobrazenie hry</span></b>"
@@ -118,13 +136,9 @@ msgstr ""
 "Nainštalujte hry, alebo pridajte adresáre obsahujúce hry do vašich zdrojov "
 "vyhľadávania."
 
-#: ../data/ui/header-bar.ui.h:2
-msgid "Search"
-msgstr "Vyhľadať"
-
-#: ../data/ui/header-bar.ui.h:3
-msgid "Back"
-msgstr "Späť"
+#: ../data/ui/media-menu-button.ui.h:1
+msgid "Media"
+msgstr "Médium"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
@@ -151,7 +165,7 @@ msgstr "Všetok neuložený priebeh bude stratený."
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -177,21 +191,334 @@ msgid "Resume"
 msgstr "Pokračovať"
 
 #: ../data/ui/resume-dialog.ui.h:3
-msgid "Main Menu"
-msgstr "Hlavná ponuka"
+msgid "Restart"
+msgstr "Reštartovať"
 
-#: ../src/ui/application.vala:138
+#: ../data/ui/resume-failed-dialog.ui.h:1
+msgid "Resuming failed. Do you want to to restart the game?"
+msgstr "Pokračovanie zlyhalo. Chcete hru reštartovať?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Reset"
+msgstr "Vynulovať"
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#, c-format
+msgid "Invalid command '%s'."
+msgstr "Neplatný príkaz „%s“."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#, c-format
+msgid "Tracker listed file not found: '%s'."
+msgstr "Súbor indexovaný nástrojom Tracker sa nenašiel: „%s“."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#, c-format
+msgid "Couldn't parse desktop entry '%s'."
+msgstr "Nepodarilo sa analyzovať položku pracovnej plochy „%s“."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "'%s' has blacklisted category '%s'."
+msgstr "„%s“ má kategóriu „%s“ na čiernej listine."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#, c-format
+msgid "'%s' has blacklisted executable '%s'."
+msgstr "„%s“ má spustiteľný súbor „%s“ na čiernej listine."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#, c-format
+msgid "'%s' is blacklisted."
+msgstr "„%s“ je na čiernej listine."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn't have a Dreamcast header."
+msgstr "Súbor neobsahuje hlavičku konzoly Dreamcast."
+
+#: ../plugins/game-boy/src/game-boy-header.vala:97
+msgid "The file doesn't have a Game Boy header."
+msgstr "Súbor neobsahuje hlavičku konzoly Game Boy."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn't have a Game Cube header."
+msgstr "Súbor neobsahuje hlavičku konzoly Game Cube."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgstr "Toto nereprezentuje platný balík LÖVE: „%s“."
+
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
+#, c-format
+msgid "Invalid MAME game id '%s' for '%s'."
+msgstr "Neplatný identifikátor hry MAME „%s“ pre „%s“."
+
+#: ../plugins/master-system/src/master-system-header.vala:69
+msgid "The file doesn't have a Master System header."
+msgstr "Súbor neobsahuje hlavičku konzoly Master System."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:63
+#: ../plugins/mega-drive/src/mega-drive-header.vala:79
+msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "Súbor neobsahuje hlavičku konzoly Genesis/Sega 32X/Sega CD/Sega Pico."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:106
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#, c-format
+msgid "The file '%s' doesn't have a track."
+msgstr "Súbor „%s“ neobsahuje stopu."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:112
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#, c-format
+msgid "The file '%s' doesn't have a valid binary file format."
+msgstr "Súbor „%s“ neobsahuje platný formát binárneho súboru."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:115
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgstr "Súbor „%s“ neobsahuje platný režim stopy pre stopu č. %d."
+
+#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#, c-format
+msgid "Disc with disc_id %s is unknown"
+msgstr "Disk s identifikátorom disc_id %s je neznámy"
+
+#: ../plugins/playstation/src/playstation-header.vala:48
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgstr ""
+"Neplatná hlavička konzoly PlayStation: identifikátor disku sa nenašiel v "
+"„%s“."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn't have a Sega Saturn header."
+msgstr "Súbor neobsahuje hlavičku konzoly Sega Saturn."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#, c-format
+msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgstr "Súbor „%s“ neobsahuje platný binárny súbor konzoly Sega Saturn."
+
+#: ../plugins/steam/src/steam-game-source.vala:99
+#, c-format
+msgid "Couldn't get Steam appid from manifest '%s'."
+msgstr ""
+"Nepodarilo sa získať identifikátor appid služby Steam z manifestu „%s“."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File '%s' doesn't exist."
+msgstr "Súbor „%s“ neexistuje."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Neočakávaný znak „{“."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Neočakávaný koniec znakov."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Neočakávaný znak „}“."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn't get name from Steam registry."
+msgstr "Nepodarilo sa získať názov z registra služby Steam."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Neplatná veľkosť hlavičky konzoly Wii: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn't have a Wii header."
+msgstr "Súbor neobsahuje hlavičku konzoly Wii."
+
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "Nepodarilo sa čítať súbor: %s"
+
+#: ../src/command/command-runner.vala:30
+msgid "Invalid command: it doesn't have any argument."
+msgstr "Neplatný príkaz: neobsahuje žiadny parameter."
+
+#: ../src/command/command-runner.vala:59
+#, c-format
+msgid "Couldn't run '%s': execution failed."
+msgstr "Nepodarilo sa spustiť „%s“: spúšťanie zlyhalo."
+
+#: ../src/core/media-set/media-set.vala:31
+#, c-format
+msgid "Invalid media index %u."
+msgstr "Neplatný index média %u."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Neplatný popisovač zásuvného modulu: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn't create a new instance of plugin in '%s'."
+msgstr "Nepodarilo sa vytvoriť novú inštanciu zásuvného modulu v „%s“."
+
+#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "Disk č. %d"
+
+#: ../src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID '%s'."
+msgstr "Pre disk s identifikátorom „%s“ sa nenašiel žiadny titul hry."
+
+#: ../src/gameinfo/gameinfo-doc.vala:31
+#, c-format
+msgid "No disc title found for disc ID '%s'."
+msgstr "Pre disk s identifikátorom „%s“ sa nenašiel žiadny titul disku."
+
+#: ../src/gameinfo/gameinfo-doc.vala:41
+#, c-format
+msgid "No disc set ID found for disc ID '%s'."
+msgstr ""
+"Pre disk s identifikátorom „%s“ sa nenašiel žiadny identifikátor sady diskov."
+
+#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
+#, c-format
+msgid "No disc found for disc ID '%s'."
+msgstr "Pre disk s identifikátorom „%s“ sa nenašiel žiadny disk."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can't be null."
+msgstr "Mapovací reťazec nemôže byť nulový."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can't be empty."
+msgstr "Mapovací reťazec nemôže byť prázdny."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#, c-format
+msgid "Unable to open file '%s': %s"
+msgstr "Nie je možné otvoriť súbor „%s“: %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#, c-format
+msgid "Evdev is unable to open '%s': %s"
+msgstr "Rozhranie evdev nedokáže otvoriť „%s“: %s"
+
+#: ../src/retro/retro-runner.vala:228
+#, c-format
+msgid "Invalid game file: '%s'."
+msgstr "Neplatný súbor hry: „%s“."
+
+#: ../src/retro/retro-runner.vala:238
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "Nepodarilo sa spustiť hru: nenašiel sa modul „%s“."
+
+#: ../src/retro/retro-runner.vala:245
+#, c-format
+msgid ""
+"Couldn't run game: module '%s' not found and no module found for MIME types "
+"%s."
+msgstr ""
+"Nepodarilo sa spustiť hru: nenašiel sa modul „%s“ a  modul pre typy MIME %s."
+
+#: ../src/retro/retro-runner.vala:444
+msgid "Couldn't write snapshot."
+msgstr "Nepodarilo sa zapísať snímku."
+
+#: ../src/ui/application.vala:154
 msgid "GNOME Games"
 msgstr "Hry prostredia GNOME"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:156
 msgid "A video game player for GNOME"
 msgstr "Spúšťač video hier pre GNOME"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:160
 msgid "Learn more about GNOME Games"
 msgstr "Zistite viac o aplikácii Hry prostredia GNOME"
 
-#: ../src/ui/application.vala:151
+#: ../src/ui/application.vala:167
 msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
+
+#: ../src/ui/application-window.vala:451 ../src/ui/application-window.vala:468
+msgid "Playing a game"
+msgstr "Hranie hry"
+
+#: ../src/ui/error-display.vala:11
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Ale nie! Nie je možné spustiť „%s“"
+
+#: ../src/ui/error-display.vala:13
+msgid "Oops! Unable to run the game"
+msgstr "Ale nie! Nie je možné spustiť hru"
+
+#: ../src/ui/media-selector.vala:29
+#, c-format
+msgid "Media %d"
+msgstr "Médium %d"
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "'%s' doesn't have a track for index %u."
+msgstr "„%s“ neobsahuje stopu re index %u."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: Neplatný formát súboru %s. Očakával sa platný formát súboru alebo "
+"nič."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: Neočakávaný znak TRACK pred znakom FILE."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr "%s:%lu: Neplatné číslo stopy %s. Očakávalo sa číslo v rozsahu 1 až 99."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr "%s:%lu: Neplatný režim stopy %s. Očakával sa platný režim stopy."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: Neočakávaný koniec súboru. Očakával sa %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: Neočakávaný znak %s. Očakával sa %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: Neočakávaný koniec súboru. Očakával sa znak."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: Neočakávaný koniec riadku. Očakával sa znak."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: Neoačkávaný znak %s. Očakával sa koniec riadku."
+
+#~ msgid "Main Menu"
+#~ msgstr "Hlavná ponuka"
