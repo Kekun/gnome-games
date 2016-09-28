@@ -12,7 +12,7 @@ hicolor_icon48_DATA = hicolor/48x48/apps/org.gnome.Games.png
 hicolor_icon256dir = $(datadir)/icons/hicolor/256x256/apps
 hicolor_icon256_DATA = hicolor/256x256/apps/org.gnome.Games.png
 hicolor_iconscalabledir = $(datadir)/icons/hicolor/scalable/apps
-hicolor_iconscalable_DATA = hicolor/scalable/apps/gnome-games-symbolic.svg
+hicolor_iconscalable_DATA = hicolor/scalable/apps/org.gnome.Games-symbolic.svg
 hicolor_icon_files = \
 	$(hicolor_icon16_DATA) \
 	$(hicolor_icon22_DATA) \
