@@ -23,6 +23,10 @@ private class Games.MediaSelector : Gtk.Popover {
 
 	private void update_media () {
 		var media_number = 0;
+
+		if (_media_set == null)
+			return;
+
 		_media_set.foreach_media ((media) => {
 			string media_name;
 			if (media.title == null)
