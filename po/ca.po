@@ -1,0 +1,522 @@
+# Catalan translation for gnome-games.
+# Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# Pere Orga <pere@orga.cat>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-15 16:53+0200\n"
+"PO-Revision-Date: 2016-10-12 11:40+0200\n"
+"Last-Translator: Pere Orga <pere@orga.cat>\n"
+"Language-Team: Catalan <gnome@llistes.softcatala.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:16
+msgid "Games"
+msgstr "Jocs"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "Llançador de jocs simple per al GNOME"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"El Jocs és una aplicació del GNOME 3 per a navegar dins la vostra biblioteca "
+"de videojocs i triar i jugar fàcilment a un joc. El seu objectiu és fer per "
+"als jocs el que l'aplicació Música ja fa per la vostra biblioteca musical."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don't need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Instal·leu l'aplicació Jocs si només voleu una manera simple i còmode de "
+"jugar a videojocs, i no necessiteu característiques avançades com eines de "
+"«speedrunning» o de desenvolupament de videojocs."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "Característiques:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs..."
+msgstr "Mostra els jocs instal·lats, els jocs del Steam, els fitxers ROM..."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "Cerca-ho a la col·lecció"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "Jugueu als jocs"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "Continueu la partida on la vau deixar"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "Reproductor de videojocs"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "Visualitzeu i jugueu a la col·lecció de videojocs"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "joc;videojoc;vídeo joc;reproductor;"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "_Preferències"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "Quant _a"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_Surt"
+
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Cerca"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Enrere"
+
+#: ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "Restaura"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgstr "<b><span size=\"large\">Això és una pantalla de prova</span></b>"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "Si veieu això, això és una errada."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "Contacteu amb els desenvolupadors."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "No s'ha trobat cap joc"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Instal·leu jocs o afegiu diccionaris que continguin jocs a les vostres fonts "
+"de cerca."
+
+#: ../data/ui/media-menu-button.ui.h:1
+msgid "Media"
+msgstr "Elements multimèdia"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "Connectors"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Preferències"
+
+#: ../data/ui/preferences-window.ui.h:2
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "Extensions"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "Esteu segur que voleu sortir?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "Perdreu el progrés no desat."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "Surt"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+msgstr ""
+"<b><span size=\"large\">Fes servir la mateixa finestra del joc per jugar</"
+"span></b>"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn't integrated to GNOME Games."
+msgstr "Aquest joc no està integrat al Jocs del GNOME."
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "Heu de fer servir la seva pròpia finestra per jugar-hi."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "Voleu continuar l'última partida?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "Continua"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Restart"
+msgstr "Torna a començar"
+
+#: ../data/ui/resume-failed-dialog.ui.h:1
+msgid "Resuming failed. Do you want to to restart the game?"
+msgstr ""
+"No s'ha pogut continuar la partida. Voleu tornar a començar des del principi?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Reset"
+msgstr "Reinicia"
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#, c-format
+msgid "Invalid command '%s'."
+msgstr "L'ordre «%s» no és vàlida."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#, c-format
+msgid "Tracker listed file not found: '%s'."
+msgstr "No s'ha trobat el fitxer llistat del Tracker: «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#, c-format
+msgid "Couldn't parse desktop entry '%s'."
+msgstr "No s'ha pogut analitzar l'entrada d'escriptori «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "'%s' has blacklisted category '%s'."
+msgstr "«%s» ha posat a la llista negra la categoria «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#, c-format
+msgid "'%s' has blacklisted executable '%s'."
+msgstr "«%s» ha posat a la llista negra l'executable «%s»."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#, c-format
+msgid "'%s' is blacklisted."
+msgstr "«%s» està a la llista negra."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn't have a Dreamcast header."
+msgstr "El fitxer no té una capçalera de la Dreamcast."
+
+#: ../plugins/game-boy/src/game-boy-header.vala:97
+msgid "The file doesn't have a Game Boy header."
+msgstr "El fitxer no té una capçalera de la Game Boy."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn't have a Game Cube header."
+msgstr "El fitxer no té una capçalera de la Game Cube."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgstr "Això no representa un paquet del LÖVE vàlid: «%s»."
+
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
+#, c-format
+msgid "Invalid MAME game id '%s' for '%s'."
+msgstr "L'identificador del joc del MAME «%s» no és vàlid per «%s»."
+
+#: ../plugins/master-system/src/master-system-header.vala:69
+msgid "The file doesn't have a Master System header."
+msgstr "El fitxer no té una capçalera de la Master System."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
+msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "El fitxer no té una capçalera de la Mega Drive/32X/Mega CD/Sega Pico."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:106
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#, c-format
+msgid "The file '%s' doesn't have a track."
+msgstr "El fitxer «%s» no té una pista."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:112
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#, c-format
+msgid "The file '%s' doesn't have a valid binary file format."
+msgstr "El fitxer «%s» no té un format de fitxer binari vàlid."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:115
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgstr "El fitxer «%s» no té un mode de pista vàlid per la pista %d."
+
+#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#, c-format
+msgid "Disc with disc_id %s is unknown"
+msgstr "El disc amb el disc_id %s és desconegut."
+
+#: ../plugins/playstation/src/playstation-header.vala:49
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgstr ""
+"La capçalera de la PlayStation no és vàlida: no s'ha trobat l'identificador "
+"del disc a «%s»."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn't have a Sega Saturn header."
+msgstr "El fitxer no té una capçalera de la Sega Saturn."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#, c-format
+msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgstr "El fitxer «%s» no té un fitxer binari vàlid de la Sega Saturn."
+
+#: ../plugins/steam/src/steam-game-source.vala:99
+#, c-format
+msgid "Couldn't get Steam appid from manifest '%s'."
+msgstr "No s'ha pogut obtenir l'appid del Steam del manifest «%s»."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File '%s' doesn't exist."
+msgstr "El fitxer «%s» no existeix."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "S'ha trobat el símbol inesperat «{»."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "S'ha trobat un final dels símbols inesperat."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "S'ha trobat el símbol inesperat «}»."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn't get name from Steam registry."
+msgstr "No s'ha pogut obtenir el nom del registre del Steam."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "La mida de la capçalera de la Wii no és vàlida: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn't have a Wii header."
+msgstr "El fitxer no té una capçalera de la Wii."
+
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn't read file: %s"
+msgstr "No s'ha pogut llegir el fitxer: %s"
+
+#: ../src/command/command-runner.vala:30
+msgid "Invalid command: it doesn't have any argument."
+msgstr "L'ordre no és vàlida: no té cap argument."
+
+#: ../src/command/command-runner.vala:59
+#, c-format
+msgid "Couldn't run '%s': execution failed."
+msgstr "No s'ha pogut executar «%s»: Ha fallat l'execució."
+
+#: ../src/core/media-set/media-set.vala:31
+#, c-format
+msgid "Invalid media index %u."
+msgstr "L'índex de l'element multimèdia no és vàlid: %u"
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "El descriptor del connector no és vàlid: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn't create a new instance of plugin in '%s'."
+msgstr "No s'ha pogut crear una nova instància del connector a «%s»."
+
+#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "Disc %d"
+
+#: ../src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID '%s'."
+msgstr "No s'ha trobat el títol del joc per l'identificador del disc «%s»."
+
+#: ../src/gameinfo/gameinfo-doc.vala:31
+#, c-format
+msgid "No disc title found for disc ID '%s'."
+msgstr "No s'ha trobat el títol del disc per l'identificador del disc «%s»."
+
+#: ../src/gameinfo/gameinfo-doc.vala:41
+#, c-format
+msgid "No disc set ID found for disc ID '%s'."
+msgstr ""
+"No s'ha trobat l'identificador de la col·lecció de discs per l'identificador "
+"del disc «%s»."
+
+#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
+#, c-format
+msgid "No disc found for disc ID '%s'."
+msgstr "No s'ha trobat el disc per l'identificador del disc «%s»."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can't be null."
+msgstr "La cadena del mapatge no pot ser nul·la."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can't be empty."
+msgstr "La cadena del mapatge no pot estar buida."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#, c-format
+msgid "Unable to open file '%s': %s"
+msgstr "No s'ha pogut obrir el fitxer «%s»: %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#, c-format
+msgid "Evdev is unable to open '%s': %s"
+msgstr "L'Evdev no ha pogut obrir «%s»: %s"
+
+#: ../src/retro/retro-runner.vala:228
+#, c-format
+msgid "Invalid game file: '%s'."
+msgstr "El fitxer del joc no és vàlid: «%s»."
+
+#: ../src/retro/retro-runner.vala:238
+#, c-format
+msgid "Couldn't run game: module '%s' not found."
+msgstr "No s'ha pogut executar el joc: No s'ha trobat el mòdul «%s»."
+
+#: ../src/retro/retro-runner.vala:245
+#, c-format
+msgid ""
+"Couldn't run game: module '%s' not found and no module found for MIME types "
+"%s."
+msgstr ""
+"No s'ha pogut executar el joc: No s'ha trobat el mòdul «%s» i no s'ha trobat "
+"cap mòdul pels tipus MIME %s."
+
+#: ../src/retro/retro-runner.vala:444
+msgid "Couldn't write snapshot."
+msgstr "No s'ha pogut escriure la captura."
+
+#: ../src/ui/application.vala:154
+msgid "GNOME Games"
+msgstr "Jocs del GNOME"
+
+#: ../src/ui/application.vala:156
+msgid "A video game player for GNOME"
+msgstr "Un reproductor de videojocs per al GNOME"
+
+#: ../src/ui/application.vala:160
+msgid "Learn more about GNOME Games"
+msgstr "Més informació sobre el Jocs del GNOME"
+
+#: ../src/ui/application.vala:167
+msgid "translator-credits"
+msgstr "Pere Orga <pere@orga.cat>"
+
+#: ../src/ui/application-window.vala:459 ../src/ui/application-window.vala:476
+msgid "Playing a game"
+msgstr "S'està jugant a un joc"
+
+#: ../src/ui/error-display.vala:11
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Vaja! No s'ha pogut executar “%s”"
+
+#: ../src/ui/error-display.vala:13
+msgid "Oops! Unable to run the game"
+msgstr "Vaja! No s'ha pogut executar el joc"
+
+#: ../src/ui/media-selector.vala:29
+#, c-format
+msgid "Media %d"
+msgstr "Element multimèdia %d"
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "'%s' doesn't have a track for index %u."
+msgstr "«%s» no té una pista per l'índex %u."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: El format de fitxer %s no és vàlid, s'esperava un format de fitxer "
+"vàlid o cap."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: Token inesperat de PISTA abans d'un token de FITXER."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr ""
+"%s:%lu: El número de pista %s no és vàlid, s'esperava un nombre de "
+"l'interval 1-99."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr ""
+"%s:%lu: El mode de pista %s no és vàlid, s'esperava un mode de pista vàlid."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: Final inesperat del fitxer, s'esperava %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: Token inesperat %s, s'esperava %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: Final inesperat del fitxer, s'esperava un token."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: Final inesperat de la línia, s'esperava un token."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: Token inesperat %s, s'esperava el final de la línia."
