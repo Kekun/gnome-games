@@ -3,19 +3,21 @@
 private class Games.MegaDrivePlugin : Object, Plugin {
 	private const string MEGA_DRIVE_PREFIX = "mega-drive";
 	private const string MEGA_DRIVE_MIME_TYPE = "application/x-genesis-rom";
+	private const string MEGA_DRIVE_PLATFORM = "SegaGenesis";
 
 	private const string 32X_PREFIX = "mega-drive-32x";
 	private const string 32X_MIME_TYPE = "application/x-genesis-32x-rom";
+	private const string 32X_PLATFORM = "Sega32X";
 
 	private const string PICO_PREFIX = "sega-pico";
 	private const string PICO_MIME_TYPE = "application/x-sega-pico-rom";
+	private const string PICO_PLATFORM = "SegaPico";
 
 	private const string MEGA_CD_PREFIX = "mega-cd";
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string MEGA_CD_MIME_TYPE = "application/x-sega-cd-rom";
-
-	private const string MODULE_BASENAME = "libretro-mega-drive.so";
-	private const bool SUPPORTS_SNAPSHOTTING = true;
+	private const string MEGA_CD_PLATFORM = "SegaCD";
+	private const string MEGA_CD_32X_PLATFORM = "SegaCD32X";
 
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
@@ -44,17 +46,21 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 
 		string prefix;
 		string mime_type;
+		string platform;
 		if (header.is_mega_drive ()) {
 			prefix = MEGA_DRIVE_PREFIX;
 			mime_type = MEGA_DRIVE_MIME_TYPE;
+			platform = MEGA_DRIVE_PLATFORM;
 		}
 		else if (header.is_32x ()) {
 			prefix = 32X_PREFIX;
 			mime_type = 32X_MIME_TYPE;
+			platform = 32X_PLATFORM;
 		}
 		else if (header.is_pico ()) {
 			prefix = PICO_PREFIX;
 			mime_type = PICO_MIME_TYPE;
+			platform = PICO_PLATFORM;
 		}
 		else
 			assert_not_reached ();
@@ -66,7 +72,8 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var core_source = new RetroCoreSource (platform, { mime_type });
+		var runner = new RetroRunner (core_source, uri, uid);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
@@ -80,10 +87,15 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		header.check_validity ();
 
 		string[] mime_types;
-		if (header.is_mega_drive ())
+		string platform;
+		if (header.is_mega_drive ()) {
 			mime_types = { CUE_MIME_TYPE, MEGA_CD_MIME_TYPE };
-		else if (header.is_32x ())
+			platform = MEGA_CD_PLATFORM;
+		}
+		else if (header.is_32x ()) {
 			mime_types = { CUE_MIME_TYPE, MEGA_CD_MIME_TYPE, 32X_MIME_TYPE };
+			platform = MEGA_CD_32X_PLATFORM;
+		}
 		else
 			assert_not_reached ();
 
@@ -96,7 +108,8 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner (uri, uid, mime_types, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var core_source = new RetroCoreSource (platform, mime_types);
+		var runner = new RetroRunner (core_source, uri, uid);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

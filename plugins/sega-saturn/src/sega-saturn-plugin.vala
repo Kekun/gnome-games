@@ -3,8 +3,7 @@
 private class Games.SegaSaturnPlugin : Object, Plugin {
 	private const string SEARCHED_MIME_TYPE = "application/x-cue";
 	private const string SPECIFIC_MIME_TYPE = "application/x-saturn-rom";
-	private const string MODULE_BASENAME = "libretro-saturn.so";
-	private const bool SUPPORTS_SNAPSHOTTING = false;
+	private const string PLATFORM = "SegaSaturn";
 
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
@@ -32,7 +31,8 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner (uri, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var core_source = new RetroCoreSource (PLATFORM, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
+		var runner = new RetroRunner (core_source, uri, uid);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

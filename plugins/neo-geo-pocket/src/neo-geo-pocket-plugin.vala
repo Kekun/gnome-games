@@ -3,8 +3,7 @@
 private class Games.NeoGeoPocketPlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "neo-geo-pocket";
 	private const string MIME_TYPE = "application/x-neo-geo-pocket-rom";
-	private const string MODULE_BASENAME = "libretro-neo-geo-pocket.so";
-	private const bool SUPPORTS_SNAPSHOTTING = true;
+	private const string PLATFORM = "NeoGeoPocket";
 
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
@@ -25,7 +24,8 @@ private class Games.NeoGeoPocketPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner (uri, uid, { MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var core_source = new RetroCoreSource (PLATFORM, { MIME_TYPE });
+		var runner = new RetroRunner (core_source, uri, uid);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

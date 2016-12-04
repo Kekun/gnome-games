@@ -3,13 +3,12 @@
 private class Games.GameBoyPlugin : Object, Plugin {
 	private const string GAME_BOY_PREFIX = "game-boy";
 	private const string GAME_BOY_MIME_TYPE = "application/x-gameboy-rom";
+	private const string GAME_BOY_PLATFORM = "GameBoy";
 
 	// Similar to GAME_BOY_PREFIX for simplicity and backward compatibility.
 	private const string GAME_BOY_COLOR_PREFIX = "game-boy";
 	private const string GAME_BOY_COLOR_MIME_TYPE = "application/x-gameboy-color-rom";
-
-	private const string MODULE_BASENAME = "libretro-game-boy.so";
-	private const bool SUPPORTS_SNAPSHOTTING = true;
+	private const string GAME_BOY_COLOR_PLATFORM = "GameBoyColor";
 
 	public GameSource get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
@@ -31,12 +30,15 @@ private class Games.GameBoyPlugin : Object, Plugin {
 
 		string prefix;
 		string mime_type;
+		string platform;
 		if (header.is_classic ()) {
 			prefix = GAME_BOY_PREFIX;
+			platform = GAME_BOY_PLATFORM;
 			mime_type = GAME_BOY_MIME_TYPE;
 		}
 		else if (header.is_color ()) {
 			prefix = GAME_BOY_COLOR_PREFIX;
+			platform = GAME_BOY_COLOR_PLATFORM;
 			mime_type = GAME_BOY_COLOR_MIME_TYPE;
 		}
 		else
@@ -49,7 +51,8 @@ private class Games.GameBoyPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner (uri, uid, { mime_type }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var core_source = new RetroCoreSource (platform, { mime_type });
+		var runner = new RetroRunner (core_source, uri, uid);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

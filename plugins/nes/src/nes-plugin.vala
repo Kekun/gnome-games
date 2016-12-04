@@ -3,9 +3,11 @@
 private class Games.NesPlugin : Object, Plugin {
 	private const string NES_FINGERPRINT_PREFIX = "nes";
 	private const string NES_MIME_TYPE = "application/x-nes-rom";
+	private const string NES_PLATFORM = "NintendoEntertainmentSystem";
 
 	private const string FDS_FINGERPRINT_PREFIX = "fds";
 	private const string FDS_MIME_TYPE = "application/x-fds-disk";
+	private const string FDS_PLATFORM = "FamicomDiskSystem";
 
 	private const string MODULE_BASENAME = "libretro-nes.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
@@ -33,7 +35,8 @@ private class Games.NesPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner (uri, uid, { NES_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var core_source = new RetroCoreSource (NES_PLATFORM, { NES_MIME_TYPE });
+		var runner = new RetroRunner (core_source, uri, uid);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
@@ -46,7 +49,8 @@ private class Games.NesPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var runner = new RetroRunner (uri, uid, { FDS_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING);
+		var core_source = new RetroCoreSource (FDS_PLATFORM, { FDS_MIME_TYPE });
+		var runner = new RetroRunner (core_source, uri, uid);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

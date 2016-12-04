@@ -46,8 +46,7 @@ public class Games.RetroRunner : Object, Runner {
 	private string snapshot_path;
 	private string screenshot_path;
 
-	private string module_basename;
-	private string[] mime_types;
+	private RetroCoreSource core_source;
 	private Uid uid;
 	private InputCapabilities input_capabilities;
 
@@ -68,7 +67,7 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	public RetroRunner (string uri, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting) {
+	public RetroRunner (RetroCoreSource core_source, string uri, Uid uid) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
@@ -76,20 +75,18 @@ public class Games.RetroRunner : Object, Runner {
 		var game_media = new Media (uri);
 		_media_set = new MediaSet ({ game_media });
 
-		this.mime_types = mime_types;
-		this.module_basename = module_basename;
 		this.uid = uid;
+		this.core_source = core_source;
 		this.input_capabilities = null;
 	}
 
-	public RetroRunner.for_media_set_and_input_capabilities (MediaSet media_set, Uid uid, string[] mime_types, string module_basename, bool core_supports_snapshotting, InputCapabilities input_capabilities) {
+	public RetroRunner.for_media_set_and_input_capabilities (RetroCoreSource core_source, MediaSet media_set, Uid uid, InputCapabilities input_capabilities) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
 
+		this.core_source = core_source;
 		this._media_set = media_set;
-		this.mime_types = mime_types;
-		this.module_basename = module_basename;
 		this.uid = uid;
 		this.input_capabilities = input_capabilities;
 
@@ -171,7 +168,7 @@ public class Games.RetroRunner : Object, Runner {
 		var media = media_set.get_selected_media (media_number);
 		var uri = media.uri;
 
-		prepare_core (module_basename, uri);
+		prepare_core (uri);
 		core.shutdown.connect (on_shutdown);
 
 		core.run (); // Needed to finish preparing some cores.
@@ -201,8 +198,8 @@ public class Games.RetroRunner : Object, Runner {
 		should_save = false;
 	}
 
-	private void prepare_core (string module_basename, string uri) throws Error {
-		var module_path = get_module_path ();
+	private void prepare_core (string uri) throws Error {
+		var module_path = core_source.get_module_path ();
 		core = new Retro.Core (module_path);
 		audio = new RetroGtk.PaPlayer ();
 
@@ -215,35 +212,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		if (!try_load_game (core, uri))
 			throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: '%s'."), uri);
-	}
-
-	private string get_module_path () throws Error {
-		var module_path = Retro.ModuleQuery.lookup_module_for_basename (module_basename);
-
-		if (FileUtils.test (module_path, FileTest.EXISTS))
-			return module_path;
-
-		if (mime_types.length == 0)
-			throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found."), module_basename);
-
-		module_path = Retro.ModuleQuery.lookup_module_for_info (check_module_info);
-
-		if (FileUtils.test (module_path, FileTest.EXISTS))
-			return module_path;
-
-		throw new RetroError.MODULE_NOT_FOUND (_("Couldn't run game: module '%s' not found and no module found for MIME types %s."), module_basename, string.joinv (" ", mime_types));
-	}
-
-	private bool check_module_info (HashTable<string, string> module_info) {
-		if (!module_info.contains ("supported_mimetypes"))
-			return false;
-
-		var supported_mime_types = module_info["supported_mimetypes"];
-		foreach (var mime_type in mime_types)
-			if (!(mime_type in supported_mime_types))
-				return false;
-
-		return true;
 	}
 
 	private bool try_load_game (Retro.Core core, string uri) {

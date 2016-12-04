@@ -3,9 +3,8 @@
 public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private const string SEARCHED_MIME_TYPE = "application/x-cue";
 	private const string SPECIFIC_MIME_TYPE = "application/x-playstation-rom";
-	private const string MODULE_BASENAME = "libretro-playstation.so";
+	private const string PLATFORM = "PlayStation";
 	private const string ICON_NAME = "media-optical-symbolic";
-	private const bool SUPPORTS_SNAPSHOTTING = true;
 	private const string GAMEINFO = "resource:///org/gnome/Games/plugin/playstation/playstation.gameinfo.xml";
 
 	private static GameinfoDoc gameinfo;
@@ -155,7 +154,8 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, header.disc_id);
-		var runner = new RetroRunner.for_media_set_and_input_capabilities (media_set, uid, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE }, MODULE_BASENAME, SUPPORTS_SNAPSHOTTING, input_capabilities);
+		var core_source = new RetroCoreSource (PLATFORM, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
+		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
