@@ -39,7 +39,7 @@ public class Games.RetroRunner : Object, Runner {
 	private RetroInputManager input_manager;
 	private Retro.Options options;
 	private RetroLog log;
-	private Retro.Loop loop;
+	private Retro.MainLoop loop;
 
 	private Gtk.EventBox widget;
 
