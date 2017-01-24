@@ -217,8 +217,8 @@ public class Games.RetroRunner : Object, Runner {
 		core.variables_interface = options;
 		core.log_interface = log;
 
-		core.video_interface = video;
-		core.audio_interface = audio;
+		video.set_core (core);
+		audio.set_core (core);
 		core.input_interface = input_manager;
 		core.rumble_interface = input_manager;
 
