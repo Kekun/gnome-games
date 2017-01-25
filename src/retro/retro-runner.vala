@@ -11,10 +11,11 @@ public class Games.RetroRunner : Object, Runner {
 
 	public bool can_resume {
 		get {
-			if (!core_supports_snapshotting)
-				return false;
-
 			try {
+				init ();
+				if (!core.supports_serialization ())
+					return false;
+
 				var snapshot_path = get_snapshot_path ();
 				var file = File.new_for_path (snapshot_path);
 
@@ -48,7 +49,6 @@ public class Games.RetroRunner : Object, Runner {
 	private string module_basename;
 	private string[] mime_types;
 	private Uid uid;
-	private bool core_supports_snapshotting;
 	private InputCapabilities input_capabilities;
 
 	private bool _running;
@@ -79,7 +79,6 @@ public class Games.RetroRunner : Object, Runner {
 		this.mime_types = mime_types;
 		this.module_basename = module_basename;
 		this.uid = uid;
-		this.core_supports_snapshotting = core_supports_snapshotting;
 		this.input_capabilities = null;
 	}
 
@@ -92,7 +91,6 @@ public class Games.RetroRunner : Object, Runner {
 		this.mime_types = mime_types;
 		this.module_basename = module_basename;
 		this.uid = uid;
-		this.core_supports_snapshotting = core_supports_snapshotting;
 		this.input_capabilities = input_capabilities;
 
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
@@ -240,29 +238,10 @@ public class Games.RetroRunner : Object, Runner {
 		if (!module_info.contains ("supported_mimetypes"))
 			return false;
 
-		if (!module_info.contains ("supports_serialization"))
-			return false;
-
 		var supported_mime_types = module_info["supported_mimetypes"];
 		foreach (var mime_type in mime_types)
 			if (!(mime_type in supported_mime_types))
 				return false;
-
-		var supports_serialization = false;
-		switch (module_info["supports_serialization"]) {
-		case "true":
-			supports_serialization = true;
-
-			break;
-		case "false":
-			supports_serialization = false;
-
-			break;
-		default:
-			return false;
-		}
-
-		core_supports_snapshotting = supports_serialization;
 
 		return true;
 	}
@@ -364,7 +343,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (media_set.get_size () > 1)
 			save_media_data ();
 
-		if (!core_supports_snapshotting)
+		if (!core.supports_serialization ())
 			return;
 
 		save_snapshot ();
@@ -425,7 +404,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_snapshot () throws Error {
-		if (!core_supports_snapshotting)
+		if (!core.supports_serialization ())
 			return;
 
 		var buffer = core.serialize_state ();
@@ -439,7 +418,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void load_snapshot () throws Error {
-		if (!core_supports_snapshotting)
+		if (!core.supports_serialization ())
 			return;
 
 		var snapshot_path = get_snapshot_path ();
@@ -496,7 +475,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_screenshot () throws Error {
-		if (!core_supports_snapshotting)
+		if (!core.supports_serialization ())
 			return;
 
 		var pixbuf = video.pixbuf;
@@ -509,7 +488,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void load_screenshot () throws Error {
-		if (!core_supports_snapshotting)
+		if (!core.supports_serialization ())
 			return;
 
 		var screenshot_path = get_screenshot_path ();
