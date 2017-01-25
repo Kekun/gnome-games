@@ -428,11 +428,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core_supports_snapshotting)
 			return;
 
-		var size = core.serialize_size ();
-		var buffer = new uint8[size];
-
-		if (!core.serialize (buffer))
-			throw new RetroError.COULDNT_WRITE_SNAPSHOT (_("Couldn't write snapshot."));
+		var buffer = core.serialize_state ();
 
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
@@ -454,14 +450,7 @@ public class Games.RetroRunner : Object, Runner {
 		uint8[] data = null;
 		FileUtils.get_data (snapshot_path, out data);
 
-		var expected_size = core.serialize_size ();
-		if (data.length > expected_size)
-			/* Not translated as this is not presented to the user */
-			throw new RetroError.COULDNT_LOAD_SNAPSHOT ("[%s] Unexpected serialization data size: got %lu, expected %lu\n", core.file_name, data.length, expected_size);
-
-		if (!core.unserialize (data))
-			/* Not translated as this is not presented to the user */
-			throw new RetroError.COULDNT_LOAD_SNAPSHOT ("Could not load snapshot");
+		core.deserialize_state (data);
 	}
 
 	private void save_media_data () throws Error {
