@@ -37,8 +37,6 @@ public class Games.RetroRunner : Object, Runner {
 	private RetroGtk.CairoDisplay video;
 	private RetroGtk.PaPlayer audio;
 	private RetroInputManager input_manager;
-	private Retro.Options options;
-	private RetroLog log;
 	private Retro.MainLoop loop;
 
 	private Gtk.EventBox widget;
@@ -197,8 +195,6 @@ public class Games.RetroRunner : Object, Runner {
 		audio = null;
 		widget = null;
 		input_manager = null;
-		options = null;
-		log = null;
 		loop = null;
 
 		_running = false;
@@ -211,11 +207,6 @@ public class Games.RetroRunner : Object, Runner {
 		var module_path = get_module_path ();
 		core = new Retro.Core (module_path);
 		audio = new RetroGtk.PaPlayer ();
-		options = new Retro.Options ();
-		log = new RetroLog ();
-
-		core.variables_interface = options;
-		core.log_interface = log;
 
 		video.set_core (core);
 		audio.set_core (core);
