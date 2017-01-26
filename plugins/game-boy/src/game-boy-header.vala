@@ -2,9 +2,6 @@
 
 // Documentation: http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
 private class Games.GameBoyHeader : Object {
-	private const size_t MAGIC_OFFSET = 0x104;
-	private const uint8[] MAGIC_VALUE = { 0xce, 0xed, 0x66, 0x66, 0xcc, 0x0d, 0x00, 0x0b, 0x03, 0x73, 0x00, 0x83, 0x00, 0x0c, 0x00, 0x0d, 0x00, 0x08, 0x11, 0x1f, 0x88, 0x89, 0x00, 0x0e };
-
 	private const size_t COLOR_TYPE_OFFSET = 0x143;
 	private const uint8 COLOR_ENABLED_VALUE = 0x80;
 	private const uint8 COLOR_ONLY_VALUE = 0xC0;
@@ -89,12 +86,6 @@ private class Games.GameBoyHeader : Object {
 
 	public GameBoyHeader (File file) {
 		this.file = file;
-	}
-
-	public void check_validity () throws Error {
-		var stream = new DataInputStream (file);
-		if (!stream.has_data (MAGIC_OFFSET, MAGIC_VALUE))
-			throw new GameBoyError.INVALID_HEADER (_("The file doesn't have a Game Boy header."));
 	}
 
 	public bool is_classic () {

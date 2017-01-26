@@ -131,7 +131,6 @@ gnome_games_SOURCES = \
 	utils/cue-sheet/cue-sheet-file-node.vala \
 	utils/cue-sheet/cue-sheet-track-mode.vala \
 	utils/cue-sheet/cue-sheet-track-node.vala \
-	utils/data-input-stream.vala \
 	utils/directory.vala \
 	utils/filename-title.vala \
 	utils/fingerprint.vala \

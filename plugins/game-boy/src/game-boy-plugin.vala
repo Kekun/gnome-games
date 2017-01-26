@@ -28,7 +28,6 @@ private class Games.GameBoyPlugin : Object, Plugin {
 	private static Game game_for_uri (string uri) throws Error {
 		var file = File.new_for_uri (uri);
 		var header = new GameBoyHeader (file);
-		header.check_validity ();
 
 		string prefix;
 		string mime_type;
