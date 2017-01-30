@@ -36,3 +36,16 @@ The reasoning behind the changes:
   point of view: the behavior change,
 - don't write about what was before this commit, write about what this
   commit does.
+
+UI Guidelines
+=============
+
+The UI is splitted into pages, each page consists of two widgets:
+- the header bar named FooHeaderBar,
+- the body of the window named FooBox.
+Any possible state of the page foo must be represented by FooHeaderBar
+and FooBox and they can't be contained by any other widget than the
+window.
+
+This allows consistency and helps to quickly know which widget
+represents what.
