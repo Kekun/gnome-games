@@ -5,6 +5,7 @@ private extern const string VERSION;
 public class Games.Application : Gtk.Application {
 	private ListStore collection;
 	private ApplicationWindow window;
+	private bool game_list_loaded;
 
 	internal Application () {
 		Object (application_id: "org.gnome.Games",
@@ -115,6 +116,15 @@ public class Games.Application : Gtk.Application {
 			quit_application ();
 		});
 		window.show ();
+
+		GLib.Timeout.add (500, show_loading_notification);
+	}
+
+	private bool show_loading_notification () {
+		if (!game_list_loaded)
+			window.loading_notification = true;
+
+		return false;
 	}
 
 	internal async void load_game_list () {
@@ -135,6 +145,10 @@ public class Games.Application : Gtk.Application {
 
 		foreach (var source in sources)
 			yield source.each_game (add_game);
+
+		game_list_loaded = true;
+		if (window != null)
+			window.loading_notification = false;
 	}
 
 	private void add_game (Game game) {

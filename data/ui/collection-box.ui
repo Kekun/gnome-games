@@ -21,9 +21,72 @@
       </packing>
     </child>
     <child>
-      <object class="GamesCollectionIconView" id="icon_view">
+      <object class="GtkOverlay">
         <property name="visible">True</property>
-        <signal name="game-activated" handler="on_game_activated"/>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GamesCollectionIconView" id="icon_view">
+            <property name="visible">True</property>
+            <signal name="game-activated" handler="on_game_activated"/>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkRevealer" id="loading_notification_revealer">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">start</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="spacing">18</property>
+                <child>
+                  <object class="GtkSpinner">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="active">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Loading</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="image">close_icon</property>
+                    <property name="always_show_image">True</property>
+                    <signal name="clicked" handler="on_loading_notification_closed"/>
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                  </packing>
+                </child>
+                <style>
+                  <class name="app-notification"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="expand">True</property>
@@ -31,4 +94,9 @@
       </packing>
     </child>
   </template>
+  <object class="GtkImage" id="close_icon">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-close</property>
+  </object>
 </interface>

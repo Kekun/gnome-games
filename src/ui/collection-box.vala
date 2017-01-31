@@ -6,14 +6,18 @@ private class Games.CollectionBox : Gtk.Box {
 
 	public ListModel collection { construct set; get; }
 	public bool search_mode { set; get; }
+	public bool loading_notification { set; get; }
 
 	[GtkChild]
 	private SearchBar search_bar;
+	[GtkChild]
+	private Gtk.Revealer loading_notification_revealer;
 	[GtkChild]
 	private CollectionIconView icon_view;
 
 	private Binding collection_binding;
 	private Binding search_binding;
+	private Binding loading_notification_binding;
 
 	public CollectionBox (ListStore collection) {
 		Object (collection: collection);
@@ -24,6 +28,13 @@ private class Games.CollectionBox : Gtk.Box {
 		                                    BindingFlags.BIDIRECTIONAL);
 		search_binding = bind_property ("search-mode", search_bar, "search-mode-enabled",
 		                                BindingFlags.BIDIRECTIONAL);
+		loading_notification_binding = bind_property ("loading-notification", loading_notification_revealer, "reveal-child",
+		                                              BindingFlags.DEFAULT);
+	}
+
+	[GtkCallback]
+	private void on_loading_notification_closed () {
+		loading_notification_revealer.set_reveal_child (false);
 	}
 
 	[GtkCallback]
