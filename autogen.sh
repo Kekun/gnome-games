@@ -1,5 +1,6 @@
 #!/bin/sh
 # Run this to generate all the initial makefiles, etc.
+origdir=`pwd`
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
@@ -26,6 +27,8 @@ set -x
 intltoolize --force --copy --automake || exit 1
 autoreconf --verbose --force --install -Wno-portability || exit 1
 set +x
+
+cd "$origdir"
 
 if [ "$NOCONFIGURE" = "" ]; then
         set -x
