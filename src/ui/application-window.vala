@@ -106,6 +106,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		focus_out_timeout_id = -1;
 		inhibit_cookie = 0;
 		inhibit_flags = 0;
+
+		set_show_menubar (false); // Essential, see bug #771683
 	}
 
 	public void run_game (Game game) {
