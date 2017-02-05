@@ -1,15 +1,15 @@
 # Polish translation for gnome-games.
-# Copyright © 2016 the gnome-games authors.
+# Copyright © 2016-2017 the gnome-games authors.
 # This file is distributed under the same license as the gnome-games package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2016.
-# Aviary.pl <community-poland@mozilla.org>, 2016.
+# Piotr Drąg <piotrdrag@gmail.com>, 2016-2017.
+# Aviary.pl <community-poland@mozilla.org>, 2016-2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 16:34+0200\n"
-"PO-Revision-Date: 2016-09-15 16:35+0200\n"
+"POT-Creation-Date: 2017-02-05 16:30+0100\n"
+"PO-Revision-Date: 2017-02-05 16:31+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:16
+#: ../src/ui/application.vala:17
 msgid "Games"
 msgstr "Gry"
 
@@ -93,6 +93,10 @@ msgstr "_O programie"
 #: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
 msgstr "Za_kończ"
+
+#: ../data/ui/collection-box.ui.h:1
+msgid "Loading"
+msgstr "Wczytywanie"
 
 #: ../data/ui/collection-header-bar.ui.h:2
 msgid "Search"
@@ -232,10 +236,6 @@ msgstr "„%s” jest na czarnej liście."
 msgid "The file doesn't have a Dreamcast header."
 msgstr "Plik nie ma nagłówka konsoli Dreamcast."
 
-#: ../plugins/game-boy/src/game-boy-header.vala:97
-msgid "The file doesn't have a Game Boy header."
-msgstr "Plik nie ma nagłówka konsoli Game Boy."
-
 #: ../plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn't have a Game Cube header."
 msgstr "Plik nie ma nagłówka konsoli GameCube."
@@ -255,8 +255,8 @@ msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
 msgid "The file doesn't have a Master System header."
 msgstr "Plik nie ma nagłówka konsoli Master System."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:63
-#: ../plugins/mega-drive/src/mega-drive-header.vala:79
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Plik nie ma nagłówka konsoli Genesis/Sega 32X/Sega CD/Sega Pico."
 
@@ -283,7 +283,7 @@ msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla ścieżki %d."
 msgid "Disc with disc_id %s is unknown"
 msgstr "Płyta o identyfikatorze %s jest nieznana"
 
-#: ../plugins/playstation/src/playstation-header.vala:48
+#: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in '%s'."
 msgstr ""
@@ -406,17 +406,17 @@ msgstr "Nie można otworzyć pliku „%s”: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
 
-#: ../src/retro/retro-runner.vala:228
+#: ../src/retro/retro-runner.vala:217
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Nieprawidłowy plik gry: „%s”."
 
-#: ../src/retro/retro-runner.vala:238
+#: ../src/retro/retro-runner.vala:227
 #, c-format
 msgid "Couldn't run game: module '%s' not found."
 msgstr "Nie można uruchomić gry: nie odnaleziono modułu „%s”."
 
-#: ../src/retro/retro-runner.vala:245
+#: ../src/retro/retro-runner.vala:234
 #, c-format
 msgid ""
 "Couldn't run game: module '%s' not found and no module found for MIME types "
@@ -425,29 +425,25 @@ msgstr ""
 "Nie można uruchomić gry: nie odnaleziono modułu „%s” i modułu dla typów MIME "
 "%s."
 
-#: ../src/retro/retro-runner.vala:444
-msgid "Couldn't write snapshot."
-msgstr "Nie można zapisać migawki."
-
-#: ../src/ui/application.vala:154
+#: ../src/ui/application.vala:168
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:156
+#: ../src/ui/application.vala:170
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:160
+#: ../src/ui/application.vala:174
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:167
+#: ../src/ui/application.vala:181
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2016\n"
-"Aviary.pl <community-poland@mozilla.org>, 2016"
+"Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
+"Aviary.pl <community-poland@mozilla.org>, 2016-2017"
 
-#: ../src/ui/application-window.vala:451 ../src/ui/application-window.vala:468
+#: ../src/ui/application-window.vala:466 ../src/ui/application-window.vala:483
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
@@ -460,7 +456,7 @@ msgstr "Nie można uruchomić gry „%s”"
 msgid "Oops! Unable to run the game"
 msgstr "Nie można uruchomić gry"
 
-#: ../src/ui/media-selector.vala:29
+#: ../src/ui/media-selector.vala:33
 #, c-format
 msgid "Media %d"
 msgstr "%d. nośnik"
