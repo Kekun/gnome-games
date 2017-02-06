@@ -1,15 +1,15 @@
 # Brazilian Portuguese translation for gnome-games.
-# Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
+# Copyright (C) 2017 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 # Enrico Nicoletto <liverig@gmail.com>, 2016.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2016.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2016, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-09-15 14:33+0000\n"
-"PO-Revision-Date: 2016-12-28 12:05-0200\n"
+"POT-Creation-Date: 2017-01-31 10:06+0000\n"
+"PO-Revision-Date: 2017-02-06 08:28-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:16
+#: ../src/ui/application.vala:17
 msgid "Games"
 msgstr "Jogos"
 
@@ -97,6 +97,10 @@ msgstr "_Sobre"
 #: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
 msgstr "Sa_ir"
+
+#: ../data/ui/collection-box.ui.h:1
+msgid "Loading"
+msgstr "Carregando"
 
 #: ../data/ui/collection-header-bar.ui.h:2
 msgid "Search"
@@ -193,7 +197,6 @@ msgid "Resume"
 msgstr "Continuar"
 
 #: ../data/ui/resume-dialog.ui.h:3
-#| msgid "Restore"
 msgid "Restart"
 msgstr "Reiniciar"
 
@@ -239,10 +242,6 @@ msgstr "“%s” está na lista negra."
 msgid "The file doesn't have a Dreamcast header."
 msgstr "O arquivo não possui um cabeçalho de Dreamcast."
 
-#: ../plugins/game-boy/src/game-boy-header.vala:97
-msgid "The file doesn't have a Game Boy header."
-msgstr "O arquivo não possui um cabeçalho de Game Boy."
-
 #: ../plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn't have a Game Cube header."
 msgstr "O arquivo não possui um cabeçalho de Game Cube."
@@ -262,8 +261,8 @@ msgstr "Jogo MAME inválido com id “%s” para “%s”."
 msgid "The file doesn't have a Master System header."
 msgstr "O arquivo não possui um cabeçalho de Master System."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:63
-#: ../plugins/mega-drive/src/mega-drive-header.vala:79
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "O arquivo não possui um cabeçalho Genesis/Sega 32X/Sega CD/Sega Pico."
 
@@ -290,7 +289,7 @@ msgstr "O arquivo “%s” não possui um modo de trilha válido para a trilha %
 msgid "Disc with disc_id %s is unknown"
 msgstr "O disco com disc_id %s é desconhecido"
 
-#: ../plugins/playstation/src/playstation-header.vala:48
+#: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in '%s'."
 msgstr "Cabeçalho de PlayStation inválido: ID de disco não localizado em “%s”."
@@ -355,7 +354,6 @@ msgstr "Não foi possível executar “%s”: execução falhou."
 
 #: ../src/core/media-set/media-set.vala:31
 #, c-format
-#| msgid "Invalid command '%s'."
 msgid "Invalid media index %u."
 msgstr "Índice de mídia %u inválido."
 
@@ -412,17 +410,17 @@ msgstr "Não foi possível abrir o arquivo “%s”: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev não é capaz de abrir “%s”: %s"
 
-#: ../src/retro/retro-runner.vala:228
+#: ../src/retro/retro-runner.vala:217
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Arquivo de jogo inválido: “%s”."
 
-#: ../src/retro/retro-runner.vala:238
+#: ../src/retro/retro-runner.vala:227
 #, c-format
 msgid "Couldn't run game: module '%s' not found."
 msgstr "Não foi possível rodar o jogo: módulo “%s” não localizado."
 
-#: ../src/retro/retro-runner.vala:245
+#: ../src/retro/retro-runner.vala:234
 #, c-format
 msgid ""
 "Couldn't run game: module '%s' not found and no module found for MIME types "
@@ -431,30 +429,25 @@ msgstr ""
 "Não foi possível rodar o jogo: o módulo “%s” não foi localizado e nenhum "
 "módulo encontrado para os tipos MIME %s."
 
-#: ../src/retro/retro-runner.vala:444
-msgid "Couldn't write snapshot."
-msgstr "Não foi possível gravar o snapshot."
-
-#: ../src/ui/application.vala:154
+#: ../src/ui/application.vala:168
 msgid "GNOME Games"
 msgstr "GNOME Jogos"
 
-#: ../src/ui/application.vala:156
+#: ../src/ui/application.vala:170
 msgid "A video game player for GNOME"
 msgstr "Um executor de video game para o GNOME"
 
-#: ../src/ui/application.vala:160
+#: ../src/ui/application.vala:174
 msgid "Learn more about GNOME Games"
 msgstr "Aprenda mais sobre o GNOME Jogos"
 
-#: ../src/ui/application.vala:167
+#: ../src/ui/application.vala:181
 msgid "translator-credits"
 msgstr ""
 "Enrico Nicoletto <liverig@gmail.com>, 2016.\n"
 "Rafael Fontenelle <rafaelff@gnome.org>, 2016."
 
-#: ../src/ui/application-window.vala:451 ../src/ui/application-window.vala:468
-#| msgid "Play your games"
+#: ../src/ui/application-window.vala:464 ../src/ui/application-window.vala:481
 msgid "Playing a game"
 msgstr "Jogar um jogo"
 
@@ -467,7 +460,7 @@ msgstr "Ops! Não foi possível jogar “%s”"
 msgid "Oops! Unable to run the game"
 msgstr "Ops! Não foi possível jogar o jogo"
 
-#: ../src/ui/media-selector.vala:29
+#: ../src/ui/media-selector.vala:33
 #, c-format
 msgid "Media %d"
 msgstr "Mídia %d"
@@ -525,6 +518,12 @@ msgstr "%s:%lu: Fim de linha inesperado, esperava um token."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: token %s inesperado, esperava fim de linha."
+
+#~ msgid "The file doesn't have a Game Boy header."
+#~ msgstr "O arquivo não possui um cabeçalho de Game Boy."
+
+#~ msgid "Couldn't write snapshot."
+#~ msgstr "Não foi possível gravar o snapshot."
 
 #~ msgid "Main Menu"
 #~ msgstr "Menu principal"
