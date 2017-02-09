@@ -23,6 +23,13 @@ General rules:
   when reading we know the name refers to an operation,
 - write property names between single quotes and in kebab-case.
 
+The tag can be:
+- the name of the sub-directory of data, plugins or src in which the
+  change was made,
+- 'build' if it affects the build system,
+- anything else that seems more appropriate for the change,
+- nothing if multiple parts were affected.
+
 The actual changes:
 - the first paragraph explains what the commit does from an objective
   point of view: the code change,
