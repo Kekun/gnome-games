@@ -10,6 +10,9 @@ desktop_in_files = org.gnome.Games.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
+gsettings_SCHEMAS = org.gnome.Games.gschema.xml
+@GSETTINGS_RULES@
+
 EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(desktop_in_files) \
