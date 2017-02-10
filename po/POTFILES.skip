@@ -26,6 +26,7 @@ src/gameinfo/gameinfo-disc-id-disc-title.c
 src/gameinfo/gameinfo-doc.c
 src/gamepad/gamepad-mapping.c
 src/gamepad/linux/linux-raw-gamepad.c
+src/retro/retro-core-source.c
 src/retro/retro-runner.c
 src/ui/application.c
 src/ui/application-window.c
