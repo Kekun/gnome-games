@@ -77,6 +77,12 @@ public class Games.Application : Gtk.Application {
 		return @"$config_dir/gnome-games";
 	}
 
+	public static string get_platforms_dir () {
+		var config_dir = get_config_dir ();
+
+		return @"$config_dir/platforms";
+	}
+
 	public static string get_covers_dir () {
 		var cache_dir = get_cache_dir ();
 

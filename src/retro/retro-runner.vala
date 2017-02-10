@@ -203,6 +203,10 @@ public class Games.RetroRunner : Object, Runner {
 		core = new Retro.Core (module_path);
 		audio = new RetroGtk.PaPlayer ();
 
+		var platforms_dir = Application.get_platforms_dir ();
+		var platform = core_source.get_platform ();
+		core.system_directory = @"$platforms_dir/$platform/system";
+
 		video.set_core (core);
 		audio.set_core (core);
 		core.input_interface = input_manager;
