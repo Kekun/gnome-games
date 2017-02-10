@@ -11,6 +11,8 @@ data/org.gnome.Games.gschema.xml
 [type: gettext/glade]data/ui/empty-collection.ui
 [type: gettext/glade]data/ui/media-menu-button.ui
 [type: gettext/glade]data/ui/preferences-page-plugins.ui
+[type: gettext/glade]data/ui/preferences-page-switch-item.ui
+[type: gettext/glade]data/ui/preferences-page-video.ui
 [type: gettext/glade]data/ui/preferences-window.ui
 [type: gettext/glade]data/ui/quit-dialog.ui
 [type: gettext/glade]data/ui/remote-display.ui
@@ -49,4 +51,5 @@ src/ui/application-window.vala
 src/ui/error-display.vala
 src/ui/media-selector.vala
 src/ui/preferences-page-plugins.vala
+src/ui/preferences-page-video.vala
 src/utils/cue-sheet/cue-sheet.vala
