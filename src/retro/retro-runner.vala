@@ -49,6 +49,7 @@ public class Games.RetroRunner : Object, Runner {
 	private RetroCoreSource core_source;
 	private Uid uid;
 	private InputCapabilities input_capabilities;
+	private Settings settings;
 
 	private bool _running;
 	private bool running {
@@ -91,6 +92,10 @@ public class Games.RetroRunner : Object, Runner {
 		this.input_capabilities = input_capabilities;
 
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
+	}
+
+	construct {
+		settings = new Settings ("org.gnome.Games");
 	}
 
 	~RetroRunner () {
@@ -173,6 +178,8 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		video = new Retro.CairoDisplay ();
+		settings.changed["video-filter"].connect (setup_video_filter);
+		setup_video_filter ();
 
 		widget = new Gtk.EventBox ();
 		widget.add (video);
@@ -201,6 +208,8 @@ public class Games.RetroRunner : Object, Runner {
 		if (!is_initialized)
 			return;
 
+		settings.changed["video-filter"].disconnect (setup_video_filter);
+
 		core = null;
 		video = null;
 		audio = null;
@@ -212,6 +221,10 @@ public class Games.RetroRunner : Object, Runner {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
+	}
+
+	private void setup_video_filter () {
+		video.set_filter ((Retro.VideoFilter) settings.get_enum ("video-filter"));
 	}
 
 	private void prepare_core (string uri) throws Error {
