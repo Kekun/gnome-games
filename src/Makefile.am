@@ -88,6 +88,7 @@ gnome_games_SOURCES = \
 	grilo/grilo-cover.vala \
 	grilo/grilo-media.vala \
 	\
+	retro/retro-core-source.vala \
 	retro/retro-error.vala \
 	retro/retro-gamepad.vala \
 	retro/retro-input-manager.vala \
