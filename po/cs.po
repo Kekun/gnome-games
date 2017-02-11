@@ -1,15 +1,15 @@
 # Czech translation for gnome-games.
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
-# Marek Černocký <marek@manet.cz>, 2016.
+# Marek Černocký <marek@manet.cz>, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-09-15 14:33+0000\n"
-"PO-Revision-Date: 2016-09-16 11:47+0200\n"
+"POT-Creation-Date: 2017-02-10 18:27+0000\n"
+"PO-Revision-Date: 2017-02-11 10:30+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:16
+#: ../src/ui/application.vala:17
 msgid "Games"
 msgstr "Hry"
 
@@ -95,6 +95,10 @@ msgstr "O _aplikaci"
 #: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
 msgstr "U_končit"
+
+#: ../data/ui/collection-box.ui.h:1
+msgid "Loading"
+msgstr "Načítá se"
 
 #: ../data/ui/collection-header-bar.ui.h:2
 msgid "Search"
@@ -235,10 +239,6 @@ msgstr "„%s“ je na černé listině."
 msgid "The file doesn't have a Dreamcast header."
 msgstr "Soubor nemá hlavičku Dreamcast."
 
-#: ../plugins/game-boy/src/game-boy-header.vala:97
-msgid "The file doesn't have a Game Boy header."
-msgstr "Soubor nemá hlavičku Game Boy."
-
 #: ../plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn't have a Game Cube header."
 msgstr "Soubor nemá hlavičku Game Cube."
@@ -249,7 +249,7 @@ msgstr "Soubor nemá hlavičku Game Cube."
 msgid "This doesn't represent a valid LÖVE package: '%s'."
 msgstr "Nejedná se o platný balíček LÖVE: „%s“"
 
-#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
 msgid "Invalid MAME game id '%s' for '%s'."
 msgstr "Neplatné id „%s“ hry MAME pro „%s“."
@@ -258,35 +258,35 @@ msgstr "Neplatné id „%s“ hry MAME pro „%s“."
 msgid "The file doesn't have a Master System header."
 msgstr "Soubor nemá hlavičku Master System."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:63
-#: ../plugins/mega-drive/src/mega-drive-header.vala:79
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Soubor nemá hlavičku Genesis/Sega 32X/Sega CD/Sega Pico."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:106
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "Soubor „%s“ neobsahuje žádnou stopu."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:112
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "Soubor „%s“ nemá platný formát binárního souboru."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:115
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
 msgstr "Soubor „%s“ nemá žádný platný režim stopy pro stopu %d."
 
-#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
 msgid "Disc with disc_id %s is unknown"
 msgstr "Disk s disc_id %s je neznámý."
 
-#: ../plugins/playstation/src/playstation-header.vala:48
+#: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in '%s'."
 msgstr "Neplatná hlavička PlayStation: ID disku nebylo nalezeno v „%s“."
@@ -407,46 +407,33 @@ msgstr "Nelze otevřít soubor „%s“: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev nemůže otevřít „%s“: %s"
 
-#: ../src/retro/retro-runner.vala:228
+#: ../src/retro/retro-core-source.vala:34
+#, c-format
+msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+msgstr "Pro platformu „%s“ a typ MIME [„%s“] nebyl nalezen žádný modul."
+
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Neplatný soubor s hrou: „%s“"
 
-#: ../src/retro/retro-runner.vala:238
-#, c-format
-msgid "Couldn't run game: module '%s' not found."
-msgstr "Nelze spustit hru: modul „%s“ nebyl nalezen."
-
-#: ../src/retro/retro-runner.vala:245
-#, c-format
-msgid ""
-"Couldn't run game: module '%s' not found and no module found for MIME types "
-"%s."
-msgstr ""
-"Nelze spustit hru: modul „%s“ nebyl nalezen a pro typ MIME %s nebyl nalezen "
-"žádný modul."
-
-#: ../src/retro/retro-runner.vala:444
-msgid "Couldn't write snapshot."
-msgstr "Nelze zapsat snímek."
-
-#: ../src/ui/application.vala:154
+#: ../src/ui/application.vala:174
 msgid "GNOME Games"
 msgstr "Hry GNOME"
 
-#: ../src/ui/application.vala:156
+#: ../src/ui/application.vala:176
 msgid "A video game player for GNOME"
 msgstr "Hraní videoher pro GNOME"
 
-#: ../src/ui/application.vala:160
+#: ../src/ui/application.vala:180
 msgid "Learn more about GNOME Games"
 msgstr "Zjistěte si více o Hrách GNOME"
 
-#: ../src/ui/application.vala:167
+#: ../src/ui/application.vala:187
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#: ../src/ui/application-window.vala:451 ../src/ui/application-window.vala:468
+#: ../src/ui/application-window.vala:466 ../src/ui/application-window.vala:483
 msgid "Playing a game"
 msgstr "Hraje se hra"
 
@@ -459,7 +446,7 @@ msgstr "Problém! Nelze spustit „%s“"
 msgid "Oops! Unable to run the game"
 msgstr "Problém! Hru nelze spustit"
 
-#: ../src/ui/media-selector.vala:29
+#: ../src/ui/media-selector.vala:33
 #, c-format
 msgid "Media %d"
 msgstr "Médium %d"
@@ -517,3 +504,18 @@ msgstr "%s:%lu: Neočekávaný konec řádku, byl očekáván symbol."
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekávaný symbol %s, byl očekáván konec řádku."
 
+#~ msgid "The file doesn't have a Game Boy header."
+#~ msgstr "Soubor nemá hlavičku Game Boy."
+
+#~ msgid "Couldn't run game: module '%s' not found."
+#~ msgstr "Nelze spustit hru: modul „%s“ nebyl nalezen."
+
+#~ msgid ""
+#~ "Couldn't run game: module '%s' not found and no module found for MIME "
+#~ "types %s."
+#~ msgstr ""
+#~ "Nelze spustit hru: modul „%s“ nebyl nalezen a pro typ MIME %s nebyl "
+#~ "nalezen žádný modul."
+
+#~ msgid "Couldn't write snapshot."
+#~ msgstr "Nelze zapsat snímek."
