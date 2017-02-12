@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-05 16:30+0100\n"
-"PO-Revision-Date: 2017-02-05 16:31+0100\n"
+"POT-Creation-Date: 2017-02-12 14:15+0100\n"
+"PO-Revision-Date: 2017-02-12 14:17+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -246,7 +246,7 @@ msgstr "Plik nie ma nagłówka konsoli GameCube."
 msgid "This doesn't represent a valid LÖVE package: '%s'."
 msgstr "To nie jest prawidłowy pakiet LÖVE: „%s”."
 
-#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
 msgid "Invalid MAME game id '%s' for '%s'."
 msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
@@ -260,25 +260,25 @@ msgstr "Plik nie ma nagłówka konsoli Master System."
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Plik nie ma nagłówka konsoli Genesis/Sega 32X/Sega CD/Sega Pico."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:106
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "Plik „%s” nie ma ścieżki."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:112
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:115
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
 msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla ścieżki %d."
 
-#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
 msgid "Disc with disc_id %s is unknown"
 msgstr "Płyta o identyfikatorze %s jest nieznana"
@@ -406,38 +406,29 @@ msgstr "Nie można otworzyć pliku „%s”: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
 
-#: ../src/retro/retro-runner.vala:217
+#: ../src/retro/retro-core-source.vala:34
+#, c-format
+msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+msgstr "Nie odnaleziono modułu dla platformy „%s” i typów MIME [ „%s” ]."
+
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Nieprawidłowy plik gry: „%s”."
 
-#: ../src/retro/retro-runner.vala:227
-#, c-format
-msgid "Couldn't run game: module '%s' not found."
-msgstr "Nie można uruchomić gry: nie odnaleziono modułu „%s”."
-
-#: ../src/retro/retro-runner.vala:234
-#, c-format
-msgid ""
-"Couldn't run game: module '%s' not found and no module found for MIME types "
-"%s."
-msgstr ""
-"Nie można uruchomić gry: nie odnaleziono modułu „%s” i modułu dla typów MIME "
-"%s."
-
-#: ../src/ui/application.vala:168
+#: ../src/ui/application.vala:174
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:170
+#: ../src/ui/application.vala:176
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:174
+#: ../src/ui/application.vala:180
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:181
+#: ../src/ui/application.vala:187
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
