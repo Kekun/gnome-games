@@ -1,4 +1,4 @@
-AC_INIT([gnome-games], [3.22.0])
+AC_INIT([gnome-games], [3.23.90])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 
 # i18 support

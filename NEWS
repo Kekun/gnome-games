@@ -1,3 +1,49 @@
+===============
+Version 3.23.90
+===============
+
+* UI:
+ - Show a spinner notification when loading games
+ - Smooth out the collection icons arrangement
+ - Hide menubar when the app menu is disabled
+ - Check there is a media set before updating it
+
+* Retro:
+ - Support Libretro cores having a Libretro Core Descriptor
+ - Auto-detect Libretro cores supporting serialization
+ - Be more tolerant with serialization sizes to follow Libretro rules
+ - Allow Libretro cores to load firmwares in ~/.config/gnome-games
+
+* Add support for FDS games
+
+* Avoid some valid Game Boy games to not be detected
+
+* Bugs fixed:
+ 770783 [nes] Serialization/deserialisation fails
+ 771683 Duplicate menu to set AppMenu to be displayed in the application window
+ 771771 Rename symbolic icon to org.gnome.Games-symbolic.svg
+ 772118 Assertion MediaSet != NULL failed
+ 773882 No way to know when Games looks for games
+ 773950 Smoother dynamic cover placement when resizing the window
+ 777482 retro-gobject: Remove unused private code
+ 777755 retro: Get whether the core supports snapshoting directly from it
+ 777777 Game Boy games not detected
+ 778317 Gnome-games should provide support to Famicom Disk System games
+ 778446 Support the Libretro Core Descriptor format
+ 778447 No well defined place for Libretro cores to look for firmwares
+
+* Translation updates:
+ Brazilian Portuguese
+ Catalan
+ Czech
+ Finnish
+ German
+ Polish
+ Portuguese
+ Slovak
+ Spanish
+
+
 ==============
 Version 3.22.0
 ==============
