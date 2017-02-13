@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPLv3
 
-private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumble {
-	private RetroGtk.VirtualGamepad keyboard;
+private class Games.RetroInputManager : Retro.InputDeviceManager, Retro.Rumble {
+	private Retro.VirtualGamepad keyboard;
 	private GamepadMonitor gamepad_monitor;
 	private bool[] is_port_plugged;
 	private Gamepad?[] gamepads;
@@ -11,10 +11,10 @@ private class Games.RetroInputManager : RetroGtk.InputDeviceManager, Retro.Rumbl
 	public RetroInputManager (Gtk.Widget widget, bool present_analog_sticks) {
 		this.present_analog_sticks = present_analog_sticks;
 
-		keyboard = new RetroGtk.VirtualGamepad (widget);
+		keyboard = new Retro.VirtualGamepad (widget);
 		gamepad_monitor = GamepadMonitor.get_instance ();
 
-		set_keyboard (new RetroGtk.Keyboard (widget));
+		set_keyboard (new Retro.Keyboard (widget));
 
 		gamepad_monitor.foreach_gamepad ((gamepad) => {
 			var port = is_port_plugged.length;

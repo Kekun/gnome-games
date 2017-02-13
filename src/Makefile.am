@@ -171,8 +171,7 @@ gnome_games_VALAFLAGS = \
 	--pkg libsoup-2.4 \
 	--pkg libxml-2.0 \
 	--pkg tracker-sparql-1.0 \
-	--pkg retro-gobject-0.8 \
-	--pkg retro-gtk-0.8 \
+	--pkg retro-gtk-0.10 \
 	--pkg linux \
 	--pkg posix \
 	--gresources $(gresource_file) \
@@ -204,7 +203,6 @@ gnome_games_CFLAGS = \
 	$(NULL)
 
 gnome_games_CPPFLAGS = \
-	-DRETRO_GOBJECT_USE_UNSTABLE_API \
 	-DRETRO_GTK_USE_UNSTABLE_API \
 	$(NULL)
 

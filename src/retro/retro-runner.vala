@@ -35,8 +35,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private Retro.Core core;
-	private RetroGtk.CairoDisplay video;
-	private RetroGtk.PaPlayer audio;
+	private Retro.CairoDisplay video;
+	private Retro.PaPlayer audio;
 	private RetroInputManager input_manager;
 	private Retro.MainLoop loop;
 
@@ -156,7 +156,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (is_initialized)
 			return;
 
-		video = new RetroGtk.CairoDisplay ();
+		video = new Retro.CairoDisplay ();
 
 		widget = new Gtk.EventBox ();
 		widget.add (video);
@@ -201,7 +201,7 @@ public class Games.RetroRunner : Object, Runner {
 	private void prepare_core (string uri) throws Error {
 		var module_path = core_source.get_module_path ();
 		core = new Retro.Core (module_path);
-		audio = new RetroGtk.PaPlayer ();
+		audio = new Retro.PaPlayer ();
 
 		var platforms_dir = Application.get_platforms_dir ();
 		var platform = core_source.get_platform ();
