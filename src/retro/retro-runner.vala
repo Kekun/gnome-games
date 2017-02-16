@@ -119,6 +119,12 @@ public class Games.RetroRunner : Object, Runner {
 
 			return false;
 		}
+		catch (RetroError.FIRMWARE_NOT_FOUND e) {
+			debug (e.message);
+			error_message = get_unsupported_system_message ();
+
+			return false;
+		}
 
 		return true;
 	}
