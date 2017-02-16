@@ -246,8 +246,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return runner;
 		}
 		catch (Error e) {
-			warning ("%s\n", e.message);
-			display_box.display_running_game_failed (e, game);
+			warning (e.message);
+			display_box.display_running_game_failed (game, _("An unexpected error occured."));
 
 			return null;
 		}

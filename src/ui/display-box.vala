@@ -54,9 +54,9 @@ private class Games.DisplayBox : Gtk.EventBox {
 		timeout_id = -1;
 	}
 
-	public void display_running_game_failed (Error e, Game game) {
+	public void display_running_game_failed (Game game, string error_message) {
 		stack.visible_child = error_display;
-		error_display.running_game_failed (game);
+		error_display.running_game_failed (game, error_message);
 	}
 
 	[GtkCallback]
