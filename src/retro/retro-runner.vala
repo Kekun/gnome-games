@@ -108,9 +108,19 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	public void check_is_valid () throws Error {
-		load_media_data ();
-		init ();
+	public bool check_is_valid (out string error_message) throws Error {
+		try {
+			load_media_data ();
+			init ();
+		}
+		catch (RetroError.MODULE_NOT_FOUND e) {
+			debug (e.message);
+			error_message = get_unsupported_system_message ();
+
+			return false;
+		}
+
+		return true;
 	}
 
 	public Gtk.Widget get_display () {
@@ -489,6 +499,15 @@ public class Games.RetroRunner : Object, Runner {
 
 			return;
 		}
+	}
+
+	private string get_unsupported_system_message () {
+		var platform = core_source.get_platform ();
+		var platform_name = get_platform_name (platform);
+		if (platform_name == null)
+			return _("The system isn't supported yet. Full support will come!");
+		else
+			return _("The system “%s” isn't supported yet. Full support will come!").printf (platform_name);
 	}
 
 	private static string? get_platform_name (string platform) {

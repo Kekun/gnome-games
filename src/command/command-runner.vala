@@ -25,9 +25,14 @@ public class Games.CommandRunner : Object, Runner {
 		this.watch_child = watch_child;
 	}
 
-	public void check_is_valid () throws Error {
-		if (args.length < 1)
-			throw new CommandError.INVALID_COMMAND (_("Invalid command: it doesn't have any argument."));
+	public bool check_is_valid (out string error_message) throws Error {
+		if (args.length > 0)
+			return true;
+
+		debug ("Invalid command: it doesn't have any argument.");
+		error_message = _("The game doesn't have a valid command.");
+
+		return false;
 	}
 
 	public Gtk.Widget get_display () {

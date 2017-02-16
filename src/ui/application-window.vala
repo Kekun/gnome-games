@@ -241,9 +241,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Runner? try_get_runner (Game game) {
 		try {
 			var runner = game.get_runner ();
-			runner.check_is_valid ();
+			string error_message;
+			if (runner.check_is_valid (out error_message))
+				return runner;
 
-			return runner;
+			display_box.display_running_game_failed (game, error_message);
+
+			return null;
 		}
 		catch (Error e) {
 			warning (e.message);

@@ -17,7 +17,8 @@ private class Games.DummyRunner : Object, Runner {
 		get { return null; }
 	}
 
-	public void check_is_valid () throws Error {
+	public bool check_is_valid (out string error_message) throws Error {
+		return true;
 	}
 
 	public Gtk.Widget get_display () {
