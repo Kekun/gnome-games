@@ -214,11 +214,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		// Reset the UI parts depending on the runner to avoid an
 		// inconsistent state is case we couldn't retrieve it.
-		display_header_bar.can_fullscreen = false;
-		display_box.header_bar.can_fullscreen = false;
-		display_box.runner = null;
-		display_header_bar.media_set = null;
-		display_box.header_bar.media_set = null;
+		reset_display_page ();
 
 		var runner = try_get_runner (game);
 		if (runner == null)
@@ -245,12 +241,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			if (runner.check_is_valid (out error_message))
 				return runner;
 
+			reset_display_page ();
 			display_box.display_running_game_failed (game, error_message);
 
 			return null;
 		}
 		catch (Error e) {
 			warning (e.message);
+			reset_display_page ();
 			display_box.display_running_game_failed (game, _("An unexpected error occured."));
 
 			return null;
@@ -489,5 +487,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		application.uninhibit (inhibit_cookie);
 		inhibit_cookie = new_cookie;
 		inhibit_flags = new_flags;
+	}
+
+	private void reset_display_page () {
+		display_header_bar.can_fullscreen = false;
+		display_box.header_bar.can_fullscreen = false;
+		display_box.runner = null;
+		display_header_bar.media_set = null;
+		display_box.header_bar.media_set = null;
 	}
 }
