@@ -2,15 +2,15 @@
 # Copyright (C) 2016 The GNOME Games Authors.
 # This file is distributed under the same license as the PACKAGE package.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2016.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2016.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-09-15 14:33+0000\n"
-"PO-Revision-Date: 2016-12-22 12:42+0100\n"
+"POT-Creation-Date: 2017-02-17 05:51+0000\n"
+"PO-Revision-Date: 2017-02-17 11:33+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1
-#: ../data/ui/display-header-bar.ui.h:1 ../src/ui/application.vala:16
+#: ../data/ui/display-header-bar.ui.h:1 ../src/ui/application.vala:17
 msgid "Games"
 msgstr "Juegos"
 
@@ -96,6 +96,10 @@ msgstr "_Acerca de"
 #: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
 msgstr "_Salir"
+
+#: ../data/ui/collection-box.ui.h:1
+msgid "Loading"
+msgstr "Cargando"
 
 #: ../data/ui/collection-header-bar.ui.h:2
 msgid "Search"
@@ -190,7 +194,6 @@ msgid "Resume"
 msgstr "Reanudar"
 
 #: ../data/ui/resume-dialog.ui.h:3
-#| msgid "Restore"
 msgid "Restart"
 msgstr "Reiniciar"
 
@@ -236,10 +239,6 @@ msgstr "«%s» está en lista negra."
 msgid "The file doesn't have a Dreamcast header."
 msgstr "El archivo no tiene una cabecera de Dreamcast."
 
-#: ../plugins/game-boy/src/game-boy-header.vala:97
-msgid "The file doesn't have a Game Boy header."
-msgstr "El archivo no tiene una cabecera de Game Boy."
-
 #: ../plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn't have a Game Cube header."
 msgstr "El archivo no tiene una cabecera de Game Cube."
@@ -250,7 +249,7 @@ msgstr "El archivo no tiene una cabecera de Game Cube."
 msgid "This doesn't represent a valid LÖVE package: '%s'."
 msgstr "Esto no representa un paquete LÖVE válido: «%s»."
 
-#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
 msgid "Invalid MAME game id '%s' for '%s'."
 msgstr "ID «%s» de juego MAME no válido para «%s»."
@@ -259,36 +258,36 @@ msgstr "ID «%s» de juego MAME no válido para «%s»."
 msgid "The file doesn't have a Master System header."
 msgstr "El archivo no tiene una cabecera de Master System."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:63
-#: ../plugins/mega-drive/src/mega-drive-header.vala:79
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr ""
 "El archivo no tiene una cabecera de Genesis/Sega 32X/Sega CD/Sega Pico."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:106
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "El archivo «%s» no tiene ninguna pista."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:112
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "El archivo «%s» no tiene un formato binario válido."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:115
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
 msgstr "El archivo «%s» no tiene ningún modo de pista válido para la pista %d."
 
-#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
 msgid "Disc with disc_id %s is unknown"
 msgstr "No se conoce el disco con disc_id %s"
 
-#: ../plugins/playstation/src/playstation-header.vala:48
+#: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in '%s'."
 msgstr "Cabecera de PlayStation no válida: ID del disco no encontrado en «%s»."
@@ -342,18 +341,18 @@ msgstr "El archivo no tiene una cabecera Wii."
 msgid "Couldn't read file: %s"
 msgstr "No se pudo leer el archivo: %s"
 
-#: ../src/command/command-runner.vala:30
-msgid "Invalid command: it doesn't have any argument."
-msgstr "Comando no válido: no tiene ningún argumento."
+#: ../src/command/command-runner.vala:33
+#| msgid "The file doesn't have a Wii header."
+msgid "The game doesn't have a valid command."
+msgstr "El juego no tiene un comando válido."
 
-#: ../src/command/command-runner.vala:59
+#: ../src/command/command-runner.vala:64
 #, c-format
 msgid "Couldn't run '%s': execution failed."
 msgstr "No se pudo ejecutar «%s»: falló la ejecución."
 
 #: ../src/core/media-set/media-set.vala:31
 #, c-format
-#| msgid "Invalid command '%s'."
 msgid "Invalid media index %u."
 msgstr "Índice del soporte %u no válido"
 
@@ -410,60 +409,213 @@ msgstr "No se puede abrir el archivo «%s» :%s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev no puede abrir «%s» :%s"
 
-#: ../src/retro/retro-runner.vala:228
+#: ../src/retro/retro-core-source.vala:35
+#, c-format
+msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+msgstr ""
+"No se ha encontrado el módulo para la plataforma «%s» y los tipos MIME "
+"[ «%s» ]."
+
+#: ../src/retro/retro-core-source.vala:79
+#, c-format
+msgid "This games requires the %s firmware file to run."
+msgstr "El juego necesita el archivo de firmware %s para ejecutarse."
+
+#: ../src/retro/retro-core-source.vala:96
+#, c-format
+msgid ""
+"This games requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr ""
+"El juego necesita el archivo de firmware %s con una huella MD5 %s para "
+"ejecutarse."
+
+#: ../src/retro/retro-core-source.vala:102
+#, c-format
+msgid ""
+"This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+"El juego necesita el archivo de firmware %s con una huella SHA-512 %s para "
+"ejecutarse."
+
+#: ../src/retro/retro-platform.vala:7
+msgid "Atari 2600"
+msgstr "Atari 2600"
+
+#: ../src/retro/retro-platform.vala:9
+msgid "Atari 5200"
+msgstr "Atari 5200"
+
+#: ../src/retro/retro-platform.vala:11
+msgid "Atari 7800"
+msgstr "Atari 7800"
+
+#: ../src/retro/retro-platform.vala:13
+msgid "Dreamcast"
+msgstr "Dreamcast"
+
+#: ../src/retro/retro-platform.vala:15
+msgid "Famicom Disk System"
+msgstr "Famicom Disk System"
+
+#: ../src/retro/retro-platform.vala:17
+#| msgid "Games"
+msgid "Game Boy"
+msgstr "Game Boy"
+
+#: ../src/retro/retro-platform.vala:19
+msgid "Game Boy Color"
+msgstr "Game Boy Color"
+
+#: ../src/retro/retro-platform.vala:21
+msgid "Game Boy Advance"
+msgstr "Game Boy Advance"
+
+#: ../src/retro/retro-platform.vala:23
+msgid "Nintendo GameCube"
+msgstr "Nintendo GameCube"
+
+#: ../src/retro/retro-platform.vala:25
+msgid "Game Gear"
+msgstr "Game Gear"
+
+#: ../src/retro/retro-platform.vala:27
+msgid "Nintendo Entertainment System"
+msgstr "Nintendo Entertainment System"
+
+#: ../src/retro/retro-platform.vala:29
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
+#: ../src/retro/retro-platform.vala:31
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: ../src/retro/retro-platform.vala:33
+msgid "Nintendo 3DS"
+msgstr "Nintendo 3DS"
+
+#: ../src/retro/retro-platform.vala:35
+msgid "PlayStation"
+msgstr "PlayStation"
+
+#: ../src/retro/retro-platform.vala:37
+msgid "PlayStation 2"
+msgstr "PlayStation 2"
+
+#: ../src/retro/retro-platform.vala:39
+msgid "PlayStation 3"
+msgstr "PlayStation 3"
+
+#: ../src/retro/retro-platform.vala:41
+msgid "PlayStation 4"
+msgstr "PlayStation 4"
+
+#: ../src/retro/retro-platform.vala:43
+msgid "PlayStation Portable"
+msgstr "PlayStation Portable"
+
+#: ../src/retro/retro-platform.vala:45
+msgid "PlayStation Vita"
+msgstr "PlayStation Vita"
+
+#: ../src/retro/retro-platform.vala:47
+msgid "Genesis 32X"
+msgstr "Genesis 32X"
+
+#: ../src/retro/retro-platform.vala:49
+msgid "Sega CD"
+msgstr "Sega CD"
+
+#: ../src/retro/retro-platform.vala:51
+msgid "Sega CD 32X"
+msgstr "Sega CD 32X"
+
+#: ../src/retro/retro-platform.vala:53
+msgid "Sega Genesis"
+msgstr "Sega Genesis"
+
+#: ../src/retro/retro-platform.vala:55
+msgid "Sega Master System"
+msgstr "Sega Master System"
+
+#: ../src/retro/retro-platform.vala:57
+msgid "Sega Saturn"
+msgstr "Sega Saturn"
+
+#: ../src/retro/retro-platform.vala:59
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#: ../src/retro/retro-platform.vala:61
+msgid "Super Nintendo Entertainment System"
+msgstr "Super Nintendo Entertainment System"
+
+#: ../src/retro/retro-platform.vala:63
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#: ../src/retro/retro-platform.vala:65
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: ../src/retro/retro-platform.vala:67
+msgid "Wii"
+msgstr "Wii"
+
+#: ../src/retro/retro-platform.vala:69
+msgid "Wii U"
+msgstr "Wii U"
+
+#: ../src/retro/retro-runner.vala:234
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Archivo de juego no válido: «%s»."
 
-#: ../src/retro/retro-runner.vala:238
+#: ../src/retro/retro-runner.vala:514
+msgid "The system isn't supported yet. Full support will come!"
+msgstr "El sistema todavía no está soportado, pero llegará pronto."
+
+#: ../src/retro/retro-runner.vala:516
 #, c-format
-msgid "Couldn't run game: module '%s' not found."
-msgstr "No se pudo ejecutar el juego: módulo «%s» no encontrado."
+msgid "The system “%s” isn't supported yet. Full support will come!"
+msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: ../src/retro/retro-runner.vala:245
-#, c-format
-msgid ""
-"Couldn't run game: module '%s' not found and no module found for MIME types "
-"%s."
-msgstr ""
-"No se pudo ejecutar el juego: módulo «%s» no encontrado y no se ha "
-"encontrado ningún módulo para tipos MIME %s."
-
-#: ../src/retro/retro-runner.vala:444
-msgid "Couldn't write snapshot."
-msgstr "No se pudo escribir la captura."
-
-#: ../src/ui/application.vala:154
+#: ../src/ui/application.vala:174
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: ../src/ui/application.vala:156
+#: ../src/ui/application.vala:176
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: ../src/ui/application.vala:160
+#: ../src/ui/application.vala:180
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: ../src/ui/application.vala:167
+#: ../src/ui/application.vala:187
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016"
 
-#: ../src/ui/application-window.vala:451 ../src/ui/application-window.vala:468
-#| msgid "Play your games"
+#: ../src/ui/application-window.vala:254
+#| msgid "Unexpected end of tokens."
+msgid "An unexpected error occured."
+msgstr "Ha ocurrido un error inesperado."
+
+#: ../src/ui/application-window.vala:470 ../src/ui/application-window.vala:487
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
-#: ../src/ui/error-display.vala:11
+#: ../src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "No se puede ejecutar «%s»"
 
-#: ../src/ui/error-display.vala:13
+#: ../src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
 msgstr "No se puede ejecutar el juego"
 
-#: ../src/ui/media-selector.vala:29
+#: ../src/ui/media-selector.vala:33
 #, c-format
 msgid "Media %d"
 msgstr "Soporte %d"
@@ -521,6 +673,25 @@ msgstr "%s:%lu: fin de línea no esperado, se esperaba un testigo."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: testigo %s no esperado, se esperaba un final de línea."
+
+#~ msgid "The file doesn't have a Game Boy header."
+#~ msgstr "El archivo no tiene una cabecera de Game Boy."
+
+#~ msgid "Invalid command: it doesn't have any argument."
+#~ msgstr "Comando no válido: no tiene ningún argumento."
+
+#~ msgid "Couldn't run game: module '%s' not found."
+#~ msgstr "No se pudo ejecutar el juego: módulo «%s» no encontrado."
+
+#~ msgid ""
+#~ "Couldn't run game: module '%s' not found and no module found for MIME "
+#~ "types %s."
+#~ msgstr ""
+#~ "No se pudo ejecutar el juego: módulo «%s» no encontrado y no se ha "
+#~ "encontrado ningún módulo para tipos MIME %s."
+
+#~ msgid "Couldn't write snapshot."
+#~ msgstr "No se pudo escribir la captura."
 
 #~ msgid "Main Menu"
 #~ msgstr "Menú principal"
