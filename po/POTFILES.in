@@ -41,6 +41,7 @@ src/gameinfo/gameinfo-doc.vala
 src/gamepad/gamepad-mapping.vala
 src/gamepad/linux/linux-raw-gamepad.vala
 src/retro/retro-core-source.vala
+src/retro/retro-platform.vala
 src/retro/retro-runner.vala
 src/ui/application.vala
 src/ui/application-window.vala
