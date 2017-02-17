@@ -2,7 +2,6 @@
 # Please keep this file sorted alphabetically.
 data/org.gnome.Games.appdata.xml.in
 data/org.gnome.Games.desktop.in
-data/org.gnome.Games.gschema.xml
 [type: gettext/glade]data/gtk/menus.ui
 [type: gettext/glade]data/ui/collection-box.ui
 [type: gettext/glade]data/ui/collection-header-bar.ui
