@@ -1,0 +1,13 @@
+<schemalist>
+  <enum id="org.gnome.Games.video-filters">
+    <value nick="smooth" value="0"/>
+    <value nick="sharp" value="1"/>
+  </enum>
+  <schema path="/org/gnome/Games/" id="org.gnome.Games">
+    <key name='video-filter' enum='org.gnome.Games.video-filters'>
+      <default>'smooth'</default>
+      <summary>Video filter</summary>
+      <description>Filter for the game video output. Allowed values are: “smooth” (blurry pixels), “sharp” (blocky pixels).</description>
+    </key>
+  </schema>
+</schemalist>
