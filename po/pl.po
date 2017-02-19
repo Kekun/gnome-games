@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 14:15+0100\n"
-"PO-Revision-Date: 2017-02-12 14:17+0100\n"
+"POT-Creation-Date: 2017-02-19 19:58+0100\n"
+"PO-Revision-Date: 2017-02-19 19:59+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -88,7 +88,7 @@ msgstr "_Preferencje"
 
 #: ../data/gtk/menus.ui.h:2
 msgid "_About"
-msgstr "_O programie"
+msgstr "_O programie"
 
 #: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
@@ -339,11 +339,11 @@ msgstr "Plik nie ma nagłówka konsoli Wii."
 msgid "Couldn't read file: %s"
 msgstr "Nie można odczytać pliku: %s"
 
-#: ../src/command/command-runner.vala:30
-msgid "Invalid command: it doesn't have any argument."
-msgstr "Nieprawidłowe polecenie: nie ma żadnych parametrów."
+#: ../src/command/command-runner.vala:33
+msgid "The game doesn't have a valid command."
+msgstr "Gra nie ma prawidłowego polecenia."
 
-#: ../src/command/command-runner.vala:59
+#: ../src/command/command-runner.vala:64
 #, c-format
 msgid "Couldn't run '%s': execution failed."
 msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
@@ -406,15 +406,209 @@ msgstr "Nie można otworzyć pliku „%s”: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
 
-#: ../src/retro/retro-core-source.vala:34
+#: ../src/retro/retro-core-source.vala:35
 #, c-format
 msgid "No module found for platform '%s' and MIME types [ '%s' ]."
 msgstr "Nie odnaleziono modułu dla platformy „%s” i typów MIME [ „%s” ]."
 
-#: ../src/retro/retro-runner.vala:218
+#: ../src/retro/retro-core-source.vala:79
+#, c-format
+msgid "This games requires the %s firmware file to run."
+msgstr "Ta gra wymaga oprogramowania sprzętowego %s do działania."
+
+#: ../src/retro/retro-core-source.vala:96
+#, c-format
+msgid ""
+"This games requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr ""
+"Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
+"kontrolnej MD5 „%s”."
+
+#: ../src/retro/retro-core-source.vala:102
+#, c-format
+msgid ""
+"This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+"Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
+"kontrolnej SHA-512 „%s”."
+
+#: ../src/retro/retro-platform.vala:7
+msgid "Amiga"
+msgstr "Amiga"
+
+#: ../src/retro/retro-platform.vala:9
+msgid "Atari 2600"
+msgstr "Atari 2600"
+
+#: ../src/retro/retro-platform.vala:11
+msgid "Atari 5200"
+msgstr "Atari 5200"
+
+#: ../src/retro/retro-platform.vala:13
+msgid "Atari 7800"
+msgstr "Atari 7800"
+
+#: ../src/retro/retro-platform.vala:15
+msgid "DOOM"
+msgstr "DOOM"
+
+#: ../src/retro/retro-platform.vala:17
+msgid "Dreamcast"
+msgstr "Dreamcast"
+
+#. translators: only released in eastern Asia
+#: ../src/retro/retro-platform.vala:20
+msgid "Famicom Disk System"
+msgstr "Famicom Disk System"
+
+#: ../src/retro/retro-platform.vala:22
+msgid "Game Boy"
+msgstr "Game Boy"
+
+#: ../src/retro/retro-platform.vala:24
+msgid "Game Boy Color"
+msgstr "Game Boy Color"
+
+#: ../src/retro/retro-platform.vala:26
+msgid "Game Boy Advance"
+msgstr "Game Boy Advance"
+
+#: ../src/retro/retro-platform.vala:28
+msgid "Nintendo GameCube"
+msgstr "Nintendo GameCube"
+
+#: ../src/retro/retro-platform.vala:30
+msgid "Game Gear"
+msgstr "Game Gear"
+
+#. translators: the "Multiple Arcade Machine Emulator"
+#: ../src/retro/retro-platform.vala:33
+msgid "MAME"
+msgstr "MAME"
+
+#: ../src/retro/retro-platform.vala:35
+msgid "Neo Geo Pocket"
+msgstr "Neo Geo Pocket"
+
+#. translators: known as "Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:38
+msgid "Nintendo Entertainment System"
+msgstr "NES"
+
+#: ../src/retro/retro-platform.vala:40
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
+#: ../src/retro/retro-platform.vala:42
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: ../src/retro/retro-platform.vala:44
+msgid "Nintendo 3DS"
+msgstr "Nintendo 3DS"
+
+#: ../src/retro/retro-platform.vala:46
+msgid "PlayStation"
+msgstr "PlayStation"
+
+#: ../src/retro/retro-platform.vala:48
+msgid "PlayStation 2"
+msgstr "PlayStation 2"
+
+#: ../src/retro/retro-platform.vala:50
+msgid "PlayStation 3"
+msgstr "PlayStation 3"
+
+#: ../src/retro/retro-platform.vala:52
+msgid "PlayStation 4"
+msgstr "PlayStation 4"
+
+#: ../src/retro/retro-platform.vala:54
+msgid "PlayStation Portable"
+msgstr "PSP"
+
+#: ../src/retro/retro-platform.vala:56
+msgid "PlayStation Vita"
+msgstr "PlayStation Vita"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: ../src/retro/retro-platform.vala:59
+msgid "Genesis 32X"
+msgstr "Mega Drive 32X"
+
+#. translators: known as "Mega-CD" in most of the world
+#: ../src/retro/retro-platform.vala:62
+msgid "Sega CD"
+msgstr "Mega-CD"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: ../src/retro/retro-platform.vala:65
+msgid "Sega CD 32X"
+msgstr "Mega-CD 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: ../src/retro/retro-platform.vala:68
+msgid "Sega Genesis"
+msgstr "Mega Drive"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: ../src/retro/retro-platform.vala:71
+msgid "Sega Master System"
+msgstr "Sega Master System"
+
+#: ../src/retro/retro-platform.vala:73
+msgid "Sega Pico"
+msgstr "Sega Pico"
+
+#: ../src/retro/retro-platform.vala:75
+msgid "Sega Saturn"
+msgstr "Sega Saturn"
+
+#: ../src/retro/retro-platform.vala:77
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:80
+msgid "Super Nintendo Entertainment System"
+msgstr "SNES"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:83
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:86
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: ../src/retro/retro-platform.vala:88
+msgid "Wii"
+msgstr "Wii"
+
+#: ../src/retro/retro-platform.vala:90
+msgid "Wii U"
+msgstr "Wii U"
+
+#: ../src/retro/retro-platform.vala:92
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: ../src/retro/retro-runner.vala:234
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Nieprawidłowy plik gry: „%s”."
+
+#: ../src/retro/retro-runner.vala:514
+msgid "The system isn't supported yet. Full support will come!"
+msgstr "Nieobsługiwana konsola. Pełna obsługa już wkrótce!"
+
+#: ../src/retro/retro-runner.vala:516
+#, c-format
+msgid "The system “%s” isn't supported yet. Full support will come!"
+msgstr "Konsola „%s” nie jest obsługiwana. Pełna obsługa już wkrótce!"
 
 #: ../src/ui/application.vala:174
 msgid "GNOME Games"
@@ -434,16 +628,20 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2017"
 
-#: ../src/ui/application-window.vala:466 ../src/ui/application-window.vala:483
+#: ../src/ui/application-window.vala:252
+msgid "An unexpected error occured."
+msgstr "Wystąpił nieoczekiwany błąd."
+
+#: ../src/ui/application-window.vala:468 ../src/ui/application-window.vala:485
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
-#: ../src/ui/error-display.vala:11
+#: ../src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "Nie można uruchomić gry „%s”"
 
-#: ../src/ui/error-display.vala:13
+#: ../src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
 msgstr "Nie można uruchomić gry"
 
