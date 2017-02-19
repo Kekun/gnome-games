@@ -36,6 +36,10 @@ if ENABLE_GAME_CUBE_PLUGIN
 SUBDIRS += game-cube
 endif
 
+if ENABLE_LIBRETRO_PLUGIN
+SUBDIRS += libretro
+endif
+
 if ENABLE_LOVE_PLUGIN
 SUBDIRS += love
 endif

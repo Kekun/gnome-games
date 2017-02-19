@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-libretro-plugin
+Name=Libretro Plugin
+Description=Provides support for standalone Libretro games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2017 Adrien Plazas
