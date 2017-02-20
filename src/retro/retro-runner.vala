@@ -46,6 +46,7 @@ public class Games.RetroRunner : Object, Runner {
 	private string snapshot_path;
 	private string screenshot_path;
 
+	private Retro.CoreDescriptor core_descriptor;
 	private RetroCoreSource core_source;
 	private Uid uid;
 	private InputCapabilities input_capabilities;
@@ -72,6 +73,7 @@ public class Games.RetroRunner : Object, Runner {
 		is_ready = false;
 		should_save = false;
 
+		this.core_descriptor = null;
 		var game_media = new Media (uri);
 		_media_set = new MediaSet ({ game_media });
 
@@ -85,12 +87,25 @@ public class Games.RetroRunner : Object, Runner {
 		is_ready = false;
 		should_save = false;
 
+		this.core_descriptor = null;
 		this.core_source = core_source;
 		this._media_set = media_set;
 		this.uid = uid;
 		this.input_capabilities = input_capabilities;
 
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
+	}
+
+	public RetroRunner.for_core_descriptor (Retro.CoreDescriptor core_descriptor, Uid uid) {
+		is_initialized = false;
+		is_ready = false;
+		should_save = false;
+
+		this.core_descriptor = core_descriptor;
+		this.core_source = null;
+		this._media_set = new MediaSet ({});
+		this.uid = uid;
+		this.input_capabilities = null;
 	}
 
 	~RetroRunner () {
@@ -180,11 +195,18 @@ public class Games.RetroRunner : Object, Runner {
 		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
 		input_manager = new RetroInputManager (widget, present_analog_sticks);
 
-		var media_number = media_set.selected_media_number;
-		var media = media_set.get_selected_media (media_number);
-		var uri = media.uri;
+		prepare_core ();
+		if (media_set.get_size () == 0)
+			core.prepare ();
+		else {
+			var media_number = media_set.selected_media_number;
+			var media = media_set.get_selected_media (media_number);
+			var uri = media.uri;
 
-		prepare_core (uri);
+			if (!try_load_game (core, uri))
+				throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: '%s'."), uri);
+		}
+
 		core.shutdown.connect (on_shutdown);
 
 		core.run (); // Needed to finish preparing some cores.
@@ -214,14 +236,22 @@ public class Games.RetroRunner : Object, Runner {
 		should_save = false;
 	}
 
-	private void prepare_core (string uri) throws Error {
-		var module_path = core_source.get_module_path ();
+	private void prepare_core () throws Error {
+		string module_path;
+		if (core_descriptor != null) {
+			var module_file = core_descriptor.get_module_file ();
+			module_path = module_file.get_path ();
+		}
+		else
+			module_path = core_source.get_module_path ();
 		core = new Retro.Core (module_path);
 		audio = new Retro.PaPlayer ();
 
-		var platforms_dir = Application.get_platforms_dir ();
-		var platform = core_source.get_platform ();
-		core.system_directory = @"$platforms_dir/$platform/system";
+		if (core_source != null) {
+			var platforms_dir = Application.get_platforms_dir ();
+			var platform = core_source.get_platform ();
+			core.system_directory = @"$platforms_dir/$platform/system";
+		}
 
 		video.set_core (core);
 		audio.set_core (core);
@@ -229,9 +259,6 @@ public class Games.RetroRunner : Object, Runner {
 		core.rumble_interface = input_manager;
 
 		core.init ();
-
-		if (!try_load_game (core, uri))
-			throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: '%s'."), uri);
 	}
 
 	private bool try_load_game (Retro.Core core, string uri) {
@@ -508,11 +535,13 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private string get_unsupported_system_message () {
-		var platform = core_source.get_platform ();
-		var platform_name = RetroPlatform.get_platform_name (platform);
-		if (platform_name == null)
-			return _("The system isn't supported yet. Full support will come!");
-		else
-			return _("The system “%s” isn't supported yet. Full support will come!").printf (platform_name);
+		if (core_source != null) {
+			var platform = core_source.get_platform ();
+			var platform_name = RetroPlatform.get_platform_name (platform);
+			if (platform_name != null)
+				return _("The system “%s” isn't supported yet. Full support will come!").printf (platform_name);
+		}
+
+		return _("The system isn't supported yet. Full support will come!");
 	}
 }
