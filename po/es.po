@@ -3,27 +3,28 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2016.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2017.
+# Adrien Plazas <kekun.plazas@laposte.net>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-17 05:51+0000\n"
-"PO-Revision-Date: 2017-02-17 11:33+0100\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: es <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2017-02-21 05:08+0000\n"
+"PO-Revision-Date: 2017-02-21 07:23+0100\n"
+"Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
+"Language-Team: français <>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 2.91.6\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
-#: ../data/ui/collection-header-bar.ui.h:1
-#: ../data/ui/display-header-bar.ui.h:1 ../src/ui/application.vala:17
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:17
 msgid "Games"
 msgstr "Juegos"
 
@@ -342,7 +343,6 @@ msgid "Couldn't read file: %s"
 msgstr "No se pudo leer el archivo: %s"
 
 #: ../src/command/command-runner.vala:33
-#| msgid "The file doesn't have a Wii header."
 msgid "The game doesn't have a valid command."
 msgstr "El juego no tiene un comando válido."
 
@@ -439,147 +439,185 @@ msgstr ""
 "ejecutarse."
 
 #: ../src/retro/retro-platform.vala:7
+msgid "Amiga"
+msgstr "Commodore Amiga"
+
+#: ../src/retro/retro-platform.vala:9
 msgid "Atari 2600"
 msgstr "Atari 2600"
 
-#: ../src/retro/retro-platform.vala:9
+#: ../src/retro/retro-platform.vala:11
 msgid "Atari 5200"
 msgstr "Atari 5200"
 
-#: ../src/retro/retro-platform.vala:11
+#: ../src/retro/retro-platform.vala:13
 msgid "Atari 7800"
 msgstr "Atari 7800"
 
-#: ../src/retro/retro-platform.vala:13
+#: ../src/retro/retro-platform.vala:15
+msgid "DOOM"
+msgstr "DOOM"
+
+#: ../src/retro/retro-platform.vala:17
 msgid "Dreamcast"
 msgstr "Dreamcast"
 
-#: ../src/retro/retro-platform.vala:15
+#. translators: only released in eastern Asia
+#: ../src/retro/retro-platform.vala:20
 msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
-#: ../src/retro/retro-platform.vala:17
-#| msgid "Games"
+#: ../src/retro/retro-platform.vala:22
 msgid "Game Boy"
 msgstr "Game Boy"
 
-#: ../src/retro/retro-platform.vala:19
+#: ../src/retro/retro-platform.vala:24
 msgid "Game Boy Color"
 msgstr "Game Boy Color"
 
-#: ../src/retro/retro-platform.vala:21
+#: ../src/retro/retro-platform.vala:26
 msgid "Game Boy Advance"
 msgstr "Game Boy Advance"
 
-#: ../src/retro/retro-platform.vala:23
+#: ../src/retro/retro-platform.vala:28
 msgid "Nintendo GameCube"
 msgstr "Nintendo GameCube"
 
-#: ../src/retro/retro-platform.vala:25
+#: ../src/retro/retro-platform.vala:30
 msgid "Game Gear"
 msgstr "Game Gear"
 
-#: ../src/retro/retro-platform.vala:27
+#. translators: the "Multiple Arcade Machine Emulator"
+#: ../src/retro/retro-platform.vala:33
+msgid "MAME"
+msgstr "MAME"
+
+#: ../src/retro/retro-platform.vala:35
+msgid "Neo Geo Pocket"
+msgstr "Neo Geo Pocket"
+
+#. translators: known as "Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:38
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: ../src/retro/retro-platform.vala:29
+#: ../src/retro/retro-platform.vala:40
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: ../src/retro/retro-platform.vala:31
+#: ../src/retro/retro-platform.vala:42
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: ../src/retro/retro-platform.vala:33
+#: ../src/retro/retro-platform.vala:44
 msgid "Nintendo 3DS"
 msgstr "Nintendo 3DS"
 
-#: ../src/retro/retro-platform.vala:35
+#: ../src/retro/retro-platform.vala:46
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: ../src/retro/retro-platform.vala:37
+#: ../src/retro/retro-platform.vala:48
 msgid "PlayStation 2"
 msgstr "PlayStation 2"
 
-#: ../src/retro/retro-platform.vala:39
+#: ../src/retro/retro-platform.vala:50
 msgid "PlayStation 3"
 msgstr "PlayStation 3"
 
-#: ../src/retro/retro-platform.vala:41
+#: ../src/retro/retro-platform.vala:52
 msgid "PlayStation 4"
 msgstr "PlayStation 4"
 
-#: ../src/retro/retro-platform.vala:43
+#: ../src/retro/retro-platform.vala:54
 msgid "PlayStation Portable"
 msgstr "PlayStation Portable"
 
-#: ../src/retro/retro-platform.vala:45
+#: ../src/retro/retro-platform.vala:56
 msgid "PlayStation Vita"
 msgstr "PlayStation Vita"
 
-#: ../src/retro/retro-platform.vala:47
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: ../src/retro/retro-platform.vala:59
 msgid "Genesis 32X"
-msgstr "Genesis 32X"
+msgstr "Mega Drive 32X"
 
-#: ../src/retro/retro-platform.vala:49
+#. translators: known as "Mega-CD" in most of the world
+#: ../src/retro/retro-platform.vala:62
 msgid "Sega CD"
-msgstr "Sega CD"
+msgstr "Mega-CD"
 
-#: ../src/retro/retro-platform.vala:51
+#. translators: known as "Mega-CD 32X" in most of the world
+#: ../src/retro/retro-platform.vala:65
 msgid "Sega CD 32X"
-msgstr "Sega CD 32X"
+msgstr "Mega-CD 32X"
 
-#: ../src/retro/retro-platform.vala:53
+#. translators: known as "Mega Drive" in most of the world
+#: ../src/retro/retro-platform.vala:68
 msgid "Sega Genesis"
-msgstr "Sega Genesis"
+msgstr "Mega Drive"
 
-#: ../src/retro/retro-platform.vala:55
+#. translators: also known as "Sega Mark III" in eastern asia
+#: ../src/retro/retro-platform.vala:71
 msgid "Sega Master System"
 msgstr "Sega Master System"
 
-#: ../src/retro/retro-platform.vala:57
+#: ../src/retro/retro-platform.vala:73
+#| msgid "Sega CD"
+msgid "Sega Pico"
+msgstr "Sega Pico"
+
+#: ../src/retro/retro-platform.vala:75
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: ../src/retro/retro-platform.vala:59
+#: ../src/retro/retro-platform.vala:77
 msgid "SG-1000"
 msgstr "SG-1000"
 
-#: ../src/retro/retro-platform.vala:61
+#. translators: known as "Super Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:80
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
-#: ../src/retro/retro-platform.vala:63
+#. translators: known as "PC Engine" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:83
 msgid "TurboGrafx-16"
-msgstr "TurboGrafx-16"
+msgstr "TurboGrafx"
 
-#: ../src/retro/retro-platform.vala:65
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:86
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
-#: ../src/retro/retro-platform.vala:67
+#: ../src/retro/retro-platform.vala:88
 msgid "Wii"
 msgstr "Wii"
 
-#: ../src/retro/retro-platform.vala:69
+#: ../src/retro/retro-platform.vala:90
 msgid "Wii U"
 msgstr "Wii U"
 
-#: ../src/retro/retro-runner.vala:234
+#: ../src/retro/retro-platform.vala:92
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: ../src/retro/retro-runner.vala:207
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Archivo de juego no válido: «%s»."
 
-#: ../src/retro/retro-runner.vala:514
-msgid "The system isn't supported yet. Full support will come!"
-msgstr "El sistema todavía no está soportado, pero llegará pronto."
-
-#: ../src/retro/retro-runner.vala:516
-#, c-format
-msgid "The system “%s” isn't supported yet. Full support will come!"
+#: ../src/retro/retro-runner.vala:542
+#, fuzzy, c-format
+#| msgid "The system “%s” isn't supported yet. Full support will come!"
+msgid "The system “%s” isn't supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
+
+#: ../src/retro/retro-runner.vala:545
+#, fuzzy
+#| msgid "The system isn't supported yet. Full support will come!"
+msgid "The system isn't supported yet, but full support is planned."
+msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
 #: ../src/ui/application.vala:174
 msgid "GNOME Games"
@@ -597,12 +635,11 @@ msgstr "Más información acerca de Juegos de GNOME"
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016"
 
-#: ../src/ui/application-window.vala:254
-#| msgid "Unexpected end of tokens."
+#: ../src/ui/application-window.vala:252
 msgid "An unexpected error occured."
 msgstr "Ha ocurrido un error inesperado."
 
-#: ../src/ui/application-window.vala:470 ../src/ui/application-window.vala:487
+#: ../src/ui/application-window.vala:468 ../src/ui/application-window.vala:485
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
