@@ -539,9 +539,9 @@ public class Games.RetroRunner : Object, Runner {
 			var platform = core_source.get_platform ();
 			var platform_name = RetroPlatform.get_platform_name (platform);
 			if (platform_name != null)
-				return _("The system “%s” isn't supported yet. Full support will come!").printf (platform_name);
+				return _("The system “%s” isn't supported yet, but full support is planned.").printf (platform_name);
 		}
 
-		return _("The system isn't supported yet. Full support will come!");
+		return _("The system isn't supported yet, but full support is planned.");
 	}
 }
