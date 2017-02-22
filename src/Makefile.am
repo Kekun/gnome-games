@@ -117,6 +117,7 @@ gnome_games_SOURCES = \
 	ui/preferences-page.vala \
 	ui/preferences-page-plugins.vala \
 	ui/preferences-page-plugins-item.vala \
+	ui/preferences-switch-item.vala \
 	ui/preferences-window.vala \
 	ui/quit-dialog.vala \
 	ui/remote-display.vala \

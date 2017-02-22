@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GamesPreferencesSwitchItem" parent="GtkBox">
+    <property name="vexpand">false</property>
+    <property name="orientation">horizontal</property>
+    <property name="margin">6</property>
+    <property name="spacing">12</property>
+    <property name="visible">true</property>
+    <child>
+      <object class="GtkLabel" id="title_label">
+        <property name="visible">true</property>
+        <property name="vexpand">true</property>
+        <property name="wrap">true</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImage" id="select_image">
+        <property name="icon-name">object-select-symbolic</property>
+        <property name="valign">center</property>
+      </object>
+    </child>
+  </template>
+</interface>
