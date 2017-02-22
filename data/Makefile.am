@@ -33,6 +33,7 @@ EXTRA_DIST = \
 	ui/media-selector.ui \
 	ui/preferences-page-plugins-item.ui \
 	ui/preferences-page-plugins.ui \
+	ui/preferences-page-video.ui \
 	ui/preferences-switch-item.ui \
 	ui/preferences-window.ui \
 	ui/quit-dialog.ui \
