@@ -39,10 +39,6 @@ libgames_mame_plugin_la_SOURCES = \
 libgames_mame_plugin_la_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
 	--pkg gnome-games \
-	--pkg gio-2.0 \
-	--pkg glib-2.0 \
-	--pkg gtk+-3.0 \
-	--pkg tracker-sparql-1.0 \
 	--vapidir $(top_builddir)/src \
 	--gresources $(gresource_file) \
 	$(NULL)

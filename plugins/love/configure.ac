@@ -3,6 +3,7 @@ PKG_CHECK_MODULES(LOVE_PLUGIN, [
 	glib-2.0 >= $GLIB_MIN_VERSION
 	gtk+-3.0
 	libarchive
+	retro-gtk-0.10
 	tracker-sparql-1.0
 ], [enable_love_plugin=yes], [enable_love_plugin=no])
 
