@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gameinfo master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-21 05:08+0000\n"
-"PO-Revision-Date: 2017-02-21 07:49+0100\n"
+"POT-Creation-Date: 2017-02-22 19:28+0000\n"
+"PO-Revision-Date: 2017-02-23 12:15+0100\n"
 "Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
 "Language-Team: français <>\n"
 "Language: fr\n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:5
 msgid "Features:"
-msgstr "Fonctionnalités :"
+msgstr "Fonctionnalités :"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
 msgid "List your installed games, your Steam games, your game ROMs..."
@@ -81,6 +81,18 @@ msgstr "Visualiser et jouer votre ludothèque"
 #: ../data/org.gnome.Games.desktop.in.h:4
 msgid "game;videogame;video game;player;"
 msgstr "jeu;jeu vidéo;lecteur;"
+
+#: ../data/org.gnome.Games.gschema.xml.h:1
+msgid "Video filter"
+msgstr "Filtre vidéo"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels)."
+msgstr ""
+"Filtre pour la sortie vidéo des jeux. Les valeurs possibles sont : "
+"« lisse » (pixels flous), « net » (pixels visibles)."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
@@ -146,11 +158,19 @@ msgstr "Media"
 msgid "Plugins"
 msgstr "Greffons"
 
+#: ../data/ui/preferences-page-video.ui.h:1
+msgid "Filter"
+msgstr "Filtre"
+
 #: ../data/ui/preferences-window.ui.h:1
 msgid "Preferences"
 msgstr "Préférences"
 
-#: ../data/ui/preferences-window.ui.h:2
+#: ../data/ui/preferences-window.ui.h:2 ../src/ui/preferences-page-video.vala:6
+msgid "Video"
+msgstr "Vidéo"
+
+#: ../data/ui/preferences-window.ui.h:3
 #: ../src/ui/preferences-page-plugins.vala:6
 msgid "Extensions"
 msgstr "Extensions"
@@ -343,7 +363,6 @@ msgid "Couldn't read file: %s"
 msgstr "Nous n'avons pas pû lire le fichier : %s"
 
 #: ../src/command/command-runner.vala:33
-#| msgid "The file doesn't have a Wii header."
 msgid "The game doesn't have a valid command."
 msgstr "Le jeu ne possède pas de commande valide."
 
@@ -470,7 +489,6 @@ msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
 #: ../src/retro/retro-platform.vala:22
-#| msgid "Games"
 msgid "Game Boy"
 msgstr "Game Boy"
 
@@ -604,19 +622,19 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:207
+#: ../src/retro/retro-runner.vala:214
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Fichier de jeu invalide : « %s »."
 
-#: ../src/retro/retro-runner.vala:542
+#: ../src/retro/retro-runner.vala:557
 #, c-format
 msgid "The system “%s” isn't supported yet, but full support is planned."
 msgstr ""
 "Le système « %s » n'est pas pris en charge pour le moment, son développement "
 "est prévu."
 
-#: ../src/retro/retro-runner.vala:545
+#: ../src/retro/retro-runner.vala:560
 msgid "The system isn't supported yet, but full support is planned."
 msgstr ""
 "Le système n'est pas pris en charge pour le moment, son développement est "
@@ -639,7 +657,6 @@ msgid "translator-credits"
 msgstr "Adrien Plazas <kekun.plazas@laposte.net>, 2016"
 
 #: ../src/ui/application-window.vala:252
-#| msgid "Unexpected end of tokens."
 msgid "An unexpected error occured."
 msgstr "Une erreur inattendue est survenue."
 
@@ -660,6 +677,15 @@ msgstr "Oups ! Nous n'avons pas pû lancer le jeu"
 #, c-format
 msgid "Media %d"
 msgstr "Média %d"
+
+#. same as video-filters in gschema
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Smooth"
+msgstr "Lisse"
+
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Sharp"
+msgstr "Net"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
