@@ -66,7 +66,7 @@ private class Games.MasterSystemHeader : Object {
 	public void check_validity () throws Error {
 		var stream = new StringInputStream (file);
 		if (!stream.has_string (MAGIC_OFFSET, MAGIC_VALUE))
-			throw new MasterSystemError.INVALID_HEADER (_("The file doesn't have a Master System header."));
+			throw new MasterSystemError.INVALID_HEADER (_("The file doesn’t have a Master System header."));
 	}
 
 	public bool is_master_system () {

@@ -22,7 +22,7 @@ public class Games.CueSheet : Object {
 
 	public CueSheetTrackNode get_track (uint i) throws Error {
 		if (i >= tracks.length)
-			throw new CueSheetError.NOT_A_TRACK (_("'%s' doesn't have a track for index %u."), file.get_uri (), i);
+			throw new CueSheetError.NOT_A_TRACK (_("“%s” doesn’t have a track for index %u."), file.get_uri (), i);
 
 		return tracks[i];
 	}

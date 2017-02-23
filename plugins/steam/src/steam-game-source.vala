@@ -96,7 +96,7 @@ private class Games.SteamGameSource : Object, GameSource {
 			game_id = registry.get_data ({"AppState", "appID"});
 
 		if (game_id == null)
-			throw new SteamError.NO_APPID (_("Couldn't get Steam appid from manifest '%s'."), appmanifest_path);
+			throw new SteamError.NO_APPID (_("Couldn’t get Steam appid from manifest “%s”."), appmanifest_path);
 
 		if (game_id in games)
 			return;

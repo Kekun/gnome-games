@@ -46,7 +46,7 @@ private class Games.PlayStationHeader : Object {
 		if (_disc_id != null)
 			return;
 
-		throw new PlayStationError.INVALID_HEADER (_("Invalid PlayStation header: disc ID not found in '%s'."), file.get_uri ());
+		throw new PlayStationError.INVALID_HEADER (_("Invalid PlayStation header: disc ID not found in “%s”."), file.get_uri ());
 	}
 
 	private string? search_id_in_header () throws Error {

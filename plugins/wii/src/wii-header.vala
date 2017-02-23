@@ -30,7 +30,7 @@ private class Games.WiiHeader: Object {
 
 		var magic = (string) buffer;
 		if (magic != MAGIC_VALUE)
-			throw new WiiError.INVALID_HEADER (_("The file doesn't have a Wii header."));
+			throw new WiiError.INVALID_HEADER (_("The file doesn’t have a Wii header."));
 	}
 
 	public string get_game_id () throws WiiError {
@@ -41,7 +41,7 @@ private class Games.WiiHeader: Object {
 			stream.read (buffer);
 		}
 		catch (Error e) {
-			throw new WiiError.INVALID_HEADER (_("The file doesn't have a Wii header."));
+			throw new WiiError.INVALID_HEADER (_("The file doesn’t have a Wii header."));
 		}
 
 		return (string) buffer;
@@ -52,7 +52,7 @@ private class Games.WiiHeader: Object {
 			return file.read ();
 		}
 		catch (Error e) {
-			throw new WiiError.CANT_READ_FILE (_("Couldn't read file: %s"), e.message);
+			throw new WiiError.CANT_READ_FILE (_("Couldn’t read file: %s"), e.message);
 		}
 	}
 }

@@ -116,16 +116,16 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 
 	private static File get_binary_file (CueSheet cue) throws Error {
 		if (cue.tracks_number == 0)
-			throw new MegaDriveError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a track."), cue.file.get_uri ());
+			throw new MegaDriveError.INVALID_CUE_SHEET (_("The file “%s” doesn’t have a track."), cue.file.get_uri ());
 
 		var track = cue.get_track (0);
 		var file = track.file;
 
 		if (file.file_format != CueSheetFileFormat.BINARY && file.file_format != CueSheetFileFormat.UNKNOWN)
-			throw new MegaDriveError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid binary file format."), cue.file.get_uri ());
+			throw new MegaDriveError.INVALID_CUE_SHEET (_("The file “%s” doesn’t have a valid binary file format."), cue.file.get_uri ());
 
 		if (!track.track_mode.is_mode1 ())
-			throw new MegaDriveError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid track mode for track %d."), cue.file.get_uri (), track.track_number);
+			throw new MegaDriveError.INVALID_CUE_SHEET (_("The file “%s” doesn’t have a valid track mode for track %d."), cue.file.get_uri (), track.track_number);
 
 		var header = new MegaDriveHeader (file.file);
 		header.check_validity ();

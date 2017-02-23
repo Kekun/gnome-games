@@ -65,7 +65,7 @@ private class Games.SteamRegistry {
 		var file = File.new_for_path (appmanifest_path);
 
 		if (!file.query_exists ())
-			throw new IOError.NOT_FOUND (_("File '%s' doesn't exist."), file.get_path ());
+			throw new IOError.NOT_FOUND (_("File “%s” doesn’t exist."), file.get_path ());
 
 		var dis = new DataInputStream (file.read ());
 

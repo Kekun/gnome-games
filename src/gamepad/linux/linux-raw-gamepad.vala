@@ -39,14 +39,14 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 		fd = Posix.open (file_name, Posix.O_RDONLY | Posix.O_NONBLOCK);
 
 		if (fd < 0)
-			throw new FileError.FAILED (_("Unable to open file '%s': %s"), file_name, Posix.strerror (Posix.errno));
+			throw new FileError.FAILED (_("Unable to open file “%s”: %s"), file_name, Posix.strerror (Posix.errno));
 
 		device = new Libevdev.Evdev ();
 		if (device.set_fd (fd) < 0)
-			throw new FileError.FAILED (_("Evdev is unable to open '%s': %s"), file_name, Posix.strerror (Posix.errno));
+			throw new FileError.FAILED (_("Evdev is unable to open “%s”: %s"), file_name, Posix.strerror (Posix.errno));
 
 		if (!is_joystick ())
-			throw new FileError.NXIO ("'%s' is not a joystick", file_name);
+			throw new FileError.NXIO ("“%s” is not a joystick", file_name);
 
 		// Poll the events in the default main loop
 		var channel = new IOChannel.unix_new (fd);
@@ -108,7 +108,7 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 
 	private bool is_joystick () {
 		/* Same detection code as udev-builtin-input_id.c in systemd
-		 * joysticks don't necessarily have buttons; e. g.
+		 * joysticks don’t necessarily have buttons; e. g.
 		 * rudders/pedals are joystick-like, but buttonless; they have
 		 * other fancy axes */
 		bool has_joystick_axes_or_buttons = has_key (Linux.Input.BTN_TRIGGER) ||
@@ -153,7 +153,7 @@ private class Games.LinuxRawGamepad : Object, RawGamepad {
 				code -= Linux.Input.ABS_HAT0X;
 				dpad_event (code / 2, code % 2, event.value);
 
-				// We don't want to send an axis event as dpad events
+				// We don’t want to send an axis event as dpad events
 				// are handled differently by the gamepad objects, hence
 				// we return here.
 				return;

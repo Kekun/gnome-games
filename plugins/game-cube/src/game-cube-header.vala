@@ -17,7 +17,7 @@ private class Games.GameCubeHeader: Object {
 	public void check_validity () throws Error {
 		var stream = new StringInputStream (file);
 		if (!stream.has_string (MAGIC_OFFSET, MAGIC_VALUE))
-			throw new GameCubeError.INVALID_HEADER (_("The file doesn't have a Game Cube header."));
+			throw new GameCubeError.INVALID_HEADER (_("The file doesn’t have a Game Cube header."));
 	}
 
 	public string get_game_id () throws Error {

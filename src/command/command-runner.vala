@@ -29,8 +29,8 @@ public class Games.CommandRunner : Object, Runner {
 		if (args.length > 0)
 			return true;
 
-		debug ("Invalid command: it doesn't have any argument.");
-		error_message = _("The game doesn't have a valid command.");
+		debug ("Invalid command: it doesn’t have any argument.");
+		error_message = _("The game doesn’t have a valid command.");
 
 		return false;
 	}
@@ -61,7 +61,7 @@ public class Games.CommandRunner : Object, Runner {
 				working_directory, args, envp, flags, child_setup, out pid,
 				out standard_input, out standard_output, out standard_error);
 			if (!result)
-				throw new CommandError.EXECUTION_FAILED (_("Couldn't run '%s': execution failed."), args[0]);
+				throw new CommandError.EXECUTION_FAILED (_("Couldn’t run “%s”: execution failed."), args[0]);
 		}
 		catch (SpawnError e) {
 			warning ("%s\n", e.message);

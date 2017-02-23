@@ -33,7 +33,7 @@
 	if (error != NULL)											\
 		return NULL;											\
 	else													\
-		g_set_error (error, 0, 0, "Couldn't access file data at 0x%x, probably not a NDS ROM", x);	\
+		g_set_error (error, 0, 0, "Couldn’t access file data at 0x%x, probably not a NDS ROM", x);	\
 	if (stream != NULL)											\
 		g_object_unref (stream);									\
 	return NULL;												\

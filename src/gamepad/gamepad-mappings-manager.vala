@@ -22,7 +22,7 @@ private class Games.GamepadMappingsManager : Object {
 			add_from_resource ("/org/gnome/Games/gamepads/gamecontrollerdb.txt");
 		}
 		catch (Error e) {
-			warning ("GamepadMappingsManager: Can't find gamecontrollerdb.txt: %s", e.message);
+			warning ("GamepadMappingsManager: Can’t find gamecontrollerdb.txt: %s", e.message);
 		}
 		try {
 			var dir = Application.get_config_dir ();
@@ -32,7 +32,7 @@ private class Games.GamepadMappingsManager : Object {
 				add_from_file (path);
 		}
 		catch (Error e) {
-			warning ("GamepadMappingsManager: Can't add from user's config dir's %s: %s", MAPPINGS_FILE_NAME, e.message);
+			warning ("GamepadMappingsManager: Can’t add from user’s config dir’s %s: %s", MAPPINGS_FILE_NAME, e.message);
 		}
 	}
 

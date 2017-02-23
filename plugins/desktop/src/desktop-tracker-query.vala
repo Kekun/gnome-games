@@ -53,7 +53,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		string[] args;
 		var command = app_info.get_commandline ();
 		if (!Shell.parse_argv (command, out args))
-			throw new CommandError.INVALID_COMMAND (_("Invalid command '%s'."), command);
+			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
 		var runner = new CommandRunner (args, true);
 
 		games += new GenericGame (title, icon, cover, runner);
@@ -81,13 +81,13 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		var file = File.new_for_uri (uri);
 
 		if (!file.query_exists ())
-			throw new TrackerError.FILE_NOT_FOUND (_("Tracker listed file not found: '%s'."), uri);
+			throw new TrackerError.FILE_NOT_FOUND (_("Tracker listed file not found: “%s”."), uri);
 
 		var path = file.get_path ();
 		var app_info = new DesktopAppInfo.from_filename (path);
 
 		if (app_info == null)
-			throw new DesktopError.INVALID_APPINFO (_("Couldn't parse desktop entry '%s'."), path);
+			throw new DesktopError.INVALID_APPINFO (_("Couldn’t parse desktop entry “%s”."), path);
 
 		check_categories (app_info);
 		check_executable (app_info);
@@ -100,7 +100,7 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 
 		foreach (var category in get_categories_black_list ())
 			if (category in categories)
-				throw new DesktopError.BLACKLISTED_GAME (_("'%s' has blacklisted category '%s'."), app_info.filename, category);
+				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted category “%s”."), app_info.filename, category);
 	}
 
 	private void check_executable (DesktopAppInfo app_info) throws Error {
@@ -109,14 +109,14 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		foreach (var executable in get_executable_black_list ())
 			if (app_executable == executable ||
 			    app_executable.has_suffix ("/" + executable))
-				throw new DesktopError.BLACKLISTED_GAME (_("'%s' has blacklisted executable '%s'."), app_info.filename, executable);
+				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted executable “%s”."), app_info.filename, executable);
 	}
 
 	private void check_base_name (File file) throws Error {
 		var base_name = file.get_basename ();
 
 		if (base_name in get_base_name_black_list ())
-			throw new DesktopError.BLACKLISTED_GAME (_("'%s' is blacklisted."), file.get_path ());
+			throw new DesktopError.BLACKLISTED_GAME (_("“%s” is blacklisted."), file.get_path ());
 	}
 
 	private static string[] categories_black_list;

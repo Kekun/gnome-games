@@ -32,7 +32,7 @@ public class Games.RetroCoreSource : Object {
 		}
 
 		if (core_descriptor == null)
-			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform '%s' and MIME types [ '%s' ]."), platform, string.joinv ("', '", mime_types));
+			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform, string.joinv (_("”, “"), mime_types));
 
 		if (core_descriptor.has_firmwares (platform))
 			foreach (var firmware in core_descriptor.get_firmwares (platform))

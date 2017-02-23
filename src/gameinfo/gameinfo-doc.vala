@@ -12,7 +12,7 @@ public class Games.GameinfoDoc : Object {
 
 		var title = xml_doc.get_content (expr);
 		if (title == null)
-			throw new GameinfoError.DISC_NOT_FOUND (_("No game title found for disc ID '%s'."), disc_id);
+			throw new GameinfoError.DISC_NOT_FOUND (_("No game title found for disc ID “%s”."), disc_id);
 
 		return title;
 	}
@@ -28,7 +28,7 @@ public class Games.GameinfoDoc : Object {
 
 		var title = xml_doc.get_content (expr);
 		if (title == null)
-			throw new GameinfoError.DISC_NOT_FOUND (_("No disc title found for disc ID '%s'."), disc_id);
+			throw new GameinfoError.DISC_NOT_FOUND (_("No disc title found for disc ID “%s”."), disc_id);
 
 		return title;
 	}
@@ -38,7 +38,7 @@ public class Games.GameinfoDoc : Object {
 
 		var title = xml_doc.get_content (expr);
 		if (title == null)
-			throw new GameinfoError.DISC_NOT_FOUND (_("No disc set ID found for disc ID '%s'."), disc_id);
+			throw new GameinfoError.DISC_NOT_FOUND (_("No disc set ID found for disc ID “%s”."), disc_id);
 
 		return title;
 	}
@@ -46,7 +46,7 @@ public class Games.GameinfoDoc : Object {
 	public int get_disc_set_index_for_disc_id (string disc_id) throws Error {
 		var test_expr = "/gameinfo/games/game/discs/disc[@id = \"" + disc_id + "\"]";
 		if (xml_doc.count_nodes (test_expr) == 0)
-			throw new GameinfoError.DISC_NOT_FOUND (_("No disc found for disc ID '%s'."), disc_id);
+			throw new GameinfoError.DISC_NOT_FOUND (_("No disc found for disc ID “%s”."), disc_id);
 
 		var expr = "/gameinfo/games/game/discs/disc[@id = \"" + disc_id + "\"]/preceding-sibling::disc";
 
@@ -56,7 +56,7 @@ public class Games.GameinfoDoc : Object {
 	public int get_disc_set_size_for_disc_id (string disc_id) throws Error {
 		var test_expr = "/gameinfo/games/game/discs/disc[@id = \"" + disc_id + "\"]";
 		if (xml_doc.count_nodes (test_expr) == 0)
-			throw new GameinfoError.DISC_NOT_FOUND (_("No disc found for disc ID '%s'."), disc_id);
+			throw new GameinfoError.DISC_NOT_FOUND (_("No disc found for disc ID “%s”."), disc_id);
 
 		var expr = "/gameinfo/games/game/discs[disc[@id = \"" + disc_id + "\"]]/disc";
 

@@ -211,7 +211,7 @@ public class Games.RetroRunner : Object, Runner {
 			var uri = media.uri;
 
 			if (!try_load_game (core, uri))
-				throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: '%s'."), uri);
+				throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: “%s”."), uri);
 		}
 
 		core.shutdown.connect (on_shutdown);
@@ -554,9 +554,9 @@ public class Games.RetroRunner : Object, Runner {
 			var platform = core_source.get_platform ();
 			var platform_name = RetroPlatform.get_platform_name (platform);
 			if (platform_name != null)
-				return _("The system “%s” isn't supported yet, but full support is planned.").printf (platform_name);
+				return _("The system “%s” isn’t supported yet, but full support is planned.").printf (platform_name);
 		}
 
-		return _("The system isn't supported yet, but full support is planned.");
+		return _("The system isn’t supported yet, but full support is planned.");
 	}
 }

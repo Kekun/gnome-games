@@ -62,7 +62,7 @@ private class Games.MegaDriveHeader : Object {
 
 	public void check_validity () throws Error {
 		if (system == MegaDriveSystem.INVALID)
-			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+			throw new MegaDriveError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
 	}
 
 	public size_t get_offset () throws Error {
@@ -81,7 +81,7 @@ private class Games.MegaDriveHeader : Object {
 			}
 		}
 
-			throw new MegaDriveError.INVALID_HEADER (_("The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+			throw new MegaDriveError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
 	}
 
 	private MegaDriveSystem parse_system () throws Error {

@@ -41,7 +41,7 @@ private class Games.PcEnginePlugin : Object, Plugin {
 
 	private static Game cd_game_for_uri (string uri) throws Error {
 		if (!is_valid_disc (uri))
-			throw new PcEngineError.INVALID_DISC ("'%s' isn't a valid PC-Engine CD-ROM² disc.", uri);
+			throw new PcEngineError.INVALID_DISC ("“%s” isn’t a valid PC-Engine CD-ROM² disc.", uri);
 
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);

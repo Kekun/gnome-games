@@ -51,7 +51,7 @@ private class Games.SegaSaturnHeader : Object {
 				header_offset = offset;
 
 		if (header_offset == null)
-			throw new SegaSaturnError.INVALID_HEADER (_("The file doesn't have a Sega Saturn header."));
+			throw new SegaSaturnError.INVALID_HEADER (_("The file doesn’t have a Sega Saturn header."));
 
 		return header_offset;
 	}

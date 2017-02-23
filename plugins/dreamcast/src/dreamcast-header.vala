@@ -51,7 +51,7 @@ private class Games.DreamcastHeader : Object {
 				header_offset = offset;
 
 		if (header_offset == null)
-			throw new DreamcastError.INVALID_HEADER (_("The file doesn't have a Dreamcast header."));
+			throw new DreamcastError.INVALID_HEADER (_("The file doesn’t have a Dreamcast header."));
 
 		return header_offset;
 	}

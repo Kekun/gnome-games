@@ -9,10 +9,10 @@ private class Games.GamepadMapping : Object {
 
 	public GamepadMapping.from_sdl_string (string? mapping_string) throws GamepadMappingError {
 		if (mapping_string == null)
-			throw new GamepadMappingError.NOT_A_MAPPING (_("The mapping string can't be null."));
+			throw new GamepadMappingError.NOT_A_MAPPING (_("The mapping string can’t be null."));
 
 		if (mapping_string == "")
-			throw new GamepadMappingError.NOT_A_MAPPING (_("The mapping string can't be empty."));
+			throw new GamepadMappingError.NOT_A_MAPPING (_("The mapping string can’t be empty."));
 
 		var mappings = mapping_string.split (",");
 		foreach (var mapping in mappings) {

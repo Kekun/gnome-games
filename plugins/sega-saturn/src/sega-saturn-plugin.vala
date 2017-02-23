@@ -39,20 +39,20 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 
 	private static File get_binary_file (CueSheet cue) throws Error {
 		if (cue.tracks_number == 0)
-			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a track."), cue.file.get_uri ());
+			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file “%s” doesn’t have a track."), cue.file.get_uri ());
 
 		var track = cue.get_track (0);
 		var file = track.file;
 
 		if (file.file_format != CueSheetFileFormat.BINARY && file.file_format != CueSheetFileFormat.UNKNOWN)
-			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid binary file format."), cue.file.get_uri ());
+			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file “%s” doesn’t have a valid binary file format."), cue.file.get_uri ());
 
 		if (!track.track_mode.is_mode1 ())
-			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file '%s' doesn't have a valid track mode for track %d."), cue.file.get_uri (), track.track_number);
+			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file “%s” doesn’t have a valid track mode for track %d."), cue.file.get_uri (), track.track_number);
 
 		var file_info = file.file.query_info ("*", FileQueryInfoFlags.NONE);
 		if (file_info.get_content_type () != SPECIFIC_MIME_TYPE)
-			throw new SegaSaturnError.INVALID_FILE_TYPE (_("The file '%s' doesn't have a valid Sega Saturn binary file."), cue.file.get_uri ());
+			throw new SegaSaturnError.INVALID_FILE_TYPE (_("The file “%s” doesn’t have a valid Sega Saturn binary file."), cue.file.get_uri ());
 
 		return file.file;
 	}

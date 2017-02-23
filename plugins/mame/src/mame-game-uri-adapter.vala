@@ -13,7 +13,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		game_id = /\.zip$/.replace (game_id, game_id.length, 0, "");
 
 		if (!supported_games.contains (game_id))
-			throw new MameError.INVALID_GAME_ID (_("Invalid MAME game id '%s' for '%s'."), game_id, uri);
+			throw new MameError.INVALID_GAME_ID (_("Invalid MAME game id “%s” for “%s”."), game_id, uri);
 
 		var uid_string = @"mame-$game_id".down ();
 		var uid = new GenericUid (uid_string);

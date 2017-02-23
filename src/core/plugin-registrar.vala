@@ -45,11 +45,11 @@ private class Games.PluginRegistrar : TypeModule {
 
 		var object = Object.new (type);
 		if (object == null)
-			throw new PluginError.NOT_A_PLUGIN (_("Couldn't create a new instance of plugin in '%s'."), module_path);
+			throw new PluginError.NOT_A_PLUGIN (_("Couldn’t create a new instance of plugin in “%s”."), module_path);
 
 		var plugin = object as Plugin;
 		if (plugin == null)
-			throw new PluginError.NOT_A_PLUGIN (_("Couldn't create a new instance of plugin in '%s'."), module_path);
+			throw new PluginError.NOT_A_PLUGIN (_("Couldn’t create a new instance of plugin in “%s”."), module_path);
 
 		return plugin;
 	}

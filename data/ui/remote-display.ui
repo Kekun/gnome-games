@@ -33,7 +33,7 @@
             <property name="halign">center</property>
             <property name="vexpand">True</property>
             <property name="margin-bottom">6</property>
-            <property name="label" translatable="yes">&lt;b&gt;&lt;span size=&quot;large&quot;&gt;Use the game's own window to play it&lt;/span&gt;&lt;/b&gt;</property>
+            <property name="label" translatable="yes">&lt;b&gt;&lt;span size=&quot;large&quot;&gt;Use the game’s own window to play it&lt;/span&gt;&lt;/b&gt;</property>
           </object>
         </child>
 
@@ -43,7 +43,7 @@
             <property name="use-markup">True</property>
             <property name="halign">center</property>
             <property name="vexpand">True</property>
-            <property name="label" translatable="yes">This game isn't integrated to GNOME Games.</property>
+            <property name="label" translatable="yes">This game isn’t integrated to GNOME Games.</property>
             <style>
               <class name="dim-label"/>
             </style>
