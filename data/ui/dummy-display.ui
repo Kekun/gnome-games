@@ -33,7 +33,12 @@
             <property name="halign">center</property>
             <property name="vexpand">True</property>
             <property name="margin-bottom">6</property>
-            <property name="label" translatable="yes">&lt;b&gt;&lt;span size=&quot;large&quot;&gt;This is a dummy game display&lt;/span&gt;&lt;/b&gt;</property>
+            <property name="label" translatable="yes">This is a dummy game display</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+              <!-- "1.2" is the value of "large" -->
+              <attribute name="scale" value="1.2"/>
+            </attributes>
           </object>
         </child>
 
