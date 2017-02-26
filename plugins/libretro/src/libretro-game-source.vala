@@ -1,17 +1,13 @@
 // This file is part of GNOME Games. License: GPLv3
 
 public class Games.LibretroGameSource : Object, GameSource {
-	private Retro.CoreDescriptor[] descriptors;
+	private Game[] games;
 
 	public async void each_game (GameCallback callback) {
-		if (descriptors == null) {
-			descriptors = {};
-			// TODO Should yield for each core descriptor.
-			Retro.ModuleQuery.foreach_core_descriptor (parse_core_descriptor);
-		}
+		if (games == null)
+			yield fetch_games ();
 
-		foreach (var core_descriptor in descriptors) {
-			var game = game_for_core_descriptor (core_descriptor);
+		foreach (var game in games) {
 			callback (game);
 
 			Idle.add (each_game.callback);
@@ -19,16 +15,21 @@ public class Games.LibretroGameSource : Object, GameSource {
 		}
 	}
 
-	private bool parse_core_descriptor (Retro.CoreDescriptor core_descriptor) {
-		try {
-			if (core_descriptor.get_is_game ())
-				descriptors += core_descriptor;
-		}
-		catch (Error e) {
-			debug (e.message);
-		}
+	public async void fetch_games () {
+		games = {};
+		var modules = new Retro.ModuleQuery ();
+		foreach (var core_descriptor in modules) {
+			try {
+				if (core_descriptor.get_is_game ())
+					games += game_for_core_descriptor (core_descriptor);
+			}
+			catch (Error e) {
+				debug (e.message);
+			}
 
-		return false;
+			Idle.add (fetch_games.callback);
+			yield;
+		}
 	}
 
 	private static Game game_for_core_descriptor (Retro.CoreDescriptor core_descriptor) throws Error {
