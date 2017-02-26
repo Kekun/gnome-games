@@ -439,19 +439,20 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
 		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
+		    display_header_bar.can_fullscreen) {
 			is_fullscreen = !is_fullscreen;
 
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.F11) {
+		if (event.keyval == Gdk.Key.F11 && display_header_bar.can_fullscreen) {
 			is_fullscreen = !is_fullscreen;
 
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.Escape) {
+		if (event.keyval == Gdk.Key.Escape && display_header_bar.can_fullscreen) {
 			is_fullscreen = false;
 
 			return true;
