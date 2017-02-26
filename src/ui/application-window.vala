@@ -72,6 +72,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkChild]
 	private DisplayHeaderBar display_header_bar;
 
+	private Settings settings;
+
 	private Binding box_search_binding;
 	private Binding box_fullscreen_binding;
 	private Binding header_bar_search_binding;
@@ -91,6 +93,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	construct {
+		settings = new Settings ("org.gnome.Games");
+
 		box_search_binding = bind_property ("search-mode", collection_box, "search-mode",
 		                                    BindingFlags.BIDIRECTIONAL);
 		loading_notification_binding = bind_property ("loading-notification", collection_box, "loading-notification",
@@ -225,6 +229,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		display_box.runner = runner;
 		display_header_bar.media_set = runner.media_set;
 		display_box.header_bar.media_set = runner.media_set;
+
+		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
 
 		bool resume = false;
 		if (runner.can_resume)
@@ -442,18 +448,21 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
 		    display_header_bar.can_fullscreen) {
 			is_fullscreen = !is_fullscreen;
+			settings.set_boolean ("fullscreen", is_fullscreen);
 
 			return true;
 		}
 
 		if (event.keyval == Gdk.Key.F11 && display_header_bar.can_fullscreen) {
 			is_fullscreen = !is_fullscreen;
+			settings.set_boolean ("fullscreen", is_fullscreen);
 
 			return true;
 		}
 
 		if (event.keyval == Gdk.Key.Escape && display_header_bar.can_fullscreen) {
 			is_fullscreen = false;
+			settings.set_boolean ("fullscreen", false);
 
 			return true;
 		}

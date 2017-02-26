@@ -29,7 +29,11 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 	[GtkChild]
 	private Gtk.Button restore;
 
+	private Settings settings;
+
 	construct {
+		settings = new Settings ("org.gnome.Games");
+
 		media_selector = new MediaSelector ();
 		media_selector.set_relative_to (media_button);
 		media_button.set_popover (media_selector);
@@ -49,10 +53,12 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 	[GtkCallback]
 	private void on_fullscreen_clicked () {
 		is_fullscreen = true;
+		settings.set_boolean ("fullscreen", true);
 	}
 
 	[GtkCallback]
 	private void on_restore_clicked () {
 		is_fullscreen = false;
+		settings.set_boolean ("fullscreen", false);
 	}
 }
