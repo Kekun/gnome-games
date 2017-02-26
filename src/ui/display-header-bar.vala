@@ -36,7 +36,7 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 	}
 
 	[GtkCallback]
-	private void on_fullscrren_changed () {
+	private void on_fullscreen_changed () {
 		fullscreen.visible = can_fullscreen && !is_fullscreen;
 		restore.visible = can_fullscreen && is_fullscreen;
 	}
