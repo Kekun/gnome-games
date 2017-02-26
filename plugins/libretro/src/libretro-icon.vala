@@ -8,10 +8,10 @@ public class Games.LibretroIcon : Object, Icon {
 	}
 
 	public GLib.Icon? get_icon () {
-		if (!core_descriptor.has_icon ())
-			return null;
-
 		try {
+			if (!core_descriptor.has_icon ())
+				return null;
+
 			return core_descriptor.get_icon ();
 		}
 		catch (Error e) {
