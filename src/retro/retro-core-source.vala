@@ -40,30 +40,25 @@ public class Games.RetroCoreSource : Object {
 	}
 
 	private void search_module () throws Error {
-		Retro.ModuleQuery.foreach_core_descriptor (parse_core_descriptor);
-	}
+		var modules = new Retro.ModuleQuery ();
+		foreach (var core_descriptor in modules) {
+			try {
+				if (!core_descriptor.get_is_emulator ())
+					continue;
 
-	private bool parse_core_descriptor (Retro.CoreDescriptor core_descriptor) {
-		try {
-			if (!core_descriptor.get_is_emulator ())
-				return false;
+				if (!core_descriptor.has_platform (platform))
+					continue;
 
-			if (!core_descriptor.has_platform (platform))
-				return false;
+				if (!core_descriptor.get_platform_supports_mime_types (platform, mime_types))
+					continue;
 
-			var supported_mime_types = core_descriptor.get_mime_type (platform);
-			foreach (var mime_type in mime_types)
-				if (!(mime_type in supported_mime_types))
-					return false;
+				this.core_descriptor = core_descriptor;
 
-			this.core_descriptor = core_descriptor;
-
-			return true;
-		}
-		catch (Error e) {
-			debug (e.message);
-
-			return false;
+				break;
+			}
+			catch (Error e) {
+				debug (e.message);
+			}
 		}
 	}
 
