@@ -13,6 +13,8 @@ public class Games.LibretroGameSource : Object, GameSource {
 		foreach (var core_descriptor in descriptors) {
 			var game = game_for_core_descriptor (core_descriptor);
 			callback (game);
+
+			Idle.add (each_game.callback);
 			yield;
 		}
 	}
