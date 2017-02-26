@@ -2,16 +2,16 @@
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 # Translators:
-# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2016.
+# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2016, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-19 21:22+0000\n"
-"PO-Revision-Date: 2016-08-21 20:05+0200\n"
+"POT-Creation-Date: 2017-02-10 18:27+0000\n"
+"PO-Revision-Date: 2017-02-12 18:01+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <gnome@prevod.org>\n"
+"Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +23,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:17
 msgid "Games"
 msgstr "Igre"
 
@@ -93,6 +94,10 @@ msgstr "_O programu"
 #: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
 msgstr "_Izađi"
+
+#: ../data/ui/collection-box.ui.h:1
+msgid "Loading"
+msgstr "Učitavam"
 
 #: ../data/ui/collection-header-bar.ui.h:2
 msgid "Search"
@@ -232,10 +237,6 @@ msgstr "„%s“ je na spisku zabrana."
 msgid "The file doesn't have a Dreamcast header."
 msgstr "Datoteka ne sadrži „Dreamcast“ zaglavlje."
 
-#: ../plugins/game-boy/src/game-boy-header.vala:97
-msgid "The file doesn't have a Game Boy header."
-msgstr "Datoteka ne sadrži „Game Boy“ zaglavlje."
-
 #: ../plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn't have a Game Cube header."
 msgstr "Datoteka ne sadrži „Game Cube“ zaglavlje."
@@ -246,7 +247,7 @@ msgstr "Datoteka ne sadrži „Game Cube“ zaglavlje."
 msgid "This doesn't represent a valid LÖVE package: '%s'."
 msgstr "Ovo ne predstavlja ispravan „LÖVE“: „%s“."
 
-#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
 msgid "Invalid MAME game id '%s' for '%s'."
 msgstr "Neispravan ib MAME igre „%s“ za „%s“."
@@ -255,43 +256,38 @@ msgstr "Neispravan ib MAME igre „%s“ za „%s“."
 msgid "The file doesn't have a Master System header."
 msgstr "Datoteka ne sadrži „Master System“ zaglavlje."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:63
-#: ../plugins/mega-drive/src/mega-drive-header.vala:79
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
 msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Datoteka ne sadrži „Genesis/Sega 32X/Sega CD/Sega Pico“ zaglavlje."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:104
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
 msgid "The file '%s' doesn't have a track."
 msgstr "Datoteka „%s“ ne sadrži stazu."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:110
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
 msgid "The file '%s' doesn't have a valid binary file format."
 msgstr "Datoteka „%s“ ne sadrži ispravan zapis binarne datoteke."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:113
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file '%s' doesn't have a valid track mode for track %d."
 msgstr "Datoteka „%s“ ne sadrži ispravan režim staze za %d. stazu."
 
-#: ../plugins/playstation/src/playstation-game-factory.vala:66
+#: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
 msgid "Disc with disc_id %s is unknown"
 msgstr "Disk sa ib-om diska „%s“ nije poznat"
 
-#: ../plugins/playstation/src/playstation-header.vala:36
+#: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in '%s'."
 msgstr "Neispravno zaglavlje za „PlayStation“: nisam našao IB diska u „%s“."
-
-#: ../plugins/playstation/src/playstation-header.vala:46
-#, c-format
-msgid "PlayStation header not found in '%s'."
-msgstr "Nisam našao „PlayStation“ zaglavlje u „%s“."
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn't have a Sega Saturn header."
@@ -302,7 +298,7 @@ msgstr "Datoteka ne sadrži „Sega Saturn“ zaglavlje."
 msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgstr "Datoteka „%s“ ne sadrži ispravnu binarnu „Sega Saturn“ datoteku."
 
-#: ../plugins/steam/src/steam-game-source.vala:90
+#: ../plugins/steam/src/steam-game-source.vala:99
 #, c-format
 msgid "Couldn't get Steam appid from manifest '%s'."
 msgstr "Ne mogu da dobavim apib „Steam“ iz proglasa „%s“."
@@ -376,17 +372,17 @@ msgstr "Disk %d"
 msgid "No game title found for disc ID '%s'."
 msgstr "Nisam našao naslov igre za IB diska „%s“."
 
-#: ../src/gameinfo/gameinfo-doc.vala:25
+#: ../src/gameinfo/gameinfo-doc.vala:31
 #, c-format
 msgid "No disc title found for disc ID '%s'."
 msgstr "Nisam našao naslov diska za IB diska „%s“."
 
-#: ../src/gameinfo/gameinfo-doc.vala:35
+#: ../src/gameinfo/gameinfo-doc.vala:41
 #, c-format
 msgid "No disc set ID found for disc ID '%s'."
 msgstr "Nisam našao IB skupa diska za IB diska „%s“."
 
-#: ../src/gameinfo/gameinfo-doc.vala:43 ../src/gameinfo/gameinfo-doc.vala:53
+#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
 #, c-format
 msgid "No disc found for disc ID '%s'."
 msgstr "Nisam našao disk za IB diska „%s“."
@@ -409,47 +405,39 @@ msgstr "Ne mogu da otvorim datoteku „%s“: %s"
 msgid "Evdev is unable to open '%s': %s"
 msgstr "Evdev ne može da otvori „%s“: %s"
 
-#: ../src/retro/retro-runner.vala:236
+#: ../src/retro/retro-core-source.vala:34
+#, c-format
+msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+msgstr "Nisam našao modul za platformu „%s“ i MIME vrste [ „%s“ ]."
+
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: '%s'."
 msgstr "Neispravna datoteka igre: „%s“."
 
-#: ../src/retro/retro-runner.vala:246
-#, c-format
-msgid "Couldn't run game: module '%s' not found."
-msgstr "Ne mogu da pokrenem igru: nisam našao modul „%s“."
-
-#: ../src/retro/retro-runner.vala:253
-#, c-format
-msgid ""
-"Couldn't run game: module '%s' not found and no module found for MIME types "
-"%s."
-msgstr ""
-"Ne mogu da pokrenem igru: nisam našao modul „%s“ i nisam našao nijedan modul "
-"za MIME vrste „%s“."
-
-#: ../src/retro/retro-runner.vala:452
-msgid "Couldn't write snapshot."
-msgstr "Ne mogu da zapišem snimak."
-
-#: ../src/ui/application.vala:148
+#: ../src/ui/application.vala:174
 msgid "GNOME Games"
 msgstr "Gnomove igre"
 
-#: ../src/ui/application.vala:150
+#: ../src/ui/application.vala:176
 msgid "A video game player for GNOME"
 msgstr "Program za igranje video igara za Gnom"
 
-#: ../src/ui/application.vala:154
+#: ../src/ui/application.vala:180
 msgid "Learn more about GNOME Games"
 msgstr "Saznajte više o Gnomovim igrama"
 
-#: ../src/ui/application.vala:161
+#: ../src/ui/application.vala:187
 msgid "translator-credits"
 msgstr ""
 "Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "\n"
 "http://prevod.org — prevodi na srpski jezik"
+
+#: ../src/ui/application-window.vala:466 ../src/ui/application-window.vala:483
+#| msgid "Play your games"
+msgid "Playing a game"
+msgstr "Igram igru"
 
 #: ../src/ui/error-display.vala:11
 #, c-format
@@ -460,7 +448,7 @@ msgstr "Upss! Ne mogu da pokrenem „%s“"
 msgid "Oops! Unable to run the game"
 msgstr "Upss! Ne mogu da pokrenem igru"
 
-#: ../src/ui/media-selector.vala:29
+#: ../src/ui/media-selector.vala:33
 #, c-format
 msgid "Media %d"
 msgstr "Medij %d"
@@ -516,6 +504,25 @@ msgstr "%s:%lu: Neočekivani kraj reda, očekivah simbol."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekivani simbol „%s“, očekivah kraj reda."
+
+#~ msgid "The file doesn't have a Game Boy header."
+#~ msgstr "Datoteka ne sadrži „Game Boy“ zaglavlje."
+
+#~ msgid "PlayStation header not found in '%s'."
+#~ msgstr "Nisam našao „PlayStation“ zaglavlje u „%s“."
+
+#~ msgid "Couldn't run game: module '%s' not found."
+#~ msgstr "Ne mogu da pokrenem igru: nisam našao modul „%s“."
+
+#~ msgid ""
+#~ "Couldn't run game: module '%s' not found and no module found for MIME "
+#~ "types %s."
+#~ msgstr ""
+#~ "Ne mogu da pokrenem igru: nisam našao modul „%s“ i nisam našao nijedan "
+#~ "modul za MIME vrste „%s“."
+
+#~ msgid "Couldn't write snapshot."
+#~ msgstr "Ne mogu da zapišem snimak."
 
 #~ msgid "Main Menu"
 #~ msgstr "Glavni izbornik"
