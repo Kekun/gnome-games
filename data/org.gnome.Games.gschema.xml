@@ -4,6 +4,11 @@
     <value nick="sharp" value="1"/>
   </enum>
   <schema path="/org/gnome/Games/" id="org.gnome.Games">
+    <key name='fullscreen' type='b'>
+      <default>false</default>
+      <summary>Fullscreen</summary>
+      <description>Whether the games should be displayed in full screen or not.</description>
+    </key>
     <key name='video-filter' enum='org.gnome.Games.video-filters'>
       <default>'smooth'</default>
       <summary>Video filter</summary>
