@@ -2,6 +2,7 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
 private class Games.ApplicationWindow : Gtk.ApplicationWindow {
+	private const uint WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS = 500;
 	private const uint FOCUS_OUT_DELAY_MILLISECONDS = 500;
 
 	private UiState _ui_state;
@@ -83,6 +84,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Cancellable run_game_cancellable;
 	private Cancellable quit_game_cancellable;
 
+	private long window_size_update_timeout;
 	private long focus_out_timeout_id;
 
 	private uint inhibit_cookie;
@@ -94,6 +96,15 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	construct {
 		settings = new Settings ("org.gnome.Games");
+
+		int width, height;
+		settings.get ("window-size", "(ii)", out width, out height);
+		Gdk.Screen? screen = get_screen ();
+		if (screen != null) {
+			width = int.min (width, screen.get_width ());
+			height = int.min (height, screen.get_height ());
+		}
+		resize (width, height);
 
 		if (settings.get_boolean ("window-maximized"))
 			maximize ();
@@ -110,6 +121,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_header_bar, "is-fullscreen",
 		                                               BindingFlags.BIDIRECTIONAL);
 
+		window_size_update_timeout = -1;
 		focus_out_timeout_id = -1;
 		inhibit_cookie = 0;
 		inhibit_flags = 0;
@@ -157,6 +169,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			quit_game_cancellable = null;
 
 		return result;
+	}
+
+	public override void size_allocate (Gtk.Allocation allocation) {
+		base.size_allocate (allocation);
+
+		if (window_size_update_timeout == -1 && !is_maximized)
+			window_size_update_timeout = Timeout.add (WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS, store_window_size);
 	}
 
 	[GtkCallback]
@@ -375,6 +394,27 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkCallback]
 	private void on_toplevel_focus () {
 		update_pause (true);
+	}
+
+	private bool store_window_size () {
+		Gdk.Screen? screen = get_screen ();
+		if (screen == null)
+			return false;
+
+		int width = 0;
+		int height = 0;
+
+		get_size (out width, out height);
+
+		width = int.min (width, screen.get_width ());
+		height = int.min (height, screen.get_height ());
+
+		settings.set ("window-size", "(ii)", width, height);
+
+		Source.remove ((uint) window_size_update_timeout);
+		window_size_update_timeout = -1;
+
+		return false;
 	}
 
 	private void update_pause (bool with_delay) {
