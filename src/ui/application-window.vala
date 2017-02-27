@@ -95,6 +95,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	construct {
 		settings = new Settings ("org.gnome.Games");
 
+		if (settings.get_boolean ("window-maximized"))
+			maximize ();
+
 		box_search_binding = bind_property ("search-mode", collection_box, "search-mode",
 		                                    BindingFlags.BIDIRECTIONAL);
 		loading_notification_binding = bind_property ("loading-notification", collection_box, "loading-notification",
@@ -180,6 +183,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	[GtkCallback]
 	public bool on_window_state_event (Gdk.EventWindowState event) {
+		var is_maximized = (bool) (event.new_window_state & Gdk.WindowState.MAXIMIZED);
+		settings.set_boolean ("window-maximized", is_maximized);
+
 		is_fullscreen = (bool) (event.new_window_state & Gdk.WindowState.FULLSCREEN);
 		update_pause (false);
 
