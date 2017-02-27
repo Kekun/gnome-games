@@ -19,5 +19,10 @@
       <summary>Window maximized</summary>
       <description>Window maximized state.</description>
     </key>
+    <key name="window-size" type="(ii)">
+      <default>(768, 600)</default>
+      <summary>Window size</summary>
+      <description>Window size (width and height).</description>
+    </key>
   </schema>
 </schemalist>
