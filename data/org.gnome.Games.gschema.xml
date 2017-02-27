@@ -14,5 +14,10 @@
       <summary>Video filter</summary>
       <description>Filter for the game video output. Allowed values are: “smooth” (blurry pixels), “sharp” (blocky pixels).</description>
     </key>
+    <key name="window-maximized" type="b">
+      <default>true</default>
+      <summary>Window maximized</summary>
+      <description>Window maximized state.</description>
+    </key>
   </schema>
 </schemalist>
