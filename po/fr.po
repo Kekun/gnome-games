@@ -1,17 +1,18 @@
 # French translaion for gameinfo.
 # Copyright (C) 2015 gameinfo's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gameinfo package.
-# Adrien Plazas <kekun.plazas@laposte.net>, 2015, 2016, 2017.
+# Adrien Plazas <kekun.plazas@laposte.net>, 2015-2017.
+# Alexandre Franke <alexandre.franke@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gameinfo master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-22 19:28+0000\n"
-"PO-Revision-Date: 2017-02-23 12:15+0100\n"
-"Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
-"Language-Team: français <>\n"
+"POT-Creation-Date: 2017-02-27 07:53+0000\n"
+"PO-Revision-Date: 2017-02-27 16:10+0100\n"
+"Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
+"Language-Team: French <>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,11 +44,11 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:4
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
-"to play your games and you don't need advanced features such as speedrunning "
+"to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
 "Vous souhaitez installer Jeux si vous voulez juste un moyen très simple et "
-"confortable de jouer à vos jeux et vous n'avez pas besoin de fonctionnalités "
+"confortable de jouer à vos jeux et vous n’avez pas besoin de fonctionnalités "
 "avancées comme des outils de speedrunning ou de développement de jeux vidéo."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:5
@@ -55,8 +56,8 @@ msgid "Features:"
 msgstr "Fonctionnalités :"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
-msgid "List your installed games, your Steam games, your game ROMs..."
-msgstr "Listez vos jeux installés, vos jeux Steam, vos ROMs de jeu..."
+msgid "List your installed games, your Steam games, your game ROMs…"
+msgstr "Listez vos jeux installés, vos jeux Steam, vos ROMs de jeu…"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:7
 msgid "Search in your games collection"
@@ -68,7 +69,7 @@ msgstr "Jouez à vos jeux"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:9
 msgid "Resume your game to where you left it"
-msgstr "Reprenez votre partie là où vous l'avez laissée"
+msgstr "Reprenez votre partie là où vous l’avez laissée"
 
 #: ../data/org.gnome.Games.desktop.in.h:2
 msgid "Video game player"
@@ -76,23 +77,47 @@ msgstr "Lecteur de jeux vidéo"
 
 #: ../data/org.gnome.Games.desktop.in.h:3
 msgid "View and play your video games collection"
-msgstr "Visualiser et jouer votre ludothèque"
+msgstr "Visualiser et jouer à votre ludothèque"
 
 #: ../data/org.gnome.Games.desktop.in.h:4
 msgid "game;videogame;video game;player;"
 msgstr "jeu;jeu vidéo;lecteur;"
 
-#: ../data/org.gnome.Games.gschema.xml.h:1
+#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Plein écran"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid "Whether the games should be displayed in full screen or not."
+msgstr "Indique si le jeu doit être affiché en plein écran ou non."
+
+#: ../data/org.gnome.Games.gschema.xml.h:3
 msgid "Video filter"
 msgstr "Filtre vidéo"
 
-#: ../data/org.gnome.Games.gschema.xml.h:2
+#: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels)."
 msgstr ""
 "Filtre pour la sortie vidéo des jeux. Les valeurs possibles sont : "
 "« lisse » (pixels flous), « net » (pixels visibles)."
+
+#: ../data/org.gnome.Games.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Fenêtre maximisée"
+
+#: ../data/org.gnome.Games.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "L’état maximisé de la fenêtre."
+
+#: ../data/org.gnome.Games.gschema.xml.h:7
+msgid "Window size"
+msgstr "Taille de la fenêtre"
+
+#: ../data/org.gnome.Games.gschema.xml.h:8
+msgid "Window size (width and height)."
+msgstr "La taille de la fenêtre (largeur et hauteur)."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
@@ -118,26 +143,21 @@ msgstr "Recherche"
 msgid "Back"
 msgstr "Précedent"
 
-#: ../data/ui/display-header-bar.ui.h:3
-msgid "Fullscreen"
-msgstr "Plein écran"
-
 #: ../data/ui/display-header-bar.ui.h:4
 msgid "Restore"
 msgstr "Restaurer"
 
 #: ../data/ui/dummy-display.ui.h:1
-msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
-msgstr ""
-"<b><span size=\"large\">Ceci est un affichage de jeu factice</span></b>"
+msgid "This is a dummy game display"
+msgstr "Ceci est un affichage de jeu factice"
 
 #: ../data/ui/dummy-display.ui.h:2
 msgid "If you see this, this is a bug."
-msgstr "Si vous voyez ceci, c'est un bogue."
+msgstr "Si vous voyez ceci, c’est un bogue."
 
 #: ../data/ui/dummy-display.ui.h:3
 msgid "Please contact the developers."
-msgstr "Merci de bien vouloir contacter les déloppeurs."
+msgstr "Merci de bien vouloir contacter les développeurs."
 
 #: ../data/ui/empty-collection.ui.h:1
 msgid "No games found"
@@ -177,7 +197,7 @@ msgstr "Extensions"
 
 #: ../data/ui/quit-dialog.ui.h:1
 msgid "Are you sure you want to quit?"
-msgstr "Ëtes-vous sûr(e) de voiloir quitter ?"
+msgstr "Ëtes-vous sûr(e) de vouloir quitter ?"
 
 #: ../data/ui/quit-dialog.ui.h:2
 msgid "All unsaved progress will be lost."
@@ -192,13 +212,12 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: ../data/ui/remote-display.ui.h:1
-msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
-msgstr ""
-"<b><span size=\"large\">Utilisez la fenêtre du jeu pour y jouer</span></b>"
+msgid "Use the game’s own window to play it"
+msgstr "Vous devez utiliser sa propre fenêtre pour y jouer."
 
 #: ../data/ui/remote-display.ui.h:2
-msgid "This game isn't integrated to GNOME Games."
-msgstr "Ce jeu n'est pas intégré à GNOME Jeux."
+msgid "This game isn’t integrated to GNOME Games."
+msgstr "Ce jeu n’est pas intégré à GNOME Jeux."
 
 #: ../data/ui/remote-display.ui.h:3
 msgid "You have to use its own window to play it."
@@ -206,7 +225,7 @@ msgstr "Vous devez utiliser sa propre fenêtre pour y jouer."
 
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
-msgstr "Reprendre la dernière partie ?"
+msgstr "Reprendre la dernière partie ?"
 
 #: ../data/ui/resume-dialog.ui.h:2
 msgid "Resume"
@@ -226,111 +245,111 @@ msgstr "Réinitialiser"
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:56
 #, c-format
-msgid "Invalid command '%s'."
-msgstr "Commande invalide : « %s »."
+msgid "Invalid command “%s”."
+msgstr "Commande « %s » invalide."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:84
 #, c-format
-msgid "Tracker listed file not found: '%s'."
+msgid "Tracker listed file not found: “%s”."
 msgstr "Fichier listé par Tracker non trouvé : « %s »."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:90
 #, c-format
-msgid "Couldn't parse desktop entry '%s'."
-msgstr "Impossible d'analyser « %s »."
+msgid "Couldn’t parse desktop entry “%s”."
+msgstr "Impossible d’analyser « %s »."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
 #, c-format
-msgid "'%s' has blacklisted category '%s'."
+msgid "“%s” has blacklisted category “%s”."
 msgstr "« %s » possède la catégorie sur liste noire « %s »."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
-msgid "'%s' has blacklisted executable '%s'."
-msgstr "« %s » possède l'exécutable sur liste noire « %s »."
+msgid "“%s” has blacklisted executable “%s”."
+msgstr "« %s » possède l’exécutable sur liste noire « %s »."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:119
 #, c-format
-msgid "'%s' is blacklisted."
+msgid "“%s” is blacklisted."
 msgstr "« %s » est sur liste noire."
 
 #: ../plugins/dreamcast/src/dreamcast-header.vala:54
-msgid "The file doesn't have a Dreamcast header."
-msgstr "Le fichier n'a pas d'en-tête Dreamcast."
+msgid "The file doesn’t have a Dreamcast header."
+msgstr "Le fichier n’a pas d’en-tête Dreamcast."
 
 #: ../plugins/game-cube/src/game-cube-header.vala:20
-msgid "The file doesn't have a Game Cube header."
-msgstr "Le fichier n'a pas d'en-tête Game Cube."
+msgid "The file doesn’t have a Game Cube header."
+msgstr "Le fichier n’a pas d’en-tête Game Cube."
 
 #: ../plugins/love/src/love-package.vala:13
 #: ../plugins/love/src/love-package.vala:17
 #, c-format
-msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr "Ceci ne représente pas un paquet LÖVE valide : « %s »."
 
 #: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
-msgid "Invalid MAME game id '%s' for '%s'."
+msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Identifiant de jeu MAME « %s » invalide pour « %s »."
 
 #: ../plugins/master-system/src/master-system-header.vala:69
-msgid "The file doesn't have a Master System header."
-msgstr "Le fichier n'a pas d'en-tête Master System."
+msgid "The file doesn’t have a Master System header."
+msgstr "Le fichier n’a pas d’en-tête Master System."
 
 #: ../plugins/mega-drive/src/mega-drive-header.vala:65
 #: ../plugins/mega-drive/src/mega-drive-header.vala:84
-msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr ""
-"Le fichier n'a pas d'en-tête Mega Drive, Mega Drive 32X, Mega-CD ou Sega "
+"Le fichier n’a pas d’en-tête Mega Drive, Mega Drive 32X, Mega-CD ou Sega "
 "Pico."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
-msgid "The file '%s' doesn't have a track."
-msgstr "Le fichier « %s » n'a pas de piste."
+msgid "The file “%s” doesn’t have a track."
+msgstr "Le fichier « %s » n’a pas de piste."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
-msgid "The file '%s' doesn't have a valid binary file format."
-msgstr "Le fichier « %s » n'a pas de format de fichier binaire valide."
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "Le fichier « %s » n’a pas de format de fichier binaire valide."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
-msgid "The file '%s' doesn't have a valid track mode for track %d."
-msgstr "Le fichier « %s » n'a pas de mode de piste valide pour la piste %d."
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "Le fichier « %s » n’a pas de mode de piste valide pour la piste %d."
 
 #: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
 msgid "Disc with disc_id %s is unknown"
-msgstr "Le disque d'identifiant %s est inconnu"
+msgstr "Le disque d’identifiant %s est inconnu"
 
 #: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
-msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
 "En-tête PlayStation invalide : identifiant de disque non trouvé dans « %s »."
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
-msgid "The file doesn't have a Sega Saturn header."
-msgstr "Le fichier n'a pas d'en-tête Sega Saturn."
+msgid "The file doesn’t have a Sega Saturn header."
+msgstr "Le fichier n’a pas d’en-tête Sega Saturn."
 
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
 #, c-format
-msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
-msgstr "Le fichier « %s » n'a pas de fichier binaire Sega Saturn valide."
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+msgstr "Le fichier « %s » n’a pas de fichier binaire Sega Saturn valide."
 
 #: ../plugins/steam/src/steam-game-source.vala:99
 #, c-format
-msgid "Couldn't get Steam appid from manifest '%s'."
-msgstr "Nous n'avons pas pû obtenir l'appid Steam depuis le manifeste « %s »."
+msgid "Couldn’t get Steam appid from manifest “%s”."
+msgstr "Nous n’avons pas pu obtenir l’appid Steam depuis le manifeste « %s »."
 
 #: ../plugins/steam/src/steam-registry.vala:68
 #, c-format
-msgid "File '%s' doesn't exist."
-msgstr "Le fichier « %s » n'existe pas."
+msgid "File “%s” doesn’t exist."
+msgstr "Le fichier « %s » n’existe pas."
 
 #: ../plugins/steam/src/steam-registry.vala:96
 msgid "Unexpected token '{'."
@@ -345,31 +364,31 @@ msgid "Unexpected token '}'."
 msgstr "Jeton inattendu « } »."
 
 #: ../plugins/steam/src/steam-title.vala:17
-msgid "Couldn't get name from Steam registry."
-msgstr "Nous n'avons pas pû obtenir le nom dpeuis le registre Steam."
+msgid "Couldn’t get name from Steam registry."
+msgstr "Nous n’avons pas pu obtenir le nom depuis le registre Steam."
 
 #: ../plugins/wii/src/wii-header.vala:20
 #, c-format
 msgid "Invalid Wii header size: %s"
-msgstr "Taille d'en-tête Wii invalide : %s"
+msgstr "Taille d’en-tête Wii invalide : %s"
 
 #: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
-msgid "The file doesn't have a Wii header."
-msgstr "Le fichier n'a pas d'en-tête Wii."
+msgid "The file doesn’t have a Wii header."
+msgstr "Le fichier n’a pas d’en-tête Wii."
 
 #: ../plugins/wii/src/wii-header.vala:55
 #, c-format
-msgid "Couldn't read file: %s"
-msgstr "Nous n'avons pas pû lire le fichier : %s"
+msgid "Couldn’t read file: %s"
+msgstr "Nous n’avons pas pu lire le fichier : %s"
 
 #: ../src/command/command-runner.vala:33
-msgid "The game doesn't have a valid command."
+msgid "The game doesn’t have a valid command."
 msgstr "Le jeu ne possède pas de commande valide."
 
 #: ../src/command/command-runner.vala:64
 #, c-format
-msgid "Couldn't run '%s': execution failed."
-msgstr "Nous n'avons pas pû lancer « %s » : l'exécution a échoué."
+msgid "Couldn’t run “%s”: execution failed."
+msgstr "Nous n’avons pas pu lancer « %s » : l’exécution a échoué."
 
 #: ../src/core/media-set/media-set.vala:31
 #, c-format
@@ -383,9 +402,9 @@ msgstr "Descripteur de greffon invalide : %s"
 
 #: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
 #, c-format
-msgid "Couldn't create a new instance of plugin in '%s'."
+msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr ""
-"Nous n'avons pas pû créer une nouvelle instance de greffon dans « %s »."
+"Nous n’avons pas pu créer une nouvelle instance de greffon dans « %s »."
 
 #: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -394,69 +413,73 @@ msgstr "Disque %d"
 
 #: ../src/gameinfo/gameinfo-doc.vala:15
 #, c-format
-msgid "No game title found for disc ID '%s'."
-msgstr "Aucun titre de jeu trouvé pour l'identifiant de disque « %s »."
+msgid "No game title found for disc ID “%s”."
+msgstr "Aucun titre de jeu trouvé pour l’identifiant de disque « %s »."
 
 #: ../src/gameinfo/gameinfo-doc.vala:31
 #, c-format
-msgid "No disc title found for disc ID '%s'."
-msgstr "Aucun titre de disque trouvé pour l'identifiant de disque « %s »."
+msgid "No disc title found for disc ID “%s”."
+msgstr "Aucun titre de disque trouvé pour l’identifiant de disque « %s »."
 
 #: ../src/gameinfo/gameinfo-doc.vala:41
 #, c-format
-msgid "No disc set ID found for disc ID '%s'."
-msgstr "Aucun ensemble de disques trouvé pour l'identifiant de disque « %s »."
+msgid "No disc set ID found for disc ID “%s”."
+msgstr "Aucun ensemble de disques trouvé pour l’identifiant de disque « %s »."
 
 #: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
 #, c-format
-msgid "No disc found for disc ID '%s'."
-msgstr "Aucun disque trouvé pour l'identifiant de disque « %s »."
+msgid "No disc found for disc ID “%s”."
+msgstr "Aucun disque trouvé pour l’identifiant de disque « %s »."
 
 #: ../src/gamepad/gamepad-mapping.vala:12
-msgid "The mapping string can't be null."
+msgid "The mapping string can’t be null."
 msgstr "La chaîne de caractère de correspondance ne peut pas être nulle."
 
 #: ../src/gamepad/gamepad-mapping.vala:15
-msgid "The mapping string can't be empty."
+msgid "The mapping string can’t be empty."
 msgstr "La chaîne de caractère de correspondance ne peut pas être vide."
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:42
 #, c-format
-msgid "Unable to open file '%s': %s"
-msgstr "Nous n'avons pas pû ouvrir le fichier « %s » : %s"
+msgid "Unable to open file “%s”: %s"
+msgstr "Nous n’avons pas pu ouvrir le fichier « %s » : %s"
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:46
 #, c-format
-msgid "Evdev is unable to open '%s': %s"
-msgstr "Evdev est incapable d'ouvrir « %s » : %s"
+msgid "Evdev is unable to open “%s”: %s"
+msgstr "Evdev est incapable d’ouvrir « %s » : %s"
 
 #: ../src/retro/retro-core-source.vala:35
 #, c-format
-msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr ""
-"Aucun module n'a été trouvé pour la plate-forme « %s » et les types MIME "
+"Aucun module n’a été trouvé pour la plate-forme « %s » et les types MIME "
 "« %s »."
 
-#: ../src/retro/retro-core-source.vala:79
+#: ../src/retro/retro-core-source.vala:35
+msgid "”, “"
+msgstr ", "
+
+#: ../src/retro/retro-core-source.vala:74
 #, c-format
 msgid "This games requires the %s firmware file to run."
 msgstr "Ce jeu nécessite le fichier de micrologiciel %s pour fonctionner."
 
-#: ../src/retro/retro-core-source.vala:96
+#: ../src/retro/retro-core-source.vala:91
 #, c-format
 msgid ""
 "This games requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
-"Ce jeu nécessite le fichier de micrologiciel %s d'empreinte MD5 %s pour "
+"Ce jeu nécessite le fichier de micrologiciel %s d’empreinte MD5 %s pour "
 "fonctionner."
 
-#: ../src/retro/retro-core-source.vala:102
+#: ../src/retro/retro-core-source.vala:97
 #, c-format
 msgid ""
 "This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
-"Ce jeu nécessite le fichier de micrologiciel %s d'empreinte SHA-512 %s pour "
+"Ce jeu nécessite le fichier de micrologiciel %s d’empreinte SHA-512 %s pour "
 "fonctionner."
 
 #: ../src/retro/retro-platform.vala:7
@@ -603,7 +626,7 @@ msgstr "Super Nintendo Entertainment System"
 #. translators: known as "PC Engine" in eastern Asia and France
 #: ../src/retro/retro-platform.vala:83
 msgid "TurboGrafx-16"
-msgstr "PC Engine"
+msgstr "PC-Engine"
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
 #: ../src/retro/retro-platform.vala:86
@@ -624,20 +647,20 @@ msgstr "WiiWare"
 
 #: ../src/retro/retro-runner.vala:214
 #, c-format
-msgid "Invalid game file: '%s'."
+msgid "Invalid game file: “%s”."
 msgstr "Fichier de jeu invalide : « %s »."
 
 #: ../src/retro/retro-runner.vala:557
 #, c-format
-msgid "The system “%s” isn't supported yet, but full support is planned."
+msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
-"Le système « %s » n'est pas pris en charge pour le moment, son développement "
+"Le système « %s » n’est pas pris en charge pour le moment, son développement "
 "est prévu."
 
 #: ../src/retro/retro-runner.vala:560
-msgid "The system isn't supported yet, but full support is planned."
+msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
-"Le système n'est pas pris en charge pour le moment, son développement est "
+"Le système n’est pas pris en charge pour le moment, son développement est "
 "prévu."
 
 #: ../src/ui/application.vala:174
@@ -656,22 +679,22 @@ msgstr "En apprendre plus sur GNOME Jeux"
 msgid "translator-credits"
 msgstr "Adrien Plazas <kekun.plazas@laposte.net>, 2016"
 
-#: ../src/ui/application-window.vala:252
+#: ../src/ui/application-window.vala:283
 msgid "An unexpected error occured."
 msgstr "Une erreur inattendue est survenue."
 
-#: ../src/ui/application-window.vala:468 ../src/ui/application-window.vala:485
+#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
 msgid "Playing a game"
 msgstr "Partie en cours"
 
 #: ../src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
-msgstr "Oups ! Nous n'avons pas pû lancer « %s »"
+msgstr "Oups ! Nous n’avons pas pu lancer « %s »"
 
 #: ../src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
-msgstr "Oups ! Nous n'avons pas pû lancer le jeu"
+msgstr "Oups ! Nous n’avons pas pu lancer le jeu"
 
 #: ../src/ui/media-selector.vala:33
 #, c-format
@@ -689,8 +712,8 @@ msgstr "Net"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
-msgid "'%s' doesn't have a track for index %u."
-msgstr "« %s » n'a pas de piste pour l'indice %u."
+msgid "“%s” doesn’t have a track for index %u."
+msgstr "« %s » n’a pas de piste pour l’indice %u."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:114
 #, c-format
@@ -740,26 +763,3 @@ msgstr "%s:%lu : Fin de ligne inattendue, un jeton est attendu."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu : Jeton %s inattendu, une fin de ligne est attendue."
-
-#~ msgid "The file doesn't have a Game Boy header."
-#~ msgstr "Le fichier n'a pas d'en-tête Game Boy."
-
-#~ msgid "Invalid command: it doesn't have any argument."
-#~ msgstr "Commande invalide : elle n'a pas d'arguments."
-
-#~ msgid "Couldn't run game: module '%s' not found."
-#~ msgstr ""
-#~ "Nous n'avons pas pû lancer le jeu : le module « %s » n'a pas été trouvé."
-
-#~ msgid ""
-#~ "Couldn't run game: module '%s' not found and no module found for MIME "
-#~ "types %s."
-#~ msgstr ""
-#~ "Nous n'avons pas pû lancer le jeu : le module « %s » n'a pas été trouvé "
-#~ "et aucun module n'a été trouvé pour le type MIME %s."
-
-#~ msgid "Couldn't write snapshot."
-#~ msgstr "Nous n'avons pas pû écrire l'instantané"
-
-#~ msgid "Main Menu"
-#~ msgstr "Menu principal"
