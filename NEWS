@@ -1,4 +1,41 @@
 ===============
+Version 3.23.91
+===============
+
+* UI:
+ - Allow to have smooth or sharp video output on retro games
+ - Add more explicative error messages
+ - Remember the size of the application window
+ - Remember the maximized state of the application window
+ - Remember the fullscreen state of the retro games
+ - Prevent a useless empty button to be displayed on the error page
+ - Prevent keyboard shortcuts to set the window fullscreen when not allowed
+ - Fix keyboard navigation in the game collection
+
+* Retro:
+ - Check the presence of mandatory firmwares
+
+* List standalone Libretro games
+
+* Bugs fixed:
+ 777371 Support standalone Libretro games
+ 777987 Allow to have a sharp video output
+ 778236 Offer to auto switch to fullscreen when starting a game
+ 778744 Check required firmwares are present
+ 778773 Explain the user why running a game failed
+ 778774 Empty button visible in the error page
+ 779095 ui: Remember the size, position and state of the window
+
+* Translation updates:
+ Finnish
+ French
+ Italian
+ Polish
+ Serbian
+ Spanish
+
+
+===============
 Version 3.23.90
 ===============
 
