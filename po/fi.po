@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-21 05:08+0000\n"
-"PO-Revision-Date: 2017-02-21 16:08+0200\n"
+"POT-Creation-Date: 2017-02-27 07:53+0000\n"
+"PO-Revision-Date: 2017-02-28 21:20+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -41,9 +41,13 @@ msgstr ""
 "mihin Gnomen musiikkisovellus tähtää musiikkikirjaston suhteen."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:4
+#| msgid ""
+#| "You want to install Games if you just want a very simple and comfortable "
+#| "way to play your games and you don't need advanced features such as "
+#| "speedrunning tools or video game development tools."
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
-"to play your games and you don't need advanced features such as speedrunning "
+"to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
 "Tämän sovelluksen avulla pääset nauttimaan peleistäsi vaivatta, mutta "
@@ -55,8 +59,9 @@ msgid "Features:"
 msgstr "Ominaisuudet:"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
-msgid "List your installed games, your Steam games, your game ROMs..."
-msgstr "Luetteloi asennetut pelit, Steam-pelit, peli-ROM:it..."
+#| msgid "List your installed games, your Steam games, your game ROMs..."
+msgid "List your installed games, your Steam games, your game ROMs…"
+msgstr "Luetteloi asennetut pelit, Steam-pelit, peli-ROM:it…"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:7
 msgid "Search in your games collection"
@@ -82,6 +87,42 @@ msgstr "Selaa ja pelaa videopelejäsi"
 msgid "game;videogame;video game;player;"
 msgstr "game;videogame;video game;player;peli;"
 
+#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Koko näyttö"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid "Whether the games should be displayed in full screen or not."
+msgstr ""
+
+#: ../data/org.gnome.Games.gschema.xml.h:3
+#, fuzzy
+#| msgid "Video game player"
+msgid "Video filter"
+msgstr "Videopelitoistin"
+
+#: ../data/org.gnome.Games.gschema.xml.h:4
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels)."
+msgstr ""
+
+#: ../data/org.gnome.Games.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Ikkuna suurennettu"
+
+#: ../data/org.gnome.Games.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr ""
+
+#: ../data/org.gnome.Games.gschema.xml.h:7
+msgid "Window size"
+msgstr "Ikkunan koko"
+
+#: ../data/org.gnome.Games.gschema.xml.h:8
+msgid "Window size (width and height)."
+msgstr "Ikkunan koko (leveys ja korkeus)."
+
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
 msgstr "_Asetukset"
@@ -106,16 +147,12 @@ msgstr "Etsi"
 msgid "Back"
 msgstr "Takaisin"
 
-#: ../data/ui/display-header-bar.ui.h:3
-msgid "Fullscreen"
-msgstr "Koko näyttö"
-
 #: ../data/ui/display-header-bar.ui.h:4
 msgid "Restore"
 msgstr "Palauta"
 
 #: ../data/ui/dummy-display.ui.h:1
-msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgid "This is a dummy game display"
 msgstr ""
 
 #: ../data/ui/dummy-display.ui.h:2
@@ -143,11 +180,19 @@ msgstr "Media"
 msgid "Plugins"
 msgstr "Liitännäiset"
 
+#: ../data/ui/preferences-page-video.ui.h:1
+msgid "Filter"
+msgstr "Suodatin"
+
 #: ../data/ui/preferences-window.ui.h:1
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: ../data/ui/preferences-window.ui.h:2
+#: ../data/ui/preferences-window.ui.h:2 ../src/ui/preferences-page-video.vala:6
+msgid "Video"
+msgstr "Video"
+
+#: ../data/ui/preferences-window.ui.h:3
 #: ../src/ui/preferences-page-plugins.vala:6
 msgid "Extensions"
 msgstr "Laajennukset"
@@ -169,12 +214,13 @@ msgid "Cancel"
 msgstr "Peru"
 
 #: ../data/ui/remote-display.ui.h:1
-msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
-msgstr ""
-"<b><span size=\"large\">Käytä pelin omaa ikkunaa pelataksesi sitä</span></b>"
+#| msgid "You have to use its own window to play it."
+msgid "Use the game’s own window to play it"
+msgstr "Käytä pelin omaa ikkunaa pelaamiseen"
 
 #: ../data/ui/remote-display.ui.h:2
-msgid "This game isn't integrated to GNOME Games."
+#| msgid "This game isn't integrated to GNOME Games."
+msgid "This game isn’t integrated to GNOME Games."
 msgstr "Tätä peliä ei ole integroitu Gnomen peleihin."
 
 #: ../data/ui/remote-display.ui.h:3
@@ -203,79 +249,91 @@ msgstr ""
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:56
 #, c-format
-msgid "Invalid command '%s'."
-msgstr "Virheellinen komento '%s'."
+#| msgid "Invalid command '%s'."
+msgid "Invalid command “%s”."
+msgstr "Virheellinen komento “%s”."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:84
 #, c-format
-msgid "Tracker listed file not found: '%s'."
+msgid "Tracker listed file not found: “%s”."
 msgstr ""
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:90
 #, c-format
-msgid "Couldn't parse desktop entry '%s'."
+msgid "Couldn’t parse desktop entry “%s”."
 msgstr ""
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
-#, c-format
-msgid "'%s' has blacklisted category '%s'."
-msgstr ""
+#, fuzzy, c-format
+#| msgid "'%s' has blacklisted executable '%s'."
+msgid "“%s” has blacklisted category “%s”."
+msgstr "'%s' sisältää mustalle listalle lisätyn suoritettavan tiedoston '%s'."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
-msgid "'%s' has blacklisted executable '%s'."
-msgstr "'%s' sisältää mustalle listalle lisätyn suoritettavan tiedoston '%s'."
+#| msgid "'%s' has blacklisted executable '%s'."
+msgid "“%s” has blacklisted executable “%s”."
+msgstr ""
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:119
 #, c-format
-msgid "'%s' is blacklisted."
-msgstr "'%s' on mustalla listalla."
+#| msgid "'%s' is blacklisted."
+msgid "“%s” is blacklisted."
+msgstr "“%s” on mustalla listalla."
 
 #: ../plugins/dreamcast/src/dreamcast-header.vala:54
-msgid "The file doesn't have a Dreamcast header."
+#| msgid "The file doesn't have a Dreamcast header."
+msgid "The file doesn’t have a Dreamcast header."
 msgstr "Tiedostossa ei ole Dreamcast-otsaketta."
 
 #: ../plugins/game-cube/src/game-cube-header.vala:20
-msgid "The file doesn't have a Game Cube header."
+#| msgid "The file doesn't have a Game Cube header."
+msgid "The file doesn’t have a Game Cube header."
 msgstr "Tiedostossa ei ole GameCube-otsaketta."
 
 #: ../plugins/love/src/love-package.vala:13
 #: ../plugins/love/src/love-package.vala:17
 #, c-format
-msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr ""
 
 #: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
-msgid "Invalid MAME game id '%s' for '%s'."
+msgid "Invalid MAME game id “%s” for “%s”."
 msgstr ""
 
 #: ../plugins/master-system/src/master-system-header.vala:69
-msgid "The file doesn't have a Master System header."
+#| msgid "The file doesn't have a Master System header."
+msgid "The file doesn’t have a Master System header."
 msgstr "Tiedostossa ei ole Master System -otsaketta."
 
 #: ../plugins/mega-drive/src/mega-drive-header.vala:65
 #: ../plugins/mega-drive/src/mega-drive-header.vala:84
-msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+#, fuzzy
+#| msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Tiedostossa ei ole Genesis/Sega 32X/Sega CD/Sega Pico -otsaketta."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
-#, c-format
-msgid "The file '%s' doesn't have a track."
-msgstr ""
+#, fuzzy, c-format
+#| msgid "The file doesn't have a Dreamcast header."
+msgid "The file “%s” doesn’t have a track."
+msgstr "Tiedostossa ei ole Dreamcast-otsaketta."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
-#, c-format
-msgid "The file '%s' doesn't have a valid binary file format."
-msgstr ""
+#, fuzzy, c-format
+#| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "Tiedostossa '%s' ei ole kelvollista Sega Saturn -binääritiedostoa."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
-#, c-format
-msgid "The file '%s' doesn't have a valid track mode for track %d."
-msgstr ""
+#, fuzzy, c-format
+#| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "Tiedostossa '%s' ei ole kelvollista Sega Saturn -binääritiedostoa."
 
 #: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
@@ -284,27 +342,30 @@ msgstr ""
 
 #: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
-msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
-msgid "The file doesn't have a Sega Saturn header."
+#| msgid "The file doesn't have a Sega Saturn header."
+msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Tiedostossa ei ole Sega Saturn -otsaketta."
 
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
-#, c-format
-msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+#, fuzzy, c-format
+#| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Tiedostossa '%s' ei ole kelvollista Sega Saturn -binääritiedostoa."
 
 #: ../plugins/steam/src/steam-game-source.vala:99
 #, c-format
-msgid "Couldn't get Steam appid from manifest '%s'."
+msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr ""
 
 #: ../plugins/steam/src/steam-registry.vala:68
 #, c-format
-msgid "File '%s' doesn't exist."
-msgstr "Tiedostoa '%s' ei ole olemassa."
+#| msgid "File '%s' doesn't exist."
+msgid "File “%s” doesn’t exist."
+msgstr "Tiedostoa “%s” ei ole olemassa."
 
 #: ../plugins/steam/src/steam-registry.vala:96
 msgid "Unexpected token '{'."
@@ -319,7 +380,7 @@ msgid "Unexpected token '}'."
 msgstr ""
 
 #: ../plugins/steam/src/steam-title.vala:17
-msgid "Couldn't get name from Steam registry."
+msgid "Couldn’t get name from Steam registry."
 msgstr ""
 
 #: ../plugins/wii/src/wii-header.vala:20
@@ -328,21 +389,27 @@ msgid "Invalid Wii header size: %s"
 msgstr "Virheellinen Wii-otsakkeen koko: %s"
 
 #: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
-msgid "The file doesn't have a Wii header."
+#, fuzzy
+#| msgid "The file doesn't have a Wii header."
+msgid "The file doesn’t have a Wii header."
 msgstr "Tiedostossa ei ole Wii-otsaketta."
 
 #: ../plugins/wii/src/wii-header.vala:55
-#, c-format
-msgid "Couldn't read file: %s"
+#, fuzzy, c-format
+#| msgid "Couldn't read file: %s"
+msgid "Couldn’t read file: %s"
 msgstr "Tiedoston luku epäonnistui: %s"
 
 #: ../src/command/command-runner.vala:33
-msgid "The game doesn't have a valid command."
+#, fuzzy
+#| msgid "The game doesn't have a valid command."
+msgid "The game doesn’t have a valid command."
 msgstr "Pelillä ei ole kelvollista komentoa."
 
 #: ../src/command/command-runner.vala:64
-#, c-format
-msgid "Couldn't run '%s': execution failed."
+#, fuzzy, c-format
+#| msgid "Couldn't run '%s': execution failed."
+msgid "Couldn’t run “%s”: execution failed."
 msgstr "Kohteen '%s' käynnistäminen epäonnistui: suorittaminen epäonnistui."
 
 #: ../src/core/media-set/media-set.vala:31
@@ -357,7 +424,7 @@ msgstr ""
 
 #: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
 #, c-format
-msgid "Couldn't create a new instance of plugin in '%s'."
+msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr ""
 
 #: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
@@ -367,59 +434,65 @@ msgstr "Levy %d"
 
 #: ../src/gameinfo/gameinfo-doc.vala:15
 #, c-format
-msgid "No game title found for disc ID '%s'."
+msgid "No game title found for disc ID “%s”."
 msgstr ""
 
 #: ../src/gameinfo/gameinfo-doc.vala:31
 #, c-format
-msgid "No disc title found for disc ID '%s'."
+msgid "No disc title found for disc ID “%s”."
 msgstr ""
 
 #: ../src/gameinfo/gameinfo-doc.vala:41
 #, c-format
-msgid "No disc set ID found for disc ID '%s'."
+msgid "No disc set ID found for disc ID “%s”."
 msgstr ""
 
 #: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
 #, c-format
-msgid "No disc found for disc ID '%s'."
+msgid "No disc found for disc ID “%s”."
 msgstr ""
 
 #: ../src/gamepad/gamepad-mapping.vala:12
-msgid "The mapping string can't be null."
+msgid "The mapping string can’t be null."
 msgstr ""
 
 #: ../src/gamepad/gamepad-mapping.vala:15
-msgid "The mapping string can't be empty."
+msgid "The mapping string can’t be empty."
 msgstr ""
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:42
-#, c-format
-msgid "Unable to open file '%s': %s"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Oops! Unable to run “%s”"
+msgid "Unable to open file “%s”: %s"
+msgstr "Hups! Pelin “%s” käynnistäminen ei onnistu"
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:46
-#, c-format
-msgid "Evdev is unable to open '%s': %s"
-msgstr ""
+#, fuzzy, c-format
+#| msgid "Oops! Unable to run “%s”"
+msgid "Evdev is unable to open “%s”: %s"
+msgstr "Hups! Pelin “%s” käynnistäminen ei onnistu"
 
 #: ../src/retro/retro-core-source.vala:35
 #, c-format
-msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr ""
 
-#: ../src/retro/retro-core-source.vala:79
+#: ../src/retro/retro-core-source.vala:35
+msgid "”, “"
+msgstr "”, “"
+
+#: ../src/retro/retro-core-source.vala:74
 #, c-format
 msgid "This games requires the %s firmware file to run."
 msgstr ""
 
-#: ../src/retro/retro-core-source.vala:96
+#: ../src/retro/retro-core-source.vala:91
 #, c-format
 msgid ""
 "This games requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
 
-#: ../src/retro/retro-core-source.vala:102
+#: ../src/retro/retro-core-source.vala:97
 #, c-format
 msgid ""
 "This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -589,21 +662,23 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:207
+#: ../src/retro/retro-runner.vala:214
 #, c-format
-msgid "Invalid game file: '%s'."
-msgstr "Virheellinen pelitiedosto: '%s'."
+#| msgid "Invalid game file: '%s'."
+msgid "Invalid game file: “%s”."
+msgstr "Virheellinen pelitiedosto: “%s”."
 
-#: ../src/retro/retro-runner.vala:542
+#: ../src/retro/retro-runner.vala:557
 #, c-format
-#| msgid "The system “%s” isn't supported yet. Full support will come!"
-msgid "The system “%s” isn't supported yet, but full support is planned."
-msgstr "Järjestelmä “%s” ei ole vielä tuettu. Täysi tuki on suunnitelmissa!"
+#| msgid "The system “%s” isn't supported yet, but full support is planned."
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr ""
+"Järjestelmä “%s” ei ole vielä tuettu, mutta täysi tuki on suunnitelmissa."
 
-#: ../src/retro/retro-runner.vala:545
-#| msgid "The system isn't supported yet. Full support will come!"
-msgid "The system isn't supported yet, but full support is planned."
-msgstr "Järjestelmä ei ole vielä tuettu. Täysi tuki on suunnitelmissa!"
+#: ../src/retro/retro-runner.vala:560
+#| msgid "The system isn't supported yet, but full support is planned."
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr "Järjestelmä ei ole vielä tuettu, mutta täysi tuki on suunnitelmissa."
 
 #: ../src/ui/application.vala:174
 msgid "GNOME Games"
@@ -621,11 +696,11 @@ msgstr "Lisätietoja Gnomen peleistä"
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#: ../src/ui/application-window.vala:252
+#: ../src/ui/application-window.vala:283
 msgid "An unexpected error occured."
 msgstr "Tapahtui odottamaton virhe."
 
-#: ../src/ui/application-window.vala:468 ../src/ui/application-window.vala:485
+#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
 msgid "Playing a game"
 msgstr "Peli meneillään"
 
@@ -643,9 +718,18 @@ msgstr "Hups! Pelin käynnistäminen ei onnistu"
 msgid "Media %d"
 msgstr ""
 
+#. same as video-filters in gschema
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Smooth"
+msgstr "Sulava"
+
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Sharp"
+msgstr "Terävä"
+
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
-msgid "'%s' doesn't have a track for index %u."
+msgid "“%s” doesn’t have a track for index %u."
 msgstr ""
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:114
@@ -692,3 +776,9 @@ msgstr ""
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr ""
+
+#~ msgid ""
+#~ "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+#~ msgstr ""
+#~ "<b><span size=\"large\">Käytä pelin omaa ikkunaa pelataksesi sitä</span></"
+#~ "b>"
