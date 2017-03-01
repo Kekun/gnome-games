@@ -1,0 +1,27 @@
+        {
+            "name": "libretro-mednafen_pce_fast",
+            "no-autogen": true,
+            "make-args": [
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "make-install-args": [
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "post-install": [
+                /* TODO: Send that upstream */
+                "mkdir -p /app/lib/libretro/",
+                "install -m644 -p mednafen_pce_fast.libretro /app/lib/libretro/"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/Kekun/beetle-pce-fast-libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "libretro-cores/mednafen_pce_fast.libretro"
+                }
+            ]
+        }

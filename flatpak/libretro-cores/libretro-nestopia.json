@@ -1,0 +1,29 @@
+        {
+            "name": "libretro-nestopia",
+            "no-autogen": true,
+            "subdir": "libretro",
+            "make-args": [
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "make-install-args": [
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "post-install": [
+                /* TODO: Send that upstream */
+                "mkdir -p /app/lib/libretro/",
+                "install -m644 -p nestopia.libretro /app/lib/libretro/"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/bochecha/nestopia.git"
+                },
+                {
+                    "type": "file",
+                    "path": "libretro-cores/nestopia.libretro",
+                    "dest-filename": "libretro/nestopia.libretro"
+                }
+            ]
+        }

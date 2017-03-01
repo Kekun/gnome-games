@@ -1,0 +1,135 @@
+{
+    "app-id": "org.gnome.Games",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "sdk": "org.gnome.Sdk",
+    "command": "gnome-games",
+    "tags": ["nightly"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        /* X11 + XShm access */
+        "--share=ipc", "--socket=x11",
+        /* Wayland access */
+        "--socket=wayland",
+        /* PulseAudio access */
+        "--device=dri", "--socket=pulseaudio",
+        /* Tracker access */
+        "--talk-name=org.freedesktop.Tracker1",
+        /* Needed for dconf to work */
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        /* Needed to get the games info from The Games DB */
+        "--share=network",
+        /* Needed for joypads, until we have a proper portal */
+        "--device=all",
+        /* Needed to find the ROMs */
+        "--filesystem=home:ro"
+    ],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g"
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "*.la", "*.a",
+                "/lib/girepository-1.0",
+                "/share/dbus-1", "/share/doc", "/share/gir-1.0"
+    ],
+    "modules": [
+        /* Emulator cores for libretro
+
+           We build them first, because some of them are very big, and they
+           change more rarely than the rest of the modules. */
+        "libretro-cores/libretro-bsnes.json",
+        "libretro-cores/libretro-gambatte.json",
+        "libretro-cores/libretro-mednafen_ngp.json",
+        "libretro-cores/libretro-mednafen_pce_fast.json",
+        "libretro-cores/libretro-nestopia.json",
+        "libretro-cores/libretro-pcsx_rearmed.json",
+        /* End libretro cores */
+        {
+            "name": "retro-gtk",
+            "config-opts": [
+                "--disable-static"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/retro-gtk"
+                }
+            ]
+        },
+        "org.lua.modules.json",
+        {
+            "name": "grilo",
+            "config-opts": [
+                "--enable-grl-net",
+                "--disable-grl-pls",
+                "--disable-gtk-doc",
+                "--disable-static"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/grilo"
+                }
+            ],
+            "cleanup": [ "/include", "/bin" ]
+        },
+        /* XXX Remove the Lua sources we won't use */
+        {
+            "name": "grilo-plugins",
+            "config-opts": [
+                "--disable-goa", "--disable-filesystem",
+                "--disable-optical-media", "--disable-youtube",
+                "--disable-bookmarks", "--disable-metadata-store",
+                "--disable-vimeo", "--disable-tracker",
+                "--disable-localmetadata", "--disable-dleyna",
+                "--disable-thetvdb", "--disable-tmdb",
+                "--disable-freebox", "--disable-opensubtitles",
+                "--disable-gravatar", "--disable-jamendo", "--disable-raitv",
+                "--disable-magnatune", "--disable-shoutcast",
+                "--enable-lua-factory"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/grilo-plugins"
+                }
+            ],
+            "cleanup": [ "/include" ]
+        },
+        {
+            "name": "tracker",
+            "config-opts": [ "--disable-miner-apps", "--disable-static",
+                             "--disable-tracker-extract", "--disable-tracker-needle",
+                             "--disable-tracker-preferences", "--disable-artwork",
+                             "--disable-tracker-writeback", "--disable-miner-user-guides"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/tracker"
+                }
+            ]
+        },
+        {
+            "name": "libevdev",
+            "sources": [
+                {
+                     "type": "git",
+                     "url": "https://anongit.freedesktop.org/git/libevdev.git"
+                }
+            ]
+        },
+        {
+            "name": "gnome-games",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/gnome-games"
+                }
+            ]
+        }
+    ]
+}
