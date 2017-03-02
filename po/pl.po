@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-26 18:00+0100\n"
-"PO-Revision-Date: 2017-02-26 18:01+0100\n"
+"POT-Creation-Date: 2017-03-02 01:37+0100\n"
+"PO-Revision-Date: 2017-03-02 01:38+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -82,17 +82,41 @@ msgstr "Przeglądanie i uruchamianie gier z kolekcji"
 msgid "game;videogame;video game;player;"
 msgstr "gra;gra komputerowa;gra wideo;"
 
-#: ../data/org.gnome.Games.gschema.xml.h:1
+#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Pełny ekran"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid "Whether the games should be displayed in full screen or not."
+msgstr "Czy gry są wyświetlane na pełnym ekranie."
+
+#: ../data/org.gnome.Games.gschema.xml.h:3
 msgid "Video filter"
 msgstr "Filtr obrazu"
 
-#: ../data/org.gnome.Games.gschema.xml.h:2
+#: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels)."
 msgstr ""
 "Filtr wyjścia obrazu gry. Dozwolone wartości: „smooth” (rozmyte piksele), "
 "„sharp” (kanciaste piksele)."
+
+#: ../data/org.gnome.Games.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Zmaksymalizowane okno"
+
+#: ../data/org.gnome.Games.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "Stan maksymalizacji okna."
+
+#: ../data/org.gnome.Games.gschema.xml.h:7
+msgid "Window size"
+msgstr "Rozmiar okna"
+
+#: ../data/org.gnome.Games.gschema.xml.h:8
+msgid "Window size (width and height)."
+msgstr "Rozmiar okna (szerokość i wysokość)."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
@@ -117,10 +141,6 @@ msgstr "Wyszukaj"
 #: ../data/ui/display-header-bar.ui.h:2
 msgid "Back"
 msgstr "Wstecz"
-
-#: ../data/ui/display-header-bar.ui.h:3
-msgid "Fullscreen"
-msgstr "Pełny ekran"
 
 #: ../data/ui/display-header-bar.ui.h:4
 msgid "Restore"
@@ -652,11 +672,11 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2017"
 
-#: ../src/ui/application-window.vala:252
+#: ../src/ui/application-window.vala:283
 msgid "An unexpected error occured."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: ../src/ui/application-window.vala:468 ../src/ui/application-window.vala:485
+#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
