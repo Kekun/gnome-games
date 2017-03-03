@@ -28,9 +28,11 @@ src/gamepad/gamepad-mapping.c
 src/gamepad/linux/linux-raw-gamepad.c
 src/retro/retro-core-source.c
 src/retro/retro-runner.c
+src/retro/retro-platform.c
 src/ui/application.c
 src/ui/application-window.c
 src/ui/error-display.c
 src/ui/media-selector.c
 src/ui/preferences-page-plugins.c
+src/ui/preferences-page-video.c
 src/utils/cue-sheet/cue-sheet.c
