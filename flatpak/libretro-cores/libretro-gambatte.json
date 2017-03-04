@@ -21,7 +21,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/gambatte.libretro"
+                    "path": "flatpak/libretro-cores/gambatte.libretro"
                 }
             ]
         }

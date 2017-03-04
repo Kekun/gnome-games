@@ -41,12 +41,12 @@
 
            We build them first, because some of them are very big, and they
            change more rarely than the rest of the modules. */
-        "libretro-cores/libretro-bsnes.json",
-        "libretro-cores/libretro-gambatte.json",
-        "libretro-cores/libretro-mednafen_ngp.json",
-        "libretro-cores/libretro-mednafen_pce_fast.json",
-        "libretro-cores/libretro-nestopia.json",
-        "libretro-cores/libretro-pcsx_rearmed.json",
+        "flatpak/libretro-cores/libretro-bsnes.json",
+        "flatpak/libretro-cores/libretro-gambatte.json",
+        "flatpak/libretro-cores/libretro-mednafen_ngp.json",
+        "flatpak/libretro-cores/libretro-mednafen_pce_fast.json",
+        "flatpak/libretro-cores/libretro-nestopia.json",
+        "flatpak/libretro-cores/libretro-pcsx_rearmed.json",
         /* End libretro cores */
         {
             "name": "retro-gtk",
