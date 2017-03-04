@@ -60,7 +60,7 @@
                 }
             ]
         },
-        "org.lua.modules.json",
+        "flatpak/org.lua.modules.json",
         {
             "name": "grilo",
             "config-opts": [
