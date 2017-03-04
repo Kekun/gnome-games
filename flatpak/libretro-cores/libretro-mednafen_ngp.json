@@ -21,7 +21,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "flatpak/libretro-cores/mednafen_ngp.libretro"
+                    "path": "libretro-cores/mednafen_ngp.libretro"
                 }
             ]
         }

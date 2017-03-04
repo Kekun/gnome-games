@@ -22,12 +22,12 @@
                 },
                 {
                     "type": "file",
-                    "path": "flatpak/libretro-cores/pcsx_rearmed-Makefile.install",
+                    "path": "libretro-cores/pcsx_rearmed-Makefile.install",
                     "dest-filename": "Makefile.install"
                 },
                 {
                     "type": "file",
-                    "path": "flatpak/libretro-cores/pcsx_rearmed.libretro"
+                    "path": "libretro-cores/pcsx_rearmed.libretro"
                 }
             ]
         }

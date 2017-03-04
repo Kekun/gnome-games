@@ -13,11 +13,11 @@
         /* Patches from the Fedora package */
         {
             "type": "patch",
-            "path": "flatpak/lua-5.3.0-autotoolize.patch"
+            "path": "lua-5.3.0-autotoolize.patch"
         },
         {
             "type": "patch",
-            "path": "flatpak/lua-5.3.0-idsize.patch"
+            "path": "lua-5.3.0-idsize.patch"
         },
         {
             "type": "shell",
