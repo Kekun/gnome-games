@@ -2,16 +2,16 @@
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 # Translators:
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016, 2017.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016—2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-10 18:27+0000\n"
-"PO-Revision-Date: 2017-02-12 18:01+0200\n"
+"POT-Creation-Date: 2017-02-27 07:53+0000\n"
+"PO-Revision-Date: 2017-03-05 10:38+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <(nothing)>\n"
+"Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,9 +42,13 @@ msgstr ""
 "већ одрађује за вашу музичку библиотеку."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:4
+#| msgid ""
+#| "You want to install Games if you just want a very simple and comfortable "
+#| "way to play your games and you don't need advanced features such as "
+#| "speedrunning tools or video game development tools."
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
-"to play your games and you don't need advanced features such as speedrunning "
+"to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
 "Инсталирајте Игре ако желите врло једноставан и удобан начин за играње игара "
@@ -56,8 +60,9 @@ msgid "Features:"
 msgstr "Могућности:"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
-msgid "List your installed games, your Steam games, your game ROMs..."
-msgstr "Исписује ваше инсталиране игре, игре Стима, РОМ-ове игара..."
+#| msgid "List your installed games, your Steam games, your game ROMs..."
+msgid "List your installed games, your Steam games, your game ROMs…"
+msgstr "Исписује ваше инсталиране игре, игре Стима, РОМ-ове игара…"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:7
 msgid "Search in your games collection"
@@ -83,6 +88,43 @@ msgstr "Прегледајте и играјте видео игре из ваш
 msgid "game;videogame;video game;player;"
 msgstr "игра;видеоигра;видео игра;играч;играње;"
 
+#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Преко целог екрана"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid "Whether the games should be displayed in full screen or not."
+msgstr "Да ли ће се игре приказивати преко целог екрана или не."
+
+#: ../data/org.gnome.Games.gschema.xml.h:3
+#| msgid "Video game player"
+msgid "Video filter"
+msgstr "Филтер снимка"
+
+#: ../data/org.gnome.Games.gschema.xml.h:4
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels)."
+msgstr ""
+"Филтер за излаз снимка игре. Допуштене вредности су: „smooth“ (мутни пиксели)"
+", „sharp“ (четвртасти пиксели)."
+
+#: ../data/org.gnome.Games.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Увећање прозора"
+
+#: ../data/org.gnome.Games.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "Стање увећаног прозора."
+
+#: ../data/org.gnome.Games.gschema.xml.h:7
+msgid "Window size"
+msgstr "Величина прозора"
+
+#: ../data/org.gnome.Games.gschema.xml.h:8
+msgid "Window size (width and height)."
+msgstr "Величина прозора (ширина и висина)."
+
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
 msgstr "_Поставке"
@@ -107,17 +149,14 @@ msgstr "Потражи"
 msgid "Back"
 msgstr "Назад"
 
-#: ../data/ui/display-header-bar.ui.h:3
-msgid "Fullscreen"
-msgstr "Преко целог екрана"
-
 #: ../data/ui/display-header-bar.ui.h:4
 msgid "Restore"
 msgstr "Врати"
 
 #: ../data/ui/dummy-display.ui.h:1
-msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
-msgstr "<b><span size=\"large\">Ово је макетни приказ игре</span></b>"
+#| msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+msgid "This is a dummy game display"
+msgstr "Ово је макетни приказ игре"
 
 #: ../data/ui/dummy-display.ui.h:2
 msgid "If you see this, this is a bug."
@@ -146,11 +185,19 @@ msgstr "Медиј"
 msgid "Plugins"
 msgstr "Прикључци"
 
+#: ../data/ui/preferences-page-video.ui.h:1
+msgid "Filter"
+msgstr "Филтер"
+
 #: ../data/ui/preferences-window.ui.h:1
 msgid "Preferences"
 msgstr "Поставке"
 
-#: ../data/ui/preferences-window.ui.h:2
+#: ../data/ui/preferences-window.ui.h:2 ../src/ui/preferences-page-video.vala:6
+msgid "Video"
+msgstr "Снимак"
+
+#: ../data/ui/preferences-window.ui.h:3
 #: ../src/ui/preferences-page-plugins.vala:6
 msgid "Extensions"
 msgstr "Проширења"
@@ -172,11 +219,13 @@ msgid "Cancel"
 msgstr "Откажи"
 
 #: ../data/ui/remote-display.ui.h:1
-msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
-msgstr "<b><span size=\"large\">Користи сопствени прозор игре</span></b>"
+#| msgid "You have to use its own window to play it."
+msgid "Use the game’s own window to play it"
+msgstr "Користите сопствени прозор игре"
 
 #: ../data/ui/remote-display.ui.h:2
-msgid "This game isn't integrated to GNOME Games."
+#| msgid "This game isn't integrated to GNOME Games."
+msgid "This game isn’t integrated to GNOME Games."
 msgstr "Ова игра није обједињена са Гномовим играма."
 
 #: ../data/ui/remote-display.ui.h:3
@@ -205,78 +254,93 @@ msgstr "Врати"
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:56
 #, c-format
-msgid "Invalid command '%s'."
+#| msgid "Invalid command '%s'."
+msgid "Invalid command “%s”."
 msgstr "Неисправна наредба „%s“."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:84
 #, c-format
-msgid "Tracker listed file not found: '%s'."
+#| msgid "Tracker listed file not found: '%s'."
+msgid "Tracker listed file not found: “%s”."
 msgstr "Нисам нашао датотеку коју је излистао пратилац: „%s“."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:90
 #, c-format
-msgid "Couldn't parse desktop entry '%s'."
+#| msgid "Couldn't parse desktop entry '%s'."
+msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Не могу да обрадим унос радне површи „%s“."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
 #, c-format
-msgid "'%s' has blacklisted category '%s'."
+#| msgid "'%s' has blacklisted category '%s'."
+msgid "“%s” has blacklisted category “%s”."
 msgstr "„%s“ садржи категорију „%s“ која је на списку забрана."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
-msgid "'%s' has blacklisted executable '%s'."
+#| msgid "'%s' has blacklisted executable '%s'."
+msgid "“%s” has blacklisted executable “%s”."
 msgstr "„%s“ садржи извршну „%s“ која је на списку забрана."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:119
 #, c-format
-msgid "'%s' is blacklisted."
+#| msgid "'%s' is blacklisted."
+msgid "“%s” is blacklisted."
 msgstr "„%s“ је на списку забрана."
 
 #: ../plugins/dreamcast/src/dreamcast-header.vala:54
-msgid "The file doesn't have a Dreamcast header."
+#| msgid "The file doesn't have a Dreamcast header."
+msgid "The file doesn’t have a Dreamcast header."
 msgstr "Датотека не садржи „Dreamcast“ заглавље."
 
 #: ../plugins/game-cube/src/game-cube-header.vala:20
-msgid "The file doesn't have a Game Cube header."
+#| msgid "The file doesn't have a Game Cube header."
+msgid "The file doesn’t have a Game Cube header."
 msgstr "Датотека не садржи „Game Cube“ заглавље."
 
 #: ../plugins/love/src/love-package.vala:13
 #: ../plugins/love/src/love-package.vala:17
 #, c-format
-msgid "This doesn't represent a valid LÖVE package: '%s'."
+#| msgid "This doesn't represent a valid LÖVE package: '%s'."
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr "Ово не представља исправан „LÖVE“: „%s“."
 
 #: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
-msgid "Invalid MAME game id '%s' for '%s'."
+#| msgid "Invalid MAME game id '%s' for '%s'."
+msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Неисправан иб МАМЕ игре „%s“ за „%s“."
 
 #: ../plugins/master-system/src/master-system-header.vala:69
-msgid "The file doesn't have a Master System header."
+#| msgid "The file doesn't have a Master System header."
+msgid "The file doesn’t have a Master System header."
 msgstr "Датотека не садржи „Master System“ заглавље."
 
 #: ../plugins/mega-drive/src/mega-drive-header.vala:65
 #: ../plugins/mega-drive/src/mega-drive-header.vala:84
-msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+#| msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Датотека не садржи „Genesis/Sega 32X/Sega CD/Sega Pico“ заглавље."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
-msgid "The file '%s' doesn't have a track."
+#| msgid "The file '%s' doesn't have a track."
+msgid "The file “%s” doesn’t have a track."
 msgstr "Датотека „%s“ не садржи стазу."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
-msgid "The file '%s' doesn't have a valid binary file format."
+#| msgid "The file '%s' doesn't have a valid binary file format."
+msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Датотека „%s“ не садржи исправан запис бинарне датотеке."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
-msgid "The file '%s' doesn't have a valid track mode for track %d."
+#| msgid "The file '%s' doesn't have a valid track mode for track %d."
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Датотека „%s“ не садржи исправан режим стазе за %d. стазу."
 
 #: ../plugins/playstation/src/playstation-game-factory.vala:65
@@ -286,26 +350,31 @@ msgstr "Диск са иб-ом диска „%s“ није познат"
 
 #: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
-msgid "Invalid PlayStation header: disc ID not found in '%s'."
+#| msgid "Invalid PlayStation header: disc ID not found in '%s'."
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr "Неисправно заглавље за „PlayStation“: нисам нашао ИБ диска у „%s“."
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
-msgid "The file doesn't have a Sega Saturn header."
+#| msgid "The file doesn't have a Sega Saturn header."
+msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Датотека не садржи „Sega Saturn“ заглавље."
 
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
 #, c-format
-msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+#| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Датотека „%s“ не садржи исправну бинарну „Sega Saturn“ датотеку."
 
 #: ../plugins/steam/src/steam-game-source.vala:99
 #, c-format
-msgid "Couldn't get Steam appid from manifest '%s'."
+#| msgid "Couldn't get Steam appid from manifest '%s'."
+msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Не могу да добавим апиб „Steam“ из прогласа „%s“."
 
 #: ../plugins/steam/src/steam-registry.vala:68
 #, c-format
-msgid "File '%s' doesn't exist."
+#| msgid "File '%s' doesn't exist."
+msgid "File “%s” doesn’t exist."
 msgstr "Датотека „%s“ не постоји."
 
 #: ../plugins/steam/src/steam-registry.vala:96
@@ -321,7 +390,8 @@ msgid "Unexpected token '}'."
 msgstr "Неочекивани симбол }."
 
 #: ../plugins/steam/src/steam-title.vala:17
-msgid "Couldn't get name from Steam registry."
+#| msgid "Couldn't get name from Steam registry."
+msgid "Couldn’t get name from Steam registry."
 msgstr "Не могу да добавим назив из регистра Стима."
 
 #: ../plugins/wii/src/wii-header.vala:20
@@ -330,21 +400,25 @@ msgid "Invalid Wii header size: %s"
 msgstr "Неисправна величина „Wii“ заглавља: %s"
 
 #: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
-msgid "The file doesn't have a Wii header."
+#| msgid "The file doesn't have a Wii header."
+msgid "The file doesn’t have a Wii header."
 msgstr "Датотека не садржи „Wii“ заглавље."
 
 #: ../plugins/wii/src/wii-header.vala:55
 #, c-format
-msgid "Couldn't read file: %s"
+#| msgid "Couldn't read file: %s"
+msgid "Couldn’t read file: %s"
 msgstr "Не могу да прочитам датотеку: %s"
 
-#: ../src/command/command-runner.vala:30
-msgid "Invalid command: it doesn't have any argument."
-msgstr "Неисправна наредба: не садржи ни један аргумент."
+#: ../src/command/command-runner.vala:33
+#| msgid "The file doesn't have a Wii header."
+msgid "The game doesn’t have a valid command."
+msgstr "Датотека не садржи „Wii“ заглавље."
 
-#: ../src/command/command-runner.vala:59
+#: ../src/command/command-runner.vala:64
 #, c-format
-msgid "Couldn't run '%s': execution failed."
+#| msgid "Couldn't run '%s': execution failed."
+msgid "Couldn’t run “%s”: execution failed."
 msgstr "Не могу да покренем „%s“: извршавање није успело."
 
 #: ../src/core/media-set/media-set.vala:31
@@ -359,7 +433,8 @@ msgstr "Неисправан описник прикључка: %s"
 
 #: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
 #, c-format
-msgid "Couldn't create a new instance of plugin in '%s'."
+#| msgid "Couldn't create a new instance of plugin in '%s'."
+msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Не могу да створим нови примерак прикључка у „%s“."
 
 #: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
@@ -369,51 +444,260 @@ msgstr "Диск %d"
 
 #: ../src/gameinfo/gameinfo-doc.vala:15
 #, c-format
-msgid "No game title found for disc ID '%s'."
+#| msgid "No game title found for disc ID '%s'."
+msgid "No game title found for disc ID “%s”."
 msgstr "Нисам нашао наслов игре за ИБ диска „%s“."
 
 #: ../src/gameinfo/gameinfo-doc.vala:31
 #, c-format
-msgid "No disc title found for disc ID '%s'."
+#| msgid "No disc title found for disc ID '%s'."
+msgid "No disc title found for disc ID “%s”."
 msgstr "Нисам нашао наслов диска за ИБ диска „%s“."
 
 #: ../src/gameinfo/gameinfo-doc.vala:41
 #, c-format
-msgid "No disc set ID found for disc ID '%s'."
+#| msgid "No disc set ID found for disc ID '%s'."
+msgid "No disc set ID found for disc ID “%s”."
 msgstr "Нисам нашао ИБ скупа диска за ИБ диска „%s“."
 
 #: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
 #, c-format
-msgid "No disc found for disc ID '%s'."
+#| msgid "No disc found for disc ID '%s'."
+msgid "No disc found for disc ID “%s”."
 msgstr "Нисам нашао диск за ИБ диска „%s“."
 
 #: ../src/gamepad/gamepad-mapping.vala:12
-msgid "The mapping string can't be null."
+#| msgid "The mapping string can't be null."
+msgid "The mapping string can’t be null."
 msgstr "Ниска мапирања не може бити ништавна."
 
 #: ../src/gamepad/gamepad-mapping.vala:15
-msgid "The mapping string can't be empty."
+#| msgid "The mapping string can't be empty."
+msgid "The mapping string can’t be empty."
 msgstr "Ниска мапирања не може бити празна."
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:42
 #, c-format
-msgid "Unable to open file '%s': %s"
+#| msgid "Unable to open file '%s': %s"
+msgid "Unable to open file “%s”: %s"
 msgstr "Не могу да отворим датотеку „%s“: %s"
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:46
 #, c-format
-msgid "Evdev is unable to open '%s': %s"
+#| msgid "Evdev is unable to open '%s': %s"
+msgid "Evdev is unable to open “%s”: %s"
 msgstr "Евдев не може да отвори „%s“: %s"
 
-#: ../src/retro/retro-core-source.vala:34
+#: ../src/retro/retro-core-source.vala:35
 #, c-format
-msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+#| msgid "No module found for platform '%s' and MIME types [ '%s' ]."
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Нисам нашао модул за платформу „%s“ и МИМЕ врсте [ „%s“ ]."
 
-#: ../src/retro/retro-runner.vala:218
+#: ../src/retro/retro-core-source.vala:35
+msgid "”, “"
+msgstr "“, „"
+
+#: ../src/retro/retro-core-source.vala:74
 #, c-format
-msgid "Invalid game file: '%s'."
+msgid "This games requires the %s firmware file to run."
+msgstr "Ове игре захтевају „%s“ датотеку уграђеног програма за покретање."
+
+#: ../src/retro/retro-core-source.vala:91
+#, c-format
+msgid ""
+"This games requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr ""
+"Ове игре захтевају „%s“ датотеку уграђеног програма са МД5 отиском „%s“ за "
+"покретање."
+
+#: ../src/retro/retro-core-source.vala:97
+#, c-format
+msgid ""
+"This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+"Ове игре захтевају „%s“ датотеку уграђеног програма са СХА-512 отиском „%s“ "
+"за покретање."
+
+#: ../src/retro/retro-platform.vala:7
+msgid "Amiga"
+msgstr "Амига"
+
+#: ../src/retro/retro-platform.vala:9
+msgid "Atari 2600"
+msgstr "Атари 2600"
+
+#: ../src/retro/retro-platform.vala:11
+msgid "Atari 5200"
+msgstr "Атари 5200"
+
+#: ../src/retro/retro-platform.vala:13
+msgid "Atari 7800"
+msgstr "Атари 7800"
+
+#: ../src/retro/retro-platform.vala:15
+msgid "DOOM"
+msgstr "ДООМ"
+
+#: ../src/retro/retro-platform.vala:17
+msgid "Dreamcast"
+msgstr "Дримкаст"
+
+#. translators: only released in eastern Asia
+#: ../src/retro/retro-platform.vala:20
+msgid "Famicom Disk System"
+msgstr "Фамиком диск систем"
+
+#: ../src/retro/retro-platform.vala:22
+#| msgid "Games"
+msgid "Game Boy"
+msgstr "Гејм Бој"
+
+#: ../src/retro/retro-platform.vala:24
+msgid "Game Boy Color"
+msgstr "Гејм Бој у Боји"
+
+#: ../src/retro/retro-platform.vala:26
+msgid "Game Boy Advance"
+msgstr "Гејм Бој Напредно"
+
+#: ../src/retro/retro-platform.vala:28
+msgid "Nintendo GameCube"
+msgstr "Нинтендо Гејм Коцка"
+
+#: ../src/retro/retro-platform.vala:30
+msgid "Game Gear"
+msgstr "Гејм Гир"
+
+#. translators: the "Multiple Arcade Machine Emulator"
+#: ../src/retro/retro-platform.vala:33
+msgid "MAME"
+msgstr "МАМЕ"
+
+#: ../src/retro/retro-platform.vala:35
+msgid "Neo Geo Pocket"
+msgstr "Нео Гео Покет"
+
+#. translators: known as "Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:38
+msgid "Nintendo Entertainment System"
+msgstr "Нинтендов систем за забаву"
+
+#: ../src/retro/retro-platform.vala:40
+msgid "Nintendo 64"
+msgstr "Нинтендо 64"
+
+#: ../src/retro/retro-platform.vala:42
+msgid "Nintendo DS"
+msgstr "Нинтендо ДС"
+
+#: ../src/retro/retro-platform.vala:44
+msgid "Nintendo 3DS"
+msgstr "Нинтендо 3ДС"
+
+#: ../src/retro/retro-platform.vala:46
+msgid "PlayStation"
+msgstr "ПлејСтејшн"
+
+#: ../src/retro/retro-platform.vala:48
+msgid "PlayStation 2"
+msgstr "ПлејСтејшн 2"
+
+#: ../src/retro/retro-platform.vala:50
+msgid "PlayStation 3"
+msgstr "ПлејСтејшн 3"
+
+#: ../src/retro/retro-platform.vala:52
+msgid "PlayStation 4"
+msgstr "ПлејСтејшн 4"
+
+#: ../src/retro/retro-platform.vala:54
+msgid "PlayStation Portable"
+msgstr "ПлејСтејшн Преносна"
+
+#: ../src/retro/retro-platform.vala:56
+msgid "PlayStation Vita"
+msgstr "ПлејСтејшн Вита"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: ../src/retro/retro-platform.vala:59
+msgid "Genesis 32X"
+msgstr "Џенезис 32Икс"
+
+#. translators: known as "Mega-CD" in most of the world
+#: ../src/retro/retro-platform.vala:62
+msgid "Sega CD"
+msgstr "Сега ЦД"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: ../src/retro/retro-platform.vala:65
+msgid "Sega CD 32X"
+msgstr "Сега ЦД 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: ../src/retro/retro-platform.vala:68
+msgid "Sega Genesis"
+msgstr "Сега Џенезис"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: ../src/retro/retro-platform.vala:71
+msgid "Sega Master System"
+msgstr "Сега Мастер Систем"
+
+#: ../src/retro/retro-platform.vala:73
+msgid "Sega Pico"
+msgstr "Сега Пико"
+
+#: ../src/retro/retro-platform.vala:75
+msgid "Sega Saturn"
+msgstr "Сега Сатурн"
+
+#: ../src/retro/retro-platform.vala:77
+msgid "SG-1000"
+msgstr "СГ-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:80
+msgid "Super Nintendo Entertainment System"
+msgstr "Супер Нинтендов систем за забаву"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:83
+msgid "TurboGrafx-16"
+msgstr "Турбо Графикс-16"
+
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:86
+msgid "TurboGrafx-CD"
+msgstr "Турбо Графикс-ЦД"
+
+#: ../src/retro/retro-platform.vala:88
+msgid "Wii"
+msgstr "Вии"
+
+#: ../src/retro/retro-platform.vala:90
+msgid "Wii U"
+msgstr "Вии У"
+
+#: ../src/retro/retro-platform.vala:92
+msgid "WiiWare"
+msgstr "ВииВер"
+
+#: ../src/retro/retro-runner.vala:214
+#, c-format
+#| msgid "Invalid game file: '%s'."
+msgid "Invalid game file: “%s”."
 msgstr "Неисправна датотека игре: „%s“."
+
+#: ../src/retro/retro-runner.vala:557
+#, c-format
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr "Систем „%s“ још није подржан, али се планира пуна подршка."
+
+#: ../src/retro/retro-runner.vala:560
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr "Систем још није подржан, али се планира пуна подршка."
 
 #: ../src/ui/application.vala:174
 msgid "GNOME Games"
@@ -434,17 +718,21 @@ msgstr ""
 "\n"
 "http://prevod.org — преводи на српски језик"
 
-#: ../src/ui/application-window.vala:466 ../src/ui/application-window.vala:483
-#| msgid "Play your games"
+#: ../src/ui/application-window.vala:283
+#| msgid "Unexpected end of tokens."
+msgid "An unexpected error occured."
+msgstr "Дошло је до неочекиане грешке."
+
+#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
 msgid "Playing a game"
 msgstr "Играм игру"
 
-#: ../src/ui/error-display.vala:11
+#: ../src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "Упсс! Не могу да покренем „%s“"
 
-#: ../src/ui/error-display.vala:13
+#: ../src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
 msgstr "Упсс! Не могу да покренем игру"
 
@@ -453,9 +741,19 @@ msgstr "Упсс! Не могу да покренем игру"
 msgid "Media %d"
 msgstr "Медиј %d"
 
+#. same as video-filters in gschema
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Smooth"
+msgstr "Меко"
+
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Sharp"
+msgstr "Оштро"
+
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
-msgid "'%s' doesn't have a track for index %u."
+#| msgid "'%s' doesn't have a track for index %u."
+msgid "“%s” doesn’t have a track for index %u."
 msgstr "„%s“ не садржи стазу за индекс %u."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:114
@@ -504,6 +802,13 @@ msgstr "%s:%lu: Неочекивани крај реда, очекивах си�
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Неочекивани симбол „%s“, очекивах крај реда."
+
+#~ msgid ""
+#~ "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+#~ msgstr "<b><span size=\"large\">Користи сопствени прозор игре</span></b>"
+
+#~ msgid "Invalid command: it doesn't have any argument."
+#~ msgstr "Неисправна наредба: не садржи ни један аргумент."
 
 #~ msgid "The file doesn't have a Game Boy header."
 #~ msgstr "Датотека не садржи „Game Boy“ заглавље."
