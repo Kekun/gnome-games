@@ -48,18 +48,6 @@
         "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-pcsx_rearmed.json",
         /* End libretro cores */
-        {
-            "name": "retro-gtk",
-            "config-opts": [
-                "--disable-static"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://git.gnome.org/browse/retro-gtk"
-                }
-            ]
-        },
         "org.lua.modules.json",
         {
             "name": "grilo",
@@ -119,6 +107,18 @@
                 {
                      "type": "git",
                      "url": "https://anongit.freedesktop.org/git/libevdev.git"
+                }
+            ]
+        },
+        {
+            "name": "retro-gtk",
+            "config-opts": [
+                "--disable-static"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/retro-gtk"
                 }
             ]
         },
