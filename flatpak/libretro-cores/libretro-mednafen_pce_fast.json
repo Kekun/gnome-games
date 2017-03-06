@@ -17,7 +17,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/Kekun/beetle-pce-fast-libretro"
+                    "url": "https://github.com/libretro/beetle-pce-fast-libretro"
                 },
                 {
                     "type": "file",
