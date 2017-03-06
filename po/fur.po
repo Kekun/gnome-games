@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-03-05 09:46+0000\n"
-"PO-Revision-Date: 2017-03-05 21:44+0100\n"
+"PO-Revision-Date: 2017-03-06 21:33+0100\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
@@ -35,8 +35,8 @@ msgid ""
 "easily pick and play a game from it. It aims to do for games what Music "
 "already does for your music library."
 msgstr ""
-"Zûcs e je une aplicazion di GNOME 3 par navigâ te tô librarie di video-zûcs "
-"e facilmentri cjoli e zuiâ a un zûc di chei. Al à la finalitât di fâ ce che "
+"Zûcs e je une aplicazion di GNOME 3 par navigâ te tô librarie di videozûcs e "
+"facilmentri cjoli e zuiâ a un zûc di chei. Al à la finalitât di fâ ce che "
 "Musiche e fâs pe tô librarie di musichis."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:4
@@ -45,6 +45,9 @@ msgid ""
 "to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
+"Tu vûs instalâ Zûcs se tu âs pardabon voie di vê une semplice e pratiche "
+"maniere par zuiâ ai tiei zûcs e no ti coventin funzionalitâts avanzadis come "
+"un strument di acelerazion o struments di svilup par videozûcs."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:5
 msgid "Features:"
@@ -53,10 +56,11 @@ msgstr "Funzionalitâts:"
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
+"Liste i tiei zûcs instalâts, i tiei zûcs di Steam, lis tôs ROM dai zûcs..."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:7
 msgid "Search in your games collection"
-msgstr ""
+msgstr "Cîr te tô colezion di zûcs"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:8
 msgid "Play your games"
@@ -64,19 +68,19 @@ msgstr "Zuie ai tiei zûcs"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:9
 msgid "Resume your game to where you left it"
-msgstr ""
+msgstr "Ripie il zûc di dulà che tu lu vevis lassât"
 
 #: ../data/org.gnome.Games.desktop.in.h:2
 msgid "Video game player"
-msgstr ""
+msgstr "Riprodutôr di videozûcs"
 
 #: ../data/org.gnome.Games.desktop.in.h:3
 msgid "View and play your video games collection"
-msgstr ""
+msgstr "Viôt e zuie la tô colezion di videozûcs"
 
 #: ../data/org.gnome.Games.desktop.in.h:4
 msgid "game;videogame;video game;player;"
-msgstr ""
+msgstr "zûc;videozûc;video zûc;zuiadôr;"
 
 #: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
 msgid "Fullscreen"
@@ -84,17 +88,19 @@ msgstr "Plen visôr"
 
 #: ../data/org.gnome.Games.gschema.xml.h:2
 msgid "Whether the games should be displayed in full screen or not."
-msgstr ""
+msgstr "Indiche se i zûcs a àn di jessi mostrâts a plen visôr o no."
 
 #: ../data/org.gnome.Games.gschema.xml.h:3
 msgid "Video filter"
-msgstr ""
+msgstr "Filtri video"
 
 #: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels)."
 msgstr ""
+"Filtre la jessude dal video dai zûcs. I valôrs permetûts a son: "
+"“smooth” (pixel fûr fûc), “sharp” (pixel scuadrâts)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -142,15 +148,15 @@ msgstr "Ripristine"
 
 #: ../data/ui/dummy-display.ui.h:1
 msgid "This is a dummy game display"
-msgstr ""
+msgstr "Cheste e je une finte videade di zûc"
 
 #: ../data/ui/dummy-display.ui.h:2
 msgid "If you see this, this is a bug."
-msgstr ""
+msgstr "Se tu viodi chest, chest al è un bug."
 
 #: ../data/ui/dummy-display.ui.h:3
 msgid "Please contact the developers."
-msgstr ""
+msgstr "Par plasê contate i svilupadôrs."
 
 #: ../data/ui/empty-collection.ui.h:1
 msgid "No games found"
@@ -160,10 +166,11 @@ msgstr "Nissun zûc cjatât"
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
+"Instale zûcs o zonte cartelis che a contegnin zûcs ae tô sorzint di ricercje."
 
 #: ../data/ui/media-menu-button.ui.h:1
 msgid "Media"
-msgstr ""
+msgstr "Supuarts"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
@@ -188,11 +195,11 @@ msgstr "Estensions"
 
 #: ../data/ui/quit-dialog.ui.h:1
 msgid "Are you sure you want to quit?"
-msgstr ""
+msgstr "Sigûrs di jessî?"
 
 #: ../data/ui/quit-dialog.ui.h:2
 msgid "All unsaved progress will be lost."
-msgstr ""
+msgstr "Ducj i progrès no salvâts a laran pierdûts."
 
 #: ../data/ui/quit-dialog.ui.h:3
 msgid "Quit"
@@ -204,19 +211,19 @@ msgstr "Anule"
 
 #: ../data/ui/remote-display.ui.h:1
 msgid "Use the game’s own window to play it"
-msgstr ""
+msgstr "Dopre il barcon natîf dal zûc par podê zuiâ cun lui"
 
 #: ../data/ui/remote-display.ui.h:2
 msgid "This game isn’t integrated to GNOME Games."
-msgstr ""
+msgstr "Chest zûc nol è integrât cun GNOME Zûcs."
 
 #: ../data/ui/remote-display.ui.h:3
 msgid "You have to use its own window to play it."
-msgstr ""
+msgstr "Tu scugnis doprâ il so barcon natîf par podê zuiâ cun lui."
 
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
-msgstr ""
+msgstr "Ripiâ l'ultime partide?"
 
 #: ../data/ui/resume-dialog.ui.h:2
 msgid "Resume"
@@ -228,7 +235,7 @@ msgstr "Torne invie"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to to restart the game?"
-msgstr ""
+msgstr "Ripiâ falît. Tornâ a tacâ il zûc?"
 
 #: ../data/ui/resume-failed-dialog.ui.h:2
 msgid "Reset"
@@ -237,161 +244,161 @@ msgstr "Reset"
 #: ../plugins/desktop/src/desktop-tracker-query.vala:56
 #, c-format
 msgid "Invalid command “%s”."
-msgstr ""
+msgstr "Comant “%s” no valit."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:84
 #, c-format
 msgid "Tracker listed file not found: “%s”."
-msgstr ""
+msgstr "File listât dal tracker no cjatât: “%s”."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:90
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
-msgstr ""
+msgstr "Impussibil analizâ la vôs scritori “%s”."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
-msgstr ""
+msgstr "“%s” al à metût te liste nere la categorie “%s”."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
-msgstr ""
+msgstr "“%s” al à metût te liste nere l'eseguibil “%s”."
 
 #: ../plugins/desktop/src/desktop-tracker-query.vala:119
 #, c-format
 msgid "“%s” is blacklisted."
-msgstr ""
+msgstr "“%s” al è te liste nere."
 
 #: ../plugins/dreamcast/src/dreamcast-header.vala:54
 msgid "The file doesn’t have a Dreamcast header."
-msgstr ""
+msgstr "Il file nol à une intestazion Dreamcast."
 
 #: ../plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn’t have a Game Cube header."
-msgstr ""
+msgstr "Il file nol à une intestazion Game Cube."
 
 #: ../plugins/love/src/love-package.vala:13
 #: ../plugins/love/src/love-package.vala:17
 #, c-format
 msgid "This doesn’t represent a valid LÖVE package: “%s”."
-msgstr ""
+msgstr "Chest nol rapresente un pachet LÖVE valit: “%s”."
 
 #: ../plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
-msgstr ""
+msgstr "Id zûc MAME “%s” par “%s” no valit."
 
 #: ../plugins/master-system/src/master-system-header.vala:69
 msgid "The file doesn’t have a Master System header."
-msgstr ""
+msgstr "Il file nol à une intestazion Master System."
 
 #: ../plugins/mega-drive/src/mega-drive-header.vala:65
 #: ../plugins/mega-drive/src/mega-drive-header.vala:84
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-msgstr ""
+msgstr "Il file nol à une intestazion Genesis/Sega 32X/Sega CD/Sega Pico."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
 #, c-format
 msgid "The file “%s” doesn’t have a track."
-msgstr ""
+msgstr "Il file “%s” nol à une linie(track)."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
-msgstr ""
+msgstr "Il file “%s” nol à un formât file binari valit."
 
 #: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
-msgstr ""
+msgstr "Il file “%s” nol à une modalitât linie valide pe linie %d."
 
 #: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
 msgid "Disc with disc_id %s is unknown"
-msgstr ""
+msgstr "Il disc cun disc_id %s nol è cognossût"
 
 #: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
-msgstr ""
+msgstr "Intestazion PlayStation no valide: ID disc no cjatât in “%s”."
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn’t have a Sega Saturn header."
-msgstr ""
+msgstr "Il file nol à une intestazion Sega Saturn."
 
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
-msgstr ""
+msgstr "Il file “%s” nol à un file binari Sega Saturn valit."
 
 #: ../plugins/steam/src/steam-game-source.vala:99
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
-msgstr ""
+msgstr "Impussibil otignî appid di Steam dal manifest “%s”."
 
 #: ../plugins/steam/src/steam-registry.vala:68
 #, c-format
 msgid "File “%s” doesn’t exist."
-msgstr ""
+msgstr "Il file “%s” nol esist."
 
 #: ../plugins/steam/src/steam-registry.vala:96
 msgid "Unexpected token '{'."
-msgstr ""
+msgstr "Toke inspietât '{'."
 
 #: ../plugins/steam/src/steam-registry.vala:110
 msgid "Unexpected end of tokens."
-msgstr ""
+msgstr "Fin dai token inspietade."
 
 #: ../plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
-msgstr ""
+msgstr "Toke inspietât '}'."
 
 #: ../plugins/steam/src/steam-title.vala:17
 msgid "Couldn’t get name from Steam registry."
-msgstr ""
+msgstr "Impussibil vê il non dal regjistri Steam."
 
 #: ../plugins/wii/src/wii-header.vala:20
 #, c-format
 msgid "Invalid Wii header size: %s"
-msgstr ""
+msgstr "Dimension de intestazion Wii no valide: %s"
 
 #: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
 msgid "The file doesn’t have a Wii header."
-msgstr ""
+msgstr "Il file nol à une intestazion Wii."
 
 #: ../plugins/wii/src/wii-header.vala:55
 #, c-format
 msgid "Couldn’t read file: %s"
-msgstr ""
+msgstr "Impussibil lei il file: %s"
 
 #: ../src/command/command-runner.vala:33
 msgid "The game doesn’t have a valid command."
-msgstr ""
+msgstr "Il zûc nol à un comant valit."
 
 #: ../src/command/command-runner.vala:64
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
-msgstr ""
+msgstr "Impussibil eseguî “%s”: esecuzion falide."
 
 #: ../src/core/media-set/media-set.vala:31
 #, c-format
 msgid "Invalid media index %u."
-msgstr ""
+msgstr "Indiç dal supuart %u no valit."
 
 #: ../src/core/plugin-registrar.vala:27
 #, c-format
 msgid "Invalid plugin descriptor: %s"
-msgstr ""
+msgstr "Descritôr plugin no valit: %s"
 
 #: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
-msgstr ""
+msgstr "Impussibil creâ une gnove istance dal plugin in “%s”."
 
 #: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -401,60 +408,62 @@ msgstr "Disc %d"
 #: ../src/gameinfo/gameinfo-doc.vala:15
 #, c-format
 msgid "No game title found for disc ID “%s”."
-msgstr ""
+msgstr "Nissun titul di zûc cjatât pal ID dal disc “%s”."
 
 #: ../src/gameinfo/gameinfo-doc.vala:31
 #, c-format
 msgid "No disc title found for disc ID “%s”."
-msgstr ""
+msgstr "Nissun titul di disc cjatât pal ID dal disc “%s”."
 
 #: ../src/gameinfo/gameinfo-doc.vala:41
 #, c-format
 msgid "No disc set ID found for disc ID “%s”."
-msgstr ""
+msgstr "ID dal grup di disc no cjatât pal ID dal disc “%s”."
 
 #: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
 #, c-format
 msgid "No disc found for disc ID “%s”."
-msgstr ""
+msgstr "Nissun disc cjatât pal ID dal disc “%s”."
 
 #: ../src/gamepad/gamepad-mapping.vala:12
 msgid "The mapping string can’t be null."
-msgstr ""
+msgstr "La stringhe di mapadure no pues jessi nule."
 
 #: ../src/gamepad/gamepad-mapping.vala:15
 msgid "The mapping string can’t be empty."
-msgstr ""
+msgstr "La stringhe di mapadure no pues jessi vueide."
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:42
 #, c-format
 msgid "Unable to open file “%s”: %s"
-msgstr ""
+msgstr "Impussibil vierzi il file “%s”: %s"
 
 #: ../src/gamepad/linux/linux-raw-gamepad.vala:46
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
-msgstr ""
+msgstr "Evdev nol rive a vierzi “%s”: %s"
 
 #: ../src/retro/retro-core-source.vala:35
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
-msgstr ""
+msgstr "Nissun modul cjatât pe plateforme “%s” e gjenars MIME [ “%s” ]."
 
 #: ../src/retro/retro-core-source.vala:35
 msgid "”, “"
-msgstr ""
+msgstr "”, “"
 
 #: ../src/retro/retro-core-source.vala:74
 #, c-format
 msgid "This games requires the %s firmware file to run."
-msgstr ""
+msgstr "Chescj zûcs a domandin il file dal firmware di %s par zirâ."
 
 #: ../src/retro/retro-core-source.vala:91
 #, c-format
 msgid ""
 "This games requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
+"Chescj zûcs a domandin il file dal firmware di %s cuntune impronte digjitâl "
+"MD5 di %s par zirâ."
 
 #: ../src/retro/retro-core-source.vala:97
 #, c-format
@@ -462,6 +471,8 @@ msgid ""
 "This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
+"Chescj zûcs a domandin il file dal firmware di %s cuntune impronte digjitâl "
+"SHA-512 di %s par zirâ."
 
 #: ../src/retro/retro-platform.vala:7
 msgid "Amiga"
@@ -629,28 +640,29 @@ msgstr "WiiWare"
 #: ../src/retro/retro-runner.vala:214
 #, c-format
 msgid "Invalid game file: “%s”."
-msgstr ""
+msgstr "File di zûc no valit: “%s”."
 
 #: ../src/retro/retro-runner.vala:557
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
+"Il sisteme “%s” nol è ancjemò supuartât, ma il plen supuart al è programât."
 
 #: ../src/retro/retro-runner.vala:560
 msgid "The system isn’t supported yet, but full support is planned."
-msgstr ""
+msgstr "Il sisteme nol è ancjemò supuartât, ma il plen supuart al è programât."
 
 #: ../src/ui/application.vala:174
 msgid "GNOME Games"
-msgstr "Zûcs GNOME"
+msgstr "GNOME Zûcs"
 
 #: ../src/ui/application.vala:176
 msgid "A video game player for GNOME"
-msgstr ""
+msgstr "Un riprodutôr di videozûcs par GNOME"
 
 #: ../src/ui/application.vala:180
 msgid "Learn more about GNOME Games"
-msgstr ""
+msgstr "Plui informazions su GNOME Zûcs"
 
 #: ../src/ui/application.vala:187
 msgid "translator-credits"
@@ -658,81 +670,84 @@ msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
 #: ../src/ui/application-window.vala:283
 msgid "An unexpected error occured."
-msgstr ""
+msgstr "Al è vignût fûr un erôr inspietât."
 
 #: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
 msgid "Playing a game"
-msgstr ""
+msgstr "Daûr a zuiâ un zûc"
 
 #: ../src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
-msgstr ""
+msgstr "Orpo! Impussibil eseguî “%s”"
 
 #: ../src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
-msgstr ""
+msgstr "Orpo! Impussibil eseguî il zûc"
 
 #: ../src/ui/media-selector.vala:33
 #, c-format
 msgid "Media %d"
-msgstr ""
+msgstr "Supuart %d"
 
 #. same as video-filters in gschema
 #: ../src/ui/preferences-page-video.vala:29
 msgid "Smooth"
-msgstr ""
+msgstr "Fûr fûc"
 
 #: ../src/ui/preferences-page-video.vala:29
 msgid "Sharp"
-msgstr ""
+msgstr "Scuadrât"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
 msgid "“%s” doesn’t have a track for index %u."
-msgstr ""
+msgstr "“%s” nol à une linie (track) pal indiç %u."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:114
 #, c-format
 msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
 msgstr ""
+"%s:%lu: formât di file %s no valit, si spietave un formât di file valit o "
+"nissun."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:121
 #, c-format
 msgid "%s:%lu: Unexpected token TRACK before a FILE token."
-msgstr ""
+msgstr "%s:%lu: token TRACK inspietât prime di un token FILE."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:130
 #, c-format
 msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
-msgstr ""
+msgstr "%s:%lu: numar di linie %s no valit, si spietave un numar jenfri 1-99."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:134
 #, c-format
 msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
 msgstr ""
+"%s:%lu: modalitât linie %s no valide, si spietave une modalitât linie valide."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:141
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected %s."
-msgstr ""
+msgstr "%s:%lu: fin dal file inspietade, si spietave %s."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:144
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected %s."
-msgstr ""
+msgstr "%s:%lu: token %s inspietât, si spietave %s."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:151
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected a token."
-msgstr ""
+msgstr "%s:%lu: fin dal file inspietade, si spietave un token."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:154
 #, c-format
 msgid "%s:%lu: Unexpected end of line, expected a token."
-msgstr ""
+msgstr "%s:%lu: fin de rie inspietade, si spietave un token."
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:177
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
-msgstr ""
+msgstr "%s:%lu: token %s inspietât, si spietave la fin de rie."
