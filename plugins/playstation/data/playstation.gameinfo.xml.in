@@ -11,7 +11,7 @@
       </controllers>
     </game>
     <game>
-      <_title>'98 Koshien [Magical 1500 Series]'</_title>
+      <_title>'98 Koshien [Magical 1500 Series]</_title>
       <discs>
         <disc id="SLPS-03086"/>
       </discs>
@@ -89,7 +89,7 @@
       </discs>
     </game>
     <game>
-      <_title>007 - Der Morgen Stirbt Ni</_title>
+      <_title>007 - Der Morgen Stirbt Nie</_title>
       <discs>
         <disc id="SLES-02376"/>
       </discs>
@@ -999,9 +999,27 @@
       </controllers>
     </game>
     <game>
+      <_title>Ai Mahjong Selection [Majorwave 1500 Series]</_title>
+      <discs>
+        <disc id="SLPM-87117"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
       <_title>Ai Shogi</_title>
       <discs>
         <disc id="SLPS-00109"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
+      <_title>Ai Shogi 2</_title>
+      <discs>
+        <disc id="SLPS-01159"/>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -1587,9 +1605,6 @@
       <discs>
         <disc id="SCPS-45449"/>
       </discs>
-    </game>
-    <game>
-      <_title>Alundra 2</_title>
       <discs>
         <disc id="SLES-02600"/>
       </discs>
@@ -2704,6 +2719,15 @@
       </discs>
     </game>
     <game>
+      <_title>Asonde Aiueo</_title>
+      <discs>
+        <disc id="SLPS-03540"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
       <_title>Assault</_title>
       <discs>
         <disc id="SLES-01244"/>
@@ -2744,18 +2768,6 @@
       <discs>
         <disc id="SLPM-86872"/>
       </discs>
-    </game>
-    <game>
-      <_title>Asterix</_title>
-      <discs>
-        <disc id="SLES-01416"/>
-      </discs>
-      <discs>
-        <disc id="SLES-01748"/>
-      </discs>
-      <controllers>
-        <controller type="classic-gamepad"/>
-      </controllers>
     </game>
     <game>
       <_title>Asterix</_title>
@@ -3535,6 +3547,12 @@
       <_title>Barbie Aventuriére</_title>
       <discs>
         <disc id="SLES-03693"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Barbie Esploratrice</_title>
+      <discs>
+        <disc id="SLES-03695"/>
       </discs>
     </game>
     <game>
@@ -5295,9 +5313,6 @@
       <discs>
         <disc id="SCPS-45291"/>
       </discs>
-    </game>
-    <game>
-      <_title>Brave Fencer Musashiden</_title>
       <discs includes="Brave Fencer Musashiden + Square's Preview 3">
         <disc id="SLPS-01490"/>
         <disc id="SLPS-01491"/>
@@ -6702,22 +6717,22 @@
       </discs>
     </game>
     <game>
-      <_title>Chase the Express - El Expreso de la Muerte</_title>
+      <_title>Chase the Express</_title>
       <discs>
         <disc id="SCES-02812"/>
-        <disc id="SLES-12812"/>
+        <disc id="SCES-12812"/>
       </discs>
       <discs>
         <disc id="SCES-02814"/>
-        <disc id="SLES-12814"/>
+        <disc id="SCES-12814"/>
       </discs>
       <discs>
         <disc id="SCES-02815"/>
-        <disc id="SLES-12815"/>
+        <disc id="SCES-12815"/>
       </discs>
       <discs>
         <disc id="SCES-02816"/>
-        <disc id="SLES-12816"/>
+        <disc id="SCES-12816"/>
       </discs>
       <discs>
         <disc id="SCPS-10109"/>
@@ -7723,18 +7738,6 @@
       <_title>Cocktail Harmony</_title>
       <discs>
         <disc id="SLPS-01569"/>
-      </discs>
-    </game>
-    <game>
-      <_title>Cocktail no Recipe [Simple 1500 Jitsuyou Series]</_title>
-      <discs>
-        <disc id="SLPM-86707"/>
-      </discs>
-    </game>
-    <game>
-      <_title>Cocktail no Recipe [Simple 1500 Jitsuyou Series]</_title>
-      <discs>
-        <disc id="SLPM-86707"/>
       </discs>
     </game>
     <game>
@@ -19154,9 +19157,27 @@
       </discs>
     </game>
     <game>
+      <_title>Hissatsu Pachinko Station - Now7 - Magical Circus</_title>
+      <discs>
+        <disc id="SLPS-03107"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Hissatsu Pachinko Station - Now8 - Jarinko Chie</_title>
+      <discs>
+        <disc id="SLPS-03129"/>
+      </discs>
+    </game>
+    <game>
       <_title>Hissatsu Pachinko Station - Now9</_title>
       <discs>
         <disc id="SLPS-03365"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Hissatsu Pachinko Station 10 - Ex Jack 2000 &amp; Super Dragon</_title>
+      <discs>
+        <disc id="SLPS-02990"/>
       </discs>
     </game>
     <game>
@@ -19205,6 +19226,12 @@
       </discs>
     </game>
     <game>
+      <_title>Hissatsu Pachinko Station 7</_title>
+      <discs>
+        <disc id="SLPS-02408"/>
+      </discs>
+    </game>
+    <game>
       <_title>Hissatsu Pachinko Station 8 - Kamashi no Kin-chan &amp; Soreyuke Hama-chan</_title>
       <discs>
         <disc id="SLPS-02677"/>
@@ -19214,6 +19241,12 @@
       <_title>Hissatsu Pachinko Station 9 - Ushiwaka to Lemi</_title>
       <discs>
         <disc id="SLPS-02765"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Hissatsu Pachinko Station Puchi 2 - Areddin the Great</_title>
+      <discs>
+        <disc id="SLPS-02493"/>
       </discs>
     </game>
     <game>
@@ -19319,6 +19352,15 @@
       <_title>Honkaku Hanafuda [Rerelease]</_title>
       <discs>
         <disc id="SLPS-03119"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
+      <_title>Honkaku Igo</_title>
+      <discs>
+        <disc id="SLPS-00986"/>
       </discs>
       <controllers>
         <controller type="classic-gamepad"/>
@@ -25400,6 +25442,12 @@
       </discs>
     </game>
     <game>
+      <_title>MTV Sports Skateboarding Featuring Andy MacDonald</_title>
+      <discs>
+        <disc id="SLUS-01232"/>
+      </discs>
+    </game>
+    <game>
       <_title>MTV Sports Snowboarding</_title>
       <discs>
         <disc id="SLES-02353"/>
@@ -26330,12 +26378,18 @@
       <discs>
         <disc id="SLPS-01426"/>
       </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
     </game>
     <game>
       <_title>Masumon Kids - The Another World of The Master of Monsters (Major Wave Series)</_title>
       <discs>
         <disc id="SLPM-86520"/>
       </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
     </game>
     <game>
       <_title>Mat Hoffman's Pro BMX</_title>
@@ -28045,13 +28099,13 @@
       </discs>
     </game>
     <game>
-      <_title>Monster Complete World (Idea Factory Collection)</_title>
+      <_title>Monster Complete World [Idea Factory Collection]</_title>
       <discs>
         <disc id="SLPS-02783"/>
       </discs>
     </game>
     <game>
-      <_title>Monster Complete World (SuperLite 1500 Series)</_title>
+      <_title>Monster Complete World [SuperLite 1500 Series]</_title>
       <discs>
         <disc id="SLPM-87120"/>
       </discs>
@@ -28196,7 +28250,7 @@
       </controllers>
     </game>
     <game>
-      <_title>Moon Remix RPG Adventure (Playstation the Best)</_title>
+      <_title>Moon Remix RPG Adventure [Playstation the Best]</_title>
       <discs>
         <disc id="SLPS-91112"/>
       </discs>
@@ -32166,6 +32220,17 @@
       </discs>
     </game>
     <game>
+      <_title>Overblood 2</_title>
+      <discs>
+        <disc id="SCPS-45190"/>
+        <disc id="SCPS-45191"/>
+      </discs>
+      <discs>
+        <disc id="SLPS-01261"/>
+        <disc id="SLPS-01262"/>
+      </discs>
+    </game>
+    <game>
       <_title>Overblood 2 [PlayStation the Best]</_title>
       <discs>
         <disc id="SLPS-91140"/>
@@ -32428,6 +32493,18 @@
       </controllers>
     </game>
     <game>
+      <_title>Pachi Slot Teiou W - Arabesque R - Hot Rod Queen</_title>
+      <discs>
+        <disc id="SLPS-02782"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Pachi Slot Teiou W - Arabesque R - Hot Rod Queen [Best of the Best]</_title>
+      <discs>
+        <disc id="SLPS-03210"/>
+      </discs>
+    </game>
+    <game>
       <_title>Pachi-Slot Aruze Oukoku</_title>
       <discs>
         <disc id="SLPS-01968"/>
@@ -32482,6 +32559,15 @@
       </discs>
     </game>
     <game>
+      <_title>Pachi-Slot Kanzen Kouryaku - Takasago Super Project</_title>
+      <discs>
+        <disc id="SLPS-03110"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
       <_title>Pachi-Slot Kanzen Kouryaku - Takasago Super Project 2</_title>
       <discs>
         <disc id="SLPM-86962"/>
@@ -32506,6 +32592,12 @@
       <_title>Pachi-Slot Teiou - Battle Knight &amp; Atlantis Doom [Best of The Best]</_title>
       <discs>
         <disc id="SLPS-03476"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Pachi-Slot Teiou - Beat the Dragon 2 [Best of the Best]</_title>
+      <discs>
+        <disc id="SLPS-03475"/>
       </discs>
     </game>
     <game>
@@ -32542,6 +32634,12 @@
       <_title>Pachi-Slot Teiou - Golgo 13 &amp; Las Vegas</_title>
       <discs>
         <disc id="SLPS-03441"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Pachi-Slot Teiou - Maker Suishou Manual 1 - Beat the Dragon 2</_title>
+      <discs>
+        <disc id="SLPS-03029"/>
       </discs>
     </game>
     <game>
@@ -32602,6 +32700,12 @@
       <_title>Pachi-Slot Teiou - Twist - Shimauta 30 - Nankoku Monogatari</_title>
       <discs>
         <disc id="SLPS-03442"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Pachi-Slot Teiou - Yamasa Remix</_title>
+      <discs>
+        <disc id="SLPS-02905"/>
       </discs>
     </game>
     <game>
@@ -32680,6 +32784,21 @@
       </controllers>
     </game>
     <game>
+      <_title>Pachinko Hall - Shinso Dai Kaiten</_title>
+      <discs>
+        <disc id="SLPS-01089"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
+      <_title>Pachinko Teiou - CR Sore Ute Hama-chan 2 &amp; CR Sore Yuke Matchan S</_title>
+      <discs>
+        <disc id="SLPS-03254"/>
+      </discs>
+    </game>
+    <game>
       <_title>Pachiokun - Pachinko Land Adventure</_title>
       <discs>
         <disc id="SLPS-00037"/>
@@ -32692,6 +32811,18 @@
       <_title>Pachitte Chonmage</_title>
       <discs>
         <disc id="SLPS-02419"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Pachitte Chonmage 2 - Kyoraku Kounin Tanukichi 2000 &amp; Jungle P</_title>
+      <discs>
+        <disc id="SLPS-02575"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Pachitte Chonmage 3 - Kyoraku Kounin Gladiator &amp; Tama-chan</_title>
+      <discs>
+        <disc id="SLPS-03422"/>
       </discs>
     </game>
     <game>
@@ -33058,6 +33189,12 @@
       <_title>Parlor! Pro 7</_title>
       <discs>
         <disc id="SLPS-01971"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Parlor! Pro 8</_title>
+      <discs>
+        <disc id="SLPS-02483"/>
       </discs>
     </game>
     <game>
@@ -33693,6 +33830,30 @@
       <_title>Play de Oboeru - Eitango Deruderu 1700 [Rerelease]</_title>
       <discs>
         <disc id="SLPS-02544"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Play de Oboeru Eijukugo Deruderu 750</_title>
+      <discs>
+        <disc id="SLPM-89008"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Play de Oboeru Eijukugo Deruderu 750 [Reprint]</_title>
+      <discs>
+        <disc id="SLPS-02907"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Play de Oboeru Series - Play de Oboeru Kanji Kentei Deruderu 1100</_title>
+      <discs>
+        <disc id="SLPS-03099"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Play de Oboeru Series - Play de Oboeru Kanji Kentei Deruderu 1100 [Deluxe Package]</_title>
+      <discs>
+        <disc id="SLPM-89009"/>
       </discs>
     </game>
     <game>
@@ -34593,6 +34754,24 @@
       <discs>
         <disc id="SLPS-02938"/>
       </discs>
+    </game>
+    <game>
+      <_title>Pro Mahjong Tsuwamono 2</_title>
+      <discs>
+        <disc id="SLPS-01987"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
+      <_title>Pro Mahjong Tsuwamono 2 [BPV]</_title>
+      <discs>
+        <disc id="SLPS-03065"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
     </game>
     <game>
       <_title>Pro Pinball</_title>
@@ -36552,6 +36731,15 @@
       </controllers>
     </game>
     <game>
+      <_title>Riichi Mahjong - Ohitorisama demo Utemasu!</_title>
+      <discs>
+        <disc id="SLPS-03023"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
       <_title>Rikujou Boueitai Maochan</_title>
       <discs>
         <disc id="SLPM-87210"/>
@@ -36666,7 +36854,7 @@
       </discs>
     </game>
     <game>
-      <_title>Rittai Ninja Katsugeki Tenchu - Shinobi Haykusen</_title>
+      <_title>Rittai Ninja Katsugeki Tenchu - Shinobi Hyakusen</_title>
       <discs>
         <disc id="SLPS-02400"/>
       </discs>
@@ -39863,6 +40051,12 @@
       <controllers>
         <controller type="classic-gamepad"/>
       </controllers>
+    </game>
+    <game>
+      <_title>Simple 1500 Jitsuyou Series Vol.06 - Cocktail no Recipe</_title>
+      <discs>
+        <disc id="SLPM-86707"/>
+      </discs>
     </game>
     <game>
       <_title>Simple 1500 Jitsuyou Series Vol.07 - Tanoshiku Manabu Unten Menkyo</_title>
@@ -44095,6 +44289,12 @@
       </controllers>
     </game>
     <game>
+      <_title>Superlite 1500 Series - Crossword 2</_title>
+      <discs>
+        <disc id="SLPM-86535"/>
+      </discs>
+    </game>
+    <game>
       <_title>Superlite 1500 Series - Oekaki Puzzle Vol.1</_title>
       <discs>
         <disc id="SLPS-02068"/>
@@ -44129,6 +44329,15 @@
       <discs>
         <disc id="SLPM-86659"/>
       </discs>
+    </game>
+    <game>
+      <_title>Superlite 1500 Series - Reversi II</_title>
+      <discs>
+        <disc id="SLPM-86282"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
     </game>
     <game>
       <_title>Superlite 3 in 1 - Arcade Classic Syuu</_title>
@@ -44500,7 +44709,7 @@
       </discs>
     </game>
     <game>
-      <_title>TOCA Touring Car Championship</_title>
+      <_title>TOCA Touring Car Championship [Platinum Version]</_title>
       <discs>
         <disc id="SLES-00376"/>
       </discs>
@@ -44881,6 +45090,12 @@
       <_title>Tamamayu Monogatari [Playstation The Best]</_title>
       <discs>
         <disc id="SLPS-91154"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Tanaka Torahiko no Ultra-ryuu Shougi - Ibisha Anaguma-hen</_title>
+      <discs>
+        <disc id="SLPS-02261"/>
       </discs>
     </game>
     <game>
@@ -45674,6 +45889,15 @@
       </controllers>
     </game>
     <game>
+      <_title>Tettei Kaiseki - Hissyou Pachislot Doujyho - Yamasa &amp; Pioneer</_title>
+      <discs>
+        <disc id="SLPS-01718"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
+    </game>
+    <game>
       <_title>That's Pon!</_title>
       <discs>
         <disc id="SLPS-00051"/>
@@ -46455,6 +46679,15 @@
       </controllers>
     </game>
     <game>
+      <_title>The Land Before Time - Big Water Adventure</_title>
+      <discs>
+        <disc id="SLES-04055"/>
+      </discs>
+      <discs>
+        <disc id="SLUS-01481"/>
+      </discs>
+    </game>
+    <game>
       <_title>The Land Before Time - Great Valley Racing Adventure</_title>
       <discs>
         <disc id="SLUS-01213"/>
@@ -46476,12 +46709,6 @@
       <_title>The Land Before Time - Return to the Great Valley</_title>
       <discs>
         <disc id="SLES-02981"/>
-      </discs>
-    </game>
-    <game>
-      <_title>The Land Before Time: Big Water Adventure</_title>
-      <discs>
-        <disc id="SLUS-01481"/>
       </discs>
     </game>
     <game>
@@ -47021,6 +47248,12 @@
       </discs>
     </game>
     <game>
+      <_title>The Uranai 3 - Mainichi no Houi Uranai</_title>
+      <discs>
+        <disc id="SLPS-02898"/>
+      </discs>
+    </game>
+    <game>
       <_title>The Uranai 4 - Harapeko Kuma no Kaiun Kabbalah Uranai</_title>
       <discs>
         <disc id="SLPS-02899"/>
@@ -47028,6 +47261,18 @@
       <controllers>
         <controller type="classic-gamepad"/>
       </controllers>
+    </game>
+    <game>
+      <_title>The Uranai 5 - Shinpi no Rune Uranai</_title>
+      <discs>
+        <disc id="SLPS-03053"/>
+      </discs>
+    </game>
+    <game>
+      <_title>The Uranai 6 - Suisei-san no Tottemo Kyuusei Senseijutsu</_title>
+      <discs>
+        <disc id="SLPS-03054"/>
+      </discs>
     </game>
     <game>
       <_title>The Vision of Escaflowne</_title>
@@ -47108,6 +47353,12 @@
         <disc id="SLUS-00949"/>
         <disc id="SLUS-00950"/>
         <disc id="SLUS-00951"/>
+      </discs>
+    </game>
+    <game>
+      <_title>The Yellow Monkey - Trancemission VJ Remix</_title>
+      <discs>
+        <disc id="SLPM-86473"/>
       </discs>
     </game>
     <game>
@@ -47382,6 +47633,12 @@
       </discs>
       <discs>
         <disc id="SLUS-01273"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Tiger Woods USA Tour 2000</_title>
+      <discs>
+        <disc id="SLES-02595"/>
       </discs>
     </game>
     <game>
@@ -48806,6 +49063,12 @@
       </controllers>
     </game>
     <game>
+      <_title>Toyomaru Club Vol. 1 - CR Nanasy</_title>
+      <discs>
+        <disc id="SLPS-03242"/>
+      </discs>
+    </game>
+    <game>
       <_title>Toyota Netz Racing</_title>
       <discs>
         <disc id="SLPM-80429"/>
@@ -49755,6 +50018,15 @@
       <discs>
         <disc id="SCPS-91226"/>
       </discs>
+    </game>
+    <game>
+      <_title>Umezawa Yukari no Taikyoku Igo - Heisei Kiin II</_title>
+      <discs>
+        <disc id="SLPS-01767"/>
+      </discs>
+      <controllers>
+        <controller type="classic-gamepad"/>
+      </controllers>
     </game>
     <game>
       <_title>Umi No Nushi Tsuri Takarajimi NI Mukatte</_title>
@@ -51464,13 +51736,10 @@
     <game>
       <_title>Who Wants to be a Millionaire - 2nd Edition</_title>
       <discs>
-        <disc id="SLES-03589"/>
-      </discs>
-    </game>
-    <game>
-      <_title>Who Wants to be a Millionaire - 2nd Edition</_title>
-      <discs>
         <disc id="SCUS-94567"/>
+      </discs>
+      <discs>
+        <disc id="SLES-03589"/>
       </discs>
     </game>
     <game>
@@ -52528,25 +52797,19 @@
         <disc id="SLES-02866"/>
       </discs>
       <discs>
-        <disc id="SLUS-00774"/>
-      </discs>
-    </game>
-    <game>
-      <_title>X-Men Mutant Academy</_title>
-      <discs>
         <disc id="SLPM-86765"/>
       </discs>
-    </game>
-    <game>
-      <_title>X-Men Mutant Academy 2</_title>
       <discs>
-        <disc id="SLPM-87077"/>
+        <disc id="SLUS-00774"/>
       </discs>
     </game>
     <game>
       <_title>X-Men Mutant Academy 2</_title>
       <discs>
         <disc id="SLES-03630"/>
+      </discs>
+      <discs>
+        <disc id="SLPM-87077"/>
       </discs>
       <discs>
         <disc id="SLUS-01382"/>
@@ -52977,6 +53240,12 @@
       <discs>
         <disc id="SCPS-91244"/>
         <disc id="SCPS-91245"/>
+      </discs>
+    </game>
+    <game>
+      <_title>Yeh Yeh Tennis</_title>
+      <discs>
+        <disc id="SLES-02272"/>
       </discs>
     </game>
     <game>
