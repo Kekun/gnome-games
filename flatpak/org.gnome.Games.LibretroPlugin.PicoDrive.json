@@ -1,0 +1,28 @@
+{
+    "id": "org.gnome.Games.LibretroPlugin.PicoDrive",
+    "runtime": "org.gnome.Games",
+    "runtime-version": "master",
+    "build-extension": true,
+    "sdk": "org.gnome.Sdk",
+    "tags": ["nightly"],
+    "finish-args": [
+        /* Needed to find the ROMs */
+        "--filesystem=home:ro"
+    ],
+    "build-options" : {
+        "cflags": "-O2 -g",
+        "cxxflags": "-O2 -g"
+    },
+    "cleanup": ["/include", "/lib/pkgconfig",
+                "/share/pkgconfig", "/share/aclocal",
+                "/man", "/share/man", "/share/gtk-doc",
+                "*.la", "*.a",
+                "/lib/girepository-1.0",
+                "/share/dbus-1", "/share/doc", "/share/gir-1.0"
+    ],
+    "modules": [
+        /* Emulator cores for libretro */
+        "libretro-cores/libretro-picodrive.json"
+        /* End libretro cores */
+    ]
+}

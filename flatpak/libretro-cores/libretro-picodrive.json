@@ -1,0 +1,33 @@
+        {
+            "name": "libretro-picodrive",
+            "no-autogen": true,
+            "rm-configure": true,
+            "make-args": [
+                "--makefile=Makefile.install",
+                "prefix=/app"
+            ],
+            "make-install-args": [
+                "--makefile=Makefile.install",
+                "prefix=/app"
+            ],
+            "post-install": [
+                /* TODO: Send a generic version of that upstream */
+                "mkdir -p /app/lib/libretro/extra.d/PicoDrive",
+                "install -m644 -p picodrive.libretro /app/lib/libretro/extra.d/PicoDrive"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/picodrive"
+                },
+                {
+                    "type": "file",
+                    "path": "libretro-cores/picodrive-Makefile.install",
+                    "dest-filename": "Makefile.install"
+                },
+                {
+                    "type": "file",
+                    "path": "libretro-cores/picodrive.libretro"
+                }
+            ]
+        }
