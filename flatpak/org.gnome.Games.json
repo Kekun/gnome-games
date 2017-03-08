@@ -7,6 +7,9 @@
     "tags": ["nightly"],
     "desktop-file-name-prefix": "(Nightly) ",
     "finish-args": [
+        /* Extension point */
+        "--extension=org.gnome.Games.LibretroPlugin=directory=lib/libretro/extra.d",
+        "--extension=org.gnome.Games.LibretroPlugin=subdirectories",
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
         /* Wayland access */
@@ -126,6 +129,7 @@
         },
         {
             "name": "gnome-games",
+            "post-install": ["mkdir -p /app/lib/libretro/extra.d"],
             "sources": [
                 {
                     "type": "git",
