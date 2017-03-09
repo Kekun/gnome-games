@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 01:37+0100\n"
-"PO-Revision-Date: 2017-03-02 01:38+0100\n"
+"POT-Creation-Date: 2017-03-09 15:23+0100\n"
+"PO-Revision-Date: 2017-03-09 15:24+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -457,13 +457,13 @@ msgstr "”, „"
 
 #: ../src/retro/retro-core-source.vala:74
 #, c-format
-msgid "This games requires the %s firmware file to run."
+msgid "This game requires the %s firmware file to run."
 msgstr "Ta gra wymaga oprogramowania sprzętowego %s do działania."
 
 #: ../src/retro/retro-core-source.vala:91
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a MD5 fingerprint of %s to run."
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej MD5 „%s”."
@@ -471,7 +471,7 @@ msgstr ""
 #: ../src/retro/retro-core-source.vala:97
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
@@ -673,7 +673,7 @@ msgstr ""
 "Aviary.pl <community-poland@mozilla.org>, 2016-2017"
 
 #: ../src/ui/application-window.vala:283
-msgid "An unexpected error occured."
+msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
 #: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
