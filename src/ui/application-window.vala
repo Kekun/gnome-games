@@ -280,7 +280,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		catch (Error e) {
 			warning (e.message);
 			reset_display_page ();
-			display_box.display_running_game_failed (game, _("An unexpected error occured."));
+			display_box.display_running_game_failed (game, _("An unexpected error occurred."));
 
 			return null;
 		}

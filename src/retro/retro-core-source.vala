@@ -71,7 +71,7 @@ public class Games.RetroCoreSource : Object {
 		var firmware_path = core_descriptor.get_firmware_path (firmware);
 		var firmware_file = firmware_dir.get_child (firmware_path);
 		if (!firmware_file.query_exists ())
-			throw new RetroError.FIRMWARE_NOT_FOUND (_("This games requires the %s firmware file to run."), firmware_file.get_path ());
+			throw new RetroError.FIRMWARE_NOT_FOUND (_("This game requires the %s firmware file to run."), firmware_file.get_path ());
 
 		var has_md5 = core_descriptor.has_firmware_md5 (firmware);
 		var has_sha512 = core_descriptor.has_firmware_sha512 (firmware);
@@ -88,13 +88,13 @@ public class Games.RetroCoreSource : Object {
 		if (has_md5) {
 			var md5 = core_descriptor.get_firmware_md5 (firmware);
 			if (Checksum.compute_for_bytes (ChecksumType.MD5, bytes) != md5)
-				throw new RetroError.FIRMWARE_NOT_FOUND (_("This games requires the %s firmware file with a MD5 fingerprint of %s to run."), firmware_file.get_path (), md5);
+				throw new RetroError.FIRMWARE_NOT_FOUND (_("This game requires the %s firmware file with a MD5 fingerprint of %s to run."), firmware_file.get_path (), md5);
 		}
 
 		if (has_sha512) {
 			var sha512 = core_descriptor.get_firmware_sha512 (firmware);
 			if (Checksum.compute_for_bytes (ChecksumType.SHA512, bytes) != sha512)
-				throw new RetroError.FIRMWARE_NOT_FOUND (_("This games requires the %s firmware file with a SHA-512 fingerprint of %s to run."), firmware_file.get_path (), sha512);
+				throw new RetroError.FIRMWARE_NOT_FOUND (_("This game requires the %s firmware file with a SHA-512 fingerprint of %s to run."), firmware_file.get_path (), sha512);
 		}
 	}
 }
