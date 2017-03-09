@@ -40,7 +40,7 @@ public class Games.RetroCoreSource : Object {
 	}
 
 	private void search_module () throws Error {
-		var modules = new Retro.ModuleQuery ();
+		var modules = new Retro.ModuleQuery (true);
 		foreach (var core_descriptor in modules) {
 			try {
 				if (!core_descriptor.get_is_emulator ())

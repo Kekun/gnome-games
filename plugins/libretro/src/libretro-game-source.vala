@@ -17,7 +17,7 @@ public class Games.LibretroGameSource : Object, GameSource {
 
 	public async void fetch_games () {
 		games = {};
-		var modules = new Retro.ModuleQuery ();
+		var modules = new Retro.ModuleQuery (true);
 		foreach (var core_descriptor in modules) {
 			try {
 				if (core_descriptor.get_is_game ())
