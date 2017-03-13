@@ -1,4 +1,37 @@
 ===============
+Version 3.23.92
+===============
+
+* Add the Flatpak build manifest with the following Libretro cores:
+ - bsnes_balanced
+ - gambatte
+ - mednafen_ngp
+ - mednafen_pce_fast
+ - nestopia
+ - pcsx_rearmed
+
+* Look for Libretro cores recursively into directories
+
+* Fix some typos
+
+* Move the Flatpak manifest to 
+ - Move the 
+
+* Bugs fixed:
+ 779403 flatpak: Migrate the flatpak-builder manifest from gnome-apps-nightly to gnome-games
+ 779780 Typos in translatable strings
+
+* Translation updates:
+ Brazilian Portuguese
+ Catalan
+ Finnish
+ Friulian
+ Polish
+ Serbian
+ Swedish
+
+
+===============
 Version 3.23.91
 ===============
 
