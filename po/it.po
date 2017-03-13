@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-23 15:10+0000\n"
-"PO-Revision-Date: 2017-02-24 14:40+0100\n"
+"POT-Creation-Date: 2017-03-09 09:42+0000\n"
+"PO-Revision-Date: 2017-03-13 10:48+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -83,17 +83,42 @@ msgstr "Visualizza e gioca alla tua collezione di videogiochi"
 msgid "game;videogame;video game;player;"
 msgstr "giochi;videogiochi;giocatore;game;videogame;video game;player;"
 
-#: ../data/org.gnome.Games.gschema.xml.h:1
+#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Schermo intero"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid "Whether the games should be displayed in full screen or not."
+msgstr ""
+"Indica se i giochi debbano essere visualizzati a schermo intero o meno."
+
+#: ../data/org.gnome.Games.gschema.xml.h:3
 msgid "Video filter"
 msgstr "Filtro video"
 
-#: ../data/org.gnome.Games.gschema.xml.h:2
+#: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels)."
 msgstr ""
 "Filtra il tipo di uscita video dei giochi. Valori consentiti sono: \"smooth"
 "\" (morbido), \"sharp\" (dettagliato)."
+
+#: ../data/org.gnome.Games.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Finestra massimizzata"
+
+#: ../data/org.gnome.Games.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "Lo stato di massimizzazione della finestra."
+
+#: ../data/org.gnome.Games.gschema.xml.h:7
+msgid "Window size"
+msgstr "Dimensione finestra"
+
+#: ../data/org.gnome.Games.gschema.xml.h:8
+msgid "Window size (width and height)."
+msgstr "La dimensione della finestra (larghezza e altezza)."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
@@ -119,18 +144,13 @@ msgstr "Cerca"
 msgid "Back"
 msgstr "Indietro"
 
-#: ../data/ui/display-header-bar.ui.h:3
-msgid "Fullscreen"
-msgstr "Schermo intero"
-
 #: ../data/ui/display-header-bar.ui.h:4
 msgid "Restore"
 msgstr "Ripristina"
 
 #: ../data/ui/dummy-display.ui.h:1
-msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
-msgstr ""
-"<b><span size=\"large\">Questa è una finta schermata di gioco</span></b>"
+msgid "This is a dummy game display"
+msgstr "Questa è una finta schermata di gioco"
 
 #: ../data/ui/dummy-display.ui.h:2
 msgid "If you see this, this is a bug."
@@ -192,10 +212,8 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: ../data/ui/remote-display.ui.h:1
-msgid "<b><span size=\"large\">Use the game’s own window to play it</span></b>"
-msgstr ""
-"<b><span size=\"large\">Usa la finestra nativa del gioco per giocare</span></"
-"b>"
+msgid "Use the game’s own window to play it"
+msgstr "Usa la finestra nativa del gioco per giocare"
 
 #: ../data/ui/remote-display.ui.h:2
 msgid "This game isn’t integrated to GNOME Games."
@@ -438,23 +456,23 @@ msgstr ""
 msgid "”, “"
 msgstr "«, »"
 
-#: ../src/retro/retro-core-source.vala:79
+#: ../src/retro/retro-core-source.vala:74
 #, c-format
-msgid "This games requires the %s firmware file to run."
+msgid "This game requires the %s firmware file to run."
 msgstr "Questo gioco richiede il file di firmware %s per essere eseguito."
 
-#: ../src/retro/retro-core-source.vala:96
+#: ../src/retro/retro-core-source.vala:91
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a MD5 fingerprint of %s to run."
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
 "Questo gioco richiede il file di firmware %s con un codice MD5 %s per essere "
 "eseguito."
 
-#: ../src/retro/retro-core-source.vala:102
+#: ../src/retro/retro-core-source.vala:97
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
 "Questo gioco richiede il file di firmware %s con un codice SHA-512 %s per "
@@ -490,7 +508,6 @@ msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
 #: ../src/retro/retro-platform.vala:22
-#| msgid "Games"
 msgid "Game Boy"
 msgstr "Game Boy"
 
@@ -656,11 +673,11 @@ msgstr ""
 "Milo Casagrande <milo@milo.name>, 2016\n"
 "Michael Moroni <michael.moroni@openmailbox.org>, 2016"
 
-#: ../src/ui/application-window.vala:252
-msgid "An unexpected error occured."
+#: ../src/ui/application-window.vala:283
+msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore non atteso."
 
-#: ../src/ui/application-window.vala:468 ../src/ui/application-window.vala:485
+#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
 msgid "Playing a game"
 msgstr "Gioca con tutti i tuoi giochi"
 
@@ -738,6 +755,12 @@ msgstr "%s:%lu: fine riga inattesa, atteso un elemento."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: elemento %s inatteso, attesa fine riga."
+
+#~ msgid ""
+#~ "<b><span size=\"large\">Use the game’s own window to play it</span></b>"
+#~ msgstr ""
+#~ "<b><span size=\"large\">Usa la finestra nativa del gioco per giocare</"
+#~ "span></b>"
 
 #~ msgid "Invalid command: it doesn't have any argument."
 #~ msgstr "Comando non valido: non è stato passato alcun argomento."
