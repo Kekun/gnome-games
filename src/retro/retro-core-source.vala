@@ -21,6 +21,8 @@ public class Games.RetroCoreSource : Object {
 		ensure_module_is_found ();
 
 		var module_file = core_descriptor.get_module_file ();
+		if (module_file == null)
+			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform, string.joinv (_("”, “"), mime_types));
 
 		return module_file.get_path ();
 	}
