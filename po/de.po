@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-28 19:21+0000\n"
-"PO-Revision-Date: 2017-02-28 21:25+0100\n"
+"POT-Creation-Date: 2017-03-13 12:53+0000\n"
+"PO-Revision-Date: 2017-03-15 09:58+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -104,6 +104,8 @@ msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels)."
 msgstr ""
+"Filter für die Videoausgabe des Spiels. Zulässige Werte sind "
+"»smooth« (weichgezeichnete Bildpunkte) und »sharp« (blockförmige Bildpunkte)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -214,10 +216,8 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: ../data/ui/remote-display.ui.h:1
-#, fuzzy
-#| msgid "You have to use its own window to play it."
 msgid "Use the game’s own window to play it"
-msgstr "Sie müssen dessen eigenes Fenster verwenden, um es zu spielen."
+msgstr "Eigenes Fenster des Spiels verwenden, um es zu spielen."
 
 #: ../data/ui/remote-display.ui.h:2
 msgid "This game isn’t integrated to GNOME Games."
@@ -454,29 +454,33 @@ msgstr "»%s« kann nicht mit evdev geöffnet werden: %s"
 #: ../src/retro/retro-core-source.vala:35
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
-msgstr ""
+msgstr "Kein Modul für Plattform »%s« und MIME-Typen gefunden [ »%s« ]."
 
 #: ../src/retro/retro-core-source.vala:35
 msgid "”, “"
-msgstr ""
+msgstr "”, “"
 
 #: ../src/retro/retro-core-source.vala:74
 #, c-format
-msgid "This games requires the %s firmware file to run."
-msgstr ""
+msgid "This game requires the %s firmware file to run."
+msgstr "Zur Ausführung benötigt das Spiel die Firmwaredatei %s."
 
 #: ../src/retro/retro-core-source.vala:91
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a MD5 fingerprint of %s to run."
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
+"Zur Ausführung benötigt das Spiel die Firmwaredatei %s mit dem MD5-"
+"Fingerabdruck von %s."
 
 #: ../src/retro/retro-core-source.vala:97
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
+"Zur Ausführung benötigt das Spiel die Firmwaredatei %s mit dem SHA-512-"
+"Fingerabdruck von %s."
 
 #: ../src/retro/retro-platform.vala:7
 msgid "Amiga"
@@ -505,7 +509,7 @@ msgstr "Dreamcast"
 #. translators: only released in eastern Asia
 #: ../src/retro/retro-platform.vala:20
 msgid "Famicom Disk System"
-msgstr ""
+msgstr "Famicom Disk System"
 
 #: ../src/retro/retro-platform.vala:22
 msgid "Game Boy"
@@ -680,7 +684,7 @@ msgstr ""
 
 # CHECK
 #: ../src/ui/application-window.vala:283
-msgid "An unexpected error occured."
+msgid "An unexpected error occurred."
 msgstr "Ein unerwarteter Fehler ist aufgetreten."
 
 #: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
@@ -704,11 +708,11 @@ msgstr "Medium %d"
 #. same as video-filters in gschema
 #: ../src/ui/preferences-page-video.vala:29
 msgid "Smooth"
-msgstr ""
+msgstr "Glätten"
 
 #: ../src/ui/preferences-page-video.vala:29
 msgid "Sharp"
-msgstr ""
+msgstr "Schärfen"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
