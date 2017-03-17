@@ -518,7 +518,27 @@ public class Games.RetroRunner : Object, Runner {
 
 		var screenshot_path = get_screenshot_path ();
 
-		pixbuf.save (screenshot_path, "png");
+		var now = new GLib.DateTime.now_local ();
+		var creation_time = now.to_string ();
+		var platform = core_source.get_platform ();
+		var platform_name = RetroPlatform.get_platform_name (platform);
+		var title = game_title.get_title ();
+
+		var x_dpi = pixbuf.get_option("x-dpi") ?? "";
+		var y_dpi = pixbuf.get_option("y-dpi") ?? "";
+
+		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
+		// for description of used keys. "Game Title" and "Platform" are
+		// non-standard fields as allowed by PNG specification.
+		pixbuf.save (screenshot_path, "png",
+		             "tEXt::Software", "GNOME Games",
+		             "tEXt::Title", @"Screenshot of $title on $platform_name",
+		             "tEXt::Creation Time", creation_time.to_string (),
+		             "tEXt::Game Title", title,
+		             "tEXt::Platform", platform_name,
+		             "x-dpi", x_dpi,
+		             "y-dpi", y_dpi,
+		             null);
 	}
 
 	private void load_screenshot () throws Error {
