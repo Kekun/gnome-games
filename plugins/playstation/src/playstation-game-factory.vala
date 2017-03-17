@@ -155,7 +155,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			new GriloCover (media, uid)});
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, header.disc_id);
 		var core_source = new RetroCoreSource (PLATFORM, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
-		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities);
+		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

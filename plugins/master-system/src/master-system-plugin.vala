@@ -62,7 +62,7 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var core_source = new RetroCoreSource (platform, { mime_type });
-		var runner = new RetroRunner (core_source, uri, uid);
+		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
@@ -76,7 +76,7 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var core_source = new RetroCoreSource (SG_1000_PLATFORM, { SG_1000_MIME_TYPE });
-		var runner = new RetroRunner (core_source, uri, uid);
+		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

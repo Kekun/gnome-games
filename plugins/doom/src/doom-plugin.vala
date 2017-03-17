@@ -22,7 +22,7 @@ private class Games.DoomPlugin : Object, Plugin {
 		var icon = new DummyIcon ();
 		var cover = new LocalCover (uri);
 		var core_source = new RetroCoreSource (PLATFORM, { MIME_TYPE });
-		var runner = new RetroRunner (core_source, uri, uid);
+		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

@@ -36,7 +36,7 @@ private class Games.NesPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var core_source = new RetroCoreSource (NES_PLATFORM, { NES_MIME_TYPE });
-		var runner = new RetroRunner (core_source, uri, uid);
+		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
@@ -50,7 +50,7 @@ private class Games.NesPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var core_source = new RetroCoreSource (FDS_PLATFORM, { FDS_MIME_TYPE });
-		var runner = new RetroRunner (core_source, uri, uid);
+		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
 	}

@@ -37,7 +37,7 @@ public class Games.LibretroGameSource : Object, GameSource {
 		var title = new LibretroTitle (core_descriptor);
 		var icon = new LibretroIcon (core_descriptor);
 		var cover = new DummyCover ();
-		var runner = new RetroRunner.for_core_descriptor (core_descriptor, uid);
+		var runner = new RetroRunner.for_core_descriptor (core_descriptor, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
 	}
