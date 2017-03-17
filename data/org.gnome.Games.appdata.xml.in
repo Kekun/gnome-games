@@ -27,14 +27,22 @@
   </description>
 
   <screenshots>
-    <screenshot type="default" width="800" height="450">https://raw.githubusercontent.com/Kekun/gnome-games/master/data/appdata/games-collection.png</screenshot>
-    <screenshot width="800" height="450">https://raw.githubusercontent.com/Kekun/gnome-games/master/data/appdata/games-search.png</screenshot>
-    <screenshot width="800" height="450">https://raw.githubusercontent.com/Kekun/gnome-games/master/data/appdata/retro-ingame.png</screenshot>
-    <screenshot width="800" height="450">https://raw.githubusercontent.com/Kekun/gnome-games/master/data/appdata/resume-game.png</screenshot>
+    <screenshot type="default">
+      <image width="800" height="450">https://git.gnome.org/browse/gnome-games/plain/data/appdata/games-collection.png</image>
+    </screenshot>
+    <screenshot>
+      <image width="800" height="450">https://git.gnome.org/browse/gnome-games/plain/data/appdata/games-search.png</image>
+    </screenshot>
+    <screenshot>
+      <image width="800" height="450">https://git.gnome.org/browse/gnome-games/plain/data/appdata/retro-ingame.png</image>
+    </screenshot>
+    <screenshot>
+      <image width="800" height="450">https://git.gnome.org/browse/gnome-games/plain/data/appdata/resume-game.png</image>
+    </screenshot>
   </screenshots>
 
   <url type="homepage">https://wiki.gnome.org/Apps/Games</url>
-  <url type="bugtracker">https://github.com/Kekun/gnome-games/issues</url>
+  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-games</url>
   <project_group>GNOME</project_group>
 
   <updatecontact>kekun.plazas_at_laposte.net</updatecontact>
