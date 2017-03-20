@@ -16,6 +16,7 @@ gsettings_SCHEMAS = org.gnome.Games.gschema.xml
 EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(desktop_in_files) \
+	$(gsettings_SCHEMAS) \
 	gtk/menus.ui \
 	ui/application-window.ui \
 	ui/collection-box.ui \
