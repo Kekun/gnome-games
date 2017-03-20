@@ -17,7 +17,13 @@ EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(desktop_in_files) \
 	$(gsettings_SCHEMAS) \
+	appdata/games-collection.png \
+	appdata/games-search.png \
+	appdata/resume-game.png \
+	appdata/retro-ingame.png \
+	gamepads/gamecontrollerdb.txt \
 	gtk/menus.ui \
+	gtk-style.css \
 	ui/application-window.ui \
 	ui/collection-box.ui \
 	ui/collection-header-bar.ui \

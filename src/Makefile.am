@@ -23,6 +23,7 @@ BUILT_SOURCES = \
 
 EXTRA_DIST = \
 	$(gresource_file) \
+	gamepad/linux/libevdev.vapi \
 	$(NULL)
 
 header_file = libgnome-games.h
