@@ -9,13 +9,11 @@
   <shortdesc xml:lang="en">Simple game launcher for GNOME</shortdesc>
   <description xml:lang="en">
     Games is a GNOME 3 application to browse your video games library and to
-    easily pick and play a game from it. It aims to do for games what Music
-    already does for your music library.
+    easily pick and play a game from it.
   </description>
   <homepage rdf:resource="https://wiki.gnome.org/Apps/Games" />
-  <download-page rdf:resource="https://github.com/Kekun/gnome-games/releases" />
-  <bug-database rdf:resource="https://github.com/Kekun/gnome-games/issues" />
-
+  <download-page rdf:resource="http://download.gnome.org/sources/gnome-games/" />
+  <bug-database rdf:resource="https://bugzilla.gnome.org/browse.cgi?product=gnome-games" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
   <programming-language>Vala</programming-language>
 
