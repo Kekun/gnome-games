@@ -1,3 +1,25 @@
+==============
+Version 3.24.0
+==============
+
+* Make distcheck produce .xz tarballs by default
+
+* Add the Flatpak build manifest for the PicoDrive extension
+
+* Add metadata to the produced screenshots
+
+* Bugs fixed:
+ 769833 Add metadata to screenshots
+ 779987 release tarballs don't have generated files
+
+* Translation updates:
+ French
+ German
+ Hungarian
+ Italian
+ Serbian
+
+
 ===============
 Version 3.23.92
 ===============
