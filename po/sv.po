@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-09 09:42+0000\n"
-"PO-Revision-Date: 2017-03-09 11:22+0100\n"
+"POT-Creation-Date: 2017-03-20 13:36+0000\n"
+"PO-Revision-Date: 2017-03-20 16:23+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -445,21 +445,23 @@ msgstr "Kunde inte öppna filen ”%s”: %s"
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev kunde inte öppna ”%s”: %s"
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Fann ingen modul för plattformen ”%s” och MIME-typerna [ ”%s” ]."
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "”, ”"
 
-#: ../src/retro/retro-core-source.vala:74
+#: ../src/retro/retro-core-source.vala:76
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Detta spel kräver den fasta programvarufilen %s för att köra."
 
-#: ../src/retro/retro-core-source.vala:91
+#: ../src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -467,7 +469,7 @@ msgstr ""
 "Detta spel kräver den fasta programvarufilen %s med MD5-fingeravtrycket %s "
 "för att köra."
 
-#: ../src/retro/retro-core-source.vala:97
+#: ../src/retro/retro-core-source.vala:99
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -639,17 +641,22 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:214
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: “%s”."
 msgstr "Ogiltig spelfil: ”%s”."
 
-#: ../src/retro/retro-runner.vala:557
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+msgid "No module found for “%s”."
+msgstr "Ingen modul hittades för ”%s”."
+
+#: ../src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systemet ”%s” stöds inte ännu, men fullständigt stöd planeras."
 
-#: ../src/retro/retro-runner.vala:560
+#: ../src/retro/retro-runner.vala:587
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systemet stöds inte ännu, men fullständigt stöd planeras."
 
