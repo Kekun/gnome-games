@@ -1,0 +1,755 @@
+# Korean translation for gnome-games.
+# Copyright (C) 2017 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# Seong-ho Cho <shcho@gnome.org>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"games&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-03-20 13:36+0000\n"
+"PO-Revision-Date: 2017-03-20 23:35+0900\n"
+"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
+"Language-Team: Korean <gnome-kr@googlegroups.com>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:17
+msgid "Games"
+msgstr "게임"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:2
+msgid "Simple game launcher for GNOME"
+msgstr "간단한 그놈용 게임 실행 프로그램"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:3
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"게임은 영상 게임 라이브러리를 탐색하고 게임을 쉽게 고른 후 게임을 즐기는 그"
+"놈 3 프로그램입니다. 음악이 음악 라이브러리로 하는 기능과 비슷하게 게임 라이"
+"브러리에 대해 동일하게 동작하고자 합니다."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:4
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don’t need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"게임하는데 간단하고 편리한 수단만을 원하고, 가속 기능 도구나 영상 게임 개발 "
+"도구 같은 고급 기능이 필요하지 않을 때 그놈 게임을 설치하시는게 좋습니다."
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:5
+msgid "Features:"
+msgstr "특징:"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:6
+msgid "List your installed games, your Steam games, your game ROMs…"
+msgstr "설치한 스팀 게임, 롬 게임을 목록으로 확인해봅니다…"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:7
+msgid "Search in your games collection"
+msgstr "게임 모음을 검색합니다"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:8
+msgid "Play your games"
+msgstr "게임을 즐깁니다"
+
+#: ../data/org.gnome.Games.appdata.xml.in.h:9
+msgid "Resume your game to where you left it"
+msgstr "게임을 하다 멈춘 지점에서 게임을 계속합니다"
+
+#: ../data/org.gnome.Games.desktop.in.h:2
+msgid "Video game player"
+msgstr "영상 게임기"
+
+#: ../data/org.gnome.Games.desktop.in.h:3
+msgid "View and play your video games collection"
+msgstr "영상 게임 모음을 살펴보고 즐깁니다"
+
+#: ../data/org.gnome.Games.desktop.in.h:4
+msgid "game;videogame;video game;player;"
+msgstr "game;게임;videogame;영상게임;video game;영상 게임;player;게임기;"
+
+#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "전체 화면"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid "Whether the games should be displayed in full screen or not."
+msgstr "게임을 전체 화면으로 나타낼지 여부."
+
+#: ../data/org.gnome.Games.gschema.xml.h:3
+msgid "Video filter"
+msgstr "영상 필터"
+
+#: ../data/org.gnome.Games.gschema.xml.h:4
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels)."
+msgstr ""
+"게임 영상 출력 필터입니다. 설정할 수 있는 값은 \"부드럽게” (픽셀을 흐릿하게 "
+"표시), “예리하게” (픽셀을 상자 모양이 나타나게 표시)가 있습니다."
+
+#: ../data/org.gnome.Games.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "창 최대화"
+
+#: ../data/org.gnome.Games.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "창 최대화 상태."
+
+#: ../data/org.gnome.Games.gschema.xml.h:7
+msgid "Window size"
+msgstr "창 크기"
+
+#: ../data/org.gnome.Games.gschema.xml.h:8
+msgid "Window size (width and height)."
+msgstr "창 크기(너비 및 높이)."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Preferences"
+msgstr "기본 설정(_P)"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "정보(_A)"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "끝내기(_Q)"
+
+#: ../data/ui/collection-box.ui.h:1
+msgid "Loading"
+msgstr "불러오는 중"
+
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "검색"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "뒤로"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "복원"
+
+#: ../data/ui/dummy-display.ui.h:1
+msgid "This is a dummy game display"
+msgstr "모조 게임 화면입니다"
+
+#: ../data/ui/dummy-display.ui.h:2
+msgid "If you see this, this is a bug."
+msgstr "이 화면이 보이면 버그입니다."
+
+#: ../data/ui/dummy-display.ui.h:3
+msgid "Please contact the developers."
+msgstr "개발자에게 연락하십시오."
+
+#: ../data/ui/empty-collection.ui.h:1
+msgid "No games found"
+msgstr "게임이 없습니다"
+
+#: ../data/ui/empty-collection.ui.h:2
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr "게임을 설치하거나 검색 대상에 게임이 들어있는 디렉터리를 추가하십시오."
+
+#: ../data/ui/media-menu-button.ui.h:1
+msgid "Media"
+msgstr "미디어"
+
+#: ../data/ui/preferences-page-plugins.ui.h:1
+msgid "Plugins"
+msgstr "플러그인"
+
+#: ../data/ui/preferences-page-video.ui.h:1
+msgid "Filter"
+msgstr "필터"
+
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "기본 설정"
+
+#: ../data/ui/preferences-window.ui.h:2 ../src/ui/preferences-page-video.vala:6
+msgid "Video"
+msgstr "영상"
+
+#: ../data/ui/preferences-window.ui.h:3
+#: ../src/ui/preferences-page-plugins.vala:6
+msgid "Extensions"
+msgstr "확장자"
+
+#: ../data/ui/quit-dialog.ui.h:1
+msgid "Are you sure you want to quit?"
+msgstr "정말로 끝내시겠습니까?"
+
+#: ../data/ui/quit-dialog.ui.h:2
+msgid "All unsaved progress will be lost."
+msgstr "저장하지 않은 과정을 잃게 됩니다."
+
+#: ../data/ui/quit-dialog.ui.h:3
+msgid "Quit"
+msgstr "끝내기"
+
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
+msgid "Cancel"
+msgstr "취소"
+
+#: ../data/ui/remote-display.ui.h:1
+msgid "Use the game’s own window to play it"
+msgstr "게임을 즐기려면 게임 자체 창을 활용하십시오"
+
+#: ../data/ui/remote-display.ui.h:2
+msgid "This game isn’t integrated to GNOME Games."
+msgstr "그놈 게임에 통합한 게임이 아닙니다."
+
+#: ../data/ui/remote-display.ui.h:3
+msgid "You have to use its own window to play it."
+msgstr "게임을 하려면 자체 창을 사용해야합니다."
+
+#: ../data/ui/resume-dialog.ui.h:1
+msgid "Resume last game?"
+msgstr "마지막 게임을 계속하시겠습니까?"
+
+#: ../data/ui/resume-dialog.ui.h:2
+msgid "Resume"
+msgstr "재개"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Restart"
+msgstr "다시 시작"
+
+#: ../data/ui/resume-failed-dialog.ui.h:1
+msgid "Resuming failed. Do you want to to restart the game?"
+msgstr "재개에 실패했습니다. 게임을 다시 시작하시겠습니까?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Reset"
+msgstr "초기화"
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#, c-format
+msgid "Invalid command “%s”."
+msgstr "잘못된 “%s” 명령입니다."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#, c-format
+msgid "Tracker listed file not found: “%s”."
+msgstr "트래커에서 조회한 파일을 찾을 수 없습니다: “%s”."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#, c-format
+msgid "Couldn’t parse desktop entry “%s”."
+msgstr "“%s” 데스크톱 항목을 해석할 수 없습니다."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "“%s” has blacklisted category “%s”."
+msgstr "“%s”에 블랙리스트 처리한 “%s” 카테고리가 있습니다."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#, c-format
+msgid "“%s” has blacklisted executable “%s”."
+msgstr "“%s”에 블랙리스트 처리한 “%s” 실행 파일이 있습니다."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#, c-format
+msgid "“%s” is blacklisted."
+msgstr "“%s” 항목은 블랙리스트에 있습니다."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn’t have a Dreamcast header."
+msgstr "파일에 드림캐스트 헤더가 없습니다."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn’t have a Game Cube header."
+msgstr "파일에 게임 큐브 헤더가 없습니다."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
+msgstr "올바른 LÖVE 꾸러미가 아닌 것 같습니다: “%s”."
+
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:16
+#, c-format
+msgid "Invalid MAME game id “%s” for “%s”."
+msgstr "“%2$s”의 잘못된 마메 게임 ID “%1$s”입니다."
+
+#: ../plugins/master-system/src/master-system-header.vala:69
+msgid "The file doesn’t have a Master System header."
+msgstr "파일에 마스터 시스템 헤더가 없습니다."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "파일에 제네시스/세가 32X/세가 CD/세가 피코 헤더가 없습니다."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr "“%s” 파일에 트랙이 없습니다."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "“%s” 파일은 올바른 바이너리 형식이 아닙니다."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "“%s” 파일은 트랙 %d 번의 올바른 트랙 모드가 없습니다."
+
+#: ../plugins/playstation/src/playstation-game-factory.vala:65
+#, c-format
+msgid "Disc with disc_id %s is unknown"
+msgstr " %s disc_id를 가진 디스크를 인식할 수 없습니다"
+
+#: ../plugins/playstation/src/playstation-header.vala:49
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
+msgstr "잘못된 플레이스테이션 헤더: “%s”에서 디스크 ID를 찾을 수 없습니다."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn’t have a Sega Saturn header."
+msgstr "파일에 세가 새턴 헤더가 없습니다."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#, c-format
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+msgstr "“%s” 파일은 올바른 세가 새턴 바이너리 파일이 아닌 것 같습니다."
+
+#: ../plugins/steam/src/steam-game-source.vala:99
+#, c-format
+msgid "Couldn’t get Steam appid from manifest “%s”."
+msgstr "“%s” 매니페스트에서 스팀 앱 ID를 가져올 수 없습니다."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File “%s” doesn’t exist."
+msgstr "“%s” 파일이 없습니다."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "예상치 못한 '{' 토큰 ."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "예상치 못한 마지막 토큰."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "예상치 못한 '}' 토큰."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn’t get name from Steam registry."
+msgstr "스팀 레지스트리에서 게임을 가져올 수 없습니다."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "잘못된 위(Wii) 헤더 크기: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn’t have a Wii header."
+msgstr "파일에 위(Wii) 헤더가 없습니다."
+
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn’t read file: %s"
+msgstr "파일을 읽을 수 없습니다: %s"
+
+#: ../src/command/command-runner.vala:33
+msgid "The game doesn’t have a valid command."
+msgstr "게임에 올바른 명령이 없습니다."
+
+#: ../src/command/command-runner.vala:64
+#, c-format
+msgid "Couldn’t run “%s”: execution failed."
+msgstr "“%s”을(를) 실행할 수 없습니다: 실행 실패."
+
+#: ../src/core/media-set/media-set.vala:31
+#, c-format
+msgid "Invalid media index %u."
+msgstr "잘못된 미디어 인덱스 %u번."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "잘못된 플러그인 서술자: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn’t create a new instance of plugin in “%s”."
+msgstr "“%s”의 새 플러그인 인스턴스를 만들 수 없습니다."
+
+#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "%d번 디스크"
+
+#: ../src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID “%s”."
+msgstr "“%s” 디스크 ID의 게임 타이틀이 없습니다."
+
+#: ../src/gameinfo/gameinfo-doc.vala:31
+#, c-format
+msgid "No disc title found for disc ID “%s”."
+msgstr "“%s” 디스크 ID의 디스크 제목이 없습니다."
+
+#: ../src/gameinfo/gameinfo-doc.vala:41
+#, c-format
+msgid "No disc set ID found for disc ID “%s”."
+msgstr "“%s” 디스크 ID의 디스크 세트 ID가 없습니다."
+
+#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
+#, c-format
+msgid "No disc found for disc ID “%s”."
+msgstr "“%s” 디스크 ID를 가진 디스크가 없습니다."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can’t be null."
+msgstr "매핑 문자열을 널(NULL)값으로 설정할 수 없습니다."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can’t be empty."
+msgstr "매핑 문자열을 빈 문자열로 설정할 수 없습니다."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#, c-format
+msgid "Unable to open file “%s”: %s"
+msgstr "“%s” 파일을 열 수 없습니다: %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#, c-format
+msgid "Evdev is unable to open “%s”: %s"
+msgstr "evdev에서 “%s”을(를) 열 수 없습니다: %s"
+
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
+#, c-format
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
+msgstr "“%s” 플랫폼과 MIME types [ “%s” ]."
+
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
+msgid "”, “"
+msgstr "”, “"
+
+#: ../src/retro/retro-core-source.vala:76
+#, c-format
+msgid "This game requires the %s firmware file to run."
+msgstr "이 게임을 실행하려면 %s 펌웨어 파일이 필요합니다."
+
+#: ../src/retro/retro-core-source.vala:93
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr "이 게임을 실행하려면 %s 펌웨어 파일과 %s의 MD5 지문 값이 필요합니다."
+
+#: ../src/retro/retro-core-source.vala:99
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+"이 게임을 실행하려면 %s 펌웨어 파일과 %s의 SHA-512 지문 값이 필요합니다."
+
+#: ../src/retro/retro-platform.vala:7
+msgid "Amiga"
+msgstr "아미가"
+
+#: ../src/retro/retro-platform.vala:9
+msgid "Atari 2600"
+msgstr "아타리 2600"
+
+#: ../src/retro/retro-platform.vala:11
+msgid "Atari 5200"
+msgstr "아타리 5200"
+
+#: ../src/retro/retro-platform.vala:13
+msgid "Atari 7800"
+msgstr "아타리 7800"
+
+#: ../src/retro/retro-platform.vala:15
+msgid "DOOM"
+msgstr "둠"
+
+#: ../src/retro/retro-platform.vala:17
+msgid "Dreamcast"
+msgstr "드림캐스트"
+
+#. translators: only released in eastern Asia
+#: ../src/retro/retro-platform.vala:20
+msgid "Famicom Disk System"
+msgstr "패미컴 디스크 시스템"
+
+#: ../src/retro/retro-platform.vala:22
+msgid "Game Boy"
+msgstr "게임 보이"
+
+#: ../src/retro/retro-platform.vala:24
+msgid "Game Boy Color"
+msgstr "게임 보이 컬러"
+
+#: ../src/retro/retro-platform.vala:26
+msgid "Game Boy Advance"
+msgstr "게임 보이 어드밴스"
+
+#: ../src/retro/retro-platform.vala:28
+msgid "Nintendo GameCube"
+msgstr "닌텐도 게임 큐브"
+
+#: ../src/retro/retro-platform.vala:30
+msgid "Game Gear"
+msgstr "게임 기어"
+
+#. translators: the "Multiple Arcade Machine Emulator"
+#: ../src/retro/retro-platform.vala:33
+msgid "MAME"
+msgstr "마메"
+
+#: ../src/retro/retro-platform.vala:35
+msgid "Neo Geo Pocket"
+msgstr "네오지오 포켓"
+
+#. translators: known as "Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:38
+msgid "Nintendo Entertainment System"
+msgstr "닌텐토 엔터테인먼트 시스템"
+
+#: ../src/retro/retro-platform.vala:40
+msgid "Nintendo 64"
+msgstr "닌텐도 64"
+
+#: ../src/retro/retro-platform.vala:42
+msgid "Nintendo DS"
+msgstr "닌텐도 DS"
+
+#: ../src/retro/retro-platform.vala:44
+msgid "Nintendo 3DS"
+msgstr "닌텐도 3DS"
+
+#: ../src/retro/retro-platform.vala:46
+msgid "PlayStation"
+msgstr "플레이스테이션"
+
+#: ../src/retro/retro-platform.vala:48
+msgid "PlayStation 2"
+msgstr "플레이스테이션 2"
+
+#: ../src/retro/retro-platform.vala:50
+msgid "PlayStation 3"
+msgstr "플레이스테이션 3"
+
+#: ../src/retro/retro-platform.vala:52
+msgid "PlayStation 4"
+msgstr "플레이스테이션 4"
+
+#: ../src/retro/retro-platform.vala:54
+msgid "PlayStation Portable"
+msgstr "플레이스테이션 포터블"
+
+#: ../src/retro/retro-platform.vala:56
+msgid "PlayStation Vita"
+msgstr "플레이스타이션 비타"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: ../src/retro/retro-platform.vala:59
+msgid "Genesis 32X"
+msgstr "제네시스 32X"
+
+#. translators: known as "Mega-CD" in most of the world
+#: ../src/retro/retro-platform.vala:62
+msgid "Sega CD"
+msgstr "세가 CD"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: ../src/retro/retro-platform.vala:65
+msgid "Sega CD 32X"
+msgstr "세가 CD 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: ../src/retro/retro-platform.vala:68
+msgid "Sega Genesis"
+msgstr "세가 제네시스"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: ../src/retro/retro-platform.vala:71
+msgid "Sega Master System"
+msgstr "세가 마스터 시스템"
+
+#: ../src/retro/retro-platform.vala:73
+msgid "Sega Pico"
+msgstr "세가 피코"
+
+#: ../src/retro/retro-platform.vala:75
+msgid "Sega Saturn"
+msgstr "세가 새턴"
+
+#: ../src/retro/retro-platform.vala:77
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:80
+msgid "Super Nintendo Entertainment System"
+msgstr "수퍼 닌텐도 엔터테인먼트 시스템"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:83
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:86
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: ../src/retro/retro-platform.vala:88
+msgid "Wii"
+msgstr "Wii"
+
+#: ../src/retro/retro-platform.vala:90
+msgid "Wii U"
+msgstr "Wii U"
+
+#: ../src/retro/retro-platform.vala:92
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: ../src/retro/retro-runner.vala:218
+#, c-format
+msgid "Invalid game file: “%s”."
+msgstr "잘못된 게임 파일: “%s”."
+
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+msgid "No module found for “%s”."
+msgstr "“%s”의 모듈이 없습니다."
+
+#: ../src/retro/retro-runner.vala:584
+#, c-format
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr "“%s” 시스템은 아직 지원하지 않지만, 완벽하게 지원할 예정입니다."
+
+#: ../src/retro/retro-runner.vala:587
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr "시스템을 아직 지원하지 않지만, 완벽하게 지원할 예정입니다."
+
+#: ../src/ui/application.vala:174
+msgid "GNOME Games"
+msgstr "그놈 게임"
+
+#: ../src/ui/application.vala:176
+msgid "A video game player for GNOME"
+msgstr "그놈용 영상 게임기"
+
+#: ../src/ui/application.vala:180
+msgid "Learn more about GNOME Games"
+msgstr "그놈 게임 더 알아보기"
+
+#: ../src/ui/application.vala:187
+msgid "translator-credits"
+msgstr "조성호 <shcho@gnome.org>, 2017."
+
+#: ../src/ui/application-window.vala:283
+msgid "An unexpected error occurred."
+msgstr "예상치 못한 에러가 나타났습니다."
+
+#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
+msgid "Playing a game"
+msgstr "게임 진행 중"
+
+#: ../src/ui/error-display.vala:13
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "“%s”을(를) 실행할 수 없습니다"
+
+#: ../src/ui/error-display.vala:15
+msgid "Oops! Unable to run the game"
+msgstr "헛! 게임을 실행할 수 없습니다"
+
+#: ../src/ui/media-selector.vala:33
+#, c-format
+msgid "Media %d"
+msgstr "미디어 %d번"
+
+#. same as video-filters in gschema
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Smooth"
+msgstr "부드럽게"
+
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Sharp"
+msgstr "예리하게"
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "“%s” doesn’t have a track for index %u."
+msgstr "“%s”에 인덱스 %u번 트랙이 없습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: 예상 파일 형식은 유효하거나 알 수 없는 형식이지만, 잘못된 %s 파일 형"
+"식이 있습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: 예상치 못한 TRACK 토큰이 FILE 토큰 앞에 있습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr ""
+"%s:%lu: 예상 트랙 번호는 1번 부터 99번 까지지만, 잘못된 트랙 번호 %s번이 있습"
+"니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr "%s:%lu: 올바른 트랙 모드를 예상했지만, 잘못된 %s 트랙 모드가 있습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: %s을(를) 예상했지만, 예상치 못한 파일 끝 문자가 있습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%1$s:%2$lu: %4$s을(를) 예상했지만, 예상치 못한 %3$s 토큰이 있습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: 토큰을 예상했지만, 예상치 못한 파일 끝 문자가 있습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: 토큰을 예상했지만, 예상치 못한 줄 끝 문자가 있습니다."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: 파일 끝 문자를 예상했지만, 예상치 못한 %s 토큰이 있습니다."
