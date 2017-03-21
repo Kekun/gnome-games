@@ -2,23 +2,23 @@
 # Copyright (C) 2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 #
-# Balázs Úr <urbalazs@gmail.com>, 2016.
+# Balázs Úr <urbalazs@gmail.com>, 2016, 2017.
 # Gabor Kelemen <kelemeng at ubuntu dot com>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-17 08:40+0000\n"
-"PO-Revision-Date: 2017-03-19 01:03+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
+"POT-Creation-Date: 2017-03-20 13:36+0000\n"
+"PO-Revision-Date: 2017-03-21 16:04+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
@@ -447,22 +447,24 @@ msgstr "A(z) „%s” fájl nem nyitható meg: %s"
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Az evdev nem tudja megnyitni a(z) „%s” fájlt: %s"
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr ""
 "Nem található modul a(z) „%s” platformhoz és a(z) [ „%s” ] MIME típusokhoz."
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "”, “"
 
-#: ../src/retro/retro-core-source.vala:74
+#: ../src/retro/retro-core-source.vala:76
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Ennek a játéknak a futtatásához a(z) %s firmware fájl szükséges."
 
-#: ../src/retro/retro-core-source.vala:91
+#: ../src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -470,7 +472,7 @@ msgstr ""
 "Ennek a játéknak a futtatásához a(z) %s, %s MD5 ujjlenyomattal ellátott "
 "firmware fájl szükséges."
 
-#: ../src/retro/retro-core-source.vala:97
+#: ../src/retro/retro-core-source.vala:99
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -642,18 +644,24 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:214
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: “%s”."
 msgstr "Érvénytelen játékfájl: „%s”."
 
-#: ../src/retro/retro-runner.vala:557
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+#| msgid "No disc found for disc ID “%s”."
+msgid "No module found for “%s”."
+msgstr "Nem található modul ehhez: „%s”."
+
+#: ../src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: ../src/retro/retro-runner.vala:560
+#: ../src/retro/retro-runner.vala:587
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
 
@@ -757,36 +765,3 @@ msgstr "%s:%lu: Váratlan sorvég, egy token várt."
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Váratlan %s token, sorvég várt."
 
-#~ msgid ""
-#~ "<b><span size=\"large\">Use the game's own window to play it</span></b>"
-#~ msgstr ""
-#~ "<b><span size=\"large\">Használja a játék saját ablakát az elindításához</"
-#~ "span></b>"
-
-#~ msgid "The file doesn't have a Game Boy header."
-#~ msgstr "A fájlnak nincs Game Boy fejléce."
-
-#~ msgid "Invalid command: it doesn't have any argument."
-#~ msgstr "Érvénytelen parancs: nincs egyetlen argumentuma sem."
-
-#~ msgid "Couldn't run game: module '%s' not found."
-#~ msgstr "A játék nem futtatható: a(z) „%s” modul nem található."
-
-#~ msgid ""
-#~ "Couldn't run game: module '%s' not found and no module found for MIME "
-#~ "types %s."
-#~ msgstr ""
-#~ "A játék nem futtatható: a(z) „%s” modul nem található, és nem található "
-#~ "modul a(z) %s MIME-típusokhoz."
-
-#~ msgid "Couldn't write snapshot."
-#~ msgstr "A pillanatkép nem írható."
-
-#~ msgid "PlayStation header not found in '%s'."
-#~ msgstr "A PlayStation fejléc nem található itt: „%s”."
-
-#~ msgid "Main Menu"
-#~ msgstr "Főmenü"
-
-#~ msgid "Couldn't load snapshot."
-#~ msgstr "A pillanatkép nem tölthető be."
