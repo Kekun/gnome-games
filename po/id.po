@@ -6,20 +6,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-05-22 11:44+0000\n"
-"PO-Revision-Date: 2016-07-08 11:11+0700\n"
+"POT-Creation-Date: 2017-03-20 13:36+0000\n"
+"PO-Revision-Date: 2017-03-22 10:21+0700\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1 ../data/ui/header-bar.ui.h:1
+#: ../data/org.gnome.Games.desktop.in.h:1
+#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: ../src/ui/application.vala:17
 msgid "Games"
 msgstr "Permainan"
 
@@ -41,21 +43,21 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:4
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
-"to play your games and you don't need advanced features such as speedrunning "
+"to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
 "Anda ingin memasang permainan jika Anda hanya ingin cara bermain yang sangat "
 "ringkas dan nyaman dan Anda tidak perlu fitur lanjutan seperti alat "
-"percepatan atau alat video game."
+"percepatan atau alat pengembangan video game."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:5
 msgid "Features:"
 msgstr "Fitur:"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
-msgid "List your installed games, your Steam games, your game ROMs..."
+msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
-"Daftar dari permainan yang terpasang, permainan Steam Anda, ROM Anda..."
+"Daftar ermainan yang terpasang, permainan Steam Anda, ROM permainan Anda..."
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:7
 msgid "Search in your games collection"
@@ -78,9 +80,45 @@ msgid "View and play your video games collection"
 msgstr "Lihat dan mainkan koleksi permainan video Anda"
 
 #: ../data/org.gnome.Games.desktop.in.h:4
-#, fuzzy
 msgid "game;videogame;video game;player;"
-msgstr "game;videogame;video game;player;"
+msgstr "permainan;videogame;video game;pemain;"
+
+#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+msgid "Fullscreen"
+msgstr "Layar Penuh"
+
+#: ../data/org.gnome.Games.gschema.xml.h:2
+msgid "Whether the games should be displayed in full screen or not."
+msgstr "Apakah permainan harus ditampilkan dalam layar penuh atau tidak."
+
+#: ../data/org.gnome.Games.gschema.xml.h:3
+msgid "Video filter"
+msgstr "Penyaring video"
+
+#: ../data/org.gnome.Games.gschema.xml.h:4
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels)."
+msgstr ""
+"Penyaring untuk keluaran video game. nilai yang diperbolehkan adalah: "
+"\"halus/smooth\" (pixel kabur/blurry pixels), \"tajam/sharp\" (blocky "
+"pixels)."
+
+#: ../data/org.gnome.Games.gschema.xml.h:5
+msgid "Window maximized"
+msgstr "Jendela dimaksimalkan"
+
+#: ../data/org.gnome.Games.gschema.xml.h:6
+msgid "Window maximized state."
+msgstr "Keadaan dimaksimalkan jendela."
+
+#: ../data/org.gnome.Games.gschema.xml.h:7
+msgid "Window size"
+msgstr "Ukuran jendela"
+
+#: ../data/org.gnome.Games.gschema.xml.h:8
+msgid "Window size (width and height)."
+msgstr "Ukuran jendela (lebar dan tinggi)."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
@@ -94,9 +132,25 @@ msgstr "_Tentang"
 msgid "_Quit"
 msgstr "_Keluar"
 
+#: ../data/ui/collection-box.ui.h:1
+msgid "Loading"
+msgstr "Memuat"
+
+#: ../data/ui/collection-header-bar.ui.h:2
+msgid "Search"
+msgstr "Cari"
+
+#: ../data/ui/display-header-bar.ui.h:2
+msgid "Back"
+msgstr "Kembali"
+
+#: ../data/ui/display-header-bar.ui.h:4
+msgid "Restore"
+msgstr "Pulihkan"
+
 #: ../data/ui/dummy-display.ui.h:1
-msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
-msgstr "<b><span size=\"large\">Ini adalah tampilan dummy</span></b>"
+msgid "This is a dummy game display"
+msgstr "Ini adalah tampilan permainan dumi"
 
 #: ../data/ui/dummy-display.ui.h:2
 msgid "If you see this, this is a bug."
@@ -117,24 +171,27 @@ msgstr ""
 "Pasag permainan atau tambahkan direktori yang berisi permainan untuk mencari "
 "sumber."
 
-#: ../data/ui/header-bar.ui.h:2
-msgid "Search"
-msgstr "Cari"
-
-#: ../data/ui/header-bar.ui.h:3
-msgid "Back"
-msgstr "Kembali"
+#: ../data/ui/media-menu-button.ui.h:1
+msgid "Media"
+msgstr "Media"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
-#, fuzzy
 msgid "Plugins"
-msgstr "Plugin"
+msgstr "Pengaya"
+
+#: ../data/ui/preferences-page-video.ui.h:1
+msgid "Filter"
+msgstr "Penyaring"
 
 #: ../data/ui/preferences-window.ui.h:1
 msgid "Preferences"
 msgstr "Preferensi"
 
-#: ../data/ui/preferences-window.ui.h:2
+#: ../data/ui/preferences-window.ui.h:2 ../src/ui/preferences-page-video.vala:6
+msgid "Video"
+msgstr "Video"
+
+#: ../data/ui/preferences-window.ui.h:3
 #: ../src/ui/preferences-page-plugins.vala:6
 msgid "Extensions"
 msgstr "Tambahan"
@@ -151,17 +208,16 @@ msgstr "Semua hal yang belum disimpan akan hilang."
 msgid "Quit"
 msgstr "Keluar"
 
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-dialog.ui.h:4
+#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
 msgid "Cancel"
 msgstr "Batal"
 
 #: ../data/ui/remote-display.ui.h:1
-msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
-msgstr ""
-"<b><span size=\"large\">Gunakan jendela sendiri untuk memainkannya</span></b>"
+msgid "Use the game’s own window to play it"
+msgstr "Gunakan jendela permainan sendiri untuk memainkannya"
 
 #: ../data/ui/remote-display.ui.h:2
-msgid "This game isn't integrated to GNOME Games."
+msgid "This game isn’t integrated to GNOME Games."
 msgstr "Permainan ini tidak terintegrasi dengan Permainan GNOME"
 
 #: ../data/ui/remote-display.ui.h:3
@@ -177,21 +233,544 @@ msgid "Resume"
 msgstr "Lanjutkan"
 
 #: ../data/ui/resume-dialog.ui.h:3
-msgid "Main Menu"
-msgstr "Menu Utama"
+msgid "Restart"
+msgstr "Mulai ulang"
 
-#: ../src/ui/application.vala:138
+#: ../data/ui/resume-failed-dialog.ui.h:1
+msgid "Resuming failed. Do you want to to restart the game?"
+msgstr "Gagal melanjutkan. Apakah Anda ingin memulai ulang permainan?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Reset"
+msgstr "Atur Ulang"
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#, c-format
+msgid "Invalid command “%s”."
+msgstr "Perintah tidak valid “%s”."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#, c-format
+msgid "Tracker listed file not found: “%s”."
+msgstr "Tracker berkas tercantum tidak ditemukan: \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#, c-format
+msgid "Couldn’t parse desktop entry “%s”."
+msgstr "Tak bisa mengurai entri destop \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "“%s” has blacklisted category “%s”."
+msgstr "\"%s\" memiliki kategori daftar hitam \"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#, c-format
+msgid "“%s” has blacklisted executable “%s”."
+msgstr "\"%s\" memiliki daftar hitam yang dapat dieksekusi\"%s\"."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#, c-format
+msgid "“%s” is blacklisted."
+msgstr "\"%s\" di-daftar hitamkan."
+
+#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn’t have a Dreamcast header."
+msgstr "Berkas tidak memiliki header Dreamcast."
+
+#: ../plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn’t have a Game Cube header."
+msgstr "Berkas tidak memiliki header Game Cube."
+
+#: ../plugins/love/src/love-package.vala:13
+#: ../plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
+msgstr "Ini tidak mewakili paket LÖVE yang valid: \"%s\"."
+
+#: ../plugins/mame/src/mame-game-uri-adapter.vala:16
+#, c-format
+msgid "Invalid MAME game id “%s” for “%s”."
+msgstr "Id permainan MAME tidak valid \"%s\" untuk \"%s\"."
+
+#: ../plugins/master-system/src/master-system-header.vala:69
+msgid "The file doesn’t have a Master System header."
+msgstr "Berkas tidak memiliki header Master System."
+
+#: ../plugins/mega-drive/src/mega-drive-header.vala:65
+#: ../plugins/mega-drive/src/mega-drive-header.vala:84
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "Berkas tidak memiliki header Genesis/Sega 32X/Sega CD/Sega Pico."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr "Berkas \"%s\" tidak memiliki trek."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "Berkas \"%s\" tidak memiliki format berkas biner yang valid."
+
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "Berkas \"%s\" tidak memiliki mode trek yang valid untuk trek %d."
+
+#: ../plugins/playstation/src/playstation-game-factory.vala:65
+#, c-format
+msgid "Disc with disc_id %s is unknown"
+msgstr "Diska dengan disc_id %s tidak diketahui"
+
+#: ../plugins/playstation/src/playstation-header.vala:49
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
+msgstr "Header PlayStation tidak valid: ID diska tidak ditemukan di \"%s\"."
+
+#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn’t have a Sega Saturn header."
+msgstr "Berkas tidak memiliki header Sega Saturn."
+
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#, c-format
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+msgstr "Berkas \"%s\" tidak memiliki berkas biner Sega Saturn yang valid."
+
+#: ../plugins/steam/src/steam-game-source.vala:99
+#, c-format
+msgid "Couldn’t get Steam appid from manifest “%s”."
+msgstr "Tak bisa mendapatkan Steam appid dari manifes \"%s\"."
+
+#: ../plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File “%s” doesn’t exist."
+msgstr "Berkas \"%s\" tidak ada."
+
+#: ../plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Token tak terduga '{'."
+
+#: ../plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Akhir token tak terduga."
+
+#: ../plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Token tak terduga '}'."
+
+#: ../plugins/steam/src/steam-title.vala:17
+msgid "Couldn’t get name from Steam registry."
+msgstr "Tak bisa mendapatkan nama dari registri Steam."
+
+#: ../plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Ukuran header Wii tidak valid: %s"
+
+#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+msgid "The file doesn’t have a Wii header."
+msgstr "Berkas tidak memiliki header Wii."
+
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn’t read file: %s"
+msgstr "Tak bisa membaca berkas: %s"
+
+#: ../src/command/command-runner.vala:33
+msgid "The game doesn’t have a valid command."
+msgstr "Permainan tidak memiliki perintah yang valid."
+
+#: ../src/command/command-runner.vala:64
+#, c-format
+msgid "Couldn’t run “%s”: execution failed."
+msgstr "Tak bisa menjalankan \"%s\": eksekusi gagal."
+
+#: ../src/core/media-set/media-set.vala:31
+#, c-format
+msgid "Invalid media index %u."
+msgstr "Media index tidak valid %u."
+
+#: ../src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Pengaya deskriptor tidak valid: %s"
+
+#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn’t create a new instance of plugin in “%s”."
+msgstr "Tak bisa membuat contoh baru dari pengaya \"%s\"."
+
+#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "Diska %d"
+
+#: ../src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID “%s”."
+msgstr "Tidak ada judul permainan yang ditemukan untuk ID diska \"%s\"."
+
+#: ../src/gameinfo/gameinfo-doc.vala:31
+#, c-format
+msgid "No disc title found for disc ID “%s”."
+msgstr "Tidak ada judul diska yang ditemukan untuk ID diska \"%s\"."
+
+#: ../src/gameinfo/gameinfo-doc.vala:41
+#, c-format
+msgid "No disc set ID found for disc ID “%s”."
+msgstr "Tidak ada set ID diska yang ditemukan untuk ID diska \"%s\"."
+
+#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
+#, c-format
+msgid "No disc found for disc ID “%s”."
+msgstr "Tidak ada diska yang ditemukan untuk ID diska \"%s\"."
+
+#: ../src/gamepad/gamepad-mapping.vala:12
+msgid "The mapping string can’t be null."
+msgstr "String pemetaan tidak boleh null."
+
+#: ../src/gamepad/gamepad-mapping.vala:15
+msgid "The mapping string can’t be empty."
+msgstr "String pemetaan tidak boleh kosong."
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#, c-format
+msgid "Unable to open file “%s”: %s"
+msgstr "Tidak dapat membuka berkas “%s”: %s"
+
+#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#, c-format
+msgid "Evdev is unable to open “%s”: %s"
+msgstr "Evdev tidak dapat membuka “%s”: %s"
+
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
+#, c-format
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
+msgstr ""
+"Tidak ada modul yang ditemukan untuk platform \"%s\" dan jenis MIME [\"%s\"]."
+
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
+msgid "”, “"
+msgstr "”, “"
+
+#: ../src/retro/retro-core-source.vala:76
+#, c-format
+msgid "This game requires the %s firmware file to run."
+msgstr ""
+"Permainan ini membutuhkan berkas perangkat tegar (firmware) %s untuk "
+"menjalankan."
+
+#: ../src/retro/retro-core-source.vala:93
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr ""
+"Permainan ini membutuhkan berkas berkas perangkat tegar (firmware) %s dengan "
+"sidik jari MD5 dari %s untuk menjalankan."
+
+#: ../src/retro/retro-core-source.vala:99
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+"Permainan ini membutuhkan berkas perangkat tegar (firmware) %s dengan sidik "
+"jari SHA-512  dari %s untuk menjalankan."
+
+#: ../src/retro/retro-platform.vala:7
+msgid "Amiga"
+msgstr "Amiga"
+
+#: ../src/retro/retro-platform.vala:9
+msgid "Atari 2600"
+msgstr "Atari 2600"
+
+#: ../src/retro/retro-platform.vala:11
+msgid "Atari 5200"
+msgstr "Atari 5200"
+
+#: ../src/retro/retro-platform.vala:13
+msgid "Atari 7800"
+msgstr "Atari 7800"
+
+#: ../src/retro/retro-platform.vala:15
+msgid "DOOM"
+msgstr "DOOM"
+
+#: ../src/retro/retro-platform.vala:17
+msgid "Dreamcast"
+msgstr "Dreamcast"
+
+#. translators: only released in eastern Asia
+#: ../src/retro/retro-platform.vala:20
+msgid "Famicom Disk System"
+msgstr "Famicom Disk System"
+
+#: ../src/retro/retro-platform.vala:22
+msgid "Game Boy"
+msgstr "Game Boy"
+
+#: ../src/retro/retro-platform.vala:24
+msgid "Game Boy Color"
+msgstr "Game Boy Color"
+
+#: ../src/retro/retro-platform.vala:26
+msgid "Game Boy Advance"
+msgstr "Game Boy Advance"
+
+#: ../src/retro/retro-platform.vala:28
+msgid "Nintendo GameCube"
+msgstr "Nintendo GameCube"
+
+#: ../src/retro/retro-platform.vala:30
+msgid "Game Gear"
+msgstr "Game Gear"
+
+#. translators: the "Multiple Arcade Machine Emulator"
+#: ../src/retro/retro-platform.vala:33
+msgid "MAME"
+msgstr "MAME"
+
+#: ../src/retro/retro-platform.vala:35
+msgid "Neo Geo Pocket"
+msgstr "Neo Geo Pocket"
+
+#. translators: known as "Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:38
+msgid "Nintendo Entertainment System"
+msgstr "Nintendo Entertainment System"
+
+#: ../src/retro/retro-platform.vala:40
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
+#: ../src/retro/retro-platform.vala:42
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: ../src/retro/retro-platform.vala:44
+msgid "Nintendo 3DS"
+msgstr "Nintendo 3DS"
+
+#: ../src/retro/retro-platform.vala:46
+msgid "PlayStation"
+msgstr "PlayStation"
+
+#: ../src/retro/retro-platform.vala:48
+msgid "PlayStation 2"
+msgstr "PlayStation 2"
+
+#: ../src/retro/retro-platform.vala:50
+msgid "PlayStation 3"
+msgstr "PlayStation 3"
+
+#: ../src/retro/retro-platform.vala:52
+msgid "PlayStation 4"
+msgstr "PlayStation 4"
+
+#: ../src/retro/retro-platform.vala:54
+msgid "PlayStation Portable"
+msgstr "PlayStation Portable"
+
+#: ../src/retro/retro-platform.vala:56
+msgid "PlayStation Vita"
+msgstr "PlayStation Vita"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: ../src/retro/retro-platform.vala:59
+msgid "Genesis 32X"
+msgstr "Genesis 32X"
+
+#. translators: known as "Mega-CD" in most of the world
+#: ../src/retro/retro-platform.vala:62
+msgid "Sega CD"
+msgstr "Sega CD"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: ../src/retro/retro-platform.vala:65
+msgid "Sega CD 32X"
+msgstr "Sega CD 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: ../src/retro/retro-platform.vala:68
+msgid "Sega Genesis"
+msgstr "Sega Genesis"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: ../src/retro/retro-platform.vala:71
+msgid "Sega Master System"
+msgstr "Sega Master System"
+
+#: ../src/retro/retro-platform.vala:73
+msgid "Sega Pico"
+msgstr "Sega Pico"
+
+#: ../src/retro/retro-platform.vala:75
+msgid "Sega Saturn"
+msgstr "Sega Saturn"
+
+#: ../src/retro/retro-platform.vala:77
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: ../src/retro/retro-platform.vala:80
+msgid "Super Nintendo Entertainment System"
+msgstr "Super Nintendo Entertainment System"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:83
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: ../src/retro/retro-platform.vala:86
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: ../src/retro/retro-platform.vala:88
+msgid "Wii"
+msgstr "Wii"
+
+#: ../src/retro/retro-platform.vala:90
+msgid "Wii U"
+msgstr "Wii U"
+
+#: ../src/retro/retro-platform.vala:92
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: ../src/retro/retro-runner.vala:218
+#, c-format
+msgid "Invalid game file: “%s”."
+msgstr "Berkas permainan tidak valid: “%s”."
+
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+msgid "No module found for “%s”."
+msgstr "Tidak ada modul yang ditemukan untuk \"%s\"."
+
+#: ../src/retro/retro-runner.vala:584
+#, c-format
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
+
+#: ../src/retro/retro-runner.vala:587
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
+
+#: ../src/ui/application.vala:174
 msgid "GNOME Games"
 msgstr "Permainan GNOME"
 
-#: ../src/ui/application.vala:140
+#: ../src/ui/application.vala:176
 msgid "A video game player for GNOME"
 msgstr "Player permainan video untuk GNOME"
 
-#: ../src/ui/application.vala:144
+#: ../src/ui/application.vala:180
 msgid "Learn more about GNOME Games"
 msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 
-#: ../src/ui/application.vala:151
+#: ../src/ui/application.vala:187
 msgid "translator-credits"
-msgstr "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016"
+msgstr ""
+"Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
+"Kukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
+
+#: ../src/ui/application-window.vala:283
+msgid "An unexpected error occurred."
+msgstr "Kesalahan yang tidak terduga terjadi."
+
+#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
+msgid "Playing a game"
+msgstr "Mainkan permainan"
+
+#: ../src/ui/error-display.vala:13
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Ups! Tidak dapat menjalankan \"%s\""
+
+#: ../src/ui/error-display.vala:15
+msgid "Oops! Unable to run the game"
+msgstr "Ups! Tidak dapat menjalankan permainan"
+
+#: ../src/ui/media-selector.vala:33
+#, c-format
+msgid "Media %d"
+msgstr "Media %d"
+
+#. same as video-filters in gschema
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Smooth"
+msgstr "Halus"
+
+#: ../src/ui/preferences-page-video.vala:29
+msgid "Sharp"
+msgstr "Tajam"
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "“%s” doesn’t have a track for index %u."
+msgstr "\"%s\" tidak memiliki jalur untuk indeks %u."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: Format berkas tidak valid %s, diharapkan format berkas yang valid "
+"atau tidak."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:% lu: Token TRACK tidak terduga sebelum token FILE."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr ""
+"%s:%lu: Nomor trek tidak valid %s, diharapkan angka dalam kisaran 1-99."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr "%s:%lu: Mode trek tidak valid %s, diharapkan mode trek valid."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: Akhir berkas tidak terduga, diharapkan %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: Token tidak terduga %s, diharapkan %s."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: Akhir berkas tidak terduga, diharapkan token."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: Akhir baris tidak terduga, diharapkan token."
+
+#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: Token tidak terduga %s, diharapkan akhir baris."
+
+#~ msgid ""
+#~ "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+#~ msgstr ""
+#~ "<b><span size=\"large\">Gunakan jendela sendiri untuk memainkannya</"
+#~ "span></b>"
+
+#~ msgid "Main Menu"
+#~ msgstr "Menu Utama"
