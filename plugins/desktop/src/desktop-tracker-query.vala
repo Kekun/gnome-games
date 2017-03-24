@@ -89,9 +89,18 @@ private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 		if (app_info == null)
 			throw new DesktopError.INVALID_APPINFO (_("Couldn’t parse desktop entry “%s”."), path);
 
+		check_displayability (app_info);
 		check_categories (app_info);
 		check_executable (app_info);
 		check_base_name (file);
+	}
+
+	private void check_displayability (DesktopAppInfo app_info) throws Error {
+		if (app_info.get_nodisplay ())
+			throw new DesktopError.BLACKLISTED_GAME (_("“%s” shouldn’t be displayed."), app_info.filename);
+
+		if (app_info.get_is_hidden ())
+			throw new DesktopError.BLACKLISTED_GAME (_("“%s” is hidden."), app_info.filename);
 	}
 
 	private void check_categories (DesktopAppInfo app_info) throws Error {
