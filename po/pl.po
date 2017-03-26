@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 15:23+0100\n"
-"PO-Revision-Date: 2017-03-09 15:24+0100\n"
+"POT-Creation-Date: 2017-03-26 17:34+0200\n"
+"PO-Revision-Date: 2017-03-26 17:35+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -80,7 +80,12 @@ msgstr "Przeglądanie i uruchamianie gier z kolekcji"
 
 #: ../data/org.gnome.Games.desktop.in.h:4
 msgid "game;videogame;video game;player;"
-msgstr "gra;gra komputerowa;gra wideo;"
+msgstr ""
+"gra;gra komputerowa;gra wideo;konsola;konsole;emulacja;steam;3ds;advance;"
+"amiga;atari;color;doom;dreamcast;ds;famicom;game boy;game gear;gameboy;"
+"gamecube;gamegear;genesis;mame;mega drive;megacd;mega-cd;megadrive;neo geo "
+"pocket;neogeopocket;nes;nintendo;pegasus;pegazus;pico;playstation;psp;saturn;"
+"sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
 #: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
 msgid "Fullscreen"
@@ -316,7 +321,7 @@ msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
-msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla ścieżki %d."
+msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
 
 #: ../plugins/playstation/src/playstation-game-factory.vala:65
 #, c-format
@@ -446,21 +451,23 @@ msgstr "Nie można otworzyć pliku „%s”: %s"
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Nie odnaleziono modułu dla platformy „%s” i typów MIME [ „%s” ]."
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "”, „"
 
-#: ../src/retro/retro-core-source.vala:74
+#: ../src/retro/retro-core-source.vala:76
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Ta gra wymaga oprogramowania sprzętowego %s do działania."
 
-#: ../src/retro/retro-core-source.vala:91
+#: ../src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -468,7 +475,7 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej MD5 „%s”."
 
-#: ../src/retro/retro-core-source.vala:97
+#: ../src/retro/retro-core-source.vala:99
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -640,17 +647,22 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:214
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: “%s”."
 msgstr "Nieprawidłowy plik gry: „%s”."
 
-#: ../src/retro/retro-runner.vala:557
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+msgid "No module found for “%s”."
+msgstr "Nie odnaleziono modułu dla „%s”."
+
+#: ../src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/retro/retro-runner.vala:560
+#: ../src/retro/retro-runner.vala:587
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
