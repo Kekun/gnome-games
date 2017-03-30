@@ -125,9 +125,12 @@ private class Games.DisplayBox : Gtk.EventBox {
 		    (!show && window.cursor != null))
 			return;
 
-		// FIXME Gdk.Cursor.new() is deprecated but I didn't manage to make
-		// Gdk.Cursor.from_display().
-		window.cursor = show ? null : new Gdk.Cursor (Gdk.CursorType.BLANK_CURSOR);
+		if (!show) {
+			var display = window.get_display ();
+			window.cursor = new Gdk.Cursor.for_display (display, Gdk.CursorType.BLANK_CURSOR);
+		}
+		else
+			window.cursor = null;
 	}
 
 	private void set_display (Gtk.Widget display) {
