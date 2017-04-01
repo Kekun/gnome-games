@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.16"/>
-  <template class="GamesResumeDialog" parent="GtkDialog">
+  <template class="GamesResumeDialog" parent="GtkMessageDialog">
     <property name="modal">True</property>
     <property name="destroy-with-parent">True</property>
-    <child internal-child="vbox">"
-      <object class="GtkBox" id="vbox">
-        <child>
-          <object class="GtkLabel" id="label">
-            <property name="visible">True</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="margin-top">12</property>
-            <property name="margin-bottom">12</property>
-            <property name="margin-start">21</property>
-            <property name="margin-end">21</property>
-            <property name="label" translatable="yes">Resume last game?</property>
-          </object>
-        </child>
-      </object>
-    </child>
-
+    <property name="type_hint">dialog</property>
+    <property name="message_type">question</property>
+    <property name="text" translatable="yes">Resume last game?</property>
     <child type="action">
       <object class="GtkButton" id="button_resume">
         <property name="visible">True</property>
