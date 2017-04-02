@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-21 02:47+0000\n"
-"PO-Revision-Date: 2017-03-25 21:25-0200\n"
+"POT-Creation-Date: 2017-04-02 07:42+0000\n"
+"PO-Revision-Date: 2017-04-02 17:55-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -239,7 +239,8 @@ msgid "Restart"
 msgstr "Reiniciar"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
-msgid "Resuming failed. Do you want to to restart the game?"
+#| msgid "Resuming failed. Do you want to to restart the game?"
+msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Falha ao continuar. Você deseja reiniciar o jogo?"
 
 #: ../data/ui/resume-failed-dialog.ui.h:2
@@ -261,17 +262,29 @@ msgstr "Arquivo listado do rastreador não localizado: “%s”."
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Não foi possível analisar a entrada desktop “%s”."
 
+#: ../plugins/desktop/src/desktop-tracker-query.vala:100
+#, c-format
+#| msgid "File “%s” doesn’t exist."
+msgid "“%s” shouldn’t be displayed."
+msgstr "“%s” não deveria ser exibido."
+
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+#| msgid "“%s” is blacklisted."
+msgid "“%s” is hidden."
+msgstr "“%s” está oculto."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "“%s” acrescentou à lista negra a categoria “%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-tracker-query.vala:121
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "“%s” acrescentou à lista negra o executável “%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#: ../plugins/desktop/src/desktop-tracker-query.vala:128
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "“%s” está na lista negra."
@@ -651,7 +664,6 @@ msgstr "Arquivo de jogo inválido: “%s”."
 
 #: ../src/retro/retro-runner.vala:263
 #, c-format
-#| msgid "No disc found for disc ID “%s”."
 msgid "No module found for “%s”."
 msgstr "Nenhum módulo localizado para “%s”."
 
