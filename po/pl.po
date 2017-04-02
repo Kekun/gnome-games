@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-26 17:34+0200\n"
-"PO-Revision-Date: 2017-03-26 17:35+0200\n"
+"POT-Creation-Date: 2017-04-02 09:39+0200\n"
+"PO-Revision-Date: 2017-04-02 09:40+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -262,17 +262,27 @@ msgstr "Nie odnaleziono pliku: „%s”."
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Nie można przetworzyć wpisu .desktop: „%s”."
 
+#: ../plugins/desktop/src/desktop-tracker-query.vala:100
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr "Gra „%s” nie powinna być wyświetlana."
+
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "“%s” is hidden."
+msgstr "Gra „%s” jest ukryta."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "„%s” umieścił kategorię „%s” na czarnej liście."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-tracker-query.vala:121
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "„%s” umieścił plik wykonywalny „%s” na czarnej liście."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#: ../plugins/desktop/src/desktop-tracker-query.vala:128
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "„%s” jest na czarnej liście."
