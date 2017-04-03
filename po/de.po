@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-13 12:53+0000\n"
-"PO-Revision-Date: 2017-03-15 09:58+0100\n"
+"POT-Creation-Date: 2017-04-02 07:42+0000\n"
+"PO-Revision-Date: 2017-04-03 22:44+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -240,7 +240,7 @@ msgid "Restart"
 msgstr "Neu starten"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
-msgid "Resuming failed. Do you want to to restart the game?"
+msgid "Resuming failed. Do you want to restart the game?"
 msgstr ""
 "Wiederherstellen fehlgeschlagen. Möchten Sie das Spiel von vorne beginnen?"
 
@@ -263,17 +263,27 @@ msgstr "In Tracker aufgelistete Datei konnte nicht gefunden werden: »%s«."
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Desktop-Eintrag »%s« konnte nicht ausgewertet werden."
 
+#: ../plugins/desktop/src/desktop-tracker-query.vala:100
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr "»%s« sollte nicht angezeigt werden."
+
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "“%s” is hidden."
+msgstr "»%s« ist verborgen."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "»%s« hat Kategorie »%s« ausgeblendet."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-tracker-query.vala:121
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "»%s« hat ausführbare Datei »%s« ausgeblendet."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#: ../plugins/desktop/src/desktop-tracker-query.vala:128
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "»%s« ist ausgeblendet."
@@ -451,21 +461,23 @@ msgstr "Datei »%s« kann nicht geöffnet werden: %s"
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "»%s« kann nicht mit evdev geöffnet werden: %s"
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Kein Modul für Plattform »%s« und MIME-Typen gefunden [ »%s« ]."
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "”, “"
 
-#: ../src/retro/retro-core-source.vala:74
+#: ../src/retro/retro-core-source.vala:76
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Zur Ausführung benötigt das Spiel die Firmwaredatei %s."
 
-#: ../src/retro/retro-core-source.vala:91
+#: ../src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -473,7 +485,7 @@ msgstr ""
 "Zur Ausführung benötigt das Spiel die Firmwaredatei %s mit dem MD5-"
 "Fingerabdruck von %s."
 
-#: ../src/retro/retro-core-source.vala:97
+#: ../src/retro/retro-core-source.vala:99
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -645,19 +657,24 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:214
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: “%s”."
 msgstr "Ungültige Spieldatei: »%s«."
 
-#: ../src/retro/retro-runner.vala:557
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+msgid "No module found for “%s”."
+msgstr "Kein passendes Modul für »%s« gefunden."
+
+#: ../src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System »%s« wird derzeit noch nicht unterstützt, die vollständige "
 "Unterstützung ist aber bereits in Planung."
 
-#: ../src/retro/retro-runner.vala:560
+#: ../src/retro/retro-runner.vala:587
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System wird derzeit noch nicht unterstützt, die vollständige "
