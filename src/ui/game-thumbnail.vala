@@ -1,6 +1,5 @@
-// This file is part of GNOME Boxes. License: LGPLv2+
+// This file is part of GNOME Games. License: GPLv3
 
-//[GtkTemplate (ui = "/org/gnome/Boxes/ui/game-list-thumbnail.ui")]
 private class Games.GameThumbnail: Gtk.DrawingArea {
 	private const Gtk.CornerType[] right_corners = { Gtk.CornerType.TOP_RIGHT, Gtk.CornerType.BOTTOM_RIGHT };
 	private const Gtk.CornerType[] bottom_corners = { Gtk.CornerType.BOTTOM_LEFT, Gtk.CornerType.BOTTOM_RIGHT };
