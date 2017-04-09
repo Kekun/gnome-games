@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-02 09:39+0200\n"
-"PO-Revision-Date: 2017-04-02 09:40+0200\n"
+"POT-Creation-Date: 2017-04-09 15:51+0200\n"
+"PO-Revision-Date: 2017-04-09 15:52+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -207,13 +207,13 @@ msgstr "Na pewno zakończyć?"
 msgid "All unsaved progress will be lost."
 msgstr "Niezapisane postępy zostaną utracone."
 
-#: ../data/ui/quit-dialog.ui.h:3
-msgid "Quit"
-msgstr "Zakończ"
-
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
+#: ../data/ui/quit-dialog.ui.h:3 ../data/ui/resume-failed-dialog.ui.h:2
 msgid "Cancel"
 msgstr "Anuluj"
+
+#: ../data/ui/quit-dialog.ui.h:4
+msgid "Quit"
+msgstr "Zakończ"
 
 #: ../data/ui/remote-display.ui.h:1
 msgid "Use the game’s own window to play it"
@@ -232,18 +232,18 @@ msgid "Resume last game?"
 msgstr "Wznowić ostatnią grę?"
 
 #: ../data/ui/resume-dialog.ui.h:2
-msgid "Resume"
-msgstr "Wznów"
-
-#: ../data/ui/resume-dialog.ui.h:3
 msgid "Restart"
 msgstr "Uruchom ponownie"
 
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Resume"
+msgstr "Wznów"
+
 #: ../data/ui/resume-failed-dialog.ui.h:1
-msgid "Resuming failed. Do you want to to restart the game?"
+msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Wznowienie się nie powiodło. Uruchomić grę ponownie?"
 
-#: ../data/ui/resume-failed-dialog.ui.h:2
+#: ../data/ui/resume-failed-dialog.ui.h:3
 msgid "Reset"
 msgstr "Przywróć"
 
