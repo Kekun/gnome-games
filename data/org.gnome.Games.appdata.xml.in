@@ -2,7 +2,7 @@
 <application>
   <id type="desktop">org.gnome.Games.desktop</id>
   <licence>CC0</licence>
-  <project_license>GPL-3.0+ and GPL-2.0+</project_license>
+  <project_license>GPL-3.0+</project_license>
   <_name>Games</_name>
   <_summary>Simple game launcher for GNOME</_summary>
 
