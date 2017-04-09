@@ -21,6 +21,8 @@
  *
  */
 
+/* Extracted from https://git.gnome.org/browse/gnome-nds-thumbnailer/. */
+
 #include <string.h>
 #include <glib.h>
 #include <gio/gio.h>
