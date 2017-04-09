@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-05 09:46+0000\n"
-"PO-Revision-Date: 2017-03-06 21:33+0100\n"
+"POT-Creation-Date: 2017-04-02 07:42+0000\n"
+"PO-Revision-Date: 2017-04-09 22:06+0200\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "X-Generator: Poedit 1.8.12\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
@@ -234,7 +234,7 @@ msgid "Restart"
 msgstr "Torne invie"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
-msgid "Resuming failed. Do you want to to restart the game?"
+msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Ripiâ falît. Tornâ a tacâ il zûc?"
 
 #: ../data/ui/resume-failed-dialog.ui.h:2
@@ -256,17 +256,27 @@ msgstr "File listât dal tracker no cjatât: “%s”."
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Impussibil analizâ la vôs scritori “%s”."
 
+#: ../plugins/desktop/src/desktop-tracker-query.vala:100
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr "“%s” nol varès di jessi mostrât."
+
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "“%s” is hidden."
+msgstr "“%s” al è platât."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "“%s” al à metût te liste nere la categorie “%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-tracker-query.vala:121
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "“%s” al à metût te liste nere l'eseguibil “%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#: ../plugins/desktop/src/desktop-tracker-query.vala:128
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "“%s” al è te liste nere."
@@ -443,35 +453,37 @@ msgstr "Impussibil vierzi il file “%s”: %s"
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev nol rive a vierzi “%s”: %s"
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Nissun modul cjatât pe plateforme “%s” e gjenars MIME [ “%s” ]."
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "”, “"
 
-#: ../src/retro/retro-core-source.vala:74
+#: ../src/retro/retro-core-source.vala:76
 #, c-format
-msgid "This games requires the %s firmware file to run."
-msgstr "Chescj zûcs a domandin il file dal firmware di %s par zirâ."
+msgid "This game requires the %s firmware file to run."
+msgstr "Chest zûc al domande il file dal firmware di %s par zirâ."
 
-#: ../src/retro/retro-core-source.vala:91
+#: ../src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a MD5 fingerprint of %s to run."
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
-"Chescj zûcs a domandin il file dal firmware di %s cuntune impronte digjitâl "
+"Chest zûc al domande il file dal firmware di %s cuntune impronte digjitâl "
 "MD5 di %s par zirâ."
 
-#: ../src/retro/retro-core-source.vala:97
+#: ../src/retro/retro-core-source.vala:99
 #, c-format
 msgid ""
-"This games requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
-"Chescj zûcs a domandin il file dal firmware di %s cuntune impronte digjitâl "
+"Chest zûc al domande il file dal firmware di %s cuntune impronte digjitâl "
 "SHA-512 di %s par zirâ."
 
 #: ../src/retro/retro-platform.vala:7
@@ -637,18 +649,23 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:214
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: “%s”."
 msgstr "File di zûc no valit: “%s”."
 
-#: ../src/retro/retro-runner.vala:557
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+msgid "No module found for “%s”."
+msgstr "Nissun modul cjatât par “%s”."
+
+#: ../src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Il sisteme “%s” nol è ancjemò supuartât, ma il plen supuart al è programât."
 
-#: ../src/retro/retro-runner.vala:560
+#: ../src/retro/retro-runner.vala:587
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Il sisteme nol è ancjemò supuartât, ma il plen supuart al è programât."
 
@@ -669,7 +686,7 @@ msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
 #: ../src/ui/application-window.vala:283
-msgid "An unexpected error occured."
+msgid "An unexpected error occurred."
 msgstr "Al è vignût fûr un erôr inspietât."
 
 #: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
