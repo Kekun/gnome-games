@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: http://koti.kapsi.fi/~antime/sega/files/ST-040-R4-051795.pdf
 // Documentation: http://www.gamefaqs.com/saturn/916393-sega-saturn/faqs/26021

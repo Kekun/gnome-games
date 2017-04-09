@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
 private class Games.GameBoyHeader : Object {

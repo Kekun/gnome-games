@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.DreamcastHeader : Object {
 	private const size_t HEADER_SIZE = 0x100;

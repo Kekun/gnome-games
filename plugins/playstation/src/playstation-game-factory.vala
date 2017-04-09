@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private const string SEARCHED_MIME_TYPE = "application/x-cue";

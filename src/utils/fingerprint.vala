@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 namespace Games.Fingerprint {
 	private string get_for_file_uri (string uri, size_t start, size_t? length) throws Error {

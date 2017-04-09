@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 // FIXME Workaround the autotools working poorly with Vala.
 #if ENABLE_LINUX_GAMEPADS

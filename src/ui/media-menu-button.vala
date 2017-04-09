@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/media-menu-button.ui")]
 private class Games.MediaMenuButton : Gtk.MenuButton {

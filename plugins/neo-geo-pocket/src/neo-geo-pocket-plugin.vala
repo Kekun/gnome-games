@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.NeoGeoPocketPlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "neo-geo-pocket";

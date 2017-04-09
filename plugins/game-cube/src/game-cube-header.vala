@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: http://www.gc-forever.com/yagcd/chap13.html
 private class Games.GameCubeHeader: Object {

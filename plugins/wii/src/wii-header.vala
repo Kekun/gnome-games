@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: http://wiibrew.org/wiki/Wii_Disc
 private class Games.WiiHeader: Object {

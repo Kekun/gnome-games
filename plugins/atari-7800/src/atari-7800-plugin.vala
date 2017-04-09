@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.Atari7800 : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "atari-7800";

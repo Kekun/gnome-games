@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.DesktopTrackerQuery : Object, TrackerQuery {
 	private const uint HANDLED_GAMES_PER_CYCLE = 5;

@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: https://en.wikibooks.org/wiki/Genesis_Programming
 private class Games.MegaDriveHeader : Object {

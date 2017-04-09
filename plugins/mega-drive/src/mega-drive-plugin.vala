@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.MegaDrivePlugin : Object, Plugin {
 	private const string MEGA_DRIVE_PREFIX = "mega-drive";

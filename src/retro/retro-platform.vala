@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 namespace Games.RetroPlatform {
 	private string? get_platform_name (string platform) {

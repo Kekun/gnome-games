@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.RetroGamepad: Object, Retro.InputDevice {
 	public Gamepad gamepad { get; construct; }

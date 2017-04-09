@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.DummyGameSource : Object, GameSource {
 	public async void each_game (GameCallback callback) {

@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 public interface Games.TrackerQuery : Object {
 	public abstract bool is_cursor_valid (Tracker.Sparql.Cursor cursor);

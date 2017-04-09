@@ -1,4 +1,4 @@
-// This file is part of GNOME Games. License: GPLv3
+// This file is part of GNOME Games. License: GPL-3.0+.
 
 namespace Games.Grep {
 	public size_t[] get_offsets (string filename, string text) {
