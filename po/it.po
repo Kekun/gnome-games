@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-09 09:42+0000\n"
-"PO-Revision-Date: 2017-03-13 10:48+0100\n"
+"POT-Creation-Date: 2017-04-02 07:42+0000\n"
+"PO-Revision-Date: 2017-04-11 09:03+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0beta3\n"
+"X-Generator: Poedit 1.8.12\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
@@ -236,8 +236,8 @@ msgid "Restart"
 msgstr "Riavvia"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
-msgid "Resuming failed. Do you want to to restart the game?"
-msgstr "Ripresa della partita non riuscita. Ricominciare la partita?"
+msgid "Resuming failed. Do you want to restart the game?"
+msgstr "Ripresa della partita non riuscita. Ricominciare?"
 
 #: ../data/ui/resume-failed-dialog.ui.h:2
 msgid "Reset"
@@ -258,17 +258,27 @@ msgstr "File indicato dal tracker non trovato: «%s»."
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Impossibile leggere la voce desktop «%s»."
 
+#: ../plugins/desktop/src/desktop-tracker-query.vala:100
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr "«%s» non dovrebbe essere visualizzato."
+
 #: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#, c-format
+msgid "“%s” is hidden."
+msgstr "«%s» è nascosto."
+
+#: ../plugins/desktop/src/desktop-tracker-query.vala:112
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "«%s» presenta una categoria «%s» non consentita."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-tracker-query.vala:121
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "«%s» presenta un eseguibile «%s» non consentito."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#: ../plugins/desktop/src/desktop-tracker-query.vala:128
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "«%s» non è consentito."
@@ -445,23 +455,25 @@ msgstr "Impossibile aprire il file «%s»: %s"
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev non è in grado di aprire «%s»: %s"
 
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr ""
 "Nessun modulo trovato per la piattaforma «%s» e per i tipi MIME [ %s ]."
 
 # (ndt) e che cavolo è???
-#: ../src/retro/retro-core-source.vala:35
+#: ../src/retro/retro-core-source.vala:25
+#: ../src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "«, »"
 
-#: ../src/retro/retro-core-source.vala:74
+#: ../src/retro/retro-core-source.vala:76
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Questo gioco richiede il file di firmware %s per essere eseguito."
 
-#: ../src/retro/retro-core-source.vala:91
+#: ../src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -469,7 +481,7 @@ msgstr ""
 "Questo gioco richiede il file di firmware %s con un codice MD5 %s per essere "
 "eseguito."
 
-#: ../src/retro/retro-core-source.vala:97
+#: ../src/retro/retro-core-source.vala:99
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -641,17 +653,22 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:214
+#: ../src/retro/retro-runner.vala:218
 #, c-format
 msgid "Invalid game file: “%s”."
 msgstr "File di gioco non valido: «%s»."
 
-#: ../src/retro/retro-runner.vala:557
+#: ../src/retro/retro-runner.vala:263
+#, c-format
+msgid "No module found for “%s”."
+msgstr "Nessun modulo trovato per «%s»."
+
+#: ../src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Il sistema «%s» non è ancora supportato, ma presto lo sarà."
 
-#: ../src/retro/retro-runner.vala:560
+#: ../src/retro/retro-runner.vala:587
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Il sistema non è ancora supportato, ma presto lo sarà."
 
