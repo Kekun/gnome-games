@@ -3,13 +3,19 @@
   <requires lib="gtk+" version="3.16"/>
   <template class="GamesMediaSelector" parent="GtkPopover">
     <child>
-      <object class="GtkListBox" id="list_box">
-        <property name="margin-top">12</property>
-        <property name="margin-bottom">12</property>
-        <property name="margin-start">21</property>
-        <property name="margin-end">21</property>
-        <signal name="row-selected" after="yes" handler="on_row_selected"/>
+      <object class="GtkFrame">
+        <property name="visible">True</property>
+        <property name="shadow_type">none</property>
         <child>
+          <object class="GtkListBox" id="list_box">
+            <property name="visible">True</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="selection_mode">none</property>
+            <signal name="row-activated" after="yes" handler="on_row_activated"/>
+          </object>
         </child>
       </object>
     </child>
