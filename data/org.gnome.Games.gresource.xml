@@ -5,6 +5,7 @@
     <file>gamepads/gamecontrollerdb.txt</file>
     <file preprocess="xml-stripblanks">gtk/menus.ui</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
+    <file preprocess="xml-stripblanks">ui/checkmark-item.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-box.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-header-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
@@ -20,7 +21,6 @@
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-video.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-switch-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-window.ui</file>
     <file preprocess="xml-stripblanks">ui/quit-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/remote-display.ui</file>

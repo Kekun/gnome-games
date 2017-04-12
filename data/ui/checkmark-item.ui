@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="GamesPreferencesSwitchItem" parent="GtkBox">
+  <template class="GamesCheckmarkItem" parent="GtkBox">
     <property name="vexpand">false</property>
     <property name="orientation">horizontal</property>
     <property name="margin">6</property>
@@ -14,7 +14,7 @@
       </object>
     </child>
     <child>
-      <object class="GtkImage" id="select_image">
+      <object class="GtkImage" id="checkmark_image">
         <property name="icon-name">object-select-symbolic</property>
         <property name="valign">center</property>
       </object>

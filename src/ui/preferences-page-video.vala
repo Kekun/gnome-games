@@ -11,11 +11,8 @@ private class Games.PreferencesPageVideo: Gtk.Bin, PreferencesPage {
 		set {
 			for (var i = 0; i < filter_names.length; i++) {
 				var row_item = filter_list_box.get_row_at_index (i);
-				var switch_item = (PreferencesSwitchItem) row_item.get_child ();
-				if (value == filter_names[i])
-					switch_item.switch_activate ();
-				else
-					switch_item.switch_deactivate ();
+				var checkmark_item = (CheckmarkItem) row_item.get_child ();
+				checkmark_item.checkmark_visible = (value == filter_names[i]);
 			}
 			_filter_active = value;
 		}
@@ -34,8 +31,8 @@ private class Games.PreferencesPageVideo: Gtk.Bin, PreferencesPage {
 
 	construct {
 		foreach (var filter_display_name in filter_display_names) {
-			var switch_item = new PreferencesSwitchItem (filter_display_name);
-			filter_list_box.add (switch_item);
+			var checkmark_item = new CheckmarkItem (filter_display_name);
+			filter_list_box.add (checkmark_item);
 		}
 		settings = new Settings ("org.gnome.Games");
 		settings.bind ("video-filter", this, "filter-active",

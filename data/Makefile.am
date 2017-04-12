@@ -25,6 +25,7 @@ EXTRA_DIST = \
 	gtk/menus.ui \
 	gtk-style.css \
 	ui/application-window.ui \
+	ui/checkmark-item.ui \
 	ui/collection-box.ui \
 	ui/collection-header-bar.ui \
 	ui/collection-icon-view.ui \
@@ -41,7 +42,6 @@ EXTRA_DIST = \
 	ui/preferences-page-plugins-item.ui \
 	ui/preferences-page-plugins.ui \
 	ui/preferences-page-video.ui \
-	ui/preferences-switch-item.ui \
 	ui/preferences-window.ui \
 	ui/quit-dialog.ui \
 	ui/remote-display.ui \
