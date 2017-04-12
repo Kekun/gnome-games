@@ -9,3 +9,4 @@ Terminal=false
 Type=Application
 StartupNotify=true
 Categories=GNOME;GTK;Player;Game;
+MimeType=application/vnd.nintendo.snes.rom;application/x-amiga-disk-format;application/x-atari-2600-rom;application/x-atari-7800-rom;application/x-cue;application/x-dc-rom;application/x-desktop;application/x-doom-wad;application/x-fds-disk;application/x-gameboy-color-rom;application/x-gameboy-rom;application/x-gamecube-rom;application/x-gamegear-rom;application/x-gba-rom;application/x-genesis-32x-rom;application/x-genesis-rom;application/x-love-game;application/x-mame-rom;application/x-n64-rom;application/x-neo-geo-pocket-rom;application/x-nes-rom;application/x-nintendo-ds-rom;application/x-pc-engine-rom;application/x-playstation-rom;application/x-saturn-rom;application/x-sega-cd-rom;application/x-sega-pico-rom;application/x-sg1000-rom;application/x-sms-rom;application/x-wii-rom;application/x-wii-wad;application/zip;
