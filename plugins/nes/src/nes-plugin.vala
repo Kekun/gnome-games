@@ -20,11 +20,11 @@ private class Games.NesPlugin : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var nes_game_uri_adapter = new GenericSyncGameUriAdapter (nes_game_for_uri);
+		var nes_game_uri_adapter = new GenericGameUriAdapter (nes_game_for_uri);
 		var nes_factory = new GenericUriGameFactory (nes_game_uri_adapter);
 		nes_factory.add_mime_type (NES_MIME_TYPE);
 
-		var fds_game_uri_adapter = new GenericSyncGameUriAdapter (fds_game_for_uri);
+		var fds_game_uri_adapter = new GenericGameUriAdapter (fds_game_for_uri);
 		var fds_factory = new GenericUriGameFactory (fds_game_uri_adapter);
 		fds_factory.add_mime_type (FDS_MIME_TYPE);
 

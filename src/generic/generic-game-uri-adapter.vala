@@ -1,11 +1,11 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-public class Games.GenericSyncGameUriAdapter : GameUriAdapter, Object {
+public class Games.GenericGameUriAdapter : GameUriAdapter, Object {
 	public delegate Game GameForUri (string uri) throws Error;
 
 	private GameForUri callback;
 
-	public GenericSyncGameUriAdapter (owned GameForUri callback) {
+	public GenericGameUriAdapter (owned GameForUri callback) {
 		this.callback = (owned) callback;
 	}
 

@@ -18,7 +18,7 @@ private class Games.GameBoyPlugin : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		factory.add_mime_type (GAME_BOY_MIME_TYPE);
 		factory.add_mime_type (GAME_BOY_COLOR_MIME_TYPE);

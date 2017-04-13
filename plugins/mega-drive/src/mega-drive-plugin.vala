@@ -30,13 +30,13 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		factory.add_mime_type (MEGA_DRIVE_MIME_TYPE);
 		factory.add_mime_type (32X_MIME_TYPE);
 		factory.add_mime_type (PICO_MIME_TYPE);
 
-		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
+		var cd_game_uri_adapter = new GenericGameUriAdapter (cd_game_for_uri);
 		var mega_cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
 		mega_cd_factory.add_mime_type (CUE_MIME_TYPE);
 		mega_cd_factory.add_mime_type (MEGA_CD_MIME_TYPE);

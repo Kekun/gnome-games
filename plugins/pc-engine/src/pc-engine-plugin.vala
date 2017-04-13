@@ -18,11 +18,11 @@ private class Games.PcEnginePlugin : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		factory.add_mime_type (MIME_TYPE);
 
-		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
+		var cd_game_uri_adapter = new GenericGameUriAdapter (cd_game_for_uri);
 		var cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
 		cd_factory.add_mime_type (CUE_MIME_TYPE);
 

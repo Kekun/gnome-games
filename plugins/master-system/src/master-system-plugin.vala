@@ -22,12 +22,12 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		factory.add_mime_type (MASTER_SYSTEM_MIME_TYPE);
 		factory.add_mime_type (GAME_GEAR_MIME_TYPE);
 
-		var sg_1000_game_uri_adapter = new GenericSyncGameUriAdapter (sg_1000_game_for_uri);
+		var sg_1000_game_uri_adapter = new GenericGameUriAdapter (sg_1000_game_for_uri);
 		var sg_1000_factory = new GenericUriGameFactory (sg_1000_game_uri_adapter);
 		sg_1000_factory.add_mime_type (SG_1000_MIME_TYPE);
 

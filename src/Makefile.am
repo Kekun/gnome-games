@@ -87,7 +87,7 @@ gnome_games_SOURCES = \
 	gamepad/standard-gamepad-button.c \
 	\
 	generic/generic-game.vala \
-	generic/generic-sync-game-uri-adapter.vala \
+	generic/generic-game-uri-adapter.vala \
 	generic/generic-title.vala \
 	generic/generic-uid.vala \
 	generic/generic-uri-game-factory.vala \

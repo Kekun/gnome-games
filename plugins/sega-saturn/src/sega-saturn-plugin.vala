@@ -13,7 +13,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		factory.add_mime_type (CUE_MIME_TYPE);
 		factory.add_mime_type (SEGA_SATURN_MIME_TYPE);
