@@ -7,9 +7,12 @@ public class Games.Application : Gtk.Application {
 	private ApplicationWindow window;
 	private bool game_list_loaded;
 
+	private GenericUriGameSource uri_game_source;
+	private GameSource[] game_sources;
+
 	internal Application () {
 		Object (application_id: "org.gnome.Games",
-		        flags: ApplicationFlags.FLAGS_NONE);
+		        flags: ApplicationFlags.HANDLES_OPEN);
 	}
 
 	construct {
@@ -106,6 +109,29 @@ public class Games.Application : Gtk.Application {
 		return @"$data_dir/medias";
 	}
 
+	protected override void open (File[] files, string hint) {
+		open_async.begin (files, hint);
+	}
+
+	private async void open_async (File[] files, string hint) {
+		if (window == null)
+			activate ();
+
+		if (files.length == 0)
+			return;
+
+		string[] uris = {};
+		foreach (var file in files)
+			uris += file.get_uri ();
+
+		var game = yield game_for_uris (uris);
+
+		if (game != null)
+			window.run_game (game);
+		// else
+			// TODO Display an error
+	}
+
 	protected override void activate () {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
@@ -133,7 +159,10 @@ public class Games.Application : Gtk.Application {
 		return false;
 	}
 
-	internal async void load_game_list () {
+	private void init_game_sources () {
+		if (game_sources != null)
+			return;
+
 		TrackerUriSource tracker_uri_source = null;
 		try {
 			var connection = Tracker.Sparql.Connection.@get ();
@@ -143,13 +172,11 @@ public class Games.Application : Gtk.Application {
 			debug (e.message);
 		}
 
-		var uri_game_source = new GenericUriGameSource ();
+		uri_game_source = new GenericUriGameSource ();
 		if (tracker_uri_source != null)
 			uri_game_source.add_source (tracker_uri_source);
 
-		GameSource[] sources = {
-			uri_game_source,
-		};
+		game_sources += uri_game_source;
 		var mime_types = new GenericSet<string> (str_hash, str_equal);
 
 		var register = PluginRegister.get_register ();
@@ -158,7 +185,7 @@ public class Games.Application : Gtk.Application {
 				var plugin = plugin_registrar.get_plugin ();
 				var source = plugin.get_game_source ();
 				if (source != null)
-					sources += source;
+					game_sources += source;
 
 				if (tracker_uri_source != null)
 					foreach (var mime_type in plugin.get_mime_types ()) {
@@ -180,8 +207,29 @@ public class Games.Application : Gtk.Application {
 				debug ("Error: %s", e.message);
 			}
 		}
+	}
 
-		foreach (var source in sources)
+	private async Game? game_for_uris (string[] uris) {
+		init_game_sources ();
+
+		Game? game = null;
+
+		foreach (var game_source in game_sources) {
+			if (game != null)
+				continue;
+
+			foreach (var uri in uris)
+				yield uri_game_source.add_uri (uri);
+			game = yield uri_game_source.query_game_for_uri (uris[0]);
+		}
+
+		return game;
+	}
+
+	internal async void load_game_list () {
+		init_game_sources ();
+
+		foreach (var source in game_sources)
 			yield source.each_game (add_game);
 
 		game_list_loaded = true;
