@@ -10,6 +10,9 @@ public class Games.GenericGameUriAdapter : GameUriAdapter, Object {
 	}
 
 	public async Game game_for_uri (string uri) throws Error {
+		Idle.add (this.game_for_uri.callback);
+		yield;
+
 		return callback (uri);
 	}
 }
