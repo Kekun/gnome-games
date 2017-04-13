@@ -153,7 +153,7 @@ public class Games.Application : Gtk.Application {
 		var mime_types = new GenericSet<string> (str_hash, str_equal);
 
 		var register = PluginRegister.get_register ();
-		register.foreach_plugin_registrar ((plugin_registrar) => {
+		foreach (var plugin_registrar in register) {
 			try {
 				var plugin = plugin_registrar.get_plugin ();
 				var source = plugin.get_game_source ();
@@ -179,7 +179,7 @@ public class Games.Application : Gtk.Application {
 			catch (Error e) {
 				debug ("Error: %s", e.message);
 			}
-		});
+		}
 
 		foreach (var source in sources)
 			yield source.each_game (add_game);

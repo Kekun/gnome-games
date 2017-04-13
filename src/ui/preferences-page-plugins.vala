@@ -11,9 +11,8 @@ private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
 
 	construct {
 		var register = PluginRegister.get_register ();
-		register.foreach_plugin_registrar ((plugin_registrar) => {
+		foreach (var plugin_registrar in register)
 			add_plugin_registrar (plugin_registrar);
-		});
 	}
 
 	private void add_plugin_registrar (PluginRegistrar plugin_registrar) {

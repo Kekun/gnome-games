@@ -21,29 +21,6 @@ private class Games.PluginRegister : Object {
 		return new PluginRegisterIterator (this);
 	}
 
-	public void foreach_plugin_registrar (PluginRegistrarFunc func) {
-		var directory = File.new_for_path (PLUGINS_DIR);
-		try {
-			var enumerator = directory.enumerate_children (FileAttribute.STANDARD_NAME, 0);
-
-			FileInfo info;
-			while ((info = enumerator.next_file ()) != null) {
-				var name = info.get_name ();
-				if (name.has_suffix (".plugin")) {
-					var descriptor = directory.get_child (name);
-					var descriptor_path = descriptor.get_path ();
-
-					var registrar = get_plugin_registrar (descriptor_path);
-					func (registrar);
-				}
-			}
-
-		}
-		catch (Error e) {
-			debug ("Error: %s", e.message);
-		}
-	}
-
 	public PluginRegistrar get_plugin_registrar (string descriptor_filename) throws Error {
 		if (plugin_registrars.contains (descriptor_filename))
 			return plugin_registrars[descriptor_filename];
