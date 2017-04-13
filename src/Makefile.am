@@ -52,6 +52,7 @@ gnome_games_SOURCES = \
 	core/media-set/media-set-error.vala \
 	core/plugin.vala \
 	core/plugin-register.vala \
+	core/plugin-register-iterator.vala \
 	core/plugin-registrar.vala \
 	core/runner.vala \
 	core/title.vala \

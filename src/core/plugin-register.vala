@@ -17,6 +17,10 @@ private class Games.PluginRegister : Object {
 		return instance;
 	}
 
+	public PluginRegisterIterator iterator () {
+		return new PluginRegisterIterator (this);
+	}
+
 	public void foreach_plugin_registrar (PluginRegistrarFunc func) {
 		var directory = File.new_for_path (PLUGINS_DIR);
 		try {
