@@ -1,17 +1,14 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.GenericUriGameFactory : Object, UriGameFactory {
-	public delegate bool UriTest (string uri);
 	private const uint HANDLED_URIS_PER_CYCLE = 5;
 
 	private GameUriAdapter game_uri_adapter;
-	private UriTest? uri_validity_test;
 	private string[] uris;
 	private string[] mime_types;
 
-	public GenericUriGameFactory (GameUriAdapter game_uri_adapter, owned UriTest? uri_validity_test = null) {
+	public GenericUriGameFactory (GameUriAdapter game_uri_adapter) {
 		this.game_uri_adapter = game_uri_adapter;
-		this.uri_validity_test = (owned) uri_validity_test;
 		uris = {};
 		mime_types = {};
 	}
@@ -22,10 +19,6 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 
 	public void add_mime_type (string mime_type) {
 		mime_types += mime_type;
-	}
-
-	public bool is_uri_valid (string uri) {
-		return uri_validity_test == null ? true : uri_validity_test (uri);
 	}
 
 	public void add_uri (string uri) {

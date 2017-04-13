@@ -24,12 +24,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		return { SEARCHED_MIME_TYPE };
 	}
 
-	public bool is_uri_valid (string uri) {
-		File file = File.new_for_uri(uri);
-
-		return file.query_exists ();
-	}
-
 	public void add_uri (string uri) {
 		string disc_id;
 

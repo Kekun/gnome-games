@@ -65,8 +65,7 @@ public class Games.GenericUriGameSource : Object, GameSource {
 	}
 
 	private async void add_uri_to_factory (UriGameFactory factory, string uri) {
-		if (factory.is_uri_valid (uri))
-			factory.add_uri (uri);
+		factory.add_uri (uri);
 
 		Idle.add (add_uri_to_factory.callback);
 		yield;
