@@ -62,4 +62,10 @@ public class Games.GameinfoDoc : Object {
 
 		return xml_doc.count_nodes (expr);
 	}
+
+	public string[] get_disc_set_ids_for_disc_id (string disc_id) throws Error {
+		var expr = "/gameinfo/games/game/discs[disc[@id = \"" + disc_id + "\"]]/disc/@id";
+
+		return xml_doc.get_contents (expr);
+	}
 }
