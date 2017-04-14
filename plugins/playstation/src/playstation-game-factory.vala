@@ -1,166 +1,147 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.PlayStationGameFactory : Object, UriGameFactory {
-	private const string SEARCHED_MIME_TYPE = "application/x-cue";
-	private const string SPECIFIC_MIME_TYPE = "application/x-playstation-rom";
+	private const string CUE_MIME_TYPE = "application/x-cue";
+	private const string PHONY_MIME_TYPE = "application/x-playstation-rom";
 	private const string PLATFORM = "PlayStation";
 	private const string ICON_NAME = "media-optical-symbolic";
 	private const string GAMEINFO = "resource:///org/gnome/Games/plugin/playstation/playstation.gameinfo.xml";
 
 	private static GameinfoDoc gameinfo;
 
-	private HashTable<string, string> discs;
-	private HashTable<string, GenericSet<string>> disc_sets;
-	private HashTable<string, Game> games;
+	private HashTable<string, Media> media_for_disc_id;
+	private HashTable<string, Game> game_for_uri;
+	private HashTable<string, Game> game_for_disc_set_id;
+	private GenericSet<Game> games;
 
 
 	public PlayStationGameFactory () {
-		discs = new HashTable<string, string> (GLib.str_hash, GLib.str_equal);
-		disc_sets = new HashTable<string, GenericSet<string>> (GLib.str_hash, GLib.str_equal);
-		games = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
+		media_for_disc_id = new HashTable<string, Media> (str_hash, str_equal);
+		game_for_uri = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
+		game_for_disc_set_id = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
+		games = new GenericSet<Game> (direct_hash, direct_equal);
 	}
 
 	public string[] get_mime_types () {
-		return { SEARCHED_MIME_TYPE };
+		return { CUE_MIME_TYPE };
 	}
 
 	public async Game? query_game_for_uri (string uri) {
 		Idle.add (this.query_game_for_uri.callback);
 		yield;
 
-		// TODO
+		if (game_for_uri.contains (uri))
+			return game_for_uri[uri];
 
 		return null;
 	}
 
 	public async void add_uri (string uri) {
-		string disc_id;
-
 		try {
-			disc_id = get_disc_id (uri);
+			add_uri_with_error (uri);
 		}
 		catch (Error e) {
+			debug (e.message);
+		}
+	}
+
+	// TODO support unknown games (not in DB)
+	private void add_uri_with_error (string uri) throws Error {
+		if (game_for_uri.contains (uri))
+			return;
+
+		var file = File.new_for_uri (uri);
+		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
+		var mime_type = file_info.get_content_type ();
+
+		File bin_file;
+		switch (mime_type) {
+		case CUE_MIME_TYPE:
+			var cue = new CueSheet (file);
+			if (cue.tracks_number == 0)
+				return;
+
+			var track = cue.get_track (0);
+			if (track.track_mode != CueSheetTrackMode.MODE2_2352)
+				return;
+
+			bin_file = track.file.file;
+
+			break;
+		// TODO Add support for binary files.
+		default:
 			return;
 		}
 
-		discs[disc_id] = uri;
+		var header = new PlayStationHeader (bin_file);
+		header.check_validity ();
+		var disc_id = header.disc_id;
+
+		var gameinfo = get_gameinfo ();
+		var disc_set_id = gameinfo.get_disc_set_id_for_disc_id (disc_id);
+
+		return_if_fail (media_for_disc_id.contains (disc_id) == game_for_disc_set_id.contains (disc_set_id));
+
+		// Check whether we already have a media and by extension a media set
+		// and a game for this disc ID. If such a case, simply add the new URI.
+		if (media_for_disc_id.contains (disc_id)) {
+			var media = media_for_disc_id.lookup (disc_id);
+			media.add_uri (uri);
+			game_for_uri[uri] = game_for_disc_set_id[disc_set_id];
+
+			return;
+		}
+
+		// A game correspond to this URI but we don't have it yet: create it.
+
+		var new_medias = new HashTable<string, Media> (str_hash, str_equal);
+		Media[] new_medias_array = {};
+		var new_disc_ids = gameinfo.get_disc_set_ids_for_disc_id (disc_id);
+		foreach (var new_disc_id in new_disc_ids) {
+			assert (!media_for_disc_id.contains (new_disc_id));
+
+			var title = new GameinfoDiscIdDiscTitle (gameinfo, new_disc_id);
+			var media = new Media (title);
+			new_medias_array += media;
+			new_medias[new_disc_id] = media;
+		}
+
+		var media = new_medias.lookup (disc_id);
+		media.add_uri (uri);
+
+		var icon = GLib.Icon.new_for_string (ICON_NAME);
+		var media_set = new MediaSet (new_medias_array, icon);
+		var game = create_game (media_set, disc_set_id, uri);
+
+		// Creating the Medias, MediaSet and Game worked, we can save them.
+
+		foreach (var new_disc_id in new_medias.get_keys ())
+			media_for_disc_id[new_disc_id] = new_medias[new_disc_id];
+
+		game_for_uri[uri] = game;
+		game_for_disc_set_id[disc_set_id] = game;
+		games.add (game);
+		game_added (game);
 	}
 
 	public async void foreach_game (GameCallback game_callback) {
-		GameinfoDoc gameinfo = null;
-		try {
-			gameinfo = get_gameinfo ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
-
-		discs.foreach((disc_id, uri) => {
-			var disc_set_id = disc_id;
-
-			try {
-				if (gameinfo != null)
-					disc_set_id = gameinfo.get_disc_set_id_for_disc_id (disc_id);
-			}
-			catch (Error e) {
-				debug (_("Disc with disc_id %s is unknown"), disc_id);
-			}
-
-			if (!(disc_set_id in disc_sets))
-				disc_sets[disc_set_id] = new GenericSet<string> (GLib.str_hash, GLib.str_equal);
-
-			disc_sets[disc_set_id].add (disc_id);
-		});
-
-		disc_sets.foreach ((disc_set_id, disc_set) => {
-			try {
-				if (!(disc_set_id in games))
-					games[disc_set_id] = game_for_disc_set (disc_set);
-			}
-			catch (Error e) {
-				warning (e.message);
-			}
-		});
-
-		games.foreach ((disc_set_id, game) => {
-			game_callback (game);
-		});
+		games.foreach ((game) => game_callback (game));
 	}
 
-	private string get_disc_id (string uri) throws Error {
-		var cue_file = File.new_for_uri (uri);
-		var cue_sheet = new CueSheet (cue_file);
-		var cue_track_node = cue_sheet.get_track (0);
-		var bin_file = cue_track_node.file.file;
-		var header = new PlayStationHeader (bin_file);
-
-		header.check_validity ();
-
-		return header.disc_id;
-	}
-
-	private Game game_for_disc_set (GenericSet<string> disc_set) throws Error {
-		Media[] medias = {};
-
+	private Game create_game (MediaSet media_set, string disc_set_id, string uri) throws Error {
 		var gameinfo = get_gameinfo ();
-		var disc_list = disc_set.get_values ();
-		disc_list.sort_with_data ((disc_id_a, disc_id_b) => {
-			int index_a;
-			int index_b;
-			try {
-				index_a = gameinfo.get_disc_set_index_for_disc_id (disc_id_a);
-				index_b = gameinfo.get_disc_set_index_for_disc_id (disc_id_b);
-			}
-			catch (Error e) {
-				debug (e.message);
-
-				return 0;
-			}
-
-			return (int) (index_a > index_b) - (int) (index_a < index_b);
-		});
-
-		disc_list.foreach ((disc_id) => {
-			var uri = discs[disc_id];
-			var title = new GameinfoDiscIdDiscTitle (gameinfo, disc_id);
-			var media = new Media (title);
-			media.add_uri (uri);
-			medias += media;
-		});
-
-		var icon = GLib.Icon.new_for_string (ICON_NAME);
-		var media_set = new MediaSet (medias, icon);
-
-		var game = game_for_uris (media_set);
-
-		return game;
-	}
-
-	private Game game_for_uris (MediaSet media_set) throws Error {
-		var selected_media = media_set.get_selected_media (0);
-		var uris = selected_media.get_uris ();
-		// FIXME Check that there is at least one URI.
-		var uri = uris[0];
-		var cue_file = File.new_for_uri (uri);
-		var cue_sheet = new CueSheet (cue_file);
-		var cue_track_node = cue_sheet.get_track (0);
-		var bin_file = cue_track_node.file.file;
-		var header = new PlayStationHeader (bin_file);
-		header.check_validity ();
-
-		var gameinfo = get_gameinfo ();
-		var uid = new PlayStationUid (header.disc_id);
+		var uid = new PlayStationUid (disc_set_id);
 		var title = new CompositeTitle ({
-			new GameinfoDiscIdGameTitle (gameinfo, header.disc_id),
+			new GameinfoDiscIdGameTitle (gameinfo, disc_set_id),
 			new FilenameTitle (uri)
 		});
 		var icon = new DummyIcon ();
-		var media = new GriloMedia (title, SPECIFIC_MIME_TYPE);
+		var media = new GriloMedia (title, PHONY_MIME_TYPE);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, header.disc_id);
-		var core_source = new RetroCoreSource (PLATFORM, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
+		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
+		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
 
 		return new GenericGame (title, icon, cover, runner);
