@@ -76,7 +76,8 @@ public class Games.RetroRunner : Object, Runner {
 		should_save = false;
 
 		this.core_descriptor = null;
-		var game_media = new Media (uri);
+		var game_media = new Media ();
+		game_media.add_uri (uri);
 		_media_set = new MediaSet ({ game_media });
 
 		this.uid = uid;
@@ -212,8 +213,11 @@ public class Games.RetroRunner : Object, Runner {
 		else {
 			var media_number = media_set.selected_media_number;
 			var media = media_set.get_selected_media (media_number);
-			var uri = media.uri;
+			var uris = media.get_uris ();
+			if (uris.length == 0)
+				throw new RetroError.INVALID_GAME_FILE (_("No game file found for media “%s”."), media.title.get_title ());
 
+			var uri = uris[0];
 			if (!try_load_game (core, uri))
 				throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: “%s”."), uri);
 		}
@@ -359,7 +363,11 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 		}
 
-		var uri = media.uri;
+		var uris = media.get_uris ();
+		if (uris.length == 0)
+			return;
+
+		var uri = uris[0];
 
 		try_load_game (core, uri);
 

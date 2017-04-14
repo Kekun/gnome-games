@@ -123,7 +123,9 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		disc_list.foreach ((disc_id) => {
 			var uri = discs[disc_id];
 			var title = new GameinfoDiscIdDiscTitle (gameinfo, disc_id);
-			medias += new Media (uri, title);
+			var media = new Media (title);
+			media.add_uri (uri);
+			medias += media;
 		});
 
 		var icon = GLib.Icon.new_for_string (ICON_NAME);
@@ -135,7 +137,10 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	}
 
 	private Game game_for_uris (MediaSet media_set) throws Error {
-		var uri = media_set.get_selected_media (0).uri;
+		var selected_media = media_set.get_selected_media (0);
+		var uris = selected_media.get_uris ();
+		// FIXME Check that there is at least one URI.
+		var uri = uris[0];
 		var cue_file = File.new_for_uri (uri);
 		var cue_sheet = new CueSheet (cue_file);
 		var cue_track_node = cue_sheet.get_track (0);

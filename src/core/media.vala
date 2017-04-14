@@ -1,10 +1,20 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.Media : Object {
-	public Title? title { get; construct; }
-	public string uri { get; construct; }
+	public Title? title { get; private set; }
 
-	public Media (string uri, Title? title = null) {
-		Object (title: title, uri: uri);
+	private string[] uris;
+
+	public Media (Title? title = null) {
+		this.title = title;
+		this.uris = {};
+	}
+
+	public string[] get_uris () {
+		return uris;
+	}
+
+	public void add_uri (string uri) {
+		uris += uri;
 	}
 }
