@@ -24,6 +24,7 @@ BUILT_SOURCES = \
 EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/linux/libevdev.vapi \
+	gamepad/raw-gamepad.vapi \
 	gamepad/standard-gamepad-axis.vapi \
 	gamepad/standard-gamepad-button.vapi \
 	$(NULL)
@@ -77,7 +78,7 @@ gnome_games_SOURCES = \
 	gamepad/gamepad-mapping-error.vala \
 	gamepad/gamepad-mappings-manager.vala \
 	gamepad/gamepad-monitor.vala \
-	gamepad/raw-gamepad.vala \
+	gamepad/raw-gamepad.c \
 	gamepad/raw-gamepad-monitor.vala \
 	gamepad/standard-gamepad-axis.c \
 	gamepad/standard-gamepad-button.c \
@@ -180,6 +181,7 @@ gnome_games_VALAFLAGS = \
 	--pkg retro-gtk-0.10 \
 	--pkg linux \
 	--pkg posix \
+	--pkg raw-gamepad \
 	--pkg standard-gamepad-axis \
 	--pkg standard-gamepad-button \
 	--gresources $(gresource_file) \
