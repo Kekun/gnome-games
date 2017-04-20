@@ -25,6 +25,7 @@ EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/linux/libevdev.vapi \
 	gamepad/raw-gamepad.vapi \
+	gamepad/raw-gamepad-monitor.vapi \
 	gamepad/standard-gamepad-axis.vapi \
 	gamepad/standard-gamepad-button.vapi \
 	$(NULL)
@@ -79,7 +80,7 @@ gnome_games_SOURCES = \
 	gamepad/gamepad-mappings-manager.vala \
 	gamepad/gamepad-monitor.vala \
 	gamepad/raw-gamepad.c \
-	gamepad/raw-gamepad-monitor.vala \
+	gamepad/raw-gamepad-monitor.c \
 	gamepad/standard-gamepad-axis.c \
 	gamepad/standard-gamepad-button.c \
 	\
@@ -182,6 +183,7 @@ gnome_games_VALAFLAGS = \
 	--pkg linux \
 	--pkg posix \
 	--pkg raw-gamepad \
+	--pkg raw-gamepad-monitor \
 	--pkg standard-gamepad-axis \
 	--pkg standard-gamepad-button \
 	--gresources $(gresource_file) \
