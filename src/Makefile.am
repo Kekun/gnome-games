@@ -24,6 +24,7 @@ BUILT_SOURCES = \
 EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/linux/libevdev.vapi \
+	gamepad/standard-gamepad-axis.vapi \
 	$(NULL)
 
 header_file = libgnome-games.h
@@ -77,7 +78,7 @@ gnome_games_SOURCES = \
 	gamepad/gamepad-monitor.vala \
 	gamepad/raw-gamepad.vala \
 	gamepad/raw-gamepad-monitor.vala \
-	gamepad/standard-gamepad-axis.vala \
+	gamepad/standard-gamepad-axis.c \
 	gamepad/standard-gamepad-button.vala \
 	\
 	generic/generic-game.vala \
@@ -178,8 +179,10 @@ gnome_games_VALAFLAGS = \
 	--pkg retro-gtk-0.10 \
 	--pkg linux \
 	--pkg posix \
+	--pkg standard-gamepad-axis \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
+	--vapidir=gamepad/ \
 	-H $(header_file) \
 	$(NULL)
 
@@ -202,6 +205,7 @@ gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
 	$(GAMEPADS_CFLAGS) \
 	$(UDEV_CFLAGS) \
+	-I$(srcdir)/gamepad \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
