@@ -25,6 +25,7 @@ EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/linux/libevdev.vapi \
 	gamepad/standard-gamepad-axis.vapi \
+	gamepad/standard-gamepad-button.vapi \
 	$(NULL)
 
 header_file = libgnome-games.h
@@ -79,7 +80,7 @@ gnome_games_SOURCES = \
 	gamepad/raw-gamepad.vala \
 	gamepad/raw-gamepad-monitor.vala \
 	gamepad/standard-gamepad-axis.c \
-	gamepad/standard-gamepad-button.vala \
+	gamepad/standard-gamepad-button.c \
 	\
 	generic/generic-game.vala \
 	generic/generic-sync-game-uri-adapter.vala \
@@ -180,6 +181,7 @@ gnome_games_VALAFLAGS = \
 	--pkg linux \
 	--pkg posix \
 	--pkg standard-gamepad-axis \
+	--pkg standard-gamepad-button \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
 	--vapidir=gamepad/ \
