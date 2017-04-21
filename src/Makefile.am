@@ -24,6 +24,7 @@ BUILT_SOURCES = \
 EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/linux/libevdev.vapi \
+	gamepad/linux/linux-raw-gamepad.vapi \
 	gamepad/raw-gamepad.vapi \
 	gamepad/raw-gamepad-monitor.vapi \
 	gamepad/standard-gamepad-axis.vapi \
@@ -156,7 +157,7 @@ gnome_games_SOURCES = \
 
 if ENABLE_GAMEPADS
 gnome_games_SOURCES += \
-	gamepad/linux/linux-raw-gamepad.vala \
+	gamepad/linux/linux-raw-gamepad.c \
 	$(NULL)
 
 if ENABLE_UDEV
@@ -196,6 +197,7 @@ if ENABLE_GAMEPADS
 gnome_games_VALAFLAGS += \
 	--vapidir=gamepad/linux/ \
 	--pkg libevdev \
+	--pkg linux-raw-gamepad \
 	--define ENABLE_LINUX_GAMEPADS
 	$(NULL)
 endif
@@ -212,6 +214,7 @@ gnome_games_CFLAGS = \
 	$(GAMEPADS_CFLAGS) \
 	$(UDEV_CFLAGS) \
 	-I$(srcdir)/gamepad \
+	-I$(srcdir)/gamepad/linux \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
@@ -219,6 +222,12 @@ gnome_games_CFLAGS = \
 gnome_games_CPPFLAGS = \
 	-DRETRO_GTK_USE_UNSTABLE_API \
 	$(NULL)
+
+if ENABLE_GAMEPADS
+gnome_games_CPPFLAGS += \
+	-DENABLE_LINUX_GAMEPADS \
+	$(NULL)
+endif
 
 gnome_games_LDADD = \
 	$(GNOME_GAMES_LIBS) \
