@@ -10,6 +10,11 @@ indent_size = 4
 tab_size = 4
 indent_style = tab
 
+[*.{c,h}]
+indent_size = 2
+tab_size = 2
+indent_style = space
+
 [*.{ui,xml,modules}]
 indent_size = 2
 tab_size = 2

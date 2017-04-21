@@ -144,3 +144,88 @@ Vala projects.
 
  * Append the original error message to the one you are building when
    refining an error.
+
+For C code, the following rules apply, inspired by several other GObject
+projects.
+
+ * 2 spaces for indentation.
+
+ * ''Prefer'' lines of less than <= 80 columns
+
+ * Functions with no parameter should state it with the 'void' keyword.
+
+ * In C files, function definitions are splitted in lines that way:
+    * modifiers and the returned type at the beginning of the line;
+    * the function name and the first parameter (if any) at the
+      beginning of the line;
+    * each extra parameter has its own line, aligned with the first
+      parameter;
+    * the opening curly brace at the beginning of the line.
+
+ * In header files, function definitions are splitted in lines that way:
+    * modifiers, the returned type, the function name and the first
+      parameter (if any) at the beginning of the line;
+    * each extra parameter has its own line, aligned with the first
+      parameter;
+    * the opening curly brace at the beginning of the line.
+
+ * No nested functions, make them static instead.
+
+ * 1-space between function name and braces (both calls and signature).
+
+ * ''Prefer'' descriptive names over abbreviations (unless well-known)
+   & shortening of names. E.g discoverer over disco.
+
+ * No single statment blocks.
+
+ * The more you provide docs in comments, but at the same time avoid
+   over-documenting. Here is an example of useless comment:
+
+   // Fetch the document
+   fetch_the_document ();
+
+ * Each class should go in a separate .c and .h file & named according
+   to the class in it, in spinal-case. E.g Games.GameSource class should
+   go under game-source.h and game-source.c.
+
+ * Add a newline to break the code in logical pieces.
+
+ * Add a newline before each return, break, continue etc. if it is not
+   the only statement in that block.
+
+   if (condition_applies (self)) {
+       do_something (self);
+
+       return FALSE;
+   }
+
+   if (other_condition_applies ())
+       return TRUE;
+
+ * Give the 'case' statements the same indentation level as their
+   'switch' statement.
+
+ * Add a newline at the end of each file.
+
+ * If a function returns several equally important values, they should
+   all be given as out arguments. IOW, prefer this:
+
+   void get_a_and_b (gchar **a, gchar **b)
+
+   rather than the un-even, gchar *get_a_and_b (gchar **b)
+
+ * Anything that can be 'private' (static to the C file) must be
+   'private'.
+
+ * Always add a comma after the enumerated value of an enum type broken
+   into multiple lines.
+
+ * Always add a comma after values of an array litteral broken into
+   multiple lines.
+
+ * Any 'else', 'else if' block or any other special block following
+   another one should start in its own line and not on the same as the
+   previous closing brace.
+
+ * Append the original error message to the one you are building when
+   refining an error.
