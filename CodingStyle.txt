@@ -13,14 +13,14 @@ Vala projects.
  * 1-space between function name and braces (both calls and signature
    declarations)
 
- * Avoid the use of 'this' keyword:
+ * Avoid the use of the 'this' keyword when possible.
 
  * If function signature/call fits in a single line, do not break it
    into multiple lines.
 
  * For methods/functions that take variable argument tuples, all the
    first elements of tuples are indented normally with the subsequent
-   elements of each tuple indented 4-space more. Like this:
+   elements of each tuple indented 4-spaces more. Like this:
 
         action.get ("ObjectID",
                         typeof (string),
@@ -135,7 +135,7 @@ Vala projects.
 
  * Always add a comma after the final error code of an errordomain type.
 
- * Any 'else', 'else if', 'catch' block or any other sepcial block
+ * Any 'else', 'else if', 'catch' block or any other special block
    following another one should start in its own line and not on the
    same as the previous closing brace.
 
