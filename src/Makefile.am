@@ -25,6 +25,7 @@ EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/linux/libevdev.vapi \
 	gamepad/linux/linux-raw-gamepad.vapi \
+	gamepad/linux/linux-raw-gamepad-monitor.vapi \
 	gamepad/raw-gamepad.vapi \
 	gamepad/raw-gamepad-monitor.vapi \
 	gamepad/standard-gamepad-axis.vapi \
@@ -162,7 +163,7 @@ gnome_games_SOURCES += \
 
 if ENABLE_UDEV
 gnome_games_SOURCES += \
-	gamepad/linux/linux-raw-gamepad-monitor.vala \
+	gamepad/linux/linux-raw-gamepad-monitor.c \
 	$(NULL)
 else
 gnome_games_SOURCES += \
@@ -198,7 +199,8 @@ gnome_games_VALAFLAGS += \
 	--vapidir=gamepad/linux/ \
 	--pkg libevdev \
 	--pkg linux-raw-gamepad \
-	--define ENABLE_LINUX_GAMEPADS
+	--pkg linux-raw-gamepad-monitor \
+	--define ENABLE_LINUX_GAMEPADS \
 	$(NULL)
 endif
 
@@ -226,6 +228,12 @@ gnome_games_CPPFLAGS = \
 if ENABLE_GAMEPADS
 gnome_games_CPPFLAGS += \
 	-DENABLE_LINUX_GAMEPADS \
+	$(NULL)
+endif
+
+if ENABLE_UDEV
+gnome_games_CPPFLAGS += \
+	-DENABLE_UDEV \
 	$(NULL)
 endif
 
