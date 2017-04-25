@@ -167,7 +167,7 @@ gnome_games_SOURCES += \
 	$(NULL)
 else
 gnome_games_SOURCES += \
-	gamepad/linux/linux-raw-gamepad-monitor-fallback.vala \
+	gamepad/linux/linux-raw-gamepad-monitor-fallback.c \
 	$(NULL)
 endif
 endif
