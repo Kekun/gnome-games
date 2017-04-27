@@ -17,9 +17,6 @@ struct _GamesRawGamepadInterface {
   const gchar *(*get_guid) (GamesRawGamepad *self);
 };
 
-// FIXME Remove this once every piece using it has been moved to C.
-typedef struct _GamesRawGamepadInterface GamesRawGamepadIface;
-
 const gchar *games_raw_gamepad_get_guid (GamesRawGamepad *self);
 
 G_END_DECLS
