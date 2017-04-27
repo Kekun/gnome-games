@@ -36,11 +36,11 @@ public class Games.LocalCover : Object, Cover {
 
 	private string? get_cover_path () throws Error {
 		var cover_path = get_sibbling_cover_path ();
-		if (FileUtils.test (cover_path, FileTest.EXISTS))
+		if (cover_path != null && FileUtils.test (cover_path, FileTest.EXISTS))
 			return cover_path;
 
 		cover_path = get_directory_cover_path ();
-		if (FileUtils.test (cover_path, FileTest.EXISTS))
+		if (cover_path != null && FileUtils.test (cover_path, FileTest.EXISTS))
 			return cover_path;
 
 		return null;
