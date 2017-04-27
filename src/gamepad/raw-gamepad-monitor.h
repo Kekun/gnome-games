@@ -24,9 +24,6 @@ struct _GamesRawGamepadMonitorInterface {
                            gpointer                 callback_target);
 };
 
-// FIXME Remove this once every piece using it has been moved to C.
-typedef struct _GamesRawGamepadMonitorInterface GamesRawGamepadMonitorIface;
-
 void games_raw_gamepad_monitor_foreach_gamepad (GamesRawGamepadMonitor  *self,
                                                 GamesRawGamepadCallback  callback,
                                                 gpointer                 data);
