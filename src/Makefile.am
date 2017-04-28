@@ -24,6 +24,7 @@ BUILT_SOURCES = \
 EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/gamepad-input-type.vapi \
+	gamepad/gamepad-mapping-error.vapi \
 	gamepad/linux/libevdev.vapi \
 	gamepad/linux/linux-raw-gamepad.vapi \
 	gamepad/linux/linux-raw-gamepad-monitor.vapi \
@@ -79,7 +80,7 @@ gnome_games_SOURCES = \
 	gamepad/gamepad-input-type.c \
 	gamepad/gamepad-mapped-event.vala \
 	gamepad/gamepad-mapping.vala \
-	gamepad/gamepad-mapping-error.vala \
+	gamepad/gamepad-mapping-error.c \
 	gamepad/gamepad-mappings-manager.vala \
 	gamepad/gamepad-monitor.vala \
 	gamepad/raw-gamepad.c \
@@ -186,6 +187,7 @@ gnome_games_VALAFLAGS = \
 	--pkg linux \
 	--pkg posix \
 	--pkg gamepad-input-type \
+	--pkg gamepad-mapping-error \
 	--pkg raw-gamepad \
 	--pkg raw-gamepad-monitor \
 	--pkg standard-gamepad-axis \
