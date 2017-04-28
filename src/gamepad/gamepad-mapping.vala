@@ -128,7 +128,7 @@ private class Games.GamepadMapping : Object {
 			dpad_position++;
 		}
 		while (dpads.length <= dpad_index)
-			dpads += new GamepadDPad ();
+			dpads += GamepadDPad ();
 		dpads[dpad_index].types[dpad_position] = type;
 		dpads[dpad_index].values[dpad_position] = parsed_key;
 	}
