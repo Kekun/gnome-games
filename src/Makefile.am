@@ -23,6 +23,7 @@ BUILT_SOURCES = \
 
 EXTRA_DIST = \
 	$(gresource_file) \
+	gamepad/gamepad.vapi \
 	gamepad/gamepad-dpad.vapi \
 	gamepad/gamepad-input-type.vapi \
 	gamepad/gamepad-mapped-event.vapi \
@@ -78,7 +79,7 @@ gnome_games_SOURCES = \
 	gameinfo/gameinfo-disc-id-game-title.vala \
 	gameinfo/gameinfo-disc-id-input-capabilities.vala \
 	\
-	gamepad/gamepad.vala \
+	gamepad/gamepad.c \
 	gamepad/gamepad-callbacks.vala \
 	gamepad/gamepad-dpad.c \
 	gamepad/gamepad-input-type.c \
@@ -190,6 +191,7 @@ gnome_games_VALAFLAGS = \
 	--pkg retro-gtk-0.10 \
 	--pkg linux \
 	--pkg posix \
+	--pkg gamepad \
 	--pkg gamepad-dpad \
 	--pkg gamepad-input-type \
 	--pkg gamepad-mapped-event \
