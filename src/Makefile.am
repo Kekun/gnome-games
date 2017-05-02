@@ -30,6 +30,7 @@ EXTRA_DIST = \
 	gamepad/gamepad-mapping.vapi \
 	gamepad/gamepad-mapping-error.vapi \
 	gamepad/gamepad-mappings-manager.vapi \
+	gamepad/gamepad-monitor.vapi \
 	gamepad/linux/libevdev.vapi \
 	gamepad/linux/linux-raw-gamepad.vapi \
 	gamepad/linux/linux-raw-gamepad-monitor.vapi \
@@ -80,14 +81,13 @@ gnome_games_SOURCES = \
 	gameinfo/gameinfo-disc-id-input-capabilities.vala \
 	\
 	gamepad/gamepad.c \
-	gamepad/gamepad-callbacks.vala \
 	gamepad/gamepad-dpad.c \
 	gamepad/gamepad-input-type.c \
 	gamepad/gamepad-mapped-event.c \
 	gamepad/gamepad-mapping.c \
 	gamepad/gamepad-mapping-error.c \
 	gamepad/gamepad-mappings-manager.c \
-	gamepad/gamepad-monitor.vala \
+	gamepad/gamepad-monitor.c \
 	gamepad/raw-gamepad.c \
 	gamepad/raw-gamepad-monitor.c \
 	gamepad/standard-gamepad-axis.c \
@@ -198,6 +198,7 @@ gnome_games_VALAFLAGS = \
 	--pkg gamepad-mapping \
 	--pkg gamepad-mapping-error \
 	--pkg gamepad-mappings-manager \
+	--pkg gamepad-monitor \
 	--pkg raw-gamepad \
 	--pkg raw-gamepad-monitor \
 	--pkg standard-gamepad-axis \
