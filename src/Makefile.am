@@ -24,18 +24,8 @@ BUILT_SOURCES = \
 EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/gamepad.vapi \
-	gamepad/gamepad-dpad.vapi \
-	gamepad/gamepad-input-type.vapi \
-	gamepad/gamepad-mapped-event.vapi \
-	gamepad/gamepad-mapping.vapi \
-	gamepad/gamepad-mapping-error.vapi \
-	gamepad/gamepad-mappings-manager.vapi \
 	gamepad/gamepad-monitor.vapi \
-	gamepad/linux/libevdev.vapi \
-	gamepad/linux/linux-raw-gamepad.vapi \
-	gamepad/linux/linux-raw-gamepad-monitor.vapi \
 	gamepad/raw-gamepad.vapi \
-	gamepad/raw-gamepad-monitor.vapi \
 	gamepad/standard-gamepad-axis.vapi \
 	gamepad/standard-gamepad-button.vapi \
 	$(NULL)
@@ -192,15 +182,8 @@ gnome_games_VALAFLAGS = \
 	--pkg linux \
 	--pkg posix \
 	--pkg gamepad \
-	--pkg gamepad-dpad \
-	--pkg gamepad-input-type \
-	--pkg gamepad-mapped-event \
-	--pkg gamepad-mapping \
-	--pkg gamepad-mapping-error \
-	--pkg gamepad-mappings-manager \
 	--pkg gamepad-monitor \
 	--pkg raw-gamepad \
-	--pkg raw-gamepad-monitor \
 	--pkg standard-gamepad-axis \
 	--pkg standard-gamepad-button \
 	--gresources $(gresource_file) \
@@ -208,23 +191,6 @@ gnome_games_VALAFLAGS = \
 	--vapidir=gamepad/ \
 	-H $(header_file) \
 	$(NULL)
-
-if ENABLE_GAMEPADS
-gnome_games_VALAFLAGS += \
-	--vapidir=gamepad/linux/ \
-	--pkg libevdev \
-	--pkg linux-raw-gamepad \
-	--pkg linux-raw-gamepad-monitor \
-	--define ENABLE_LINUX_GAMEPADS \
-	$(NULL)
-endif
-
-if ENABLE_UDEV
-gnome_games_VALAFLAGS += \
-	--vapidir=gamepad/linux/ \
-	--pkg gudev-1.0 \
-	--define ENABLE_UDEV
-endif
 
 gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
