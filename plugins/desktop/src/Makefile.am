@@ -33,7 +33,7 @@ libgames_desktop_plugin_la_SOURCES = \
 	desktop-icon.vala \
 	desktop-plugin.vala \
 	desktop-title.vala \
-	desktop-tracker-query.vala \
+	desktop-tracker-uri-query.vala \
 	$(BUILT_SOURCES) \
 	$(NULL)
 
