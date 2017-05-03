@@ -90,6 +90,7 @@ gnome_games_SOURCES = \
 	generic/generic-title.vala \
 	generic/generic-uid.vala \
 	generic/generic-uri-game-factory.vala \
+	generic/generic-uri-game-source.vala \
 	\
 	grilo/grilo-cover.vala \
 	grilo/grilo-media.vala \
