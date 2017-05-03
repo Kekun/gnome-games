@@ -19,11 +19,9 @@ data/org.gnome.Games.gschema.xml
 [type: gettext/glade]data/ui/resume-failed-dialog.ui
 plugins/desktop/src/desktop-tracker-query.vala
 plugins/dreamcast/src/dreamcast-header.vala
-plugins/game-boy/src/game-boy-header.vala
 plugins/game-cube/src/game-cube-header.vala
 plugins/love/src/love-package.vala
 plugins/mame/src/mame-game-uri-adapter.vala
-plugins/mame/src/mame-plugin.vala
 plugins/master-system/src/master-system-header.vala
 plugins/mega-drive/src/mega-drive-header.vala
 plugins/mega-drive/src/mega-drive-plugin.vala
@@ -40,8 +38,8 @@ src/core/media-set/media-set.vala
 src/core/plugin-registrar.vala
 src/gameinfo/gameinfo-disc-id-disc-title.vala
 src/gameinfo/gameinfo-doc.vala
-src/gamepad/gamepad-mapping.vala
-src/gamepad/linux/linux-raw-gamepad.vala
+src/gamepad/gamepad-mapping.c
+src/gamepad/linux/linux-raw-gamepad.c
 src/retro/retro-core-source.vala
 src/retro/retro-platform.vala
 src/retro/retro-runner.vala
