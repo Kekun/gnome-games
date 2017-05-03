@@ -102,10 +102,7 @@ gnome_games_SOURCES = \
 	retro/retro-platform.vala \
 	retro/retro-runner.vala \
 	\
-	tracker/mime-type-tracker-query.vala \
 	tracker/mime-type-tracker-uri-query.vala \
-	tracker/tracker-game-source.vala \
-	tracker/tracker-query.vala \
 	tracker/tracker-uri-iterator.vala \
 	tracker/tracker-uri-query.vala \
 	tracker/tracker-uri-source.vala \
