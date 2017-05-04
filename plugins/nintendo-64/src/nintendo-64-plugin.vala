@@ -5,15 +5,16 @@ private class Games.Nintendo64Plugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-n64-rom";
 	private const string PLATFORM = "Nintendo64";
 
-	public GameSource? get_game_source () throws Error {
+	public string[] get_mime_types () {
+		return { MIME_TYPE };
+	}
+
+	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (query);
+		factory.add_mime_type (MIME_TYPE);
 
-		return source;
+		return { factory };
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
