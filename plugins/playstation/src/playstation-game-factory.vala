@@ -26,6 +26,10 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		return is_uri_valid (uri);
 	}
 
+	public string[] get_mime_types () {
+		return { SEARCHED_MIME_TYPE };
+	}
+
 	public bool is_uri_valid (string uri) {
 		File file = File.new_for_uri(uri);
 
