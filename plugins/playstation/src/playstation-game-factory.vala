@@ -20,12 +20,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		games = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
 	}
 
-	public bool is_cursor_valid (Tracker.Sparql.Cursor cursor) {
-		var uri = cursor.get_string (0);
-
-		return is_uri_valid (uri);
-	}
-
 	public string[] get_mime_types () {
 		return { SEARCHED_MIME_TYPE };
 	}
