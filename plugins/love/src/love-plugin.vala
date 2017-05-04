@@ -3,15 +3,16 @@
 private class Games.LovePlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-love-game";
 
-	public GameSource? get_game_source () throws Error {
+	public string[] get_mime_types () {
+		return { MIME_TYPE };
+	}
+
+	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (query);
+		factory.add_mime_type (MIME_TYPE);
 
-		return source;
+		return { factory };
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
