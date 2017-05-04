@@ -10,18 +10,20 @@ private class Games.GameBoyPlugin : Object, Plugin {
 	private const string GAME_BOY_COLOR_MIME_TYPE = "application/x-gameboy-color-rom";
 	private const string GAME_BOY_COLOR_PLATFORM = "GameBoyColor";
 
-	public GameSource? get_game_source () throws Error {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
-		var game_boy_factory = new GenericUriGameFactory (game_uri_adapter);
-		var game_boy_color_factory = new GenericUriGameFactory (game_uri_adapter);
-		var game_boy_query = new MimeTypeTrackerQuery (GAME_BOY_MIME_TYPE, game_boy_factory);
-		var game_boy_color_query = new MimeTypeTrackerQuery (GAME_BOY_COLOR_MIME_TYPE, game_boy_color_factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (game_boy_query);
-		source.add_query (game_boy_color_query);
+	public string[] get_mime_types () {
+		return {
+			GAME_BOY_MIME_TYPE,
+			GAME_BOY_COLOR_MIME_TYPE,
+		};
+	}
 
-		return source;
+	public UriGameFactory[] get_uri_game_factories () {
+		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		factory.add_mime_type (GAME_BOY_MIME_TYPE);
+		factory.add_mime_type (GAME_BOY_COLOR_MIME_TYPE);
+
+		return { factory };
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
