@@ -13,24 +13,25 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 	private const string SG_1000_MIME_TYPE = "application/x-sg1000-rom";
 	private const string SG_1000_PLATFORM = "SG1000";
 
-	public GameSource? get_game_source () throws Error {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
-		var sg_1000_game_uri_adapter = new GenericSyncGameUriAdapter (sg_1000_game_for_uri);
-		// FIXME We should be able to use one factory for Master System and
-		// Game Gear.
-		var master_system_factory = new GenericUriGameFactory (game_uri_adapter);
-		var game_gear_factory = new GenericUriGameFactory (game_uri_adapter);
-		var sg_1000_factory = new GenericUriGameFactory (sg_1000_game_uri_adapter);
-		var master_system_query = new MimeTypeTrackerQuery (MASTER_SYSTEM_MIME_TYPE, master_system_factory);
-		var game_gear_query = new MimeTypeTrackerQuery (GAME_GEAR_MIME_TYPE, game_gear_factory);
-		var sg_1000_query = new MimeTypeTrackerQuery (SG_1000_MIME_TYPE, sg_1000_factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (master_system_query);
-		source.add_query (game_gear_query);
-		source.add_query (sg_1000_query);
+	public string[] get_mime_types () {
+		return {
+			MASTER_SYSTEM_MIME_TYPE,
+			GAME_GEAR_MIME_TYPE,
+			SG_1000_MIME_TYPE,
+		};
+	}
 
-		return source;
+	public UriGameFactory[] get_uri_game_factories () {
+		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		factory.add_mime_type (MASTER_SYSTEM_MIME_TYPE);
+		factory.add_mime_type (GAME_GEAR_MIME_TYPE);
+
+		var sg_1000_game_uri_adapter = new GenericSyncGameUriAdapter (sg_1000_game_for_uri);
+		var sg_1000_factory = new GenericUriGameFactory (sg_1000_game_uri_adapter);
+		sg_1000_factory.add_mime_type (SG_1000_MIME_TYPE);
+
+		return { factory, sg_1000_factory };
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
