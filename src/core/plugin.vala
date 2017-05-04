@@ -12,4 +12,8 @@ public interface Games.Plugin : Object {
 	public virtual UriSource[] get_uri_sources () {
 		return {};
 	}
+
+	public virtual UriGameFactory[] get_uri_game_factories () {
+		return {};
+	}
 }
