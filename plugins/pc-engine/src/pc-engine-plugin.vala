@@ -10,19 +10,23 @@ private class Games.PcEnginePlugin : Object, Plugin {
 	private const string CD_MAGIC_VALUE = "PC Engine CD-ROM SYSTEM";
 	private const string CD_PLATFORM = "TurboGrafxCD";
 
-	public GameSource? get_game_source () throws Error {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
-		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
-		var factory = new GenericUriGameFactory (game_uri_adapter);
-		var cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
-		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);
-		var cd_query = new MimeTypeTrackerQuery (CUE_MIME_TYPE, cd_factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (query);
-		source.add_query (cd_query);
+	public string[] get_mime_types () {
+		return {
+			MIME_TYPE,
+			CUE_MIME_TYPE,
+		};
+	}
 
-		return source;
+	public UriGameFactory[] get_uri_game_factories () {
+		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		factory.add_mime_type (MIME_TYPE);
+
+		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
+		var cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
+		cd_factory.add_mime_type (CUE_MIME_TYPE);
+
+		return { factory, cd_factory };
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
@@ -57,16 +61,29 @@ private class Games.PcEnginePlugin : Object, Plugin {
 	}
 
 	private static bool is_valid_disc (string uri) throws Error {
-		var cue_file = File.new_for_uri (uri);
-		var cue_sheet = new CueSheet (cue_file);
-		if (cue_sheet.tracks_number < 2)
-			return false;
+		var file = File.new_for_uri (uri);
+		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
+		var mime_type = file_info.get_content_type ();
 
-		var track = cue_sheet.get_track (1);
-		if (!track.track_mode.is_mode1 ())
-			return false;
+		File bin_file;
+		switch (mime_type) {
+		case CUE_MIME_TYPE:
+			var cue = new CueSheet (file);
+			if (cue.tracks_number < 2)
+				return false;
 
-		var bin_file = track.file.file;
+			var track = cue.get_track (1);
+			if (!track.track_mode.is_mode1 ())
+				return false;
+
+			bin_file = track.file.file;
+
+			break;
+		// TODO Add support for binary files.
+		default:
+			return false;
+		}
+
 		var path = bin_file.get_path ();
 		var offsets = Grep.get_offsets (path, CD_MAGIC_VALUE);
 
