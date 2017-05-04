@@ -134,7 +134,23 @@ public class Games.Application : Gtk.Application {
 	}
 
 	internal async void load_game_list () {
-		GameSource[] sources = {};
+		TrackerUriSource tracker_uri_source = null;
+		try {
+			var connection = Tracker.Sparql.Connection.@get ();
+			tracker_uri_source = new TrackerUriSource (connection);
+		}
+		catch (Error e) {
+			debug (e.message);
+		}
+
+		var uri_game_source = new GenericUriGameSource ();
+		if (tracker_uri_source != null)
+			uri_game_source.add_source (tracker_uri_source);
+
+		GameSource[] sources = {
+			uri_game_source,
+		};
+		var mime_types = new GenericSet<string> (str_hash, str_equal);
 
 		var register = PluginRegister.get_register ();
 		register.foreach_plugin_registrar ((plugin_registrar) => {
@@ -143,6 +159,22 @@ public class Games.Application : Gtk.Application {
 				var source = plugin.get_game_source ();
 				if (source != null)
 					sources += source;
+
+				if (tracker_uri_source != null)
+					foreach (var mime_type in plugin.get_mime_types ()) {
+						if (mime_types.contains (mime_type))
+							continue;
+
+						mime_types.add (mime_type);
+						var query = new MimeTypeTrackerUriQuery (mime_type);
+						tracker_uri_source.add_query (query);
+					}
+
+				foreach (var uri_source in plugin.get_uri_sources ())
+					uri_game_source.add_source (uri_source);
+
+				foreach (var factory in plugin.get_uri_game_factories ())
+					uri_game_source.add_factory (factory);
 			}
 			catch (Error e) {
 				debug ("Error: %s", e.message);
