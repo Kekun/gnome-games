@@ -10,7 +10,7 @@ private class Games.GameBoyPlugin : Object, Plugin {
 	private const string GAME_BOY_COLOR_MIME_TYPE = "application/x-gameboy-color-rom";
 	private const string GAME_BOY_COLOR_PLATFORM = "GameBoyColor";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var game_boy_factory = new GenericUriGameFactory (game_uri_adapter);
 		var game_boy_color_factory = new GenericUriGameFactory (game_uri_adapter);

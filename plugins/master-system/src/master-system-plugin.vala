@@ -13,7 +13,7 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 	private const string SG_1000_MIME_TYPE = "application/x-sg1000-rom";
 	private const string SG_1000_PLATFORM = "SG1000";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var sg_1000_game_uri_adapter = new GenericSyncGameUriAdapter (sg_1000_game_for_uri);
 		// FIXME We should be able to use one factory for Master System and

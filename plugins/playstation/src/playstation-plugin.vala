@@ -3,7 +3,7 @@
 private class Games.PlayStation : Object, Plugin {
 	private const string SEARCHED_MIME_TYPE = "application/x-cue";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var factory = new PlayStationGameFactory ();
 		var query = new MimeTypeTrackerQuery (SEARCHED_MIME_TYPE, factory);
 		var connection = Tracker.Sparql.Connection.@get ();

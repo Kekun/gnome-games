@@ -5,7 +5,7 @@ private class Games.Atari7800 : Object, Plugin {
 	private const string MIME_TYPE = "application/x-atari-7800-rom";
 	private const string PLATFORM = "Atari7800";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);

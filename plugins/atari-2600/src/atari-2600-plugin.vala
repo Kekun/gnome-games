@@ -5,7 +5,7 @@ private class Games.Atari2600 : Object, Plugin {
 	private const string MIME_TYPE = "application/x-atari-2600-rom";
 	private const string PLATFORM = "Atari2600";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		var query = new MimeTypeTrackerQuery (MIME_TYPE, factory);

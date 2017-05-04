@@ -10,7 +10,7 @@ private class Games.PcEnginePlugin : Object, Plugin {
 	private const string CD_MAGIC_VALUE = "PC Engine CD-ROM SYSTEM";
 	private const string CD_PLATFORM = "TurboGrafxCD";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);

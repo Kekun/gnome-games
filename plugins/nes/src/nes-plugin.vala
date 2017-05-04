@@ -12,7 +12,7 @@ private class Games.NesPlugin : Object, Plugin {
 	private const string MODULE_BASENAME = "libretro-nes.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var nes_game_uri_adapter = new GenericSyncGameUriAdapter (nes_game_for_uri);
 		var fds_game_uri_adapter = new GenericSyncGameUriAdapter (fds_game_for_uri);
 		var nes_factory = new GenericUriGameFactory (nes_game_uri_adapter);

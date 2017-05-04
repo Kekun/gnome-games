@@ -5,7 +5,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 	private const string SPECIFIC_MIME_TYPE = "application/x-saturn-rom";
 	private const string PLATFORM = "SegaSaturn";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		var query = new MimeTypeTrackerQuery (SEARCHED_MIME_TYPE, factory);

@@ -19,7 +19,7 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	private const string MEGA_CD_PLATFORM = "SegaCD";
 	private const string MEGA_CD_32X_PLATFORM = "SegaCD32X";
 
-	public GameSource get_game_source () throws Error {
+	public GameSource? get_game_source () throws Error {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
 		// FIXME We should be able to use one factory for Mega Drive and
