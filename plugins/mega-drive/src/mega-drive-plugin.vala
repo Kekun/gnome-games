@@ -19,24 +19,29 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	private const string MEGA_CD_PLATFORM = "SegaCD";
 	private const string MEGA_CD_32X_PLATFORM = "SegaCD32X";
 
-	public GameSource? get_game_source () throws Error {
-		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
-		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
-		// FIXME We should be able to use one factory for Mega Drive and
-		// 32X.
-		var mega_drive_factory = new GenericUriGameFactory (game_uri_adapter);
-		var 32x_factory = new GenericUriGameFactory (game_uri_adapter);
-		var mega_cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
-		var mega_drive_query = new MimeTypeTrackerQuery (MEGA_DRIVE_MIME_TYPE, mega_drive_factory);
-		var 32x_query = new MimeTypeTrackerQuery (32X_MIME_TYPE, 32x_factory);
-		var mega_cd_query = new MimeTypeTrackerQuery (CUE_MIME_TYPE, mega_cd_factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (mega_drive_query);
-		source.add_query (32x_query);
-		source.add_query (mega_cd_query);
+	public string[] get_mime_types () {
+		return {
+			MEGA_DRIVE_MIME_TYPE,
+			32X_MIME_TYPE,
+			PICO_MIME_TYPE,
+			CUE_MIME_TYPE,
+			MEGA_CD_MIME_TYPE,
+		};
+	}
 
-		return source;
+	public UriGameFactory[] get_uri_game_factories () {
+		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
+		var factory = new GenericUriGameFactory (game_uri_adapter);
+		factory.add_mime_type (MEGA_DRIVE_MIME_TYPE);
+		factory.add_mime_type (32X_MIME_TYPE);
+		factory.add_mime_type (PICO_MIME_TYPE);
+
+		var cd_game_uri_adapter = new GenericSyncGameUriAdapter (cd_game_for_uri);
+		var mega_cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
+		mega_cd_factory.add_mime_type (CUE_MIME_TYPE);
+		mega_cd_factory.add_mime_type (MEGA_CD_MIME_TYPE);
+
+		return { factory, mega_cd_factory };
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
@@ -80,8 +85,23 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 
 	private static Game cd_game_for_uri (string uri) throws Error {
 		var file = File.new_for_uri (uri);
-		var cue = new CueSheet (file);
-		var bin_file = get_binary_file (cue);
+		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
+		var mime_type = file_info.get_content_type ();
+
+		File bin_file;
+		switch (mime_type) {
+		case CUE_MIME_TYPE:
+			var cue = new CueSheet (file);
+			bin_file = get_binary_file (cue);
+
+			break;
+		case MEGA_CD_MIME_TYPE:
+			bin_file = file;
+
+			break;
+		default:
+			throw new MegaDriveError.INVALID_FILE_TYPE ("Invalid file type: expected %s or %s but got %s for file %s.", CUE_MIME_TYPE, MEGA_CD_MIME_TYPE, mime_type, uri);
+		}
 
 		var header = new MegaDriveHeader (bin_file);
 		header.check_validity ();
