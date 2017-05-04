@@ -3,7 +3,6 @@ PKG_CHECK_MODULES(SNES_PLUGIN, [
 	glib-2.0 >= $GLIB_MIN_VERSION
 	gtk+-3.0
 	retro-gtk-0.10
-	tracker-sparql-1.0
 ], [enable_snes_plugin=yes], [enable_snes_plugin=no])
 
 AM_CONDITIONAL(ENABLE_SNES_PLUGIN, test x$enable_snes_plugin != xno)
