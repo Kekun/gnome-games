@@ -8,4 +8,8 @@ public interface Games.Plugin : Object {
 	public virtual string[] get_mime_types () {
 		return {};
 	}
+
+	public virtual UriSource[] get_uri_sources () {
+		return {};
+	}
 }
