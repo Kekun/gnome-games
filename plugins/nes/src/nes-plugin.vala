@@ -12,19 +12,23 @@ private class Games.NesPlugin : Object, Plugin {
 	private const string MODULE_BASENAME = "libretro-nes.so";
 	private const bool SUPPORTS_SNAPSHOTTING = true;
 
-	public GameSource? get_game_source () throws Error {
-		var nes_game_uri_adapter = new GenericSyncGameUriAdapter (nes_game_for_uri);
-		var fds_game_uri_adapter = new GenericSyncGameUriAdapter (fds_game_for_uri);
-		var nes_factory = new GenericUriGameFactory (nes_game_uri_adapter);
-		var fds_factory = new GenericUriGameFactory (fds_game_uri_adapter);
-		var nes_query = new MimeTypeTrackerQuery (NES_MIME_TYPE, nes_factory);
-		var fds_query = new MimeTypeTrackerQuery (FDS_MIME_TYPE, fds_factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (nes_query);
-		source.add_query (fds_query);
+	public string[] get_mime_types () {
+		return {
+			NES_MIME_TYPE,
+			FDS_MIME_TYPE,
+		};
+	}
 
-		return source;
+	public UriGameFactory[] get_uri_game_factories () {
+		var nes_game_uri_adapter = new GenericSyncGameUriAdapter (nes_game_for_uri);
+		var nes_factory = new GenericUriGameFactory (nes_game_uri_adapter);
+		nes_factory.add_mime_type (NES_MIME_TYPE);
+
+		var fds_game_uri_adapter = new GenericSyncGameUriAdapter (fds_game_for_uri);
+		var fds_factory = new GenericUriGameFactory (fds_game_uri_adapter);
+		fds_factory.add_mime_type (FDS_MIME_TYPE);
+
+		return { nes_factory, fds_factory };
 	}
 
 	private static Game nes_game_for_uri (string uri) throws Error {
