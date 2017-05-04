@@ -1,25 +1,45 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.SegaSaturnPlugin : Object, Plugin {
-	private const string SEARCHED_MIME_TYPE = "application/x-cue";
-	private const string SPECIFIC_MIME_TYPE = "application/x-saturn-rom";
+	private const string CUE_MIME_TYPE = "application/x-cue";
+	private const string SEGA_SATURN_MIME_TYPE = "application/x-saturn-rom";
 	private const string PLATFORM = "SegaSaturn";
 
-	public GameSource? get_game_source () throws Error {
+	public string[] get_mime_types () {
+		return {
+			CUE_MIME_TYPE,
+			SEGA_SATURN_MIME_TYPE,
+		};
+	}
+
+	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericSyncGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		var query = new MimeTypeTrackerQuery (SEARCHED_MIME_TYPE, factory);
-		var connection = Tracker.Sparql.Connection.@get ();
-		var source = new TrackerGameSource (connection);
-		source.add_query (query);
+		factory.add_mime_type (CUE_MIME_TYPE);
+		factory.add_mime_type (SEGA_SATURN_MIME_TYPE);
 
-		return source;
+		return { factory };
 	}
 
 	private static Game game_for_uri (string uri) throws Error {
 		var file = File.new_for_uri (uri);
-		var cue = new CueSheet (file);
-		var bin_file = get_binary_file (cue);
+		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
+		var mime_type = file_info.get_content_type ();
+
+		File bin_file;
+		switch (mime_type) {
+		case CUE_MIME_TYPE:
+			var cue = new CueSheet (file);
+			bin_file = get_binary_file (cue);
+
+			break;
+		case SEGA_SATURN_MIME_TYPE:
+			bin_file = file;
+
+			break;
+		default:
+			throw new SegaSaturnError.INVALID_FILE_TYPE ("Invalid file type: expected %s or %s but got %s for file %s.", CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE, mime_type, uri);
+		}
 
 		var header = new SegaSaturnHeader (bin_file);
 		header.check_validity ();
@@ -27,11 +47,11 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var uid = new SegaSaturnUid (header);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
-		var media = new GriloMedia (title, SPECIFIC_MIME_TYPE);
+		var media = new GriloMedia (title, SEGA_SATURN_MIME_TYPE);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var core_source = new RetroCoreSource (PLATFORM, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
+		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
@@ -51,7 +71,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 			throw new SegaSaturnError.INVALID_CUE_SHEET (_("The file “%s” doesn’t have a valid track mode for track %d."), cue.file.get_uri (), track.track_number);
 
 		var file_info = file.file.query_info ("*", FileQueryInfoFlags.NONE);
-		if (file_info.get_content_type () != SPECIFIC_MIME_TYPE)
+		if (file_info.get_content_type () != SEGA_SATURN_MIME_TYPE)
 			throw new SegaSaturnError.INVALID_FILE_TYPE (_("The file “%s” doesn’t have a valid Sega Saturn binary file."), cue.file.get_uri ());
 
 		return file.file;
