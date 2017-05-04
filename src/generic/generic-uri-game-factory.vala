@@ -7,11 +7,21 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 	private GameUriAdapter game_uri_adapter;
 	private UriTest? uri_validity_test;
 	private string[] uris;
+	private string[] mime_types;
 
 	public GenericUriGameFactory (GameUriAdapter game_uri_adapter, owned UriTest? uri_validity_test = null) {
 		this.game_uri_adapter = game_uri_adapter;
 		this.uri_validity_test = (owned) uri_validity_test;
-		this.uris = {};
+		uris = {};
+		mime_types = {};
+	}
+
+	public string[] get_mime_types () {
+		return mime_types;
+	}
+
+	public void add_mime_type (string mime_type) {
+		mime_types += mime_type;
 	}
 
 	public bool is_uri_valid (string uri) {
