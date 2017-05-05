@@ -149,7 +149,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		header.check_validity ();
 
 		var gameinfo = get_gameinfo ();
-		var uid = new PlayStationUid (header);
+		var uid = new PlayStationUid (header.disc_id);
 		var title = new CompositeTitle ({
 			new GameinfoDiscIdGameTitle (gameinfo, header.disc_id),
 			new FilenameTitle (uri)
