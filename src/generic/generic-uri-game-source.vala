@@ -24,6 +24,11 @@ public class Games.GenericUriGameSource : Object, GameSource {
 		}
 	}
 
+	public async void add_uri (string uri) {
+		foreach (var factory in yield get_factories_for_uri (uri))
+			yield factory.add_uri (uri);
+	}
+
 	public async void each_game (GameCallback callback) {
 		foreach (var source in sources)
 			foreach (var uri in source)
@@ -33,34 +38,36 @@ public class Games.GenericUriGameSource : Object, GameSource {
 			yield factory.foreach_game (callback);
 	}
 
-	private async void add_uri (string uri) {
-		Idle.add (add_uri.callback);
+	private async UriGameFactory[] get_factories_for_uri (string uri) {
+		Idle.add (get_factories_for_uri.callback);
 		yield;
+
+		UriGameFactory[] factories = {};
 
 		if (uri.has_prefix ("file:")) {
 			try {
-				yield add_file (uri);
+				foreach (var factory in yield get_factories_for_file (uri))
+					factories += factory;
 			}
 			catch (Error e) {
 				debug (e.message);
 			}
-
-			return;
 		}
 		// TODO Add support for URN and other schemes.
+
+		return factories;
 	}
 
-	private async void add_file (string uri) throws Error {
+	private async UriGameFactory[] get_factories_for_file (string uri) throws Error {
 		var file = File.new_for_uri (uri);
 		if (!file.query_exists ())
-			return;
+			return {};
 
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
 		var mime_type = file_info.get_content_type ();
 		if (!factories_for_mime_type.contains (mime_type))
-			return;
+			return {};
 
-		foreach (var factory in factories_for_mime_type[mime_type].data)
-			yield factory.add_uri (uri);
+		return factories_for_mime_type[mime_type].data;
 	}
 }
