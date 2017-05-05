@@ -41,6 +41,16 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 		}
 	}
 
+	public async Game? query_game_for_uri (string uri) {
+		Idle.add (this.query_game_for_uri.callback);
+		yield;
+
+		if (game_for_uri.contains (uri))
+			return game_for_uri[uri];
+
+		return null;
+	}
+
 	public async void foreach_game (GameCallback game_callback) {
 		uint handled_uris = 0;
 		var games = game_for_uri.get_values ();
