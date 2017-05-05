@@ -4,6 +4,7 @@ private extern const string VERSION;
 
 public class Games.Application : Gtk.Application {
 	private ListStore collection;
+	private GenericSet<Game> games;
 	private ApplicationWindow window;
 	private bool game_list_loaded;
 
@@ -140,6 +141,7 @@ public class Games.Application : Gtk.Application {
 		Gtk.StyleContext.add_provider_for_screen (screen, provider, 600);
 
 		collection = new ListStore (typeof (Game));
+		games = new GenericSet<Game> (direct_hash, direct_equal);
 		load_game_list.begin ();
 
 		window = new ApplicationWindow (collection);
@@ -173,6 +175,7 @@ public class Games.Application : Gtk.Application {
 		}
 
 		uri_game_source = new GenericUriGameSource ();
+		uri_game_source.game_added.connect ((game) => add_game (game));
 		if (tracker_uri_source != null)
 			uri_game_source.add_source (tracker_uri_source);
 
@@ -238,7 +241,11 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void add_game (Game game) {
+		if (games.contains (game))
+			return;
+
 		collection.append (game);
+		games.add (game);
 	}
 
 	private void preferences () {
