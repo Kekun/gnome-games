@@ -24,6 +24,15 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		return { SEARCHED_MIME_TYPE };
 	}
 
+	public async Game? query_game_for_uri (string uri) {
+		Idle.add (this.query_game_for_uri.callback);
+		yield;
+
+		// TODO
+
+		return null;
+	}
+
 	public async void add_uri (string uri) {
 		string disc_id;
 
