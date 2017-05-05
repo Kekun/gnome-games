@@ -29,6 +29,20 @@ public class Games.GenericUriGameSource : Object, GameSource {
 			yield factory.add_uri (uri);
 	}
 
+	public async Game? query_game_for_uri (string uri) {
+		Game[] games = {};
+		foreach (var factory in yield get_factories_for_uri (uri)) {
+			var game = yield factory.query_game_for_uri (uri);
+			if (game != null)
+				games += game;
+		}
+
+		if (games.length != 1)
+			return null;
+
+		return games[0];
+	}
+
 	public async void each_game (GameCallback callback) {
 		foreach (var source in sources)
 			foreach (var uri in source)
