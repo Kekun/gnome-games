@@ -61,13 +61,6 @@ public class Games.GenericUriGameSource : Object, GameSource {
 			return;
 
 		foreach (var factory in factories_for_mime_type[mime_type].data)
-			yield add_uri_to_factory (factory, uri);
-	}
-
-	private async void add_uri_to_factory (UriGameFactory factory, string uri) {
-		factory.add_uri (uri);
-
-		Idle.add (add_uri_to_factory.callback);
-		yield;
+			yield factory.add_uri (uri);
 	}
 }

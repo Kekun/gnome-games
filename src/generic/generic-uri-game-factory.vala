@@ -21,7 +21,7 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 		mime_types += mime_type;
 	}
 
-	public void add_uri (string uri) {
+	public async void add_uri (string uri) {
 		uris += uri;
 	}
 

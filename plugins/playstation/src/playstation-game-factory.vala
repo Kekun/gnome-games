@@ -24,7 +24,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		return { SEARCHED_MIME_TYPE };
 	}
 
-	public void add_uri (string uri) {
+	public async void add_uri (string uri) {
 		string disc_id;
 
 		try {
