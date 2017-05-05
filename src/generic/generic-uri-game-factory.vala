@@ -1,14 +1,16 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.GenericUriGameFactory : Object, UriGameFactory {
-	private const uint HANDLED_URIS_PER_CYCLE = 5;
+	private const uint GAMES_PER_CYCLE = 4;
 
 	private GameUriAdapter game_uri_adapter;
+	private HashTable<string, Game> game_for_uri;
 	private string[] uris;
 	private string[] mime_types;
 
 	public GenericUriGameFactory (GameUriAdapter game_uri_adapter) {
 		this.game_uri_adapter = game_uri_adapter;
+		game_for_uri = new HashTable<string, Game> (str_hash, str_equal);
 		uris = {};
 		mime_types = {};
 	}
@@ -22,37 +24,39 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 	}
 
 	public async void add_uri (string uri) {
-		uris += uri;
+		Idle.add (this.add_uri.callback);
+		yield;
+
+		if (game_for_uri.contains (uri))
+			return;
+
+		try {
+			var game = yield game_uri_adapter.game_for_uri (uri);
+			game_for_uri[uri] = game;
+
+			game_added (game);
+		}
+		catch (Error e) {
+			debug (e.message);
+		}
 	}
 
 	public async void foreach_game (GameCallback game_callback) {
 		uint handled_uris = 0;
-		foreach (var uri in uris) {
-			var file = File.new_for_uri (uri);
-			if (!file.query_exists ())
+		var games = game_for_uri.get_values ();
+		for (unowned List<Game> game = games; game != null; game = game.next) {
+			game_callback (game.data);
+
+			if (handled_uris++ < GAMES_PER_CYCLE)
 				continue;
-
-			try {
-				Game game = yield game_uri_adapter.game_for_uri (uri);
-				game_callback (game);
-			}
-			catch (Error e) {
-				debug (e.message);
-
-				continue;
-			}
-
-			handled_uris++;
 
 			// Free the execution only once every HANDLED_URIS_PER_CYCLE
 			// games to speed up the execution by avoiding too many context
 			// switching.
-			if (handled_uris >= HANDLED_URIS_PER_CYCLE) {
-				handled_uris = 0;
+			handled_uris = 0;
 
-				Idle.add (this.foreach_game.callback);
-				yield;
-			}
+			Idle.add (this.foreach_game.callback);
+			yield;
 		}
 	}
 }
