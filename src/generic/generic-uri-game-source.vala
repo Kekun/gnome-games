@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.GenericUriGameSource : Object, GameSource {
+	public signal void game_added (Game game);
+
 	private UriSource[] sources;
 	private UriGameFactory[] factories;
 
@@ -22,6 +24,8 @@ public class Games.GenericUriGameSource : Object, GameSource {
 				factories_for_mime_type[mime_type] = new Array<UriGameFactory> ();
 			factories_for_mime_type[mime_type].append_val (factory);
 		}
+
+		factory.game_added.connect ((game) => game_added (game));
 	}
 
 	public async void add_uri (string uri) {
