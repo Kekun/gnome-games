@@ -1,6 +1,6 @@
 # List of source files that should *not* be translated.
 # Please keep this file sorted alphabetically.
-plugins/desktop/src/desktop-tracker-query.c
+plugins/desktop/src/desktop-plugin.c
 plugins/dreamcast/src/dreamcast-header.c
 plugins/game-cube/src/game-cube-header.c
 plugins/love/src/love-package.c

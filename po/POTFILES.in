@@ -17,7 +17,7 @@ data/org.gnome.Games.gschema.xml
 [type: gettext/glade]data/ui/remote-display.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
 [type: gettext/glade]data/ui/resume-failed-dialog.ui
-plugins/desktop/src/desktop-tracker-query.vala
+plugins/desktop/src/desktop-plugin.vala
 plugins/dreamcast/src/dreamcast-header.vala
 plugins/game-cube/src/game-cube-header.vala
 plugins/love/src/love-package.vala
