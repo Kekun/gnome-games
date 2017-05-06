@@ -13,6 +13,7 @@ libgames_steam_plugin_la_SOURCES = \
 	steam-plugin.vala \
 	steam-registry.vala \
 	steam-title.vala \
+	steam-uri-iterator.vala \
 	$(NULL)
 
 libgames_steam_plugin_la_VALAFLAGS = \
