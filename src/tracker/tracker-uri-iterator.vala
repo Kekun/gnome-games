@@ -4,7 +4,7 @@ private class Games.TrackerUriIterator : Object, UriIterator {
 	private Tracker.Sparql.Connection connection;
 	private TrackerUriQuery[] queries;
 	private int query_index;
-	private string? uri;
+	private Uri? uri;
 	private Tracker.Sparql.Cursor cursor;
 
 	internal TrackerUriIterator (Tracker.Sparql.Connection connection, TrackerUriQuery[] queries) {
@@ -15,7 +15,7 @@ private class Games.TrackerUriIterator : Object, UriIterator {
 		cursor = null;
 	}
 
-	public new string? get () {
+	public new Uri? get () {
 		return uri;
 	}
 
@@ -54,7 +54,7 @@ private class Games.TrackerUriIterator : Object, UriIterator {
 		if (!cursor.next ())
 			return false;
 
-		uri = cursor.get_string (0);
+		uri = new Uri (cursor.get_string (0));
 
 		return true;
 	}

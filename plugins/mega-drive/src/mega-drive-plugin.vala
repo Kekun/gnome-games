@@ -44,8 +44,8 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		return { factory, mega_cd_factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private static Game game_for_uri (Uri uri) throws Error {
+		var file = uri.to_file ();
 		var header = new MegaDriveHeader (file);
 		header.check_validity ();
 
@@ -83,8 +83,8 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		return new GenericGame (title, icon, cover, runner);
 	}
 
-	private static Game cd_game_for_uri (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private static Game cd_game_for_uri (Uri uri) throws Error {
+		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
 		var mime_type = file_info.get_content_type ();
 
@@ -100,7 +100,7 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 
 			break;
 		default:
-			throw new MegaDriveError.INVALID_FILE_TYPE ("Invalid file type: expected %s or %s but got %s for file %s.", CUE_MIME_TYPE, MEGA_CD_MIME_TYPE, mime_type, uri);
+			throw new MegaDriveError.INVALID_FILE_TYPE ("Invalid file type: expected %s or %s but got %s for file %s.", CUE_MIME_TYPE, MEGA_CD_MIME_TYPE, mime_type, uri.to_string ());
 		}
 
 		var header = new MegaDriveHeader (bin_file);
@@ -119,7 +119,7 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 		else
 			assert_not_reached ();
 
-		var bin_uri = bin_file.get_uri ();
+		var bin_uri = new Uri (bin_file.get_uri ());
 		var header_offset = header.get_offset ();
 		var uid = new FingerprintUid.for_chunk (bin_uri, MEGA_CD_PREFIX, header_offset, MegaDriveHeader.HEADER_LENGTH);
 		var title = new FilenameTitle (uri);

@@ -31,7 +31,7 @@ private class Games.NesPlugin : Object, Plugin {
 		return { nes_factory, fds_factory };
 	}
 
-	private static Game nes_game_for_uri (string uri) throws Error {
+	private static Game nes_game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, NES_FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
@@ -45,7 +45,7 @@ private class Games.NesPlugin : Object, Plugin {
 		return new GenericGame (title, icon, cover, runner);
 	}
 
-	private static Game fds_game_for_uri (string uri) throws Error {
+	private static Game fds_game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, FDS_FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();

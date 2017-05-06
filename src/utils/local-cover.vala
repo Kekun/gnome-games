@@ -1,11 +1,11 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.LocalCover : Object, Cover {
-	private string uri;
+	private Uri uri;
 	private bool resolved;
 	private GLib.Icon? icon;
 
-	public LocalCover (string uri) {
+	public LocalCover (Uri uri) {
 		this.uri = uri;
 	}
 
@@ -47,7 +47,7 @@ public class Games.LocalCover : Object, Cover {
 	}
 
 	private string? get_sibbling_cover_path () throws Error {
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var parent = file.get_parent ();
 		if (parent == null)
 			return null;
@@ -80,7 +80,7 @@ public class Games.LocalCover : Object, Cover {
 	}
 
 	private string? get_directory_cover_path () throws Error {
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var parent = file.get_parent ();
 		if (parent == null)
 			return null;

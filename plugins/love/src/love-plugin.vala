@@ -15,12 +15,12 @@ private class Games.LovePlugin : Object, Plugin {
 		return { factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
+	private static Game game_for_uri (Uri uri) throws Error {
 		var package = new LovePackage (uri);
 		var title = new LoveTitle (package);
 		var icon = new LoveIcon (package);
 		var cover = new LocalCover (uri);
-		string[] args = { "love", uri };
+		string[] args = { "love", uri.to_string () };
 		var runner = new CommandRunner (args, true);
 
 		return new GenericGame (title, icon, cover, runner);

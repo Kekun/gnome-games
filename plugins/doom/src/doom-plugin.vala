@@ -17,7 +17,7 @@ private class Games.DoomPlugin : Object, Plugin {
 		return { factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
+	private static Game game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();

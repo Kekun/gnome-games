@@ -28,12 +28,12 @@ public class Games.GenericUriGameSource : Object, GameSource {
 		factory.game_added.connect ((game) => game_added (game));
 	}
 
-	public async void add_uri (string uri) {
+	public async void add_uri (Uri uri) {
 		foreach (var factory in yield get_factories_for_uri (uri))
 			yield factory.add_uri (uri);
 	}
 
-	public async Game? query_game_for_uri (string uri) {
+	public async Game? query_game_for_uri (Uri uri) {
 		Game[] games = {};
 		foreach (var factory in yield get_factories_for_uri (uri)) {
 			var game = yield factory.query_game_for_uri (uri);
@@ -56,15 +56,26 @@ public class Games.GenericUriGameSource : Object, GameSource {
 			yield factory.foreach_game (callback);
 	}
 
-	private async UriGameFactory[] get_factories_for_uri (string uri) {
+	private async UriGameFactory[] get_factories_for_uri (Uri uri) {
 		Idle.add (get_factories_for_uri.callback);
 		yield;
 
 		UriGameFactory[] factories = {};
 
-		if (uri.has_prefix ("file:")) {
+		string scheme;
+		try {
+			scheme = uri.get_scheme ();
+		}
+		catch (Error e) {
+			debug (e.message);
+
+			return factories;
+		}
+
+		if (scheme == "file") {
 			try {
-				foreach (var factory in yield get_factories_for_file (uri))
+				var file = uri.to_file ();
+				foreach (var factory in yield get_factories_for_file (file))
 					factories += factory;
 			}
 			catch (Error e) {
@@ -76,8 +87,7 @@ public class Games.GenericUriGameSource : Object, GameSource {
 		return factories;
 	}
 
-	private async UriGameFactory[] get_factories_for_file (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private async UriGameFactory[] get_factories_for_file (File file) throws Error {
 		if (!file.query_exists ())
 			return {};
 

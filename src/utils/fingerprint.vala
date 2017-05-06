@@ -1,8 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 namespace Games.Fingerprint {
-	private string get_for_file_uri (string uri, size_t start, size_t? length) throws Error {
-		var file = File.new_for_uri (uri);
+	private string get_for_file_uri (Uri uri, size_t start, size_t? length) throws Error {
+		var file = uri.to_file ();
 		var istream = file.read ();
 
 		return get_for_file_input_stream (istream, start, length);
@@ -25,20 +25,20 @@ namespace Games.Fingerprint {
 }
 
 public class Games.FingerprintUid: Object, Uid {
-	private string uri;
+	private Uri uri;
 	private string prefix;
 	private size_t start;
 	private size_t? length;
 	private string uid;
 
-	public FingerprintUid (string uri, string prefix) {
+	public FingerprintUid (Uri uri, string prefix) {
 		this.uri = uri;
 		this.prefix = prefix;
 		start = 0;
 		length = null;
 	}
 
-	public FingerprintUid.for_chunk (string uri, string prefix, size_t start, size_t length) {
+	public FingerprintUid.for_chunk (Uri uri, string prefix, size_t start, size_t length) {
 		this.uri = uri;
 		this.prefix = prefix;
 		this.start = start;

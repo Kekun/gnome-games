@@ -21,7 +21,7 @@ private class Games.LoveTitle : Object, Title {
 			return title;
 
 		var uri = package.get_uri ();
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		title = file.get_basename ();
 		title = title.split (".")[0];
 		title = title.split ("(")[0];

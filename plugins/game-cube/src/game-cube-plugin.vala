@@ -16,8 +16,8 @@ private class Games.GameCubePlugin : Object, Plugin {
 		return { factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private static Game game_for_uri (Uri uri) throws Error {
+		var file = uri.to_file ();
 		var header = new GameCubeHeader (file);
 		header.check_validity ();
 

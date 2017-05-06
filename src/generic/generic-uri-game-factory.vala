@@ -4,14 +4,12 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 	private const uint GAMES_PER_CYCLE = 4;
 
 	private GameUriAdapter game_uri_adapter;
-	private HashTable<string, Game> game_for_uri;
-	private string[] uris;
+	private HashTable<Uri, Game> game_for_uri;
 	private string[] mime_types;
 
 	public GenericUriGameFactory (GameUriAdapter game_uri_adapter) {
 		this.game_uri_adapter = game_uri_adapter;
-		game_for_uri = new HashTable<string, Game> (str_hash, str_equal);
-		uris = {};
+		game_for_uri = new HashTable<Uri, Game> (Uri.hash, Uri.equal);
 		mime_types = {};
 	}
 
@@ -23,7 +21,7 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 		mime_types += mime_type;
 	}
 
-	public async void add_uri (string uri) {
+	public async void add_uri (Uri uri) {
 		Idle.add (this.add_uri.callback);
 		yield;
 
@@ -41,7 +39,7 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 		}
 	}
 
-	public async Game? query_game_for_uri (string uri) {
+	public async Game? query_game_for_uri (Uri uri) {
 		Idle.add (this.query_game_for_uri.callback);
 		yield;
 

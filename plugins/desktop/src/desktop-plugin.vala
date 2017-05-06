@@ -24,10 +24,10 @@ private class Games.DesktopPlugin : Object, Plugin {
 		return { factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
+	private static Game game_for_uri (Uri uri) throws Error {
 		check_uri (uri);
 
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var path = file.get_path ();
 
 		var app_info = new DesktopAppInfo.from_filename (path);
@@ -44,11 +44,11 @@ private class Games.DesktopPlugin : Object, Plugin {
 		return new GenericGame (title, icon, cover, runner);
 	}
 
-	private static void check_uri (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private static void check_uri (Uri uri) throws Error {
+		var file = uri.to_file ();
 
 		if (!file.query_exists ())
-			throw new IOError.NOT_FOUND (_("Tracker listed file not found: “%s”."), uri);
+			throw new IOError.NOT_FOUND (_("Tracker listed file not found: “%s”."), uri.to_string ());
 
 		var path = file.get_path ();
 		var app_info = new DesktopAppInfo.from_filename (path);

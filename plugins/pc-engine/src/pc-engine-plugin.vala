@@ -29,7 +29,7 @@ private class Games.PcEnginePlugin : Object, Plugin {
 		return { factory, cd_factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
+	private static Game game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
@@ -43,9 +43,9 @@ private class Games.PcEnginePlugin : Object, Plugin {
 		return new GenericGame (title, icon, cover, runner);
 	}
 
-	private static Game cd_game_for_uri (string uri) throws Error {
+	private static Game cd_game_for_uri (Uri uri) throws Error {
 		if (!is_valid_disc (uri))
-			throw new PcEngineError.INVALID_DISC ("“%s” isn’t a valid PC-Engine CD-ROM² disc.", uri);
+			throw new PcEngineError.INVALID_DISC ("“%s” isn’t a valid PC-Engine CD-ROM² disc.", uri.to_string ());
 
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
@@ -60,8 +60,8 @@ private class Games.PcEnginePlugin : Object, Plugin {
 		return new GenericGame (title, icon, cover, runner);
 	}
 
-	private static bool is_valid_disc (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private static bool is_valid_disc (Uri uri) throws Error {
+		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
 		var mime_type = file_info.get_content_type ();
 

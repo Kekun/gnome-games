@@ -34,8 +34,8 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 		return { factory, sg_1000_factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private static Game game_for_uri (Uri uri) throws Error {
+		var file = uri.to_file ();
 		var header = new MasterSystemHeader (file);
 		header.check_validity ();
 
@@ -68,7 +68,7 @@ private class Games.MasterSystemPlugin : Object, Plugin {
 		return new GenericGame (title, icon, cover, runner);
 	}
 
-	private static Game sg_1000_game_for_uri (string uri) throws Error {
+	private static Game sg_1000_game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, SG_1000_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();

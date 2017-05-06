@@ -3,18 +3,18 @@
 public class Games.Media : Object {
 	public Title? title { get; private set; }
 
-	private string[] uris;
+	private Uri[] uris;
 
 	public Media (Title? title = null) {
 		this.title = title;
 		this.uris = {};
 	}
 
-	public string[] get_uris () {
+	public Uri[] get_uris () {
 		return uris;
 	}
 
-	public void add_uri (string uri) {
+	public void add_uri (Uri uri) {
 		uris += uri;
 	}
 }

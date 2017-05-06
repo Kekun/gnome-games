@@ -3,18 +3,18 @@
 private class Games.LovePackage : Object {
 	private const size_t BLOCK_SIZE = 4096;
 
-	private string uri;
+	private Uri uri;
 	private HashTable<string, string> config;
 
-	public LovePackage (string uri) throws Error {
+	public LovePackage (Uri uri) throws Error {
 		this.uri = uri;
 
 		if (!contains_file ("main.lua"))
-			throw new LoveError.INVALID_PACKAGE (_("This doesn’t represent a valid LÖVE package: “%s”."), uri);
+			throw new LoveError.INVALID_PACKAGE (_("This doesn’t represent a valid LÖVE package: “%s”."), uri.to_string ());
 
 		var config_file = get_file_string ("conf.lua");
 		if (config_file == null)
-			throw new LoveError.INVALID_PACKAGE (_("This doesn’t represent a valid LÖVE package: “%s”."), uri);
+			throw new LoveError.INVALID_PACKAGE (_("This doesn’t represent a valid LÖVE package: “%s”."), uri.to_string ());
 
 		var regex = /^\s*[^\s]+\.([^\s\.]+)\s*=\s*(.+?)\s*$/;
 
@@ -30,7 +30,7 @@ private class Games.LovePackage : Object {
 			}
 	}
 
-	public string get_uri () {
+	public Uri get_uri () {
 		return uri;
 	}
 
@@ -42,7 +42,7 @@ private class Games.LovePackage : Object {
 	}
 
 	public bool contains_file (string path_in_archive) {
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var path = file.get_path ();
 
 		Archive.Read archive = new Archive.Read ();
@@ -67,7 +67,7 @@ private class Games.LovePackage : Object {
 	}
 
 	public InputStream? get_file_input_stream (string path_in_archive) {
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var path = file.get_path ();
 
 		Archive.Read archive = new Archive.Read ();
@@ -94,7 +94,7 @@ private class Games.LovePackage : Object {
 	}
 
 	public string? get_file_string (string path_in_archive) {
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var path = file.get_path ();
 
 		Archive.Read archive = new Archive.Read ();

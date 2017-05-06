@@ -21,8 +21,8 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		return { factory };
 	}
 
-	private static Game game_for_uri (string uri) throws Error {
-		var file = File.new_for_uri (uri);
+	private static Game game_for_uri (Uri uri) throws Error {
+		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
 		var mime_type = file_info.get_content_type ();
 
@@ -38,7 +38,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 
 			break;
 		default:
-			throw new SegaSaturnError.INVALID_FILE_TYPE ("Invalid file type: expected %s or %s but got %s for file %s.", CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE, mime_type, uri);
+			throw new SegaSaturnError.INVALID_FILE_TYPE ("Invalid file type: expected %s or %s but got %s for file %s.", CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE, mime_type, uri.to_string ());
 		}
 
 		var header = new SegaSaturnHeader (bin_file);

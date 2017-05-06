@@ -3,18 +3,18 @@
 public class Games.FilenameTitle : Object, Title {
 	private static Regex filename_ext_regex;
 
-	private string uri;
+	private Uri uri;
 
 	static construct {
 		filename_ext_regex = /\.\w+$/;
 	}
 
-	public FilenameTitle (string uri) {
+	public FilenameTitle (Uri uri) {
 		this.uri = uri;
 	}
 
 	public string get_title () throws Error {
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var name = file.get_basename ();
 		name = filename_ext_regex.replace (name, name.length, 0, "");
 		name = name.split ("(")[0];

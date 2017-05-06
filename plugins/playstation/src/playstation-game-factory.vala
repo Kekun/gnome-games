@@ -10,14 +10,14 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private static GameinfoDoc gameinfo;
 
 	private HashTable<string, Media> media_for_disc_id;
-	private HashTable<string, Game> game_for_uri;
+	private HashTable<Uri, Game> game_for_uri;
 	private HashTable<string, Game> game_for_disc_set_id;
 	private GenericSet<Game> games;
 
 
 	public PlayStationGameFactory () {
 		media_for_disc_id = new HashTable<string, Media> (str_hash, str_equal);
-		game_for_uri = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
+		game_for_uri = new HashTable<Uri, Game> (Uri.hash, Uri.equal);
 		game_for_disc_set_id = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
 		games = new GenericSet<Game> (direct_hash, direct_equal);
 	}
@@ -26,7 +26,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		return { CUE_MIME_TYPE };
 	}
 
-	public async Game? query_game_for_uri (string uri) {
+	public async Game? query_game_for_uri (Uri uri) {
 		Idle.add (this.query_game_for_uri.callback);
 		yield;
 
@@ -36,7 +36,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		return null;
 	}
 
-	public async void add_uri (string uri) {
+	public async void add_uri (Uri uri) {
 		try {
 			add_uri_with_error (uri);
 		}
@@ -46,11 +46,11 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	}
 
 	// TODO support unknown games (not in DB)
-	private void add_uri_with_error (string uri) throws Error {
+	private void add_uri_with_error (Uri uri) throws Error {
 		if (game_for_uri.contains (uri))
 			return;
 
-		var file = File.new_for_uri (uri);
+		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
 		var mime_type = file_info.get_content_type ();
 
@@ -128,7 +128,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		games.foreach ((game) => game_callback (game));
 	}
 
-	private Game create_game (MediaSet media_set, string disc_set_id, string uri) throws Error {
+	private Game create_game (MediaSet media_set, string disc_set_id, Uri uri) throws Error {
 		var gameinfo = get_gameinfo ();
 		var uid = new PlayStationUid (disc_set_id);
 		var title = new CompositeTitle ({

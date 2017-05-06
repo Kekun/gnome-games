@@ -10,8 +10,8 @@ private class Games.DummyGame : Object, Game {
 		_name = name;
 	}
 
-	public DummyGame.for_uri (string uri) {
-		var file = File.new_for_uri (uri);
+	public DummyGame.for_uri (Uri uri) {
+		var file = uri.to_file ();
 		var name = file.get_basename ();
 		name = name.split (".")[0];
 		name = name.split ("(")[0];

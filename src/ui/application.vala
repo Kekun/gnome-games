@@ -121,9 +121,9 @@ public class Games.Application : Gtk.Application {
 		if (files.length == 0)
 			return;
 
-		string[] uris = {};
+		Uri[] uris = {};
 		foreach (var file in files)
-			uris += file.get_uri ();
+			uris += new Uri.from_file (file);
 
 		var game = yield game_for_uris (uris);
 
@@ -212,7 +212,7 @@ public class Games.Application : Gtk.Application {
 		}
 	}
 
-	private async Game? game_for_uris (string[] uris) {
+	private async Game? game_for_uris (Uri[] uris) {
 		init_game_sources ();
 
 		Game? game = null;

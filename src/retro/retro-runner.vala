@@ -70,7 +70,7 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	public RetroRunner (RetroCoreSource core_source, string uri, Uid uid, Title game_title) {
+	public RetroRunner (RetroCoreSource core_source, Uri uri, Uid uid, Title game_title) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
@@ -219,7 +219,7 @@ public class Games.RetroRunner : Object, Runner {
 
 			var uri = uris[0];
 			if (!try_load_game (core, uri))
-				throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: “%s”."), uri);
+				throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: “%s”."), uri.to_string ());
 		}
 
 		core.shutdown.connect (on_shutdown);
@@ -287,8 +287,8 @@ public class Games.RetroRunner : Object, Runner {
 		core.init ();
 	}
 
-	private bool try_load_game (Retro.Core core, string uri) {
-		var file = File.new_for_uri (uri);
+	private bool try_load_game (Retro.Core core, Uri uri) {
+		var file = uri.to_file ();
 		var path = file.get_path ();
 
 		try {
