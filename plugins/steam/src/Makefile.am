@@ -8,7 +8,6 @@ libgames_steam_plugin_la_DEPENDENCIES = \
 libgames_steam_plugin_la_SOURCES = \
 	steam-cover.vala \
 	steam-error.vala \
-	steam-game-source.vala \
 	steam-icon.vala \
 	steam-plugin.vala \
 	steam-registry.vala \
