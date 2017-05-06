@@ -151,6 +151,8 @@ gnome_games_SOURCES = \
 	utils/grep.vala \
 	utils/local-cover.vala \
 	utils/string-input-stream.vala \
+	utils/uri.vala \
+	utils/uri-error.vala \
 	utils/xml-doc.vala \
 	\
 	config.vala \
