@@ -7,9 +7,11 @@ public class Games.GenericUriGameSource : Object, GameSource {
 	private UriGameFactory[] factories;
 
 	private HashTable<string, Array<UriGameFactory>> factories_for_mime_type;
+	private HashTable<string, Array<UriGameFactory>> factories_for_scheme;
 
 	construct {
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
+		factories_for_scheme = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 	}
 
 	public void add_source (UriSource source) {
@@ -23,6 +25,12 @@ public class Games.GenericUriGameSource : Object, GameSource {
 			if (!factories_for_mime_type.contains (mime_type))
 				factories_for_mime_type[mime_type] = new Array<UriGameFactory> ();
 			factories_for_mime_type[mime_type].append_val (factory);
+		}
+
+		foreach (var scheme in factory.get_schemes ()) {
+			if (!factories_for_scheme.contains (scheme))
+				factories_for_scheme[scheme] = new Array<UriGameFactory> ();
+			factories_for_scheme[scheme].append_val (factory);
 		}
 
 		factory.game_added.connect ((game) => game_added (game));
@@ -82,7 +90,10 @@ public class Games.GenericUriGameSource : Object, GameSource {
 				debug (e.message);
 			}
 		}
-		// TODO Add support for URN and other schemes.
+		// TODO Add support for URN.
+		if (factories_for_scheme.contains (scheme))
+			foreach (var factory in factories_for_scheme[scheme].data)
+				factories += factory;
 
 		return factories;
 	}
