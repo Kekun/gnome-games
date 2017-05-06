@@ -6,11 +6,13 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 	private GameUriAdapter game_uri_adapter;
 	private HashTable<Uri, Game> game_for_uri;
 	private string[] mime_types;
+	private string[] schemes;
 
 	public GenericUriGameFactory (GameUriAdapter game_uri_adapter) {
 		this.game_uri_adapter = game_uri_adapter;
 		game_for_uri = new HashTable<Uri, Game> (Uri.hash, Uri.equal);
 		mime_types = {};
+		schemes = {};
 	}
 
 	public string[] get_mime_types () {
@@ -19,6 +21,14 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 
 	public void add_mime_type (string mime_type) {
 		mime_types += mime_type;
+	}
+
+	public string[] get_schemes () {
+		return schemes;
+	}
+
+	public void add_scheme (string scheme) {
+		schemes += scheme;
 	}
 
 	public async void add_uri (Uri uri) {
