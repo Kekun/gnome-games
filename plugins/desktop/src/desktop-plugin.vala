@@ -9,11 +9,18 @@ private class Games.DesktopPlugin : Object, Plugin {
 
 	public UriSource[] get_uri_sources () {
 		var query = new DesktopTrackerUriQuery ();
-		var connection = Tracker.Sparql.Connection.@get ();
-		var uri_source = new TrackerUriSource (connection);
-		uri_source.add_query (query);
+		try {
+			var connection = Tracker.Sparql.Connection.@get ();
+			var uri_source = new TrackerUriSource (connection);
+			uri_source.add_query (query);
 
-		return { uri_source };
+			return { uri_source };
+		}
+		catch (Error e) {
+			debug (e.message);
+
+			return {};
+		}
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
