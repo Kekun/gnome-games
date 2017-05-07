@@ -9,7 +9,6 @@ public class Games.Application : Gtk.Application {
 	private bool game_list_loaded;
 
 	private GenericUriGameSource uri_game_source;
-	private GameSource[] game_sources;
 
 	internal Application () {
 		Object (application_id: "org.gnome.Games",
@@ -162,7 +161,7 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void init_game_sources () {
-		if (game_sources != null)
+		if (uri_game_source != null)
 			return;
 
 		TrackerUriSource tracker_uri_source = null;
@@ -179,16 +178,12 @@ public class Games.Application : Gtk.Application {
 		if (tracker_uri_source != null)
 			uri_game_source.add_source (tracker_uri_source);
 
-		game_sources += uri_game_source;
 		var mime_types = new GenericSet<string> (str_hash, str_equal);
 
 		var register = PluginRegister.get_register ();
 		foreach (var plugin_registrar in register) {
 			try {
 				var plugin = plugin_registrar.get_plugin ();
-				var source = plugin.get_game_source ();
-				if (source != null)
-					game_sources += source;
 
 				if (tracker_uri_source != null)
 					foreach (var mime_type in plugin.get_mime_types ()) {
@@ -215,25 +210,16 @@ public class Games.Application : Gtk.Application {
 	private async Game? game_for_uris (Uri[] uris) {
 		init_game_sources ();
 
-		Game? game = null;
+		foreach (var uri in uris)
+			yield uri_game_source.add_uri (uri);
 
-		foreach (var game_source in game_sources) {
-			if (game != null)
-				continue;
-
-			foreach (var uri in uris)
-				yield uri_game_source.add_uri (uri);
-			game = yield uri_game_source.query_game_for_uri (uris[0]);
-		}
-
-		return game;
+		return yield uri_game_source.query_game_for_uri (uris[0]);
 	}
 
 	internal async void load_game_list () {
 		init_game_sources ();
 
-		foreach (var source in game_sources)
-			yield source.each_game (add_game);
+		yield uri_game_source.each_game (add_game);
 
 		game_list_loaded = true;
 		if (window != null)
