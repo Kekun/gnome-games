@@ -1,8 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.GameCollection : Object {
-	public signal void game_added (Game game);
-
 	private GenericSet<Game> games;
 	private ListStore list_store;
 
@@ -42,7 +40,6 @@ public class Games.GameCollection : Object {
 			factories_for_scheme[scheme].append_val (factory);
 		}
 
-		factory.game_added.connect ((game) => game_added (game));
 		factory.game_added.connect ((game) => store_game (game));
 	}
 
