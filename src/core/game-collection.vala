@@ -65,6 +65,12 @@ public class Games.GameCollection : Object {
 		return games[0];
 	}
 
+	public async void search_games () {
+		foreach (var source in sources)
+			foreach (var uri in source)
+				yield add_uri (uri);
+	}
+
 	public async void each_game (GameCallback callback) {
 		foreach (var source in sources)
 			foreach (var uri in source)
