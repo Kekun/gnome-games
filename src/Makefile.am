@@ -45,7 +45,6 @@ gnome_games_SOURCES = \
 	core/game.vala \
 	core/game-callback.vala \
 	core/game-collection.vala \
-	core/game-source.vala \
 	core/game-uri-adapter.vala \
 	core/icon.vala \
 	core/input-capabilities.vala \
