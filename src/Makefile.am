@@ -64,7 +64,6 @@ gnome_games_SOURCES = \
 	\
 	dummy/dummy-cover.vala \
 	dummy/dummy-game.vala \
-	dummy/dummy-game-source.vala \
 	dummy/dummy-icon.vala \
 	dummy/dummy-runner.vala \
 	\
