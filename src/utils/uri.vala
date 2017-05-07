@@ -9,7 +9,7 @@ public class Games.Uri {
 		this.uri = uri;
 	}
 
-	public Uri.from_uri_and_scheme (Uri uri, string scheme) {
+	public Uri.from_uri_and_scheme (Uri uri, string scheme) throws Error {
 		this.uri = scheme_regex.replace (uri.uri, -1, 0, scheme + ":");
 	}
 
