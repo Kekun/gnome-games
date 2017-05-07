@@ -72,8 +72,6 @@ private class Games.CollectionIconView : Gtk.Stack {
 			add_game (game);
 		}
 
-		flow_box.invalidate_sort ();
-
 		update_collection ();
 	}
 
