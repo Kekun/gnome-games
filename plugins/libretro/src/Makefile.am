@@ -11,6 +11,7 @@ libgames_libretro_plugin_la_SOURCES = \
 	libretro-plugin.vala \
 	libretro-title.vala \
 	libretro-uid.vala \
+	libretro-uri-iterator.vala \
 	$(NULL)
 
 libgames_libretro_plugin_la_VALAFLAGS = \
