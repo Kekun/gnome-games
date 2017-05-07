@@ -3,6 +3,9 @@
 public class Games.GameCollection : Object {
 	public signal void game_added (Game game);
 
+	private GenericSet<Game> games;
+	private ListStore list_store;
+
 	private UriSource[] sources;
 	private UriGameFactory[] factories;
 
@@ -10,8 +13,14 @@ public class Games.GameCollection : Object {
 	private HashTable<string, Array<UriGameFactory>> factories_for_scheme;
 
 	construct {
+		games = new GenericSet<Game> (direct_hash, direct_equal);
+		list_store = new ListStore (typeof (Game));
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		factories_for_scheme = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
+	}
+
+	public ListStore get_list_store () {
+		return list_store;
 	}
 
 	public void add_source (UriSource source) {
@@ -34,6 +43,7 @@ public class Games.GameCollection : Object {
 		}
 
 		factory.game_added.connect ((game) => game_added (game));
+		factory.game_added.connect ((game) => store_game (game));
 	}
 
 	public async void add_uri (Uri uri) {
@@ -108,5 +118,13 @@ public class Games.GameCollection : Object {
 			return {};
 
 		return factories_for_mime_type[mime_type].data;
+	}
+
+	private void store_game (Game game) {
+		if (games.contains (game))
+			return;
+
+		list_store.append (game);
+		games.add (game);
 	}
 }
