@@ -7,6 +7,7 @@ libgames_libretro_plugin_la_DEPENDENCIES = \
 
 libgames_libretro_plugin_la_SOURCES = \
 	libretro-game-source.vala \
+	libretro-error.vala \
 	libretro-icon.vala \
 	libretro-plugin.vala \
 	libretro-title.vala \
