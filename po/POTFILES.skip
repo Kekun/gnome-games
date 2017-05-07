@@ -13,7 +13,7 @@ plugins/playstation/src/playstation-game-factory.c
 plugins/playstation/src/playstation-header.c
 plugins/sega-saturn/src/sega-saturn-header.c
 plugins/sega-saturn/src/sega-saturn-plugin.c
-plugins/steam/src/steam-game-source.c
+plugins/steam/src/steam-plugin.c
 plugins/steam/src/steam-registry.c
 plugins/steam/src/steam-title.c
 plugins/wii/src/wii-header.c

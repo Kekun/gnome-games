@@ -29,7 +29,7 @@ plugins/playstation/src/playstation-game-factory.vala
 plugins/playstation/src/playstation-header.vala
 plugins/sega-saturn/src/sega-saturn-header.vala
 plugins/sega-saturn/src/sega-saturn-plugin.vala
-plugins/steam/src/steam-game-source.vala
+plugins/steam/src/steam-plugin.vala
 plugins/steam/src/steam-registry.vala
 plugins/steam/src/steam-title.vala
 plugins/wii/src/wii-header.vala
