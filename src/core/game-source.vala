@@ -3,5 +3,3 @@
 public interface Games.GameSource : Object {
 	public abstract async void each_game (GameCallback callback);
 }
-
-public delegate void Games.GameCallback (Game game);

@@ -43,6 +43,7 @@ gnome_games_SOURCES = \
 	\
 	core/cover.vala \
 	core/game.vala \
+	core/game-callback.vala \
 	core/game-collection.vala \
 	core/game-source.vala \
 	core/game-uri-adapter.vala \
