@@ -8,7 +8,7 @@ public class Games.Application : Gtk.Application {
 	private ApplicationWindow window;
 	private bool game_list_loaded;
 
-	private GenericUriGameSource uri_game_source;
+	private GameCollection game_collection;
 
 	internal Application () {
 		Object (application_id: "org.gnome.Games",
@@ -161,7 +161,7 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void init_game_sources () {
-		if (uri_game_source != null)
+		if (game_collection != null)
 			return;
 
 		TrackerUriSource tracker_uri_source = null;
@@ -173,10 +173,10 @@ public class Games.Application : Gtk.Application {
 			debug (e.message);
 		}
 
-		uri_game_source = new GenericUriGameSource ();
-		uri_game_source.game_added.connect ((game) => add_game (game));
+		game_collection = new GameCollection ();
+		game_collection.game_added.connect ((game) => add_game (game));
 		if (tracker_uri_source != null)
-			uri_game_source.add_source (tracker_uri_source);
+			game_collection.add_source (tracker_uri_source);
 
 		var mime_types = new GenericSet<string> (str_hash, str_equal);
 
@@ -196,10 +196,10 @@ public class Games.Application : Gtk.Application {
 					}
 
 				foreach (var uri_source in plugin.get_uri_sources ())
-					uri_game_source.add_source (uri_source);
+					game_collection.add_source (uri_source);
 
 				foreach (var factory in plugin.get_uri_game_factories ())
-					uri_game_source.add_factory (factory);
+					game_collection.add_factory (factory);
 			}
 			catch (Error e) {
 				debug ("Error: %s", e.message);
@@ -211,15 +211,15 @@ public class Games.Application : Gtk.Application {
 		init_game_sources ();
 
 		foreach (var uri in uris)
-			yield uri_game_source.add_uri (uri);
+			yield game_collection.add_uri (uri);
 
-		return yield uri_game_source.query_game_for_uri (uris[0]);
+		return yield game_collection.query_game_for_uri (uris[0]);
 	}
 
 	internal async void load_game_list () {
 		init_game_sources ();
 
-		yield uri_game_source.each_game (add_game);
+		yield game_collection.each_game (add_game);
 
 		game_list_loaded = true;
 		if (window != null)

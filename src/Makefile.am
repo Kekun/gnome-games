@@ -43,6 +43,7 @@ gnome_games_SOURCES = \
 	\
 	core/cover.vala \
 	core/game.vala \
+	core/game-collection.vala \
 	core/game-source.vala \
 	core/game-uri-adapter.vala \
 	core/icon.vala \
@@ -91,7 +92,6 @@ gnome_games_SOURCES = \
 	generic/generic-title.vala \
 	generic/generic-uid.vala \
 	generic/generic-uri-game-factory.vala \
-	generic/generic-uri-game-source.vala \
 	\
 	grilo/grilo-cover.vala \
 	grilo/grilo-media.vala \

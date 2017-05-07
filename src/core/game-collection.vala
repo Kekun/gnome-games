@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-public class Games.GenericUriGameSource : Object, GameSource {
+public class Games.GameCollection : Object {
 	public signal void game_added (Game game);
 
 	private UriSource[] sources;
