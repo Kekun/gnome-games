@@ -540,7 +540,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if ((bool) new_flags)
 			new_cookie = application.inhibit (this, new_flags, _("Playing a game"));
 
-		application.uninhibit (inhibit_cookie);
+		if (inhibit_cookie != 0)
+			application.uninhibit (inhibit_cookie);
+
 		inhibit_cookie = new_cookie;
 		inhibit_flags = new_flags;
 	}
