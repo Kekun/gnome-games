@@ -62,7 +62,8 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 				return;
 
 			var track = cue.get_track (0);
-			if (track.track_mode != CueSheetTrackMode.MODE2_2352)
+			if (track.track_mode != CueSheetTrackMode.MODE1_2352 &&
+			    track.track_mode != CueSheetTrackMode.MODE2_2352)
 				return;
 
 			bin_file = track.file.file;
