@@ -23,6 +23,7 @@ BUILT_SOURCES = \
 
 EXTRA_DIST = \
 	$(gresource_file) \
+	event/event.vapi \
 	gamepad/gamepad.vapi \
 	gamepad/gamepad-monitor.vapi \
 	gamepad/raw-gamepad.vapi \
@@ -66,6 +67,8 @@ gnome_games_SOURCES = \
 	dummy/dummy-game.vala \
 	dummy/dummy-icon.vala \
 	dummy/dummy-runner.vala \
+	\
+	event/event.c \
 	\
 	gameinfo/gameinfo-doc.vala \
 	gameinfo/gameinfo-error.vala \
@@ -188,6 +191,7 @@ gnome_games_VALAFLAGS = \
 	--pkg retro-gtk-0.10 \
 	--pkg linux \
 	--pkg posix \
+	--pkg event \
 	--pkg gamepad \
 	--pkg gamepad-monitor \
 	--pkg raw-gamepad \
@@ -195,6 +199,7 @@ gnome_games_VALAFLAGS = \
 	--pkg standard-gamepad-button \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
+	--vapidir=event/ \
 	--vapidir=gamepad/ \
 	-H $(header_file) \
 	$(NULL)
@@ -203,6 +208,7 @@ gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
 	$(GAMEPADS_CFLAGS) \
 	$(UDEV_CFLAGS) \
+	-I$(srcdir)/event \
 	-I$(srcdir)/gamepad \
 	-I$(srcdir)/gamepad/linux \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
