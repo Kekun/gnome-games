@@ -340,7 +340,7 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping     *self,
                                         gint                     dpad_value,
                                         GamesGamepadMappedEvent *event)
 {
-  GamesGamepadDPad dpad;
+  GamesGamepadDPad *dpad;
   gint dpad_changed_value;
   gint dpad_position;
 
@@ -349,22 +349,22 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping     *self,
 
   memset (event, 0, sizeof (GamesGamepadMappedEvent));
 
-  dpad = g_array_index (self->dpads, GamesGamepadDPad, dpad_index);
+  dpad = &g_array_index (self->dpads, GamesGamepadDPad, dpad_index);
   dpad_changed_value = (dpad_value == 0) ?
-    dpad.axis_values[dpad_axis] :
+    dpad->axis_values[dpad_axis] :
     dpad_value;
   // We add 4 so that the remainder is always positive.
   dpad_position = (dpad_changed_value + dpad_axis + 4) % 4;
-  dpad.axis_values[dpad_axis] = dpad_value;
-  event->type = dpad.types[dpad_position];
+  dpad->axis_values[dpad_axis] = dpad_value;
+  event->type = dpad->types[dpad_position];
 
   switch (event->type) {
   case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
-    event->axis = (GamesStandardGamepadAxis) dpad.values[dpad_position];
+    event->axis = (GamesStandardGamepadAxis) dpad->values[dpad_position];
 
     break;
   case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
-    event->button = (GamesStandardGamepadButton) dpad.values[dpad_position];
+    event->button = (GamesStandardGamepadButton) dpad->values[dpad_position];
 
     break;
   default:
