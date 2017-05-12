@@ -313,7 +313,7 @@ games_gamepad_mapping_new_from_sdl_string (const gchar  *mapping_string,
     return NULL;
   }
 
-  if (mapping_string == NULL) {
+  if (mapping_string[0] == '\0') {
     g_set_error_literal (error,
                          GAMES_GAMEPAD_MAPPING_ERROR,
                          GAMES_GAMEPAD_MAPPING_ERROR_NOT_A_MAPPING,
