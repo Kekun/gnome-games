@@ -8,6 +8,7 @@
 #include <libevdev/libevdev.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "../../event/event.h"
 #include "../raw-gamepad.h"
 #include "../standard-gamepad-axis.h"
 #include "../standard-gamepad-button.h"
@@ -181,6 +182,7 @@ static void
 handle_evdev_event (GamesLinuxRawGamepad *self)
 {
   struct input_event event = { 0 };
+  GamesEvent games_event;
   gint code;
   guint8 axis;
   gdouble value;
@@ -189,6 +191,56 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
 
   if (libevdev_next_event (self->device, (guint) LIBEVDEV_READ_FLAG_NORMAL, &event) != 0)
     return;
+
+  games_event.gamepad.send_event = FALSE;
+  games_event.gamepad.time = event.time.tv_sec * 1000 + event.time.tv_usec / 1000;
+  games_event.gamepad.hardware_type = event.type;
+  games_event.gamepad.hardware_code = event.code;
+  games_event.gamepad.hardware_value = event.value;
+
+  switch (event.type) {
+  case EV_KEY:
+    games_event.type = event.value ?
+      GAMES_EVENT_GAMEPAD_BUTTON_PRESS :
+      GAMES_EVENT_GAMEPAD_BUTTON_RELEASE;
+    games_event.gamepad_button.index = self->key_map[event.code - BTN_MISC];
+
+    break;
+  case EV_ABS:
+    switch (event.code) {
+    case ABS_HAT0X:
+    case ABS_HAT0Y:
+    case ABS_HAT1X:
+    case ABS_HAT1Y:
+    case ABS_HAT2X:
+    case ABS_HAT2Y:
+    case ABS_HAT3X:
+    case ABS_HAT3Y:
+      games_event.type = GAMES_EVENT_GAMEPAD_HAT;
+      games_event.gamepad_hat.index = self->key_map[(event.code - ABS_HAT0X) / 2];
+      games_event.gamepad_hat.axis = (event.code - ABS_HAT0X) % 2;
+      games_event.gamepad_hat.value = event.value;
+
+      break;
+    case ABS_X:
+    case ABS_Y:
+    case ABS_RX:
+    case ABS_RY:
+      games_event.type = GAMES_EVENT_GAMEPAD_AXIS;
+      games_event.gamepad_axis.index = event.code;
+      games_event.gamepad_axis.value =
+        centered_axis_value (&self->abs_info[self->abs_map[event.code]],
+                             event.value);
+
+      break;
+    }
+
+    break;
+  default:
+    games_event.type = GAMES_EVENT_NOTHING;
+  }
+
+  g_signal_emit_by_name (self, "event", &games_event);
 
   // FIXME Should not cast from uint to int? No need to store it?
   code = (gint) event.code;
@@ -223,6 +275,7 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
                                code % 2,
                                (gint) event.value);
 
+        // TODO Should still emit the 'event' signal.
         return;
       case ABS_X:
       case ABS_Y:
