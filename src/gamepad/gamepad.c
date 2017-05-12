@@ -3,6 +3,7 @@
 #include "gamepad.h"
 
 #include <stdlib.h>
+#include "../event/event.h"
 #include "gamepad-mapping.h"
 #include "gamepad-mappings-manager.h"
 
@@ -16,6 +17,7 @@ struct _GamesGamepad {
 G_DEFINE_TYPE (GamesGamepad, games_gamepad, G_TYPE_OBJECT)
 
 enum {
+  SIGNAL_EVENT,
   SIGNAL_BUTTON_EVENT,
   SIGNAL_AXIS_EVENT,
   SIGNAL_UNPLUGGED,
@@ -276,6 +278,19 @@ static void finalize (GObject *obj) {
 static void games_gamepad_class_init (GamesGamepadClass *klass) {
   games_gamepad_parent_class = g_type_class_peek_parent (klass);
   G_OBJECT_CLASS (klass)->finalize = finalize;
+
+  /**
+   * GamesGamepad::event:
+   * @event: the event emitted by the gamepad
+   **/
+  signals[SIGNAL_EVENT] =
+    g_signal_new ("event",
+                  GAMES_TYPE_GAMEPAD,
+                  G_SIGNAL_RUN_LAST,
+                  0, NULL, NULL,
+                  g_cclosure_marshal_VOID__BOXED,
+                  G_TYPE_NONE, 1,
+                  GAMES_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
 
   /**
    * GamesGamepad::axis-event:
