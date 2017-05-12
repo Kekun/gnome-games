@@ -29,32 +29,13 @@ static guint signals[LAST_SIGNAL] = { 0 };
 /* Private */
 
 static void
-on_standard_button_event (GamesRawGamepad            *sender,
-                          GamesStandardGamepadButton  button,
-                          gboolean                    value,
-                          gpointer                    data)
-{
-  GamesGamepad *self;
-
-  self = GAMES_GAMEPAD (data);
-
-  g_return_if_fail (self != NULL);
-
-  if (self->mapping != NULL)
-    return;
-
-  g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                 0, button, value);
-}
-
-static void
-on_raw_button_event (GamesRawGamepad *sender,
-                     gint             button,
-                     gboolean         value,
-                     gpointer         data)
+on_button_event (GamesRawGamepad         *sender,
+                 GamesEventGamepadButton *games_event,
+                 gpointer                 data)
 {
   GamesGamepad *self;
   GamesGamepadMappedEvent event;
+  gboolean value;
 
   self = GAMES_GAMEPAD (data);
 
@@ -63,8 +44,22 @@ on_raw_button_event (GamesRawGamepad *sender,
   if (self->mapping == NULL)
     return;
 
+  switch (games_event->type) {
+  case GAMES_EVENT_GAMEPAD_BUTTON_PRESS:
+    value = TRUE;
+
+    break;
+  case GAMES_EVENT_GAMEPAD_BUTTON_RELEASE:
+    value = FALSE;
+
+    break;
+  default:
+    g_assert_not_reached ();
+
+    break;
+  }
   games_gamepad_mapping_get_button_mapping (self->mapping,
-                                            button,
+                                            games_event->index,
                                             &event);
 
   switch (event.type) {
@@ -85,29 +80,9 @@ on_raw_button_event (GamesRawGamepad *sender,
 }
 
 static void
-on_standard_axis_event (GamesRawGamepad          *sender,
-                        GamesStandardGamepadAxis  axis,
-                        gdouble                   value,
-                        gpointer                  data)
-{
-  GamesGamepad *self;
-
-  self = GAMES_GAMEPAD (data);
-
-  g_return_if_fail (self != NULL);
-
-  if (self->mapping != NULL)
-    return;
-
-  g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
-                 0, axis, value);
-}
-
-static void
-on_raw_axis_event (GamesRawGamepad *sender,
-                   gint             axis,
-                   gdouble          value,
-                   gpointer         data)
+on_axis_event (GamesRawGamepad       *sender,
+               GamesEventGamepadAxis *games_event,
+               gpointer               data)
 {
   GamesGamepad *self;
   GamesGamepadMappedEvent event;
@@ -119,15 +94,15 @@ on_raw_axis_event (GamesRawGamepad *sender,
   if (self->mapping == NULL)
     return;
 
-  games_gamepad_mapping_get_axis_mapping (self->mapping, axis, &event);
+  games_gamepad_mapping_get_axis_mapping (self->mapping, games_event->index, &event);
   switch (event.type) {
   case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
     g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
-                   0, event.axis, value);
+                   0, event.axis, games_event->value);
     break;
   case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
     g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                   0, event.button, value > 0.);
+                   0, event.button, games_event->value > 0.);
 
     break;
   default:
@@ -136,11 +111,9 @@ on_raw_axis_event (GamesRawGamepad *sender,
 }
 
 static void
-on_raw_dpad_event (GamesRawGamepad *sender,
-                   gint             dpad_index,
-                   gint             axis,
-                   gint             value,
-                   gpointer         data)
+on_hat_event (GamesRawGamepad      *sender,
+              GamesEventGamepadHat *games_event,
+              gpointer              data)
 {
   GamesGamepad *self;
   GamesGamepadMappedEvent event;
@@ -150,26 +123,26 @@ on_raw_dpad_event (GamesRawGamepad *sender,
   g_return_if_fail (self != NULL);
 
   if (self->mapping == NULL) {
-    if (dpad_index != 0)
+    if (games_event->index != 0)
       return;
 
-    switch (axis) {
+    switch (games_event->axis) {
     case 0:
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_LEFT, value < 0);
+                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_LEFT, games_event->value < 0);
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_RIGHT, value > 0);
+                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_RIGHT, games_event->value > 0);
 
       break;
     case 1:
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_UP, value < 0);
+                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_UP, games_event->value < 0);
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_DOWN, value > 0);
+                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_DOWN, games_event->value > 0);
 
       break;
     default:
-      g_debug ("Unexpected axis number: %d.", axis);
+      g_debug ("Unexpected axis number: %d.", games_event->axis);
 
       break;
     }
@@ -177,16 +150,52 @@ on_raw_dpad_event (GamesRawGamepad *sender,
     return;
   }
 
-  games_gamepad_mapping_get_dpad_mapping (self->mapping, dpad_index, axis, value, &event);
+  games_gamepad_mapping_get_dpad_mapping (self->mapping, games_event->index, games_event->axis, games_event->value, &event);
   switch (event.type) {
   case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
     g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
-                   0, event.axis, (gdouble) abs (value));
+                   0, event.axis, (gdouble) abs (games_event->value));
 
     break;
   case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
     g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                   0, event.button, (gboolean) abs (value));
+                   0, event.button, (gboolean) abs (games_event->value));
+
+    break;
+  default:
+    break;
+  }
+}
+
+static void
+on_event (GamesRawGamepad *sender,
+          GamesEvent      *event,
+          gpointer         data)
+{
+  GamesGamepad *self;
+  GamesGamepadMappedEvent mapped_event;
+
+  self = GAMES_GAMEPAD (data);
+
+  g_return_if_fail (self != NULL);
+
+  g_signal_emit (self, signals[SIGNAL_EVENT], 0, event);
+
+  if (self->mapping == NULL)
+    return;
+
+  switch (event->type) {
+  case GAMES_EVENT_GAMEPAD_BUTTON_PRESS:
+  case GAMES_EVENT_GAMEPAD_BUTTON_RELEASE:
+    on_button_event (sender, &event->gamepad_button, data);
+
+    break;
+  case GAMES_EVENT_GAMEPAD_AXIS:
+    on_axis_event (sender, &event->gamepad_axis, data);
+
+    break;
+  case GAMES_EVENT_GAMEPAD_HAT:
+    on_hat_event (sender, &event->gamepad_hat, data);
 
     break;
   default:
@@ -232,28 +241,8 @@ games_gamepad_new (GamesRawGamepad  *raw_gamepad,
   }
 
   g_signal_connect_object (raw_gamepad,
-                           "standard-button-event",
-                           (GCallback) on_standard_button_event,
-                           self,
-                           0);
-  g_signal_connect_object (raw_gamepad,
-                           "button-event",
-                           (GCallback) on_raw_button_event,
-                           self,
-                           0);
-  g_signal_connect_object (raw_gamepad,
-                           "standard-axis-event",
-                           (GCallback) on_standard_axis_event,
-                           self,
-                           0);
-  g_signal_connect_object (raw_gamepad,
-                           "axis-event",
-                           (GCallback) on_raw_axis_event,
-                           self,
-                           0);
-  g_signal_connect_object (raw_gamepad,
-                           "dpad-event",
-                           (GCallback) on_raw_dpad_event,
+                           "event",
+                           (GCallback) on_event,
                            self,
                            0);
   g_signal_connect_object (raw_gamepad,
