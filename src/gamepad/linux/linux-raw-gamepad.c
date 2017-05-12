@@ -10,8 +10,6 @@
 #include <unistd.h>
 #include "../../event/event.h"
 #include "../raw-gamepad.h"
-#include "../standard-gamepad-axis.h"
-#include "../standard-gamepad-button.h"
 
 #define GUID_DATA_LENGTH 8
 #define GUID_STRING_LENGTH 32 // (GUID_DATA_LENGTH * sizeof (guint16))
@@ -99,58 +97,6 @@ get_guid (GamesRawGamepad *base)
 }
 
 static struct input_absinfo *_abs_info_dup (struct input_absinfo *self);
-
-static GamesStandardGamepadAxis
-axis_to_standard_axis (gint code)
-{
-  switch (code) {
-  case ABS_X:
-    return GAMES_STANDARD_GAMEPAD_AXIS_LEFT_X;
-  case ABS_Y:
-    return GAMES_STANDARD_GAMEPAD_AXIS_LEFT_Y;
-  case ABS_RX:
-    return GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_X;
-  case ABS_RY:
-    return GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_Y;
-  default:
-    return GAMES_STANDARD_GAMEPAD_AXIS_UNKNOWN;
-  }
-}
-
-static GamesStandardGamepadButton
-button_to_standard_button (gint code)
-{
-  switch (code) {
-  case BTN_A:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_A;
-  case BTN_B:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_B;
-  case BTN_X:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_Y;
-  case BTN_Y:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_X;
-  case BTN_TL:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_SHOULDER_L;
-  case BTN_TR:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_SHOULDER_R;
-  case BTN_TL2:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_TRIGGER_L;
-  case BTN_TR2:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_TRIGGER_R;
-  case BTN_SELECT:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_SELECT;
-  case BTN_START:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_START;
-  case BTN_MODE:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_HOME;
-  case BTN_THUMBL:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_STICK_L;
-  case BTN_THUMBR:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_STICK_R;
-  default:
-    return GAMES_STANDARD_GAMEPAD_BUTTON_UNKNOWN;
-  }
-}
 
 static gdouble
 centered_axis_value (struct input_absinfo *abs_info,
@@ -241,62 +187,6 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
   }
 
   g_signal_emit_by_name (self, "event", &games_event);
-
-  // FIXME Should not cast from uint to int? No need to store it?
-  code = (gint) event.code;
-  switch (event.type) {
-  case EV_KEY:
-    if ((code & BTN_GAMEPAD) == BTN_GAMEPAD)
-      g_signal_emit_by_name ((GamesRawGamepad*) self,
-                             "standard-button-event",
-                             button_to_standard_button (code),
-                             (gboolean) event.value);
-    g_signal_emit_by_name ((GamesRawGamepad*) self,
-                           "button-event",
-                           (gint) self->key_map[code - BTN_MISC],
-                           (gboolean) event.value);
-
-    break;
-  case EV_ABS:
-
-    switch (code) {
-      case ABS_HAT0X:
-      case ABS_HAT0Y:
-      case ABS_HAT1X:
-      case ABS_HAT1Y:
-      case ABS_HAT2X:
-      case ABS_HAT2Y:
-      case ABS_HAT3X:
-      case ABS_HAT3Y:
-        code = code - ABS_HAT0X;
-        g_signal_emit_by_name ((GamesRawGamepad*) self,
-                               "dpad-event",
-                               code / 2,
-                               code % 2,
-                               (gint) event.value);
-
-        // TODO Should still emit the 'event' signal.
-        return;
-      case ABS_X:
-      case ABS_Y:
-      case ABS_RX:
-      case ABS_RY:
-        axis = self->abs_map[code];
-        value = centered_axis_value (&self->abs_info[axis], event.value);
-        g_signal_emit_by_name ((GamesRawGamepad*) self,
-                               "standard-axis-event",
-                               axis_to_standard_axis (code),
-                               value);
-
-        break;
-    }
-
-    axis = self->abs_map[code];
-    value = centered_axis_value (&self->abs_info[axis], event.value);
-    g_signal_emit_by_name ((GamesRawGamepad*) self, "axis-event", (gint) axis, value);
-
-    break;
-  }
 }
 
 static gboolean
