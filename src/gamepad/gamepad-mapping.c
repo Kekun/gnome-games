@@ -2,10 +2,10 @@
 
 #include "gamepad-mapping.h"
 
+#include <glib/gi18n-lib.h>
+#include <stdlib.h>
 #include "gamepad-dpad.h"
 #include "gamepad-mapping-error.h"
-#include "glib/gi18n-lib.h"
-#include "stdlib.h"
 
 typedef struct {
   GamesGamepadInputType type;
