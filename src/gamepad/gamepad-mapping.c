@@ -437,11 +437,11 @@ finalize (GObject *obj)
 
   self = G_TYPE_CHECK_INSTANCE_CAST (obj, GAMES_TYPE_GAMEPAD_MAPPING, GamesGamepadMapping);
 
-  if (self->buttons == NULL)
+  if (self->buttons != NULL)
     g_array_free (self->buttons, TRUE);
-  if (self->axes == NULL)
+  if (self->axes != NULL)
     g_array_free (self->axes, TRUE);
-  if (self->dpads == NULL)
+  if (self->dpads != NULL)
     g_array_free (self->dpads, TRUE);
 
   G_OBJECT_CLASS (games_gamepad_mapping_parent_class)->finalize (obj);
