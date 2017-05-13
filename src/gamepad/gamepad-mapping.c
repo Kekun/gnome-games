@@ -335,11 +335,11 @@ games_gamepad_mapping_new_from_sdl_string (const gchar  *mapping_string,
 }
 
 void
-games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping     *self,
-                                        gint                     dpad_index,
-                                        gint                     dpad_axis,
-                                        gint                     dpad_value,
-                                        GamesGamepadMappedEvent *event)
+games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
+                                        gint                 dpad_index,
+                                        gint                 dpad_axis,
+                                        gint                 dpad_value,
+                                        GamesGamepadInput   *event)
 {
   GamesGamepadDPad *dpad;
   gint dpad_changed_value;
@@ -348,7 +348,7 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping     *self,
   g_return_if_fail (self != NULL);
   g_return_if_fail (event != NULL);
 
-  memset (event, 0, sizeof (GamesGamepadMappedEvent));
+  memset (event, 0, sizeof (GamesGamepadInput));
 
   dpad = &g_array_index (self->dpads, GamesGamepadDPad, dpad_index);
   dpad_changed_value = (dpad_value == 0) ?
@@ -374,14 +374,14 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping     *self,
 }
 
 void
-games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping     *self,
-                                        gint                     axis_number,
-                                        GamesGamepadMappedEvent *event)
+games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping *self,
+                                        gint                 axis_number,
+                                        GamesGamepadInput   *event)
 {
   g_return_if_fail (self != NULL);
   g_return_if_fail (event != NULL);
 
-  memset (event, 0, sizeof (GamesGamepadMappedEvent));
+  memset (event, 0, sizeof (GamesGamepadInput));
 
   event->type = (axis_number < self->axes->len) ?
     g_array_index (self->axes, input_t, axis_number).type :
@@ -402,14 +402,14 @@ games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping     *self,
 }
 
 void
-games_gamepad_mapping_get_button_mapping (GamesGamepadMapping     *self,
-                                          gint                     button_number,
-                                          GamesGamepadMappedEvent *event)
+games_gamepad_mapping_get_button_mapping (GamesGamepadMapping *self,
+                                          gint                 button_number,
+                                          GamesGamepadInput   *event)
 {
   g_return_if_fail (self != NULL);
   g_return_if_fail (event != NULL);
 
-  memset (event, 0, sizeof (GamesGamepadMappedEvent));
+  memset (event, 0, sizeof (GamesGamepadInput));
 
   event->type = (button_number < self->buttons->len) ?
     g_array_index (self->buttons, input_t, button_number).type :

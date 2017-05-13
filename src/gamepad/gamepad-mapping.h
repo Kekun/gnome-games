@@ -4,7 +4,7 @@
 #define GAMES_GAMEPAD_MAPPING_H
 
 #include <glib-object.h>
-#include "gamepad-mapped-event.h"
+#include "gamepad-input.h"
 
 G_BEGIN_DECLS
 
@@ -14,17 +14,17 @@ G_DECLARE_FINAL_TYPE (GamesGamepadMapping, games_gamepad_mapping, GAMES, GAMEPAD
 
 GamesGamepadMapping *games_gamepad_mapping_new_from_sdl_string (const gchar  *mapping_string,
                                                                 GError      **error);
-void games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping     *self,
-                                             gint                     dpad_index,
-                                             gint                     dpad_axis,
-                                             gint                     dpad_value,
-                                             GamesGamepadMappedEvent *result);
-void games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping     *self,
-                                             gint                     axis_number,
-                                             GamesGamepadMappedEvent *result);
-void games_gamepad_mapping_get_button_mapping (GamesGamepadMapping     *self,
-                                               gint                     button_number,
-                                               GamesGamepadMappedEvent *result);
+void games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
+                                             gint                 dpad_index,
+                                             gint                 dpad_axis,
+                                             gint                 dpad_value,
+                                             GamesGamepadInput   *result);
+void games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping *self,
+                                             gint                 axis_number,
+                                             GamesGamepadInput   *result);
+void games_gamepad_mapping_get_button_mapping (GamesGamepadMapping *self,
+                                               gint                 button_number,
+                                               GamesGamepadInput   *result);
 
 G_END_DECLS
 

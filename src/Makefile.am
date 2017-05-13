@@ -77,7 +77,7 @@ gnome_games_SOURCES = \
 	\
 	gamepad/gamepad.c \
 	gamepad/gamepad-dpad.c \
-	gamepad/gamepad-mapped-event.c \
+	gamepad/gamepad-input.c \
 	gamepad/gamepad-mapping.c \
 	gamepad/gamepad-mapping-error.c \
 	gamepad/gamepad-mappings-manager.c \

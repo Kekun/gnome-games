@@ -35,7 +35,7 @@ on_button_event (GamesRawGamepad         *sender,
                  gpointer                 data)
 {
   GamesGamepad *self;
-  GamesGamepadMappedEvent event;
+  GamesGamepadInput event;
   gboolean value;
 
   self = GAMES_GAMEPAD (data);
@@ -86,7 +86,7 @@ on_axis_event (GamesRawGamepad       *sender,
                gpointer               data)
 {
   GamesGamepad *self;
-  GamesGamepadMappedEvent event;
+  GamesGamepadInput event;
 
   self = GAMES_GAMEPAD (data);
 
@@ -117,7 +117,7 @@ on_hat_event (GamesRawGamepad      *sender,
               gpointer              data)
 {
   GamesGamepad *self;
-  GamesGamepadMappedEvent event;
+  GamesGamepadInput event;
 
   self = GAMES_GAMEPAD (data);
 
@@ -174,7 +174,6 @@ on_event (GamesRawGamepad *sender,
           gpointer         data)
 {
   GamesGamepad *self;
-  GamesGamepadMappedEvent mapped_event;
 
   self = GAMES_GAMEPAD (data);
 
