@@ -12,8 +12,8 @@ private class Games.RetroGamepad: Object, Retro.InputDevice {
 	}
 
 	construct {
-		buttons = new bool[StandardGamepadButton.HOME + 1];
-		axes = new int16[4];
+		buttons = new bool[EventCode.KEY_MAX + 1];
+		axes = new int16[EventCode.ABS_MAX + 1];
 
 		gamepad.button_event.connect ((button, value) => buttons[button] = value);
 		gamepad.axis_event.connect ((axis, value) => axes[axis] = (int16) (value * int16.MAX));

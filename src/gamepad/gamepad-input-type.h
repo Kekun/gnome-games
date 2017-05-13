@@ -4,6 +4,7 @@
 #define GAMES_GAMEPAD_INPUT_TYPE_H
 
 #include <glib-object.h>
+#include <linux/input-event-codes.h>
 
 G_BEGIN_DECLS
 
@@ -17,11 +18,10 @@ G_BEGIN_DECLS
  *
  * The input types of a standard gamepad.
  **/
-typedef enum {
-  GAMES_GAMEPAD_INPUT_TYPE_INVALID,
-  GAMES_GAMEPAD_INPUT_TYPE_AXIS,
-  GAMES_GAMEPAD_INPUT_TYPE_BUTTON,
-} GamesGamepadInputType;
+typedef guint16 GamesGamepadInputType;
+#define GAMES_GAMEPAD_INPUT_TYPE_INVALID EV_MAX
+#define GAMES_GAMEPAD_INPUT_TYPE_AXIS EV_ABS
+#define GAMES_GAMEPAD_INPUT_TYPE_BUTTON EV_KEY
 
 GType games_gamepad_input_type_get_type (void) G_GNUC_CONST;
 

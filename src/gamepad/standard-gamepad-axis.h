@@ -4,6 +4,7 @@
 #define GAMES_STANDARD_GAMEPAD_AXIS_H
 
 #include <glib-object.h>
+#include <linux/input-event-codes.h>
 
 G_BEGIN_DECLS
 
@@ -22,13 +23,12 @@ G_BEGIN_DECLS
  * For horizontal axes, left is -1 and right is 1; for vertical axes,
  * top is -1 and bottom is 1.
  **/
-typedef enum {
-  GAMES_STANDARD_GAMEPAD_AXIS_UNKNOWN,
-  GAMES_STANDARD_GAMEPAD_AXIS_LEFT_X,
-  GAMES_STANDARD_GAMEPAD_AXIS_LEFT_Y,
-  GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_X,
-  GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_Y,
-} GamesStandardGamepadAxis;
+typedef guint16 GamesStandardGamepadAxis;
+#define GAMES_STANDARD_GAMEPAD_AXIS_UNKNOWN ABS_MAX
+#define GAMES_STANDARD_GAMEPAD_AXIS_LEFT_X ABS_X
+#define GAMES_STANDARD_GAMEPAD_AXIS_LEFT_Y ABS_Y
+#define GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_X ABS_RX
+#define GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_Y ABS_RY
 
 GType games_standard_gamepad_axis_get_type (void) G_GNUC_CONST;
 
