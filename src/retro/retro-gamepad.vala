@@ -15,8 +15,9 @@ private class Games.RetroGamepad: Object, Retro.InputDevice {
 		buttons = new bool[EventCode.KEY_MAX + 1];
 		axes = new int16[EventCode.ABS_MAX + 1];
 
-		gamepad.button_event.connect ((button, value) => buttons[button] = value);
-		gamepad.axis_event.connect ((axis, value) => axes[axis] = (int16) (value * int16.MAX));
+		gamepad.button_press_event.connect ((event) => buttons[event.gamepad.hardware_code] = true);
+		gamepad.button_release_event.connect ((event) => buttons[event.gamepad.hardware_code] = false);
+		gamepad.axis_event.connect ((event) => axes[event.gamepad.hardware_code] = (int16) (event.gamepad_axis.value * int16.MAX));
 	}
 
 	public void poll () {}

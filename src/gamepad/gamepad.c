@@ -19,8 +19,10 @@ G_DEFINE_TYPE (GamesGamepad, games_gamepad, G_TYPE_OBJECT)
 
 enum {
   SIGNAL_EVENT,
-  SIGNAL_BUTTON_EVENT,
+  SIGNAL_BUTTON_PRESS_EVENT,
+  SIGNAL_BUTTON_RELEASE_EVENT,
   SIGNAL_AXIS_EVENT,
+  SIGNAL_HAT_EVENT,
   SIGNAL_UNPLUGGED,
   LAST_SIGNAL,
 };
@@ -30,137 +32,175 @@ static guint signals[LAST_SIGNAL] = { 0 };
 /* Private */
 
 static void
-on_button_event (GamesRawGamepad         *sender,
-                 GamesEventGamepadButton *games_event,
-                 gpointer                 data)
+forward_event (GamesGamepad *self,
+               GamesEvent   *event)
 {
-  GamesGamepad *self;
-  GamesGamepadInput event;
-  gboolean value;
-
-  self = GAMES_GAMEPAD (data);
-
-  g_return_if_fail (self != NULL);
-
-  if (self->mapping == NULL)
-    return;
-
-  switch (games_event->type) {
+  switch (event->type) {
   case GAMES_EVENT_GAMEPAD_BUTTON_PRESS:
-    value = TRUE;
+    g_signal_emit (self, signals[SIGNAL_BUTTON_PRESS_EVENT], 0, event);
 
-    break;
+    return;
   case GAMES_EVENT_GAMEPAD_BUTTON_RELEASE:
-    value = FALSE;
+    g_signal_emit (self, signals[SIGNAL_BUTTON_RELEASE_EVENT], 0, event);
 
-    break;
+    return;
+  case GAMES_EVENT_GAMEPAD_AXIS:
+    g_signal_emit (self, signals[SIGNAL_AXIS_EVENT], 0, event);
+
+    return;
+  case GAMES_EVENT_GAMEPAD_HAT:
+    g_signal_emit (self, signals[SIGNAL_HAT_EVENT], 0, event);
+
+    return;
   default:
-    g_assert_not_reached ();
-
-    break;
+    return;
   }
+}
+
+static void
+map_button_event (GamesGamepad            *self,
+                  GamesEventGamepadButton *games_event)
+{
+  GamesGamepadInput destination;
+  GamesEvent *mapped_event;
+  guint signal;
+  gboolean pressed;
+
+  mapped_event = games_event_copy ((GamesEvent *) games_event);
   games_gamepad_mapping_get_button_mapping (self->mapping,
                                             games_event->index,
-                                            &event);
+                                            &destination);
 
-  switch (event.type) {
+  pressed = games_event->type == GAMES_EVENT_GAMEPAD_BUTTON_PRESS;
+
+  mapped_event->any.send_event = TRUE;
+  mapped_event->gamepad.hardware_type = destination.type;
+  mapped_event->gamepad.hardware_code = destination.code;
+
+  switch (destination.type) {
   case EV_ABS:
-    g_signal_emit (self,
-                   signals[SIGNAL_AXIS_EVENT],
-                   0, event.code, value ? 1 : 0);
+    signal = SIGNAL_AXIS_EVENT;
+    mapped_event->gamepad_axis.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_axis.value = pressed ? 1 : 0;
 
     break;
   case EV_KEY:
-    g_signal_emit (self,
-                   signals[SIGNAL_BUTTON_EVENT],
-                   0, event.code, value);
-    break;
-  default:
-    break;
-  }
-}
-
-static void
-on_axis_event (GamesRawGamepad       *sender,
-               GamesEventGamepadAxis *games_event,
-               gpointer               data)
-{
-  GamesGamepad *self;
-  GamesGamepadInput event;
-
-  self = GAMES_GAMEPAD (data);
-
-  g_return_if_fail (self != NULL);
-
-  if (self->mapping == NULL)
-    return;
-
-  games_gamepad_mapping_get_axis_mapping (self->mapping, games_event->index, &event);
-  switch (event.type) {
-  case EV_ABS:
-    g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
-                   0, event.code, games_event->value);
-    break;
-  case EV_KEY:
-    g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                   0, event.code, games_event->value > 0.);
+    signal = pressed ? SIGNAL_BUTTON_PRESS_EVENT : SIGNAL_BUTTON_RELEASE_EVENT;
+    mapped_event->gamepad_button.index = 0; // FIXME How to set it properly?
 
     break;
   default:
-    break;
-  }
-}
-
-static void
-on_hat_event (GamesRawGamepad      *sender,
-              GamesEventGamepadHat *games_event,
-              gpointer              data)
-{
-  GamesGamepad *self;
-  GamesGamepadInput event;
-
-  self = GAMES_GAMEPAD (data);
-
-  g_return_if_fail (self != NULL);
-
-  if (self->mapping == NULL) {
-    if (games_event->index != 0)
-      return;
-
-    switch (games_event->axis) {
-    case 0:
-      g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, BTN_DPAD_LEFT, games_event->value < 0);
-      g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, BTN_DPAD_RIGHT, games_event->value > 0);
-
-      break;
-    case 1:
-      g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, BTN_DPAD_UP, games_event->value < 0);
-      g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, BTN_DPAD_DOWN, games_event->value > 0);
-
-      break;
-    default:
-      g_debug ("Unexpected axis number: %d.", games_event->axis);
-
-      break;
-    }
+    games_event_free (mapped_event);
 
     return;
   }
 
-  games_gamepad_mapping_get_dpad_mapping (self->mapping, games_event->index, games_event->axis, games_event->value, &event);
-  switch (event.type) {
+  g_signal_emit (self, signals[signal], 0, mapped_event);
+
+  games_event_free (mapped_event);
+}
+
+static void
+map_axis_event (GamesGamepad          *self,
+                GamesEventGamepadAxis *games_event)
+{
+  GamesGamepadInput destination;
+  GamesEvent *mapped_event;
+  guint signal;
+  gboolean pressed;
+
+  mapped_event = games_event_copy ((GamesEvent *) games_event);
+  games_gamepad_mapping_get_axis_mapping (self->mapping, games_event->index, &destination);
+
+  pressed = games_event->value > 0.;
+
+  mapped_event->any.send_event = TRUE;
+  mapped_event->gamepad.hardware_type = destination.type;
+  mapped_event->gamepad.hardware_code = destination.code;
+
+  switch (destination.type) {
   case EV_ABS:
-    g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
-                   0, event.code, (gdouble) abs (games_event->value));
+    signal = SIGNAL_AXIS_EVENT;
+    mapped_event->gamepad_axis.index = 0; // FIXME How to set it properly?
 
     break;
   case EV_KEY:
-    g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                   0, event.code, (gboolean) abs (games_event->value));
+    signal = pressed ? SIGNAL_BUTTON_PRESS_EVENT : SIGNAL_BUTTON_RELEASE_EVENT;
+    mapped_event->gamepad_button.index = 0; // FIXME How to set it properly?
+
+    break;
+  default:
+    games_event_free (mapped_event);
+
+    return;
+  }
+
+  g_signal_emit (self, signals[signal], 0, mapped_event);
+
+  games_event_free (mapped_event);
+}
+
+static void
+map_hat_event (GamesGamepad         *self,
+               GamesEventGamepadHat *games_event)
+{
+  GamesGamepadInput destination;
+  GamesEvent *mapped_event;
+  guint signal;
+  gboolean pressed;
+
+  mapped_event = games_event_copy ((GamesEvent *) games_event);
+  games_gamepad_mapping_get_dpad_mapping (self->mapping,
+                                          games_event->index,
+                                          games_event->axis,
+                                          games_event->value,
+                                          &destination);
+
+  pressed = abs (games_event->value);
+
+  mapped_event->any.send_event = TRUE;
+  mapped_event->gamepad.hardware_type = destination.type;
+  mapped_event->gamepad.hardware_code = destination.code;
+
+  switch (destination.type) {
+  case EV_ABS:
+    signal = SIGNAL_AXIS_EVENT;
+    mapped_event->gamepad_axis.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_axis.value = abs (games_event->value);
+
+    break;
+  case EV_KEY:
+    signal = pressed ? SIGNAL_BUTTON_PRESS_EVENT : SIGNAL_BUTTON_RELEASE_EVENT;
+    mapped_event->gamepad_button.index = 0; // FIXME How to set it properly?
+
+    break;
+  default:
+    games_event_free (mapped_event);
+
+    return;
+  }
+
+  g_signal_emit (self, signals[signal], 0, mapped_event);
+
+  games_event_free (mapped_event);
+}
+
+static void
+map_event (GamesGamepad *self,
+           GamesEvent   *event)
+{
+  switch (event->type) {
+  case GAMES_EVENT_GAMEPAD_BUTTON_PRESS:
+  case GAMES_EVENT_GAMEPAD_BUTTON_RELEASE:
+    map_button_event (self, &event->gamepad_button);
+
+    break;
+  case GAMES_EVENT_GAMEPAD_AXIS:
+    map_axis_event (self, &event->gamepad_axis);
+
+    break;
+  case GAMES_EVENT_GAMEPAD_HAT:
+    map_hat_event (self, &event->gamepad_hat);
 
     break;
   default:
@@ -182,25 +222,9 @@ on_event (GamesRawGamepad *sender,
   g_signal_emit (self, signals[SIGNAL_EVENT], 0, event);
 
   if (self->mapping == NULL)
-    return;
-
-  switch (event->type) {
-  case GAMES_EVENT_GAMEPAD_BUTTON_PRESS:
-  case GAMES_EVENT_GAMEPAD_BUTTON_RELEASE:
-    on_button_event (sender, &event->gamepad_button, data);
-
-    break;
-  case GAMES_EVENT_GAMEPAD_AXIS:
-    on_axis_event (sender, &event->gamepad_axis, data);
-
-    break;
-  case GAMES_EVENT_GAMEPAD_HAT:
-    on_hat_event (sender, &event->gamepad_hat, data);
-
-    break;
-  default:
-    break;
-  }
+    forward_event (self, event);
+  else
+    map_event (self, event);
 }
 
 static void
@@ -282,38 +306,64 @@ static void games_gamepad_class_init (GamesGamepadClass *klass) {
                   GAMES_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
 
   /**
-   * GamesGamepad::axis-event:
-   * @button: the code representing the button
-   * @value: %TRUE if the button is pressed, %FALSE otherwise
+   * GamesGamepad::button-press-event:
+   * @event: the event emitted by the gamepad
    *
-   * Emitted when a button is pressed/released.
+   * Emitted when a button is pressed.
    */
-  signals[SIGNAL_BUTTON_EVENT] =
-    g_signal_new ("button-event",
+  signals[SIGNAL_BUTTON_PRESS_EVENT] =
+    g_signal_new ("button-press-event",
                   GAMES_TYPE_GAMEPAD,
                   G_SIGNAL_RUN_LAST,
                   0, NULL, NULL,
-                  NULL,
-                  G_TYPE_NONE, 2,
-                  G_TYPE_UINT,
-                  G_TYPE_BOOLEAN);
+                  g_cclosure_marshal_VOID__BOXED,
+                  G_TYPE_NONE, 1,
+                  GAMES_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+
+  /**
+   * GamesGamepad::button-release-event:
+   * @event: the event emitted by the gamepad
+   *
+   * Emitted when a button is released.
+   */
+  signals[SIGNAL_BUTTON_RELEASE_EVENT] =
+    g_signal_new ("button-release-event",
+                  GAMES_TYPE_GAMEPAD,
+                  G_SIGNAL_RUN_LAST,
+                  0, NULL, NULL,
+                  g_cclosure_marshal_VOID__BOXED,
+                  G_TYPE_NONE, 1,
+                  GAMES_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
 
   /**
    * GamesGamepad::axis-event:
-   * @axis: the code representing the axis
-   * @value: the value of the axis ranging from -1 to 1
+   * @event: the event emitted by the gamepad
    *
-   * Emitted when a standard axis' value changes.
+   * Emitted when a axis' value changes.
    */
   signals[SIGNAL_AXIS_EVENT] =
     g_signal_new ("axis-event",
                   GAMES_TYPE_GAMEPAD,
                   G_SIGNAL_RUN_LAST,
                   0, NULL, NULL,
-                  NULL,
-                  G_TYPE_NONE, 2,
-                  G_TYPE_UINT,
-                  G_TYPE_DOUBLE);
+                  g_cclosure_marshal_VOID__BOXED,
+                  G_TYPE_NONE, 1,
+                  GAMES_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+
+  /**
+   * GamesGamepad::hat-event:
+   * @event: the event emitted by the gamepad
+   *
+   * Emitted when a axis from a hat's value changes.
+   */
+  signals[SIGNAL_HAT_EVENT] =
+    g_signal_new ("hat-event",
+                  GAMES_TYPE_GAMEPAD,
+                  G_SIGNAL_RUN_LAST,
+                  0, NULL, NULL,
+                  g_cclosure_marshal_VOID__BOXED,
+                  G_TYPE_NONE, 1,
+                  GAMES_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
 
   /**
    * GamesGamepad::unplugged:
