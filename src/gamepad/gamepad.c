@@ -295,7 +295,7 @@ static void games_gamepad_class_init (GamesGamepadClass *klass) {
                   0, NULL, NULL,
                   NULL,
                   G_TYPE_NONE, 2,
-                  GAMES_TYPE_STANDARD_GAMEPAD_BUTTON,
+                  G_TYPE_UINT,
                   G_TYPE_BOOLEAN);
 
   /**
@@ -312,7 +312,7 @@ static void games_gamepad_class_init (GamesGamepadClass *klass) {
                   0, NULL, NULL,
                   NULL,
                   G_TYPE_NONE, 2,
-                  GAMES_TYPE_STANDARD_GAMEPAD_AXIS,
+                  G_TYPE_UINT,
                   G_TYPE_DOUBLE);
 
   /**

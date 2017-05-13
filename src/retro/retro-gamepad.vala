@@ -87,18 +87,18 @@ private class Games.RetroGamepad: Object, Retro.InputDevice {
 		case Retro.AnalogIndex.LEFT:
 			switch (id) {
 			case Retro.AnalogId.X:
-				return axes[StandardGamepadAxis.LEFT_X];
+				return axes[EventCode.ABS_X];
 			case Retro.AnalogId.Y:
-				return axes[StandardGamepadAxis.LEFT_Y];
+				return axes[EventCode.ABS_Y];
 			default:
 				return 0;
 			}
 		case Retro.AnalogIndex.RIGHT:
 			switch (id) {
 			case Retro.AnalogId.X:
-				return axes[StandardGamepadAxis.RIGHT_X];
+				return axes[EventCode.ABS_RX];
 			case Retro.AnalogId.Y:
-				return axes[StandardGamepadAxis.RIGHT_Y];
+				return axes[EventCode.ABS_RY];
 			default:
 				return 0;
 			}

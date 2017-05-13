@@ -28,7 +28,6 @@ EXTRA_DIST = \
 	gamepad/gamepad.vapi \
 	gamepad/gamepad-monitor.vapi \
 	gamepad/raw-gamepad.vapi \
-	gamepad/standard-gamepad-axis.vapi \
 	$(NULL)
 
 header_file = libgnome-games.h
@@ -196,7 +195,6 @@ gnome_games_VALAFLAGS = \
 	--pkg gamepad \
 	--pkg gamepad-monitor \
 	--pkg raw-gamepad \
-	--pkg standard-gamepad-axis \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
 	--vapidir=event/ \
