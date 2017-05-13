@@ -114,100 +114,45 @@ parse_axis_value (GamesGamepadMapping *self,
   g_array_index (self->axes, GamesGamepadInput, axis) = input;
 }
 
-static guint16
-parse_input_type (const gchar *mapping_string)
+static void
+parse_destination (const gchar       *destination_string,
+                   GamesGamepadInput *destination)
 {
   const static struct {
-    guint16 enum_value;
+    GamesGamepadInput enum_value;
     const gchar *string_value;
   } values[] = {
-    { EV_ABS, "leftx" },
-    { EV_ABS, "lefty" },
-    { EV_ABS, "rightx" },
-    { EV_ABS, "righty" },
-    { EV_KEY, "a" },
-    { EV_KEY, "b" },
-    { EV_KEY, "back" },
-    { EV_KEY, "dpdown" },
-    { EV_KEY, "dpleft" },
-    { EV_KEY, "dpright" },
-    { EV_KEY, "dpup" },
-    { EV_KEY, "guide" },
-    { EV_KEY, "leftshoulder" },
-    { EV_KEY, "leftstick" },
-    { EV_KEY, "lefttrigger" },
-    { EV_KEY, "rightshoulder" },
-    { EV_KEY, "rightstick" },
-    { EV_KEY, "righttrigger" },
-    { EV_KEY, "start" },
-    { EV_KEY, "x" },
-    { EV_KEY, "y" },
+    { { EV_ABS, ABS_X }, "leftx" },
+    { { EV_ABS, ABS_Y }, "lefty" },
+    { { EV_ABS, ABS_RX }, "rightx" },
+    { { EV_ABS, ABS_RY }, "righty" },
+    { { EV_KEY, BTN_A }, "a" },
+    { { EV_KEY, BTN_B }, "b" },
+    { { EV_KEY, BTN_DPAD_DOWN }, "dpdown" },
+    { { EV_KEY, BTN_DPAD_LEFT }, "dpleft" },
+    { { EV_KEY, BTN_DPAD_RIGHT }, "dpright" },
+    { { EV_KEY, BTN_DPAD_UP }, "dpup" },
+    { { EV_KEY, BTN_MODE }, "guide" },
+    { { EV_KEY, BTN_SELECT }, "back" },
+    { { EV_KEY, BTN_TL }, "leftshoulder" },
+    { { EV_KEY, BTN_TR }, "rightshoulder" },
+    { { EV_KEY, BTN_START }, "start" },
+    { { EV_KEY, BTN_THUMBL }, "leftstick" },
+    { { EV_KEY, BTN_THUMBR }, "rightstick" },
+    { { EV_KEY, BTN_TL2 }, "lefttrigger" },
+    { { EV_KEY, BTN_TR2 }, "righttrigger" },
+    { { EV_KEY, BTN_Y }, "x" },
+    { { EV_KEY, BTN_X }, "y" },
   };
   const gint length = sizeof (values) / sizeof (values[0]);
   gint i;
 
   for (i = 0; i < length; i++)
-    if (g_strcmp0 (mapping_string, values[i].string_value) == 0)
-      return values[i].enum_value;
+    if (g_strcmp0 (destination_string, values[i].string_value) == 0) {
+      *destination = values[i].enum_value;
 
-  return EV_MAX;
-}
-
-static guint16
-parse_axis (const gchar *mapping_string)
-{
-  const static struct {
-    guint16 enum_value;
-    const gchar *string_value;
-  } values[] = {
-    { ABS_X, "leftx" },
-    { ABS_Y, "lefty" },
-    { ABS_RX, "rightx" },
-    { ABS_RY, "righty" },
-  };
-  const gint length = sizeof (values) / sizeof (values[0]);
-  gint i;
-
-  for (i = 0; i < length; i++)
-    if (g_strcmp0 (mapping_string, values[i].string_value) == 0)
-      return values[i].enum_value;
-
-  return ABS_MAX;
-}
-
-static guint16
-parse_button (const gchar *mapping_string)
-{
-  const static struct {
-    guint16 enum_value;
-    const gchar *string_value;
-  } values[] = {
-    { BTN_A, "a" },
-    { BTN_B, "b" },
-    { BTN_DPAD_DOWN, "dpdown" },
-    { BTN_DPAD_LEFT, "dpleft" },
-    { BTN_DPAD_RIGHT, "dpright" },
-    { BTN_DPAD_UP, "dpup" },
-    { BTN_MODE, "guide" },
-    { BTN_SELECT, "back" },
-    { BTN_TL, "leftshoulder" },
-    { BTN_TR, "rightshoulder" },
-    { BTN_START, "start" },
-    { BTN_THUMBL, "leftstick" },
-    { BTN_THUMBR, "rightstick" },
-    { BTN_TL2, "lefttrigger" },
-    { BTN_TR2, "righttrigger" },
-    { BTN_Y, "x" },
-    { BTN_X, "y" },
-  };
-  const gint length = sizeof (values) / sizeof (values[0]);
-  gint i;
-
-  for (i = 0; i < length; i++)
-    if (g_strcmp0 (mapping_string, values[i].string_value) == 0)
-      return values[i].enum_value;
-
-  return KEY_MAX;
+      return;
+    }
 }
 
 // This function doesn't take care of cleaning up the object's state before
@@ -222,7 +167,7 @@ set_from_sdl_string (GamesGamepadMapping *self,
   gchar **splitted_mapping;
   gchar *mapping_key;
   gchar *mapping_value;
-  GamesGamepadInput input;
+  GamesGamepadInput destination = { EV_MAX, 0 };
   gint parsed_key;
 
   mappings = g_strsplit (mapping_string, ",", 0);
@@ -239,28 +184,14 @@ set_from_sdl_string (GamesGamepadMapping *self,
 
     mapping_key = g_strdup (splitted_mapping[0]);
     mapping_value = g_strdup (splitted_mapping[1]);
-    input.type = parse_input_type (mapping_key);
+    parse_destination (mapping_key, &destination);
 
     g_strfreev (splitted_mapping);
 
-    switch (input.type) {
-    case EV_KEY:
-      input.code = parse_button (mapping_key);
-
-      break;
-    case EV_ABS:
-      input.code = parse_axis (mapping_key);
-
-      break;
-    case EV_MAX:
+    if  (destination.type == EV_MAX) {
       if (g_strcmp0 (mapping_key, "platform") != 0)
         g_debug ("Invalid token: %s", mapping_key);
 
-      g_free (mapping_value);
-      g_free (mapping_key);
-
-      continue;
-    default:
       g_free (mapping_value);
       g_free (mapping_key);
 
@@ -271,15 +202,15 @@ set_from_sdl_string (GamesGamepadMapping *self,
 
     switch (*mapping_value) {
     case 'h':
-      parse_dpad_value (self, mapping_value, input);
+      parse_dpad_value (self, mapping_value, destination);
 
       break;
     case 'b':
-      parse_button_value (self, mapping_value, input);
+      parse_button_value (self, mapping_value, destination);
 
       break;
     case 'a':
-      parse_axis_value (self, mapping_value, input);
+      parse_axis_value (self, mapping_value, destination);
 
       break;
     default:
