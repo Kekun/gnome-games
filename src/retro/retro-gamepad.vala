@@ -46,37 +46,37 @@ private class Games.RetroGamepad: Object, Retro.InputDevice {
 	public bool get_button_pressed (Retro.JoypadId button) {
 		switch (button) {
 		case Retro.JoypadId.B:
-			return buttons[StandardGamepadButton.A];
+			return buttons[EventCode.BTN_A];
 		case Retro.JoypadId.Y:
-			return buttons[StandardGamepadButton.X];
+			return buttons[EventCode.BTN_Y];
 		case Retro.JoypadId.SELECT:
-			return buttons[StandardGamepadButton.SELECT];
+			return buttons[EventCode.BTN_SELECT];
 		case Retro.JoypadId.START:
-			return buttons[StandardGamepadButton.START];
+			return buttons[EventCode.BTN_START];
 		case Retro.JoypadId.UP:
-			return buttons[StandardGamepadButton.DPAD_UP];
+			return buttons[EventCode.BTN_DPAD_UP];
 		case Retro.JoypadId.DOWN:
-			return buttons[StandardGamepadButton.DPAD_DOWN];
+			return buttons[EventCode.BTN_DPAD_DOWN];
 		case Retro.JoypadId.LEFT:
-			return buttons[StandardGamepadButton.DPAD_LEFT];
+			return buttons[EventCode.BTN_DPAD_LEFT];
 		case Retro.JoypadId.RIGHT:
-			return buttons[StandardGamepadButton.DPAD_RIGHT];
+			return buttons[EventCode.BTN_DPAD_RIGHT];
 		case Retro.JoypadId.A:
-			return buttons[StandardGamepadButton.B];
+			return buttons[EventCode.BTN_B];
 		case Retro.JoypadId.X:
-			return buttons[StandardGamepadButton.Y];
+			return buttons[EventCode.BTN_X];
 		case Retro.JoypadId.L:
-			return buttons[StandardGamepadButton.SHOULDER_L];
+			return buttons[EventCode.BTN_TL];
 		case Retro.JoypadId.R:
-			return buttons[StandardGamepadButton.SHOULDER_R];
+			return buttons[EventCode.BTN_TR];
 		case Retro.JoypadId.L2:
-			return buttons[StandardGamepadButton.TRIGGER_L];
+			return buttons[EventCode.BTN_TL2];
 		case Retro.JoypadId.R2:
-			return buttons[StandardGamepadButton.TRIGGER_R];
+			return buttons[EventCode.BTN_TR2];
 		case Retro.JoypadId.L3:
-			return buttons[StandardGamepadButton.STICK_L];
+			return buttons[EventCode.BTN_THUMBL];
 		case Retro.JoypadId.R3:
-			return buttons[StandardGamepadButton.STICK_R];
+			return buttons[EventCode.BTN_THUMBR];
 		default:
 			return false;
 		}
