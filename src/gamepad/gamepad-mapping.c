@@ -21,26 +21,26 @@ G_DEFINE_TYPE (GamesGamepadMapping, games_gamepad_mapping, G_TYPE_OBJECT)
 /* Private */
 
 static void
-parse_dpad_value (GamesGamepadMapping *self,
-                  const gchar         *mapping_value,
-                  GamesGamepadInput    input)
+parse_dpad_source (GamesGamepadMapping *self,
+                   const gchar         *source_string,
+                   GamesGamepadInput    destination)
 {
-  const gchar *mapping_value_number;
+  const gchar *source_number;
   gchar **dpad_parse_array;
   gint dpad_index;
   gint dpad_position_2pow;
   gint dpad_position;
 
   g_return_if_fail (self != NULL);
-  g_return_if_fail (mapping_value != NULL);
-  g_return_if_fail (*mapping_value == 'h');
+  g_return_if_fail (source_string != NULL);
+  g_return_if_fail (*source_string == 'h');
 
-  mapping_value_number = mapping_value + 1;
+  source_number = source_string + 1;
 
-  g_return_if_fail (mapping_value_number != NULL);
-  g_return_if_fail (*mapping_value_number != '\0');
+  g_return_if_fail (source_number != NULL);
+  g_return_if_fail (*source_number != '\0');
 
-  dpad_parse_array = g_strsplit (mapping_value_number, ".", 0);
+  dpad_parse_array = g_strsplit (source_number, ".", 0);
   if (g_strv_length (dpad_parse_array) != 2) {
     g_strfreev (dpad_parse_array);
     g_debug ("Unexpected D-Pad mapping format.");
@@ -61,57 +61,57 @@ parse_dpad_value (GamesGamepadMapping *self,
 
   if (self->dpads->len <= dpad_index)
     g_array_set_size (self->dpads, dpad_index + 1);
-  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).types[dpad_position] = input.type;
-  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).values[dpad_position] = input.code;
+  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).types[dpad_position] = destination.type;
+  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).values[dpad_position] = destination.code;
 }
 
 static void
-parse_button_value (GamesGamepadMapping *self,
-                    const gchar         *mapping_value,
-                    GamesGamepadInput    input)
+parse_button_source (GamesGamepadMapping *self,
+                     const gchar         *source_string,
+                     GamesGamepadInput    destination)
 {
   // g_array_append_val() requires a l-value.
-  const gchar *mapping_value_number;
+  const gchar *source_number;
   gint button;
 
   g_return_if_fail (self != NULL);
-  g_return_if_fail (mapping_value != NULL);
-  g_return_if_fail (*mapping_value == 'b');
+  g_return_if_fail (source_string != NULL);
+  g_return_if_fail (*source_string == 'b');
 
-  mapping_value_number = mapping_value + 1;
+  source_number = source_string + 1;
 
-  g_return_if_fail (mapping_value_number != NULL);
-  g_return_if_fail (*mapping_value_number != '\0');
+  g_return_if_fail (source_number != NULL);
+  g_return_if_fail (*source_number != '\0');
 
-  button = atoi (mapping_value_number);
+  button = atoi (source_number);
 
   if (self->buttons->len <= button)
     g_array_set_size (self->buttons, button + 1);
-  g_array_index (self->buttons, GamesGamepadInput, button) = input;
+  g_array_index (self->buttons, GamesGamepadInput, button) = destination;
 }
 
 static void
-parse_axis_value (GamesGamepadMapping *self,
-                  const gchar         *mapping_value,
-                  GamesGamepadInput    input)
+parse_axis_source (GamesGamepadMapping *self,
+                   const gchar         *source_string,
+                   GamesGamepadInput    destination)
 {
-  const gchar *mapping_value_number;
+  const gchar *source_number;
   gint axis;
 
   g_return_if_fail (self != NULL);
-  g_return_if_fail (mapping_value != NULL);
-  g_return_if_fail (*mapping_value == 'a');
+  g_return_if_fail (source_string != NULL);
+  g_return_if_fail (*source_string == 'a');
 
-  mapping_value_number = mapping_value + 1;
+  source_number = source_string + 1;
 
-  g_return_if_fail (mapping_value_number != NULL);
-  g_return_if_fail (*mapping_value_number != '\0');
+  g_return_if_fail (source_number != NULL);
+  g_return_if_fail (*source_number != '\0');
 
-  axis = atoi (mapping_value_number);
+  axis = atoi (source_number);
 
   if (self->axes->len <= axis)
     g_array_set_size (self->axes, axis + 1);
-  g_array_index (self->axes, GamesGamepadInput, axis) = input;
+  g_array_index (self->axes, GamesGamepadInput, axis) = destination;
 }
 
 static void
@@ -165,10 +165,9 @@ set_from_sdl_string (GamesGamepadMapping *self,
   guint mappings_length;
   guint i = 0;
   gchar **splitted_mapping;
-  gchar *mapping_key;
-  gchar *mapping_value;
+  gchar *destination_string;
+  gchar *source_string;
   GamesGamepadInput destination = { EV_MAX, 0 };
-  gint parsed_key;
 
   mappings = g_strsplit (mapping_string, ",", 0);
   mappings_length = g_strv_length (mappings);
@@ -182,42 +181,42 @@ set_from_sdl_string (GamesGamepadMapping *self,
       continue;
     }
 
-    mapping_key = g_strdup (splitted_mapping[0]);
-    mapping_value = g_strdup (splitted_mapping[1]);
-    parse_destination (mapping_key, &destination);
+    destination_string = g_strdup (splitted_mapping[0]);
+    source_string = g_strdup (splitted_mapping[1]);
+    parse_destination (destination_string, &destination);
 
     g_strfreev (splitted_mapping);
 
     if  (destination.type == EV_MAX) {
-      if (g_strcmp0 (mapping_key, "platform") != 0)
-        g_debug ("Invalid token: %s", mapping_key);
+      if (g_strcmp0 (destination_string, "platform") != 0)
+        g_debug ("Invalid token: %s", destination_string);
 
-      g_free (mapping_value);
-      g_free (mapping_key);
+      g_free (source_string);
+      g_free (destination_string);
 
       continue;
     }
 
-    g_free (mapping_key);
+    g_free (destination_string);
 
-    switch (*mapping_value) {
+    switch (*source_string) {
     case 'h':
-      parse_dpad_value (self, mapping_value, destination);
+      parse_dpad_source (self, source_string, destination);
 
       break;
     case 'b':
-      parse_button_value (self, mapping_value, destination);
+      parse_button_source (self, source_string, destination);
 
       break;
     case 'a':
-      parse_axis_value (self, mapping_value, destination);
+      parse_axis_source (self, source_string, destination);
 
       break;
     default:
       break;
     }
 
-    g_free (mapping_value);
+    g_free (source_string);
   }
 
   g_strfreev (mappings);
@@ -265,16 +264,16 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
                                         gint                 dpad_index,
                                         gint                 dpad_axis,
                                         gint                 dpad_value,
-                                        GamesGamepadInput   *event)
+                                        GamesGamepadInput   *destination)
 {
   GamesGamepadDPad *dpad;
   gint dpad_changed_value;
   gint dpad_position;
 
   g_return_if_fail (self != NULL);
-  g_return_if_fail (event != NULL);
+  g_return_if_fail (destination != NULL);
 
-  memset (event, 0, sizeof (GamesGamepadInput));
+  memset (destination, 0, sizeof (GamesGamepadInput));
 
   dpad = &g_array_index (self->dpads, GamesGamepadDPad, dpad_index);
   dpad_changed_value = (dpad_value == 0) ?
@@ -283,40 +282,40 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
   // We add 4 so that the remainder is always positive.
   dpad_position = (dpad_changed_value + dpad_axis + 4) % 4;
   dpad->axis_values[dpad_axis] = dpad_value;
-  event->type = dpad->types[dpad_position];
-  event->code = dpad->values[dpad_position];
+  destination->type = dpad->types[dpad_position];
+  destination->code = dpad->values[dpad_position];
 }
 
 void
 games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping *self,
                                         gint                 axis_number,
-                                        GamesGamepadInput   *event)
+                                        GamesGamepadInput   *destination)
 {
   g_return_if_fail (self != NULL);
-  g_return_if_fail (event != NULL);
+  g_return_if_fail (destination != NULL);
 
-  memset (event, 0, sizeof (GamesGamepadInput));
+  memset (destination, 0, sizeof (GamesGamepadInput));
 
-  event->type = (axis_number < self->axes->len) ?
+  destination->type = (axis_number < self->axes->len) ?
     g_array_index (self->axes, GamesGamepadInput, axis_number).type :
     EV_MAX;
-  event->code = g_array_index (self->axes, GamesGamepadInput, axis_number).code;
+  destination->code = g_array_index (self->axes, GamesGamepadInput, axis_number).code;
 }
 
 void
 games_gamepad_mapping_get_button_mapping (GamesGamepadMapping *self,
                                           gint                 button_number,
-                                          GamesGamepadInput   *event)
+                                          GamesGamepadInput   *destination)
 {
   g_return_if_fail (self != NULL);
-  g_return_if_fail (event != NULL);
+  g_return_if_fail (destination != NULL);
 
-  memset (event, 0, sizeof (GamesGamepadInput));
+  memset (destination, 0, sizeof (GamesGamepadInput));
 
-  event->type = (button_number < self->buttons->len) ?
+  destination->type = (button_number < self->buttons->len) ?
     g_array_index (self->buttons, GamesGamepadInput, button_number).type :
     EV_MAX;
-  event->code = g_array_index (self->buttons, GamesGamepadInput, button_number).code;
+  destination->code = g_array_index (self->buttons, GamesGamepadInput, button_number).code;
 }
 
 /* Type */

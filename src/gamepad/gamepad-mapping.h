@@ -18,13 +18,13 @@ void games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
                                              gint                 dpad_index,
                                              gint                 dpad_axis,
                                              gint                 dpad_value,
-                                             GamesGamepadInput   *result);
+                                             GamesGamepadInput   *destination);
 void games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping *self,
                                              gint                 axis_number,
-                                             GamesGamepadInput   *result);
+                                             GamesGamepadInput   *destination);
 void games_gamepad_mapping_get_button_mapping (GamesGamepadMapping *self,
                                                gint                 button_number,
-                                               GamesGamepadInput   *result);
+                                               GamesGamepadInput   *destination);
 
 G_END_DECLS
 
