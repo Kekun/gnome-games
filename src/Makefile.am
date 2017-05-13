@@ -24,6 +24,7 @@ BUILT_SOURCES = \
 EXTRA_DIST = \
 	$(gresource_file) \
 	event/event.vapi \
+	event/event-codes.vapi \
 	gamepad/gamepad.vapi \
 	gamepad/gamepad-monitor.vapi \
 	gamepad/raw-gamepad.vapi \
@@ -192,6 +193,7 @@ gnome_games_VALAFLAGS = \
 	--pkg linux \
 	--pkg posix \
 	--pkg event \
+	--pkg event-codes \
 	--pkg gamepad \
 	--pkg gamepad-monitor \
 	--pkg raw-gamepad \
