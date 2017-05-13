@@ -77,7 +77,6 @@ gnome_games_SOURCES = \
 	\
 	gamepad/gamepad.c \
 	gamepad/gamepad-dpad.c \
-	gamepad/gamepad-input-type.c \
 	gamepad/gamepad-mapped-event.c \
 	gamepad/gamepad-mapping.c \
 	gamepad/gamepad-mapping-error.c \
@@ -85,8 +84,6 @@ gnome_games_SOURCES = \
 	gamepad/gamepad-monitor.c \
 	gamepad/raw-gamepad.c \
 	gamepad/raw-gamepad-monitor.c \
-	gamepad/standard-gamepad-axis.c \
-	gamepad/standard-gamepad-button.c \
 	\
 	generic/generic-game.vala \
 	generic/generic-game-uri-adapter.vala \

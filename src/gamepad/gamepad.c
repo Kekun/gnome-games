@@ -2,6 +2,7 @@
 
 #include "gamepad.h"
 
+#include <linux/input-event-codes.h>
 #include <stdlib.h>
 #include "../event/event.h"
 #include "gamepad-mapping.h"
@@ -63,13 +64,13 @@ on_button_event (GamesRawGamepad         *sender,
                                             &event);
 
   switch (event.type) {
-  case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
+  case EV_ABS:
     g_signal_emit (self,
                    signals[SIGNAL_AXIS_EVENT],
                    0, event.axis, value ? 1 : 0);
 
     break;
-  case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
+  case EV_KEY:
     g_signal_emit (self,
                    signals[SIGNAL_BUTTON_EVENT],
                    0, event.button, value);
@@ -96,11 +97,11 @@ on_axis_event (GamesRawGamepad       *sender,
 
   games_gamepad_mapping_get_axis_mapping (self->mapping, games_event->index, &event);
   switch (event.type) {
-  case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
+  case EV_ABS:
     g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
                    0, event.axis, games_event->value);
     break;
-  case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
+  case EV_KEY:
     g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
                    0, event.button, games_event->value > 0.);
 
@@ -129,16 +130,16 @@ on_hat_event (GamesRawGamepad      *sender,
     switch (games_event->axis) {
     case 0:
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_LEFT, games_event->value < 0);
+                     0, BTN_DPAD_LEFT, games_event->value < 0);
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_RIGHT, games_event->value > 0);
+                     0, BTN_DPAD_RIGHT, games_event->value > 0);
 
       break;
     case 1:
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_UP, games_event->value < 0);
+                     0, BTN_DPAD_UP, games_event->value < 0);
       g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                     0, GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_DOWN, games_event->value > 0);
+                     0, BTN_DPAD_DOWN, games_event->value > 0);
 
       break;
     default:
@@ -152,12 +153,12 @@ on_hat_event (GamesRawGamepad      *sender,
 
   games_gamepad_mapping_get_dpad_mapping (self->mapping, games_event->index, games_event->axis, games_event->value, &event);
   switch (event.type) {
-  case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
+  case EV_ABS:
     g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
                    0, event.axis, (gdouble) abs (games_event->value));
 
     break;
-  case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
+  case EV_KEY:
     g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
                    0, event.button, (gboolean) abs (games_event->value));
 

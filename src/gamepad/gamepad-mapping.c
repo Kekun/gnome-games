@@ -3,13 +3,14 @@
 #include "gamepad-mapping.h"
 
 #include <glib/gi18n-lib.h>
+#include <linux/input-event-codes.h>
 #include <stdlib.h>
 #include "gamepad-dpad.h"
 #include "gamepad-mapping-error.h"
 
 typedef struct {
-  GamesGamepadInputType type;
-  gint value;
+  guint16 type;
+  guint16 value;
 } input_t;
 
 struct _GamesGamepadMapping {
@@ -118,34 +119,34 @@ parse_axis_value (GamesGamepadMapping *self,
   g_array_index (self->axes, input_t, axis) = input;
 }
 
-static GamesGamepadInputType
+static guint16
 parse_input_type (const gchar *mapping_string)
 {
   const static struct {
-    GamesGamepadInputType enum_value;
+    guint16 enum_value;
     const gchar *string_value;
   } values[] = {
-    { GAMES_GAMEPAD_INPUT_TYPE_AXIS, "leftx" },
-    { GAMES_GAMEPAD_INPUT_TYPE_AXIS, "lefty" },
-    { GAMES_GAMEPAD_INPUT_TYPE_AXIS, "rightx" },
-    { GAMES_GAMEPAD_INPUT_TYPE_AXIS, "righty" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "a" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "b" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "back" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "dpdown" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "dpleft" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "dpright" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "dpup" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "guide" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "leftshoulder" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "leftstick" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "lefttrigger" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "rightshoulder" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "rightstick" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "righttrigger" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "start" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "x" },
-    { GAMES_GAMEPAD_INPUT_TYPE_BUTTON, "y" },
+    { EV_ABS, "leftx" },
+    { EV_ABS, "lefty" },
+    { EV_ABS, "rightx" },
+    { EV_ABS, "righty" },
+    { EV_KEY, "a" },
+    { EV_KEY, "b" },
+    { EV_KEY, "back" },
+    { EV_KEY, "dpdown" },
+    { EV_KEY, "dpleft" },
+    { EV_KEY, "dpright" },
+    { EV_KEY, "dpup" },
+    { EV_KEY, "guide" },
+    { EV_KEY, "leftshoulder" },
+    { EV_KEY, "leftstick" },
+    { EV_KEY, "lefttrigger" },
+    { EV_KEY, "rightshoulder" },
+    { EV_KEY, "rightstick" },
+    { EV_KEY, "righttrigger" },
+    { EV_KEY, "start" },
+    { EV_KEY, "x" },
+    { EV_KEY, "y" },
   };
   const gint length = sizeof (values) / sizeof (values[0]);
   gint i;
@@ -154,20 +155,20 @@ parse_input_type (const gchar *mapping_string)
     if (g_strcmp0 (mapping_string, values[i].string_value) == 0)
       return values[i].enum_value;
 
-  return GAMES_GAMEPAD_INPUT_TYPE_INVALID;
+  return EV_MAX;
 }
 
-static GamesStandardGamepadAxis
+static guint16
 parse_axis (const gchar *mapping_string)
 {
   const static struct {
-    GamesStandardGamepadAxis enum_value;
+    guint16 enum_value;
     const gchar *string_value;
   } values[] = {
-    { GAMES_STANDARD_GAMEPAD_AXIS_LEFT_X, "leftx" },
-    { GAMES_STANDARD_GAMEPAD_AXIS_LEFT_Y, "lefty" },
-    { GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_X, "rightx" },
-    { GAMES_STANDARD_GAMEPAD_AXIS_RIGHT_Y, "righty" },
+    { ABS_X, "leftx" },
+    { ABS_Y, "lefty" },
+    { ABS_RX, "rightx" },
+    { ABS_RY, "righty" },
   };
   const gint length = sizeof (values) / sizeof (values[0]);
   gint i;
@@ -176,33 +177,33 @@ parse_axis (const gchar *mapping_string)
     if (g_strcmp0 (mapping_string, values[i].string_value) == 0)
       return values[i].enum_value;
 
-  return GAMES_STANDARD_GAMEPAD_AXIS_UNKNOWN;
+  return ABS_MAX;
 }
 
-static GamesStandardGamepadButton
+static guint16
 parse_button (const gchar *mapping_string)
 {
   const static struct {
-    GamesStandardGamepadButton enum_value;
+    guint16 enum_value;
     const gchar *string_value;
   } values[] = {
-    { GAMES_STANDARD_GAMEPAD_BUTTON_A, "a" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_B, "b" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_DOWN, "dpdown" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_LEFT, "dpleft" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_RIGHT, "dpright" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_DPAD_UP, "dpup" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_HOME, "guide" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_SELECT, "back" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_SHOULDER_L, "leftshoulder" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_SHOULDER_R, "rightshoulder" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_START, "start" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_STICK_L, "leftstick" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_STICK_R, "rightstick" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_TRIGGER_L, "lefttrigger" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_TRIGGER_R, "righttrigger" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_X, "x" },
-    { GAMES_STANDARD_GAMEPAD_BUTTON_Y, "y" },
+    { BTN_A, "a" },
+    { BTN_B, "b" },
+    { BTN_DPAD_DOWN, "dpdown" },
+    { BTN_DPAD_LEFT, "dpleft" },
+    { BTN_DPAD_RIGHT, "dpright" },
+    { BTN_DPAD_UP, "dpup" },
+    { BTN_MODE, "guide" },
+    { BTN_SELECT, "back" },
+    { BTN_TL, "leftshoulder" },
+    { BTN_TR, "rightshoulder" },
+    { BTN_START, "start" },
+    { BTN_THUMBL, "leftstick" },
+    { BTN_THUMBR, "rightstick" },
+    { BTN_TL2, "lefttrigger" },
+    { BTN_TR2, "righttrigger" },
+    { BTN_Y, "x" },
+    { BTN_X, "y" },
   };
   const gint length = sizeof (values) / sizeof (values[0]);
   gint i;
@@ -211,7 +212,7 @@ parse_button (const gchar *mapping_string)
     if (g_strcmp0 (mapping_string, values[i].string_value) == 0)
       return values[i].enum_value;
 
-  return GAMES_STANDARD_GAMEPAD_BUTTON_UNKNOWN;
+  return KEY_MAX;
 }
 
 // This function doesn't take care of cleaning up the object's state before
@@ -248,15 +249,15 @@ set_from_sdl_string (GamesGamepadMapping *self,
     g_strfreev (splitted_mapping);
 
     switch (input.type) {
-    case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
+    case EV_KEY:
       input.value = (gint) parse_button (mapping_key);
 
       break;
-    case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
+    case EV_ABS:
       input.value = (gint) parse_axis (mapping_key);
 
       break;
-    case GAMES_GAMEPAD_INPUT_TYPE_INVALID:
+    case EV_MAX:
       if (g_strcmp0 (mapping_key, "platform") != 0)
         g_debug ("Invalid token: %s", mapping_key);
 
@@ -359,12 +360,12 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping     *self,
   event->type = dpad->types[dpad_position];
 
   switch (event->type) {
-  case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
-    event->axis = (GamesStandardGamepadAxis) dpad->values[dpad_position];
+  case EV_ABS:
+    event->axis = dpad->values[dpad_position];
 
     break;
-  case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
-    event->button = (GamesStandardGamepadButton) dpad->values[dpad_position];
+  case EV_KEY:
+    event->button = dpad->values[dpad_position];
 
     break;
   default:
@@ -384,15 +385,15 @@ games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping     *self,
 
   event->type = (axis_number < self->axes->len) ?
     g_array_index (self->axes, input_t, axis_number).type :
-    GAMES_GAMEPAD_INPUT_TYPE_INVALID;
+    EV_MAX;
 
   switch (event->type) {
-  case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
-    event->axis = (GamesStandardGamepadAxis) g_array_index (self->axes, input_t, axis_number).value;
+  case EV_ABS:
+    event->axis = g_array_index (self->axes, input_t, axis_number).value;
 
     break;
-  case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
-    event->button = (GamesStandardGamepadButton) g_array_index (self->axes, input_t, axis_number).value;
+  case EV_KEY:
+    event->button = g_array_index (self->axes, input_t, axis_number).value;
 
     break;
   default:
@@ -412,15 +413,15 @@ games_gamepad_mapping_get_button_mapping (GamesGamepadMapping     *self,
 
   event->type = (button_number < self->buttons->len) ?
     g_array_index (self->buttons, input_t, button_number).type :
-    GAMES_GAMEPAD_INPUT_TYPE_INVALID;
+    EV_MAX;
 
   switch (event->type) {
-  case GAMES_GAMEPAD_INPUT_TYPE_AXIS:
-    event->axis = (GamesStandardGamepadAxis) g_array_index (self->buttons, input_t, button_number).value;
+  case EV_ABS:
+    event->axis = g_array_index (self->buttons, input_t, button_number).value;
 
     break;
-  case GAMES_GAMEPAD_INPUT_TYPE_BUTTON:
-    event->button = (GamesStandardGamepadButton) g_array_index (self->buttons, input_t, button_number).value;
+  case EV_KEY:
+    event->button = g_array_index (self->buttons, input_t, button_number).value;
 
     break;
   default:

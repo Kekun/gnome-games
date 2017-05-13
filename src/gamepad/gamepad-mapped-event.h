@@ -4,18 +4,15 @@
 #define GAMES_GAMEPAD_MAPPED_EVENT_H
 
 #include <glib-object.h>
-#include "gamepad-input-type.h"
-#include "standard-gamepad-axis.h"
-#include "standard-gamepad-button.h"
 
 G_BEGIN_DECLS
 
 #define GAMES_TYPE_GAMEPAD_MAPPED_EVENT (games_gamepad_mapped_event_get_type ())
 
 typedef struct {
-  GamesGamepadInputType type;
-  GamesStandardGamepadAxis axis;
-  GamesStandardGamepadButton button;
+  guint16 type;
+  guint16 axis;
+  guint16 button;
 } GamesGamepadMappedEvent;
 
 GType games_gamepad_mapped_event_get_type (void) G_GNUC_CONST;
