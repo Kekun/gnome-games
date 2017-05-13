@@ -67,13 +67,13 @@ on_button_event (GamesRawGamepad         *sender,
   case EV_ABS:
     g_signal_emit (self,
                    signals[SIGNAL_AXIS_EVENT],
-                   0, event.axis, value ? 1 : 0);
+                   0, event.code, value ? 1 : 0);
 
     break;
   case EV_KEY:
     g_signal_emit (self,
                    signals[SIGNAL_BUTTON_EVENT],
-                   0, event.button, value);
+                   0, event.code, value);
     break;
   default:
     break;
@@ -99,11 +99,11 @@ on_axis_event (GamesRawGamepad       *sender,
   switch (event.type) {
   case EV_ABS:
     g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
-                   0, event.axis, games_event->value);
+                   0, event.code, games_event->value);
     break;
   case EV_KEY:
     g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                   0, event.button, games_event->value > 0.);
+                   0, event.code, games_event->value > 0.);
 
     break;
   default:
@@ -155,12 +155,12 @@ on_hat_event (GamesRawGamepad      *sender,
   switch (event.type) {
   case EV_ABS:
     g_signal_emit (self, signals[SIGNAL_AXIS_EVENT],
-                   0, event.axis, (gdouble) abs (games_event->value));
+                   0, event.code, (gdouble) abs (games_event->value));
 
     break;
   case EV_KEY:
     g_signal_emit (self, signals[SIGNAL_BUTTON_EVENT],
-                   0, event.button, (gboolean) abs (games_event->value));
+                   0, event.code, (gboolean) abs (games_event->value));
 
     break;
   default:

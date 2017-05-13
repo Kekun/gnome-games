@@ -8,11 +8,6 @@
 #include "gamepad-dpad.h"
 #include "gamepad-mapping-error.h"
 
-typedef struct {
-  guint16 type;
-  guint16 value;
-} input_t;
-
 struct _GamesGamepadMapping {
   GObject parent_instance;
 
@@ -28,7 +23,7 @@ G_DEFINE_TYPE (GamesGamepadMapping, games_gamepad_mapping, G_TYPE_OBJECT)
 static void
 parse_dpad_value (GamesGamepadMapping *self,
                   const gchar         *mapping_value,
-                  input_t              input)
+                  GamesGamepadInput    input)
 {
   const gchar *mapping_value_number;
   gchar **dpad_parse_array;
@@ -67,13 +62,13 @@ parse_dpad_value (GamesGamepadMapping *self,
   if (self->dpads->len <= dpad_index)
     g_array_set_size (self->dpads, dpad_index + 1);
   g_array_index (self->dpads, GamesGamepadDPad, dpad_index).types[dpad_position] = input.type;
-  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).values[dpad_position] = input.value;
+  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).values[dpad_position] = input.code;
 }
 
 static void
 parse_button_value (GamesGamepadMapping *self,
                     const gchar         *mapping_value,
-                    input_t              input)
+                    GamesGamepadInput    input)
 {
   // g_array_append_val() requires a l-value.
   const gchar *mapping_value_number;
@@ -92,13 +87,13 @@ parse_button_value (GamesGamepadMapping *self,
 
   if (self->buttons->len <= button)
     g_array_set_size (self->buttons, button + 1);
-  g_array_index (self->buttons, input_t, button) = input;
+  g_array_index (self->buttons, GamesGamepadInput, button) = input;
 }
 
 static void
 parse_axis_value (GamesGamepadMapping *self,
                   const gchar         *mapping_value,
-                  input_t              input)
+                  GamesGamepadInput    input)
 {
   const gchar *mapping_value_number;
   gint axis;
@@ -116,7 +111,7 @@ parse_axis_value (GamesGamepadMapping *self,
 
   if (self->axes->len <= axis)
     g_array_set_size (self->axes, axis + 1);
-  g_array_index (self->axes, input_t, axis) = input;
+  g_array_index (self->axes, GamesGamepadInput, axis) = input;
 }
 
 static guint16
@@ -227,7 +222,7 @@ set_from_sdl_string (GamesGamepadMapping *self,
   gchar **splitted_mapping;
   gchar *mapping_key;
   gchar *mapping_value;
-  input_t input;
+  GamesGamepadInput input;
   gint parsed_key;
 
   mappings = g_strsplit (mapping_string, ",", 0);
@@ -250,11 +245,11 @@ set_from_sdl_string (GamesGamepadMapping *self,
 
     switch (input.type) {
     case EV_KEY:
-      input.value = (gint) parse_button (mapping_key);
+      input.code = parse_button (mapping_key);
 
       break;
     case EV_ABS:
-      input.value = (gint) parse_axis (mapping_key);
+      input.code = parse_axis (mapping_key);
 
       break;
     case EV_MAX:
@@ -325,8 +320,8 @@ games_gamepad_mapping_new_from_sdl_string (const gchar  *mapping_string,
 
   self = (GamesGamepadMapping*) g_object_new (GAMES_TYPE_GAMEPAD_MAPPING, NULL);
 
-  self->buttons = g_array_new (FALSE, TRUE, sizeof (input_t));
-  self->axes = g_array_new (FALSE, TRUE, sizeof (input_t));
+  self->buttons = g_array_new (FALSE, TRUE, sizeof (GamesGamepadInput));
+  self->axes = g_array_new (FALSE, TRUE, sizeof (GamesGamepadInput));
   self->dpads = g_array_new (FALSE, TRUE, sizeof (GamesGamepadDPad));
 
   set_from_sdl_string (self, mapping_string);
@@ -358,19 +353,7 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
   dpad_position = (dpad_changed_value + dpad_axis + 4) % 4;
   dpad->axis_values[dpad_axis] = dpad_value;
   event->type = dpad->types[dpad_position];
-
-  switch (event->type) {
-  case EV_ABS:
-    event->axis = dpad->values[dpad_position];
-
-    break;
-  case EV_KEY:
-    event->button = dpad->values[dpad_position];
-
-    break;
-  default:
-    break;
-  }
+  event->code = dpad->values[dpad_position];
 }
 
 void
@@ -384,21 +367,9 @@ games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping *self,
   memset (event, 0, sizeof (GamesGamepadInput));
 
   event->type = (axis_number < self->axes->len) ?
-    g_array_index (self->axes, input_t, axis_number).type :
+    g_array_index (self->axes, GamesGamepadInput, axis_number).type :
     EV_MAX;
-
-  switch (event->type) {
-  case EV_ABS:
-    event->axis = g_array_index (self->axes, input_t, axis_number).value;
-
-    break;
-  case EV_KEY:
-    event->button = g_array_index (self->axes, input_t, axis_number).value;
-
-    break;
-  default:
-    break;
-  }
+  event->code = g_array_index (self->axes, GamesGamepadInput, axis_number).code;
 }
 
 void
@@ -412,21 +383,9 @@ games_gamepad_mapping_get_button_mapping (GamesGamepadMapping *self,
   memset (event, 0, sizeof (GamesGamepadInput));
 
   event->type = (button_number < self->buttons->len) ?
-    g_array_index (self->buttons, input_t, button_number).type :
+    g_array_index (self->buttons, GamesGamepadInput, button_number).type :
     EV_MAX;
-
-  switch (event->type) {
-  case EV_ABS:
-    event->axis = g_array_index (self->buttons, input_t, button_number).value;
-
-    break;
-  case EV_KEY:
-    event->button = g_array_index (self->buttons, input_t, button_number).value;
-
-    break;
-  default:
-    break;
-  }
+  event->code = g_array_index (self->buttons, GamesGamepadInput, button_number).code;
 }
 
 /* Type */

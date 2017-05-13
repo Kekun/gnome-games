@@ -11,8 +11,7 @@ G_BEGIN_DECLS
 
 typedef struct {
   guint16 type;
-  guint16 axis;
-  guint16 button;
+  guint16 code;
 } GamesGamepadInput;
 
 GType games_gamepad_input_get_type (void) G_GNUC_CONST;
