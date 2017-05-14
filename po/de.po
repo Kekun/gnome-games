@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-02 07:42+0000\n"
-"PO-Revision-Date: 2017-04-03 22:44+0200\n"
+"POT-Creation-Date: 2017-05-05 20:18+0000\n"
+"PO-Revision-Date: 2017-05-14 21:14+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:17
+#: ../src/ui/application.vala:21
 msgid "Games"
 msgstr "Spiele"
 
@@ -207,13 +207,13 @@ msgstr "Sind Sie sicher, dass Sie das Programm beenden wollen?"
 msgid "All unsaved progress will be lost."
 msgstr "Nicht gespeicherte Spielverläufe gehen verloren."
 
-#: ../data/ui/quit-dialog.ui.h:3
-msgid "Quit"
-msgstr "Beenden"
-
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
+#: ../data/ui/quit-dialog.ui.h:3 ../data/ui/resume-failed-dialog.ui.h:2
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: ../data/ui/quit-dialog.ui.h:4
+msgid "Quit"
+msgstr "Beenden"
 
 #: ../data/ui/remote-display.ui.h:1
 msgid "Use the game’s own window to play it"
@@ -232,58 +232,58 @@ msgid "Resume last game?"
 msgstr "Letztes Spiel fortsetzen?"
 
 #: ../data/ui/resume-dialog.ui.h:2
-msgid "Resume"
-msgstr "Fortsetzen"
-
-#: ../data/ui/resume-dialog.ui.h:3
 msgid "Restart"
 msgstr "Neu starten"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Resume"
+msgstr "Fortsetzen"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr ""
 "Wiederherstellen fehlgeschlagen. Möchten Sie das Spiel von vorne beginnen?"
 
-#: ../data/ui/resume-failed-dialog.ui.h:2
+#: ../data/ui/resume-failed-dialog.ui.h:3
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#: ../plugins/desktop/src/desktop-plugin.vala:41
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Ungültiger Befehl »%s«."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#: ../plugins/desktop/src/desktop-plugin.vala:51
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "In Tracker aufgelistete Datei konnte nicht gefunden werden: »%s«."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#: ../plugins/desktop/src/desktop-plugin.vala:57
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Desktop-Eintrag »%s« konnte nicht ausgewertet werden."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:100
+#: ../plugins/desktop/src/desktop-plugin.vala:67
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "»%s« sollte nicht angezeigt werden."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#: ../plugins/desktop/src/desktop-plugin.vala:70
 #, c-format
 msgid "“%s” is hidden."
 msgstr "»%s« ist verborgen."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-plugin.vala:79
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "»%s« hat Kategorie »%s« ausgeblendet."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:121
+#: ../plugins/desktop/src/desktop-plugin.vala:88
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "»%s« hat ausführbare Datei »%s« ausgeblendet."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:128
+#: ../plugins/desktop/src/desktop-plugin.vala:95
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "»%s« ist ausgeblendet."
@@ -316,28 +316,23 @@ msgstr "Die Datei hat keinen Master-System-Header."
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Datei hat keinen Genesis/Sega 32X/Sega CD/Sega Pico-Header."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:139
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:62
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Datei »%s« hat keinen Titel."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:145
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:68
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Datei »%s« hat kein gültiges Binärfomat."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:148
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:71
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Datei »%s« hat keinen gültigen Titelmodus für Titel %d."
-
-#: ../plugins/playstation/src/playstation-game-factory.vala:65
-#, c-format
-msgid "Disc with disc_id %s is unknown"
-msgstr "Platte mit disc_id %s ist unbekannt"
 
 #: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
@@ -348,7 +343,7 @@ msgstr "Ungültiger PlayStation-Header: Platten-ID nicht gefunden unter »%s«."
 msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Die Datei hat keinen Sega-Saturn-Header."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:75
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Datei »%s« ist keine gültige Sega Saturn Binärdatei."
@@ -443,20 +438,20 @@ msgstr "Keine Plattensatz-ID für Platten-ID »%s« gefunden."
 msgid "No disc found for disc ID “%s”."
 msgstr "Keine Platte gefunden für Platten-ID »%s«."
 
-#: ../src/gamepad/gamepad-mapping.vala:12
+#: ../src/gamepad/gamepad-mapping.c:311
 msgid "The mapping string can’t be null."
 msgstr "Die zugeordnete Zeichenkette darf nicht »null« sein."
 
-#: ../src/gamepad/gamepad-mapping.vala:15
+#: ../src/gamepad/gamepad-mapping.c:320
 msgid "The mapping string can’t be empty."
 msgstr "Die zugeordnete Zeichenkette darf nicht leer sein."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#: ../src/gamepad/linux/linux-raw-gamepad.c:340
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Datei »%s« kann nicht geöffnet werden: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#: ../src/gamepad/linux/linux-raw-gamepad.c:353
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "»%s« kann nicht mit evdev geöffnet werden: %s"
@@ -659,40 +654,45 @@ msgstr "WiiWare"
 
 #: ../src/retro/retro-runner.vala:218
 #, c-format
+msgid "No game file found for media “%s”."
+msgstr "Kein Spiel-Datei für Medium »%s« gefunden."
+
+#: ../src/retro/retro-runner.vala:222
+#, c-format
 msgid "Invalid game file: “%s”."
 msgstr "Ungültige Spieldatei: »%s«."
 
-#: ../src/retro/retro-runner.vala:263
+#: ../src/retro/retro-runner.vala:267
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Kein passendes Modul für »%s« gefunden."
 
-#: ../src/retro/retro-runner.vala:584
+#: ../src/retro/retro-runner.vala:592
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System »%s« wird derzeit noch nicht unterstützt, die vollständige "
 "Unterstützung ist aber bereits in Planung."
 
-#: ../src/retro/retro-runner.vala:587
+#: ../src/retro/retro-runner.vala:595
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System wird derzeit noch nicht unterstützt, die vollständige "
 "Unterstützung ist aber bereits in Planung."
 
-#: ../src/ui/application.vala:174
+#: ../src/ui/application.vala:261
 msgid "GNOME Games"
 msgstr "GNOME Spiele"
 
-#: ../src/ui/application.vala:176
+#: ../src/ui/application.vala:263
 msgid "A video game player for GNOME"
 msgstr "Ein Videospiel-Programm für GNOME"
 
-#: ../src/ui/application.vala:180
+#: ../src/ui/application.vala:267
 msgid "Learn more about GNOME Games"
 msgstr "Mehr über GNOME Spiele erfahren"
 
-#: ../src/ui/application.vala:187
+#: ../src/ui/application.vala:274
 msgid "translator-credits"
 msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
@@ -717,17 +717,17 @@ msgstr "Hoppla, »%s« kann nicht ausgeführt werden"
 msgid "Oops! Unable to run the game"
 msgstr "Hoppla, das Spiel kann nicht ausgeführt werden"
 
-#: ../src/ui/media-selector.vala:33
+#: ../src/ui/media-selector.vala:27
 #, c-format
 msgid "Media %d"
 msgstr "Medium %d"
 
 #. same as video-filters in gschema
-#: ../src/ui/preferences-page-video.vala:29
+#: ../src/ui/preferences-page-video.vala:26
 msgid "Smooth"
 msgstr "Glätten"
 
-#: ../src/ui/preferences-page-video.vala:29
+#: ../src/ui/preferences-page-video.vala:26
 msgid "Sharp"
 msgstr "Schärfen"
 
@@ -788,53 +788,3 @@ msgstr "%s:%lu: Unerwartetes Zeilenende, Token erwartet."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Unerwarteter Token %s. Erwartet wird das Zeilenende."
-
-#~ msgid ""
-#~ "<b><span size=\"large\">Use the game’s own window to play it</span></b>"
-#~ msgstr ""
-#~ "<b><span size=\"large\">Das Spiel im eigenen Fenster spielen</span></b>"
-
-#~ msgid "The file doesn't have a Game Boy header."
-#~ msgstr "Die Datei hat keinen GameBoy-Header."
-
-#~ msgid "Invalid command: it doesn't have any argument."
-#~ msgstr "Ungültiger Befehl: Argument fehlt."
-
-#~ msgid "Couldn't run game: module '%s' not found."
-#~ msgstr ""
-#~ "Spiel kann nicht ausgeführt werden: Modul »%s« wurde nicht gefunden."
-
-#~ msgid ""
-#~ "Couldn't run game: module '%s' not found and no module found for MIME "
-#~ "types %s."
-#~ msgstr ""
-#~ "Spiel kann nicht ausgeführt werden: Modul »%s« wurde nicht gefunden und "
-#~ "für MIME-Typen %s kein Modul gefunden."
-
-#~ msgid "Couldn't write snapshot."
-#~ msgstr "Schnappschuss konnte nicht geschrieben werden."
-
-#~ msgid "Main Menu"
-#~ msgstr "Hauptmenü"
-
-#~ msgid "Invalid Dreamcast header size: %s"
-#~ msgstr "Größe des Dreamcast-Headers ist ungültig: %s"
-
-# Um ein sowohl Deppenleerzeichen als auch Bindestrich zu vermeiden, habe ich den Markennamen einfach mal zusammengezogen. Andere Vorschläge?
-#~ msgid "Invalid Game Boy header size: %s"
-#~ msgstr "Größe des GameBoy-Headers ist ungültig: %s"
-
-#~ msgid "Invalid Game Cube header size: %s"
-#~ msgstr "Größe des GameCube-Headers ist ungültig: %s"
-
-#~ msgid "Invalid Master System header size: %s"
-#~ msgstr "Größe des MasterSystem-Headers ist ungültig: %s"
-
-#~ msgid "Invalid Mega Drive/Genesis/32X header size: %s"
-#~ msgstr "Größe des Drive/Genesis/32X-Headers ist ungültig: %s"
-
-#~ msgid "Invalid Sega Saturn header size: %s"
-#~ msgstr "Größe des SegaSaturn-Headers ist ungültig: %s"
-
-#~ msgid "Couldn't load snapshot."
-#~ msgstr "Schnappschuss konnte nicht gelesen werden."
