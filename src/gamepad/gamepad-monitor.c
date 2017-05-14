@@ -4,10 +4,10 @@
 
 #include <glib.h>
 #include <glib-object.h>
-#include <linux-raw-gamepad-monitor.h>
-#include <raw-gamepad-monitor.h>
-#include <raw-gamepad.h>
-#include <gamepad-mapping-error.h>
+#include "gamepad-mapping-error.h"
+#include "linux/linux-raw-gamepad-monitor.h"
+#include "raw-gamepad.h"
+#include "raw-gamepad-monitor.h"
 
 struct _GamesGamepadMonitor {
   GObject parent_instance;
