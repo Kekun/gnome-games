@@ -1,20 +1,14 @@
 /* This file is part of GNOME Games. License: GPL-3.0+. */
 
-@define-color games_collection_bg_color #292929;
-
-@define-color games_thumbnail_color #bebebe;
-@define-color games_thumbnail_border_color #3b3c38;
-@define-color games_thumbnail_bg_color #2d2d2d;
-
 gamescollectioniconview .frame {
-	background-color: @games_collection_bg_color;
+	background-color: @theme_base_color;
 }
 
 gamesgamethumbnail {
-	background-color: @games_thumbnail_bg_color;
+	background-color: mix (@theme_base_color, @theme_bg_color, 0.5);
 	border-width: 1px;
 	border-style: solid;
 	border-radius: 2px;
-	border-color: @games_thumbnail_border_color;
-	color: @games_thumbnail_color;
+	border-color: @theme_bg_color;
+	color: @theme_fg_color;
 }
