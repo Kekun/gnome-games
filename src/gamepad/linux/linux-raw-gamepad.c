@@ -368,7 +368,7 @@ games_linux_raw_gamepad_finalize (GObject *object)
   remove_event_source (self);
   if (self->device != NULL)
     libevdev_free (self->device);
-  if (self->guid == NULL)
+  if (self->guid != NULL)
     g_free (self->guid);
 
   G_OBJECT_CLASS (games_linux_raw_gamepad_parent_class)->finalize (object);
