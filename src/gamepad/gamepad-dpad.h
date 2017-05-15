@@ -4,14 +4,14 @@
 #define GAMES_GAMEPAD_DPAD_H
 
 #include <glib-object.h>
+#include "gamepad-input.h"
 
 G_BEGIN_DECLS
 
 #define GAMES_TYPE_GAMEPAD_DPAD (games_gamepad_dpad_get_type ())
 
 typedef struct {
-  guint16 types[4];
-  guint16 values[4];
+  GamesGamepadInput inputs[4];
   gint32 axis_values[2];
 } GamesGamepadDPad;
 

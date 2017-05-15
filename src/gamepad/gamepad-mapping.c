@@ -61,8 +61,7 @@ parse_dpad_source (GamesGamepadMapping *self,
 
   if (self->dpads->len <= dpad_index)
     g_array_set_size (self->dpads, dpad_index + 1);
-  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).types[dpad_position] = destination.type;
-  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).values[dpad_position] = destination.code;
+  g_array_index (self->dpads, GamesGamepadDPad, dpad_index).inputs[dpad_position] = destination;
 }
 
 static void
@@ -282,8 +281,7 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
   // We add 4 so that the remainder is always positive.
   dpad_position = (dpad_changed_value + dpad_axis + 4) % 4;
   dpad->axis_values[dpad_axis] = dpad_value;
-  destination->type = dpad->types[dpad_position];
-  destination->code = dpad->values[dpad_position];
+  *destination = dpad->inputs[dpad_position];
 }
 
 void
