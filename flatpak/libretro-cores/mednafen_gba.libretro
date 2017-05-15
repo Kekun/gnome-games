@@ -1,0 +1,11 @@
+[Libretro]
+Type=Emulator
+Version=1.0
+Name=Beetle GBA
+Module=mednafen_gba_libretro.so
+LibretroVersion=1
+Authors=Forgotten;Mednafen Team;
+License=GPL-2.0+;
+
+[Platform:GameBoyAdvance]
+MimeType=application/x-gba-rom;
