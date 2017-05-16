@@ -1,0 +1,24 @@
+        {
+            "name": "libretro-desmume",
+            "no-autogen": true,
+            "make-args": [
+                "--directory=desmume",
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "make-install-args": [
+                "--directory=desmume",
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "post-install": [
+                /* TODO: Send that upstream */
+                "mkdir -p /app/lib/libretro/"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/desmume"
+                }
+            ]
+        }

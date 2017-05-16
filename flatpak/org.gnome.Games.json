@@ -45,6 +45,7 @@
            We build them first, because some of them are very big, and they
            change more rarely than the rest of the modules. */
         "libretro-cores/libretro-bsnes.json",
+        "libretro-cores/libretro-desmume.json",
         "libretro-cores/libretro-gambatte.json",
         "libretro-cores/libretro-mednafen_gba.json",
         "libretro-cores/libretro-mednafen_ngp.json",
