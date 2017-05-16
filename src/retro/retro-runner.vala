@@ -279,6 +279,7 @@ public class Games.RetroRunner : Object, Runner {
 			core.system_directory = @"$platforms_dir/$platform/system";
 		}
 
+		core.log.connect (Retro.g_log);
 		video.set_core (core);
 		audio.set_core (core);
 		core.input_interface = input_manager;
