@@ -1,0 +1,11 @@
+[Libretro]
+Type=Emulator
+Version=1.0
+Name=DeSmuME
+Module=desmume_libretro.so
+LibretroVersion=1
+Authors=YopYop156;Zeromus;
+License=GPL-2.0+;
+
+[Platform:NintendoDS]
+MimeType=application/x-nintendo-ds-rom;
