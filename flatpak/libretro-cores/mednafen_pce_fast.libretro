@@ -11,7 +11,7 @@ License=GPL-2.0+;
 MimeType=application/x-pc-engine-rom;
 
 [Platform:TurboGrafxCD]
-MimeType=application/x-cue;
+MimeType=application/x-cue;application/x-pc-engine-rom;
 Firmwares=SuperSystemCard3;
 
 [Firmware:SuperSystemCard3]
