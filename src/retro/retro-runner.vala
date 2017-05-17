@@ -312,11 +312,8 @@ public class Games.RetroRunner : Object, Runner {
 				return true;
 			}
 		}
-		catch (GLib.FileError e) {
-			stderr.printf ("Error: %s\n", e.message);
-		}
-		catch (Retro.CbError e) {
-			stderr.printf ("Error: %s\n", e.message);
+		catch (Error e) {
+			debug (e.message);
 		}
 
 		return false;
