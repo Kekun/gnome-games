@@ -42,6 +42,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private Gtk.EventBox widget;
 
+	private string save_directory_path;
 	private string save_path;
 	private string snapshot_path;
 	private string screenshot_path;
@@ -277,6 +278,10 @@ public class Games.RetroRunner : Object, Runner {
 			var platforms_dir = Application.get_platforms_dir ();
 			var platform = core_source.get_platform ();
 			core.system_directory = @"$platforms_dir/$platform/system";
+
+			var save_directory = get_save_directory_path ();
+			try_make_dir (save_directory);
+			core.save_directory = save_directory;
 		}
 
 		core.log.connect (Retro.g_log);
@@ -393,6 +398,17 @@ public class Games.RetroRunner : Object, Runner {
 		save_screenshot ();
 
 		should_save = false;
+	}
+
+	private string get_save_directory_path () throws Error {
+		if (save_directory_path != null)
+			return save_directory_path;
+
+		var dir = Application.get_saves_dir ();
+		var uid = uid.get_uid ();
+		save_directory_path = @"$dir/$uid";
+
+		return save_directory_path;
 	}
 
 	private string get_save_path () throws Error {
