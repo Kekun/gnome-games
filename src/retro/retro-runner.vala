@@ -242,7 +242,9 @@ public class Games.RetroRunner : Object, Runner {
 		settings.changed["video-filter"].disconnect (on_video_filter_changed);
 
 		core = null;
+		video.set_core (null);
 		video = null;
+		audio.set_core (null);
 		audio = null;
 		widget = null;
 		input_manager = null;
