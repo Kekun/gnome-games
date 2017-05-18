@@ -120,18 +120,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	~RetroRunner () {
-		if (!is_initialized)
-			return;
-
-		loop.stop ();
-		running = false;
-
-		try {
-			save ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
+		pause ();
+		deinit ();
 	}
 
 	public bool check_is_valid (out string error_message) throws Error {
