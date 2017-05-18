@@ -355,7 +355,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (display_box.runner == null)
 			return true;
 
-		display_box.runner.pause ();
+		display_box.runner.stop ();
 
 		if (display_box.runner.can_quit_safely)
 			return true;
