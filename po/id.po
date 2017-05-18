@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-02 07:42+0000\n"
-"PO-Revision-Date: 2017-04-05 18:47+0700\n"
+"POT-Creation-Date: 2017-05-05 20:18+0000\n"
+"PO-Revision-Date: 2017-05-10 12:57+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:17
+#: ../src/ui/application.vala:21
 msgid "Games"
 msgstr "Permainan"
 
@@ -204,13 +204,13 @@ msgstr "Anda yakin ingin keluar?"
 msgid "All unsaved progress will be lost."
 msgstr "Semua hal yang belum disimpan akan hilang."
 
-#: ../data/ui/quit-dialog.ui.h:3
-msgid "Quit"
-msgstr "Keluar"
-
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
+#: ../data/ui/quit-dialog.ui.h:3 ../data/ui/resume-failed-dialog.ui.h:2
 msgid "Cancel"
 msgstr "Batal"
+
+#: ../data/ui/quit-dialog.ui.h:4
+msgid "Quit"
+msgstr "Keluar"
 
 #: ../data/ui/remote-display.ui.h:1
 msgid "Use the game’s own window to play it"
@@ -229,57 +229,57 @@ msgid "Resume last game?"
 msgstr "Lanjutkan permainan sebelumnya?"
 
 #: ../data/ui/resume-dialog.ui.h:2
-msgid "Resume"
-msgstr "Lanjutkan"
-
-#: ../data/ui/resume-dialog.ui.h:3
 msgid "Restart"
 msgstr "Mulai ulang"
+
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Resume"
+msgstr "Lanjutkan"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Gagal melanjutkan. Apakah Anda ingin memulai ulang permainan?"
 
-#: ../data/ui/resume-failed-dialog.ui.h:2
+#: ../data/ui/resume-failed-dialog.ui.h:3
 msgid "Reset"
 msgstr "Atur Ulang"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#: ../plugins/desktop/src/desktop-plugin.vala:41
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Perintah tidak valid “%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#: ../plugins/desktop/src/desktop-plugin.vala:51
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Tracker berkas tercantum tidak ditemukan: \"%s\"."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#: ../plugins/desktop/src/desktop-plugin.vala:57
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Tak bisa mengurai entri destop \"%s\"."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:100
+#: ../plugins/desktop/src/desktop-plugin.vala:67
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "\"%s\" tidak boleh ditampilkan."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#: ../plugins/desktop/src/desktop-plugin.vala:70
 #, c-format
 msgid "“%s” is hidden."
 msgstr "\"%s\" tersembunyi."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-plugin.vala:79
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "\"%s\" memiliki kategori daftar hitam \"%s\"."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:121
+#: ../plugins/desktop/src/desktop-plugin.vala:88
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "\"%s\" memiliki daftar hitam yang dapat dieksekusi\"%s\"."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:128
+#: ../plugins/desktop/src/desktop-plugin.vala:95
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "\"%s\" di-daftar hitamkan."
@@ -312,28 +312,23 @@ msgstr "Berkas tidak memiliki header Master System."
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Berkas tidak memiliki header Genesis/Sega 32X/Sega CD/Sega Pico."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:139
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:62
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Berkas \"%s\" tidak memiliki trek."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:145
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:68
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Berkas \"%s\" tidak memiliki format berkas biner yang valid."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
+#: ../plugins/mega-drive/src/mega-drive-plugin.vala:148
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:71
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Berkas \"%s\" tidak memiliki mode trek yang valid untuk trek %d."
-
-#: ../plugins/playstation/src/playstation-game-factory.vala:65
-#, c-format
-msgid "Disc with disc_id %s is unknown"
-msgstr "Diska dengan disc_id %s tidak diketahui"
 
 #: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
@@ -344,7 +339,7 @@ msgstr "Header PlayStation tidak valid: ID diska tidak ditemukan di \"%s\"."
 msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Berkas tidak memiliki header Sega Saturn."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:75
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Berkas \"%s\" tidak memiliki berkas biner Sega Saturn yang valid."
@@ -438,20 +433,20 @@ msgstr "Tidak ada set ID diska yang ditemukan untuk ID diska \"%s\"."
 msgid "No disc found for disc ID “%s”."
 msgstr "Tidak ada diska yang ditemukan untuk ID diska \"%s\"."
 
-#: ../src/gamepad/gamepad-mapping.vala:12
+#: ../src/gamepad/gamepad-mapping.c:311
 msgid "The mapping string can’t be null."
 msgstr "String pemetaan tidak boleh null."
 
-#: ../src/gamepad/gamepad-mapping.vala:15
+#: ../src/gamepad/gamepad-mapping.c:320
 msgid "The mapping string can’t be empty."
 msgstr "String pemetaan tidak boleh kosong."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#: ../src/gamepad/linux/linux-raw-gamepad.c:340
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Tidak dapat membuka berkas “%s”: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#: ../src/gamepad/linux/linux-raw-gamepad.c:353
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev tidak dapat membuka “%s”: %s"
@@ -657,36 +652,41 @@ msgstr "WiiWare"
 
 #: ../src/retro/retro-runner.vala:218
 #, c-format
+msgid "No game file found for media “%s”."
+msgstr "Tidak ada judul permainan yang ditemukan untuk media \"%s\"."
+
+#: ../src/retro/retro-runner.vala:222
+#, c-format
 msgid "Invalid game file: “%s”."
 msgstr "Berkas permainan tidak valid: “%s”."
 
-#: ../src/retro/retro-runner.vala:263
+#: ../src/retro/retro-runner.vala:267
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Tidak ada modul yang ditemukan untuk \"%s\"."
 
-#: ../src/retro/retro-runner.vala:584
+#: ../src/retro/retro-runner.vala:592
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
 
-#: ../src/retro/retro-runner.vala:587
+#: ../src/retro/retro-runner.vala:595
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
 
-#: ../src/ui/application.vala:174
+#: ../src/ui/application.vala:261
 msgid "GNOME Games"
 msgstr "Permainan GNOME"
 
-#: ../src/ui/application.vala:176
+#: ../src/ui/application.vala:263
 msgid "A video game player for GNOME"
 msgstr "Player permainan video untuk GNOME"
 
-#: ../src/ui/application.vala:180
+#: ../src/ui/application.vala:267
 msgid "Learn more about GNOME Games"
 msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 
-#: ../src/ui/application.vala:187
+#: ../src/ui/application.vala:274
 msgid "translator-credits"
 msgstr ""
 "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
@@ -709,17 +709,17 @@ msgstr "Ups! Tidak dapat menjalankan \"%s\""
 msgid "Oops! Unable to run the game"
 msgstr "Ups! Tidak dapat menjalankan permainan"
 
-#: ../src/ui/media-selector.vala:33
+#: ../src/ui/media-selector.vala:27
 #, c-format
 msgid "Media %d"
 msgstr "Media %d"
 
 #. same as video-filters in gschema
-#: ../src/ui/preferences-page-video.vala:29
+#: ../src/ui/preferences-page-video.vala:26
 msgid "Smooth"
 msgstr "Halus"
 
-#: ../src/ui/preferences-page-video.vala:29
+#: ../src/ui/preferences-page-video.vala:26
 msgid "Sharp"
 msgstr "Tajam"
 
@@ -775,6 +775,9 @@ msgstr "%s:%lu: Akhir baris tidak terduga, diharapkan token."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Token tidak terduga %s, diharapkan akhir baris."
+
+#~ msgid "Disc with disc_id %s is unknown"
+#~ msgstr "Diska dengan disc_id %s tidak diketahui"
 
 #~ msgid ""
 #~ "<b><span size=\"large\">Use the game's own window to play it</span></b>"
