@@ -15,9 +15,11 @@ struct _GamesRawGamepadInterface {
   GTypeInterface parent;
 
   const gchar *(*get_guid) (GamesRawGamepad *self);
+  const gchar *(*get_name) (GamesRawGamepad *self);
 };
 
 const gchar *games_raw_gamepad_get_guid (GamesRawGamepad *self);
+const gchar *games_raw_gamepad_get_name (GamesRawGamepad *self);
 
 G_END_DECLS
 

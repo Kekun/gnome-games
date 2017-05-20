@@ -9,5 +9,7 @@ private class Games.Gamepad : GLib.Object {
 	public signal void hat_event (Event event);
 	public signal void unplugged ();
 	public Gamepad (RawGamepad raw_gamepad);
+	public string guid { get; }
+	public string name { get; }
 	public void set_mapping (GamepadMapping? mapping);
 }

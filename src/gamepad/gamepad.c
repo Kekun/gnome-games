@@ -222,6 +222,18 @@ on_unplugged (GamesRawGamepad *sender,
 
 /* Public */
 
+const gchar *
+games_gamepad_get_guid (GamesGamepad *self)
+{
+  return games_raw_gamepad_get_guid (self->raw_gamepad);
+}
+
+const gchar *
+games_gamepad_get_name (GamesGamepad *self)
+{
+  return games_raw_gamepad_get_name (self->raw_gamepad);
+}
+
 void
 games_gamepad_set_mapping (GamesGamepad        *self,
                            GamesGamepadMapping *mapping)

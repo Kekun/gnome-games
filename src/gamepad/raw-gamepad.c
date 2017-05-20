@@ -39,6 +39,14 @@ games_raw_gamepad_get_guid (GamesRawGamepad *self)
   return GAMES_RAW_GAMEPAD_GET_IFACE (self)->get_guid (self);
 }
 
+const gchar *
+games_raw_gamepad_get_name (GamesRawGamepad *self)
+{
+  g_return_val_if_fail (self != NULL, NULL);
+
+  return GAMES_RAW_GAMEPAD_GET_IFACE (self)->get_name (self);
+}
+
 /* Type */
 
 static void

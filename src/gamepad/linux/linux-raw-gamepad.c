@@ -96,6 +96,16 @@ get_guid (GamesRawGamepad *base)
   return self->guid;
 }
 
+static const gchar *
+get_name (GamesRawGamepad *base)
+{
+  GamesLinuxRawGamepad *self;
+
+  self = GAMES_LINUX_RAW_GAMEPAD (base);
+
+  return libevdev_get_name (self->device);
+}
+
 static struct input_absinfo *_abs_info_dup (struct input_absinfo *self);
 
 static gdouble
@@ -384,6 +394,7 @@ static void
 games_raw_gamepad_interface_init (GamesRawGamepadInterface *interface)
 {
   interface->get_guid = get_guid;
+  interface->get_name = get_name;
 }
 
 static void
