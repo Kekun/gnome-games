@@ -6,6 +6,32 @@
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Games</property>
     <child>
+      <object class="GtkButton" id="add_game">
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <property name="use-underline">True</property>
+        <property name="action-name">app.add-game-files</property>
+        <style>
+          <class name="image-button"/>
+        </style>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="a11y-back">
+            <property name="accessible-name" translatable="yes">Add game files…</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="add_game_image">
+            <property name="visible">True</property>
+            <property name="icon-name">list-add-symbolic</property>
+            <property name="icon-size">1</property>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="pack-type">start</property>
+      </packing>
+    </child>
+    <child>
       <object class="GtkToggleButton" id="search">
         <property name="visible">True</property>
         <property name="valign">center</property>
