@@ -36,6 +36,10 @@ public class Games.Application : Gtk.Application {
 		SimpleAction quit_action = new SimpleAction ("quit", null);
 		quit_action.activate.connect (quit_application);
 		add_action (quit_action);
+
+		SimpleAction add_game_files_action = new SimpleAction ("add-game-files", null);
+		add_game_files_action.activate.connect (add_game_files);
+		add_action (add_game_files_action);
 	}
 
 	private void add_signal_handlers () {
@@ -105,6 +109,30 @@ public class Games.Application : Gtk.Application {
 		var data_dir = get_data_dir ();
 
 		return @"$data_dir/medias";
+	}
+
+	public void add_game_files () {
+		add_game_files_async.begin ();
+	}
+
+	public async void add_game_files_async () {
+		var chooser = new Gtk.FileChooserDialog (
+			_("Select game files"), window, Gtk.FileChooserAction.OPEN,
+			"_Cancel", Gtk.ResponseType.CANCEL,
+			"_Add", Gtk.ResponseType.ACCEPT);
+
+		chooser.select_multiple = true;
+
+		var filter = new Gtk.FileFilter ();
+		chooser.set_filter (filter);
+		foreach (var mime_type in game_collection.get_accepted_mime_types ())
+			filter.add_mime_type (mime_type);
+
+		if (chooser.run () == Gtk.ResponseType.ACCEPT)
+			foreach (unowned string uri in chooser.get_uris ())
+				yield game_collection.add_uri (new Uri (uri));
+
+		chooser.close ();
 	}
 
 	protected override void open (File[] files, string hint) {
