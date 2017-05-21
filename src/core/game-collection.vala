@@ -43,6 +43,10 @@ public class Games.GameCollection : Object {
 		factory.game_added.connect ((game) => store_game (game));
 	}
 
+	public string[] get_accepted_mime_types () {
+		return factories_for_mime_type.get_keys_as_array ();
+	}
+
 	public async void add_uri (Uri uri) {
 		foreach (var factory in yield get_factories_for_uri (uri))
 			yield factory.add_uri (uri);
