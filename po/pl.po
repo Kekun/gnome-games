@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-07 09:45+0200\n"
-"PO-Revision-Date: 2017-05-07 09:47+0200\n"
+"POT-Creation-Date: 2017-05-21 21:07+0200\n"
+"PO-Revision-Date: 2017-05-21 21:08+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:21
+#: ../src/ui/application.vala:18
 msgid "Games"
 msgstr "Gry"
 
@@ -140,6 +140,10 @@ msgid "Loading"
 msgstr "Wczytywanie"
 
 #: ../data/ui/collection-header-bar.ui.h:2
+msgid "Add game files…"
+msgstr "Dodaj pliki gry…"
+
+#: ../data/ui/collection-header-bar.ui.h:3
 msgid "Search"
 msgstr "Wyszukaj"
 
@@ -438,20 +442,20 @@ msgstr "Nie odnaleziono identyfikatora zestawu płyt dla identyfikatora „%s”
 msgid "No disc found for disc ID “%s”."
 msgstr "Nie odnaleziono płyty dla identyfikatora „%s”."
 
-#: ../src/gamepad/gamepad-mapping.c:311
+#: ../src/gamepad/gamepad-mapping.c:237
 msgid "The mapping string can’t be null."
 msgstr "Ciąg mapowania nie może wynosić „null”."
 
-#: ../src/gamepad/gamepad-mapping.c:320
+#: ../src/gamepad/gamepad-mapping.c:246
 msgid "The mapping string can’t be empty."
 msgstr "Ciąg mapowania nie może być pusty."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:340
+#: ../src/gamepad/linux/linux-raw-gamepad.c:283
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Nie można otworzyć pliku „%s”: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:353
+#: ../src/gamepad/linux/linux-raw-gamepad.c:296
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
@@ -652,43 +656,47 @@ msgstr "Wii U"
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:218
+#: ../src/retro/retro-runner.vala:209
 #, c-format
 msgid "No game file found for media “%s”."
 msgstr "Nie odnaleziono pliku gry dla nośnika „%s”."
 
-#: ../src/retro/retro-runner.vala:222
+#: ../src/retro/retro-runner.vala:213
 #, c-format
 msgid "Invalid game file: “%s”."
 msgstr "Nieprawidłowy plik gry: „%s”."
 
-#: ../src/retro/retro-runner.vala:267
+#: ../src/retro/retro-runner.vala:260
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: ../src/retro/retro-runner.vala:592
+#: ../src/retro/retro-runner.vala:598
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/retro/retro-runner.vala:595
+#: ../src/retro/retro-runner.vala:601
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/ui/application.vala:261
+#: ../src/ui/application.vala:120
+msgid "Select game files"
+msgstr "Wybór plików gry"
+
+#: ../src/ui/application.vala:262
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:263
+#: ../src/ui/application.vala:264
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:267
+#: ../src/ui/application.vala:268
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:274
+#: ../src/ui/application.vala:275
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
@@ -778,3 +786,9 @@ msgstr "%s:%lu: nieoczekiwany koniec wiersza, oczekiwano tokena."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: nieoczekiwany token %s, oczekiwano końca wiersza."
+
+msgid "_Cancel"
+msgstr "_Anuluj"
+
+msgid "_Add"
+msgstr "_Dodaj"
