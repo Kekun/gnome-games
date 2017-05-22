@@ -3,7 +3,7 @@
 namespace Games.Grep {
 	public size_t[] get_offsets (string filename, string text) {
 		var working_dir = Environment.get_current_dir ();
-		string[] args = { "grep", "--byte-offset", "--only-matching", "--text", text, filename };
+		string[] args = { "grep", "--byte-offset", "--only-matching", "--text", text, "--", filename };
 		var env = Environ.@get ();
 
 		bool success = false;
