@@ -118,8 +118,8 @@ public class Games.Application : Gtk.Application {
 	public async void add_game_files_async () {
 		var chooser = new Gtk.FileChooserDialog (
 			_("Select game files"), window, Gtk.FileChooserAction.OPEN,
-			"_Cancel", Gtk.ResponseType.CANCEL,
-			"_Add", Gtk.ResponseType.ACCEPT);
+			_("_Cancel"), Gtk.ResponseType.CANCEL,
+			_("_Add"), Gtk.ResponseType.ACCEPT);
 
 		chooser.select_multiple = true;
 
