@@ -29,49 +29,47 @@ typedef enum
 
 struct _GamesEventAny {
   GamesEventType type;
-  gint8 send_event;
   guint32 time;
 };
 
 struct _GamesEventGamepad {
   GamesEventType type;
-  gint8 send_event;
   guint32 time;
   guint16 hardware_type;
   guint16 hardware_code;
   gint32 hardware_value;
+  guint8 hardware_index;
 };
 
 struct _GamesEventGamepadButton {
   GamesEventType type;
-  gint8 send_event;
   guint32 time;
   guint16 hardware_type;
   guint16 hardware_code;
   gint32 hardware_value;
-  guint8 index;
+  guint8 hardware_index;
+  guint16 button;
 };
 
 struct _GamesEventGamepadAxis {
   GamesEventType type;
-  gint8 send_event;
   guint32 time;
   guint16 hardware_type;
   guint16 hardware_code;
   gint32 hardware_value;
-  guint8 index;
+  guint8 hardware_index;
+  guint16 axis;
   gdouble value;
 };
 
 struct _GamesEventGamepadHat {
   GamesEventType type;
-  gint8 send_event;
   guint32 time;
   guint16 hardware_type;
   guint16 hardware_code;
   gint32 hardware_value;
-  guint8 index;
-  guint8 axis;
+  guint8 hardware_index;
+  guint16 axis;
   gint8 value;
 };
 

@@ -68,25 +68,21 @@ map_button_event (GamesGamepad            *self,
 
   mapped_event = games_event_copy ((GamesEvent *) games_event);
   games_gamepad_mapping_get_button_mapping (self->mapping,
-                                            games_event->index,
+                                            games_event->hardware_index,
                                             &destination);
 
   pressed = games_event->type == GAMES_EVENT_GAMEPAD_BUTTON_PRESS;
 
-  mapped_event->any.send_event = TRUE;
-  mapped_event->gamepad.hardware_type = destination.type;
-  mapped_event->gamepad.hardware_code = destination.code;
-
   switch (destination.type) {
   case EV_ABS:
     signal = SIGNAL_AXIS_EVENT;
-    mapped_event->gamepad_axis.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_axis.axis = destination.code;
     mapped_event->gamepad_axis.value = pressed ? 1 : 0;
 
     break;
   case EV_KEY:
     signal = pressed ? SIGNAL_BUTTON_PRESS_EVENT : SIGNAL_BUTTON_RELEASE_EVENT;
-    mapped_event->gamepad_button.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_button.button = destination.code;
 
     break;
   default:
@@ -110,23 +106,19 @@ map_axis_event (GamesGamepad          *self,
   gboolean pressed;
 
   mapped_event = games_event_copy ((GamesEvent *) games_event);
-  games_gamepad_mapping_get_axis_mapping (self->mapping, games_event->index, &destination);
+  games_gamepad_mapping_get_axis_mapping (self->mapping, games_event->hardware_index, &destination);
 
   pressed = games_event->value > 0.;
-
-  mapped_event->any.send_event = TRUE;
-  mapped_event->gamepad.hardware_type = destination.type;
-  mapped_event->gamepad.hardware_code = destination.code;
 
   switch (destination.type) {
   case EV_ABS:
     signal = SIGNAL_AXIS_EVENT;
-    mapped_event->gamepad_axis.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_axis.axis = destination.code;
 
     break;
   case EV_KEY:
     signal = pressed ? SIGNAL_BUTTON_PRESS_EVENT : SIGNAL_BUTTON_RELEASE_EVENT;
-    mapped_event->gamepad_button.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_button.button = destination.code;
 
     break;
   default:
@@ -151,27 +143,23 @@ map_hat_event (GamesGamepad         *self,
 
   mapped_event = games_event_copy ((GamesEvent *) games_event);
   games_gamepad_mapping_get_dpad_mapping (self->mapping,
-                                          games_event->index,
-                                          games_event->axis,
+                                          games_event->hardware_index / 2,
+                                          games_event->hardware_index % 2,
                                           games_event->value,
                                           &destination);
 
   pressed = abs (games_event->value);
 
-  mapped_event->any.send_event = TRUE;
-  mapped_event->gamepad.hardware_type = destination.type;
-  mapped_event->gamepad.hardware_code = destination.code;
-
   switch (destination.type) {
   case EV_ABS:
     signal = SIGNAL_AXIS_EVENT;
-    mapped_event->gamepad_axis.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_axis.axis = destination.code;
     mapped_event->gamepad_axis.value = abs (games_event->value);
 
     break;
   case EV_KEY:
     signal = pressed ? SIGNAL_BUTTON_PRESS_EVENT : SIGNAL_BUTTON_RELEASE_EVENT;
-    mapped_event->gamepad_button.index = 0; // FIXME How to set it properly?
+    mapped_event->gamepad_button.button = destination.code;
 
     break;
   default:

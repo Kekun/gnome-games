@@ -138,7 +138,6 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
   if (libevdev_next_event (self->device, (guint) LIBEVDEV_READ_FLAG_NORMAL, &event) != 0)
     return;
 
-  games_event.gamepad.send_event = FALSE;
   games_event.gamepad.time = event.time.tv_sec * 1000 + event.time.tv_usec / 1000;
   games_event.gamepad.hardware_type = event.type;
   games_event.gamepad.hardware_code = event.code;
@@ -149,7 +148,8 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
     games_event.type = event.value ?
       GAMES_EVENT_GAMEPAD_BUTTON_PRESS :
       GAMES_EVENT_GAMEPAD_BUTTON_RELEASE;
-    games_event.gamepad_button.index = self->key_map[event.code - BTN_MISC];
+      games_event.gamepad_button.hardware_index = self->key_map[event.code - BTN_MISC];
+      games_event.gamepad_button.button = event.code;
 
     break;
   case EV_ABS:
@@ -163,8 +163,8 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
     case ABS_HAT3X:
     case ABS_HAT3Y:
       games_event.type = GAMES_EVENT_GAMEPAD_HAT;
-      games_event.gamepad_hat.index = self->key_map[(event.code - ABS_HAT0X) / 2];
-      games_event.gamepad_hat.axis = (event.code - ABS_HAT0X) % 2;
+      games_event.gamepad_hat.hardware_index = self->key_map[(event.code - ABS_HAT0X) / 2] * 2 + (event.code - ABS_HAT0X) % 2;
+      games_event.gamepad_hat.axis = event.code;
       games_event.gamepad_hat.value = event.value;
 
       break;
@@ -173,7 +173,8 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
     case ABS_RX:
     case ABS_RY:
       games_event.type = GAMES_EVENT_GAMEPAD_AXIS;
-      games_event.gamepad_axis.index = event.code;
+      games_event.gamepad_axis.hardware_index = event.code;
+      games_event.gamepad_axis.axis = event.code;
       games_event.gamepad_axis.value =
         centered_axis_value (&self->abs_info[self->abs_map[event.code]],
                              event.value);

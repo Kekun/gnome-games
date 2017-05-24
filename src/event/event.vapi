@@ -19,7 +19,6 @@ public class Games.Event {
 [Compact]
 public class Games.EventAny : Games.Event {
 	public Games.EventType type;
-	public int8 send_event;
 	public uint32 time;
 }
 
@@ -27,7 +26,6 @@ public class Games.EventAny : Games.Event {
 [Compact]
 public class Games.EventGamepad : Games.Event {
 	public Games.EventType type;
-	public int8 send_event;
 	public uint32 time;
 	public uint16 hardware_type;
 	public uint16 hardware_code;
@@ -38,24 +36,24 @@ public class Games.EventGamepad : Games.Event {
 [Compact]
 public class Games.EventGamepadButton : Games.Event {
 	public Games.EventType type;
-	public int8 send_event;
 	public uint32 time;
 	public uint16 hardware_type;
 	public uint16 hardware_code;
 	public int32 hardware_value;
-	public uint8 index;
+	public uint8 hardware_index;
+	public uint16 button;
 }
 
 [CCode (cheader_filename = "event.h", copy_function = "g_boxed_copy", free_function = "g_boxed_free", type_id = "games_event_get_type ()")]
 [Compact]
 public class Games.EventGamepadAxis : Games.Event {
 	public Games.EventType type;
-	public int8 send_event;
 	public uint32 time;
 	public uint16 hardware_type;
 	public uint16 hardware_code;
 	public int32 hardware_value;
-	public uint8 index;
+	public uint8 hardware_index;
+	public uint16 axis;
 	public double value;
 }
 
@@ -63,13 +61,12 @@ public class Games.EventGamepadAxis : Games.Event {
 [Compact]
 public class Games.EventGamepadHat : Games.Event {
 	public Games.EventType type;
-	public int8 send_event;
 	public uint32 time;
 	public uint16 hardware_type;
 	public uint16 hardware_code;
 	public int32 hardware_value;
-	public uint8 index;
-	public uint8 axis;
+	public uint8 hardware_index;
+	public uint16 axis;
 	public int8 value;
 }
 
