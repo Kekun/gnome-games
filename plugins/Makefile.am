@@ -60,6 +60,10 @@ if ENABLE_MEGA_DRIVE_PLUGIN
 SUBDIRS += mega-drive
 endif
 
+if ENABLE_MS_DOS_PLUGIN
+SUBDIRS += ms-dos
+endif
+
 if ENABLE_NEO_GEO_POCKET_PLUGIN
 SUBDIRS += neo-geo-pocket
 endif

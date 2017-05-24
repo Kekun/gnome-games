@@ -31,6 +31,8 @@ namespace Games.RetroPlatform {
 		case "MAME":
 			/* translators: the "Multiple Arcade Machine Emulator" */
 			return _("MAME");
+		case "MSDOS":
+			return _("MS-DOS");
 		case "NeoGeoPocket":
 			return _("Neo Geo Pocket");
 		case "NintendoEntertainmentSystem":

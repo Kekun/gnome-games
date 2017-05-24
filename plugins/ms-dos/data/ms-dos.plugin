@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-ms-dos-plugin
+Name=MS-DOS Plugin
+Description=Provides support for MS-DOS games.
+Authors=Adrien Plazas <kekun.plazas@laposte.net>
+Copyright=Copyright © 2017 Adrien Plazas
