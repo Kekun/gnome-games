@@ -24,10 +24,6 @@ if ENABLE_MAME_PLUGIN
 SUBDIRS += mame
 endif
 
-if ENABLE_NEO_GEO_POCKET_PLUGIN
-SUBDIRS += neo-geo-pocket
-endif
-
 if ENABLE_NES_PLUGIN
 SUBDIRS += nes
 endif

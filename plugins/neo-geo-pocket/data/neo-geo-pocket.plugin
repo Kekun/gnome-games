@@ -1,6 +1,0 @@
-[Plugin]
-Module=libgames-neo-geo-pocket-plugin
-Name=Neo-Geo Pocket Plugin
-Description=Provides support for Neo-Geo Pocket games.
-Authors=Ricard Gascons <gascons1995@gmail.com>
-Copyright=Copyright © 2016 Ricard Gascons

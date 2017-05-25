@@ -14,6 +14,7 @@ namespace Games {
 		{ "application/x-genesis-32x-rom", true, "Sega32X", "mega-drive-32x" },
 		{ "application/x-genesis-rom", true, "SegaGenesis", "mega-drive" },
 		{ "application/x-ms-dos-executable", false, "MSDOS", "ms-dos" },
+		{ "application/x-neo-geo-pocket-rom", true, "NeoGeoPocket", "neo-geo-pocket" },
 		{ "application/x-sega-pico-rom", true, "SegaPico", "sega-pico" },
 		{ "application/x-sg1000-rom", true, "SG1000", "sg-1000" },
 		{ "application/x-sms-rom", true, "MasterSystem", "master-system" },
