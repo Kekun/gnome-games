@@ -18,6 +18,7 @@ namespace Games {
 		{ "application/x-n64-rom", true, "Nintendo64", "nintendo-64" },
 		{ "application/x-neo-geo-pocket-rom", true, "NeoGeoPocket", "neo-geo-pocket" },
 		{ "application/x-nes-rom", true, "NintendoEntertainmentSystem", "nes" },
+		{ "application/x-pc-engine-rom", true, "TurboGrafx16", "pc-engine" },
 		{ "application/x-sega-pico-rom", true, "SegaPico", "sega-pico" },
 		{ "application/x-sg1000-rom", true, "SG1000", "sg-1000" },
 		{ "application/x-sms-rom", true, "MasterSystem", "master-system" },
