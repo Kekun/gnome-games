@@ -2,5 +2,6 @@
 
 namespace Games {
 	private const RetroSimpleType[] RETRO_SIMPLE_TYPES = {
+		{ "application/x-amiga-disk-format", true, "Amiga", "amiga" },
 	};
 }

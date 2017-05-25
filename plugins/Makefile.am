@@ -1,9 +1,5 @@
 SUBDIRS =
 
-if ENABLE_AMIGA_PLUGIN
-SUBDIRS += amiga
-endif
-
 if ENABLE_ATARI_2600_PLUGIN
 SUBDIRS += atari-2600
 endif

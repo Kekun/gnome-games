@@ -1,6 +1,0 @@
-[Plugin]
-Module=libgames-amiga-plugin
-Name=Amiga Plugin
-Description=Provides support for Amiga games.
-Authors=Adrien Plazas <kekun.plazas@laposte.net>
-Copyright=Copyright © 2016 Adrien Plazas
