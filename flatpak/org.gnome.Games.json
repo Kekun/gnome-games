@@ -49,6 +49,7 @@
         "libretro-cores/libretro-dosbox.json",
         "libretro-cores/libretro-gambatte.json",
         "libretro-cores/libretro-mednafen_gba.json",
+        "libretro-cores/libretro-mednafen_lynx.json",
         "libretro-cores/libretro-mednafen_ngp.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
         "libretro-cores/libretro-mednafen_wswan.json",

@@ -1,0 +1,18 @@
+[Libretro]
+Type=Emulator
+Version=1.0
+Name=Beetle Handy
+Module=mednafen_lynx_libretro.so
+LibretroVersion=1
+Authors=K. Wilkins;Mednafen Team;
+License=GPL-2.0+;
+
+[Platform:AtariLynx]
+MimeType=application/x-atari-lynx-rom;
+Firmwares=AtariLynx;
+
+[Firmware:AtariLynx]
+Path=lynxboot.img
+MD5=fcd403db69f54290b51035d82f835e7b
+SHA-512=d7d0f9379dcefc253127357fbf7fafce9c630878f3ff987b19692fdbafb6419490c8320f192f6eb0933f68add413537cee7cc31e9c01c9ab8c478bc1167f1575
+Mandatory=true
