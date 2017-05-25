@@ -40,10 +40,6 @@ if ENABLE_SEGA_SATURN_PLUGIN
 SUBDIRS += sega-saturn
 endif
 
-if ENABLE_SNES_PLUGIN
-SUBDIRS += snes
-endif
-
 if ENABLE_STEAM_PLUGIN
 SUBDIRS += steam
 endif
