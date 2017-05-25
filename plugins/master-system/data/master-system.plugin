@@ -1,6 +1,0 @@
-[Plugin]
-Module=libgames-master-system-plugin
-Name=Master System Plugin
-Description=Provides support for Master System/Game Gear games.
-Authors=Adrien Plazas <kekun.plazas@laposte.net>
-Copyright=Copyright © 2016 Adrien Plazas

@@ -24,10 +24,6 @@ if ENABLE_MAME_PLUGIN
 SUBDIRS += mame
 endif
 
-if ENABLE_MASTER_SYSTEM_PLUGIN
-SUBDIRS += master-system
-endif
-
 if ENABLE_MEGA_DRIVE_PLUGIN
 SUBDIRS += mega-drive
 endif
