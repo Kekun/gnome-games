@@ -46,6 +46,7 @@
            change more rarely than the rest of the modules. */
         "libretro-cores/libretro-bsnes.json",
         "libretro-cores/libretro-desmume.json",
+        "libretro-cores/libretro-dosbox.json",
         "libretro-cores/libretro-gambatte.json",
         "libretro-cores/libretro-mednafen_gba.json",
         "libretro-cores/libretro-mednafen_ngp.json",

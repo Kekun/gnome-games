@@ -1,0 +1,11 @@
+[Libretro]
+Type=Emulator
+Version=1.0
+Name=DOSBox
+Module=dosbox_libretro.so
+LibretroVersion=1
+Authors=DOSBox Team;
+License=GPL-2.0+;
+
+[Platform:MSDOS]
+MimeType=application/x-ms-dos-executable;

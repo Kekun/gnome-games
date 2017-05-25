@@ -1,0 +1,29 @@
+        {
+            "name": "libretro-dosbox",
+            "no-autogen": true,
+            "make-args": [
+                "--makefile=Makefile.libretro",
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "make-install-args": [
+                "--makefile=Makefile.libretro",
+                "prefix=/app",
+                "core_installdir=/app/lib/libretro"
+            ],
+            "post-install": [
+                /* TODO: Send that upstream */
+                "mkdir -p /app/lib/libretro/",
+                "install -m644 -p dosbox.libretro /app/lib/libretro/"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/dosbox-libretro.git"
+                },
+                {
+                    "type": "file",
+                    "path": "libretro-cores/dosbox.libretro"
+                }
+            ]
+        }
