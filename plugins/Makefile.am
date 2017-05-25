@@ -1,9 +1,5 @@
 SUBDIRS =
 
-if ENABLE_ATARI_LYNX_PLUGIN
-SUBDIRS += atari-lynx
-endif
-
 if ENABLE_DESKTOP_PLUGIN
 SUBDIRS += desktop
 endif
