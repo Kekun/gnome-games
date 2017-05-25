@@ -23,5 +23,6 @@ namespace Games {
 		{ "application/x-sega-pico-rom", true, "SegaPico", "sega-pico" },
 		{ "application/x-sg1000-rom", true, "SG1000", "sg-1000" },
 		{ "application/x-sms-rom", true, "MasterSystem", "master-system" },
+		{ "application/x-wii-wad", true, "WiiWare", "wii-ware" },
 	};
 }

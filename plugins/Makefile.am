@@ -52,10 +52,6 @@ if ENABLE_WII_PLUGIN
 SUBDIRS += wii
 endif
 
-if ENABLE_WII_WARE_PLUGIN
-SUBDIRS += wii-ware
-endif
-
 if ENABLE_WONDERSWAN_PLUGIN
 SUBDIRS += wonderswan
 endif
