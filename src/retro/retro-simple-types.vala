@@ -7,5 +7,7 @@ namespace Games {
 		{ "application/x-atari-7800-rom", true, "Atari7800", "atari-7800" },
 		{ "application/x-atari-lynx-rom", true, "AtariLynx", "atari-lynx" },
 		{ "application/x-doom-wad", true, "DOOM", "doom" },
+		{ "application/x-gameboy-color-rom", true, "GameBoyColor", "game-boy" }, // The prefix is the same as the Game Boy type for backward compatibility.
+		{ "application/x-gameboy-rom", true, "GameBoy", "game-boy" },
 	};
 }
