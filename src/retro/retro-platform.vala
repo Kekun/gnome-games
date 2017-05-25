@@ -11,6 +11,8 @@ namespace Games.RetroPlatform {
 			return _("Atari 5200");
 		case "Atari7800":
 			return _("Atari 7800");
+		case "AtariLynx":
+			return _("Atari Lynx");
 		case "DOOM":
 			return _("DOOM");
 		case "Dreamcast":
@@ -92,6 +94,10 @@ namespace Games.RetroPlatform {
 			return _("Wii U");
 		case "WiiWare":
 			return _("WiiWare");
+		case "WonderSwan":
+			return _("WonderSwan");
+		case "WonderSwanColor":
+			return _("WonderSwan Color");
 		default:
 			return null;
 		}
