@@ -24,10 +24,6 @@ if ENABLE_MAME_PLUGIN
 SUBDIRS += mame
 endif
 
-if ENABLE_MEGA_DRIVE_PLUGIN
-SUBDIRS += mega-drive
-endif
-
 if ENABLE_MS_DOS_PLUGIN
 SUBDIRS += ms-dos
 endif
@@ -54,6 +50,10 @@ endif
 
 if ENABLE_PLAYSTATION_PLUGIN
 SUBDIRS += playstation
+endif
+
+if ENABLE_SEGA_CD_PLUGIN
+SUBDIRS += sega-cd
 endif
 
 if ENABLE_SEGA_SATURN_PLUGIN

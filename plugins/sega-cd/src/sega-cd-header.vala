@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: https://en.wikibooks.org/wiki/Genesis_Programming
-private class Games.MegaDriveHeader : Object {
+private class Games.SegaCDHeader : Object {
 	public const size_t HEADER_LENGTH = 0x200;
 
 	private const size_t[] POSSIBLE_HEADER_OFFSETS = { 0x0, 0x10 };
@@ -13,29 +13,8 @@ private class Games.MegaDriveHeader : Object {
 	// let's just use the 15 first chars.
 	private const size_t SYSTEM_SIZE = 0xf;
 
-	private const size_t DOMESTIC_NAME_OFFSET = 0x120;
-	private const size_t NAME_SIZE = 0x30;
-
-	private string _domestic_name;
-	public string domestic_name {
-		get {
-			if (_domestic_name != null)
-				return _domestic_name;
-
-			var stream = new StringInputStream (file);
-			try {
-				_domestic_name = stream.read_string_for_size (DOMESTIC_NAME_OFFSET, NAME_SIZE);
-			}
-			catch (Error e) {
-				_domestic_name = "";
-			}
-
-			return _domestic_name;
-		}
-	}
-
-	private MegaDriveSystem? _system;
-	public MegaDriveSystem system {
+	private SegaCDSystem? _system;
+	public SegaCDSystem system {
 		get {
 			if (_system != null)
 				return _system;
@@ -46,7 +25,7 @@ private class Games.MegaDriveHeader : Object {
 			catch (Error e) {
 				debug (e.message);
 
-				_system = MegaDriveSystem.INVALID;
+				_system = SegaCDSystem.INVALID;
 			}
 
 			return _system;
@@ -56,13 +35,13 @@ private class Games.MegaDriveHeader : Object {
 	private File file;
 	private size_t? offset;
 
-	public MegaDriveHeader (File file) {
+	public SegaCDHeader (File file) {
 		this.file = file;
 	}
 
 	public void check_validity () throws Error {
-		if (system == MegaDriveSystem.INVALID)
-			throw new MegaDriveError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+		if (system == SegaCDSystem.INVALID)
+			throw new SegaCDError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
 	}
 
 	public size_t get_offset () throws Error {
@@ -81,14 +60,16 @@ private class Games.MegaDriveHeader : Object {
 			}
 		}
 
-			throw new MegaDriveError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+			throw new SegaCDError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
 	}
 
-	private MegaDriveSystem parse_system () throws Error {
+	private SegaCDSystem parse_system () throws Error {
 		var stream = new StringInputStream (file);
 
 		var offset = get_offset ();
-		var is_cd = stream.has_string (offset + CD_OFFSET, "SEGADISCSYSTEM");
+		if (!stream.has_string (offset + CD_OFFSET, "SEGADISCSYSTEM"))
+			return SegaCDSystem.INVALID;
+
 		var system_string = stream.read_string_for_size (offset + SYSTEM_OFFSET, SYSTEM_SIZE);
 		system_string = system_string.chomp ();
 
@@ -96,44 +77,36 @@ private class Games.MegaDriveHeader : Object {
 		case "SEGA MEGA DRIVE":
 		case "SEGA GENESIS":
 		case " SEGA MEGA DRIV":
-		case "SEGA_MEGA_DRIVE":
+		case "SEGA_SEGA_CD":
 		case "SEGA are Regist":
-			return is_cd ? MegaDriveSystem.MEGA_CD : MegaDriveSystem.MEGA_DRIVE;
+			return SegaCDSystem.SEGA_CD;
 		case "SEGA 32X":
-			return is_cd ? MegaDriveSystem.MEGA_CD_32X : MegaDriveSystem.32X;
-		case "SEGA PICO":
-			return is_cd ? MegaDriveSystem.INVALID : MegaDriveSystem.PICO;
+			return SegaCDSystem.SEGA_CD_32X;
 		default:
-			return MegaDriveSystem.INVALID;
+			return SegaCDSystem.INVALID;
 		}
 	}
 
-	public bool is_mega_drive () {
+	public bool is_sega_cd () {
 		switch (system) {
-		case MegaDriveSystem.MEGA_DRIVE:
-		case MegaDriveSystem.MEGA_CD:
+		case SegaCDSystem.SEGA_CD:
 			return true;
 		default:
 			return false;
 		}
 	}
 
-	public bool is_32x () {
+	public bool is_sega_cd_32x () {
 		switch (system) {
-		case MegaDriveSystem.32X:
-		case MegaDriveSystem.MEGA_CD_32X:
+		case SegaCDSystem.SEGA_CD_32X:
 			return true;
 		default:
 			return false;
 		}
-	}
-
-	public bool is_pico () {
-		return system == MegaDriveSystem.PICO;
 	}
 }
 
-errordomain Games.MegaDriveError {
+errordomain Games.SegaCDError {
 	INVALID_HEADER,
 	INVALID_CUE_SHEET,
 	INVALID_FILE_TYPE,
