@@ -1,6 +1,0 @@
-[Plugin]
-Module=libgames-doom-plugin
-Name=Doom Plugin
-Description=Provides support for Id Tech/Doom engine games.
-Authors=Adrien Plazas <kekun.plazas@laposte.net>
-Copyright=Copyright © 2016 Adrien Plazas

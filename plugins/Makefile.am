@@ -4,10 +4,6 @@ if ENABLE_DESKTOP_PLUGIN
 SUBDIRS += desktop
 endif
 
-if ENABLE_DOOM_PLUGIN
-SUBDIRS += doom
-endif
-
 if ENABLE_DREAMCAST_PLUGIN
 SUBDIRS += dreamcast
 endif

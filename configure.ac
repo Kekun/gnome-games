@@ -23,7 +23,6 @@ LT_INIT
 
 # Plugins
 m4_include([plugins/desktop/configure.ac])
-m4_include([plugins/doom/configure.ac])
 m4_include([plugins/dreamcast/configure.ac])
 m4_include([plugins/nes/configure.ac])
 m4_include([plugins/game-boy/configure.ac])
