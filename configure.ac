@@ -49,6 +49,7 @@ m4_include([plugins/snes/configure.ac])
 m4_include([plugins/steam/configure.ac])
 m4_include([plugins/wii/configure.ac])
 m4_include([plugins/wii-ware/configure.ac])
+m4_include([plugins/wonderswan/configure.ac])
 
 PKG_CHECK_MODULES(GNOME_GAMES, [
 	gio-2.0
