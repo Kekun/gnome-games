@@ -8,10 +8,6 @@ if ENABLE_DREAMCAST_PLUGIN
 SUBDIRS += dreamcast
 endif
 
-if ENABLE_GAME_BOY_ADVANCE_PLUGIN
-SUBDIRS += game-boy-advance
-endif
-
 if ENABLE_GAME_CUBE_PLUGIN
 SUBDIRS += game-cube
 endif

@@ -1,6 +1,0 @@
-[Plugin]
-Module=libgames-game-boy-advance-plugin
-Name=Game Boy Advance Plugin
-Description=Provides support for Game Boy Advance games.
-Authors=Adrien Plazas <kekun.plazas@laposte.net>
-Copyright=Copyright © 2016 Adrien Plazas

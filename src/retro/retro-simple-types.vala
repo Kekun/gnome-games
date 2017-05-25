@@ -9,5 +9,6 @@ namespace Games {
 		{ "application/x-doom-wad", true, "DOOM", "doom" },
 		{ "application/x-gameboy-color-rom", true, "GameBoyColor", "game-boy" }, // The prefix is the same as the Game Boy type for backward compatibility.
 		{ "application/x-gameboy-rom", true, "GameBoy", "game-boy" },
+		{ "application/x-gba-rom", true, "GameBoyAdvance", "game-boy-advance" },
 	};
 }
