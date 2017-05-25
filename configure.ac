@@ -22,7 +22,6 @@ AC_SUBST(GLIB_MIN_VERSION)
 LT_INIT
 
 # Plugins
-m4_include([plugins/atari-7800/configure.ac])
 m4_include([plugins/atari-lynx/configure.ac])
 m4_include([plugins/desktop/configure.ac])
 m4_include([plugins/doom/configure.ac])

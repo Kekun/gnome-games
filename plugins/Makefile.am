@@ -1,9 +1,5 @@
 SUBDIRS =
 
-if ENABLE_ATARI_7800_PLUGIN
-SUBDIRS += atari-7800
-endif
-
 if ENABLE_ATARI_LYNX_PLUGIN
 SUBDIRS += atari-lynx
 endif

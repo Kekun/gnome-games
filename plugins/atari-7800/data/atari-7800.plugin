@@ -1,6 +1,0 @@
-[Plugin]
-Module=libgames-atari-7800-plugin
-Name=Atari 7800 Plugin
-Description=Provides support for Atari 7800 games.
-Authors=Ricard Gascons <gascons1995@gmail.com>
-Copyright=Copyright © 2016 Ricard Gascons
