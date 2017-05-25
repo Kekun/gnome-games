@@ -24,10 +24,6 @@ if ENABLE_MAME_PLUGIN
 SUBDIRS += mame
 endif
 
-if ENABLE_NES_PLUGIN
-SUBDIRS += nes
-endif
-
 if ENABLE_NINTENDO_DS_PLUGIN
 SUBDIRS += nintendo-ds
 endif
