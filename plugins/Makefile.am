@@ -28,10 +28,6 @@ if ENABLE_NINTENDO_DS_PLUGIN
 SUBDIRS += nintendo-ds
 endif
 
-if ENABLE_PC_ENGINE_PLUGIN
-SUBDIRS += pc-engine
-endif
-
 if ENABLE_PLAYSTATION_PLUGIN
 SUBDIRS += playstation
 endif
@@ -50,6 +46,10 @@ endif
 
 if ENABLE_STEAM_PLUGIN
 SUBDIRS += steam
+endif
+
+if ENABLE_TURBOGRAFX_CD_PLUGIN
+SUBDIRS += turbografx-cd
 endif
 
 if ENABLE_WII_PLUGIN

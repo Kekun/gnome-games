@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.PcEnginePlugin : Object, Plugin {
+private class Games.TurboGrafxCDPlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "pc-engine";
 	private const string MIME_TYPE = "application/x-pc-engine-rom";
 	private const string CUE_MIME_TYPE = "application/x-cue";
@@ -21,7 +21,7 @@ private class Games.PcEnginePlugin : Object, Plugin {
 
 	private static Game game_for_uri (Uri uri) throws Error {
 		if (!is_valid_disc (uri))
-			throw new PcEngineError.INVALID_DISC ("“%s” isn’t a valid PC-Engine CD-ROM² disc.", uri.to_string ());
+			throw new TurboGrafxCDError.INVALID_DISC ("“%s” isn’t a valid TurboGrafx-CD disc.", uri.to_string ());
 
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
@@ -69,5 +69,5 @@ private class Games.PcEnginePlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.PcEnginePlugin);
+	return typeof (Games.TurboGrafxCDPlugin);
 }
