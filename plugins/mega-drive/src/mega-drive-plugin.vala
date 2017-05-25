@@ -1,17 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.MegaDrivePlugin : Object, Plugin {
-	private const string MEGA_DRIVE_PREFIX = "mega-drive";
-	private const string MEGA_DRIVE_MIME_TYPE = "application/x-genesis-rom";
-	private const string MEGA_DRIVE_PLATFORM = "SegaGenesis";
-
-	private const string 32X_PREFIX = "mega-drive-32x";
 	private const string 32X_MIME_TYPE = "application/x-genesis-32x-rom";
-	private const string 32X_PLATFORM = "Sega32X";
-
-	private const string PICO_PREFIX = "sega-pico";
-	private const string PICO_MIME_TYPE = "application/x-sega-pico-rom";
-	private const string PICO_PLATFORM = "SegaPico";
 
 	private const string MEGA_CD_PREFIX = "mega-cd";
 	private const string CUE_MIME_TYPE = "application/x-cue";
@@ -21,9 +11,6 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 
 	public string[] get_mime_types () {
 		return {
-			MEGA_DRIVE_MIME_TYPE,
-			32X_MIME_TYPE,
-			PICO_MIME_TYPE,
 			CUE_MIME_TYPE,
 			MEGA_CD_MIME_TYPE,
 		};
@@ -32,58 +19,13 @@ private class Games.MegaDrivePlugin : Object, Plugin {
 	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		factory.add_mime_type (MEGA_DRIVE_MIME_TYPE);
-		factory.add_mime_type (32X_MIME_TYPE);
-		factory.add_mime_type (PICO_MIME_TYPE);
+		factory.add_mime_type (CUE_MIME_TYPE);
+		factory.add_mime_type (MEGA_CD_MIME_TYPE);
 
-		var cd_game_uri_adapter = new GenericGameUriAdapter (cd_game_for_uri);
-		var mega_cd_factory = new GenericUriGameFactory (cd_game_uri_adapter);
-		mega_cd_factory.add_mime_type (CUE_MIME_TYPE);
-		mega_cd_factory.add_mime_type (MEGA_CD_MIME_TYPE);
-
-		return { factory, mega_cd_factory };
+		return { factory };
 	}
 
 	private static Game game_for_uri (Uri uri) throws Error {
-		var file = uri.to_file ();
-		var header = new MegaDriveHeader (file);
-		header.check_validity ();
-
-		string prefix;
-		string mime_type;
-		string platform;
-		if (header.is_mega_drive ()) {
-			prefix = MEGA_DRIVE_PREFIX;
-			mime_type = MEGA_DRIVE_MIME_TYPE;
-			platform = MEGA_DRIVE_PLATFORM;
-		}
-		else if (header.is_32x ()) {
-			prefix = 32X_PREFIX;
-			mime_type = 32X_MIME_TYPE;
-			platform = 32X_PLATFORM;
-		}
-		else if (header.is_pico ()) {
-			prefix = PICO_PREFIX;
-			mime_type = PICO_MIME_TYPE;
-			platform = PICO_PLATFORM;
-		}
-		else
-			assert_not_reached ();
-
-		var uid = new FingerprintUid (uri, prefix);
-		var title = new FilenameTitle (uri);
-		var icon = new DummyIcon ();
-		var media = new GriloMedia (title, mime_type);
-		var cover = new CompositeCover ({
-			new LocalCover (uri),
-			new GriloCover (media, uid)});
-		var core_source = new RetroCoreSource (platform, { mime_type });
-		var runner = new RetroRunner (core_source, uri, uid, title);
-
-		return new GenericGame (title, icon, cover, runner);
-	}
-
-	private static Game cd_game_for_uri (Uri uri) throws Error {
 		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
 		var mime_type = file_info.get_content_type ();

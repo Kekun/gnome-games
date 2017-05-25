@@ -11,6 +11,9 @@ namespace Games {
 		{ "application/x-gameboy-rom", true, "GameBoy", "game-boy" },
 		{ "application/x-gamegear-rom", true, "GameGear", "game-gear" },
 		{ "application/x-gba-rom", true, "GameBoyAdvance", "game-boy-advance" },
+		{ "application/x-genesis-32x-rom", true, "Sega32X", "mega-drive-32x" },
+		{ "application/x-genesis-rom", true, "SegaGenesis", "mega-drive" },
+		{ "application/x-sega-pico-rom", true, "SegaPico", "sega-pico" },
 		{ "application/x-sg1000-rom", true, "SG1000", "sg-1000" },
 		{ "application/x-sms-rom", true, "MasterSystem", "master-system" },
 	};
