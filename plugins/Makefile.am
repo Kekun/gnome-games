@@ -52,8 +52,4 @@ if ENABLE_WII_PLUGIN
 SUBDIRS += wii
 endif
 
-if ENABLE_WONDERSWAN_PLUGIN
-SUBDIRS += wonderswan
-endif
-
 -include $(top_srcdir)/git.mk

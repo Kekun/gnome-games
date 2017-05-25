@@ -35,7 +35,6 @@ m4_include([plugins/sega-saturn/configure.ac])
 m4_include([plugins/steam/configure.ac])
 m4_include([plugins/turbografx-cd/configure.ac])
 m4_include([plugins/wii/configure.ac])
-m4_include([plugins/wonderswan/configure.ac])
 
 PKG_CHECK_MODULES(GNOME_GAMES, [
 	gio-2.0

@@ -24,5 +24,7 @@ namespace Games {
 		{ "application/x-sg1000-rom", true, "SG1000", "sg-1000" },
 		{ "application/x-sms-rom", true, "MasterSystem", "master-system" },
 		{ "application/x-wii-wad", true, "WiiWare", "wii-ware" },
+		{ "application/x-wonderswan-rom", true, "WonderSwan", "wonderswan" },
+		{ "application/x-wonderswan-color-rom", true, "WonderSwanColor", "wonderswan-color" },
 	};
 }
