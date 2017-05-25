@@ -203,6 +203,24 @@ public class Games.Application : Gtk.Application {
 
 		var mime_types = new GenericSet<string> (str_hash, str_equal);
 
+		/* Register simple Libretro-based game types */
+		foreach (var simple_type in RETRO_SIMPLE_TYPES) {
+			assert (!mime_types.contains (simple_type.mime_type));
+
+			if (simple_type.search_mime_type && tracker_uri_source != null) {
+				mime_types.add (simple_type.mime_type);
+				var query = new MimeTypeTrackerUriQuery (simple_type.mime_type);
+				tracker_uri_source.add_query (query);
+			}
+
+			var game_uri_adapter = new RetroSimpleGameUriAdapter (simple_type);
+			var factory = new GenericUriGameFactory (game_uri_adapter);
+			factory.add_mime_type (simple_type.mime_type);
+
+			game_collection.add_factory (factory);
+		}
+
+		/* Register game types from the plugins */
 		var register = PluginRegister.get_register ();
 		foreach (var plugin_registrar in register) {
 			try {
