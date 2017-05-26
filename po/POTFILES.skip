@@ -5,12 +5,11 @@ plugins/dreamcast/src/dreamcast-header.c
 plugins/game-cube/src/game-cube-header.c
 plugins/love/src/love-package.c
 plugins/mame/src/mame-game-uri-adapter.c
-plugins/master-system/src/master-system-header.c
-plugins/mega-drive/src/mega-drive-header.c
-plugins/mega-drive/src/mega-drive-plugin.c
 plugins/playstation/data/playstation.gameinfo.xml.in
 plugins/playstation/src/playstation-game-factory.c
 plugins/playstation/src/playstation-header.c
+plugins/sega-cd/src/sega-cd-header.c
+plugins/sega-cd/src/sega-cd-plugin.c
 plugins/sega-saturn/src/sega-saturn-header.c
 plugins/sega-saturn/src/sega-saturn-plugin.c
 plugins/steam/src/steam-plugin.c

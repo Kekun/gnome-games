@@ -22,11 +22,10 @@ plugins/dreamcast/src/dreamcast-header.vala
 plugins/game-cube/src/game-cube-header.vala
 plugins/love/src/love-package.vala
 plugins/mame/src/mame-game-uri-adapter.vala
-plugins/master-system/src/master-system-header.vala
-plugins/mega-drive/src/mega-drive-header.vala
-plugins/mega-drive/src/mega-drive-plugin.vala
 plugins/playstation/src/playstation-game-factory.vala
 plugins/playstation/src/playstation-header.vala
+plugins/sega-cd/src/sega-cd-header.vala
+plugins/sega-cd/src/sega-cd-plugin.vala
 plugins/sega-saturn/src/sega-saturn-header.vala
 plugins/sega-saturn/src/sega-saturn-plugin.vala
 plugins/steam/src/steam-plugin.vala
