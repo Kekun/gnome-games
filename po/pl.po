@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-21 21:07+0200\n"
-"PO-Revision-Date: 2017-05-21 21:08+0200\n"
+"POT-Creation-Date: 2017-05-28 17:14+0200\n"
+"PO-Revision-Date: 2017-05-28 17:15+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -310,39 +310,35 @@ msgstr "To nie jest prawidłowy pakiet LÖVE: „%s”."
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
 
-#: ../plugins/master-system/src/master-system-header.vala:69
-msgid "The file doesn’t have a Master System header."
-msgstr "Plik nie ma nagłówka konsoli Master System."
-
-#: ../plugins/mega-drive/src/mega-drive-header.vala:65
-#: ../plugins/mega-drive/src/mega-drive-header.vala:84
-msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-msgstr "Plik nie ma nagłówka konsoli Genesis/Sega 32X/Sega CD/Sega Pico."
-
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:139
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:62
-#, c-format
-msgid "The file “%s” doesn’t have a track."
-msgstr "Plik „%s” nie ma ścieżki."
-
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:145
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:68
-#, c-format
-msgid "The file “%s” doesn’t have a valid binary file format."
-msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
-
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:148
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:71
-#, c-format
-msgid "The file “%s” doesn’t have a valid track mode for track %d."
-msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
-
 #: ../plugins/playstation/src/playstation-header.vala:49
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
 "Nieprawidłowy nagłówek konsoli PlayStation: nie odnaleziono identyfikatora "
 "płyty w „%s”."
+
+#: ../plugins/sega-cd/src/sega-cd-header.vala:44
+#: ../plugins/sega-cd/src/sega-cd-header.vala:63
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "Plik nie ma nagłówka konsoli Genesis/Sega 32X/Sega CD/Sega Pico."
+
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:78
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:62
+#, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr "Plik „%s” nie ma ścieżki."
+
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:84
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:68
+#, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
+
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:87
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:71
+#, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn’t have a Sega Saturn header."
@@ -442,20 +438,20 @@ msgstr "Nie odnaleziono identyfikatora zestawu płyt dla identyfikatora „%s”
 msgid "No disc found for disc ID “%s”."
 msgstr "Nie odnaleziono płyty dla identyfikatora „%s”."
 
-#: ../src/gamepad/gamepad-mapping.c:237
+#: ../src/gamepad/gamepad-mapping.c:236
 msgid "The mapping string can’t be null."
 msgstr "Ciąg mapowania nie może wynosić „null”."
 
-#: ../src/gamepad/gamepad-mapping.c:246
+#: ../src/gamepad/gamepad-mapping.c:245
 msgid "The mapping string can’t be empty."
 msgstr "Ciąg mapowania nie może być pusty."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:283
+#: ../src/gamepad/linux/linux-raw-gamepad.c:284
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Nie można otworzyć pliku „%s”: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:296
+#: ../src/gamepad/linux/linux-raw-gamepad.c:297
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
@@ -510,151 +506,167 @@ msgid "Atari 7800"
 msgstr "Atari 7800"
 
 #: ../src/retro/retro-platform.vala:15
+msgid "Atari Lynx"
+msgstr "Atari Lynx"
+
+#: ../src/retro/retro-platform.vala:17
 msgid "DOOM"
 msgstr "DOOM"
 
-#: ../src/retro/retro-platform.vala:17
+#: ../src/retro/retro-platform.vala:19
 msgid "Dreamcast"
 msgstr "Dreamcast"
 
 #. translators: only released in eastern Asia
-#: ../src/retro/retro-platform.vala:20
+#: ../src/retro/retro-platform.vala:22
 msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
-#: ../src/retro/retro-platform.vala:22
+#: ../src/retro/retro-platform.vala:24
 msgid "Game Boy"
 msgstr "Game Boy"
 
-#: ../src/retro/retro-platform.vala:24
+#: ../src/retro/retro-platform.vala:26
 msgid "Game Boy Color"
 msgstr "Game Boy Color"
 
-#: ../src/retro/retro-platform.vala:26
+#: ../src/retro/retro-platform.vala:28
 msgid "Game Boy Advance"
 msgstr "Game Boy Advance"
 
-#: ../src/retro/retro-platform.vala:28
+#: ../src/retro/retro-platform.vala:30
 msgid "Nintendo GameCube"
 msgstr "Nintendo GameCube"
 
-#: ../src/retro/retro-platform.vala:30
+#: ../src/retro/retro-platform.vala:32
 msgid "Game Gear"
 msgstr "Game Gear"
 
 #. translators: the "Multiple Arcade Machine Emulator"
-#: ../src/retro/retro-platform.vala:33
+#: ../src/retro/retro-platform.vala:35
 msgid "MAME"
 msgstr "MAME"
 
-#: ../src/retro/retro-platform.vala:35
+#: ../src/retro/retro-platform.vala:37
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: ../src/retro/retro-platform.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
 #. translators: known as "Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:38
+#: ../src/retro/retro-platform.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "NES"
 
-#: ../src/retro/retro-platform.vala:40
+#: ../src/retro/retro-platform.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: ../src/retro/retro-platform.vala:42
+#: ../src/retro/retro-platform.vala:46
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: ../src/retro/retro-platform.vala:44
+#: ../src/retro/retro-platform.vala:48
 msgid "Nintendo 3DS"
 msgstr "Nintendo 3DS"
 
-#: ../src/retro/retro-platform.vala:46
+#: ../src/retro/retro-platform.vala:50
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: ../src/retro/retro-platform.vala:48
+#: ../src/retro/retro-platform.vala:52
 msgid "PlayStation 2"
 msgstr "PlayStation 2"
 
-#: ../src/retro/retro-platform.vala:50
+#: ../src/retro/retro-platform.vala:54
 msgid "PlayStation 3"
 msgstr "PlayStation 3"
 
-#: ../src/retro/retro-platform.vala:52
+#: ../src/retro/retro-platform.vala:56
 msgid "PlayStation 4"
 msgstr "PlayStation 4"
 
-#: ../src/retro/retro-platform.vala:54
+#: ../src/retro/retro-platform.vala:58
 msgid "PlayStation Portable"
 msgstr "PSP"
 
-#: ../src/retro/retro-platform.vala:56
+#: ../src/retro/retro-platform.vala:60
 msgid "PlayStation Vita"
 msgstr "PlayStation Vita"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: ../src/retro/retro-platform.vala:59
+#: ../src/retro/retro-platform.vala:63
 msgid "Genesis 32X"
 msgstr "Mega Drive 32X"
 
 #. translators: known as "Mega-CD" in most of the world
-#: ../src/retro/retro-platform.vala:62
+#: ../src/retro/retro-platform.vala:66
 msgid "Sega CD"
 msgstr "Mega-CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: ../src/retro/retro-platform.vala:65
+#: ../src/retro/retro-platform.vala:69
 msgid "Sega CD 32X"
 msgstr "Mega-CD 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: ../src/retro/retro-platform.vala:68
+#: ../src/retro/retro-platform.vala:72
 msgid "Sega Genesis"
 msgstr "Mega Drive"
 
 #. translators: also known as "Sega Mark III" in eastern asia
-#: ../src/retro/retro-platform.vala:71
+#: ../src/retro/retro-platform.vala:75
 msgid "Sega Master System"
 msgstr "Sega Master System"
 
-#: ../src/retro/retro-platform.vala:73
+#: ../src/retro/retro-platform.vala:77
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: ../src/retro/retro-platform.vala:75
+#: ../src/retro/retro-platform.vala:79
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: ../src/retro/retro-platform.vala:77
+#: ../src/retro/retro-platform.vala:81
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:80
+#: ../src/retro/retro-platform.vala:84
 msgid "Super Nintendo Entertainment System"
 msgstr "SNES"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:83
+#: ../src/retro/retro-platform.vala:87
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:86
+#: ../src/retro/retro-platform.vala:90
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
-#: ../src/retro/retro-platform.vala:88
+#: ../src/retro/retro-platform.vala:92
 msgid "Wii"
 msgstr "Wii"
 
-#: ../src/retro/retro-platform.vala:90
+#: ../src/retro/retro-platform.vala:94
 msgid "Wii U"
 msgstr "Wii U"
 
-#: ../src/retro/retro-platform.vala:92
+#: ../src/retro/retro-platform.vala:96
 msgid "WiiWare"
 msgstr "WiiWare"
+
+#: ../src/retro/retro-platform.vala:98
+msgid "WonderSwan"
+msgstr "WonderSwan"
+
+#: ../src/retro/retro-platform.vala:100
+msgid "WonderSwan Color"
+msgstr "WonderSwan Color"
 
 #: ../src/retro/retro-runner.vala:209
 #, c-format
@@ -684,19 +696,27 @@ msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: ../src/ui/application.vala:262
+#: ../src/ui/application.vala:121
+msgid "_Cancel"
+msgstr "_Anuluj"
+
+#: ../src/ui/application.vala:122
+msgid "_Add"
+msgstr "_Dodaj"
+
+#: ../src/ui/application.vala:280
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:264
+#: ../src/ui/application.vala:282
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:268
+#: ../src/ui/application.vala:286
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:275
+#: ../src/ui/application.vala:293
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
@@ -786,9 +806,3 @@ msgstr "%s:%lu: nieoczekiwany koniec wiersza, oczekiwano tokena."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: nieoczekiwany token %s, oczekiwano końca wiersza."
-
-msgid "_Cancel"
-msgstr "_Anuluj"
-
-msgid "_Add"
-msgstr "_Dodaj"
