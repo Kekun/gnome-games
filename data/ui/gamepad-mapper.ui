@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GamesGamepadMapper" parent="GtkBox">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GamesGamepadView" id="gamepad_view">
+        <property name="visible">True</property>
+        <property name="halign">fill</property>
+        <property name="valign">fill</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkActionBar" id="action_bar">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkButton" id="skip_button">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Skip</property>
+            <signal name="clicked" handler="on_skip_clicked"/>
+          </object>
+          <packing>
+            <property name="pack-type">start</property>
+          </packing>
+        </child>
+        <child type="center">
+          <object class="GtkLabel" id="info_message">
+            <property name="visible">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

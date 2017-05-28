@@ -146,6 +146,7 @@ gnome_games_SOURCES = \
 	ui/empty-collection.vala \
 	ui/error-display.vala \
 	ui/error-info-bar.vala \
+	ui/gamepad-mapper.vala \
 	ui/gamepad-view.vala \
 	ui/game-icon-view.vala \
 	ui/game-thumbnail.vala \

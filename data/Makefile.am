@@ -37,6 +37,7 @@ EXTRA_DIST = \
 	ui/empty-collection.ui \
 	ui/error-display.ui \
 	ui/error-info-bar.ui \
+	ui/gamepad-mapper.ui \
 	ui/game-icon-view.ui \
 	ui/media-menu-button.ui \
 	ui/media-selector.ui \
