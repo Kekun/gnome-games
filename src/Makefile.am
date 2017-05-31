@@ -49,6 +49,7 @@ gnome_games_SOURCES = \
 	core/icon.vala \
 	core/input-capabilities.vala \
 	core/media.vala \
+	core/media-info.vala \
 	core/media-set/media-set.vala \
 	core/media-set/media-set-error.vala \
 	core/plugin.vala \
