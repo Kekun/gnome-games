@@ -110,8 +110,10 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var media = new_medias.lookup (disc_id);
 		media.add_uri (uri);
 
-		var icon = GLib.Icon.new_for_string (ICON_NAME);
-		var media_set = new MediaSet (new_medias_array, icon);
+		var media_set = new MediaSet ();
+		foreach (var game_media in new_medias_array)
+			media_set.add_media (game_media);
+		media_set.icon = GLib.Icon.new_for_string (ICON_NAME);
 		var game = create_game (media_set, disc_set_id, uri);
 
 		// Creating the Medias, MediaSet and Game worked, we can save them.
