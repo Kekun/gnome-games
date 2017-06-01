@@ -79,7 +79,8 @@ public class Games.RetroRunner : Object, Runner {
 		this.core_descriptor = null;
 		var game_media = new Media ();
 		game_media.add_uri (uri);
-		_media_set = new MediaSet ({ game_media });
+		_media_set = new MediaSet ();
+		_media_set.add_media (game_media);
 
 		this.uid = uid;
 		this.core_source = core_source;
@@ -109,7 +110,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		this.core_descriptor = core_descriptor;
 		this.core_source = null;
-		this._media_set = new MediaSet ({});
+		this._media_set = new MediaSet ();
 		this.uid = uid;
 		this.input_capabilities = null;
 		this.game_title = game_title;
