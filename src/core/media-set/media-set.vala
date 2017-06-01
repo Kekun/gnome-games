@@ -13,6 +13,10 @@ public class Games.MediaSet : Object {
 		this.icon = icon;
 	}
 
+	public void add_media (Media media) {
+		medias += media;
+	}
+
 	public int get_size () {
 		return medias.length;
 	}
