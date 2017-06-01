@@ -8,7 +8,7 @@ public class Games.MediaSet : Object {
 
 	private Media[] medias;
 
-	public MediaSet (Media[] medias, GLib.Icon? icon = null) {
+	public MediaSet (Media[] medias = {}, GLib.Icon? icon = null) {
 		this.medias = medias;
 		this.icon = icon;
 	}
