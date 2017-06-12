@@ -30,6 +30,7 @@ EXTRA_DIST = \
 	gamepad/gamepad.h \
 	gamepad/gamepad.vapi \
 	gamepad/gamepad-dpad.h \
+	gamepad/gamepad-dpad.vapi \
 	gamepad/gamepad-input.h \
 	gamepad/gamepad-input.vapi \
 	gamepad/gamepad-mapping.h \
@@ -217,6 +218,7 @@ gnome_games_VALAFLAGS = \
 	--pkg event \
 	--pkg event-codes \
 	--pkg gamepad \
+	--pkg gamepad-dpad \
 	--pkg gamepad-input \
 	--pkg gamepad-monitor \
 	--pkg raw-gamepad \
