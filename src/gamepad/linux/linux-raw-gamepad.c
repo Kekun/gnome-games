@@ -168,10 +168,7 @@ handle_evdev_event (GamesLinuxRawGamepad *self)
       games_event.gamepad_hat.value = event.value;
 
       break;
-    case ABS_X:
-    case ABS_Y:
-    case ABS_RX:
-    case ABS_RY:
+    default:
       games_event.type = GAMES_EVENT_GAMEPAD_AXIS;
       games_event.gamepad_axis.hardware_index = event.code;
       games_event.gamepad_axis.axis = event.code;
