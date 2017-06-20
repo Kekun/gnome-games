@@ -12,7 +12,8 @@ struct _GamesGamepadMappingsManager {
   GObject parent_instance;
 
   GHashTable *names;
-  GHashTable *mappings;
+  GHashTable *default_mappings;
+  GHashTable *user_mappings;
 };
 
 G_DEFINE_TYPE (GamesGamepadMappingsManager, games_gamepad_mappings_manager, G_TYPE_OBJECT);
@@ -30,7 +31,8 @@ gchar *games_application_get_config_dir (void);
 
 static void
 add_mapping (GamesGamepadMappingsManager *self,
-             const gchar                 *mapping_string)
+             const gchar                 *mapping_string,
+             GHashTable                  *mappings)
 {
   const gchar *platform;
   gchar **split;
@@ -49,7 +51,7 @@ add_mapping (GamesGamepadMappingsManager *self,
   g_hash_table_insert (self->names,
                        g_strdup (split[0]),
                        g_strdup (split[1]));
-  g_hash_table_insert (self->mappings,
+  g_hash_table_insert (mappings,
                        g_strdup (split[0]),
                        g_strdup (split[2]));
   g_strfreev (split);
@@ -58,6 +60,7 @@ add_mapping (GamesGamepadMappingsManager *self,
 static void
 add_from_input_stream (GamesGamepadMappingsManager  *self,
                        GInputStream                 *input_stream,
+                       GHashTable                   *mappings,
                        GError                      **error)
 {
   GDataInputStream *data_stream;
@@ -83,7 +86,7 @@ add_from_input_stream (GamesGamepadMappingsManager  *self,
     if (mapping_string == NULL)
       break;
 
-    add_mapping (self, mapping_string);
+    add_mapping (self, mapping_string, mappings);
     g_free (mapping_string);
   }
   g_object_unref (data_stream);
@@ -92,6 +95,7 @@ add_from_input_stream (GamesGamepadMappingsManager  *self,
 static void
 add_from_file_uri (GamesGamepadMappingsManager  *self,
                    const gchar                  *file_uri,
+                   GHashTable                   *mappings,
                    GError                      **error)
 {
   GFile *file;
@@ -110,7 +114,7 @@ add_from_file_uri (GamesGamepadMappingsManager  *self,
     return;
   }
 
-  add_from_input_stream (self, G_INPUT_STREAM (stream), &inner_error);
+  add_from_input_stream (self, G_INPUT_STREAM (stream), mappings, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
     g_propagate_error (error, inner_error);
     g_object_unref (stream);
@@ -137,10 +141,12 @@ games_gamepad_mappings_manager_new (void)
   if (self->names == NULL)
     self->names = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
-  if (self->mappings == NULL)
-    self->mappings = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+  if (self->default_mappings == NULL)
+    self->default_mappings = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
+  if (self->user_mappings == NULL)
+    self->user_mappings = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
-  add_from_file_uri (self, DEFAULT_MAPPINGS_URI, &inner_error);
+  add_from_file_uri (self, DEFAULT_MAPPINGS_URI, self->default_mappings, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
     g_critical ("GamepadMappingsManager: Can’t add mappings from %s: %s"
                 DEFAULT_MAPPINGS_URI,
@@ -167,7 +173,7 @@ games_gamepad_mappings_manager_new (void)
 
   g_free (path);
 
-  add_from_file_uri (self, user_mappings_uri, &inner_error);
+  add_from_file_uri (self, user_mappings_uri, self->user_mappings, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
     g_debug ("GamepadMappingsManager: Can’t add mappings from %s: %s",
              user_mappings_uri,
@@ -175,8 +181,6 @@ games_gamepad_mappings_manager_new (void)
     g_clear_error (&inner_error);
   }
 
-  g_free (dir);
-  g_free (path);
   g_free (user_mappings_uri);
 
   return self;
@@ -194,17 +198,47 @@ games_gamepad_mappings_manager_get_instance (void)
 }
 
 gchar *
-games_gamepad_mappings_manager_get_mapping (GamesGamepadMappingsManager *self,
-                                            const gchar                 *guid)
+games_gamepad_mappings_manager_get_default_mapping (GamesGamepadMappingsManager *self,
+                                                    const gchar                 *guid)
 {
   const gchar *mapping;
 
   g_return_val_if_fail (self != NULL, NULL);
   g_return_val_if_fail (guid != NULL, NULL);
 
-  mapping = g_hash_table_lookup (self->mappings, guid);
+  mapping = g_hash_table_lookup (self->default_mappings, guid);
 
   return g_strdup (mapping);
+}
+
+gchar *
+games_gamepad_mappings_manager_get_user_mapping (GamesGamepadMappingsManager *self,
+                                                 const gchar                 *guid)
+{
+  const gchar *mapping;
+
+  g_return_val_if_fail (self != NULL, NULL);
+  g_return_val_if_fail (guid != NULL, NULL);
+
+  mapping = g_hash_table_lookup (self->user_mappings, guid);
+
+  return g_strdup (mapping);
+}
+
+gchar *
+games_gamepad_mappings_manager_get_mapping (GamesGamepadMappingsManager *self,
+                                            const gchar                 *guid)
+{
+  gchar *mapping;
+
+  g_return_val_if_fail (self != NULL, NULL);
+  g_return_val_if_fail (guid != NULL, NULL);
+
+  mapping = games_gamepad_mappings_manager_get_user_mapping (self, guid);
+  if (mapping == NULL)
+    mapping = games_gamepad_mappings_manager_get_default_mapping (self, guid);
+
+  return mapping;
 }
 
 /* Type */
@@ -215,7 +249,8 @@ finalize (GObject *object)
   GamesGamepadMappingsManager *self = GAMES_GAMEPAD_MAPPINGS_MANAGER (object);
 
   g_hash_table_unref (self->names);
-  g_hash_table_unref (self->mappings);
+  g_hash_table_unref (self->default_mappings);
+  g_hash_table_unref (self->user_mappings);
 
   G_OBJECT_CLASS (games_gamepad_mappings_manager_parent_class)->finalize (object);
 }

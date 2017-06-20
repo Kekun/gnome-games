@@ -10,6 +10,10 @@ G_BEGIN_DECLS
 G_DECLARE_FINAL_TYPE (GamesGamepadMappingsManager, games_gamepad_mappings_manager, GAMES, GAMEPAD_MAPPINGS_MANAGER, GObject)
 
 GamesGamepadMappingsManager *games_gamepad_mappings_manager_get_instance (void);
+gchar *games_gamepad_mappings_manager_get_default_mapping (GamesGamepadMappingsManager *self,
+                                                           const gchar                 *guid);
+gchar *games_gamepad_mappings_manager_get_user_mapping (GamesGamepadMappingsManager *self,
+                                                        const gchar                 *guid);
 gchar *games_gamepad_mappings_manager_get_mapping (GamesGamepadMappingsManager *self,
                                                    const gchar                 *guid);
 
