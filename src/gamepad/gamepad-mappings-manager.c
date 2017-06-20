@@ -20,6 +20,7 @@ G_DEFINE_TYPE (GamesGamepadMappingsManager, games_gamepad_mappings_manager, G_TY
 static GamesGamepadMappingsManager *instance = NULL;
 
 #define MAPPINGS_FILE_NAME "gamecontrollerdb.txt"
+#define DEFAULT_MAPPINGS_URI "resource:///org/gnome/Games/gamepads/gamecontrollerdb.txt"
 
 // FIXME The gamepad module shouldn't have a hidden dependency on the
 // application.
@@ -89,49 +90,18 @@ add_from_input_stream (GamesGamepadMappingsManager  *self,
 }
 
 static void
-add_from_resource (GamesGamepadMappingsManager  *self,
-                   const gchar                  *path,
+add_from_file_uri (GamesGamepadMappingsManager  *self,
+                   const gchar                  *file_uri,
                    GError                      **error)
-{
-  GInputStream *stream;
-  GError *inner_error = NULL;
-
-  g_return_if_fail (self != NULL);
-  g_return_if_fail (path != NULL);
-
-  stream = g_resources_open_stream (path,
-                                    G_RESOURCE_LOOKUP_FLAGS_NONE,
-                                    &inner_error);
-  if (G_UNLIKELY (inner_error != NULL)) {
-    g_propagate_error (error, inner_error);
-
-    return;
-  }
-
-  add_from_input_stream (self, G_INPUT_STREAM (stream), &inner_error);
-  if (G_UNLIKELY (inner_error != NULL)) {
-    g_propagate_error (error, inner_error);
-    g_object_unref (stream);
-
-    return;
-  }
-
-  g_object_unref (stream);
-}
-
-static void
-add_from_file (GamesGamepadMappingsManager  *self,
-               const gchar                  *file_name,
-               GError                      **error)
 {
   GFile *file;
   GFileInputStream *stream;
   GError *inner_error = NULL;
 
   g_return_if_fail (self != NULL);
-  g_return_if_fail (file_name != NULL);
+  g_return_if_fail (file_uri != NULL);
 
-  file = g_file_new_for_path (file_name);
+  file = g_file_new_for_uri (file_uri);
   stream = g_file_read (file, NULL, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
     g_propagate_error (error, inner_error);
@@ -159,6 +129,7 @@ games_gamepad_mappings_manager_new (void)
   GamesGamepadMappingsManager *self = NULL;
   gchar *dir;
   gchar *path;
+  gchar *user_mappings_uri;
   GError *inner_error = NULL;
 
   self = (GamesGamepadMappingsManager*) g_object_new (GAMES_TYPE_GAMEPAD_MAPPINGS_MANAGER, NULL);
@@ -169,12 +140,11 @@ games_gamepad_mappings_manager_new (void)
   if (self->mappings == NULL)
     self->mappings = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
-  add_from_resource (self,
-                     "/org/gnome/Games/gamepads/gamecontrollerdb.txt",
-                     &inner_error);
+  add_from_file_uri (self, DEFAULT_MAPPINGS_URI, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
-    g_warning ("GamepadMappingsManager: Can’t find resource gamecontrollerdb.txt: %s",
-               inner_error->message);
+    g_critical ("GamepadMappingsManager: Can’t add mappings from %s: %s"
+                DEFAULT_MAPPINGS_URI,
+                inner_error->message);
     g_clear_error (&inner_error);
   }
 
@@ -185,21 +155,29 @@ games_gamepad_mappings_manager_new (void)
 
   g_free (dir);
 
-  if (!g_file_test (path, G_FILE_TEST_EXISTS)) {
+  user_mappings_uri = g_filename_to_uri (path, NULL, &inner_error);
+  if (G_UNLIKELY (inner_error != NULL)) {
+    g_debug ("GamepadMappingsManager: Can't build path for user config: %s",
+             inner_error->message);
     g_free (path);
+    g_clear_error (&inner_error);
 
     return self;
   }
 
-  add_from_file (self, path, &inner_error);
+  g_free (path);
+
+  add_from_file_uri (self, user_mappings_uri, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
-    g_warning ("GamepadMappingsManager: Can’t add from user’s config dir’s %s: %s",
-               MAPPINGS_FILE_NAME,
-               inner_error->message);
+    g_debug ("GamepadMappingsManager: Can’t add mappings from %s: %s",
+             user_mappings_uri,
+             inner_error->message);
     g_clear_error (&inner_error);
   }
 
+  g_free (dir);
   g_free (path);
+  g_free (user_mappings_uri);
 
   return self;
 }
