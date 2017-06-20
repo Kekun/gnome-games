@@ -8,6 +8,6 @@ private class Games.Gamepad : GLib.Object {
 	public signal void axis_event (Event event);
 	public signal void hat_event (Event event);
 	public signal void unplugged ();
-	public Gamepad (RawGamepad raw_gamepad) throws GLib.Error;
+	public Gamepad (RawGamepad raw_gamepad);
 	public void set_mapping (GamepadMapping? mapping);
 }

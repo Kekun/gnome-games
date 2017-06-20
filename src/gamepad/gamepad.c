@@ -5,7 +5,6 @@
 #include <linux/input-event-codes.h>
 #include <stdlib.h>
 #include "../event/event.h"
-#include "gamepad-mappings-manager.h"
 
 struct _GamesGamepad {
   GObject parent_instance;
@@ -233,33 +232,16 @@ games_gamepad_set_mapping (GamesGamepad        *self,
   self->mapping = mapping ? g_object_ref (mapping) : NULL;
 }
 
-// FIXME
 GamesGamepad *
-games_gamepad_new (GamesRawGamepad  *raw_gamepad,
-                   GError          **error)
+games_gamepad_new (GamesRawGamepad *raw_gamepad)
 {
   GamesGamepad *self = NULL;
-  const gchar *guid;
-  GamesGamepadMappingsManager *mappings_manager;
-  const gchar *mapping_string;
-  GError *inner_error = NULL;
 
   g_return_val_if_fail (raw_gamepad != NULL, NULL);
 
   self = (GamesGamepad*) g_object_new (GAMES_TYPE_GAMEPAD, NULL);
 
   self->raw_gamepad = g_object_ref (raw_gamepad);
-  guid = games_raw_gamepad_get_guid (raw_gamepad);
-  mappings_manager = games_gamepad_mappings_manager_get_instance ();
-  mapping_string = games_gamepad_mappings_manager_get_mapping (mappings_manager, guid);
-
-  g_object_unref (mappings_manager);
-
-  self->mapping = games_gamepad_mapping_new_from_sdl_string (mapping_string, &inner_error);
-  if (G_UNLIKELY (inner_error != NULL)) {
-    g_debug ("%s", inner_error->message);
-    g_clear_error (&inner_error);
-  }
 
   g_signal_connect_object (raw_gamepad,
                            "event",

@@ -5,6 +5,7 @@
 #include <glib.h>
 #include <glib-object.h>
 #include "gamepad-mapping-error.h"
+#include "gamepad-mappings-manager.h"
 #include "linux/linux-raw-gamepad-monitor.h"
 #include "raw-gamepad.h"
 #include "raw-gamepad-monitor.h"
@@ -53,16 +54,30 @@ add_gamepad (GamesGamepadMonitor *self,
 {
   GamesGamepad *gamepad = NULL;
   GError *inner_error = NULL;
+  const gchar *guid;
+  gchar *mapping_string;
+  GamesGamepadMappingsManager *mappings_manager;
+  GamesGamepadMapping *mapping = NULL;
 
   g_return_val_if_fail (self != NULL, NULL);
   g_return_val_if_fail (raw_gamepad != NULL, NULL);
 
-  gamepad = games_gamepad_new (raw_gamepad, &inner_error);
-  if (G_UNLIKELY (inner_error != NULL)) {
-    g_clear_error (&inner_error);
+  gamepad = games_gamepad_new (raw_gamepad);
 
-    return NULL;
+  mappings_manager = games_gamepad_mappings_manager_get_instance ();
+  guid = games_raw_gamepad_get_guid (raw_gamepad);
+  mapping_string = games_gamepad_mappings_manager_get_mapping (mappings_manager, guid);
+  mapping = games_gamepad_mapping_new_from_sdl_string (mapping_string, &inner_error);
+  if (G_UNLIKELY (inner_error != NULL)) {
+    g_debug ("%s", inner_error->message);
+    g_clear_error (&inner_error);
   }
+  games_gamepad_set_mapping (gamepad, mapping);
+
+  if (mapping != NULL)
+    g_object_unref (mapping);
+  if (mapping_string != NULL)
+    g_free (mapping_string);
 
   g_hash_table_add (self->gamepads, g_object_ref (gamepad));
   g_signal_connect_object (gamepad,

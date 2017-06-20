@@ -13,8 +13,7 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (GamesGamepad, games_gamepad, GAMES, GAMEPAD, GObject)
 
-GamesGamepad *games_gamepad_new (GamesRawGamepad  *raw_gamepad,
-                                 GError          **error);
+GamesGamepad *games_gamepad_new (GamesRawGamepad *raw_gamepad);
 void games_gamepad_set_mapping (GamesGamepad        *self,
                                 GamesGamepadMapping *mapping);
 
