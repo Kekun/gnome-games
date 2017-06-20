@@ -37,6 +37,7 @@ EXTRA_DIST = \
 	gamepad/gamepad-mapping.vapi \
 	gamepad/gamepad-mapping-error.h \
 	gamepad/gamepad-mappings-manager.h \
+	gamepad/gamepad-mappings-manager.vapi \
 	gamepad/gamepad-monitor.h \
 	gamepad/gamepad-monitor.vapi \
 	gamepad/linux/linux-raw-gamepad.h \
@@ -223,6 +224,7 @@ gnome_games_VALAFLAGS = \
 	--pkg gamepad-dpad \
 	--pkg gamepad-input \
 	--pkg gamepad-mapping \
+	--pkg gamepad-mappings-manager \
 	--pkg gamepad-monitor \
 	--pkg raw-gamepad \
 	--gresources $(gresource_file) \
