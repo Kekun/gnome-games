@@ -22,7 +22,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/desmume.libretro",
+                    "path": "desmume.libretro",
                     "dest-filename": "desmume/desmume.libretro"
                 }
             ]

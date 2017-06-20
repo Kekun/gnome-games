@@ -24,7 +24,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/bsnes_balanced.libretro"
+                    "path": "bsnes_balanced.libretro"
                 }
             ]
         }

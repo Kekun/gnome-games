@@ -23,7 +23,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/dosbox.libretro"
+                    "path": "dosbox.libretro"
                 }
             ]
         }

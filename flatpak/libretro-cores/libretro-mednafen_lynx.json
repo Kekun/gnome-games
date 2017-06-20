@@ -21,7 +21,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/mednafen_lynx.libretro"
+                    "path": "mednafen_lynx.libretro"
                 }
             ]
         }

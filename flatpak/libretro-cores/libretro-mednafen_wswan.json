@@ -21,7 +21,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/mednafen_wswan.libretro"
+                    "path": "mednafen_wswan.libretro"
                 }
             ]
         }

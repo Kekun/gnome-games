@@ -21,7 +21,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/mednafen_gba.libretro"
+                    "path": "mednafen_gba.libretro"
                 }
             ]
         }

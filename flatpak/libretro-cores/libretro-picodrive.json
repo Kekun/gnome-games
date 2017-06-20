@@ -22,12 +22,12 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/picodrive-Makefile.install",
+                    "path": "picodrive-Makefile.install",
                     "dest-filename": "Makefile.install"
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/picodrive.libretro"
+                    "path": "picodrive.libretro"
                 }
             ]
         }
