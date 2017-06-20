@@ -5,7 +5,6 @@
 #include <linux/input-event-codes.h>
 #include <stdlib.h>
 #include "../event/event.h"
-#include "gamepad-mapping.h"
 #include "gamepad-mappings-manager.h"
 
 struct _GamesGamepad {
@@ -223,6 +222,16 @@ on_unplugged (GamesRawGamepad *sender,
 }
 
 /* Public */
+
+void
+games_gamepad_set_mapping (GamesGamepad        *self,
+                           GamesGamepadMapping *mapping)
+{
+  if (self->mapping != NULL)
+    g_object_unref (self->mapping);
+
+  self->mapping = mapping ? g_object_ref (mapping) : NULL;
+}
 
 // FIXME
 GamesGamepad *
