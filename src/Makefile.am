@@ -144,6 +144,7 @@ gnome_games_SOURCES = \
 	ui/error-info-bar.vala \
 	ui/game-icon-view.vala \
 	ui/game-thumbnail.vala \
+	ui/gamepad-view-configuration.vala \
 	ui/media-selector.vala \
 	ui/media-menu-button.vala \
 	ui/preferences-page.vala \
