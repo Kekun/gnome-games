@@ -44,7 +44,7 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 	libsoup-2.4
 	libxml-2.0
 	retro-gtk-0.10
-	tracker-sparql-1.0
+	tracker-sparql-2.0
 ])
 
 PKG_CHECK_MODULES(GAMEPADS, [
