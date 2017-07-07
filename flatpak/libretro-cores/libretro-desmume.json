@@ -18,7 +18,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/desmume"
+                    "url": "https://github.com/libretro/desmume",
+                    "branch": "09e0f16bf2ab6ffb3267ab27a9135867cf6320f3"
                 },
                 {
                     "type": "file",
