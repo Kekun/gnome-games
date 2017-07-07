@@ -200,19 +200,6 @@ public class Games.RetroRunner : Object, Runner {
 		input_manager = new RetroInputManager (widget, present_analog_sticks);
 
 		prepare_core ();
-		if (media_set.get_size () == 0)
-			core.prepare ();
-		else {
-			var media_number = media_set.selected_media_number;
-			var media = media_set.get_selected_media (media_number);
-			var uris = media.get_uris ();
-			if (uris.length == 0)
-				throw new RetroError.INVALID_GAME_FILE (_("No game file found for media “%s”."), media.title.get_title ());
-
-			var uri = uris[0];
-			if (!try_load_game (core, uri))
-				throw new RetroError.INVALID_GAME_FILE (_("Invalid game file: “%s”."), uri.to_string ());
-		}
 
 		core.shutdown.connect (on_shutdown);
 
@@ -283,38 +270,17 @@ public class Games.RetroRunner : Object, Runner {
 		core.input_interface = input_manager;
 		core.rumble_interface = input_manager;
 
+		string[] medias_uris = {};
+		media_set.foreach_media ((media) => {
+			var uris = media.get_uris ();
+			medias_uris += (uris.length == 0) ? "" : uris[0].to_string ();
+		});
+
+		core.set_medias (medias_uris);
+
 		core.init ();
-	}
 
-	private bool try_load_game (Retro.Core core, Uri uri) {
-		var file = uri.to_file ();
-		var path = file.get_path ();
-
-		try {
-			var fullpath = core.system_info.need_fullpath;
-			if (core.load_game (fullpath ? Retro.GameInfo (path) : Retro.GameInfo.with_data (path))) {
-				if (core.disk_control_interface != null) {
-					var disk = core.disk_control_interface;
-
-					disk.set_eject_state (true);
-
-					while (disk.get_num_images () < 1)
-						disk.add_image_index ();
-
-					var index = disk.get_num_images () - 1;
-
-					disk.replace_image_index (index, fullpath ? Retro.GameInfo (path) : Retro.GameInfo.with_data (path));
-
-					disk.set_eject_state (false);
-				}
-				return true;
-			}
-		}
-		catch (Error e) {
-			debug (e.message);
-		}
-
-		return false;
+		core.set_current_media (media_set.selected_media_number);
 	}
 
 	public void pause () {
@@ -347,6 +313,8 @@ public class Games.RetroRunner : Object, Runner {
 		if (!is_initialized)
 			return;
 
+		core.set_current_media (media_set.selected_media_number);
+
 		var media_number = media_set.selected_media_number;
 
 		Media media = null;
@@ -365,7 +333,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		var uri = uris[0];
 
-		try_load_game (core, uri);
+		core.set_current_media (media_set.selected_media_number);
 
 		try {
 			save_media_data ();
