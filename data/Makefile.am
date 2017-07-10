@@ -22,6 +22,7 @@ EXTRA_DIST = \
 	appdata/resume-game.png \
 	appdata/retro-ingame.png \
 	gamepads/gamecontrollerdb.txt \
+	gamepads/standard-gamepad.svg \
 	gtk/menus.ui \
 	gtk-style.css \
 	ui/application-window.ui \

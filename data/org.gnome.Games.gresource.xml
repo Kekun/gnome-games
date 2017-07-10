@@ -3,6 +3,7 @@
   <gresource prefix="/org/gnome/Games">
     <file>gtk-style.css</file>
     <file>gamepads/gamecontrollerdb.txt</file>
+    <file>gamepads/standard-gamepad.svg</file>
     <file preprocess="xml-stripblanks">gtk/menus.ui</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/checkmark-item.ui</file>
