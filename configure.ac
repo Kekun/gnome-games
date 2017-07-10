@@ -41,6 +41,7 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 	glib-2.0 >= $GLIB_MIN_VERSION
 	grilo-0.3
 	gtk+-3.0
+	librsvg-2.0
 	libsoup-2.4
 	libxml-2.0
 	retro-gtk-0.12
