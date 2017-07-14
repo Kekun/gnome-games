@@ -3,6 +3,8 @@
 private extern const string VERSION;
 
 public class Games.Application : Gtk.Application {
+	private Database database;
+
 	private ApplicationWindow window;
 	private bool game_list_loaded;
 
@@ -22,6 +24,14 @@ public class Games.Application : Gtk.Application {
 
 		add_actions ();
 		add_signal_handlers ();
+
+		var database_path = get_database_path ();
+		try {
+			database = new Database (database_path);
+		}
+		catch (Error e) {
+			debug (e.message);
+		}
 	}
 
 	private void add_actions () {
@@ -68,6 +78,12 @@ public class Games.Application : Gtk.Application {
 		var data_dir = get_data_dir ();
 
 		return @"$data_dir/snapshots";
+	}
+
+	public static string get_database_path () {
+		var data_dir = get_data_dir ();
+
+		return @"$data_dir/database.sqlite3";
 	}
 
 	public static string get_cache_dir () {
@@ -129,8 +145,10 @@ public class Games.Application : Gtk.Application {
 			filter.add_mime_type (mime_type);
 
 		if (chooser.run () == Gtk.ResponseType.ACCEPT)
-			foreach (unowned string uri in chooser.get_uris ())
-				yield game_collection.add_uri (new Uri (uri));
+			foreach (unowned string uri_string in chooser.get_uris ()) {
+				var uri = new Uri (uri_string);
+				yield add_cached_uri (uri);
+			}
 
 		chooser.close ();
 	}
@@ -198,6 +216,9 @@ public class Games.Application : Gtk.Application {
 		}
 
 		game_collection = new GameCollection ();
+		if (database != null)
+			game_collection.add_source (database.get_uri_source ());
+
 		if (tracker_uri_source != null)
 			game_collection.add_source (tracker_uri_source);
 
@@ -252,9 +273,15 @@ public class Games.Application : Gtk.Application {
 		init_game_sources ();
 
 		foreach (var uri in uris)
-			yield game_collection.add_uri (uri);
+			yield add_cached_uri (uri);
 
 		return yield game_collection.query_game_for_uri (uris[0]);
+	}
+
+	private async void add_cached_uri (Uri uri) {
+		if (database != null)
+			database.add_uri (uri);
+		yield game_collection.add_uri (uri);
 	}
 
 	internal async void load_game_list () {
