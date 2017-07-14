@@ -63,6 +63,11 @@ gnome_games_SOURCES = \
 	core/uri-iterator.vala \
 	core/uri-source.vala \
 	\
+	database/database.vala \
+	database/database-error.vala \
+	database/database-uri-iterator.vala \
+	database/database-uri-source.vala \
+	\
 	dummy/dummy-cover.vala \
 	dummy/dummy-game.vala \
 	dummy/dummy-icon.vala \
