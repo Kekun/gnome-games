@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-public class Games.GameCollection : Object {
+private class Games.GameCollection : Object {
 	private GenericSet<Game> games;
 	private ListStore list_store;
 
