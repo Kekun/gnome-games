@@ -36,6 +36,7 @@ libgames_playstation_plugin_la_DEPENDENCIES = \
 
 libgames_playstation_plugin_la_SOURCES = \
 	$(BUILT_SOURCES) \
+	disc-file-info.c \
 	disc-image-time.c \
 	playstation-error.vala \
 	playstation-game-factory.vala \
