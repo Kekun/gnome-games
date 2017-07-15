@@ -1,4 +1,4 @@
-AC_INIT([gnome-games], [3.24.0])
+AC_INIT([gnome-games], [3.25.4])
 AM_INIT_AUTOMAKE([foreign subdir-objects tar-ustar no-dist-gzip dist-xz])
 
 # i18 support

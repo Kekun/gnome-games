@@ -1,4 +1,117 @@
 ==============
+Version 3.25.4
+==============
+
+* The way the games collection is built has been completely reworked to
+  replace the GameSource types generating Game objects from any way of
+  the implementation's choice by the trio of UriSource, UriGameFactory
+  and GameCollection. UriSource generate URIs from any way of the
+  implementation's choice, UriGameFactory generate Game objects from
+  URIs and GameCollection acting as a glue between the two. This new
+  flexibility in the creation of the games collection helped to simplify
+  the way many game types were defined and helped to introduce new game
+  sources to the collection.
+
+* Game URIs can now be passed as command line arguments, allowing your
+  game files to be opened with Games from your file manager. The game
+  will be automatically started by doing so.
+
+* Add a "Add game files" button to the collection view, allowing you to
+  add game files from the collection view to the collection.
+
+* Game resources passed via the command line or the "Add game files"
+  button are stored in a database and restored when starting the
+  application. This allows Games to see your games even if its game
+  resources detection mechanisms failed.
+
+* Introduction of RetroSimpleType to replace many very similar plugins
+  by this simple and easier to maintain generic implementation of the
+  Libretro based game types.
+
+* Supported games:
+ - Add support for Atari Lynx, MS-DOS, WonderSwan and WonderSwan Color
+   games.
+ - Improve the detection of PlayStation discs by parsing them as an
+   emulator would instead of using lucky guessing the location of the
+   required information in the disc.
+ - Don't display desktop games setting the NoDisplay or Hidden keys.
+
+* Gamepad:
+ - Port the gamepad handling system from Vala to C to avoid using Vala's
+   preprocessor as it is poorly handled by the autotools, resulting in
+   broken tarballs.
+ - Make gamepads send events similar to GdkEvent.
+ - Replace the custom input types by the Linux event codes.
+
+* UI:
+ - Use the more appropriate GtkMessageDialog instead of GtkDialog for
+   most of the existing custom dialogs.
+ - Refine the look of MediaSelector, using checkmarks to denote the
+   currently used media.
+ - Use theme relative colors for the games collection.
+ - Drop a useless sorting invalidation in CollectionIconView, which
+   makes the game collection loads a bit faster.
+
+* Improved logging of the Libretro cores by using the Core.log() signal
+  with the retro_g_log() function which have been introduced in
+  retro-gtk recently. This will log messages from the Libretro core with
+  the core's name as the log domain instead of GNOME Games.
+
+* Improve the parameters passed to the grep command to avoid injections.
+
+* Bump retro-gtk to 0.12.
+
+* Bump tracker-sparql to 2.0.
+
+* Bugs fixed:
+ 782952 Using grep in Games do not work with a filename --ignore-case
+ 771631 Use GtkMessageDialog when appropriate
+ 773881 Games takes too long to load the games list
+ 775255 playstation: Add some missing boot offsets
+ 779128 games does not follow global themes
+ 779924 gnome-games crash with SIGSEGV in retro_core_set_callbacks()
+ 780295 Games displays desktop games with NoDisplay=true
+ 780318 gnome-games 3.24.0.1 tarball missing files
+ 780320 Double-clicking on a ROM should launch gnome-games
+ 780714 ui: deprecation warning during cursor creation.
+ 780778 Improve media selector
+ 780920 Plugging more than 2 gamepads orderly will always lead to a segmentation fault.
+ 781036 Licensing cleanup
+ 781334 Untie game resource detection and game object creation
+ 781572 Produced tarballs break the Vala preprocessor
+ 781610 [flatpak] Beetle/Mednafen TurboGrafxCD core cannot find BIOS
+ 781864 utils: Check null values
+ 781886 Assertion 'cookie > 0' failed
+ 782295 GameCollection should completely take care off the collection
+ 782504 retro-gtk: Improve Libretro core logging
+ 782549 Bugs in #781572 porting to C
+ 782611 gamepad: Simplify the gamepad system
+ 782772 retro: Libretro cores should have an appropriate save directory
+ 782824 ui: Allow to add games manually
+ 783067 Games should list Atari Lynx games
+ 783068 Games should list WonderSwan [Color] games
+ 783070 Games should support adding MS-DOS games
+ 783111 plugins: Refactor plugins registering one MIME type per platform
+ 783319 refactor: Expose game IDs and media IDs
+ 783927 Allow more events to be recognized as axes
+ 784334 [flatpak] Incorrect Sega CD firmware checksums in Picodrive description file
+
+* Translation updates:
+ Brazilian Portuguese
+ Croatian
+ Czech
+ Friulian
+ German
+ Hungarian
+ Indonesian
+ Italian
+ Korean
+ Polish
+ Spanish
+ Swedish
+
+
+==============
 Version 3.24.0
 ==============
 
