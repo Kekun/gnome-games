@@ -2,7 +2,7 @@ PKG_CHECK_MODULES(PSX_PLUGIN, [
 	gio-2.0
 	glib-2.0 >= $GLIB_MIN_VERSION
 	gtk+-3.0
-	retro-gtk-0.10
+	retro-gtk-0.12
 	tracker-sparql-2.0
 ], [enable_playstation_plugin=yes], [enable_playstation_plugin=no])
 
