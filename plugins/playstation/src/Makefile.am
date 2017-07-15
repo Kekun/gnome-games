@@ -39,6 +39,7 @@ libgames_playstation_plugin_la_SOURCES = \
 	disc-file-info.c \
 	disc-image.c \
 	disc-image-time.c \
+	playstation-disc-image.c \
 	playstation-error.vala \
 	playstation-game-factory.vala \
 	playstation-header.vala \
