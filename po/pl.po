@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-28 17:14+0200\n"
-"PO-Revision-Date: 2017-05-28 17:15+0200\n"
+"POT-Creation-Date: 2017-07-16 18:04+0200\n"
+"PO-Revision-Date: 2017-07-16 18:05+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:18
+#: ../src/ui/application.vala:20
 msgid "Games"
 msgstr "Gry"
 
@@ -310,7 +310,12 @@ msgstr "To nie jest prawidłowy pakiet LÖVE: „%s”."
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
 
-#: ../plugins/playstation/src/playstation-header.vala:49
+#: ../plugins/playstation/src/playstation-header.vala:27
+#, c-format
+msgid "Not a PlayStation disc: “%s”."
+msgstr "Nie jest płytą konsoli PlayStation: „%s”."
+
+#: ../plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
@@ -398,7 +403,7 @@ msgstr "Gra nie ma prawidłowego polecenia."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
 
-#: ../src/core/media-set/media-set.vala:31
+#: ../src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Nieprawidłowy indeks nośnika %u."
@@ -446,12 +451,12 @@ msgstr "Ciąg mapowania nie może wynosić „null”."
 msgid "The mapping string can’t be empty."
 msgstr "Ciąg mapowania nie może być pusty."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:284
+#: ../src/gamepad/linux/linux-raw-gamepad.c:281
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Nie można otworzyć pliku „%s”: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:297
+#: ../src/gamepad/linux/linux-raw-gamepad.c:294
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
@@ -668,55 +673,45 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:209
-#, c-format
-msgid "No game file found for media “%s”."
-msgstr "Nie odnaleziono pliku gry dla nośnika „%s”."
-
-#: ../src/retro/retro-runner.vala:213
-#, c-format
-msgid "Invalid game file: “%s”."
-msgstr "Nieprawidłowy plik gry: „%s”."
-
-#: ../src/retro/retro-runner.vala:260
+#: ../src/retro/retro-runner.vala:248
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: ../src/retro/retro-runner.vala:598
+#: ../src/retro/retro-runner.vala:567
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/retro/retro-runner.vala:601
+#: ../src/retro/retro-runner.vala:570
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/ui/application.vala:120
+#: ../src/ui/application.vala:136
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: ../src/ui/application.vala:121
+#: ../src/ui/application.vala:137
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: ../src/ui/application.vala:122
+#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: ../src/ui/application.vala:280
+#: ../src/ui/application.vala:307
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:282
+#: ../src/ui/application.vala:309
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:286
+#: ../src/ui/application.vala:313
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:293
+#: ../src/ui/application.vala:320
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
