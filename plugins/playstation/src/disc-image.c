@@ -8,8 +8,14 @@
 
 /* Private */
 
+#define GAMES_DISC_IMAGE_ERROR games_disc_image_error_quark ()
+
 #define GAMES_DISC_IMAGE_FRAME_SIZE           2352
 #define GAMES_DISC_IMAGE_FRAME_HEADER_SIZE    12
+
+enum GamesDiscImageError {
+  GAMES_DISC_IMAGE_ERROR_INVALID_SECTOR,
+};
 
 typedef struct {
   const gchar        *filename;
@@ -51,6 +57,12 @@ get_file_co (GamesDiscFileInfo *file_info,
   return TRUE;
 }
 
+static GQuark
+games_disc_image_error_quark (void)
+{
+  return g_quark_from_static_string ("games-disc-image-error-quark");
+}
+
 /* Public */
 
 void
@@ -88,6 +100,7 @@ games_disc_image_read_frame (GamesDiscImage            *disc,
                              GError                   **error)
 {
   gssize read;
+  gint sector;
   gsize offset;
   GError *tmp_error = NULL;
 
@@ -95,8 +108,27 @@ games_disc_image_read_frame (GamesDiscImage            *disc,
   g_return_val_if_fail (time != NULL, FALSE);
   g_return_val_if_fail (frame != NULL, FALSE);
 
-  // FIXME Check the multiplication doesn't overflow.
-  offset = games_disc_image_time_get_sector (time) * sizeof (GamesDiscFrame);
+  sector = games_disc_image_time_get_sector (time);
+  if (sector < 0) {
+    g_set_error (error,
+                 GAMES_DISC_IMAGE_ERROR,
+                 GAMES_DISC_IMAGE_ERROR_INVALID_SECTOR,
+                 "The sector index %d is inferior to 0 and hence is invalid.",
+                 sector);
+
+    return FALSE;
+  }
+
+  if (!g_size_checked_mul (&offset, sector, sizeof (GamesDiscFrame))) {
+    g_set_error (error,
+                 GAMES_DISC_IMAGE_ERROR,
+                 GAMES_DISC_IMAGE_ERROR_INVALID_SECTOR,
+                 "The sector index %d is too big to be usable and hence is invalid.",
+                 sector);
+
+    return FALSE;
+  }
+
   g_seekable_seek (G_SEEKABLE (disc->input_stream),
                    offset, G_SEEK_SET,
                    cancellable, &tmp_error);
