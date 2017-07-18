@@ -23,11 +23,24 @@ BUILT_SOURCES = \
 
 EXTRA_DIST = \
 	$(gresource_file) \
+	event/event.h \
 	event/event.vapi \
 	event/event-codes.vapi \
+	event/linux/input-event-codes.h \
+	gamepad/gamepad.h \
 	gamepad/gamepad.vapi \
+	gamepad/gamepad-dpad.h \
+	gamepad/gamepad-input.h \
+	gamepad/gamepad-mapping.h \
+	gamepad/gamepad-mapping-error.h \
+	gamepad/gamepad-mappings-manager.h \
+	gamepad/gamepad-monitor.h \
 	gamepad/gamepad-monitor.vapi \
+	gamepad/linux/linux-raw-gamepad.h \
+	gamepad/linux/linux-raw-gamepad-monitor.h \
+	gamepad/raw-gamepad.h \
 	gamepad/raw-gamepad.vapi \
+	gamepad/raw-gamepad-monitor.h \
 	$(NULL)
 
 header_file = libgnome-games.h

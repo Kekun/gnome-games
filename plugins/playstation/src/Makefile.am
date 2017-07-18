@@ -80,6 +80,9 @@ libgames_playstation_plugin_la_LDFLAGS = \
 EXTRA_DIST = \
 	$(plugin_DATA) \
 	$(gresource_file) \
+	disc-image.h \
+	disc-file-info.h \
+	disc-image-time.h \
 	$(NULL)
 
 MAINTAINERCLEANFILES = \
