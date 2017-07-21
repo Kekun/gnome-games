@@ -11,7 +11,7 @@ private class Games.RetroInputManager : Retro.InputDeviceManager, Retro.Rumble {
 		this.present_analog_sticks = present_analog_sticks;
 
 		keyboard = new Retro.VirtualGamepad (widget);
-		set_keyboard (new Retro.Keyboard (widget));
+		set_keyboard (widget);
 
 		gamepad_monitor = GamepadMonitor.get_instance ();
 		gamepad_monitor.foreach_gamepad ((gamepad) => {
