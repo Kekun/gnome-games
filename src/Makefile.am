@@ -146,6 +146,7 @@ gnome_games_SOURCES = \
 	ui/empty-collection.vala \
 	ui/error-display.vala \
 	ui/error-info-bar.vala \
+	ui/gamepad-configurer.vala \
 	ui/gamepad-mapper.vala \
 	ui/gamepad-tester.vala \
 	ui/gamepad-view.vala \
@@ -161,6 +162,7 @@ gnome_games_SOURCES = \
 	ui/preferences-window.vala \
 	ui/quit-dialog.vala \
 	ui/remote-display.vala \
+	ui/reset-gamepad-mapping-dialog.vala \
 	ui/resume-dialog.vala \
 	ui/resume-failed-dialog.vala \
 	ui/search-bar.vala \

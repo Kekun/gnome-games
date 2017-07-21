@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.16"/>
+  <template class="GamesResetGamepadMappingDialog" parent="GtkMessageDialog">
+    <property name="modal">True</property>
+    <property name="destroy-with-parent">True</property>
+    <property name="type_hint">dialog</property>
+    <property name="message_type">question</property>
+    <property name="text" translatable="yes">Factory reset mapping for this gamepad?</property>
+    <property name="secondary_text" translatable="yes">Your mapping will be lost.</property>
+    <child type="action">
+      <object class="GtkButton" id="button_cancel">
+        <property name="visible">True</property>
+        <property name="can-default">True</property>
+        <property name="label" translatable="yes">Cancel</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button_reset">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Reset</property>
+        <style>
+          <class name="destructive-action"/>
+        </style>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="accept">button_reset</action-widget>
+      <action-widget response="cancel" default="true">button_cancel</action-widget>
+    </action-widgets>
+  </template>
+</interface>
