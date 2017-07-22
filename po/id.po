@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-07 11:23+0000\n"
-"PO-Revision-Date: 2017-07-11 20:20+0700\n"
+"POT-Creation-Date: 2017-07-15 09:49+0000\n"
+"PO-Revision-Date: 2017-07-20 15:46+0700\n"
 "Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:18
+#: ../src/ui/application.vala:20
 msgid "Games"
 msgstr "Permainan"
 
@@ -307,7 +307,12 @@ msgstr "Ini tidak mewakili paket LÖVE yang valid: \"%s\"."
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Id permainan MAME tidak valid \"%s\" untuk \"%s\"."
 
-#: ../plugins/playstation/src/playstation-header.vala:49
+#: ../plugins/playstation/src/playstation-header.vala:27
+#, c-format
+msgid "Not a PlayStation disc: “%s”."
+msgstr "Bukan diska PlayStation: \"%s\"."
+
+#: ../plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr "Header PlayStation tidak valid: ID diska tidak ditemukan di \"%s\"."
@@ -680,31 +685,31 @@ msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
 
-#: ../src/ui/application.vala:120
+#: ../src/ui/application.vala:136
 msgid "Select game files"
 msgstr "Pilih berkas permainan"
 
-#: ../src/ui/application.vala:121
+#: ../src/ui/application.vala:137
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: ../src/ui/application.vala:122
+#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "T_ambah"
 
-#: ../src/ui/application.vala:280
+#: ../src/ui/application.vala:307
 msgid "GNOME Games"
 msgstr "Permainan GNOME"
 
-#: ../src/ui/application.vala:282
+#: ../src/ui/application.vala:309
 msgid "A video game player for GNOME"
 msgstr "Player permainan video untuk GNOME"
 
-#: ../src/ui/application.vala:286
+#: ../src/ui/application.vala:313
 msgid "Learn more about GNOME Games"
 msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 
-#: ../src/ui/application.vala:293
+#: ../src/ui/application.vala:320
 msgid "translator-credits"
 msgstr ""
 "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
