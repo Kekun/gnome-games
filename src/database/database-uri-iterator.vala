@@ -5,11 +5,16 @@ private class Games.DatabaseUriIterator : Object, UriIterator {
 		SELECT uri FROM game_resources;
 	""";
 
-	private Sqlite.Statement statement;
+	private Sqlite.Statement? statement;
 	private Uri? uri;
 
 	internal DatabaseUriIterator (Sqlite.Database database) {
-		statement = Database.prepare (database, SELECT_GAME_RESOURCE_QUERY);
+		try {
+			statement = Database.prepare (database, SELECT_GAME_RESOURCE_QUERY);
+		}
+		catch (Error e) {
+			debug (e.message);
+		}
 	}
 
 	public new Uri? get () {
@@ -17,6 +22,9 @@ private class Games.DatabaseUriIterator : Object, UriIterator {
 	}
 
 	public bool next () {
+		if (statement == null)
+			return false;
+
 		if (statement.step () != Sqlite.ROW)
 			return false;
 

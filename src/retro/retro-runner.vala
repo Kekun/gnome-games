@@ -313,7 +313,14 @@ public class Games.RetroRunner : Object, Runner {
 		if (!is_initialized)
 			return;
 
-		core.set_current_media (media_set.selected_media_number);
+		try {
+			core.set_current_media (media_set.selected_media_number);
+		}
+		catch (Error e) {
+			debug (e.message);
+
+			return;
+		}
 
 		var media_number = media_set.selected_media_number;
 
@@ -331,9 +338,14 @@ public class Games.RetroRunner : Object, Runner {
 		if (uris.length == 0)
 			return;
 
-		var uri = uris[0];
+		try {
+			core.set_current_media (media_set.selected_media_number);
+		}
+		catch (Error e) {
+			debug (e.message);
 
-		core.set_current_media (media_set.selected_media_number);
+			return;
+		}
 
 		try {
 			save_media_data ();

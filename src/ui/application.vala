@@ -279,8 +279,14 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private async void add_cached_uri (Uri uri) {
-		if (database != null)
-			database.add_uri (uri);
+		try {
+			if (database != null)
+					database.add_uri (uri);
+		}
+		catch (Error e) {
+			debug (e.message);
+		}
+
 		yield game_collection.add_uri (uri);
 	}
 

@@ -37,7 +37,7 @@ private class Games.Database : Object {
 			throw new DatabaseError.EXECUTION_FAILED ("Execution failed.");
 	}
 
-	public bool has_uri (Uri uri) {
+	public bool has_uri (Uri uri) throws Error {
 		var statement = prepare (database, HAS_URI_QUERY);
 
 		bind_text (statement, "$URI", uri.to_string ());
