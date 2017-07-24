@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-05-05 20:18+0000\n"
-"PO-Revision-Date: 2017-05-14 21:14+0200\n"
+"POT-Creation-Date: 2017-07-15 09:49+0000\n"
+"PO-Revision-Date: 2017-07-24 17:23+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.2\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:21
+#: ../src/ui/application.vala:20
 msgid "Games"
 msgstr "Spiele"
 
@@ -113,7 +113,7 @@ msgstr "Fenster maximiert"
 
 #: ../data/org.gnome.Games.gschema.xml.h:6
 msgid "Window maximized state."
-msgstr "Maximierungszustand des Fensters"
+msgstr "Maximierungszustand des Fensters."
 
 #: ../data/org.gnome.Games.gschema.xml.h:7
 msgid "Window size"
@@ -140,6 +140,10 @@ msgid "Loading"
 msgstr "Wird geladen"
 
 #: ../data/ui/collection-header-bar.ui.h:2
+msgid "Add game files…"
+msgstr "Spieledateien hinzufügen …"
+
+#: ../data/ui/collection-header-bar.ui.h:3
 msgid "Search"
 msgstr "Suchen"
 
@@ -217,7 +221,7 @@ msgstr "Beenden"
 
 #: ../data/ui/remote-display.ui.h:1
 msgid "Use the game’s own window to play it"
-msgstr "Eigenes Fenster des Spiels verwenden, um es zu spielen."
+msgstr "Eigenes Fenster des Spiels verwenden, um es zu spielen"
 
 #: ../data/ui/remote-display.ui.h:2
 msgid "This game isn’t integrated to GNOME Games."
@@ -248,42 +252,42 @@ msgstr ""
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: ../plugins/desktop/src/desktop-plugin.vala:41
+#: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Ungültiger Befehl »%s«."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:51
+#: ../plugins/desktop/src/desktop-plugin.vala:58
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "In Tracker aufgelistete Datei konnte nicht gefunden werden: »%s«."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:57
+#: ../plugins/desktop/src/desktop-plugin.vala:64
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Desktop-Eintrag »%s« konnte nicht ausgewertet werden."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:67
+#: ../plugins/desktop/src/desktop-plugin.vala:74
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "»%s« sollte nicht angezeigt werden."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:70
+#: ../plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "“%s” is hidden."
 msgstr "»%s« ist verborgen."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:79
+#: ../plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "»%s« hat Kategorie »%s« ausgeblendet."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:88
+#: ../plugins/desktop/src/desktop-plugin.vala:95
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "»%s« hat ausführbare Datei »%s« ausgeblendet."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:95
+#: ../plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "»%s« ist ausgeblendet."
@@ -307,37 +311,39 @@ msgstr "Dies ist kein gültiges LÖVE-Paket: »%s«."
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "MAME-Spiel-Kennung »%s« für »%s« ist ungültig."
 
-#: ../plugins/master-system/src/master-system-header.vala:69
-msgid "The file doesn’t have a Master System header."
-msgstr "Die Datei hat keinen Master-System-Header."
+#: ../plugins/playstation/src/playstation-header.vala:27
+#, c-format
+#| msgid "No game title found for disc ID “%s”."
+msgid "Not a PlayStation disc: “%s”."
+msgstr "Keine PlayStation-Disc: »%s«."
 
-#: ../plugins/mega-drive/src/mega-drive-header.vala:65
-#: ../plugins/mega-drive/src/mega-drive-header.vala:84
+#: ../plugins/playstation/src/playstation-header.vala:37
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
+msgstr "Ungültiger PlayStation-Header: Platten-ID nicht gefunden unter »%s«."
+
+#: ../plugins/sega-cd/src/sega-cd-header.vala:44
+#: ../plugins/sega-cd/src/sega-cd-header.vala:63
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Datei hat keinen Genesis/Sega 32X/Sega CD/Sega Pico-Header."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:139
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:78
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:62
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Datei »%s« hat keinen Titel."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:145
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:84
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:68
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Datei »%s« hat kein gültiges Binärfomat."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:148
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:87
 #: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:71
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Datei »%s« hat keinen gültigen Titelmodus für Titel %d."
-
-#: ../plugins/playstation/src/playstation-header.vala:49
-#, c-format
-msgid "Invalid PlayStation header: disc ID not found in “%s”."
-msgstr "Ungültiger PlayStation-Header: Platten-ID nicht gefunden unter »%s«."
 
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn’t have a Sega Saturn header."
@@ -348,7 +354,7 @@ msgstr "Die Datei hat keinen Sega-Saturn-Header."
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Datei »%s« ist keine gültige Sega Saturn Binärdatei."
 
-#: ../plugins/steam/src/steam-game-source.vala:99
+#: ../plugins/steam/src/steam-plugin.vala:45
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Steam-App-Kennung konnte aus dem Manifest »%s« nicht ermittelt werden."
@@ -398,7 +404,7 @@ msgstr "Es gibt keinen gültigen Befehl für das Spiel."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Ausführung von »%s« ist fehlgeschlagen."
 
-#: ../src/core/media-set/media-set.vala:31
+#: ../src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Ungültiger Medienindex %u."
@@ -438,20 +444,20 @@ msgstr "Keine Plattensatz-ID für Platten-ID »%s« gefunden."
 msgid "No disc found for disc ID “%s”."
 msgstr "Keine Platte gefunden für Platten-ID »%s«."
 
-#: ../src/gamepad/gamepad-mapping.c:311
+#: ../src/gamepad/gamepad-mapping.c:236
 msgid "The mapping string can’t be null."
 msgstr "Die zugeordnete Zeichenkette darf nicht »null« sein."
 
-#: ../src/gamepad/gamepad-mapping.c:320
+#: ../src/gamepad/gamepad-mapping.c:245
 msgid "The mapping string can’t be empty."
 msgstr "Die zugeordnete Zeichenkette darf nicht leer sein."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:340
+#: ../src/gamepad/linux/linux-raw-gamepad.c:281
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Datei »%s« kann nicht geöffnet werden: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:353
+#: ../src/gamepad/linux/linux-raw-gamepad.c:294
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "»%s« kann nicht mit evdev geöffnet werden: %s"
@@ -506,193 +512,212 @@ msgid "Atari 7800"
 msgstr "Atari 7800"
 
 #: ../src/retro/retro-platform.vala:15
+#| msgid "Atari 2600"
+msgid "Atari Lynx"
+msgstr "Atari Lynx"
+
+#: ../src/retro/retro-platform.vala:17
 msgid "DOOM"
 msgstr "DOOM"
 
-#: ../src/retro/retro-platform.vala:17
+#: ../src/retro/retro-platform.vala:19
 msgid "Dreamcast"
 msgstr "Dreamcast"
 
 #. translators: only released in eastern Asia
-#: ../src/retro/retro-platform.vala:20
+#: ../src/retro/retro-platform.vala:22
 msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
-#: ../src/retro/retro-platform.vala:22
+#: ../src/retro/retro-platform.vala:24
 msgid "Game Boy"
 msgstr "Game Boy"
 
-#: ../src/retro/retro-platform.vala:24
+#: ../src/retro/retro-platform.vala:26
 msgid "Game Boy Color"
 msgstr "Game Boy Color"
 
-#: ../src/retro/retro-platform.vala:26
+#: ../src/retro/retro-platform.vala:28
 msgid "Game Boy Advance"
 msgstr "Game Boy Advance"
 
-#: ../src/retro/retro-platform.vala:28
+#: ../src/retro/retro-platform.vala:30
 msgid "Nintendo GameCube"
 msgstr "Nintendo GameCube"
 
-#: ../src/retro/retro-platform.vala:30
+#: ../src/retro/retro-platform.vala:32
 msgid "Game Gear"
 msgstr "Game Gear"
 
 #. translators: the "Multiple Arcade Machine Emulator"
-#: ../src/retro/retro-platform.vala:33
+#: ../src/retro/retro-platform.vala:35
 msgid "MAME"
 msgstr "MAME"
 
-#: ../src/retro/retro-platform.vala:35
+#: ../src/retro/retro-platform.vala:37
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: ../src/retro/retro-platform.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
 #. translators: known as "Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:38
+#: ../src/retro/retro-platform.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: ../src/retro/retro-platform.vala:40
+#: ../src/retro/retro-platform.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: ../src/retro/retro-platform.vala:42
+#: ../src/retro/retro-platform.vala:46
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: ../src/retro/retro-platform.vala:44
+#: ../src/retro/retro-platform.vala:48
 msgid "Nintendo 3DS"
 msgstr "Nintendo 3DS"
 
-#: ../src/retro/retro-platform.vala:46
+#: ../src/retro/retro-platform.vala:50
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: ../src/retro/retro-platform.vala:48
+#: ../src/retro/retro-platform.vala:52
 msgid "PlayStation 2"
 msgstr "PlayStation 2"
 
-#: ../src/retro/retro-platform.vala:50
+#: ../src/retro/retro-platform.vala:54
 msgid "PlayStation 3"
 msgstr "PlayStation 3"
 
-#: ../src/retro/retro-platform.vala:52
+#: ../src/retro/retro-platform.vala:56
 msgid "PlayStation 4"
 msgstr "PlayStation 4"
 
-#: ../src/retro/retro-platform.vala:54
+#: ../src/retro/retro-platform.vala:58
 msgid "PlayStation Portable"
 msgstr "PlayStation Portable"
 
-#: ../src/retro/retro-platform.vala:56
+#: ../src/retro/retro-platform.vala:60
 msgid "PlayStation Vita"
 msgstr "PlayStation Vita"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: ../src/retro/retro-platform.vala:59
+#: ../src/retro/retro-platform.vala:63
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega-CD" in most of the world
-#: ../src/retro/retro-platform.vala:62
+#: ../src/retro/retro-platform.vala:66
 msgid "Sega CD"
 msgstr "Sega CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: ../src/retro/retro-platform.vala:65
+#: ../src/retro/retro-platform.vala:69
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: ../src/retro/retro-platform.vala:68
+#: ../src/retro/retro-platform.vala:72
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
 #. translators: also known as "Sega Mark III" in eastern asia
-#: ../src/retro/retro-platform.vala:71
+#: ../src/retro/retro-platform.vala:75
 msgid "Sega Master System"
 msgstr "Sega Master System"
 
-#: ../src/retro/retro-platform.vala:73
+#: ../src/retro/retro-platform.vala:77
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: ../src/retro/retro-platform.vala:75
+#: ../src/retro/retro-platform.vala:79
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: ../src/retro/retro-platform.vala:77
+#: ../src/retro/retro-platform.vala:81
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:80
+#: ../src/retro/retro-platform.vala:84
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:83
+#: ../src/retro/retro-platform.vala:87
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:86
+#: ../src/retro/retro-platform.vala:90
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
-#: ../src/retro/retro-platform.vala:88
+#: ../src/retro/retro-platform.vala:92
 msgid "Wii"
 msgstr "Wii"
 
-#: ../src/retro/retro-platform.vala:90
+#: ../src/retro/retro-platform.vala:94
 msgid "Wii U"
 msgstr "Wii U"
 
-#: ../src/retro/retro-platform.vala:92
+#: ../src/retro/retro-platform.vala:96
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:218
-#, c-format
-msgid "No game file found for media “%s”."
-msgstr "Kein Spiel-Datei für Medium »%s« gefunden."
+#: ../src/retro/retro-platform.vala:98
+msgid "WonderSwan"
+msgstr "WonderSwan"
 
-#: ../src/retro/retro-runner.vala:222
-#, c-format
-msgid "Invalid game file: “%s”."
-msgstr "Ungültige Spieldatei: »%s«."
+#: ../src/retro/retro-platform.vala:100
+msgid "WonderSwan Color"
+msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:267
+#: ../src/retro/retro-runner.vala:248
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Kein passendes Modul für »%s« gefunden."
 
-#: ../src/retro/retro-runner.vala:592
+#: ../src/retro/retro-runner.vala:567
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System »%s« wird derzeit noch nicht unterstützt, die vollständige "
 "Unterstützung ist aber bereits in Planung."
 
-#: ../src/retro/retro-runner.vala:595
+#: ../src/retro/retro-runner.vala:570
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System wird derzeit noch nicht unterstützt, die vollständige "
 "Unterstützung ist aber bereits in Planung."
 
-#: ../src/ui/application.vala:261
+#: ../src/ui/application.vala:136
+msgid "Select game files"
+msgstr "Spieledateien auswählen"
+
+#: ../src/ui/application.vala:137
+msgid "_Cancel"
+msgstr "A_bbrechen"
+
+#: ../src/ui/application.vala:138
+msgid "_Add"
+msgstr "_Hinzufügen"
+
+#: ../src/ui/application.vala:307
 msgid "GNOME Games"
 msgstr "GNOME Spiele"
 
-#: ../src/ui/application.vala:263
+#: ../src/ui/application.vala:309
 msgid "A video game player for GNOME"
 msgstr "Ein Videospiel-Programm für GNOME"
 
-#: ../src/ui/application.vala:267
+#: ../src/ui/application.vala:313
 msgid "Learn more about GNOME Games"
 msgstr "Mehr über GNOME Spiele erfahren"
 
-#: ../src/ui/application.vala:274
+#: ../src/ui/application.vala:320
 msgid "translator-credits"
 msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
