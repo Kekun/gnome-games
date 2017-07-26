@@ -266,6 +266,8 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
                                         GamesGamepadInput   *destination)
 {
   GamesGamepadDPad *dpad;
+  GamesGamepadInput *dpad_input;
+
   gint dpad_changed_value;
   gint dpad_position;
 
@@ -274,14 +276,26 @@ games_gamepad_mapping_get_dpad_mapping (GamesGamepadMapping *self,
 
   memset (destination, 0, sizeof (GamesGamepadInput));
 
+  destination->type = EV_MAX;
+  if (dpad_index >= self->dpads->len)
+    return;
+
   dpad = &g_array_index (self->dpads, GamesGamepadDPad, dpad_index);
+  if (dpad == NULL)
+    return;
+
   dpad_changed_value = (dpad_value == 0) ?
     dpad->axis_values[dpad_axis] :
     dpad_value;
   // We add 4 so that the remainder is always positive.
   dpad_position = (dpad_changed_value + dpad_axis + 4) % 4;
   dpad->axis_values[dpad_axis] = dpad_value;
-  *destination = dpad->inputs[dpad_position];
+  if (dpad_position >= 4)
+    return;
+
+  dpad_input = &dpad->inputs[dpad_position];
+  if (dpad_input != NULL)
+    *destination = *dpad_input;
 }
 
 void
@@ -294,10 +308,11 @@ games_gamepad_mapping_get_axis_mapping (GamesGamepadMapping *self,
 
   memset (destination, 0, sizeof (GamesGamepadInput));
 
-  destination->type = (axis_number < self->axes->len) ?
-    g_array_index (self->axes, GamesGamepadInput, axis_number).type :
-    EV_MAX;
-  destination->code = g_array_index (self->axes, GamesGamepadInput, axis_number).code;
+  destination->type = EV_MAX;
+  if (axis_number >= self->axes->len)
+    return;
+
+  *destination = g_array_index (self->axes, GamesGamepadInput, axis_number);
 }
 
 void
@@ -310,10 +325,11 @@ games_gamepad_mapping_get_button_mapping (GamesGamepadMapping *self,
 
   memset (destination, 0, sizeof (GamesGamepadInput));
 
-  destination->type = (button_number < self->buttons->len) ?
-    g_array_index (self->buttons, GamesGamepadInput, button_number).type :
-    EV_MAX;
-  destination->code = g_array_index (self->buttons, GamesGamepadInput, button_number).code;
+  destination->type = EV_MAX;
+  if (button_number >= self->buttons->len)
+    return;
+
+  *destination = g_array_index (self->buttons, GamesGamepadInput, button_number);
 }
 
 /* Type */
