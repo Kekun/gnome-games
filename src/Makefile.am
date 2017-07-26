@@ -156,6 +156,7 @@ gnome_games_SOURCES = \
 	ui/media-selector.vala \
 	ui/media-menu-button.vala \
 	ui/preferences-page.vala \
+	ui/preferences-page-controllers.vala \
 	ui/preferences-page-plugins.vala \
 	ui/preferences-page-plugins-item.vala \
 	ui/preferences-page-video.vala \

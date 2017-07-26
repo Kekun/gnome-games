@@ -43,6 +43,7 @@ EXTRA_DIST = \
 	ui/game-icon-view.ui \
 	ui/media-menu-button.ui \
 	ui/media-selector.ui \
+	ui/preferences-page-controllers.ui \
 	ui/preferences-page-plugins-item.ui \
 	ui/preferences-page-plugins.ui \
 	ui/preferences-page-video.ui \
