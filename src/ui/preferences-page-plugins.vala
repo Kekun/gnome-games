@@ -2,8 +2,16 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-plugins.ui")]
 private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
-	public string title {
-		get { return _("Extensions"); }
+	[GtkChild (name = "header_bar")]
+	private Gtk.HeaderBar _header_bar;
+	public Gtk.HeaderBar header_bar {
+		protected set {}
+		get { return _header_bar; }
+	}
+	
+	public bool immersive_mode {
+		protected set {}
+		get { return false; }
 	}
 
 	[GtkChild]

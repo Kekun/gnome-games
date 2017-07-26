@@ -2,8 +2,16 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-video.ui")]
 private class Games.PreferencesPageVideo: Gtk.Bin, PreferencesPage {
-	public string title {
-		get { return _("Video"); }
+	[GtkChild (name = "header_bar")]
+	private Gtk.HeaderBar _header_bar;
+	public Gtk.HeaderBar header_bar {
+		protected set {}
+		get { return _header_bar; }
+	}
+	
+	public bool immersive_mode {
+		protected set {}
+		get { return false; }
 	}
 
 	private string _filter_active;

@@ -50,4 +50,8 @@
       </object>
     </child>
   </template>
+  <object class="GtkHeaderBar" id="header_bar">
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Video</property>
+  </object>
 </interface>
