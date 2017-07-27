@@ -20,6 +20,7 @@ G_DEFINE_TYPE (GamesGamepadMonitor, games_gamepad_monitor, G_TYPE_OBJECT)
 
 enum {
   SIGNAL_GAMEPAD_PLUGGED,
+  SIGNAL_GAMEPAD_UNPLUGGED,
   LAST_SIGNAL,
 };
 
@@ -46,6 +47,7 @@ on_gamepad_unplugged (GamesGamepad *sender,
   g_return_if_fail (sender != NULL);
 
   g_hash_table_remove (self->gamepads, sender);
+  g_signal_emit (self, signals[SIGNAL_GAMEPAD_UNPLUGGED], 0);
 }
 
 static GamesGamepad *
@@ -218,6 +220,19 @@ static void games_gamepad_monitor_class_init (GamesGamepadMonitorClass *klass) {
                   g_cclosure_marshal_VOID__OBJECT,
                   G_TYPE_NONE, 1,
                   GAMES_TYPE_GAMEPAD);
+
+  /**
+   * GamesGamepad::unplugged:
+   *
+   * Emitted when a gamepad is unplugged.
+   */
+  signals[SIGNAL_GAMEPAD_UNPLUGGED] =
+    g_signal_new ("gamepad-unplugged",
+                  GAMES_TYPE_GAMEPAD_MONITOR,
+                  G_SIGNAL_RUN_LAST,
+                  0, NULL, NULL,
+                  g_cclosure_marshal_VOID__VOID,
+                  G_TYPE_NONE, 0);
 }
 
 static void
