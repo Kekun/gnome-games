@@ -16,6 +16,12 @@ gchar *games_gamepad_mappings_manager_get_user_mapping (GamesGamepadMappingsMana
                                                         const gchar                 *guid);
 gchar *games_gamepad_mappings_manager_get_mapping (GamesGamepadMappingsManager *self,
                                                    const gchar                 *guid);
+void games_gamepad_mappings_manager_save_mapping (GamesGamepadMappingsManager *self,
+                                                  const gchar                 *guid,
+                                                  const gchar                 *name,
+                                                  const gchar                 *mapping);
+void games_gamepad_mappings_manager_delete_mapping (GamesGamepadMappingsManager *self,
+                                                    const gchar                 *guid);
 
 G_END_DECLS
 

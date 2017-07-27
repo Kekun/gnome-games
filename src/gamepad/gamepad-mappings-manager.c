@@ -14,6 +14,7 @@ struct _GamesGamepadMappingsManager {
   GHashTable *names;
   GHashTable *default_mappings;
   GHashTable *user_mappings;
+  gchar *user_mappings_uri;
 };
 
 G_DEFINE_TYPE (GamesGamepadMappingsManager, games_gamepad_mappings_manager, G_TYPE_OBJECT);
@@ -127,13 +128,67 @@ add_from_file_uri (GamesGamepadMappingsManager  *self,
   g_object_unref (file);
 }
 
+static void
+save_user_mappings (GamesGamepadMappingsManager  *self,
+                    GError                      **error)
+{
+  GHashTableIter iter;
+  gpointer key, value;
+  gchar *guid;
+  const gchar *name;
+  gchar *sdl_string;
+  gchar *mapping_string;
+
+  GFile *file;
+  GFileOutputStream *stream;
+  GDataOutputStream *data_stream;
+  GError *inner_error = NULL;
+
+  g_return_if_fail (self != NULL);
+
+  file = g_file_new_for_uri (self->user_mappings_uri);
+  stream = g_file_replace (file, NULL, FALSE, G_FILE_CREATE_NONE, NULL, &inner_error);
+  if (G_UNLIKELY (inner_error != NULL)) {
+    g_propagate_error (error, inner_error);
+    g_object_unref (file);
+
+    return;
+  }
+  data_stream = g_data_output_stream_new (G_FILE_OUTPUT_STREAM (stream));
+
+  g_hash_table_iter_init (&iter, self->user_mappings);
+  while (g_hash_table_iter_next (&iter, &key, &value)) {
+    guid = (gchar *) key;
+    name = g_hash_table_lookup (self->names, guid);
+    sdl_string = (gchar *) value;
+
+    mapping_string = g_strdup_printf ("%s,%s,%s\n", guid, name, sdl_string);
+
+    g_data_output_stream_put_string (data_stream, mapping_string, NULL, &inner_error);
+    if (G_UNLIKELY (inner_error != NULL)) {
+      g_propagate_error (error, inner_error);
+      g_free (mapping_string);
+      g_object_unref (file);
+      g_object_unref (stream);
+      g_object_unref (data_stream);
+
+      return;
+    }
+
+    g_free (mapping_string);
+  }
+
+  g_object_unref (file);
+  g_object_unref (stream);
+  g_object_unref (data_stream);
+}
+
 static GamesGamepadMappingsManager *
 games_gamepad_mappings_manager_new (void)
 {
   GamesGamepadMappingsManager *self = NULL;
   gchar *dir;
   gchar *path;
-  gchar *user_mappings_uri;
   GError *inner_error = NULL;
 
   self = (GamesGamepadMappingsManager*) g_object_new (GAMES_TYPE_GAMEPAD_MAPPINGS_MANAGER, NULL);
@@ -161,7 +216,7 @@ games_gamepad_mappings_manager_new (void)
 
   g_free (dir);
 
-  user_mappings_uri = g_filename_to_uri (path, NULL, &inner_error);
+  self->user_mappings_uri = g_filename_to_uri (path, NULL, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
     g_debug ("GamepadMappingsManager: Can't build path for user config: %s",
              inner_error->message);
@@ -173,15 +228,13 @@ games_gamepad_mappings_manager_new (void)
 
   g_free (path);
 
-  add_from_file_uri (self, user_mappings_uri, self->user_mappings, &inner_error);
+  add_from_file_uri (self, self->user_mappings_uri, self->user_mappings, &inner_error);
   if (G_UNLIKELY (inner_error != NULL)) {
     g_debug ("GamepadMappingsManager: Can’t add mappings from %s: %s",
-             user_mappings_uri,
+             self->user_mappings_uri,
              inner_error->message);
     g_clear_error (&inner_error);
   }
-
-  g_free (user_mappings_uri);
 
   return self;
 }
@@ -241,6 +294,48 @@ games_gamepad_mappings_manager_get_mapping (GamesGamepadMappingsManager *self,
   return mapping;
 }
 
+void
+games_gamepad_mappings_manager_save_mapping (GamesGamepadMappingsManager *self,
+                                             const gchar                 *guid,
+                                             const gchar                 *name,
+                                             const gchar                 *mapping)
+{
+  GError *inner_error = NULL;
+
+  g_return_if_fail (self != NULL);
+  g_return_if_fail (guid != NULL);
+  g_return_if_fail (name != NULL);
+  g_return_if_fail (mapping != NULL);
+
+  g_hash_table_insert (self->user_mappings, g_strdup (guid), g_strdup (mapping));
+  g_hash_table_insert (self->names, g_strdup (guid), g_strdup (name));
+
+  save_user_mappings (self, &inner_error);
+  if (G_UNLIKELY (inner_error != NULL)) {
+    g_critical ("GamepadMappingsManager: Can’t save user mappings: %s", inner_error->message);
+    g_clear_error (&inner_error);
+  }
+}
+
+void
+games_gamepad_mappings_manager_delete_mapping (GamesGamepadMappingsManager *self,
+                                               const gchar                 *guid)
+{
+  GError *inner_error = NULL;
+
+  g_return_if_fail (self != NULL);
+  g_return_if_fail (guid != NULL);
+
+  g_hash_table_remove (self->user_mappings, guid);
+  g_hash_table_remove (self->names, guid);
+
+  save_user_mappings (self, &inner_error);
+  if (G_UNLIKELY (inner_error != NULL)) {
+    g_critical ("GamepadMappingsManager: Can’t save user mappings: %s", inner_error->message);
+    g_clear_error (&inner_error);
+  }
+}
+
 /* Type */
 
 static void
@@ -251,6 +346,7 @@ finalize (GObject *object)
   g_hash_table_unref (self->names);
   g_hash_table_unref (self->default_mappings);
   g_hash_table_unref (self->user_mappings);
+  g_free (self->user_mappings_uri);
 
   G_OBJECT_CLASS (games_gamepad_mappings_manager_parent_class)->finalize (object);
 }
