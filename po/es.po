@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-05-26 13:53+0000\n"
-"PO-Revision-Date: 2017-06-20 12:32+0200\n"
+"POT-Creation-Date: 2017-07-15 09:49+0000\n"
+"PO-Revision-Date: 2017-07-27 09:56+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1
-#: ../data/ui/display-header-bar.ui.h:1 ../src/ui/application.vala:18
+#: ../data/ui/display-header-bar.ui.h:1 ../src/ui/application.vala:20
 msgid "Games"
 msgstr "Juegos"
 
@@ -140,7 +140,6 @@ msgid "Loading"
 msgstr "Cargando"
 
 #: ../data/ui/collection-header-bar.ui.h:2
-#| msgid "Invalid game file: “%s”."
 msgid "Add game files…"
 msgstr "Añadir archivos de juegos…"
 
@@ -246,7 +245,6 @@ msgid "Resume"
 msgstr "Reanudar"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
-#| msgid "Resuming failed. Do you want to to restart the game?"
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Falló al reanudar. ¿Quiere reiniciar el juego?"
 
@@ -271,13 +269,11 @@ msgstr "No se pudo analizar la entrada del escritorio «%s»."
 
 #: ../plugins/desktop/src/desktop-plugin.vala:74
 #, c-format
-#| msgid "File “%s” doesn’t exist."
 msgid "“%s” shouldn’t be displayed."
 msgstr "no se debe mostrar «%s»."
 
 #: ../plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
-#| msgid "“%s” is blacklisted."
 msgid "“%s” is hidden."
 msgstr "«%s» está oculto."
 
@@ -315,7 +311,13 @@ msgstr "Esto no representa un paquete LÖVE válido: «%s»."
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "ID «%s» de juego MAME no válido para «%s»."
 
-#: ../plugins/playstation/src/playstation-header.vala:49
+#: ../plugins/playstation/src/playstation-header.vala:27
+#, c-format
+#| msgid "No game title found for disc ID “%s”."
+msgid "Not a PlayStation disc: “%s”."
+msgstr "No es un disco de PlayStation: «%s»."
+
+#: ../plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr "Cabecera de PlayStation no válida: ID del disco no encontrado en «%s»."
@@ -402,7 +404,7 @@ msgstr "El juego no tiene un comando válido."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "No se pudo ejecutar «%s»: falló la ejecución."
 
-#: ../src/core/media-set/media-set.vala:31
+#: ../src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Índice del soporte %u no válido"
@@ -450,12 +452,12 @@ msgstr "La cadena de mapeado no puede ser nula."
 msgid "The mapping string can’t be empty."
 msgstr "La cadena de mapeado no puede estar vacía."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:284
+#: ../src/gamepad/linux/linux-raw-gamepad.c:281
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "No se puede abrir el archivo «%s» :%s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:297
+#: ../src/gamepad/linux/linux-raw-gamepad.c:294
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev no puede abrir «%s» :%s"
@@ -475,15 +477,11 @@ msgstr "«, »"
 
 #: ../src/retro/retro-core-source.vala:76
 #, c-format
-#| msgid "This games requires the %s firmware file to run."
 msgid "This game requires the %s firmware file to run."
 msgstr "El juego necesita el archivo de firmware %s para ejecutarse."
 
 #: ../src/retro/retro-core-source.vala:93
 #, c-format
-#| msgid ""
-#| "This games requires the %s firmware file with a MD5 fingerprint of %s to "
-#| "run."
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
@@ -492,9 +490,6 @@ msgstr ""
 
 #: ../src/retro/retro-core-source.vala:99
 #, c-format
-#| msgid ""
-#| "This games requires the %s firmware file with a SHA-512 fingerprint of %s "
-#| "to run."
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
@@ -519,7 +514,6 @@ msgid "Atari 7800"
 msgstr "Atari 7800"
 
 #: ../src/retro/retro-platform.vala:15
-#| msgid "Atari 2600"
 msgid "Atari Lynx"
 msgstr "Atari Lynx"
 
@@ -682,63 +676,49 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:209
+#: ../src/retro/retro-runner.vala:248
 #, c-format
-#| msgid "No game title found for disc ID “%s”."
-msgid "No game file found for media “%s”."
-msgstr "No se han encontrado archivos de juegos para «%s»."
-
-#: ../src/retro/retro-runner.vala:213
-#, c-format
-msgid "Invalid game file: “%s”."
-msgstr "Archivo de juego no válido: «%s»."
-
-#: ../src/retro/retro-runner.vala:260
-#, c-format
-#| msgid "No disc found for disc ID “%s”."
 msgid "No module found for “%s”."
 msgstr "No se pudo encontrar un módulo apropiado para «%s»."
 
-#: ../src/retro/retro-runner.vala:598
+#: ../src/retro/retro-runner.vala:567
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: ../src/retro/retro-runner.vala:601
+#: ../src/retro/retro-runner.vala:570
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
-#: ../src/ui/application.vala:120
+#: ../src/ui/application.vala:136
 msgid "Select game files"
 msgstr "Seleccionar archivos de juegos"
 
-#: ../src/ui/application.vala:121
-#| msgid "Cancel"
+#: ../src/ui/application.vala:137
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: ../src/ui/application.vala:122
+#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "_Añadir"
 
-#: ../src/ui/application.vala:280
+#: ../src/ui/application.vala:307
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: ../src/ui/application.vala:282
+#: ../src/ui/application.vala:309
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: ../src/ui/application.vala:286
+#: ../src/ui/application.vala:313
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: ../src/ui/application.vala:293
+#: ../src/ui/application.vala:320
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016"
 
 #: ../src/ui/application-window.vala:283
-#| msgid "An unexpected error occured."
 msgid "An unexpected error occurred."
 msgstr "Ha ocurrido un error inesperado."
 
@@ -822,6 +802,13 @@ msgstr "%s:%lu: fin de línea no esperado, se esperaba un testigo."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: testigo %s no esperado, se esperaba un final de línea."
+
+#~| msgid "No game title found for disc ID “%s”."
+#~ msgid "No game file found for media “%s”."
+#~ msgstr "No se han encontrado archivos de juegos para «%s»."
+
+#~ msgid "Invalid game file: “%s”."
+#~ msgstr "Archivo de juego no válido: «%s»."
 
 #~ msgid "The file doesn’t have a Master System header."
 #~ msgstr "El archivo no tiene una cabecera de Master System."
