@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-05-26 13:53+0000\n"
-"PO-Revision-Date: 2017-06-25 22:43+0200\n"
+"POT-Creation-Date: 2017-07-15 09:49+0000\n"
+"PO-Revision-Date: 2017-08-01 11:18+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:18
+#: ../src/ui/application.vala:20
 msgid "Games"
 msgstr "Hry"
 
@@ -307,7 +307,12 @@ msgstr "Nejedná se o platný balíček LÖVE: „%s“"
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Neplatné id „%s“ hry MAME pro „%s“."
 
-#: ../plugins/playstation/src/playstation-header.vala:49
+#: ../plugins/playstation/src/playstation-header.vala:27
+#, c-format
+msgid "Not a PlayStation disc: “%s”."
+msgstr "Nejedná se o disk pro PlayStation: „%s“."
+
+#: ../plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr "Neplatná hlavička PlayStation: ID disku nebylo nalezeno v „%s“."
@@ -394,7 +399,7 @@ msgstr "Hra nemá platný příkaz pro spuštění."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nelze spustit „%s“: spuštění selhalo"
 
-#: ../src/core/media-set/media-set.vala:31
+#: ../src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Neplatný index média %u."
@@ -442,12 +447,12 @@ msgstr "Mapovací řetězec nemůže být bez hodnoty."
 msgid "The mapping string can’t be empty."
 msgstr "Mapovací řetězec nemůže být prázdný."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:284
+#: ../src/gamepad/linux/linux-raw-gamepad.c:281
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Nelze otevřít soubor „%s“: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:297
+#: ../src/gamepad/linux/linux-raw-gamepad.c:294
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev nemůže otevřít „%s“: %s"
@@ -664,55 +669,45 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:209
-#, c-format
-msgid "No game file found for media “%s”."
-msgstr "Pro médium „%s“ nebyl nalezen soubor s hrou."
-
-#: ../src/retro/retro-runner.vala:213
-#, c-format
-msgid "Invalid game file: “%s”."
-msgstr "Neplatný soubor s hrou: „%s“"
-
-#: ../src/retro/retro-runner.vala:260
+#: ../src/retro/retro-runner.vala:248
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Pro „%s“ nebyl nalezen žádný modul."
 
-#: ../src/retro/retro-runner.vala:598
+#: ../src/retro/retro-runner.vala:567
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systém „%s“ není zatím podporován, ale plná podpora je v plánu."
 
-#: ../src/retro/retro-runner.vala:601
+#: ../src/retro/retro-runner.vala:570
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systém není zatím podporován, ale plná podpora je v plánu."
 
-#: ../src/ui/application.vala:120
+#: ../src/ui/application.vala:136
 msgid "Select game files"
 msgstr "Výběr souborů s hrami"
 
-#: ../src/ui/application.vala:121
+#: ../src/ui/application.vala:137
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: ../src/ui/application.vala:122
+#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "Přid_at"
 
-#: ../src/ui/application.vala:280
+#: ../src/ui/application.vala:307
 msgid "GNOME Games"
 msgstr "Hry GNOME"
 
-#: ../src/ui/application.vala:282
+#: ../src/ui/application.vala:309
 msgid "A video game player for GNOME"
 msgstr "Hraní videoher pro GNOME"
 
-#: ../src/ui/application.vala:286
+#: ../src/ui/application.vala:313
 msgid "Learn more about GNOME Games"
 msgstr "Zjistěte si více o Hrách GNOME"
 
-#: ../src/ui/application.vala:293
+#: ../src/ui/application.vala:320
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
@@ -800,33 +795,3 @@ msgstr "%s:%lu: Neočekávaný konec řádku, byl očekáván symbol."
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekávaný symbol %s, byl očekáván konec řádku."
 
-#~ msgid "The file doesn’t have a Master System header."
-#~ msgstr "Soubor nemá hlavičku Master System."
-
-#~ msgid "Disc with disc_id %s is unknown"
-#~ msgstr "Disk s disc_id %s je neznámý."
-
-#~ msgid "Invalid command: it doesn't have any argument."
-#~ msgstr "Neplatný příkaz: nemá žádný argument."
-
-#~ msgid "Couldn't run game: module '%s' not found."
-#~ msgstr "Nelze spustit hru: modul „%s“ nebyl nalezen."
-
-#~ msgid ""
-#~ "Couldn't run game: module '%s' not found and no module found for MIME "
-#~ "types %s."
-#~ msgstr ""
-#~ "Nelze spustit hru: modul „%s“ nebyl nalezen a pro typ MIME %s nebyl "
-#~ "nalezen žádný modul."
-
-#~ msgid "Couldn't write snapshot."
-#~ msgstr "Nelze zapsat snímek."
-
-#, fuzzy
-#~ msgid ""
-#~ "<b><span size=\"large\">Use the game's own window to play it</span></b>"
-#~ msgstr "K hraní hry použijte její vlastní okno"
-
-#, fuzzy
-#~ msgid "The file doesn't have a Game Boy header."
-#~ msgstr "Soubor nemá hlavičku Game Cube."
