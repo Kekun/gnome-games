@@ -1,17 +1,17 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.RetroInputManager : Retro.InputDeviceManager, Retro.Rumble {
-	private Retro.VirtualGamepad keyboard;
+	private Retro.InputDevice core_view_joypad;
 	private GamepadMonitor gamepad_monitor;
 	private Retro.InputDevice?[] input_devices;
-	private int keyboard_port;
+	private int core_view_joypad_port;
 	private bool present_analog_sticks;
 
-	public RetroInputManager (Gtk.Widget widget, bool present_analog_sticks) {
+	public RetroInputManager (Retro.CoreView view, bool present_analog_sticks) {
 		this.present_analog_sticks = present_analog_sticks;
 
-		keyboard = new Retro.VirtualGamepad (widget);
-		set_keyboard (widget);
+		core_view_joypad = view.as_input_device (Retro.DeviceType.JOYPAD);
+		set_keyboard (view);
 
 		gamepad_monitor = GamepadMonitor.get_instance ();
 		gamepad_monitor.foreach_gamepad ((gamepad) => {
@@ -22,49 +22,54 @@ private class Games.RetroInputManager : Retro.InputDeviceManager, Retro.Rumble {
 			gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
 		});
 
-		keyboard_port = input_devices.length;
-		input_devices += keyboard;
-		set_controller_device (keyboard_port, keyboard);
+		core_view_joypad_port = input_devices.length;
+		input_devices += core_view_joypad;
+		set_controller_device (core_view_joypad_port, core_view_joypad);
 		gamepad_monitor.gamepad_plugged.connect (handle_gamepad_plugged);
 	}
 
 	private void handle_gamepad_plugged (Gamepad gamepad) {
-		// Plug this gamepad to the port where the keyboard was plugged as a last resort
-		var port = keyboard_port;
+		// Plug this gamepad to the port where the CoreView's joypad was
+		// plugged as a last resort.
+		var port = core_view_joypad_port;
 		var retro_gamepad = new RetroGamepad (gamepad, present_analog_sticks);
 		input_devices[port] = retro_gamepad;
 		set_controller_device (port, retro_gamepad);
 		gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
 
-		// Assign keyboard to another unplugged port if exists and return
-		for (var i = keyboard_port; i < input_devices.length; i++) {
+		// Assign the CoreView's joypad to another unplugged port if it
+		// exists and return.
+		for (var i = core_view_joypad_port; i < input_devices.length; i++) {
 			if (input_devices[i] == null) {
-				// Found an unplugged port and so assigning keyboard to it
-				keyboard_port = i;
-				input_devices[keyboard_port] = keyboard;
-				set_controller_device (keyboard_port, keyboard);
+				// Found an unplugged port and so assigning core_view_joypad to it
+				core_view_joypad_port = i;
+				input_devices[core_view_joypad_port] = core_view_joypad;
+				set_controller_device (core_view_joypad_port, core_view_joypad);
 
 				return;
 			}
 		}
 
-		// Now it means that there is no unplugged port so append keyboard to ports
-		keyboard_port = input_devices.length;
-		input_devices += keyboard;
-		set_controller_device (keyboard_port, keyboard);
+		// Now it means that there is no unplugged port so append the
+		// CoreView's joypad to ports.
+		core_view_joypad_port = input_devices.length;
+		input_devices += core_view_joypad;
+		set_controller_device (core_view_joypad_port, core_view_joypad);
 	}
 
 	private void handle_gamepad_unplugged (int port) {
-		if (keyboard_port > port) {
-			// Remove the controller and shift keyboard to "lesser" port
-			input_devices[keyboard_port] = null;
-			remove_controller_device (keyboard_port);
-			keyboard_port = port;
-			input_devices[keyboard_port] = keyboard;
-			set_controller_device (keyboard_port, keyboard);
+		if (core_view_joypad_port > port) {
+			// Remove the controller and shift the CoreView's joypad to
+			// "lesser" port.
+			input_devices[core_view_joypad_port] = null;
+			remove_controller_device (core_view_joypad_port);
+			core_view_joypad_port = port;
+			input_devices[core_view_joypad_port] = core_view_joypad;
+			set_controller_device (core_view_joypad_port, core_view_joypad);
 		}
 		else {
-			// Just remove the controller as no need to shift keyboard
+			// Just remove the controller as no need to shift the
+			// CoreView's joypad.
 			input_devices[port] = null;
 			remove_controller_device (port);
 		}
@@ -74,7 +79,7 @@ private class Games.RetroInputManager : Retro.InputDeviceManager, Retro.Rumble {
 		if (port > input_devices.length)
 			return false;
 
-		if (input_devices[port] == null || input_devices[port] == keyboard)
+		if (input_devices[port] == null || input_devices[port] == core_view_joypad)
 			return false;
 
 		// TODO Transmit the rumble signal to the gamepad.

@@ -35,12 +35,11 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private Retro.Core core;
+	private Retro.CoreView view;
 	private Retro.CairoDisplay video;
 	private Retro.PaPlayer audio;
 	private RetroInputManager input_manager;
 	private Retro.MainLoop loop;
-
-	private Gtk.EventBox widget;
 
 	private string save_directory_path;
 	private string save_path;
@@ -147,7 +146,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public Gtk.Widget get_display () {
-		return widget;
+		return view;
 	}
 
 	public void start () throws Error {
@@ -189,15 +188,14 @@ public class Games.RetroRunner : Object, Runner {
 		if (is_initialized)
 			return;
 
-		video = new Retro.CairoDisplay ();
+		view = new Retro.CoreView ();
+		video = view.get_display ();
 		settings.changed["video-filter"].connect (on_video_filter_changed);
 		on_video_filter_changed ();
 
-		widget = new Gtk.EventBox ();
-		widget.add (video);
 		video.visible = true;
 		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
-		input_manager = new RetroInputManager (widget, present_analog_sticks);
+		input_manager = new RetroInputManager (view, present_analog_sticks);
 
 		prepare_core ();
 
@@ -220,11 +218,11 @@ public class Games.RetroRunner : Object, Runner {
 		settings.changed["video-filter"].disconnect (on_video_filter_changed);
 
 		core = null;
-		video.set_core (null);
+		view.set_core (null);
+		view = null;
 		video = null;
 		audio.set_core (null);
 		audio = null;
-		widget = null;
 		input_manager = null;
 		loop = null;
 
@@ -265,7 +263,7 @@ public class Games.RetroRunner : Object, Runner {
 		}
 
 		core.log.connect (Retro.g_log);
-		video.set_core (core);
+		view.set_core (core);
 		audio.set_core (core);
 		core.input_interface = input_manager;
 		core.rumble_interface = input_manager;
