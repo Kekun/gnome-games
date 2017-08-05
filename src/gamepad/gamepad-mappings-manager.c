@@ -83,6 +83,7 @@ add_from_input_stream (GamesGamepadMappingsManager  *self,
       break;
 
     add_mapping (self, mapping_string);
+    g_free (mapping_string);
   }
   g_object_unref (data_stream);
 }
