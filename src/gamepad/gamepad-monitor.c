@@ -196,7 +196,7 @@ static void games_gamepad_monitor_class_init (GamesGamepadMonitorClass *klass) {
    * Emitted when the gamepad is unplugged.
    */
   signals[SIGNAL_GAMEPAD_PLUGGED] =
-    g_signal_new ("gamepad_plugged",
+    g_signal_new ("gamepad-plugged",
                   GAMES_TYPE_GAMEPAD_MONITOR,
                   G_SIGNAL_RUN_LAST,
                   0, NULL, NULL,
