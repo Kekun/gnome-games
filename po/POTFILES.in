@@ -9,12 +9,16 @@ data/org.gnome.Games.gschema.xml
 [type: gettext/glade]data/ui/display-header-bar.ui
 [type: gettext/glade]data/ui/dummy-display.ui
 [type: gettext/glade]data/ui/empty-collection.ui
+[type: gettext/glade]data/ui/gamepad-configurer.ui
+[type: gettext/glade]data/ui/gamepad-mapper.ui
 [type: gettext/glade]data/ui/media-menu-button.ui
+[type: gettext/glade]data/ui/preferences-page-controllers.ui
 [type: gettext/glade]data/ui/preferences-page-plugins.ui
 [type: gettext/glade]data/ui/preferences-page-video.ui
 [type: gettext/glade]data/ui/preferences-window.ui
 [type: gettext/glade]data/ui/quit-dialog.ui
 [type: gettext/glade]data/ui/remote-display.ui
+[type: gettext/glade]data/ui/reset-gamepad-mapping-dialog.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
 [type: gettext/glade]data/ui/resume-failed-dialog.ui
 plugins/desktop/src/desktop-plugin.vala
@@ -45,6 +49,8 @@ src/retro/retro-runner.vala
 src/ui/application.vala
 src/ui/application-window.vala
 src/ui/error-display.vala
+src/ui/gamepad-configurer.vala
+src/ui/gamepad-mapper.vala
 src/ui/media-selector.vala
 src/ui/preferences-page-plugins.vala
 src/ui/preferences-page-video.vala
