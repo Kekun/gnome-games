@@ -115,7 +115,7 @@ msgstr "Mida de la finestra"
 
 #: ../data/org.gnome.Games.gschema.xml.h:8
 msgid "Window size (width and height)."
-msgstr "Mida de la finestra (amplada i alçada)"
+msgstr "Mida de la finestra (amplada i alçada)."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Preferences"
@@ -408,7 +408,7 @@ msgstr "No s'ha pogut executar «%s»: Ha fallat l'execució."
 #: ../src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
-msgstr "L'índex de l'element multimèdia no és vàlid: %u"
+msgstr "L'índex de l'element multimèdia no és vàlid: %u."
 
 #: ../src/core/plugin-registrar.vala:27
 #, c-format
