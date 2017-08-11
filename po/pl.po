@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-16 18:04+0200\n"
-"PO-Revision-Date: 2017-07-16 18:05+0200\n"
+"POT-Creation-Date: 2017-08-11 17:08+0200\n"
+"PO-Revision-Date: 2017-08-11 17:09+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -147,7 +147,7 @@ msgstr "Dodaj pliki gry…"
 msgid "Search"
 msgstr "Wyszukaj"
 
-#: ../data/ui/display-header-bar.ui.h:2
+#: ../data/ui/display-header-bar.ui.h:2 ../data/ui/gamepad-configurer.ui.h:3
 msgid "Back"
 msgstr "Wstecz"
 
@@ -178,30 +178,60 @@ msgstr ""
 "Należy zainstalować gry lub dodać katalogi zawierające gry do źródeł "
 "wyszukiwania."
 
+#: ../data/ui/gamepad-configurer.ui.h:1
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+#: ../data/ui/resume-failed-dialog.ui.h:3
+msgid "Reset"
+msgstr "Przywróć"
+
+#: ../data/ui/gamepad-configurer.ui.h:2
+msgid "Configure"
+msgstr "Skonfiguruj"
+
+#: ../data/ui/gamepad-configurer.ui.h:4 ../data/ui/quit-dialog.ui.h:3
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:3
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: ../data/ui/gamepad-mapper.ui.h:1
+msgid "Skip"
+msgstr "Pomiń"
+
 #: ../data/ui/media-menu-button.ui.h:1
 msgid "Media"
 msgstr "Nośnik"
+
+#: ../data/ui/preferences-page-controllers.ui.h:1
+msgid "Gamepads"
+msgstr "Kontrolery"
+
+#: ../data/ui/preferences-page-controllers.ui.h:2
+#: ../data/ui/preferences-window.ui.h:3
+msgid "Controllers"
+msgstr "Kontrolery"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
 msgstr "Wtyczki"
 
+#: ../data/ui/preferences-page-plugins.ui.h:2
+#: ../data/ui/preferences-window.ui.h:4
+msgid "Extensions"
+msgstr "Rozszerzenia"
+
 #: ../data/ui/preferences-page-video.ui.h:1
 msgid "Filter"
 msgstr "Filtr"
 
-#: ../data/ui/preferences-window.ui.h:1
-msgid "Preferences"
-msgstr "Preferencje"
-
-#: ../data/ui/preferences-window.ui.h:2 ../src/ui/preferences-page-video.vala:6
+#: ../data/ui/preferences-page-video.ui.h:2
+#: ../data/ui/preferences-window.ui.h:2
 msgid "Video"
 msgstr "Obraz"
 
-#: ../data/ui/preferences-window.ui.h:3
-#: ../src/ui/preferences-page-plugins.vala:6
-msgid "Extensions"
-msgstr "Rozszerzenia"
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Preferencje"
 
 #: ../data/ui/quit-dialog.ui.h:1
 msgid "Are you sure you want to quit?"
@@ -210,10 +240,6 @@ msgstr "Na pewno zakończyć?"
 #: ../data/ui/quit-dialog.ui.h:2
 msgid "All unsaved progress will be lost."
 msgstr "Niezapisane postępy zostaną utracone."
-
-#: ../data/ui/quit-dialog.ui.h:3 ../data/ui/resume-failed-dialog.ui.h:2
-msgid "Cancel"
-msgstr "Anuluj"
 
 #: ../data/ui/quit-dialog.ui.h:4
 msgid "Quit"
@@ -231,6 +257,14 @@ msgstr "Ta gra nie jest zintegrowana z Grami GNOME."
 msgid "You have to use its own window to play it."
 msgstr "Należy użyć jej okna."
 
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:1
+msgid "Factory reset mapping for this gamepad?"
+msgstr "Przywrócić ten kontroler do ustawień fabrycznych?"
+
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
+msgid "Your mapping will be lost."
+msgstr "Ustawienia przycisków zostaną utracone."
+
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
 msgstr "Wznowić ostatnią grę?"
@@ -246,10 +280,6 @@ msgstr "Wznów"
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Wznowienie się nie powiodło. Uruchomić grę ponownie?"
-
-#: ../data/ui/resume-failed-dialog.ui.h:3
-msgid "Reset"
-msgstr "Przywróć"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
@@ -451,12 +481,12 @@ msgstr "Ciąg mapowania nie może wynosić „null”."
 msgid "The mapping string can’t be empty."
 msgstr "Ciąg mapowania nie może być pusty."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:281
+#: ../src/gamepad/linux/linux-raw-gamepad.c:291
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "Nie można otworzyć pliku „%s”: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.c:294
+#: ../src/gamepad/linux/linux-raw-gamepad.c:304
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Evdev nie może otworzyć pliku „%s”: %s"
@@ -678,12 +708,12 @@ msgstr "WonderSwan Color"
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: ../src/retro/retro-runner.vala:567
+#: ../src/retro/retro-runner.vala:579
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/retro/retro-runner.vala:570
+#: ../src/retro/retro-runner.vala:582
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
@@ -699,19 +729,19 @@ msgstr "_Anuluj"
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: ../src/ui/application.vala:307
+#: ../src/ui/application.vala:313
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:309
+#: ../src/ui/application.vala:315
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:313
+#: ../src/ui/application.vala:319
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:320
+#: ../src/ui/application.vala:326
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
@@ -734,17 +764,41 @@ msgstr "Nie można uruchomić gry „%s”"
 msgid "Oops! Unable to run the game"
 msgstr "Nie można uruchomić gry"
 
+#. translators: testing a gamepad, %s is its name
+#: ../src/ui/gamepad-configurer.vala:79
+#, c-format
+msgid "Testing %s"
+msgstr "Testowanie „%s”"
+
+#. translators: configuring a gamepad, %s is its name
+#: ../src/ui/gamepad-configurer.vala:93
+#, c-format
+msgid "Configuring %s"
+msgstr "Konfigurowanie „%s”"
+
+#: ../src/ui/gamepad-mapper.vala:134
+msgid "Press suitable button on your gamepad"
+msgstr "Proszę nacisnąć odpowiedni przycisk na kontrolerze."
+
+#: ../src/ui/gamepad-mapper.vala:139
+msgid "Move suitable axis left/right on your gamepad"
+msgstr "Proszę przesunąć odpowiednią oś w lewo/prawo na kontrolerze."
+
+#: ../src/ui/gamepad-mapper.vala:141
+msgid "Move suitable axis up/down on your gamepad"
+msgstr "Proszę przesunąć odpowiednią oś w górę/dół na kontrolerze."
+
 #: ../src/ui/media-selector.vala:27
 #, c-format
 msgid "Media %d"
 msgstr "%d. nośnik"
 
 #. same as video-filters in gschema
-#: ../src/ui/preferences-page-video.vala:26
+#: ../src/ui/preferences-page-video.vala:34
 msgid "Smooth"
 msgstr "Gładki"
 
-#: ../src/ui/preferences-page-video.vala:26
+#: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Kanciasty"
 
