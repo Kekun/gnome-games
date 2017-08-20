@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-07 19:52+0000\n"
-"PO-Revision-Date: 2017-08-16 16:31+0200\n"
+"POT-Creation-Date: 2017-08-16 14:33+0000\n"
+"PO-Revision-Date: 2017-08-21 00:47+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
@@ -58,7 +58,7 @@ msgstr "Značajke:"
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
-"Prikažite svoje instalirane igre, svoje Steam igre, i svoje ROM-ove igara..."
+"Prikažite svoje instalirane igre, svoje Steam igre, i svoje ROM-ove igara…"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:7
 msgid "Search in your games collection"
@@ -110,7 +110,7 @@ msgstr "Prozor uvećan"
 
 #: ../data/org.gnome.Games.gschema.xml.h:6
 msgid "Window maximized state."
-msgstr "Stanje uvećanog prozora"
+msgstr "Stanje uvećanog prozora."
 
 #: ../data/org.gnome.Games.gschema.xml.h:7
 msgid "Window size"
@@ -199,15 +199,13 @@ msgid "Media"
 msgstr "Medij"
 
 #: ../data/ui/preferences-page-controllers.ui.h:1
-#, fuzzy
-#| msgid "Games"
 msgid "Gamepads"
-msgstr "Igre"
+msgstr "Upravljač igre"
 
 #: ../data/ui/preferences-page-controllers.ui.h:2
 #: ../data/ui/preferences-window.ui.h:3
 msgid "Controllers"
-msgstr ""
+msgstr "Upravljači"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
@@ -257,13 +255,11 @@ msgstr "Morate koristiti vlastiti prozor kako bi mogli igrati."
 
 #: ../data/ui/reset-gamepad-mapping-dialog.ui.h:1
 msgid "Factory reset mapping for this gamepad?"
-msgstr ""
+msgstr "Vrati izvorne postavke za ovaj upravljač igre?"
 
 #: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
-#, fuzzy
-#| msgid "All unsaved progress will be lost."
 msgid "Your mapping will be lost."
-msgstr "Sav nespremljeni napredak će biti izgubljen."
+msgstr "Vaše mapiranje će biti izgubljeno."
 
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
@@ -390,7 +386,7 @@ msgstr "Nemoguće dobivanje Steam appid iz manifesta “%s”."
 #: ../plugins/steam/src/steam-registry.vala:68
 #, c-format
 msgid "File “%s” doesn’t exist."
-msgstr "Datoteka \"%s\" ne postoji"
+msgstr "Datoteka \"%s\" ne postoji."
 
 #: ../plugins/steam/src/steam-registry.vala:96
 msgid "Unexpected token '{'."
@@ -772,15 +768,15 @@ msgstr "Podešavam %s"
 
 #: ../src/ui/gamepad-mapper.vala:134
 msgid "Press suitable button on your gamepad"
-msgstr ""
+msgstr "Pritisnite odgovarajuću tipku na vašem upravljaču igre"
 
 #: ../src/ui/gamepad-mapper.vala:139
 msgid "Move suitable axis left/right on your gamepad"
-msgstr ""
+msgstr "Pritisnite odgovarajuće palice lijevo/desno na vašem upravljaču igre"
 
 #: ../src/ui/gamepad-mapper.vala:141
 msgid "Move suitable axis up/down on your gamepad"
-msgstr ""
+msgstr "Pritisnite odgovarajuće palice gore/dolje na vašem upravljaču igre"
 
 #: ../src/ui/media-selector.vala:27
 #, c-format
@@ -790,11 +786,11 @@ msgstr "Medij %d"
 #. same as video-filters in gschema
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Smooth"
-msgstr "Glatko"
+msgstr "Zaglađena"
 
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
-msgstr "Oštro"
+msgstr "Oštra"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
