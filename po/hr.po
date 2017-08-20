@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-08-16 14:33+0000\n"
-"PO-Revision-Date: 2017-08-21 00:47+0200\n"
+"PO-Revision-Date: 2017-08-21 00:51+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -200,7 +200,7 @@ msgstr "Medij"
 
 #: ../data/ui/preferences-page-controllers.ui.h:1
 msgid "Gamepads"
-msgstr "Upravljač igre"
+msgstr "Upravljači igre"
 
 #: ../data/ui/preferences-page-controllers.ui.h:2
 #: ../data/ui/preferences-window.ui.h:3
