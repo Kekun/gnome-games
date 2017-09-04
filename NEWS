@@ -1,3 +1,30 @@
+===============
+Version 3.25.92
+===============
+
+* Allow users to use any of their gamepads with integrated games by
+  configuring their gamepads against the de-facto standard one. This is
+  implemented via a wizard in the preferences page.
+
+* Add a dependency on librsvg-2.0.
+
+* Bugs fixed:
+ 780754 Let users setup their gamepads
+
+* Translation updates:
+ Catalan
+ Croatian
+ Czech
+ Finnish
+ French
+ German
+ Indonesian
+ Italian
+ Polish
+ Serbian
+ Spanish
+
+
 ==============
 Version 3.25.4
 ==============
@@ -149,8 +176,8 @@ Version 3.23.92
 
 * Fix some typos
 
-* Move the Flatpak manifest to 
- - Move the 
+* Move the Flatpak manifest to
+ - Move the
 
 * Bugs fixed:
  779403 flatpak: Migrate the flatpak-builder manifest from gnome-apps-nightly to gnome-games
@@ -527,7 +554,7 @@ Version 3.19.92
 
 * Add the expected Retro module name to its 'not found' error message
 
-* Check whether a Tracker cursor represents a game 
+* Check whether a Tracker cursor represents a game
 
 * Fix the Amiga MIME-type
 
