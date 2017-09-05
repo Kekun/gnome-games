@@ -1,5 +1,5 @@
 # Hungarian translation for gnome-games.
-# Copyright (C) 2016 Free Software Foundation, Inc.
+# Copyright (C) 2016, 2017 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 #
 # Balázs Úr <urbalazs@gmail.com>, 2016, 2017.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-20 13:36+0000\n"
-"PO-Revision-Date: 2017-03-21 16:04+0100\n"
+"POT-Creation-Date: 2017-08-07 19:52+0000\n"
+"PO-Revision-Date: 2017-09-05 16:54+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:17
+#: ../src/ui/application.vala:20
 msgid "Games"
 msgstr "Játékok"
 
@@ -137,10 +137,15 @@ msgid "Loading"
 msgstr "Betöltés"
 
 #: ../data/ui/collection-header-bar.ui.h:2
+#| msgid "Invalid game file: “%s”."
+msgid "Add game files…"
+msgstr "Játékfájlok hozzáadása…"
+
+#: ../data/ui/collection-header-bar.ui.h:3
 msgid "Search"
 msgstr "Keresés"
 
-#: ../data/ui/display-header-bar.ui.h:2
+#: ../data/ui/display-header-bar.ui.h:2 ../data/ui/gamepad-configurer.ui.h:3
 msgid "Back"
 msgstr "Vissza"
 
@@ -171,30 +176,61 @@ msgstr ""
 "Telepítsen játékokat, vagy adjon hozzá játékokat tartalmazó könyvtárakat a "
 "keresési forrásokhoz."
 
+#: ../data/ui/gamepad-configurer.ui.h:1
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+#: ../data/ui/resume-failed-dialog.ui.h:3
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#: ../data/ui/gamepad-configurer.ui.h:2
+msgid "Configure"
+msgstr "Beállítás"
+
+#: ../data/ui/gamepad-configurer.ui.h:4 ../data/ui/quit-dialog.ui.h:3
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:3
+#: ../data/ui/resume-failed-dialog.ui.h:2
+msgid "Cancel"
+msgstr "Mégse"
+
+#: ../data/ui/gamepad-mapper.ui.h:1
+msgid "Skip"
+msgstr "Kihagyás"
+
 #: ../data/ui/media-menu-button.ui.h:1
 msgid "Media"
 msgstr "Adathordozó"
+
+#: ../data/ui/preferences-page-controllers.ui.h:1
+#| msgid "Games"
+msgid "Gamepads"
+msgstr "Irányítók"
+
+#: ../data/ui/preferences-page-controllers.ui.h:2
+#: ../data/ui/preferences-window.ui.h:3
+msgid "Controllers"
+msgstr "Vezérlők"
 
 #: ../data/ui/preferences-page-plugins.ui.h:1
 msgid "Plugins"
 msgstr "Bővítmények"
 
+#: ../data/ui/preferences-page-plugins.ui.h:2
+#: ../data/ui/preferences-window.ui.h:4
+msgid "Extensions"
+msgstr "Kiterjesztések"
+
 #: ../data/ui/preferences-page-video.ui.h:1
 msgid "Filter"
 msgstr "Szűrő"
 
-#: ../data/ui/preferences-window.ui.h:1
-msgid "Preferences"
-msgstr "Beállítások"
-
-#: ../data/ui/preferences-window.ui.h:2 ../src/ui/preferences-page-video.vala:6
+#: ../data/ui/preferences-page-video.ui.h:2
+#: ../data/ui/preferences-window.ui.h:2
 msgid "Video"
 msgstr "Videó"
 
-#: ../data/ui/preferences-window.ui.h:3
-#: ../src/ui/preferences-page-plugins.vala:6
-msgid "Extensions"
-msgstr "Kiterjesztések"
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Beállítások"
 
 #: ../data/ui/quit-dialog.ui.h:1
 msgid "Are you sure you want to quit?"
@@ -204,13 +240,9 @@ msgstr "Biztos, hogy ki szeretne lépni?"
 msgid "All unsaved progress will be lost."
 msgstr "Az összes nem mentett folyamat el fog veszni."
 
-#: ../data/ui/quit-dialog.ui.h:3
+#: ../data/ui/quit-dialog.ui.h:4
 msgid "Quit"
 msgstr "Kilépés"
-
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
-msgid "Cancel"
-msgstr "Mégse"
 
 #: ../data/ui/remote-display.ui.h:1
 msgid "Use the game’s own window to play it"
@@ -224,52 +256,70 @@ msgstr "Ez a játék nincs integrálva a GNOME Játékokkal."
 msgid "You have to use its own window to play it."
 msgstr "A saját ablakát kell használnia az elindításához."
 
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:1
+msgid "Factory reset mapping for this gamepad?"
+msgstr "Visszaállítja a gyári leképezést ennél az irányítónál?"
+
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
+#| msgid "All unsaved progress will be lost."
+msgid "Your mapping will be lost."
+msgstr "A leképezés el fog veszni."
+
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
 msgstr "Folytatja a legutóbbi játékot?"
 
 #: ../data/ui/resume-dialog.ui.h:2
-msgid "Resume"
-msgstr "Folytatás"
-
-#: ../data/ui/resume-dialog.ui.h:3
 msgid "Restart"
 msgstr "Újraindítás"
 
+#: ../data/ui/resume-dialog.ui.h:3
+msgid "Resume"
+msgstr "Folytatás"
+
 #: ../data/ui/resume-failed-dialog.ui.h:1
-msgid "Resuming failed. Do you want to to restart the game?"
-msgstr "A folytatás sikertelen. Újraindítja a játékot?"
+#| msgid "Resuming failed. Do you want to to restart the game?"
+msgid "Resuming failed. Do you want to restart the game?"
+msgstr "A folytatás sikertelen. Szeretné újraindítani a játékot?"
 
-#: ../data/ui/resume-failed-dialog.ui.h:2
-msgid "Reset"
-msgstr "Visszaállítás"
-
-#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Érvénytelen parancs: „%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#: ../plugins/desktop/src/desktop-plugin.vala:58
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "A követő által listázott fájl nem található: „%s”."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#: ../plugins/desktop/src/desktop-plugin.vala:64
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "A(z) „%s” asztalbejegyzés nem dolgozható fel."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#: ../plugins/desktop/src/desktop-plugin.vala:74
+#, c-format
+#| msgid "File “%s” doesn’t exist."
+msgid "“%s” shouldn’t be displayed."
+msgstr "A(z) „%s” nem jeleníthető meg."
+
+#: ../plugins/desktop/src/desktop-plugin.vala:77
+#, c-format
+#| msgid "“%s” is blacklisted."
+msgid "“%s” is hidden."
+msgstr "A(z) „%s” rejtett."
+
+#: ../plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "A(z) „%s” „%s” kategóriája feketelistán van."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: ../plugins/desktop/src/desktop-plugin.vala:95
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "A(z) „%s” „%s” futtatható állománya feketelistán van."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#: ../plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "A(z) „%s” feketelistán van."
@@ -293,54 +343,51 @@ msgstr "Ez nem egy érvényes LÖVE csomagot képvisel: „%s”."
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "A(z) „%s” egy érvénytelen MAME játékazonosító ehhez: „%s”."
 
-#: ../plugins/master-system/src/master-system-header.vala:69
-msgid "The file doesn’t have a Master System header."
-msgstr "A fájlnak nincs Master System fejléce."
-
-#: ../plugins/mega-drive/src/mega-drive-header.vala:65
-#: ../plugins/mega-drive/src/mega-drive-header.vala:84
-msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-msgstr "A fájlnak nincs Genesis/Sega 32X/Sega CD/Sega Pico fejléce."
-
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:119
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
+#: ../plugins/playstation/src/playstation-header.vala:27
 #, c-format
-msgid "The file “%s” doesn’t have a track."
-msgstr "A(z) „%s” fájlnak nincs sávja."
+#| msgid "No game title found for disc ID “%s”."
+msgid "Not a PlayStation disc: “%s”."
+msgstr "Nem PlayStation lemez: „%s”."
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:125
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
-#, c-format
-msgid "The file “%s” doesn’t have a valid binary file format."
-msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
-
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:128
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
-#, c-format
-msgid "The file “%s” doesn’t have a valid track mode for track %d."
-msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
-
-#: ../plugins/playstation/src/playstation-game-factory.vala:65
-#, c-format
-msgid "Disc with disc_id %s is unknown"
-msgstr "A(z) %s azonosítójú lemez ismeretlen"
-
-#: ../plugins/playstation/src/playstation-header.vala:49
+#: ../plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
 "Érvénytelen PlayStation fejléc: a lemezazonosító nem található itt: „%s”."
 
+#: ../plugins/sega-cd/src/sega-cd-header.vala:44
+#: ../plugins/sega-cd/src/sega-cd-header.vala:63
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "A fájlnak nincs Genesis/Sega 32X/Sega CD/Sega Pico fejléce."
+
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:78
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:62
+#, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr "A(z) „%s” fájlnak nincs sávja."
+
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:84
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:68
+#, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
+
+#: ../plugins/sega-cd/src/sega-cd-plugin.vala:87
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:71
+#, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
+
 #: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn’t have a Sega Saturn header."
 msgstr "A fájlnak nincs Sega Saturn fejléce."
 
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
+#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:75
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
 
-#: ../plugins/steam/src/steam-game-source.vala:99
+#: ../plugins/steam/src/steam-plugin.vala:45
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "A Steam alkalmazásazonosító nem nyerhető ki a(z) „%s” leíróból."
@@ -389,7 +436,7 @@ msgstr "A fájlnak nincs Wii fejléce."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "A(z) „%s” nem futtatható: végrehajtás sikertelen."
 
-#: ../src/core/media-set/media-set.vala:31
+#: ../src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Érvénytelen médiaindex: %u."
@@ -429,20 +476,20 @@ msgstr "Nem található lemezkészlet-azonosító a(z) „%s” lemezazonosító
 msgid "No disc found for disc ID “%s”."
 msgstr "Nem található lemez a(z) „%s” lemezazonosítóhoz."
 
-#: ../src/gamepad/gamepad-mapping.vala:12
+#: ../src/gamepad/gamepad-mapping.c:236
 msgid "The mapping string can’t be null."
 msgstr "A leképező karakterlánc nem lehet null."
 
-#: ../src/gamepad/gamepad-mapping.vala:15
+#: ../src/gamepad/gamepad-mapping.c:245
 msgid "The mapping string can’t be empty."
 msgstr "A leképező karakterlánc nem lehet üres."
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
+#: ../src/gamepad/linux/linux-raw-gamepad.c:291
 #, c-format
 msgid "Unable to open file “%s”: %s"
 msgstr "A(z) „%s” fájl nem nyitható meg: %s"
 
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
+#: ../src/gamepad/linux/linux-raw-gamepad.c:304
 #, c-format
 msgid "Evdev is unable to open “%s”: %s"
 msgstr "Az evdev nem tudja megnyitni a(z) „%s” fájlt: %s"
@@ -498,186 +545,210 @@ msgid "Atari 7800"
 msgstr "Atari 7800"
 
 #: ../src/retro/retro-platform.vala:15
+#| msgid "Atari 2600"
+msgid "Atari Lynx"
+msgstr "Atari Lynx"
+
+#: ../src/retro/retro-platform.vala:17
 msgid "DOOM"
 msgstr "DOOM"
 
-#: ../src/retro/retro-platform.vala:17
+#: ../src/retro/retro-platform.vala:19
 msgid "Dreamcast"
 msgstr "Dreamcast"
 
 #. translators: only released in eastern Asia
-#: ../src/retro/retro-platform.vala:20
+#: ../src/retro/retro-platform.vala:22
 msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
-#: ../src/retro/retro-platform.vala:22
+#: ../src/retro/retro-platform.vala:24
 msgid "Game Boy"
 msgstr "Game Boy"
 
-#: ../src/retro/retro-platform.vala:24
+#: ../src/retro/retro-platform.vala:26
 msgid "Game Boy Color"
 msgstr "Game Boy Color"
 
-#: ../src/retro/retro-platform.vala:26
+#: ../src/retro/retro-platform.vala:28
 msgid "Game Boy Advance"
 msgstr "Game Boy Advance"
 
-#: ../src/retro/retro-platform.vala:28
+#: ../src/retro/retro-platform.vala:30
 msgid "Nintendo GameCube"
 msgstr "Nintendo GameCube"
 
-#: ../src/retro/retro-platform.vala:30
+#: ../src/retro/retro-platform.vala:32
 msgid "Game Gear"
 msgstr "Game Gear"
 
 #. translators: the "Multiple Arcade Machine Emulator"
-#: ../src/retro/retro-platform.vala:33
+#: ../src/retro/retro-platform.vala:35
 msgid "MAME"
 msgstr "MAME"
 
-#: ../src/retro/retro-platform.vala:35
+#: ../src/retro/retro-platform.vala:37
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: ../src/retro/retro-platform.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
 #. translators: known as "Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:38
+#: ../src/retro/retro-platform.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: ../src/retro/retro-platform.vala:40
+#: ../src/retro/retro-platform.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: ../src/retro/retro-platform.vala:42
+#: ../src/retro/retro-platform.vala:46
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: ../src/retro/retro-platform.vala:44
+#: ../src/retro/retro-platform.vala:48
 msgid "Nintendo 3DS"
 msgstr "Nintendo 3DS"
 
-#: ../src/retro/retro-platform.vala:46
+#: ../src/retro/retro-platform.vala:50
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: ../src/retro/retro-platform.vala:48
+#: ../src/retro/retro-platform.vala:52
 msgid "PlayStation 2"
 msgstr "PlayStation 2"
 
-#: ../src/retro/retro-platform.vala:50
+#: ../src/retro/retro-platform.vala:54
 msgid "PlayStation 3"
 msgstr "PlayStation 3"
 
-#: ../src/retro/retro-platform.vala:52
+#: ../src/retro/retro-platform.vala:56
 msgid "PlayStation 4"
 msgstr "PlayStation 4"
 
-#: ../src/retro/retro-platform.vala:54
+#: ../src/retro/retro-platform.vala:58
 msgid "PlayStation Portable"
 msgstr "PlayStation Portable"
 
-#: ../src/retro/retro-platform.vala:56
+#: ../src/retro/retro-platform.vala:60
 msgid "PlayStation Vita"
 msgstr "PlayStation Vita"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: ../src/retro/retro-platform.vala:59
+#: ../src/retro/retro-platform.vala:63
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega-CD" in most of the world
-#: ../src/retro/retro-platform.vala:62
+#: ../src/retro/retro-platform.vala:66
 msgid "Sega CD"
 msgstr "Sega CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: ../src/retro/retro-platform.vala:65
+#: ../src/retro/retro-platform.vala:69
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: ../src/retro/retro-platform.vala:68
+#: ../src/retro/retro-platform.vala:72
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
 #. translators: also known as "Sega Mark III" in eastern asia
-#: ../src/retro/retro-platform.vala:71
+#: ../src/retro/retro-platform.vala:75
 msgid "Sega Master System"
 msgstr "Sega Master System"
 
-#: ../src/retro/retro-platform.vala:73
+#: ../src/retro/retro-platform.vala:77
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: ../src/retro/retro-platform.vala:75
+#: ../src/retro/retro-platform.vala:79
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: ../src/retro/retro-platform.vala:77
+#: ../src/retro/retro-platform.vala:81
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:80
+#: ../src/retro/retro-platform.vala:84
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:83
+#: ../src/retro/retro-platform.vala:87
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:86
+#: ../src/retro/retro-platform.vala:90
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
-#: ../src/retro/retro-platform.vala:88
+#: ../src/retro/retro-platform.vala:92
 msgid "Wii"
 msgstr "Wii"
 
-#: ../src/retro/retro-platform.vala:90
+#: ../src/retro/retro-platform.vala:94
 msgid "Wii U"
 msgstr "Wii U"
 
-#: ../src/retro/retro-platform.vala:92
+#: ../src/retro/retro-platform.vala:96
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-runner.vala:218
-#, c-format
-msgid "Invalid game file: “%s”."
-msgstr "Érvénytelen játékfájl: „%s”."
+#: ../src/retro/retro-platform.vala:98
+msgid "WonderSwan"
+msgstr "WonderSwan"
 
-#: ../src/retro/retro-runner.vala:263
+#: ../src/retro/retro-platform.vala:100
+msgid "WonderSwan Color"
+msgstr "WonderSwan Color"
+
+#: ../src/retro/retro-runner.vala:248
 #, c-format
-#| msgid "No disc found for disc ID “%s”."
 msgid "No module found for “%s”."
 msgstr "Nem található modul ehhez: „%s”."
 
-#: ../src/retro/retro-runner.vala:584
+#: ../src/retro/retro-runner.vala:579
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: ../src/retro/retro-runner.vala:587
+#: ../src/retro/retro-runner.vala:582
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: ../src/ui/application.vala:174
+#: ../src/ui/application.vala:136
+msgid "Select game files"
+msgstr "Játékfájlok kiválasztása"
+
+#: ../src/ui/application.vala:137
+#| msgid "Cancel"
+msgid "_Cancel"
+msgstr "_Mégse"
+
+#: ../src/ui/application.vala:138
+msgid "_Add"
+msgstr "_Hozzáadás"
+
+#: ../src/ui/application.vala:313
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: ../src/ui/application.vala:176
+#: ../src/ui/application.vala:315
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: ../src/ui/application.vala:180
+#: ../src/ui/application.vala:319
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: ../src/ui/application.vala:187
+#: ../src/ui/application.vala:326
 msgid "translator-credits"
 msgstr ""
 "Úr Balázs <urbalazs@gmail.com>\n"
@@ -700,17 +771,41 @@ msgstr "Hoppá! A(z) „%s” nem futtatható"
 msgid "Oops! Unable to run the game"
 msgstr "Hoppá! A játék nem futtatható"
 
-#: ../src/ui/media-selector.vala:33
+#. translators: testing a gamepad, %s is its name
+#: ../src/ui/gamepad-configurer.vala:79
+#, c-format
+msgid "Testing %s"
+msgstr "%s tesztelése"
+
+#. translators: configuring a gamepad, %s is its name
+#: ../src/ui/gamepad-configurer.vala:93
+#, c-format
+msgid "Configuring %s"
+msgstr "%s beállítása"
+
+#: ../src/ui/gamepad-mapper.vala:134
+msgid "Press suitable button on your gamepad"
+msgstr "Nyomja meg a megfelelő gombot az irányítón"
+
+#: ../src/ui/gamepad-mapper.vala:139
+msgid "Move suitable axis left/right on your gamepad"
+msgstr "Mozgassa a megfelelő tengelyt balra/jobbra az irányítón"
+
+#: ../src/ui/gamepad-mapper.vala:141
+msgid "Move suitable axis up/down on your gamepad"
+msgstr "Mozgassa a megfelelő tengelyt fel/le az irányítón"
+
+#: ../src/ui/media-selector.vala:27
 #, c-format
 msgid "Media %d"
 msgstr "%d. adathordozó"
 
 #. same as video-filters in gschema
-#: ../src/ui/preferences-page-video.vala:29
+#: ../src/ui/preferences-page-video.vala:34
 msgid "Smooth"
 msgstr "Sima"
 
-#: ../src/ui/preferences-page-video.vala:29
+#: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Éles"
 
