@@ -38,7 +38,10 @@ private class Games.PlayStationHeader : Object {
 	}
 
 	private string? parse_id_from_exe (string exe) throws Error {
-		var disc_id = exe.strip ();
+		// Add 1 to either turn -1 into 0 or to skip the found character.
+		var start = int.max (exe.last_index_of ("\\"), exe.last_index_of ("/")) + 1;
+		var disc_id = exe.offset (start);
+		disc_id = disc_id.strip ();
 		disc_id = disc_id.split (";")[0];
 		disc_id = disc_id.replace ("_", "-");
 		disc_id = disc_id.replace (".", "");
