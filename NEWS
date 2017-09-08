@@ -1,3 +1,18 @@
+==============
+Version 3.26.0
+==============
+
+* playstation: Detect games whose executable isn't at the root of the
+  disc.
+
+* Bugs fixed:
+ 787396 playstation: Tekken 3 not detected anymore
+
+* Translation updates:
+ Finnish
+ Hungarian
+
+
 ===============
 Version 3.25.92
 ===============
